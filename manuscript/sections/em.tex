@@ -1,5 +1,5 @@
 \subsubsection*{Electric and Magnetic Fields}
-This subsection writes the electromagnetic sector in fully expanded STA form so that the relation between the three-vector fields and the single field paravector is explicit. See Eqs.\ \eqref{eq:dalembert}, \eqref{eq:F-Phi}, and \eqref{eq:maxwell}. Here \(V,\rho,S,q\in\R\), \(\mathbf A,\mathbf E,\mathbf B,\mathbf J\in\R^3\), \(\Phi=V+\mathbf A\cdot\sigv\in\R\oplus\R^3\), \(\mathbf F=\mathbf E+i\mathbf B\in\C^3\), and \(\mathbf F\cdot\sigv\in\{0\}\oplus\C^3\).
+This subsection writes the electromagnetic sector in fully expanded STA form so that the relation between the three-vector fields and the single field paravector is explicit. See Eqs.\ \eqref{eq:dalembert}, \eqref{eq:F-Phi}, and \eqref{eq:maxwell}. Here \(V,\rho,S,q\in\R\), \(\mathbf A,\mathbf E,\mathbf B,\mathbf J\in\R^3\), \(\Phi=V+\mathbf A\cdot\sigv\in\R\oplus\R^3\), \(\mathbf F=\mathbf E+i\mathbf B\in\C^3\), and \(F=\mathbf F\cdot\sigv\in\{0\}\oplus\C^3\).
 Write the spatial derivative vector and the STA derivative operator as
 \begin{align*}
 \delr{} &= \{\partial /\partial r_{1}, \partial /\partial r_{2}, \partial /\partial r_{3}\},\notag \\
@@ -8,15 +8,15 @@ Write the spatial derivative vector and the STA derivative operator as
 \partial &= \partial _{t} + \sigv \cdot \delr{},\notag \\
 &= \partial _{t} + \sigma _{1}\partial _{1}+ \sigma _{2}\partial _{2} + \sigma _{3}\partial _{3}.
 \end{align*}
-Collect the electric and magnetic fields into the complex three-vector \(\mathbf F\) and the field paravector \(\mathbf F\cdot\sigv\):
+Collect the electric and magnetic fields into the complex three-vector \(\mathbf F\) and the field paravector \(F\):
 \begin{align*}
 \mathbf E &= \{\mathbf E_{1}, \mathbf E_{2}, \mathbf E_{3}\}\qquad \text{electric field},\notag \\
 \mathbf B &= \{\mathbf B_{1}, \mathbf B_{2}, \mathbf B_{3}\}\qquad \text{magnetic field},\notag \\
 \mathbf F &= \mathbf E + i \mathbf B\qquad \text{electromagnetic field},\notag \\
-\mathbf F \cdot \sigv &= (\mathbf E + i \mathbf B) \cdot \sigv , i = \sigma _{1}\sigma _{2}\sigma _{3}.
+F &= \mathbf F \cdot \sigv = (\mathbf E + i \mathbf B) \cdot \sigv,\qquad i = \sigma _{1}\sigma _{2}\sigma _{3}.
 \end{align*}
 \begin{align*}
-(\mathbf F \cdot \sigv)^{*} &= (-\mathbf E + i \mathbf B) \cdot \sigv,\notag \\
+F^{*} &= (-\mathbf E + i \mathbf B) \cdot \sigv,\notag \\
 &= -\mathbf F^{*} \cdot \sigv.
 \end{align*}
 
@@ -27,15 +27,15 @@ D^{*} &= \rho - \mathbf J \cdot \sigv.
 \end{align*}
 Here \(\rho\) is the scalar charge density and \(\mathbf J\) is the current-density three-vector. Maxwell's equations then read
 \begin{align*}
-\partial (\mathbf F \cdot \sigv) &= D^{*}\qquad \text{Maxwell's equations},\notag \\
+\partial F &= D^{*}\qquad \text{Maxwell's equations},\notag \\
 &= \rho - \mathbf J \cdot \sigv.
 \end{align*}
 \begin{equation*}
-\partial ^{*} (\mathbf F \cdot \sigv)^{*} = D.
+\partial ^{*} F^{*} = D.
 \end{equation*}
-Expanding \(\partial(\mathbf F\cdot\sigv)\) into scalar, vector, and bivector parts gives
+Expanding \(\partial F\) into scalar, vector, and bivector parts gives
 \begin{align*}
-\partial (\mathbf F \cdot \sigv) &= (\partial _{t} + \sigv \cdot \delr{}) ( (\mathbf E + i \mathbf B) \cdot \sigv ),\notag \\
+\partial F &= (\partial _{t} + \sigv \cdot \delr{}) ( (\mathbf E + i \mathbf B) \cdot \sigv ),\notag \\
 &= ( \delr{} \cdot \mathbf E ),\notag \\
 &\quad + ( \delr{} \cdot \mathbf B ) i,\notag \\
 &\quad + (\partial _{t} \mathbf E - \delr{} \times \mathbf B) \cdot \sigv,\notag \\
@@ -48,10 +48,10 @@ Separating the vector components then gives
 \end{align*}
 
 \subsubsection*{Lorentz Transformation of the Field}
-Once the electromagnetic field has been assembled into the single paravector \(\mathbf F\cdot\sigv\), the boost law from Eq.\ \eqref{eq:field-transform} can be expanded directly in components. For a boost
+Once the electromagnetic field has been assembled into the single paravector \(F\), the boost law from Eq.\ \eqref{eq:field-transform} can be expanded directly in components. For a boost
 \(L=\exp(\tfrac12\theta\,\mathbf u\cdot\sigv)\) with \(\mathbf u^{2}=1\), \(\beta=\tanh(\theta)\), and \(\gamma=\cosh(\theta)\), the parallel and perpendicular field parts relative to \(\mathbf u\) obey
 \begin{align*}
-\mathbf F' \cdot \sigv &= L^{*} (\mathbf F \cdot \sigv) L, \\
+F' &= L^{*} F L, \\
 \eqtext{par}( \mathbf E ' ) &= \eqtext{par}( \mathbf E ), \\
 \eqtext{par}( \mathbf B ' ) &= \eqtext{par}( \mathbf B ), \\
 \eqtext{prp}( \mathbf E ' ) &= \gamma ( \eqtext{prp}( \mathbf E ) + \beta \mathbf u \times \mathbf B ), \\
@@ -62,7 +62,7 @@ Equivalently, the transformed fields can be written in the compact form
 \mathbf E ' &= \eqtext{par}(\mathbf E) + \gamma ( \eqtext{prp}(\mathbf E) + \beta \mathbf u \times \mathbf B ), \\
 \mathbf B ' &= \eqtext{par}(\mathbf B) + \gamma ( \eqtext{prp}(\mathbf B) - \beta \mathbf u \times \mathbf E ), \\
 \partial ' &= L^{*} \partial L, \\
-\partial ' (\mathbf F' \cdot \sigv) &= L^{*} (\rho - \mathbf J \cdot \sigv ) L.
+\partial ' F' &= L^{*} (\rho - \mathbf J \cdot \sigv ) L.
 \end{align*}
 
 \subsubsection*{Wave Operator and d’Alembertian}
@@ -80,13 +80,13 @@ The associated d'Alembertian is
 \begin{equation*}
 \partial ^{2} = \partial _{t}^{2} + \delr{}^{2} + 2 \partial _{t} \delr{} \cdot \sigv.
 \end{equation*}
-This should be distinguished from \(\partial^2\). The present convention follows Eqs.\ \eqref{eq:F-Phi} and \eqref{eq:maxwell}; different sources may reverse the sign of \(\mathbf F\cdot\sigv\), adopt the metric signature \((- ,+,+,+)\), or use a different box notation. The corresponding wave equation is
+This should be distinguished from \(\partial^2\). The present convention follows Eqs.\ \eqref{eq:F-Phi} and \eqref{eq:maxwell}; different sources may reverse the sign of \(F\), adopt the metric signature \((- ,+,+,+)\), or use a different box notation. The corresponding wave equation is
 \begin{align*}
-\square (\mathbf F \cdot \sigv) &= \partial ^{*} \partial (\mathbf F \cdot \sigv),\notag \\
+\square F &= \partial ^{*} \partial F,\notag \\
 &= \partial ^{*} (\rho - \mathbf J \cdot \sigv ).
 \end{align*}
 \begin{align*}
-\square (\mathbf F \cdot \sigv)^{*} &= \partial (\rho + \mathbf J \cdot \sigv ),\notag \\
+\square F^{*} &= \partial (\rho + \mathbf J \cdot \sigv ),\notag \\
 &= ( \square \mathbf E + i \square \mathbf B ) \cdot \sigv,\notag \\
 &= (\partial _{t} \rho + \delr{} \cdot \mathbf J) + (-\partial _{t} \mathbf J - \delr{} \rho + i (\delr{} \times \mathbf J)) \cdot \sigv.
 \end{align*}
@@ -100,9 +100,9 @@ In vacuum, where \(\rho=0\) and \(\mathbf J=0\), this reduces to
 \end{align*}
 
 \subsubsection*{Potential Fields}
-The potential-based formulation is expanded here because it is the point at which gauge freedom, source reconstruction, and the emergence of the electric and magnetic fields all become transparent at once. See Eqs.\ \eqref{eq:potential-gradient} and \eqref{eq:E-B-from-potential}. Here \(V,S,\rho,\lambda\in\R\), \(\mathbf A,\mathbf E,\mathbf B,\mathbf J\in\R^3\), \(\Phi\in\R\oplus\R^3\), and \(\mathbf F\in\C^3\).
+The potential-based formulation is expanded here because it is the point at which gauge freedom, source reconstruction, and the emergence of the electric and magnetic fields all become transparent at once. See Eqs.\ \eqref{eq:potential-gradient} and \eqref{eq:E-B-from-potential}. Here \(V,S,\rho,\lambda\in\R\), \(\mathbf A,\mathbf E,\mathbf B,\mathbf J\in\R^3\), \(\Phi\in\R\oplus\R^3\), \(\mathbf F\in\C^3\), and \(F\in\{0\}\oplus\C^3\).
 \begin{align*}
-(\mathbf F \cdot \sigv)^{*} &= (-\mathbf E + i \mathbf B) \cdot \sigv,\notag \\
+F^{*} &= (-\mathbf E + i \mathbf B) \cdot \sigv,\notag \\
 \Phi &= V + \mathbf A \cdot \sigv,\notag \\
 \partial \Phi &= \partial _{t} V + \delr{} \cdot \mathbf A,\notag \\
 &\quad + ( \partial _{t} \mathbf A + \delr{} V ) \cdot \sigv,\notag \\
@@ -119,10 +119,10 @@ The component identities extracted from \(\partial\Phi\) are
 \end{align*}
 Indeed,
 \begin{align*}
-\partial \Phi &= S + (\mathbf F \cdot \sigv)^{*}, \\
-(\mathbf F \cdot \sigv)^{*} &= \partial \Phi - S, \\
-\eqtext{scalar}((\mathbf F \cdot \sigv)^{*}) &= \eqtext{scalar}(\partial \Phi - S) = 0, \\
-\eqtext{vector}((\mathbf F \cdot \sigv)^{*}) &= \eqtext{vector}( \partial \Phi ).
+\partial \Phi &= S + F^{*}, \\
+F^{*} &= \partial \Phi - S, \\
+\eqtext{scalar}(F^{*}) &= \eqtext{scalar}(\partial \Phi - S) = 0, \\
+\eqtext{vector}(F^{*}) &= \eqtext{vector}( \partial \Phi ).
 \end{align*}
 The differential operator acts before the involutions are applied, so
 \begin{equation*}
@@ -130,14 +130,14 @@ The differential operator acts before the involutions are applied, so
 \end{equation*}
 Equivalently, without introducing \(S\), one may write
 \begin{equation*}
-(\mathbf F \cdot \sigv)^{*} = (\partial \Phi - (\partial \Phi )^{*\mathrm{R}}) / 2.
+F^{*} = (\partial \Phi - (\partial \Phi )^{*\mathrm{R}}) / 2.
 \end{equation*}
 
 \subsubsection*{Sources Derived from the Potential}
-Using the previously defined potential \(\Phi=V+\mathbf A\cdot\sigv\), scalar part \(S=\partial_t V+\delr{}\cdot\mathbf A\), and identity \((\mathbf F\cdot\sigv)^{*}=\partial\Phi-S\), one obtains
+Using the previously defined potential \(\Phi=V+\mathbf A\cdot\sigv\), scalar part \(S=\partial_t V+\delr{}\cdot\mathbf A\), and identity \(F^{*}=\partial\Phi-S\), one obtains
 \begin{align*}
-(\mathbf F \cdot \sigv) &= \partial ^{*} \Phi ^{*} - S,\notag \\
-\partial (\mathbf F \cdot \sigv) &= \partial \partial ^{*} \Phi ^{*} - \partial S,\notag \\
+F &= \partial ^{*} \Phi ^{*} - S,\notag \\
+\partial F &= \partial \partial ^{*} \Phi ^{*} - \partial S,\notag \\
 &= \square \Phi ^{*} - \partial S,\notag \\
 &= ( \square V - \partial _{t} S) + (- \square \mathbf A - \delr{} S) \cdot \sigv,\notag \\
 &= \rho - \mathbf J \cdot \sigv.
@@ -169,7 +169,7 @@ Since \(\square\lambda\) is again a scalar field, only the scalar part changes:
 \begin{align*}
 \eqtext{scalar}( \partial \Phi ' ) &= S + \square \lambda, \\
 \eqtext{vector}( \partial \Phi ' ) &= \eqtext{vector}( \partial \Phi ), \\
-\mathbf F' &= \mathbf F = \mathbf E + i \mathbf B.
+F' &= F.
 \end{align*}
 
 \subsubsection*{Proper Force and Lorentz Dynamics}
@@ -195,23 +195,23 @@ d/dt (m U) = q \mathbf v \cdot \mathbf E + (q \mathbf E + q \mathbf v \times \ma
 \end{equation*}
 To expose the paravector content explicitly, expand
 \begin{align*}
-(\mathbf F \cdot \sigv) U / \gamma &= ((\mathbf E + i \mathbf B) \cdot \sigv ) ( 1 + \mathbf v \cdot \sigv ),\notag \\
+F U / \gamma &= ((\mathbf E + i \mathbf B) \cdot \sigv ) ( 1 + \mathbf v \cdot \sigv ),\notag \\
 &= \mathbf E \cdot \sigv + i \mathbf B \cdot \sigv + (\mathbf E \cdot \sigv ) (\mathbf v \cdot \sigv ),\notag \\
 &\quad + i (\mathbf B \cdot \sigv )(\mathbf v \cdot \sigv ),\notag \\
 &= \mathbf E \cdot \sigv + i \mathbf B \cdot \sigv + \mathbf E \cdot \mathbf v,\notag \\
 &\quad + i (\mathbf E \times \mathbf v) \cdot \sigv + i \mathbf B \cdot \mathbf v - (\mathbf B \times \mathbf v) \cdot \sigv.
 \end{align*}
 \begin{align*}
-\eqtext{real}( (\mathbf F \cdot \sigv) U ) &= \tfrac{1}{2} ( (\mathbf F \cdot \sigv) U + U (\mathbf F \cdot \sigv)^{\mathrm{R}} ),\notag \\
+\eqtext{real}( F U ) &= \tfrac{1}{2} ( F U + U F^{\mathrm{R}} ),\notag \\
 &= \gamma (\mathbf v \cdot \mathbf E + ( \mathbf E + \mathbf v \times \mathbf B ) \cdot \sigv ).
 \end{align*}
-The imaginary part of \((\mathbf F \cdot \sigv)U\) exchanges the electric and magnetic roles and is therefore not the sector used in the physical force law.
+The imaginary part of \(FU\) exchanges the electric and magnetic roles and is therefore not the sector used in the physical force law.
 \begin{align*}
-m dU/ds &= q \eqtext{real}( (\mathbf F \cdot \sigv) U ),\notag \\
-&= \tfrac{1}{2} q \big( (\mathbf F \cdot \sigv) U + U (\mathbf F \cdot \sigv)^{\mathrm{R}} \big).
+m dU/ds &= q \eqtext{real}( F U ),\notag \\
+&= \tfrac{1}{2} q \big( F U + U F^{\mathrm{R}} \big).
 \end{align*}
 \begin{equation*}
-m ddX/ds^{2} = q \eqtext{real}( (\mathbf F \cdot \sigv) dX/ds )\qquad \text{4-force}.
+m ddX/ds^{2} = q \eqtext{real}( F dX/ds )\qquad \text{4-force}.
 \end{equation*}
 
 \subsubsection*{Variational Derivation of the Lorentz Force}
@@ -271,9 +271,9 @@ d(m \gamma )/dt &= q \mathbf v \cdot ( -\delr{} V - \partial _{t} \mathbf A ),\n
 
 \subsubsection*{Electromagnetic Energy-Momentum}
 \begin{align*}
-\mathbf F \cdot \sigv &= (\mathbf E + i \mathbf B) \cdot \sigv,\notag \\
-(\mathbf F \cdot \sigv)^{\mathrm{R}} &= (\mathbf E - i \mathbf B) \cdot \sigv,\notag \\
-T &= \tfrac{1}{2} (\mathbf F \cdot \sigv) (\mathbf F \cdot \sigv)^{\mathrm{R}},\notag \\
+F &= (\mathbf E + i \mathbf B) \cdot \sigv,\notag \\
+F^{\mathrm{R}} &= (\mathbf E - i \mathbf B) \cdot \sigv,\notag \\
+T &= \tfrac{1}{2} F F^{\mathrm{R}},\notag \\
 &= \tfrac{1}{2} (\mathbf E^{2} + \mathbf B^{2}) + (\mathbf E \times \mathbf B) \cdot \sigv,\notag \\
 &= T_{s} + T_{\mathbf v} \cdot \sigv.
 \end{align*}
@@ -284,30 +284,30 @@ T &= \tfrac{1}{2} (\mathbf F \cdot \sigv) (\mathbf F \cdot \sigv)^{\mathrm{R}},\
 Using the generic paravector product rule,
 \begin{align*}
 \partial (ZZ') &= (\partial Z) Z' + Z (\partial Z') + [\sigv , Z] \cdot \delr{} Z',\notag \\
-\partial T &= \tfrac{1}{2} \partial \big((\mathbf F \cdot \sigv)(\mathbf F \cdot \sigv)^{\mathrm{R}}\big),\notag \\
-&= \tfrac{1}{2}\big(\partial (\mathbf F \cdot \sigv)\big) (\mathbf F \cdot \sigv)^{\mathrm{R}} + \tfrac{1}{2}(\mathbf F \cdot \sigv) \big(\partial (\mathbf F \cdot \sigv)^{\mathrm{R}}\big) \notag \\
-&\quad + \tfrac{1}{2}[\sigv , \mathbf F \cdot \sigv] \cdot \delr{} (\mathbf F \cdot \sigv)^{\mathrm{R}}.
+\partial T &= \tfrac{1}{2} \partial \big(F F^{\mathrm{R}}\big),\notag \\
+&= \tfrac{1}{2}\big(\partial F\big) F^{\mathrm{R}} + \tfrac{1}{2}F \big(\partial F^{\mathrm{R}}\big) \notag \\
+&\quad + \tfrac{1}{2}[\sigv , F] \cdot \delr{} F^{\mathrm{R}}.
 \end{align*}
 \begin{align*}
 D &= \rho + \mathbf J \cdot \sigv\qquad \text{density paravector}, \\
 D^{*} &= \rho - \mathbf J \cdot \sigv, \\
 \partial &= \partial _{t} + \sigv \cdot \delr{}, \\
-\partial (\mathbf F \cdot \sigv) &= D^{*}, \\
-(\mathbf F \cdot \sigv)^{2} &= (\mathbf E^{2} - \mathbf B^{2}) + 2 i (\mathbf E \cdot \mathbf B)\qquad \text{scalar}.
+\partial F &= D^{*}, \\
+F^{2} &= (\mathbf E^{2} - \mathbf B^{2}) + 2 i (\mathbf E \cdot \mathbf B)\qquad \text{scalar}.
 \end{align*}
 
-Applying the same product rule to \((\mathbf F\cdot\sigv)^2\) gives
+Applying the same product rule to \(F^2\) gives
 \begin{align*}
 \partial (ZZ') &= (\partial Z) Z' + Z (\partial Z') + [\sigv , Z] \cdot \delr{} Z',\notag \\
-\partial \big((\mathbf F \cdot \sigv)^{2}\big) &= \big(\partial (\mathbf F \cdot \sigv)\big) (\mathbf F \cdot \sigv) + (\mathbf F \cdot \sigv) \big(\partial (\mathbf F \cdot \sigv)\big) \notag \\
-&\quad + [\sigv , \mathbf F \cdot \sigv] \cdot \delr{} (\mathbf F \cdot \sigv),\notag \\
-&= D^{*} (\mathbf F \cdot \sigv) + (\mathbf F \cdot \sigv) D^{*} + [\sigv , \mathbf F \cdot \sigv] \cdot \delr{} (\mathbf F \cdot \sigv).
+\partial \big(F^{2}\big) &= \big(\partial F\big) F + F \big(\partial F\big) \notag \\
+&\quad + [\sigv , F] \cdot \delr{} F,\notag \\
+&= D^{*} F + F D^{*} + [\sigv , F] \cdot \delr{} F.
 \end{align*}
 \begin{align*}
-[\sigv , \mathbf F \cdot \sigv] &= 2 i \mathbf F \times \sigv,\notag \\
-[\sigv , \mathbf F \cdot \sigv] \cdot \delr{} (\mathbf F \cdot \sigv) &= -2 i \mathbf F \cdot (\delr{} \times \mathbf F),\notag \\
+[\sigv , F] &= 2 i \mathbf F \times \sigv,\notag \\
+[\sigv , F] \cdot \delr{} F &= -2 i \mathbf F \cdot (\delr{} \times \mathbf F),\notag \\
 &\quad -2 \big( (\delr{} \cdot \mathbf F)\mathbf F - \tfrac{1}{2} \delr{} \mathbf F^{2} \big) \cdot \sigv.
 \end{align*}
 \begin{equation*}
-\square (\mathbf F \cdot \sigv)^{2} = \partial ^{*} \partial \big((\mathbf F \cdot \sigv)^{2}\big)\qquad \text{scalar}.
+\square F^{2} = \partial ^{*} \partial \big(F^{2}\big)\qquad \text{scalar}.
 \end{equation*}

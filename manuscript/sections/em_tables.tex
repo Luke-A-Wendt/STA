@@ -13,44 +13,44 @@
 \componentrow{imaginary vector}{\gradv a+\partial_t\mathbf A-\gradv\times\mathbf B}{}
 \end{componenttable}
 
-\noindent Tables~\ref{tab:components-fsquare} and \ref{tab:components-ffrev} summarize the electromagnetic invariants and the energy-density/Poynting split built from \(\mathbf F\cdot\sigv\).
-\begin{componenttable}[tab:components-fsquare]{\tfrac12(\mathbf F\cdot\sigv)^{2}}
+\noindent Tables~\ref{tab:components-fsquare} and \ref{tab:components-ffrev} summarize the electromagnetic invariants and the energy-density/Poynting split built from \(F\).
+\begin{componenttable}[tab:components-fsquare]{\tfrac12F^{2}}
 \componentrow{real scalar}{\tfrac12(\mathbf E^{2}-\mathbf B^{2})}{}
 \componentrow{imaginary scalar}{i\,\mathbf E\cdot\mathbf B}{}
 \componentrow{real vector}{\mathbf 0}{}
 \componentrow{imaginary vector}{\mathbf 0}{}
 \end{componenttable}
 
-\begin{componenttable}[tab:components-ffrev]{\tfrac12(\mathbf F\cdot\sigv)(\mathbf F\cdot\sigv)^{\mathrm R}}
+\begin{componenttable}[tab:components-ffrev]{\tfrac12F F^{\mathrm R}}
 \componentrow{scalar}{\tfrac12(\mathbf E^{2}+\mathbf B^{2})}{energy density}
 \componentrow{vector}{\mathbf E\times\mathbf B}{Poynting vector}
 \end{componenttable}
 
 \noindent Tables~\ref{tab:components-maxwell} and \ref{tab:components-wave-f} display the component splits of Maxwell's equation and its wave-equation consequence.
-\begin{componenttable}[tab:components-maxwell]{\partial(\mathbf F\cdot\sigv)=\rho-\mathbf J\cdot\sigv}
+\begin{componenttable}[tab:components-maxwell]{\partial F=\rho-\mathbf J\cdot\sigv}
 \componentrow{real scalar}{\gradv\cdot\mathbf E=\rho}{}
 \componentrow{imaginary scalar}{\gradv\cdot\mathbf B=0}{}
 \componentrow{real vector}{\partial_t\mathbf E-\gradv\times\mathbf B=-\mathbf J}{}
 \componentrow{imaginary vector}{\partial_t\mathbf B+\gradv\times\mathbf E=0}{}
 \end{componenttable}
 
-\begin{componenttable}[tab:components-wave-f]{\square(\mathbf F\cdot\sigv)=\partial^{*}(\rho-\mathbf J\cdot\sigv)}
+\begin{componenttable}[tab:components-wave-f]{\square F=\partial^{*}(\rho-\mathbf J\cdot\sigv)}
 \componentrow{real scalar}{\partial_t\rho+\gradv\cdot\mathbf J=0}{}
 \componentrow{imaginary scalar}{0=0}{}
 \componentrow{real vector}{\square\mathbf E=-\partial_t\mathbf J-\gradv\rho}{}
 \componentrow{imaginary vector}{\square\mathbf B=\gradv\times\mathbf J}{}
 \end{componenttable}
 
-\noindent Table~\ref{tab:components-potential-gradient} records the component content of the potential identity \(\partial\Phi=S+(\mathbf F\cdot\sigv)^{*}\).
-\begin{componenttable}[tab:components-potential-gradient]{\partial\Phi=S+(\mathbf F\cdot\sigv)^{*}}
+\noindent Table~\ref{tab:components-potential-gradient} records the component content of the potential identity \(\partial\Phi=S+F^{*}\).
+\begin{componenttable}[tab:components-potential-gradient]{\partial\Phi=S+F^{*}}
 \componentrow{real scalar}{\partial_tV+\gradv\cdot\mathbf A=S}{}
 \componentrow{imaginary scalar}{0=0}{}
 \componentrow{real vector}{\partial_t\mathbf A+\gradv V=-\mathbf E}{}
 \componentrow{imaginary vector}{\gradv\times\mathbf A=\mathbf B}{}
 \end{componenttable}
 
-\noindent Table~\ref{tab:components-fu} is the component form of the product \((\mathbf F\cdot\sigv)U/\gamma\) used in the Lorentz-force law.
-\begin{componenttable}[tab:components-fu]{(\mathbf F\cdot\sigv)U/\gamma}
+\noindent Table~\ref{tab:components-fu} is the component form of the product \(F U/\gamma\) used in the Lorentz-force law.
+\begin{componenttable}[tab:components-fu]{F U/\gamma}
 \componentrow{real scalar}{\mathbf E\cdot\mathbf v}{}
 \componentrow{imaginary scalar}{\mathbf B\cdot\mathbf v}{}
 \componentrow{real vector}{\mathbf E+\mathbf v\times\mathbf B}{}
@@ -66,28 +66,28 @@
 \end{componenttable}
 
 \noindent Tables~\ref{tab:components-partial-fsquare}, \ref{tab:components-fdstar}, \ref{tab:components-dstarf}, and \ref{tab:components-dstarf-plus-fdstar} collect the remaining differentiated and source-coupled field combinations used in the energy-momentum discussion.
-\begin{componenttable}[tab:components-partial-fsquare]{\partial(\mathbf F\cdot\sigv)^{2}}
+\begin{componenttable}[tab:components-partial-fsquare]{\partial F^{2}}
 \componentrow{real scalar}{\partial_t(\mathbf E^{2}-\mathbf B^{2})}{}
 \componentrow{imaginary scalar}{\partial_t\!\big(2\,\mathbf E\cdot\mathbf B\big)}{}
 \componentrow{real vector}{\gradv(\mathbf E^{2}-\mathbf B^{2})}{}
 \componentrow{imaginary vector}{\gradv\!\big(2\,\mathbf E\cdot\mathbf B\big)}{}
 \end{componenttable}
 
-\begin{componenttable}[tab:components-fdstar]{(\mathbf F\cdot\sigv) D^{*}}
+\begin{componenttable}[tab:components-fdstar]{F D^{*}}
 \componentrow{real scalar}{-\mathbf E\cdot\mathbf J}{}
 \componentrow{imaginary scalar}{-\mathbf B\cdot\mathbf J}{}
 \componentrow{real vector}{\rho\mathbf E+\mathbf B\times\mathbf J}{}
 \componentrow{imaginary vector}{\rho\mathbf B-\mathbf E\times\mathbf J}{}
 \end{componenttable}
 
-\begin{componenttable}[tab:components-dstarf]{D^{*}(\mathbf F\cdot\sigv)}
+\begin{componenttable}[tab:components-dstarf]{D^{*}F}
 \componentrow{real scalar}{-\mathbf E\cdot\mathbf J}{}
 \componentrow{imaginary scalar}{-\mathbf B\cdot\mathbf J}{}
 \componentrow{real vector}{\rho\mathbf E-\mathbf B\times\mathbf J}{}
 \componentrow{imaginary vector}{\rho\mathbf B+\mathbf E\times\mathbf J}{}
 \end{componenttable}
 
-\begin{componenttable}[tab:components-dstarf-plus-fdstar]{D^{*}(\mathbf F\cdot\sigv)+(\mathbf F\cdot\sigv) D^{*}}
+\begin{componenttable}[tab:components-dstarf-plus-fdstar]{D^{*}F+F D^{*}}
 \componentrow{real scalar}{-2\,\mathbf E\cdot\mathbf J}{}
 \componentrow{imaginary scalar}{-2\,\mathbf B\cdot\mathbf J}{}
 \componentrow{real vector}{2\rho\mathbf E}{}
