@@ -1,10 +1,21 @@
-\noindent Table~\ref{tab:sigma-grade-components-app} fixes the grade decomposition used throughout the algebraic manipulations.
-\begin{gradetable}[tab:sigma-grade-components-app]{Grade decomposition of the sigma algebra.}
-\graderow{scalar}{1}
-\graderow{vector}{\sigma_1,\ \sigma_2,\ \sigma_3}
-\graderow{bivector}{\sigma_2\sigma_3,\ \sigma_3\sigma_1,\ \sigma_1\sigma_2}
-\graderow{pseudo-scalar}{i=\sigma_1\sigma_2\sigma_3}
-\end{gradetable}
+\noindent Table~\ref{tab:sigma-grade-components-app} records the sigma grades \(0\) through \(3\) together with the representative basis elements attached to each sector.
+\begin{center}
+\captionsetup{type=table,font=small,labelfont=bf,skip=4pt}
+\captionof{table}{Sigma grades and representative basis elements.}\label{tab:sigma-grade-components-app}
+\renewcommand{\arraystretch}{1.18}
+\setlength{\tabcolsep}{6pt}
+\small
+\begin{tabular}{@{}c l L{0.58\textwidth}@{}}
+\toprule
+grade & sector & representative elements \\
+\midrule
+\(0\) & scalar & \(1\) \\
+\(1\) & vector & \(\sigma_1,\ \sigma_2,\ \sigma_3\) \\
+\(2\) & bivector & \(i\sigv=\{\sigma_2\sigma_3,\ \sigma_3\sigma_1,\ \sigma_1\sigma_2\}\) \\
+\(3\) & pseudo-scalar & \(i=\sigma_1\sigma_2\sigma_3\) \\
+\bottomrule
+\end{tabular}
+\end{center}
 
 \noindent Table~\ref{tab:grade-signs} then records how the sigma-conjugate, reverse, and combined operators act on each homogeneous grade.
 \begin{center}
