@@ -20,9 +20,12 @@ The square-root operators in Eq.\ \eqref{eq:frequency-split} are easiest to inte
 \end{equation*}
 then
 \begin{equation*}
-\square\Psi=\sum_{n}(\mathbf k_{n}^{2}-\omega_{n}^{2})c_{n}e^{i(\omega_{n}t+\mathbf k_{n}\cdot\mathbf r)},
-\qquad
-\Omega\Psi=\sum_{n}\sqrt{m^{2}+\mathbf k_{n}^{2}}\,c_{n}e^{i(\omega_{n}t+\mathbf k_{n}\cdot\mathbf r)}.
+\begin{aligned}
+\square\Psi
+&=\sum_{n}(\mathbf k_{n}^{2}-\omega_{n}^{2})c_{n}e^{i(\omega_{n}t+\mathbf k_{n}\cdot\mathbf r)},\\
+\Omega\Psi
+&=\sum_{n}\sqrt{m^{2}+\mathbf k_{n}^{2}}\,c_{n}e^{i(\omega_{n}t+\mathbf k_{n}\cdot\mathbf r)}.
+\end{aligned}
 \end{equation*}
 The factorization
 \begin{equation*}
@@ -96,9 +99,13 @@ Eq.\ \eqref{eq:dirac-coupled} becomes a first-order system for the two block com
 \end{equation*}
 At the block-operator level this means
 \begin{equation*}
+\begin{aligned}
 W(i\partial-q\conj{\Phi})^2
-=-\operatorname{diag}\!\Big((\partial+iq\conj{\Phi})(\conj{\partial}+iq\Phi),
-(\conj{\partial}+iq\Phi)(\partial+iq\conj{\Phi})\Big).
+=-\operatorname{diag}\!\Big(
+&(\partial+iq\conj{\Phi})(\conj{\partial}+iq\Phi),\\
+&(\conj{\partial}+iq\Phi)(\partial+iq\conj{\Phi})
+\Big).
+\end{aligned}
 \end{equation*}
 Multiplying by the mass-conjugate operator \(D'=W(Z)+m\I\) gives
 \begin{equation*}

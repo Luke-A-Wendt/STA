@@ -243,8 +243,10 @@ The algebra starts with three generators \(\sigma_n\) for \(n\in\{1,2,3\}\). The
 
 The basis relations are
 \begin{equation}
-\sigma_n^2=1,\qquad \sigma_n\sigma_m=-\sigma_m\sigma_n\quad (n\neq m),\qquad
-i:=\sigma_1\sigma_2\sigma_3,\qquad i^2=-1.
+\begin{aligned}
+\sigma_n^2&=1,\qquad \sigma_n\sigma_m=-\sigma_m\sigma_n\quad (n\neq m),\\
+i&:=\sigma_1\sigma_2\sigma_3,\qquad i^2=-1.
+\end{aligned}
 \label{eq:basis}
 \end{equation}
 Using $\delta_{nm}$ and $\epsilon_{nmk}$ for indices \(n,m,k\in\{1,2,3\}\),
@@ -256,21 +258,23 @@ Using $\delta_{nm}$ and $\epsilon_{nmk}$ for indices \(n,m,k\in\{1,2,3\}\),
 \subsection*{The Sigma-Conjugate, Reverse, and Combined Operators}
 The two basic operators are introduced here on their own because they are used repeatedly in every later section. Each is an involution, and the combined operator built from them is fixed at the same point by the direct rules
 \begin{align}
-(\cdot)^* &:= \eqtext{sigma conjugate; put a minus sign in front of each }\sigma_n,
+(\cdot)^* &:= \eqtext{sigma conjugate; flip each }\sigma_n,
 \label{eq:star-definition}\\
-(\cdot)^{\mathrm R} &:= \eqtext{reverse multiplied order of each }\sigma_n,
+(\cdot)^{\mathrm R} &:= \eqtext{reverse the generator order},
 \label{eq:reversion-definition}
 \\
-(\cdot)^{*\mathrm R} &:= \eqtext{apply the sigma-conjugate operator and then the reverse operator.}
+(\cdot)^{*\mathrm R} &:= \eqtext{sigma conjugate, then reverse.}
 \label{eq:crev-definition}
 \end{align}
 Equation \eqref{eq:star-definition} defines the sigma-conjugate operator, Eq.\ \eqref{eq:reversion-definition} defines the reverse operator, and Eq.\ \eqref{eq:crev-definition} defines the combined sigma-conjugate/reverse operator. The sigma-conjugate operator \((\cdot)^*\) therefore changes the sign of each basis generator while leaving product order unchanged, the reverse operator \((\cdot)^{\mathrm R}\) leaves each \(\sigma_n\) fixed while reversing the order of generator products, and the combined operator \((\cdot)^{*\mathrm R}\) performs both actions in succession.
 
 Because sign-flip and order-reversal are independent, the combined operator may be applied in either order. In operator form,
 \begin{equation}
-{(XY)}^{*}=X^{*}Y^{*},\qquad
-{(XY)}^{\mathrm R}=Y^{\mathrm R}X^{\mathrm R},\qquad
-X^{*\mathrm R}:=(X^{\mathrm R})^{*}=(X^{*})^{\mathrm R}.
+\begin{aligned}
+{(XY)}^{*}&=X^{*}Y^{*},\qquad
+{(XY)}^{\mathrm R}=Y^{\mathrm R}X^{\mathrm R},\\
+X^{*\mathrm R}&:=(X^{\mathrm R})^{*}=(X^{*})^{\mathrm R}.
+\end{aligned}
 \label{eq:involution-operators}
 \end{equation}
 Applied to the generators and the pseudoscalar, these rules reduce to
@@ -304,8 +308,11 @@ Z=(a+ib)+(\mathbf A+i\mathbf B)\cdot\sigv = S+\mathbf V\cdot\sigv = X+iY,
 \end{equation}
 with
 \begin{equation}
-S=a+ib\in\C,\qquad \mathbf V=\mathbf A+i\mathbf B\in\C^3,\qquad
-X=a+\mathbf A\cdot\sigv\in\R\oplus\R^3,\qquad Y=b+\mathbf B\cdot\sigv\in\R\oplus\R^3.
+\begin{aligned}
+S&=a+ib\in\C,\qquad \mathbf V=\mathbf A+i\mathbf B\in\C^3,\\
+X&=a+\mathbf A\cdot\sigv\in\R\oplus\R^3,\qquad
+Y=b+\mathbf B\cdot\sigv\in\R\oplus\R^3.
+\end{aligned}
 \label{eq:paravector-parts}
 \end{equation}
 For \(Z=S+\mathbf V\cdot\sigv\) and \(Z'=S'+\mathbf V'\cdot\sigv\) with \(S,S'\in\C\) and \(\mathbf V,\mathbf V'\in\C^3\),
@@ -347,7 +354,7 @@ The distinction between the Euclidean norm \eqref{eq:euclidean-form} and the Min
 \subsection*{Exponentials, projectors, and functional calculus}
 Exponentials, roots, and functions of simple STA objects follow directly once Eqs.\ \eqref{eq:sigma-product} and \eqref{eq:dot-cross} are fixed.
 
-If \(\mathbf A\in\R^3\) is written as \(\mathbf A=\|\mathbf A\|\mathbf u\) with \(\mathbf u\in\R^3\) and \(\mathbf u^2=1\), define the idempotents
+If \(\mathbf A\in\R^3\) is written as \(\mathbf A=\theta\mathbf u\) with \(\theta=\|\mathbf A\|\), \(\mathbf u\in\R^3\), and \(\mathbf u^2=1\), define the idempotents
 \begin{equation}
 \Pi(\pm):=\frac{1}{2}(1\pm \mathbf u\cdot\sigv)
 \label{eq:projectors}
@@ -355,16 +362,13 @@ If \(\mathbf A\in\R^3\) is written as \(\mathbf A=\|\mathbf A\|\mathbf u\) with 
 satisfying $\Pi(\pm)^2=\Pi(\pm)$, $\Pi(+)\Pi(-)=0$, $\Pi(+)+\Pi(-)=1$, and
 \((\mathbf u\cdot\sigv)\Pi(\pm)=\pm\Pi(\pm)\). In projector form, the real and imaginary exponentials are
 \begin{align}
-\exp(\mathbf A\cdot\sigv)
-&=e^{\|\mathbf A\|}\Pi(+)+e^{-\|\mathbf A\|}\Pi(-)\notag \\
-&=\cosh \|\mathbf A\|+\sinh\|\mathbf A\|\,\mathbf u\cdot\sigv,
+\exp(\pm\mathbf A\cdot\sigv)
+&=e^{\pm\theta}\Pi(+)+e^{\mp\theta}\Pi(-)\notag \\
+&=\cosh \theta\pm\sinh\theta\,\mathbf u\cdot\sigv,
 \label{eq:exp-vector}\\
-\exp(i\,\mathbf A\cdot\sigv)
-&=e^{i\|\mathbf A\|}\Pi(+)+e^{-i\|\mathbf A\|}\Pi(-)\notag \\
-&=\cos \|\mathbf A\|+i\sin\|\mathbf A\|\,\mathbf u\cdot\sigv,\notag \\
-\exp(-i\,\mathbf A\cdot\sigv)
-&=e^{-i\|\mathbf A\|}\Pi(+)+e^{i\|\mathbf A\|}\Pi(-)\notag \\
-&=\cos \|\mathbf A\|-i\sin\|\mathbf A\|\,\mathbf u\cdot\sigv.
+\exp(\pm i\,\mathbf A\cdot\sigv)
+&=e^{\pm i\theta}\Pi(+)+e^{\mp i\theta}\Pi(-)\notag \\
+&=\cos \theta\pm i\sin\theta\,\mathbf u\cdot\sigv.
 \label{eq:exp-bivector}
 \end{align}
 Equations \eqref{eq:exp-vector} and \eqref{eq:exp-bivector} underlie the later discussions of functions of $\mathbf u\cdot\sigv$, spin decomposition, and the matrix/quaternion bridge.
@@ -488,11 +492,11 @@ The derivative operator comes first because every later field equation is built 
 
 With the paravector differential operator
 \begin{equation}
-\partial:=\partial_t+\sigv\cdot\gradv,
-\qquad
-\conj{\partial}=\partial_t-\sigv\cdot\gradv,
-\qquad
-\partial\conj{\partial}=\conj{\partial}\partial=\partial_t^2-\gradv^2=: \Box,
+\begin{aligned}
+\partial&:=\partial_t+\sigv\cdot\gradv,\qquad
+\conj{\partial}=\partial_t-\sigv\cdot\gradv,\\
+\partial\conj{\partial}&=\conj{\partial}\partial=\partial_t^2-\gradv^2=: \Box,
+\end{aligned}
 \label{eq:dalembert}
 \end{equation}
 and with \(V,\rho,\lambda,S,q\in\R\), \(\mathbf E,\mathbf B,\mathbf A,\mathbf J\in\R^3\), the electromagnetic field and potential are written as
@@ -610,11 +614,11 @@ For a complex scalar field \(\Psi\in\C\),
 \end{equation}
 is the free Klein--Gordon equation \cite{klein1926,gordon1926}. Define also
 \begin{equation}
-\Omega:=\langle\!\langle m+\sigv\cdot\gradv\rangle\!\rangle=\sqrt{m^2-\gradv^2},
-\qquad
-(\partial_t\pm i\Omega)\Psi(\pm)=0,
-\qquad
+\begin{aligned}
+\Omega&:=\langle\!\langle m+\sigv\cdot\gradv\rangle\!\rangle=\sqrt{m^2-\gradv^2},\\
+(\partial_t\pm i\Omega)\Psi(\pm)&=0,\qquad
 \Psi=\Psi(+)+\Psi(-),
+\end{aligned}
 \label{eq:frequency-split}
 \end{equation}
 which is the positive/negative-frequency factorization of \eqref{eq:kg-free}.
@@ -710,11 +714,11 @@ The nonrelativistic theory therefore appears as an approximation internal to the
 
 If \(\mathbf B=\|\mathbf B\|\mathbf u\) with \(\mathbf B,\mathbf u\in\R^3\), \(\|\mathbf u\|=1\), and \(\mathbf B\) uniform and constant, decompose
 \begin{equation}
-\Psi=\Psi(+)+\Psi(-),
-\qquad
-\Psi(\pm)=\Pi(\pm)\Psi,
-\qquad
-\Pi(\pm)=\frac{1}{2}(1\pm \mathbf u\cdot\sigv).
+\begin{aligned}
+\Psi&=\Psi(+)+\Psi(-),\qquad
+\Psi(\pm)=\Pi(\pm)\Psi,\\
+\Pi(\pm)&=\frac{1}{2}(1\pm \mathbf u\cdot\sigv).
+\end{aligned}
 \label{eq:pauli-spin-decomposition}
 \end{equation}
 Then Eq.\ \eqref{eq:pauli} separates into
@@ -737,11 +741,11 @@ After the wave-equation sector, the remaining material branches into spin splitt
 \subsection*{Spin projectors, ladder operators, and four sectors}
 The spin projectors along a unit direction \(\mathbf u\in\R^3\) are again \eqref{eq:projectors}. About the \(z\) axis, the ladder operators are algebra elements
 \begin{equation}
-a(\pm):=\frac{1}{2}(\sigma_1\pm i\sigma_2),
-\qquad
-[\sigma_3,a(\pm)]=\pm 2a(\pm),
-\qquad
-a(\pm)^2=0.
+\begin{aligned}
+a(\pm)&:=\frac{1}{2}(\sigma_1\pm i\sigma_2),\qquad
+[\sigma_3,a(\pm)]=\pm 2a(\pm),\\
+a(\pm)^2&=0.
+\end{aligned}
 \label{eq:ladder}
 \end{equation}
 Using the projector family \eqref{eq:projectors}, the proper-velocity paravector \(U\in\R\oplus\R^3\) from Eq.\ \eqref{eq:proper-velocity}, and the block map \eqref{eq:W-map}, define for \(\epsilon,s\in\{+,-\}\)
@@ -773,10 +777,11 @@ Consistent with Eq.\ \eqref{eq:basis}, the matrix realization is the usual Pauli
 \end{equation}
 Specializing the real paravector \(X=a+\mathbf A\cdot\sigv\) from Eq.\ \eqref{eq:paravector-parts} to \(a=t\) and \(\mathbf A=\mathbf r\) gives
 \begin{equation}
-X=t+\mathbf r\cdot\sigv=
-\{ t+r_3, r_1-ir_2; r_1+ir_2, t-r_3 \},
-\qquad
-\det X=t^2-\mathbf r^2.
+\begin{aligned}
+X&=t+\mathbf r\cdot\sigv
+=\{ t+r_3, r_1-ir_2; r_1+ir_2, t-r_3 \},\\
+\det X&=t^2-\mathbf r^2.
+\end{aligned}
 \label{eq:matrix-X}
 \end{equation}
 This matrix realization is included to anchor the paravector formalism to a familiar representation. The determinant reproduces the same Minkowski quadratic form already seen in Eq.\ \eqref{eq:interval}, so the matrix picture confirms rather than replaces the intrinsic STA interpretation.
@@ -784,11 +789,12 @@ This matrix realization is included to anchor the paravector formalism to a fami
 \subsection*{Quaternion correspondence}
 The quaternion identification is
 \begin{equation}
-q_1=-\sigma_2\sigma_3,\qquad
-q_2=-\sigma_3\sigma_1,\qquad
-q_3=-\sigma_1\sigma_2,
-\qquad
+\begin{aligned}
+q_1&=-\sigma_2\sigma_3,\qquad
+q_2=-\sigma_3\sigma_1,\\
+q_3&=-\sigma_1\sigma_2,\qquad
 \mathbf q=-i\sigv.
+\end{aligned}
 \label{eq:quaternion-basis}
 \end{equation}
 For \(a\in\R\) and \(\mathbf b\in\R^3\), let \(Q=a+\mathbf b\cdot\mathbf q = a-i\mathbf b\cdot\sigv\). Then

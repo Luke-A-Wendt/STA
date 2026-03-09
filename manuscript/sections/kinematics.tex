@@ -23,11 +23,11 @@ Null displacements are singled out algebraically because this inverse breaks dow
 
 \subsubsection*{Interval Classes and Proper Time}
 Equation \eqref{eq:interval} gives the three standard interval classes without any additional geometric machinery:
-\begin{equation*}
-\dd s^2>0 \;\Rightarrow\; \text{time-like},\qquad
-\dd s^2=0 \;\Rightarrow\; \text{null},\qquad
-\dd s^2<0 \;\Rightarrow\; \text{space-like}.
-\end{equation*}
+\begin{align*}
+\dd s^2>0 &\;\Rightarrow\; \text{time-like},\notag \\
+\dd s^2=0 &\;\Rightarrow\; \text{null},\notag \\
+\dd s^2<0 &\;\Rightarrow\; \text{space-like}.
+\end{align*}
 For a time-like worldline, the parameter \(s\) is the proper time in natural units. Writing \(\mathbf v=\dd\mathbf r/\dd t\) then gives
 \begin{equation*}
 \dd s=\sqrt{1-\mathbf v^2}\,\dd t,
@@ -38,13 +38,11 @@ In SI units the same relation is \(ds=c\,d\tau\). The advantage of the paravecto
 
 \subsubsection*{Proper Velocity and Proper Acceleration in Components}
 Starting from Eq.\ \eqref{eq:proper-velocity}, the proper-velocity paravector can be read componentwise as
-\begin{equation*}
-U=\frac{\dd X}{\dd s}=\gamma+\gamma\mathbf v\cdot\sigv,
-\qquad
-\eqtext{scalar}(U)=\gamma,
-\qquad
+\begin{align*}
+U&=\frac{\dd X}{\dd s}=\gamma+\gamma\mathbf v\cdot\sigv,\notag \\
+\eqtext{scalar}(U)&=\gamma,\qquad
 \eqtext{vector}(U)=\gamma\mathbf v.
-\end{equation*}
+\end{align*}
 Its normalization \(\langle\!\langle U\rangle\!\rangle^2=1\) implies \(U^{-1}=U^*\). Differentiating with respect to \(s\) yields
 \begin{equation*}
 \eqtext{scalar}(\conj{U}A)=0,
@@ -114,11 +112,9 @@ The Hamiltonian is then
 so the action principle reproduces both the relativistic momentum and the relativistic energy inside one calculation.
 
 The low-velocity series
-\begin{equation*}
-\mathcal L_{\mathrm{free}}=-m+\frac12 m\mathbf v^2+O(\mathbf v^4),
-\qquad
-\mathbf P=m\mathbf v+O(\mathbf v^{3}),
-\qquad
-\mathcal H=m+\frac12 m\mathbf v^{2}+O(\mathbf v^{4})
-\end{equation*}
+\begin{align*}
+\mathcal L_{\mathrm{free}}&=-m+\frac12 m\mathbf v^2+O(\mathbf v^4),\notag \\
+\mathbf P&=m\mathbf v+O(\mathbf v^{3}),\notag \\
+\mathcal H&=m+\frac12 m\mathbf v^{2}+O(\mathbf v^{4})
+\end{align*}
 shows exactly how the relativistic action contains the Newtonian kinetic term together with the additive rest-energy constant. Classical mechanics therefore appears as the approximation, not as the starting point.

@@ -39,11 +39,11 @@ These are the projector identities behind the standard spin-transition factors.
 
 About the \(z\)-axis one can also introduce the ladder elements
 \begin{equation*}
-a(\pm):=\frac12(\sigma_1\pm i\sigma_2),
-\qquad
-[\sigma_3,a(\pm)]=\pm 2a(\pm),
-\qquad
-a(\pm)^2=0,
+\begin{aligned}
+a(\pm)&:=\frac12(\sigma_1\pm i\sigma_2),\qquad
+[\sigma_3,a(\pm)]=\pm 2a(\pm),\\
+a(\pm)^2&=0,
+\end{aligned}
 \end{equation*}
 with
 \begin{equation*}
@@ -79,18 +79,20 @@ On free on-shell states this same construction is often read formally through th
 
 Together they yield the four-sector bookkeeping decomposition
 \begin{equation*}
-\Psi=\Psi(+,+)+\Psi(+,-)+\Psi(-,+)+\Psi(-,-),
-\qquad
-\Psi(\epsilon,s):=\Lambda(\epsilon)\Pi(s)\Psi.
+\begin{aligned}
+\Psi&=\Psi(+,+)+\Psi(+,-)+\Psi(-,+)+\Psi(-,-),\\
+\Psi(\epsilon,s)&:=\Lambda(\epsilon)\Pi(s)\Psi.
+\end{aligned}
 \end{equation*}
 This decomposition is best read as an organizational split once momentum and spin axis have been fixed, not as a substitute for the full interacting Dirac dynamics.
 
 \subsubsection*{Expectation-Value Shorthand}
 For normalized spinor-like algebra elements \(\psi\), it is sometimes convenient to borrow Dirac bra-ket notation as a compact shorthand for scalar projections:
 \begin{equation*}
-\langle \psi \mid \psi \rangle := \eqtext{scalar}(\rev{\psi}\psi)=1,
-\qquad
-\langle \psi \mid M \mid \psi \rangle := \eqtext{scalar}(\rev{\psi}M\psi).
+\begin{aligned}
+\langle \psi \mid \psi \rangle &:= \eqtext{scalar}(\rev{\psi}\psi)=1,\\
+\langle \psi \mid M \mid \psi \rangle &:= \eqtext{scalar}(\rev{\psi}M\psi).
+\end{aligned}
 \end{equation*}
 This notation is mnemonic only; the underlying objects remain STA elements and scalar extraction is still defined algebraically.
 
@@ -147,11 +149,12 @@ These formulas reproduce the sigma-conjugate action \( \sigma_n \mapsto -\sigma_
 \subsubsection*{Quaternion Sector}
 The quaternion basis introduced in Eq.\ \eqref{eq:quaternion-basis},
 \[
-q_1=-\sigma_2\sigma_3,\qquad
-q_2=-\sigma_3\sigma_1,\qquad
-q_3=-\sigma_1\sigma_2,
-\qquad
+\begin{aligned}
+q_1&=-\sigma_2\sigma_3,\qquad
+q_2=-\sigma_3\sigma_1,\\
+q_3&=-\sigma_1\sigma_2,\qquad
 \mathbf q=-i\sigv
+\end{aligned}
 \]
 identifies the quaternion units as a restricted bivector sector of the same algebra. For
 \[
@@ -178,13 +181,12 @@ one still has the intrinsic interval formula
 \end{equation*}
 If \(\dd f\) is time-like, then the same algebraic steps as before give
 \begin{equation*}
-\dd s=\sqrt{\dd f^{2}-\dd\mathbf g^{2}},
-\qquad
-\mathbf v=\frac{\dd\mathbf g}{\dd f},
-\qquad
-U=\frac{\dd X}{\dd s}=\gamma(1+\mathbf v\cdot\sigv),
-\qquad
+\begin{aligned}
+\dd s&=\sqrt{\dd f^{2}-\dd\mathbf g^{2}},\qquad
+\mathbf v=\frac{\dd\mathbf g}{\dd f},\\
+U&=\frac{\dd X}{\dd s}=\gamma(1+\mathbf v\cdot\sigv),\qquad
 \gamma=\frac{\dd f}{\dd s}.
+\end{aligned}
 \end{equation*}
 Thus the proper-velocity formula survives unchanged under a reparametrization of the scalar and vector coordinates; what changes is only which functions are being used to encode the same paravector interval.
 
