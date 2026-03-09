@@ -23,9 +23,9 @@ For a real scalar \(a\), the absolute value is
 \begin{equation*}
 |a| = \sqrt{a^{2}}.
 \end{equation*}
-For a complex scalar \(c=a+ib\), the usual modulus is
+For a complex scalar \(S=a+ib\), the usual modulus is
 \begin{align*}
-|c| &= \sqrt{cc^{*}},\notag \\
+|S| &= \sqrt{SS^{*}},\notag \\
 &= \sqrt{(a + i b)(a - i b)},\notag \\
 &= \sqrt{a^{2} + b^{2}}.
 \end{align*}
@@ -33,13 +33,13 @@ The Euclidean norm of a real vector is
 \begin{equation*}
 \lVert \mathbf A \rVert = \sqrt{\mathbf A^{2}}.
 \end{equation*}
-For a complex vector \(\mathbf C=\mathbf A+i\mathbf B\), the corresponding positive norm is
+For a complex vector \(\mathbf V=\mathbf A+i\mathbf B\), the corresponding positive norm is
 \begin{align*}
-\lVert \mathbf C \rVert &= \sqrt{CC^{*}},\notag \\
+\lVert \mathbf V \rVert &= \sqrt{\mathbf V \mathbf V^{*}},\notag \\
 &= \sqrt{(\mathbf A + i \mathbf B) \cdot (\mathbf A - i \mathbf B)},\notag \\
 &= \sqrt{\mathbf A^{2} + \mathbf B^{2}}.
 \end{align*}
-\noindent\emph{Note.} The quadratic product \(C^{2}\) is not the same object as the norm square \(\lVert \mathbf C\rVert^{2}\).\par
+\noindent\emph{Note.} The quadratic product \(\mathbf V^{2}\) is not the same object as the norm square \(\lVert \mathbf V\rVert^{2}\).\par
 The cross product is
 \begin{equation*}
 \mathbf A \times \mathbf B
@@ -359,7 +359,7 @@ Writing the generic complex paravector as in Eq.\ \eqref{eq:paravector}, one has
 i &= \sigma _{1}\sigma _{2}\sigma _{3},\notag \\
 X &= a + \mathbf A \cdot \sigv \in \mathbb{R}\oplus\mathbb{R}^{3},\notag \\
 Y &= b + \mathbf B \cdot \sigv \in \mathbb{R}\oplus\mathbb{R}^{3},\notag \\
-Z &= c + \mathbf C \cdot \sigv \in \mathbb{C}\oplus\mathbb{C}^{3},\notag \\
+Z &= S + \mathbf V \cdot \sigv \in \mathbb{C}\oplus\mathbb{C}^{3},\notag \\
 &= X + i Y,\notag \\
 &= (a+ b i) + (\mathbf A + i \mathbf B) \cdot \sigv\qquad \text{paravector}.
 \end{align*}
@@ -368,18 +368,18 @@ a &= \eqtext{scalar}(X) \in \mathbb{R},\notag \\
 \mathbf A &= \eqtext{vector}(X) \in \mathbb{R}^{3},\notag \\
 b &= \eqtext{scalar}(Y) \in \mathbb{R},\notag \\
 \mathbf B &= \eqtext{vector}(Y) \in \mathbb{R}^{3},\notag \\
-c &= \eqtext{scalar}(Z) \in \mathbb{C}\qquad \eqtext{complex scalar},\notag \\
-\mathbf C &= \eqtext{vector}(Z) \in \mathbb{C}^{3}\qquad \eqtext{complex vector},\notag \\
+S &= \eqtext{scalar}(Z) \in \mathbb{C}\qquad \eqtext{complex scalar},\notag \\
+\mathbf V &= \eqtext{vector}(Z) \in \mathbb{C}^{3}\qquad \eqtext{complex vector},\notag \\
 Z^{*} &= (a - b i) + (-\mathbf A + i \mathbf B) \cdot \sigv,\notag \\
 Z^{\mathrm{R}} &= (a - b i) + (\mathbf A - i \mathbf B) \cdot \sigv,\notag \\
 Z^{\mathrm{R}*} &= (a + b i) - (\mathbf A + i \mathbf B) \cdot \sigv,\notag \\
 X &= \eqtext{real}(Z) = (Z + Z^{\mathrm{R}}) / 2,\notag \\
 Y &= \eqtext{img}(Z) = (Z - Z^{\mathrm{R}}) / (2i),\notag \\
-c &= a + b i,\notag \\
+S &= a + b i,\notag \\
 &= (Z + Z^{\mathrm{R}*}) / 2.
 \end{align*}
 \begin{align*}
-\mathbf C \cdot \sigv &= (\mathbf A + i \mathbf B) \cdot \sigv,\notag \\
+\mathbf V \cdot \sigv &= (\mathbf A + i \mathbf B) \cdot \sigv,\notag \\
 &= (Z - Z^{\mathrm{R}*}) / 2.
 \end{align*}
 
@@ -387,7 +387,7 @@ c &= a + b i,\notag \\
 \begin{align*}
 X &= a + \mathbf A \cdot \sigv \in \mathbb{R}\oplus\mathbb{R}^{3},\notag \\
 Y &= b + \mathbf B \cdot \sigv \in \mathbb{R}\oplus\mathbb{R}^{3},\notag \\
-Z &= c + \mathbf C \cdot \sigv \in \mathbb{C}\oplus\mathbb{C}^{3},\notag \\
+Z &= S + \mathbf V \cdot \sigv \in \mathbb{C}\oplus\mathbb{C}^{3},\notag \\
 &= X + i Y.
 \end{align*}
 
@@ -401,12 +401,12 @@ In particular, if \(Z' = M Z^{*\mathrm{R}}\), then
 \end{align*}
 Here \(Z^{*\mathrm{R}} Z\) is scalar.
 \begin{align*}
-\eqtext{scalar}(Z Z^{*}) &= c c^{*} - \mathbf C \mathbf C^{*}\qquad \text{real},\notag \\
+\eqtext{scalar}(Z Z^{*}) &= S S^{*} - \mathbf V \mathbf V^{*}\qquad \text{real},\notag \\
 &= (a^{2} + b^{2}) - (\mathbf A^{2} + \mathbf B^{2}).
 \end{align*}
 \begin{align*}
-\lVert Z \rVert^{2} &= |c|^{2} + \lVert \mathbf C \rVert^{2},\notag \\
-&= c c^{*} + \mathbf C \mathbf C^{*},\notag \\
+\lVert Z \rVert^{2} &= |S|^{2} + \lVert \mathbf V \rVert^{2},\notag \\
+&= S S^{*} + \mathbf V \mathbf V^{*},\notag \\
 &= (a^{2} + b^{2}) + (\mathbf A^{2} + \mathbf B^{2})\qquad \text{non-negative real},\notag \\
 &= \eqtext{scalar}(Z^{\mathrm{R}} Z),\notag \\
 &= \eqtext{scalar}(Z Z^{\mathrm{R}}),\notag \\
@@ -444,11 +444,11 @@ For a real scalar \(s\) and real vector \(\mathbf v\),
 \begin{align*}
 X &= a + \mathbf A \cdot \sigv \in \mathbb{R}\oplus\mathbb{R}^{3},\notag \\
 Y &= b + \mathbf B \cdot \sigv \in \mathbb{R}\oplus\mathbb{R}^{3},\notag \\
-Z &= c + \mathbf C \cdot \sigv \in \mathbb{C}\oplus\mathbb{C}^{3},\notag \\
+Z &= S + \mathbf V \cdot \sigv \in \mathbb{C}\oplus\mathbb{C}^{3},\notag \\
 &= X + i Y.
 \end{align*}
 \begin{align*}
-\langle\!\langle Z \rangle\!\rangle^{2} &= c^{2} - \mathbf C^{2}\qquad \eqtext{complex scalar},\notag \\
+\langle\!\langle Z \rangle\!\rangle^{2} &= S^{2} - \mathbf V^{2}\qquad \eqtext{complex scalar},\notag \\
 &= Z Z^{\mathrm{R}*} = Z^{\mathrm{R}*}Z,\notag \\
 &= (a + i b)^{2} - (\mathbf A + i \mathbf B)^{2},\notag \\
 &= (a^{2} - b^{2} - \mathbf A^{2} + \mathbf B^{2}) + 2 i (a b - \mathbf A \cdot \mathbf B).
@@ -470,9 +470,9 @@ If \(Z^{\mathrm{R}*} Z = 0\), then the inverse does not exist.
 \subsubsection*{Minimal Polynomial and Spectral Decomposition}
 The spectral data of a complex paravector are collected here because the later functional calculus, projector formulas, and exponential identities all depend on this algebraic factorization. See Eq.\ \eqref{eq:functional-calculus}.
 \begin{align*}
-Z &= c + \mathbf C \cdot \sigv \in \mathbb{C}\oplus\mathbb{C}^{3}, \\
-Z^{2} - 2 c Z + ( c^{2} - \mathbf C^{2} ) &= 0, \\
-\lambda (\pm ) &= c \pm \sqrt{ \mathbf C^{2} }, \\
+Z &= S + \mathbf V \cdot \sigv \in \mathbb{C}\oplus\mathbb{C}^{3}, \\
+Z^{2} - 2 S Z + ( S^{2} - \mathbf V^{2} ) &= 0, \\
+\lambda (\pm ) &= S \pm \sqrt{ \mathbf V^{2} }, \\
 ( Z - \lambda (-) ) ( Z - \lambda (+) ) &= 0.
 \end{align*}
 
@@ -480,26 +480,26 @@ Z^{2} - 2 c Z + ( c^{2} - \mathbf C^{2} ) &= 0, \\
 \begin{align*}
 X &= a + \mathbf A \cdot \sigv \in \mathbb{R}\oplus\mathbb{R}^{3},\notag \\
 Y &= b + \mathbf B \cdot \sigv \in \mathbb{R}\oplus\mathbb{R}^{3},\notag \\
-Z &= c + \mathbf C \cdot \sigv \in \mathbb{C}\oplus\mathbb{C}^{3},\notag \\
+Z &= S + \mathbf V \cdot \sigv \in \mathbb{C}\oplus\mathbb{C}^{3},\notag \\
 &= X + i Y.
 \end{align*}
 \begin{align*}
-\exp(Z) &= \exp( c + \mathbf C \cdot \sigv ),\notag \\
-&= \exp(c) \exp( \mathbf C \cdot \sigv ).
+\exp(Z) &= \exp( S + \mathbf V \cdot \sigv ),\notag \\
+&= \exp(S) \exp( \mathbf V \cdot \sigv ).
 \end{align*}
 \begin{align*}
-\exp(Z^{*}) &= \exp(c^{*}) \exp( -\mathbf C^{*} \cdot \sigv ),\notag \\
-\exp(Z)^{-1} &= \exp(-c) \exp( -\mathbf C \cdot \sigv ),\notag \\
-\exp(Z^{*})^{-1} &= \exp(-c^{*}) \exp( \mathbf C^{*} \cdot \sigv ),\notag \\
-(\mathbf C \cdot \sigv )^{2} &= \mathbf C \cdot \mathbf C = \mathbf C^{2},\notag \\
+\exp(Z^{*}) &= \exp(S^{*}) \exp( -\mathbf V^{*} \cdot \sigv ),\notag \\
+\exp(Z)^{-1} &= \exp(-S) \exp( -\mathbf V \cdot \sigv ),\notag \\
+\exp(Z^{*})^{-1} &= \exp(-S^{*}) \exp( \mathbf V^{*} \cdot \sigv ),\notag \\
+(\mathbf V \cdot \sigv )^{2} &= \mathbf V \cdot \mathbf V = \mathbf V^{2},\notag \\
 &= \mathbf A^{2} - \mathbf B^{2} + 2 i \mathbf A \cdot \mathbf B.
 \end{align*}
 \begin{align*}
-(\mathbf C \cdot \sigv )^{2n} &= (\mathbf C^{2})^{n},\notag \\
-z &= \sqrt{\mathbf C^{2}}\qquad \eqtext{complex scalar},\notag \\
-\exp(\mathbf C \cdot \sigv ) &= \sum_{n} (\mathbf C \cdot \sigv )^{n} / n!,\notag \\
-&= \sum_{n} (\mathbf C^{2})^{n} / (2n)! + \sum_{n} (\mathbf C^{2})^{n} / (2n+1)! (\mathbf C \cdot \sigv ),\notag \\
-&= \cosh(z) + \sinh(z) (\mathbf C \cdot \sigv ) / z.
+(\mathbf V \cdot \sigv )^{2n} &= (\mathbf V^{2})^{n},\notag \\
+z &= \sqrt{\mathbf V^{2}}\qquad \eqtext{complex scalar},\notag \\
+\exp(\mathbf V \cdot \sigv ) &= \sum_{n} (\mathbf V \cdot \sigv )^{n} / n!,\notag \\
+&= \sum_{n} (\mathbf V^{2})^{n} / (2n)! + \sum_{n} (\mathbf V^{2})^{n} / (2n+1)! (\mathbf V \cdot \sigv ),\notag \\
+&= \cosh(z) + \sinh(z) (\mathbf V \cdot \sigv ) / z.
 \end{align*}
 
 \subsubsection*{Complex Field Decomposition}
