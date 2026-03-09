@@ -53,16 +53,16 @@
 \newcommand{\I}{\mathrm I}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
-\captionsetup{font=footnotesize,labelfont=bf,labelsep=period,skip=4pt}
+\captionsetup{font=normalsize,labelfont=bf,labelsep=period,skip=4pt}
 \newenvironment{componenttable}[2][]{%
   \begin{center}
   \captionsetup{type=table}
   \captionof{table}{Components of $#2$.}%
   \if\relax\detokenize{#1}\relax\else\label{#1}\fi
   \renewcommand{\arraystretch}{1.10}%
-  \setlength{\tabcolsep}{3pt}%
-  \footnotesize
-  \begin{tabular}{@{}r@{:\quad}>{\raggedright\arraybackslash}p{0.50\columnwidth}>{\raggedright\arraybackslash}p{0.18\columnwidth}@{}}
+  \setlength{\tabcolsep}{2pt}%
+  \normalsize
+  \begin{tabular}{@{}r@{:\quad}>{\raggedright\arraybackslash}p{0.48\columnwidth}>{\raggedright\arraybackslash}p{0.16\columnwidth}@{}}
   \toprule
 }{%
   \bottomrule
@@ -77,7 +77,7 @@
   \if\relax\detokenize{#1}\relax\else\label{#1}\fi
   \renewcommand{\arraystretch}{1.10}%
   \setlength{\tabcolsep}{3pt}%
-  \footnotesize
+  \normalsize
   \begin{tabular}{@{}r@{:\quad}>{\raggedright\arraybackslash}p{0.58\columnwidth}@{}}
   \toprule
 }{%
@@ -157,7 +157,7 @@ Bold symbols denote three-vectors, and the remaining symbols are defined where t
 
 \twocolumn
 \section{Algebraic Foundations}\label{sec:algebra}\label{sec:foundations}\label{sec:functions}
-The formula compendium in Appendix \ref{app:summary} is organized in the same constructional order. The development starts with basis rules, the sigma-conjugate and reverse operators, the vector basis, the full basis as a complex paravector, dot products, cross products, and norms, then product and quadratic-form identities, and finally the elementary functional calculus built from them.
+The formula compendium in Appendix \ref{app:summary} is organized in the same constructional order. The development starts with basis rules, the sigma-conjugate and reverse operators, the vector basis, the full basis as a complex paravector, dot products, cross products, and norms, then product and quadratic-form identities, commutator algebra, and finally the elementary functional calculus built from them.
 
 \subsection*{Basis and pseudoscalar}
 The algebra starts with three generators \(\sigma_n\) for \(n\in\{1,2,3\}\). These are basis algebra elements rather than scalars, and they behave like an orthonormal spatial basis whose multiplication carries more information than an ordinary dot product. From these generators one obtains vectors, bivectors, and the pseudoscalar \(i\), which plays the role of the imaginary unit while remaining internal to the algebra.
@@ -208,9 +208,20 @@ Applied to the generators and the pseudoscalar, these rules reduce to
 \end{alignat}
 For a two-generator bivector pair with \(n\neq m\),
 \begin{align}
-(\sigma_n\sigma_m)^* &{}= \sigma_n^*\sigma_m^* &{}= \sigma_n\sigma_m,\notag\\
-(\sigma_n\sigma_m)^{\mathrm R} &{}= \sigma_m\sigma_n &{}= -\sigma_n\sigma_m,\notag\\
-(\sigma_n\sigma_m)^{*\mathrm R} &{}= \sigma_m^*\sigma_n^* &{}= -\sigma_n\sigma_m.
+(\sigma_n\sigma_m)^*
+&= \sigma_n^*\sigma_m^*
+= (-\sigma_n)(-\sigma_m)
+= \sigma_n\sigma_m,\notag\\
+(\sigma_n\sigma_m)^{\mathrm R}
+&= \sigma_m^{\mathrm R}\sigma_n^{\mathrm R}
+= \sigma_m\sigma_n
+= -\sigma_n\sigma_m,\notag\\
+(\sigma_n\sigma_m)^{*\mathrm R}
+&= (\sigma_m\sigma_n)^*
+= \sigma_m^*\sigma_n^* \notag\\
+&= (-\sigma_m)(-\sigma_n)
+= \sigma_m\sigma_n
+= -\sigma_n\sigma_m.
 \label{eq:bivector-involutions}
 \end{align}
 These agree with the standard geometric-algebra involution structure described in the STA literature \cite{hestenes1966,doran2003}. They are called the conjugate operator, the reverse operator, and the reverse-conjugate operator. The conjugate operator flips vector sign, the reverse operator reverses multiplication order, and the reverse-conjugate operation appears in the Minkowski-type quadratic form \(Z\crev{Z}\).
@@ -257,23 +268,20 @@ The involutions act on the generic complex paravector by
 \crev{Z} &= (a+ib)-(\mathbf A+i\mathbf B)\cdot\sigv.
 \label{eq:paravector-involutions}
 \end{align}
-The corresponding recovery maps are
-\begin{align}
-\eqtext{scalar}(X) &:= a,\qquad
-\eqtext{vector}(X) := \mathbf A,\label{eq:XY-recovery}\\
-\eqtext{scalar}(Y) &:= b,\qquad
-\eqtext{vector}(Y) := \mathbf B,\notag\\
-\eqtext{real}(Z) &:= X=\frac{1}{2}(Z+\rev{Z}),\label{eq:paravector-real-imag}\\
-\eqtext{img}(Z) &:= Y=\frac{1}{2i}(Z-\rev{Z}),\notag\\
-\eqtext{scalar}(Z) &:= S=\frac{1}{2}(Z+\crev{Z}),\label{eq:paravector-scalar-vector}\\
-\eqtext{vector}(Z)\cdot\sigv&=\frac{1}{2}(Z-\crev{Z}).\notag
-\end{align}
+Define the scalar and vector functions as the functions that extract the scalar and vector elements of the paravector:
+\begin{equation}
+\eqtext{scalar}(Z):=S,\qquad \eqtext{vector}(Z):=\mathbf V.
+\end{equation}
+For the paravector \(Z\), the same notation may be written with subscripts as
+\begin{equation}
+Z_{S}:=\eqtext{scalar}(Z),\qquad Z_{\mathbf V}:=\eqtext{vector}(Z).
+\end{equation}
 
 \begin{table}[t]
 \centering
 \caption{Type assignments for the full basis as a complex paravector.}
 \label{tab:paravector-types}
-\footnotesize
+\normalsize
 \begin{tabular}{@{}lll@{}}
 \toprule
 Type name & Field representation & Example \\
@@ -287,6 +295,17 @@ complex paravector & \(\C\oplus\C^3\) & \(Z\) \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\begin{componenttable}[tab:components-paravector-recovery]{Z}
+\componentrow{scalar}{S=(Z+Z^{\mathrm{R}*})/2}{}
+\componentrow{vector}{\mathbf V\cdot\sigv=(Z-Z^{\mathrm{R}*})/2}{}
+\componentrow{real}{X=(Z+Z^{\mathrm R})/2}{}
+\componentrow{img}{Y=(Z-Z^{\mathrm R})/(2i)}{}
+\componentrow{real scalar}{a=(Z+Z^*+Z^{\mathrm R}+Z^{\mathrm{R}*})/4}{}
+\componentrow{img scalar}{b=(Z-Z^*-Z^{\mathrm R}+Z^{\mathrm{R}*})/(4i)}{}
+\componentrow{real vector}{\mathbf A\cdot\sigv=(Z-Z^*+Z^{\mathrm R}-Z^{\mathrm{R}*})/4}{}
+\componentrow{img vector}{\mathbf B\cdot\sigv=(Z+Z^*-Z^{\mathrm R}-Z^{\mathrm{R}*})/(4i)}{}
+\end{componenttable}
 
 \subsection*{Dot products, cross products, and norms}
 For real vectors \(\mathbf A,\mathbf B\in\R^3\),
@@ -302,6 +321,8 @@ and the cross product is
 \mathbf B\times\mathbf A &= -\mathbf A\times\mathbf B.
 \label{eq:cross-product}
 \end{align}
+In index form these are \(\mathbf A\cdot\mathbf B=\delta_{nm}A_nB_m\) and \((\mathbf A\times\mathbf B)_k=\epsilon_{nmk}A_nB_m\), with repeated indices summed.
+
 For a complex scalar \(S=a+ib\) and a complex vector \(\mathbf V=\mathbf A+i\mathbf B\),
 \begin{align}
 |S| &:= \sqrt{SS^*}=\sqrt{a^2+b^2},\notag\\
@@ -336,6 +357,46 @@ Two central quadratic forms are
 Equation \eqref{eq:minkowski-form} is the paravector form later used for space-time intervals \cite{baylis1999,doran2003}.
 The distinction between the Euclidean norm \eqref{eq:euclidean-form} and the Minkowski-type form \eqref{eq:minkowski-form} is central. The first measures the size of the full complex paravector in a positive way, while the second has the mixed sign structure needed for relativistic geometry.
 
+\input{sections/algebra_tables.tex}
+
+\subsection*{Commutator algebra}
+For generic complex paravectors \(X,Y\in\C\oplus\C^3\), define the commutator by
+\begin{align*}
+[X,Y] &:= XY-YX,\\
+[Y,X] &= -[X,Y],\\
+[X,Y] &= 0 \iff XY=YX.
+\end{align*}
+
+The pseudoscalar commutes with each sigma generator:
+\begin{align*}
+[i, \sigma _{n}] &= 0, \\
+i \sigma _{n} &= \sigma _{n} i.
+\end{align*}
+Accordingly,
+\begin{equation*}
+i \sigv = \{\sigma _{2}\sigma _{3}, \sigma _{3}\sigma _{1}, \sigma _{1}\sigma _{2}\}.
+\end{equation*}
+
+For distinct sigma generators,
+\begin{align*}
+\sigma _{n}\sigma _{m} &= \delta _{nm} + \epsilon _{nmk} i \sigma _{k},\notag \\
+&= \epsilon _{nmk} i \sigma _{k}.
+\end{align*}
+
+The commutator then becomes
+\begin{align*}
+[\sigma _{n}, \sigma _{m}] &= \sigma _{n}\sigma _{m} - \sigma _{m}\sigma _{n},\notag \\
+&= \sigma _{n}\sigma _{m} - (-\sigma _{n}\sigma _{m}),\notag \\
+&= 2 \sigma _{n}\sigma _{m},\notag \\
+&= 2 \epsilon _{nmk} i \sigma _{k}.
+\end{align*}
+In particular,
+\begin{align*}
+[\sigma _{2}, \sigma _{3}] &= 2 \sigma _{1}\sigma _{2}\sigma _{3}\sigma _{1} = 2 i \sigma _{1}, \\
+[\sigma _{3}, \sigma _{1}] &= 2 \sigma _{1}\sigma _{2}\sigma _{3}\sigma _{2} = 2 i \sigma _{2}, \\
+[\sigma _{1}, \sigma _{2}] &= 2 \sigma _{1}\sigma _{2}\sigma _{3}\sigma _{3} = 2 i \sigma _{3}.
+\end{align*}
+
 \subsection*{Exponentials, projectors, and functional calculus}
 Exponentials, roots, and functions of simple STA objects follow directly once Eqs.\ \eqref{eq:sigma-product} and \eqref{eq:dot-cross} are fixed.
 
@@ -367,11 +428,8 @@ f(\mathbf u\cdot\sigv)=f(+)\Pi(+)+f(-)\Pi(-).
 This gives a compact spectral calculus for logarithms, exponentials, and projector-based decompositions. Once the minimal polynomial of an STA element is known, functions of that element can be defined without leaving the algebraic framework.
 
 \subsection*{Supporting Algebraic Derivations}
-The next derivations record commutators, inverse formulas, logarithms, complex-product decompositions, and functional expansions.
+The next derivations record inverse formulas, sigma-product identities, logarithms, complex-product decompositions, and functional expansions.
 \input{sections/algebra.tex}
-\subsubsection*{Supporting Tables}
-The accompanying tables collect the remaining recovery formulas, product decompositions, and component expansions.
-\input{sections/algebra_tables.tex}
 
 \section{Space-Time Kinematics}\label{sec:spacetime}
 With the algebraic foundations in place, the same paravector structure can now be read as space-time. The transition from algebra to geometry is immediate: the quadratic form becomes the interval, and normalized time-like paravectors become proper velocities.

@@ -1,11 +1,3 @@
-\subsubsection*{Commutator Algebra}
-Before specializing to particular STA objects, it is helpful to record the algebraic behavior of the commutator itself, since many later identities are compact ways of saying that certain products commute or fail to commute in controlled ways. See Eqs.\ \eqref{eq:sigma-vector}, \eqref{eq:sigma-product}, and \eqref{eq:dot-cross}. Here \(X,Y\in\C\oplus\C^3\) are generic complex paravectors, and \([X,Y]:=XY-YX\) is their commutator.
-\begin{align*}
-[X, Y] &:= X Y - Y X, \\
-[Y, X] &= -[X, Y], \\
-[X, Y] &= 0 \Rightarrow X Y = Y X \Rightarrow \text{commutative}.
-\end{align*}
-
 \subsubsection*{Sigma Algebra}
 The sigma generators and their multiplication rules are written out here explicitly so that every later paravector identity can be traced back to the defining algebra. See Eqs.\ \eqref{eq:basis} and \eqref{eq:sigma-product}. For \(n,m\in\{1,2,3\}\),
 \begin{equation*}
@@ -19,12 +11,6 @@ i^{2} &= -1,\notag \\
 &= -\sigma _{1}(\sigma _{2}\sigma _{1})(\sigma _{3}\sigma _{2})\sigma _{3},\notag \\
 &= -\sigma _{1}^{2}\sigma _{2}^{2}\sigma _{3}^{2},\notag \\
 &= -1.
-\end{align*}
-\noindent The bivector basis elements are
-\begin{align*}
-i \sigv &= \{\sigma _{2}\sigma _{3}, \sigma _{3}\sigma _{1}, \sigma _{1}\sigma _{2}\}, \\
-[i, \sigma _{n}] &= 0, \\
-i \sigma _{n} &= \sigma _{n} i.
 \end{align*}
 \noindent The Kronecker delta and Levi-Civita symbols are
 \begin{align*}
@@ -40,26 +26,9 @@ i \sigma _{n} &= \sigma _{n} i.
 \end{align*}
 \noindent With these conventions,
 \begin{align*}
-\sigma _{n}\sigma _{m} &= \delta _{nm} + \epsilon _{nmk} i \sigma _{k},\notag \\
-&= \epsilon _{nmk} i \sigma _{k} \text{ if } n \neq m.
-\end{align*}
-\begin{align*}
 \sigma _{1}\sigma _{2}\sigma _{3} &= (\delta _{12} + \epsilon _{123} i \sigma _{3}) \sigma _{3},\notag \\
 &= (0 + i \sigma _{3}) \sigma _{3} = i.
 \end{align*}
-\noindent The algebra is noncommutative precisely because distinct generators anticommute:
-\begin{align*}
-[\sigma _{n}, \sigma _{m}] &= \sigma _{n}\sigma _{m} - \sigma _{m}\sigma _{n},\notag \\
-&= \sigma _{n}\sigma _{m} - (-\sigma _{n}\sigma _{m}),\notag \\
-&= 2 \sigma _{n}\sigma _{m},\notag \\
-&= 2 \epsilon _{nmk} i \sigma _{k}.
-\end{align*}
-\begin{align*}
-[\sigma _{2}, \sigma _{3}] &= 2 \sigma _{1}\sigma _{2}\sigma _{3}\sigma _{1} = 2 i \sigma _{1}, \\
-[\sigma _{3}, \sigma _{1}] &= 2 \sigma _{1}\sigma _{2}\sigma _{3}\sigma _{2} = 2 i \sigma _{2}, \\
-[\sigma _{1}, \sigma _{2}] &= 2 \sigma _{1}\sigma _{2}\sigma _{3}\sigma _{3} = 2 i \sigma _{3}.
-\end{align*}
-
 \subsubsection*{Sigma-Conjugate Action on Sigma Products}
 The sigma-conjugate identities derived from Eqs.\ \eqref{eq:involution-operators}--\eqref{eq:i-involutions} take the following explicit sigma-product form.\par
 \begin{align*}
@@ -87,25 +56,6 @@ i^{\mathrm{R}} &= -i\qquad (\sigma _{1}\sigma _{2}\sigma _{3})^{\mathrm{R}} = \s
 (i \sigma _{n})^{\mathrm{R}} &= \sigma _{n} ( i )^{\mathrm{R}},\notag \\
 &= \sigma _{n} (-i),\notag \\
 &= -i \sigma _{n}.
-\end{align*}
-
-\subsubsection*{Bivector-Pair Involutions}
-For a two-generator bivector pair with \(n \neq m\),
-\begin{align*}
-(\sigma _{n}\sigma _{m})^{*} &= \sigma _{n}^{*}\sigma _{m}^{*},\notag \\
-&= (-\sigma _{n})(-\sigma _{m}),\notag \\
-&= \sigma _{n}\sigma _{m}.
-\end{align*}
-\begin{align*}
-(\sigma _{n}\sigma _{m})^{\mathrm{R}} &= \sigma _{m}\sigma _{n},\notag \\
-&= -\sigma _{n}\sigma _{m}.
-\end{align*}
-\begin{align*}
-(\sigma _{n}\sigma _{m})^{*\mathrm{R}} &= (\sigma _{m}\sigma _{n})^{*},\notag \\
-&= \sigma _{m}^{*}\sigma _{n}^{*},\notag \\
-&= (-\sigma _{m})(-\sigma _{n}),\notag \\
-&= \sigma _{m}\sigma _{n},\notag \\
-&= -\sigma _{n}\sigma _{m}.
 \end{align*}
 
 \subsubsection*{Basis-Element Bookkeeping}
