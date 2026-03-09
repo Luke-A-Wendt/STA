@@ -1,19 +1,37 @@
 % !TEX program = lualatex
-\documentclass[10pt]{article}
+\documentclass[10pt,letterpaper]{article}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[utf8]{inputenc}
   \usepackage[T1]{fontenc}
+  \usepackage{mathptmx}
+  \usepackage[scaled=0.92]{helvet}
+  \usepackage{courier}
   \newcommand{\STAUnicodeAppendix}{\ttfamily}
 \else
   \usepackage{fontspec}
-  \setmainfont{Latin Modern Roman}
-  \setmonofont{Latin Modern Mono}
-  \newfontfamily{\STAUnicodeAppendix}{Latin Modern Mono}
+  \setmainfont{TeX Gyre Termes}
+  \setsansfont{TeX Gyre Heros}[Scale=MatchLowercase]
+  \setmonofont{Latin Modern Mono}[Scale=MatchLowercase]
+  \newfontfamily{\STAUnicodeAppendix}{Latin Modern Mono}[Scale=MatchLowercase]
 \fi
+\usepackage[
+  letterpaper,
+  top=0.75in,
+  bottom=1in,
+  left=0.625in,
+  right=0.625in
+]{geometry}
+\setlength{\columnsep}{0.24in}
+\usepackage[tracking=true]{microtype}
 \usepackage{cite}
-\usepackage{amsmath,amssymb,mathtools,bm,booktabs,xcolor,hyperref,fancyvrb,fvextra,array,longtable,caption}
-\allowdisplaybreaks
+\usepackage{amsmath,amssymb,mathtools,bm,booktabs,xcolor,hyperref,fancyvrb,fvextra,array,longtable,caption,titlesec,tabularx}
+\allowdisplaybreaks[1]
+\interdisplaylinepenalty=2500
+\frenchspacing
+\setlength{\emergencystretch}{1.5em}
+\definecolor{STAFlag}{HTML}{8B1E1E}
+\urlstyle{same}
 \hypersetup{hidelinks}
 \let\STAamsmathtext\text
 \newcommand{\eqtext}[1]{\STAamsmathtext{\normalfont\rmfamily #1}}
@@ -30,111 +48,106 @@
 \newcommand{\rev}[1]{#1^{\mathsf R}}
 \newcommand{\conj}[1]{#1^{*}}
 \newcommand{\crev}[1]{#1^{*\mathsf R}}
-\newcommand{\flag}[1]{\textcolor{red}{\textbf{#1}}}
+\newcommand{\flag}[1]{\textcolor{STAFlag}{\textbf{#1}}}
 \newcommand{\dd}{\mathrm d}
 \newcommand{\I}{\mathrm I}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\captionsetup{font=footnotesize,labelfont=bf,labelsep=period,skip=4pt}
 \newenvironment{componenttable}[2][]{%
   \begin{center}
-  \captionsetup{type=table,font=small,labelfont=bf,skip=4pt}
+  \captionsetup{type=table}
   \captionof{table}{Components of $#2$.}%
   \if\relax\detokenize{#1}\relax\else\label{#1}\fi
-  \renewcommand{\arraystretch}{1.18}%
-  \setlength{\tabcolsep}{5pt}%
-  \small
-  \begin{tabular}{|r@{:\quad}>{\raggedright\arraybackslash}l@{\qquad}>{\raggedright\arraybackslash}l|}
-  \hline
+  \renewcommand{\arraystretch}{1.10}%
+  \setlength{\tabcolsep}{3pt}%
+  \footnotesize
+  \begin{tabular}{@{}r@{:\quad}>{\raggedright\arraybackslash}p{0.50\columnwidth}>{\raggedright\arraybackslash}p{0.18\columnwidth}@{}}
+  \toprule
 }{%
-  \hline
+  \bottomrule
   \end{tabular}
   \end{center}
 }
 \newcommand{\componentrow}[3]{\eqtext{#1} & \(\displaystyle #2\) & #3 \\}
 \newenvironment{gradetable}[2][]{%
   \begin{center}
-  \captionsetup{type=table,font=small,labelfont=bf,skip=4pt}
+  \captionsetup{type=table}
   \captionof{table}{#2}%
   \if\relax\detokenize{#1}\relax\else\label{#1}\fi
-  \renewcommand{\arraystretch}{1.18}%
+  \renewcommand{\arraystretch}{1.10}%
   \setlength{\tabcolsep}{3pt}%
-  \small
-  \begin{tabular}{@{}r@{:\quad}>{\raggedright\arraybackslash}l@{}}
+  \footnotesize
+  \begin{tabular}{@{}r@{:\quad}>{\raggedright\arraybackslash}p{0.58\columnwidth}@{}}
+  \toprule
 }{%
+  \bottomrule
   \end{tabular}
   \end{center}
 }
 \newcommand{\graderow}[2]{\eqtext{#1} & \(\displaystyle #2\) \\}
-\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
-
-\makeatletter
-\setlength{\textwidth}{7.125in}
-\setlength{\textheight}{9.5in}
-\setlength{\oddsidemargin}{-0.3125in}
-\setlength{\evensidemargin}{-0.3125in}
-\setlength{\topmargin}{-0.70in}
-\setlength{\headheight}{12pt}
-\setlength{\headsep}{18pt}
-\setlength{\footskip}{24pt}
-\setlength{\columnsep}{0.25in}
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\Alph{subsection}}
-\renewcommand\section{\@startsection{section}{1}{\z@}{1.8ex plus 1ex minus .2ex}{1.0ex plus .2ex}{\centering\normalfont\normalsize\bfseries}}
-\renewcommand\subsection{\@startsection{subsection}{2}{\z@}{1.4ex plus 1ex minus .2ex}{0.8ex plus .2ex}{\normalfont\normalsize\itshape}}
-\renewcommand*\l@section[2]{%
-  \ifnum \c@tocdepth >\z@
-    \addpenalty\@secpenalty
-    \addvspace{1.0em \@plus\p@}%
-    \setlength\@tempdima{2.6em}%
-    \begingroup
-      \parindent \z@
-      \rightskip \@pnumwidth
-      \parfillskip -\@pnumwidth
-      \leavevmode \bfseries
-      \advance\leftskip\@tempdima
-      \hskip -\leftskip
-      #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
-    \endgroup
-  \fi}
-\def\@maketitle{%
-  \newpage
-  \null
-  \vskip 1em%
-  \begin{center}%
-  {\LARGE\bfseries \@title \par}%
-  \vskip 1em%
-  {\normalsize
-   \lineskip .5em%
-   \begin{tabular}[t]{c}%
-     \@author
-   \end{tabular}\par}%
-  \end{center}%
-  \par
-  \vskip 1.2em}
-\renewenvironment{abstract}
-  {\par\noindent\textbf{Abstract---}\itshape}
-  {\par\normalfont\vspace{1.0ex}}
-\makeatother
+\titleformat{\section}
+  {\normalfont\normalsize\scshape\centering}
+  {\thesection.}{0.5em}{\MakeUppercase}
+\titleformat{name=\section,numberless}
+  {\normalfont\normalsize\scshape\centering}
+  {}{0pt}{\MakeUppercase}
+\titleformat{\subsection}
+  {\normalfont\normalsize\itshape}
+  {\thesubsection.}{0.5em}{}
+\titleformat{name=\subsection,numberless}
+  {\normalfont\normalsize\itshape}
+  {}{0pt}{}
+\titleformat{name=\subsubsection,numberless}
+  {\normalfont\normalsize\itshape}
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{1.8ex plus .6ex minus .2ex}{0.8ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{1.3ex plus .5ex minus .2ex}{0.5ex plus .1ex}
+\titlespacing*{\subsubsection}{0pt}{1.0ex plus .4ex minus .1ex}{0.3ex}
+\pagestyle{plain}
 
-\title{Space-Time Algebra (STA)}
-\author{Dr. Luke A. Wendt}
-\date{}
+\newcommand{\STATitle}{Space-Time Algebra (STA)}
+\newcommand{\STAAuthor}{Luke A. Wendt}
+\newcommand{\STAAbstractText}{Space-time algebra (STA) is an associative algebra that combines scalars and vectors into a single object called a paravector. In this form, the algebra is adapted to rotations, Lorentz boosts, space-time kinematics, and relativistic field theory. This manuscript develops a common STA notation for proper velocity and momentum, Maxwell electrodynamics, and Klein--Gordon, Dirac, and Pauli-type wave equations.}
+\newcommand{\STAIndexTerms}{space-time algebra, geometric algebra, Lorentz transformations, Maxwell electrodynamics, Dirac equation, Pauli equation}
+\newcommand{\STAMakeTitleBlock}{%
+  \begin{center}
+  {\LARGE\bfseries \STATitle \par}
+  \vspace{0.8em}
+  {\normalsize \STAAuthor \par}
+  \end{center}
+  \vspace{0.8em}
+  \noindent\textbf{Abstract}---\STAAbstractText
+  \par\vspace{0.5em}
+  \noindent\textit{Index Terms}---\STAIndexTerms.
+  \par\vspace{1.0em}
+}
 \hypersetup{
-  pdftitle={Space-Time Algebra (STA)},
-  pdfauthor={Dr. Luke A. Wendt},
+  pdftitle={\STATitle},
+  pdfauthor={\STAAuthor},
   pdfsubject={Space-time algebra and its applications},
   pdfkeywords={space-time algebra, geometric algebra, Maxwell, Dirac, Klein-Gordon, Pauli}
 }
 
 \begin{document}
-\maketitle
+\pagenumbering{arabic}
+\STAMakeTitleBlock
+\thispagestyle{plain}
 
-\begin{abstract}
-Space-time algebra (STA) is an associative algebra that combines scalars and vectors into a single object called a paravector. In this form, the algebra is adapted to rotations, Lorentz boosts, space-time kinematics, and relativistic field theory. This manuscript develops a common STA notation for proper velocity and momentum, Maxwell electrodynamics, and Klein--Gordon, Dirac, and Pauli-type wave equations.
-\end{abstract}
+\section{Introduction}\label{sec:orientation}
+Space-time algebra extends the familiar scalar and vector calculus of three-dimensional space into a unified algebra adapted to rotations, Lorentz transformations, and relativistic field equations. A real scalar plus a real vector forms a paravector, and the same multiplication rules that generate Euclidean dot and cross products also produce the quadratic forms used for space-time intervals and field invariants.
 
-\clearpage
-\section*{Summary of Results}
-\addcontentsline{toc}{section}{Summary of Results}
+This perspective is consistent with the modern STA and paravector literature of Hestenes, Baylis, and Doran--Lasenby \cite{hestenes1966,baylis1999,doran2003}, but the notation is kept deliberately lean. Lower-case Latin letters denote real scalars unless stated otherwise, bold letters denote real three-vectors, capital letters denote paravectors or operators according to context, and complexification is carried by the pseudoscalar \(i\).
+
+Natural units \(\hbar=c=1\) and metric signature \((+,-,-,-)\) are used unless stated otherwise. The main exposition is simple-first: the real vector product is fixed before the full complex paravector product, and each major topic is developed in two passes, first in compact form and then in a section-local detailed expansion that writes out intermediate identities, component tables, and special cases. Variable classes are restated when clarity would otherwise be lost over long spans, equation references are used throughout so later formulas can point back to earlier constructions, symbolic checks are collected in Appendix \ref{app:verification}, and bold red notes mark formulas that require qualification or correction.
+
+The manuscript is organized to keep the logical burden low. First the algebra is developed on its own terms; next the same algebra is reinterpreted as space-time geometry; only after that are electromagnetic and quantum equations introduced. In this way the physics applications appear as consequences of a previously established language rather than as disconnected formulas gathered under one title.
+
+The opening summary page therefore shows the destination, while the main exposition proceeds in the opposite direction: simple rules first, composite objects second, and field equations last. Whenever a formula is likely to be unfamiliar in STA form, the text around it explains both what the formula says algebraically and why it is being introduced at that point in the narrative.
+
+\subsection{Summary of Results}
 Using natural units,
 \[
 \hbar=c=1,
@@ -210,9 +223,7 @@ L &= \exp\!\left(\tfrac12\theta\,\mathbf u\cdot\sigv\right)
 \endgroup
 The manuscript develops these formulas in the following order: algebraic primitives in \S\ref{sec:algebra}, space-time kinematics in \S\ref{sec:spacetime}, transformation theory in \S\ref{sec:transforms}, electromagnetism in \S\ref{sec:em}, and relativistic quantum equations in \S\ref{sec:qm}. Each major section then closes with a detailed local development that expands the compact formulas into explicit product rules, intermediate derivations, special cases, and component tables before the manuscript moves to the next topic. Verification, historical notes, and cautions on formulas requiring qualification appear later in \S\ref{sec:verification}--\S\ref{sec:flags}.
 
-\clearpage
-\section*{Reading Guide}
-\addcontentsline{toc}{section}{Reading Guide}
+\subsection{Reading Guide}
 \begin{enumerate}
 \item Section \ref{sec:algebra} fixes notation, types, the sigma-conjugate and reverse operators, products, quadratic forms, exponentials, and projectors.
 \item Section \ref{sec:spacetime} turns those algebraic objects into intervals, proper velocity, proper momentum, and free motion.
@@ -223,20 +234,7 @@ The manuscript develops these formulas in the following order: algebraic primiti
 \item Sections \ref{sec:verification}--\ref{sec:flags} separate verification, history, and cautions from the exposition, while Appendix \ref{app:verification} records the symbolic verification material.
 \end{enumerate}
 
-\tableofcontents
-\clearpage
-
-\section{Introduction}\label{sec:orientation}
-Space-time algebra extends the familiar scalar and vector calculus of three-dimensional space into a unified algebra adapted to rotations, Lorentz transformations, and relativistic field equations. A real scalar plus a real vector forms a paravector, and the same multiplication rules that generate Euclidean dot and cross products also produce the quadratic forms used for space-time intervals and field invariants.
-
-This perspective is consistent with the modern STA and paravector literature of Hestenes, Baylis, and Doran--Lasenby \cite{hestenes1966,baylis1999,doran2003}, but the notation is kept deliberately lean. Lower-case Latin letters denote real scalars unless stated otherwise, bold letters denote real three-vectors, capital letters denote paravectors or operators according to context, and complexification is carried by the pseudoscalar \(i\).
-
-Natural units \(\hbar=c=1\) and metric signature \((+,-,-,-)\) are used unless stated otherwise. The main exposition is simple-first: the real vector product is fixed before the full complex paravector product, and each major topic is developed in two passes, first in compact form and then in a section-local detailed expansion that writes out intermediate identities, component tables, and special cases. Variable classes are restated when clarity would otherwise be lost over long spans, equation references are used throughout so later formulas can point back to earlier constructions, symbolic checks are collected in Appendix \ref{app:verification}, and bold red notes mark formulas that require qualification or correction.
-
-The manuscript is organized to keep the logical burden low. First the algebra is developed on its own terms; next the same algebra is reinterpreted as space-time geometry; only after that are electromagnetic and quantum equations introduced. In this way the physics applications appear as consequences of a previously established language rather than as disconnected formulas gathered under one title.
-
-The opening summary page therefore shows the destination, while the main exposition proceeds in the opposite direction: simple rules first, composite objects second, and field equations last. Whenever a formula is likely to be unfamiliar in STA form, the text around it explains both what the formula says algebraically and why it is being introduced at that point in the narrative.
-
+\twocolumn
 \section{Algebraic Toolkit}\label{sec:algebra}\label{sec:foundations}\label{sec:functions}
 The summary above is deliberately complex-first. The exposition now resets to the simplest ingredients: basis rules, the sigma-conjugate and reverse operators, vector products, paravectors, and then the elementary functional calculus built from them.
 
@@ -807,9 +805,10 @@ Equation \eqref{eq:quaternion-square} makes the purpose of this correspondence c
 The final local development collects the quaternion, generalized-metric, and matrix-realization material that extends the main STA narrative into adjacent representational viewpoints. It remains at the end because these formulas clarify and compare the earlier constructions rather than serving as prerequisites for them.
 \input{sections/representations.tex}
 
+\onecolumn
 \section{Literature Verification and Formula Status}\label{sec:verification}
 The following table records how the principal statements of the manuscript compare with standard literature and with the symbolic checks collected in Appendix \ref{app:verification}. Its purpose is to distinguish established reformulations from formulas that require qualification, stronger hypotheses, or explicit correction.
-\begin{longtable}{@{}L{0.21\linewidth}L{0.28\linewidth}L{0.17\linewidth}L{0.27\linewidth}@{}}
+\begin{longtable}{@{}L{0.21\linewidth}L{0.28\linewidth}L{0.17\linewidth}L{0.265\linewidth}@{}}
 \toprule
 STA statement & Literature correspondence & Status & Notes \\
 \midrule
