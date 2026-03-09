@@ -52,14 +52,14 @@ Subtracting these expressions and then adding \(m^2\Psi\) is the direct operator
 Substituting those commutators into the product of first-order factors yields
 \begin{equation*}
 (E+\sigv\cdot\mathbf P)(E-\sigv\cdot\mathbf P)\Psi
-=\bigl(E^2-\mathbf P^2-iqF\bigr)\Psi,
+=\bigl(E^2-\mathbf P^2-iq(\mathbf F\cdot\sigv)\bigr)\Psi,
 \end{equation*}
 while reversing the order gives
 \begin{equation*}
 (E-\sigv\cdot\mathbf P)(E+\sigv\cdot\mathbf P)\Psi
-=\bigl(E^2-\mathbf P^2-iqF^*\bigr)\Psi.
+=\bigl(E^2-\mathbf P^2-iq(\mathbf F\cdot\sigv)^*\bigr)\Psi.
 \end{equation*}
-This is the structural statement encoded in Eq.\ \eqref{eq:EP-factorization}. The second-order Klein--Gordon operator is recovered from the square of a first-order object, and the field term carried by \(F\) is exactly what remains from the noncommuting covariant momenta.
+This is the structural statement encoded in Eq.\ \eqref{eq:EP-factorization}. The second-order Klein--Gordon operator is recovered from the square of a first-order object, and the field term carried by \(\mathbf F\cdot\sigv\) is exactly what remains from the noncommuting covariant momenta.
 
 \subsubsection*{Free Spin-\texorpdfstring{$\frac12$}{1/2} Factorization}
 Before the electromagnetic field is turned on, the Dirac block map already shows how the scalar and spinor theories are related. With
@@ -110,8 +110,8 @@ W(i\partial-q\conj{\Phi})^2
 Multiplying by the mass-conjugate operator \(D'=W(Z)+m\I\) gives
 \begin{equation*}
 D'D\Psi=
-\operatorname{diag}\!\bigl(-E^2+\mathbf P^2+m^2-iqF^*,
--E^2+\mathbf P^2+m^2+iqF\bigr)\Psi.
+\operatorname{diag}\!\bigl(-E^2+\mathbf P^2+m^2-iq(\mathbf F\cdot\sigv)^*,
+-E^2+\mathbf P^2+m^2+iq(\mathbf F\cdot\sigv)\bigr)\Psi.
 \end{equation*}
 The upper and lower components satisfy Klein--Gordon-type equations with opposite field couplings, exactly as recorded in Eq.\ \eqref{eq:dirac-square}. The sign pattern matters, which is why the caution recorded in Section \ref{sec:flags} is retained explicitly.
 
@@ -121,7 +121,7 @@ Gauge covariance is then immediate. If
 \qquad
 \Psi=e^{iq\lambda}\Psi',
 \]
-then the phase derivative produced by \(i\partial\) is cancelled by the shift in the potential, leaving the form of Eq.\ \eqref{eq:dirac-coupled} unchanged. The direct component actions of \(\partial\), \(\partial^*\), \(\Phi\), \(\Phi^*\), \(iqF\), and \(iqF^*\) are recorded in Tables~\ref{tab:components-partial-psi}--\ref{tab:components-iqfstar-psi}; those tables supply the explicit two-component formulas corresponding to this block system.
+then the phase derivative produced by \(i\partial\) is cancelled by the shift in the potential, leaving the form of Eq.\ \eqref{eq:dirac-coupled} unchanged. The direct component actions of \(\partial\), \(\partial^*\), \(\Phi\), \(\Phi^*\), \(iq(\mathbf F\cdot\sigv)\), and \(iq(\mathbf F\cdot\sigv)^*\) are recorded in Tables~\ref{tab:components-partial-psi}--\ref{tab:components-iqfstar-psi}; those tables supply the explicit two-component formulas corresponding to this block system.
 
 \subsubsection*{Low-Energy Scalar and Spinor Limits}
 To reach the nonrelativistic scalar theory, remove the fast rest-energy oscillation by writing \(\Psi'=e^{-imt}\Psi\). Substituting into the minimally coupled Klein--Gordon equation gives

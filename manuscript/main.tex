@@ -422,26 +422,26 @@ With the paravector differential operator
 \end{aligned}
 \label{eq:dalembert}
 \end{equation}
-and with \(V,\rho,\lambda,S,q\in\R\), \(\mathbf E,\mathbf B,\mathbf A,\mathbf J\in\R^3\), the electromagnetic field and potential are written as
+and with \(V,\rho,\lambda,S,q\in\R\), \(\mathbf E,\mathbf B,\mathbf A,\mathbf J\in\R^3\), the electromagnetic field vector and potential are written as
 \begin{equation}
-F=(\mathbf E+i\mathbf B)\cdot\sigv,
+\mathbf F:=\mathbf E+i\mathbf B,
 \qquad
 \Phi=V+\mathbf A\cdot\sigv.
 \label{eq:F-Phi}
 \end{equation}
-Here \(\Phi\in\R\oplus\R^3\), while \(F\) is a purely vector complex paravector in \(\{0\}\oplus\C^3\subset\C\oplus\C^3\). Equation \eqref{eq:F-Phi} packages electric and magnetic fields into one object \(F\), and scalar and vector potentials into one object \(\Phi\). The purpose is not only notational compression: once these quantities are assembled into STA objects, differentiation and transformation act on their full content in a single step.
+Here \(\Phi\in\R\oplus\R^3\), while \(\mathbf F\in\C^3\) is the complex field vector. Equation \eqref{eq:F-Phi} packages electric and magnetic fields into one object \(\mathbf F\), and scalar and vector potentials into one object \(\Phi\). The corresponding STA field paravector is \(\mathbf F\cdot\sigv\), so differentiation and transformation still act on the full field content in a single step.
 
 \subsection*{Boost transformation of the electromagnetic field}
-With \(F\) now defined, the same boost element \(L\) from Eq.\ \eqref{eq:boost} acts on the field by
+With \(\mathbf F\) now defined, the same boost element \(L\) from Eq.\ \eqref{eq:boost} acts on the field paravector by
 \begin{equation}
-F'=\conj{L}FL.
+\mathbf F'\cdot\sigv=\conj{L}(\mathbf F\cdot\sigv)L.
 \label{eq:field-transform}
 \end{equation}
-Equation \eqref{eq:field-transform} is the direct field analogue of the event transform \(\conj{L}XL\). It shows that \(F\) is not an extra object appended to the mechanics, but part of the same algebraic structure: boosts act on \(F\) by the same two-sided rule that acts on space-time paravectors, and the usual parallel/perpendicular split of \(\mathbf E\) and \(\mathbf B\) follows from the same boost algebra.
+Equation \eqref{eq:field-transform} is the direct field analogue of the event transform \(\conj{L}XL\). It shows that \(\mathbf F\cdot\sigv\) is not an extra object appended to the mechanics, but part of the same algebraic structure: boosts act on the field paravector by the same two-sided rule that acts on space-time paravectors, and the usual parallel/perpendicular split of \(\mathbf E\) and \(\mathbf B\) follows from the same boost algebra.
 
 The identity
 \begin{equation}
-\partial\Phi = S+\conj{F},
+\partial\Phi = S+\conj{\mathbf F\cdot\sigv},
 \qquad
 S:=\partial_t V+\gradv\cdot\mathbf A
 \label{eq:potential-gradient}
@@ -455,7 +455,7 @@ encodes
 \end{equation}
 The compact Maxwell equation is
 \begin{equation}
-\partial F=\rho-\mathbf J\cdot\sigv.
+\partial(\mathbf F\cdot\sigv)=\rho-\mathbf J\cdot\sigv.
 \label{eq:maxwell}
 \end{equation}
 Splitting real/imaginary scalar/vector parts of \eqref{eq:maxwell} reproduces
@@ -475,7 +475,7 @@ The advantage of Eq.\ \eqref{eq:maxwell} is that divergence and curl do not need
 \subsection*{Wave equations, gauge, and Lorentz force}
 Applying $\conj{\partial}$ to \eqref{eq:maxwell} gives
 \begin{equation}
-\Box F=\conj{\partial}(\rho-\mathbf J\cdot\sigv),
+\Box(\mathbf F\cdot\sigv)=\conj{\partial}(\rho-\mathbf J\cdot\sigv),
 \label{eq:wave-F}
 \end{equation}
 whose scalar part yields charge conservation,
@@ -488,19 +488,19 @@ For a real scalar gauge function \(\lambda\in\R\),
 \begin{equation}
 \Phi'=\Phi+\conj{\partial}\lambda,
 \qquad
-F'=F.
+\mathbf F'=\mathbf F.
 \label{eq:gauge}
 \end{equation}
-This gauge transformation shows why the potential \(\Phi\) is retained even when the field \(F\) is physically primary: \(\Phi\) carries the redundancy, while \(F\) carries the gauge-invariant derivative content.
+This gauge transformation shows why the potential \(\Phi\) is retained even when the field is physically primary: \(\Phi\) carries the redundancy, while \(\mathbf F\) carries the gauge-invariant derivative content.
 
 For a particle of real mass \(m\in\R\), real charge \(q\in\R\), and proper velocity \(U\in\R\oplus\R^3\), the proper-force formula is
 \begin{equation}
-m\frac{\dd U}{\dd s}=q\,\mathrm{real}(FU)
+m\frac{\dd U}{\dd s}=q\,\mathrm{real}\bigl((\mathbf F\cdot\sigv)U\bigr)
 =q\gamma\Big(\mathbf v\cdot\mathbf E+(\mathbf E+\mathbf v\times\mathbf B)\cdot\sigv\Big),
 \label{eq:lorentz-force}
 \end{equation}
 which packages both relativistic power and the Lorentz three-force.
-The real part in Eq.\ \eqref{eq:lorentz-force} extracts the physically relevant sector of the product \(FU\). The scalar term gives power transfer and the vector term gives the ordinary Lorentz force, so the standard split between energy change and momentum change is preserved inside one STA formula.
+The real part in Eq.\ \eqref{eq:lorentz-force} extracts the physically relevant sector of the product \((\mathbf F\cdot\sigv)U\). The scalar term gives power transfer and the vector term gives the ordinary Lorentz force, so the standard split between energy change and momentum change is preserved inside one STA formula.
 
 \subsection*{Lagrangian and energy-momentum remarks}
 The electromagnetic particle Lagrangian is
@@ -513,11 +513,11 @@ This is the standard relativistic coupling prescription: the free action from Eq
 
 A natural paravector candidate for field energy density and flux is
 \begin{equation}
-T:=\frac{1}{2}F\rev{F}
+T:=\frac{1}{2}(\mathbf F\cdot\sigv)\rev{\mathbf F\cdot\sigv}
 =\frac{1}{2}(\mathbf E^2+\mathbf B^2)+(\mathbf E\times\mathbf B)\cdot\sigv.
 \label{eq:energy-momentum-paravector}
 \end{equation}
-\flag{Editorial note: Eq.\ \eqref{eq:energy-momentum-paravector} is a useful frame-dependent energy-density/Poynting paravector, but by itself it is not the full electromagnetic stress-energy tensor. In STA language the full stress-energy object is more naturally a linear map such as $T(a)=\frac{1}{2}F a \rev{F}$ \cite{hestenes1966,doran2003}.}
+\flag{Editorial note: Eq.\ \eqref{eq:energy-momentum-paravector} is a useful frame-dependent energy-density/Poynting paravector, but by itself it is not the full electromagnetic stress-energy tensor. In STA language the full stress-energy object is more naturally a linear map such as $T(a)=\frac{1}{2}(\mathbf F\cdot\sigv)\,a\,\rev{\mathbf F\cdot\sigv}$ \cite{hestenes1966,doran2003}.}
 
 \subsection*{Supporting Electromagnetic Derivations}
 The material collected next writes out the field decomposition, potential reconstruction, source formulas, gauge transformations, force law expansions, and variational identities that underlie Eqs.\ \eqref{eq:dalembert}--\eqref{eq:energy-momentum-paravector}. On a first reading, this subsection may be skimmed and the forward exposition resumed at Section \ref{sec:qm}.
@@ -576,7 +576,7 @@ Using the commutators in Eq.\ \eqref{eq:commutators},
 \end{equation}
 one gets the useful factorization
 \begin{equation}
-(E+\sigv\cdot\mathbf P)(E-\sigv\cdot\mathbf P)=E^2-\mathbf P^2-iqF.
+(E+\sigv\cdot\mathbf P)(E-\sigv\cdot\mathbf P)=E^2-\mathbf P^2-iq(\mathbf F\cdot\sigv).
 \label{eq:EP-factorization}
 \end{equation}
 Equation \eqref{eq:EP-factorization} is the bridge between the Klein--Gordon and Dirac-type formulas below.
@@ -604,13 +604,13 @@ Multiplying \eqref{eq:dirac-coupled} by $D':=W(i\partial-q\conj{\Phi})+m\I$ yiel
 D'D\Psi=0
 \;\Rightarrow\;
 \begin{cases}
-(-E^2+\mathbf P^2+m^2-iqF^*)\Psi_1=0,\\[2pt]
-(-E^2+\mathbf P^2+m^2+iqF)\Psi_2=0.
+(-E^2+\mathbf P^2+m^2-iq\conj{\mathbf F\cdot\sigv})\Psi_1=0,\\[2pt]
+(-E^2+\mathbf P^2+m^2+iq(\mathbf F\cdot\sigv))\Psi_2=0.
 \end{cases}
 \label{eq:dirac-square}
 \end{equation}
 The calculation in Eq.\ \eqref{eq:dirac-square} explains why the block construction is more than formal packaging. Squaring the first-order system returns Klein--Gordon-type equations with the expected field couplings, so the Dirac form is seen as a controlled factorization of the relativistic wave operator.
-With the present ordering of \(Z=i\partial-q\conj{\Phi}=E-\sigv\cdot\mathbf P\) inside \(W(Z)\), the upper component carries \(-iqF^*\) and the lower component carries \(+iqF\). Appendix \ref{app:verification} records a symbolic check of this sign structure.
+With the present ordering of \(Z=i\partial-q\conj{\Phi}=E-\sigv\cdot\mathbf P\) inside \(W(Z)\), the upper component carries \(-iq\conj{\mathbf F\cdot\sigv}\) and the lower component carries \(+iq(\mathbf F\cdot\sigv)\). Appendix \ref{app:verification} records a symbolic check of this sign structure.
 
 Gauge covariance combines the electromagnetic gauge law \eqref{eq:gauge} with the block-field phase transformation
 \begin{equation}
@@ -690,23 +690,23 @@ the principal formulas developed in the manuscript are collected below.
 && \text{proper velocity; Eq.\ \eqref{eq:proper-velocity}},\\
 m\frac{\dd X}{\dd s} &= E+\mathbf P\cdot\sigv
 && \text{proper momentum; Eq.\ \eqref{eq:proper-momentum}},\\
-F &= (\mathbf E+i\mathbf B)\cdot\sigv
-&& \text{electromagnetic field; Eq.\ \eqref{eq:F-Phi}},\\
+\mathbf F &= \mathbf E+i\mathbf B
+&& \text{electromagnetic field vector; Eq.\ \eqref{eq:F-Phi}},\\
 \partial &= \partial_t+\sigv\cdot\gradv
 && \text{partial operator; Eq.\ \eqref{eq:dalembert}},\\
 \partial\conj{\partial} &= \partial_t^2-\gradv^2
 && \text{d'Alembertian; Eq.\ \eqref{eq:dalembert}},\\
 \Phi &= V+\mathbf A\cdot\sigv
 && \text{potential field; Eq.\ \eqref{eq:F-Phi}},\\
-\partial\Phi &= S+\conj{F}
+\partial\Phi &= S+\conj{\mathbf F\cdot\sigv}
 && \text{potential gradient; Eq.\ \eqref{eq:potential-gradient}},\\
 S &= \partial_tV+\gradv\cdot\mathbf A
 && \text{Lorenz scalar; Eq.\ \eqref{eq:potential-gradient}},\\
-\partial F &= \rho-\mathbf J\cdot\sigv
+\partial(\mathbf F\cdot\sigv) &= \rho-\mathbf J\cdot\sigv
 && \text{Maxwell's equations; Eq.\ \eqref{eq:maxwell}},\\
-\conj{\partial}\partial F &= \conj{\partial}(\rho-\mathbf J\cdot\sigv)
+\conj{\partial}\partial(\mathbf F\cdot\sigv) &= \conj{\partial}(\rho-\mathbf J\cdot\sigv)
 && \text{wave equations; Eqs.\ \eqref{eq:dalembert}, \eqref{eq:wave-F}},\\
-m\frac{\dd^2X}{\dd s^2} &= q\,\mathrm{real}\!\left(F\frac{\dd X}{\dd s}\right)
+m\frac{\dd^2X}{\dd s^2} &= q\,\mathrm{real}\!\left((\mathbf F\cdot\sigv)\frac{\dd X}{\dd s}\right)
 && \text{Lorentz force; Eqs.\ \eqref{eq:proper-acceleration}, \eqref{eq:lorentz-force}},\\
 (\partial\conj{\partial}+m^2)\Psi &= 0
 && \text{Klein--Gordon equation; Eq.\ \eqref{eq:kg-free}},\\
@@ -826,12 +826,12 @@ STA statement & Literature correspondence & Status & Notes \\
 \midrule
 Eq. \eqref{eq:dot-cross} & Pauli/GA product split \cite{hestenes1966,doran2003} & Verified & Standard scalar+bivector decomposition. \\
 Eq. \eqref{eq:interval} & Minkowski interval in paravector form \cite{hestenes1966,baylis1999} & Verified & Equivalent to $\dd t^2-\dd\mathbf r^2$. \\
-Eq. \eqref{eq:maxwell} & Compact Maxwell equation in STA \cite{hestenes1966,baylis1999,jackson1998} & Verified & Sign depends on the chosen $F$ and metric conventions. \\
+Eq. \eqref{eq:maxwell} & Compact Maxwell equation in STA \cite{hestenes1966,baylis1999,jackson1998} & Verified & Sign depends on the chosen $\mathbf F$ and metric conventions. \\
 Eq. \eqref{eq:lorentz-force} & Lorentz force law in STA packaging \cite{hestenes1966,jackson1998} & Verified & Combines power and force components into one paravector equation. \\
 Eq. \eqref{eq:kg-free} & Klein--Gordon equation \cite{klein1926,gordon1926} & Verified & Standard free relativistic scalar wave equation. \\
 Eq. \eqref{eq:kg-coupled} & Minimal-coupling KG equation \cite{greiner2000,jackson1998} & Verified & Operator-domain assumptions should be stated when commuting derivatives and fields. \\
 Eq. \eqref{eq:dirac-coupled} & Dirac equation in a $2\times2$ STA block representation \cite{dirac1928,hestenes1966,doran2003} & Verified & Representation-dependent, but equivalent in content once the map to spinor components is fixed. \\
-Eq. \eqref{eq:dirac-square} & Squared Dirac system after STA factorization \cite{dirac1928,hestenes1966,doran2003} & Verified & The upper component carries $-iqF^*$ and the lower component carries $+iqF$ with the operator ordering used here. \\
+Eq. \eqref{eq:dirac-square} & Squared Dirac system after STA factorization \cite{dirac1928,hestenes1966,doran2003} & Verified & The upper component carries $-iq(\mathbf F\cdot\sigv)^*$ and the lower component carries $+iq(\mathbf F\cdot\sigv)$ with the operator ordering used here. \\
 Eq. \eqref{eq:pauli} & Leading-order Pauli reduction \cite{pauli1927,sakurai2017} & Verified with caveat & The displayed form is low-energy and omits higher-order electric-field terms. \\
 Eq. \eqref{eq:energy-momentum-paravector} & Electromagnetic energy-momentum density & \flag{Needs qualification} & Useful frame-dependent object, but not the full stress-energy tensor alone. \\
 Robertson inequality variant & Robertson--Schr\"odinger uncertainty relation \cite{robertson1929} & \flag{Incorrect} & The displayed expression is not the standard state-variance inequality. \\
@@ -859,9 +859,9 @@ This section gathers the principal formulas that require correction, reinterpret
 \item \flag{The displayed ``Robertson inequality'' is not the standard Robertson or Robertson--Schr\"odinger uncertainty relation.}
 \item \flag{The metric diagonalization line $\dd s^2=\dd\mathbf x'\cdot\dd\mathbf x'$ drops the indefinite signature and should not be presented as a Lorentzian metric identity.}
 \item \flag{The quaternion square expansion has a missing factor of $a$ in the linear term.}
-\item \flag{The line $T=\frac12 F\rev{F}$ should be read as a frame-conditioned energy-density/Poynting paravector, not the full electromagnetic stress-energy tensor.}
+\item \flag{The line $T=\frac12(\mathbf F\cdot\sigv)\rev{\mathbf F\cdot\sigv}$ should be read as a frame-conditioned energy-density/Poynting paravector, not the full electromagnetic stress-energy tensor.}
 \item \flag{The label ``normalized Dirac'' for $(W(U)-\I)\Psi=0$ is too strong; it is an on-shell projector statement, not the general Dirac equation.}
-\item \flag{An earlier sign variant of Eq.\ \eqref{eq:dirac-square} with $+iqF^*$ in the upper component is inconsistent with the operator ordering in $W(i\partial-q\conj{\Phi})$; the corrected sign is $-iqF^*$.}
+\item \flag{An earlier sign variant of Eq.\ \eqref{eq:dirac-square} with $+iq(\mathbf F\cdot\sigv)^*$ in the upper component is inconsistent with the operator ordering in $W(i\partial-q\conj{\Phi})$; the corrected sign is $-iq(\mathbf F\cdot\sigv)^*$.}
 \item \flag{Several operator equalities stated in differential form implicitly assume smooth test functions and benign boundary behavior; those hypotheses should be stated whenever commutators of differential operators are used rigorously.}
 \end{enumerate}
 
