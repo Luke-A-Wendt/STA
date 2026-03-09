@@ -179,9 +179,9 @@ Using the Kronecker delta and Levi-Civita symbols, the basis relation can be exp
 \subsection*{The Sigma-Conjugate, Reverse, and Combined Operators}
 The two basic operators are involutions, and the combined operator built from them is fixed by the direct rules
 \begin{align}
-(\cdot)^* &:= \eqtext{conjugate flips signs of } \sigma_n,
+(\cdot)^* &= \eqtext{conjugate flips signs of } \sigma_n,
 \label{eq:star-definition}\\
-(\cdot)^{\mathrm R} &:= \eqtext{reverse order of multiplied } \sigma_n,
+(\cdot)^{\mathrm R} &= \eqtext{reverse order of multiplied } \sigma_n,
 \label{eq:reversion-definition}
 \end{align}
 Equation \eqref{eq:star-definition} defines the conjugate operator, and Eq.\ \eqref{eq:reversion-definition} defines the reverse operator. The conjugate operator \((\cdot)^*\) changes the sign of each basis generator while leaving product order unchanged, the reverse operator \((\cdot)^{\mathrm R}\) leaves each \(\sigma_n\) fixed while reversing the order of generator products so that \((\sigma_n\sigma_m)^{\mathrm R}=\sigma_m\sigma_n\), and the reverse-conjugate operator \((\cdot)^{*\mathrm R}\) is the conventional Hermitian-style combined involution.
@@ -191,7 +191,7 @@ Because sign-flip and order-reversal are independent, the combined operator may 
 \begin{aligned}
 {(XY)}^{*}&=X^{*}Y^{*},\qquad
 {(XY)}^{\mathrm R}=Y^{\mathrm R}X^{\mathrm R},\\
-X^{*\mathrm R}&:=(X^{\mathrm R})^{*}=(X^{*})^{\mathrm R}.
+X^{*\mathrm R}&=(X^{\mathrm R})^{*}=(X^{*})^{\mathrm R}.
 \end{aligned}
 \label{eq:involution-operators}
 \end{equation}
@@ -238,17 +238,36 @@ Write the scalar-plus-vector form as
 Z=S+\mathbf V\cdot\sigv \in \C\oplus\C^3.
 \label{eq:paravector}
 \end{equation}
-For real scalars \(a,b\in\R\) and real vectors \(\mathbf A,\mathbf B\in\R^3\), define
+For real scalars \(a,b\in\R\) and real vectors \(\mathbf A,\mathbf B\in\R^3\), write
 \begin{equation}
 \begin{aligned}
-S&:=a+ib\in\C,\qquad \mathbf V:=\mathbf A+i\mathbf B\in\C^3,\\
-X&:=a+\mathbf A\cdot\sigv\in\R\oplus\R^3,\qquad
-Y:=b+\mathbf B\cdot\sigv\in\R\oplus\R^3,\\
+S&=a+ib\in\C,\qquad \mathbf V=\mathbf A+i\mathbf B\in\C^3,\\
+X&=a+\mathbf A\cdot\sigv\in\R\oplus\R^3,\qquad
+Y=b+\mathbf B\cdot\sigv\in\R\oplus\R^3,\\
 Z&=X+iY=(a+ib)+(\mathbf A+i\mathbf B)\cdot\sigv.
 \end{aligned}
 \label{eq:paravector-parts}
 \end{equation}
 \noindent Equation \eqref{eq:paravector} isolates the scalar-plus-vector notation, while Eq.\ \eqref{eq:paravector-parts} records the corresponding real and complex pieces.
+
+The involutions act on the generic complex paravector by
+\begin{align}
+\conj{Z} &= (a-ib)+(-\mathbf A+i\mathbf B)\cdot\sigv,\notag\\
+\rev{Z} &= X-iY=(a-ib)+(\mathbf A-i\mathbf B)\cdot\sigv,\notag\\
+\crev{Z} &= (a+ib)-(\mathbf A+i\mathbf B)\cdot\sigv.
+\label{eq:paravector-involutions}
+\end{align}
+The corresponding recovery maps are
+\begin{align}
+\eqtext{scalar}(X) &:= a,\qquad
+\eqtext{vector}(X) := \mathbf A,\label{eq:XY-recovery}\\
+\eqtext{scalar}(Y) &:= b,\qquad
+\eqtext{vector}(Y) := \mathbf B,\notag\\
+\eqtext{real}(Z) &:= X=\frac{1}{2}(Z+\rev{Z}),\label{eq:paravector-real-imag}\\
+\eqtext{img}(Z) &:= Y=\frac{1}{2i}(Z-\rev{Z}),\notag\\
+\eqtext{scalar}(Z) &:= S=\frac{1}{2}(Z+\crev{Z}),\label{eq:paravector-scalar-vector}\\
+\eqtext{vector}(Z)\cdot\sigv&=\frac{1}{2}(Z-\crev{Z}).\notag
+\end{align}
 
 \begin{table}[t]
 \centering
@@ -272,24 +291,22 @@ complex paravector & \(\C\oplus\C^3\) & \(Z\) \\
 \subsection*{Dot products, cross products, and norms}
 For real vectors \(\mathbf A,\mathbf B\in\R^3\),
 \begin{align}
-\mathbf A\cdot\mathbf B &= A_1B_1+A_2B_2+A_3B_3,\notag\\
-\mathbf A^2 &= \mathbf A\cdot\mathbf A,\qquad
-\|\mathbf A\|=\sqrt{\mathbf A^2},
+\mathbf A\cdot\mathbf B &:= A_1B_1+A_2B_2+A_3B_3,\notag\\
+\mathbf A^2 &:= \mathbf A\cdot\mathbf A,
 \label{eq:vector-dot-norm}
 \end{align}
 and the cross product is
 \begin{align}
 \mathbf A\times\mathbf B
-&= \{A_2B_3-A_3B_2,\ A_3B_1-A_1B_3,\ A_1B_2-A_2B_1\},\notag\\
+&:= \{A_2B_3-A_3B_2,\ A_3B_1-A_1B_3,\ A_1B_2-A_2B_1\},\notag\\
 \mathbf B\times\mathbf A &= -\mathbf A\times\mathbf B.
 \label{eq:cross-product}
 \end{align}
-For a real scalar \(a\), a complex scalar \(S=a+ib\), and a complex vector \(\mathbf V=\mathbf A+i\mathbf B\),
+For a complex scalar \(S=a+ib\) and a complex vector \(\mathbf V=\mathbf A+i\mathbf B\),
 \begin{align}
-|a| &= \sqrt{a^2},\notag\\
-|S| &= \sqrt{SS^*}=\sqrt{a^2+b^2},\notag\\
-\mathbf V\cdot\mathbf V^* &= \mathbf A^2+\mathbf B^2,\qquad
-\|\mathbf V\|=\sqrt{\mathbf V\cdot\mathbf V^*}.
+|S| &:= \sqrt{SS^*}=\sqrt{a^2+b^2},\notag\\
+\|\mathbf V\| &:= \sqrt{\mathbf V\cdot\mathbf V^*}
+= \sqrt{\mathbf A^2+\mathbf B^2}.
 \label{eq:scalar-vector-norms}
 \end{align}
 \noindent The quadratic product \(\mathbf V^2\) is not the same object as the positive norm square \(\mathbf V\cdot\mathbf V^*\).
