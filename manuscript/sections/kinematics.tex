@@ -1,0 +1,124 @@
+\subsubsection*{Spacetime Paravectors and Interval Recovery}
+The real paravector
+\[
+\dd X=\dd t+\dd\mathbf r\cdot\sigv,
+\qquad
+\conj{\dd X}=\dd t-\dd\mathbf r\cdot\sigv,
+\]
+is the algebraic form of an infinitesimal space-time displacement. The temporal and spatial pieces are recovered directly by
+\begin{equation}
+\frac{\dd X+\conj{\dd X}}{2}=\dd t,
+\qquad
+\frac{\dd X-\conj{\dd X}}{2}=\dd\mathbf r\cdot\sigv.
+\end{equation}
+Multiplying the displacement by its conjugate gives the interval again,
+\begin{equation}
+\langle\!\langle \dd X\rangle\!\rangle^{2}=\dd X\conj{\dd X}=\dd t^{2}-\dd\mathbf r^{2}=\dd s^{2}.
+\end{equation}
+This is the precise point at which the algebraic Minkowski form from Eq.\ \eqref{eq:minkowski-form} becomes the space-time metric of Eq.\ \eqref{eq:interval}. For a non-null displacement, the inverse exists and is
+\begin{equation}
+(\dd X)^{-1}=\frac{\conj{\dd X}}{\dd s^{2}}.
+\end{equation}
+Null displacements are singled out algebraically because this inverse breaks down exactly when \(\dd s^{2}=0\).
+
+\subsubsection*{Interval Classes and Proper Time}
+Equation \eqref{eq:interval} gives the three standard interval classes without any additional geometric machinery:
+\begin{equation}
+\dd s^2>0 \;\Rightarrow\; \text{time-like},\qquad
+\dd s^2=0 \;\Rightarrow\; \text{null},\qquad
+\dd s^2<0 \;\Rightarrow\; \text{space-like}.
+\end{equation}
+For a time-like worldline, the parameter \(s\) is the proper time in natural units. Writing \(\mathbf v=\dd\mathbf r/\dd t\) then gives
+\begin{equation}
+\dd s=\sqrt{1-\mathbf v^2}\,\dd t,
+\qquad
+\tau=\int \dd s=\int \sqrt{1-\mathbf v^2}\,\dd t.
+\end{equation}
+In SI units the same relation is \(ds=c\,d\tau\). The advantage of the paravector notation is that the interval classification and the proper-time formula both come from the single algebraic identity \(\dd X\,\conj{\dd X}=dt^2-d\mathbf r^2\).
+
+\subsubsection*{Proper Velocity and Proper Acceleration in Components}
+Starting from Eq.\ \eqref{eq:proper-velocity}, the proper-velocity paravector can be read componentwise as
+\begin{equation}
+U=\frac{\dd X}{\dd s}=\gamma+\gamma\mathbf v\cdot\sigv,
+\qquad
+\eqtext{scalar}(U)=\gamma,
+\qquad
+\eqtext{vector}(U)=\gamma\mathbf v.
+\end{equation}
+Its normalization \(\langle\!\langle U\rangle\!\rangle^2=1\) implies \(U^{-1}=U^*\). Differentiating with respect to \(s\) yields
+\begin{equation}
+\eqtext{scalar}(\conj{U}A)=0,
+\qquad
+A:=\frac{\dd U}{\dd s},
+\end{equation}
+so proper acceleration is Minkowski-orthogonal to proper velocity.
+
+If \(\mathbf a=\dd\mathbf v/\dd t\), then
+\begin{equation}
+A=
+\gamma^{4}(\mathbf v\cdot\mathbf a)
++\Bigl(\gamma^{2}\mathbf a+\gamma^{4}(\mathbf v\cdot\mathbf a)\mathbf v\Bigr)\cdot\sigv.
+\end{equation}
+Its quadratic form is
+\begin{equation}
+\langle\!\langle A\rangle\!\rangle^2
+=-\gamma^4\Bigl(\mathbf a^2+\gamma^2(\mathbf v\cdot\mathbf a)^2\Bigr),
+\end{equation}
+which is strictly space-like unless the acceleration vanishes. Splitting \(\mathbf a\) into parts parallel and perpendicular to \(\mathbf v\) makes the same structure more explicit:
+\begin{equation}
+\langle\!\langle A\rangle\!\rangle^2
+=-\gamma^4\Bigl(\mathbf a_{\perp}^{2}+\gamma^{2}\mathbf a_{\parallel}^{2}\Bigr).
+\end{equation}
+This is the geometric content later used by the Lorentz-force law.
+
+\subsubsection*{Proper Momentum and the Mass Shell}
+Multiplying proper velocity by the rest mass produces the energy--momentum paravector,
+\begin{equation}
+mU=E+\mathbf P\cdot\sigv,
+\qquad
+E=m\gamma,
+\qquad
+\mathbf P=m\gamma\mathbf v.
+\end{equation}
+At rest one has \(\mathbf v=0\), hence \(E=m\) in natural units and \(E=mc^{2}\) in SI units. The kinetic energy is therefore \(E-m\).
+
+Because \(\langle\!\langle U\rangle\!\rangle^2=1\), the mass shell follows immediately:
+\begin{equation}
+\langle\!\langle mU\rangle\!\rangle^2
+=(E+\mathbf P\cdot\sigv)(E-\mathbf P\cdot\sigv)
+=E^{2}-\mathbf P^{2}=m^{2}.
+\end{equation}
+For \(m=0\), this reduces to \(E^{2}=\mathbf P^{2}\), which is the null case appropriate to massless motion.
+
+\subsubsection*{Action Principle, Hamiltonian, and Low-Velocity Expansion}
+The free action is
+\begin{equation}
+S_{\mathrm{free}}=-m\int \dd s=\int \mathcal L_{\mathrm{free}}\,\dd t,
+\qquad
+\mathcal L_{\mathrm{free}}=-\frac{m}{\gamma}.
+\end{equation}
+Differentiating with respect to \(\mathbf v\) gives the canonical momentum again,
+\begin{equation}
+\frac{\partial \mathcal L_{\mathrm{free}}}{\partial \mathbf v}
+=m\gamma\mathbf v
+=\mathbf P.
+\end{equation}
+The Hamiltonian is then
+\begin{equation}
+\mathcal H
+=\mathbf v\cdot\frac{\partial \mathcal L_{\mathrm{free}}}{\partial \mathbf v}-\mathcal L_{\mathrm{free}}
+=m\gamma\mathbf v^{2}+\frac{m}{\gamma}
+=m\gamma
+=E,
+\end{equation}
+so the action principle reproduces both the relativistic momentum and the relativistic energy inside one calculation.
+
+The low-velocity series
+\begin{equation}
+\mathcal L_{\mathrm{free}}=-m+\frac12 m\mathbf v^2+O(\mathbf v^4),
+\qquad
+\mathbf P=m\mathbf v+O(\mathbf v^{3}),
+\qquad
+\mathcal H=m+\frac12 m\mathbf v^{2}+O(\mathbf v^{4})
+\end{equation}
+shows exactly how the relativistic action contains the Newtonian kinetic term together with the additive rest-energy constant. Classical mechanics therefore appears as the approximation, not as the starting point.

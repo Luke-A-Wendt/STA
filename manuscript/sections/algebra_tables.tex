@@ -1,0 +1,98 @@
+\noindent Table~\ref{tab:sigma-grade-components-app} fixes the grade decomposition used throughout the algebraic manipulations.
+\begin{gradetable}[tab:sigma-grade-components-app]{Grade decomposition of the sigma algebra.}
+\graderow{scalar}{1}
+\graderow{vector}{\sigma_1,\ \sigma_2,\ \sigma_3}
+\graderow{bivector}{\sigma_2\sigma_3,\ \sigma_3\sigma_1,\ \sigma_1\sigma_2}
+\graderow{pseudo-scalar}{i=\sigma_1\sigma_2\sigma_3}
+\end{gradetable}
+
+\noindent Table~\ref{tab:grade-signs} then records how the sigma-conjugate, reverse, and combined operators act on each homogeneous grade.
+\begin{center}
+\captionsetup{type=table,font=small,labelfont=bf,skip=4pt}
+\captionof{table}{Signs of the sigma-conjugate, reverse, and combined operators on homogeneous grades.}\label{tab:grade-signs}
+\renewcommand{\arraystretch}{1.18}
+\setlength{\tabcolsep}{6pt}
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+Grade & sigma conjugate \((\cdot)^*\) & reverse operator \((\cdot)^{\mathrm R}\) & combined \((\cdot)^{*\mathrm R}\) \\
+\midrule
+scalar & \(+\) & \(+\) & \(+\) \\
+vector & \(-\) & \(+\) & \(-\) \\
+bivector & \(+\) & \(-\) & \(-\) \\
+pseudo-scalar & \(-\) & \(-\) & \(+\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent Table~\ref{tab:components-paravector-recovery} gives the recovery formulas that extract scalar, vector, real, and imaginary parts from a complex paravector.
+\begin{componenttable}[tab:components-paravector-recovery]{Z}
+\componentrow{scalar}{a+ib=(Z+Z^{\mathrm{R}*})/2}{}
+\componentrow{vector}{(\mathbf A+i\mathbf B)\cdot\sigv=(Z-Z^{\mathrm{R}*})/2}{}
+\componentrow{real part}{a+\mathbf A\cdot\sigv=(Z+Z^{\mathrm R})/2}{}
+\componentrow{imaginary part}{b+\mathbf B\cdot\sigv=(Z-Z^{\mathrm R})/(2i)}{}
+\componentrow{real scalar}{a=(Z+Z^*+Z^{\mathrm R}+Z^{\mathrm{R}*})/4}{}
+\componentrow{imaginary scalar}{b=(Z-Z^*-Z^{\mathrm R}+Z^{\mathrm{R}*})/(4i)}{}
+\componentrow{real vector}{\mathbf A\cdot\sigv=(Z-Z^*+Z^{\mathrm R}-Z^{\mathrm{R}*})/4}{}
+\componentrow{imaginary vector}{\mathbf B\cdot\sigv=(Z+Z^*-Z^{\mathrm R}-Z^{\mathrm{R}*})/(4i)}{}
+\end{componenttable}
+
+\noindent Tables~\ref{tab:components-paravector-product} and \ref{tab:components-paravector-square} collect the full component expansions for the generic product \(ZZ'\) and the special case \(Z^2\).
+\begin{componenttable}[tab:components-paravector-product]{Z Z'}
+\componentrow{real scalar}{aa'-bb'+\mathbf A\cdot\mathbf A'-\mathbf B\cdot\mathbf B'}{}
+\componentrow{imaginary scalar}{ab'+ba'+\mathbf A\cdot\mathbf B'+\mathbf B\cdot\mathbf A'}{}
+\componentrow{real vector}{a\mathbf A'-b\mathbf B'+a'\mathbf A-b'\mathbf B-\mathbf A\times\mathbf B'-\mathbf B\times\mathbf A'}{}
+\componentrow{imaginary vector}{a\mathbf B'+b\mathbf A'+a'\mathbf B+b'\mathbf A+\mathbf A\times\mathbf A'-\mathbf B\times\mathbf B'}{}
+\end{componenttable}
+
+\begin{componenttable}[tab:components-paravector-square]{Z^{2}}
+\componentrow{real scalar}{a^{2}-b^{2}+\mathbf A^{2}-\mathbf B^{2}}{}
+\componentrow{imaginary scalar}{2ab+2\mathbf A\cdot\mathbf B}{}
+\componentrow{real vector}{2(a\mathbf A-b\mathbf B)}{}
+\componentrow{imaginary vector}{2(a\mathbf B+b\mathbf A)}{}
+\end{componenttable}
+
+\noindent Tables~\ref{tab:components-zzstar} and \ref{tab:components-zstarz} make the order dependence of \(ZZ^{*}\) and \(Z^{*}Z\) explicit.
+\begin{componenttable}[tab:components-zzstar]{Z Z^{*}}
+\componentrow{real scalar}{a^{2}+b^{2}-\mathbf A^{2}-\mathbf B^{2}}{}
+\componentrow{imaginary scalar}{0}{}
+\componentrow{real vector}{-2\,\mathbf A\times\mathbf B}{\(\leftarrow\) differs from \(Z^{*}Z\)}
+\componentrow{imaginary vector}{2(a\mathbf B-b\mathbf A)}{}
+\end{componenttable}
+
+\begin{componenttable}[tab:components-zstarz]{Z^{*} Z}
+\componentrow{real scalar}{a^{2}+b^{2}-\mathbf A^{2}-\mathbf B^{2}}{}
+\componentrow{imaginary scalar}{0}{}
+\componentrow{real vector}{2\,\mathbf A\times\mathbf B}{\(\leftarrow\) differs from \(ZZ^{*}\)}
+\componentrow{imaginary vector}{2(a\mathbf B-b\mathbf A)}{}
+\end{componenttable}
+
+\noindent Tables~\ref{tab:components-zzrev} and \ref{tab:components-zrevz} play the same role for products involving the reverse operator.
+\begin{componenttable}[tab:components-zzrev]{Z Z^{\mathrm R}}
+\componentrow{real scalar}{a^{2}+b^{2}+\mathbf A^{2}+\mathbf B^{2}}{}
+\componentrow{imaginary scalar}{0}{}
+\componentrow{real vector}{2(a\mathbf A+b\mathbf B+\mathbf A\times\mathbf B)}{\(\leftarrow\) differs from \(Z^{\mathrm R}Z\)}
+\componentrow{imaginary vector}{\mathbf 0}{}
+\end{componenttable}
+
+\begin{componenttable}[tab:components-zrevz]{Z^{\mathrm R} Z}
+\componentrow{real scalar}{a^{2}+b^{2}+\mathbf A^{2}+\mathbf B^{2}}{}
+\componentrow{imaginary scalar}{0}{}
+\componentrow{real vector}{2(a\mathbf A+b\mathbf B-\mathbf A\times\mathbf B)}{\(\leftarrow\) differs from \(ZZ^{\mathrm R}\)}
+\componentrow{imaginary vector}{\mathbf 0}{}
+\end{componenttable}
+
+\noindent Tables~\ref{tab:components-zzcrev} and \ref{tab:components-zcrevz} show that the conjugate-reverse products collapse to purely scalar and imaginary-scalar parts.
+\begin{componenttable}[tab:components-zzcrev]{Z Z^{\mathrm{R}*}}
+\componentrow{real scalar}{a^{2}-b^{2}-\mathbf A^{2}+\mathbf B^{2}}{}
+\componentrow{imaginary scalar}{2ab-2\mathbf A\cdot\mathbf B}{}
+\componentrow{real vector}{\mathbf 0}{}
+\componentrow{imaginary vector}{\mathbf 0}{}
+\end{componenttable}
+
+\begin{componenttable}[tab:components-zcrevz]{Z^{\mathrm{R}*} Z}
+\componentrow{real scalar}{a^{2}-b^{2}-\mathbf A^{2}+\mathbf B^{2}}{}
+\componentrow{imaginary scalar}{2ab-2\mathbf A\cdot\mathbf B}{}
+\componentrow{real vector}{\mathbf 0}{}
+\componentrow{imaginary vector}{\mathbf 0}{}
+\end{componenttable}

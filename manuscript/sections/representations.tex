@@ -1,0 +1,195 @@
+\subsubsection*{Expectation-Value Shorthand}
+For normalized spinor-like algebra elements \(\psi\), it is sometimes convenient to borrow Dirac bra-ket notation as a compact shorthand for scalar projections:
+\begin{equation}
+\langle \psi \mid \psi \rangle := \eqtext{scalar}(\rev{\psi}\psi)=1,
+\qquad
+\langle \psi \mid M \mid \psi \rangle := \eqtext{scalar}(\rev{\psi}M\psi).
+\end{equation}
+This notation is only mnemonic; the underlying objects remain STA elements and the actual scalar extraction is still the one defined algebraically.
+
+\subsubsection*{Spin via Rotors}
+The rotor formalism from Eq.\ \eqref{eq:rotor} is also the cleanest way to express spin-axis changes. For a unit axis \(\mathbf n\in\R^3\) and angle \(\varphi\in\R\), let
+\begin{equation}
+R=\exp\!\left(\frac{\varphi}{2}\,\mathbf n\cdot i\sigv\right),
+\qquad
+\rev{R}R=1.
+\end{equation}
+Then every unit direction \(\mathbf u\) transforms by
+\begin{equation}
+\rev{R}(\mathbf u\cdot\sigv)R=\mathbf u'\cdot\sigv,
+\end{equation}
+with \(\mathbf u'\) given by the usual Rodrigues formula. If a spinor-like object transforms as \(\psi'=R\psi\), then the scalar expectation built from the rotated axis obeys
+\begin{equation}
+\eqtext{scalar}\!\bigl(\rev{\psi'}(\mathbf u\cdot\sigv)\psi'\bigr)
+=\eqtext{scalar}\!\bigl(\rev{\psi}(\mathbf u'\cdot\sigv)\psi\bigr).
+\end{equation}
+This is the STA statement that spin measurements rotate with the apparatus rather than with a separate external matrix rule.
+
+\subsubsection*{Spin Projectors, Transition Factors, and Ladder Operators}
+The spin projectors
+\begin{equation}
+\Pi(\pm)=\frac12(1\pm \mathbf u\cdot\sigv)
+\end{equation}
+are idempotents satisfying \(\Pi(\pm)^2=\Pi(\pm)\), \(\Pi(+)+\Pi(-)=1\), and \((\mathbf u\cdot\sigv)\Pi(\pm)=\pm\Pi(\pm)\). For a second axis \(\mathbf u'\), the same-side and cross-side products are
+\begin{equation}
+\Pi(\pm)(\mathbf u'\cdot\sigv)\Pi(\pm)=\pm(\mathbf u\cdot\mathbf u')\Pi(\pm),
+\end{equation}
+\begin{equation}
+\Pi(\pm)(\mathbf u'\cdot\sigv)\Pi(\mp)
+=\frac12\Bigl(\mathbf u'_{\perp}\pm i\,\mathbf u\times\mathbf u'\Bigr)\cdot\sigv\,\Pi(\mp).
+\end{equation}
+If \(\theta\) is the angle between the two axes, then
+\begin{equation}
+\frac12(1+\mathbf u\cdot\mathbf u')=\cos^{2}\frac{\theta}{2},
+\qquad
+\frac12(1-\mathbf u\cdot\mathbf u')=\sin^{2}\frac{\theta}{2}.
+\end{equation}
+These are the projector identities behind the standard spin-transition factors.
+
+About the \(z\)-axis one can also introduce the ladder elements
+\begin{equation}
+a(\pm):=\frac12(\sigma_1\pm i\sigma_2),
+\qquad
+[\sigma_3,a(\pm)]=\pm 2a(\pm),
+\qquad
+a(\pm)^2=0,
+\end{equation}
+with
+\begin{equation}
+a(+)a(-)=\Pi(+),
+\qquad
+a(-)a(+)=\Pi(-).
+\end{equation}
+They provide the intrinsic STA version of raising and lowering about a chosen axis.
+
+\subsubsection*{Commutators and the Scope of the Uncertainty Remarks}
+For unit directions \(\mathbf u,\mathbf u'\in\R^3\),
+\begin{equation}
+(\mathbf u\cdot\sigv)(\mathbf u'\cdot\sigv)=\mathbf u\cdot\mathbf u'+i(\mathbf u\times\mathbf u')\cdot\sigv,
+\end{equation}
+so the commutator is
+\begin{equation}
+[\mathbf u\cdot\sigv,\mathbf u'\cdot\sigv]=2i(\mathbf u\times\mathbf u')\cdot\sigv.
+\end{equation}
+Its norm is controlled by the angle between the axes,
+\begin{equation}
+\left\|\frac12[\mathbf u\cdot\sigv,\mathbf u'\cdot\sigv]\right\|^{2}
+=(\mathbf u\times\mathbf u')^{2}.
+\end{equation}
+This is the algebraic content needed for the spin-axis noncommutativity discussion. It should not, however, be mistaken for the full Robertson or Robertson--Schr\"odinger uncertainty relation, which is a state-variance statement rather than a bare operator comparison. The caution in Section \ref{sec:flags} is retained for that reason.
+
+\subsubsection*{Energy and Spin Projectors}
+The spin projectors \(\Pi(\pm)\) from Eq.\ \eqref{eq:projectors} and the energy projectors
+\[
+\Lambda(\pm)=\frac12(\I\pm W(U))
+\]
+play parallel roles. When \(U\) is a unit time-like paravector, Eq.\ \eqref{eq:proper-velocity} gives \(\langle\!\langle U\rangle\!\rangle^2=1\), hence \(W(U)^2=\I\). The operators \(\Lambda(+)\) and \(\Lambda(-)\) are therefore idempotents that split the free on-shell block field into positive- and negative-energy sectors, while \(\Pi(+)\) and \(\Pi(-)\) split the same field along a chosen spin axis.
+On free on-shell states this same construction is often read formally through the replacement \(U\sim i\partial/m\), but in the present manuscript that operator shorthand is only heuristic; the actual statement retained in the text is the projector relation itself.
+
+Together they yield the four-sector bookkeeping decomposition
+\begin{equation}
+\Psi=\Psi(+,+)+\Psi(+,-)+\Psi(-,+)+\Psi(-,-),
+\qquad
+\Psi(\epsilon,s):=\Lambda(\epsilon)\Pi(s)\Psi.
+\end{equation}
+This is a bookkeeping device once momentum and spin axis have already been fixed, not a substitute for the full interacting Dirac dynamics.
+
+\subsubsection*{Matrix Realization of Paravectors}
+The matrix representation in Eq.\ \eqref{eq:pauli-matrices} provides a familiar realization of the sigma algebra without changing any of the intrinsic STA statements. Substituting the Pauli matrices into
+\[
+X=t+\mathbf r\cdot\sigv
+\]
+gives the \(2\times2\) Hermitian matrix of Eq.\ \eqref{eq:matrix-X}, whose determinant is
+\[
+\det X=t^2-\mathbf r^2.
+\]
+That determinant is exactly the Minkowski quadratic form already defined intrinsically by \(X\conj{X}\). The representation is therefore confirmatory rather than foundational: it shows that the paravector formalism reproduces the standard matrix model, but the geometric meaning was already present before any matrices were introduced.
+
+The same realization makes the sigma-conjugate and reverse operators concrete:
+\begin{equation}
+M^\dagger:=M^{cT}.
+\end{equation}
+\noindent Here \(M^c\) denotes entrywise complex conjugation. In the matrix realization, \(M^\dagger\) is the Hermitian adjoint. For the sigma basis one then has
+\begin{equation}
+i^{c}=-i,
+\qquad
+\sigma_1^{c}=\sigma_1,
+\qquad
+\sigma_2^{c}=-\sigma_2,
+\qquad
+\sigma_3^{c}=\sigma_3,
+\end{equation}
+\begin{equation}
+(\sigma_n\sigma_m)^{cT}=\sigma_m\sigma_n=-\sigma_n\sigma_m
+\qquad (n\neq m),
+\end{equation}
+\begin{equation}
+\sigma_n^{cT}=\sigma_n,
+\qquad
+(i\I)^{cT}=-i\I,
+\qquad
+(i\sigma_n)^{cT}=-i\sigma_n,
+\end{equation}
+so in the matrix model the reverse operator coincides with the Hermitian adjoint on the sigma basis.
+
+The sigma-conjugate operator and the combined sigma-conjugate/reverse operator also admit direct matrix formulas. With
+\begin{equation}
+\mathsf J:=\{0, 1; -1, 0\},
+\end{equation}
+one has
+\begin{equation}
+M^{*}=\mathsf J\,M^{c}\,\mathsf J^{-1},
+\qquad
+M^{*\mathrm R}=\mathsf J\,M^{T}\,\mathsf J^{-1}.
+\end{equation}
+These identities reproduce the sigma-conjugate action \( \sigma_n \mapsto -\sigma_n \) and the combined action \( (\cdot)^{*\mathrm R} \) inside the Pauli-matrix realization without changing the intrinsic algebraic definitions already given earlier in the manuscript.
+
+\subsubsection*{Quaternion Sector}
+The quaternion basis
+\[
+q_1=-\sigma_2\sigma_3,\qquad
+q_2=-\sigma_3\sigma_1,\qquad
+q_3=-\sigma_1\sigma_2,
+\qquad
+\mathbf q=-i\sigv
+\]
+identifies the quaternion units as a restricted bivector sector of the same algebra. For
+\[
+Q=a+\mathbf b\cdot\mathbf q=a-i\mathbf b\cdot\sigv,
+\]
+one finds
+\begin{equation}
+QQ^{\mathsf R}=a^2+\mathbf b^2,
+\qquad
+Q^2=a^2-\mathbf b^2-2ia\,\mathbf b\cdot\sigv.
+\end{equation}
+The linear term must carry the factor \(a\). The quaternion correspondence is useful because it lets the reader compare the traditional quaternion rotation formula with the rotor construction from Eq.\ \eqref{eq:rotor} inside a single notational framework.
+
+\subsubsection*{Generalized Spacetime Forms and Metric Remarks}
+For a more general paravector-valued coordinate field,
+\begin{equation}
+X=f(t,\mathbf r)+\mathbf g(t,\mathbf r)\cdot\sigv,
+\qquad
+\dd X=\dd f+\dd\mathbf g\cdot\sigv,
+\end{equation}
+one still has the intrinsic interval formula
+\begin{equation}
+\langle\!\langle \dd X\rangle\!\rangle^{2}=\dd X\,\conj{\dd X}=\dd f^{2}-\dd\mathbf g^{2}.
+\end{equation}
+If \(\dd f\) is time-like, then the same algebraic steps as before give
+\begin{equation}
+\dd s=\sqrt{\dd f^{2}-\dd\mathbf g^{2}},
+\qquad
+\mathbf v=\frac{\dd\mathbf g}{\dd f},
+\qquad
+U=\frac{\dd X}{\dd s}=\gamma(1+\mathbf v\cdot\sigv),
+\qquad
+\gamma=\frac{\dd f}{\dd s}.
+\end{equation}
+Thus the proper-velocity formula survives unchanged under a reparametrization of the scalar and vector coordinates; what changes is only which functions are being used to encode the same paravector interval.
+
+For comparison with matrix notation, one may also write
+\begin{equation}
+\dd s^{2}=\dd x^{T}Q(x)\,\dd x
+\end{equation}
+for a symmetric matrix \(Q(x)\). Standard linear algebra then gives an orthogonal diagonalization \(Q=NDN^{T}\). That statement is useful for coordinate bookkeeping, but it does not eliminate the Lorentzian sign structure already built into \(\dd X\conj{\dd X}\). Diagonalization reorganizes the quadratic form; it does not convert the indefinite interval into a positive-definite Euclidean norm. That is the limit of the metric comparison and the reason the intrinsic paravector formula remains the primary statement in the manuscript.

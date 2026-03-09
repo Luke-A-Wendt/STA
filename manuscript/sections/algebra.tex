@@ -1,0 +1,637 @@
+\subsubsection*{Commutator Algebra}
+Before specializing to particular STA objects, it is helpful to record the algebraic behavior of the commutator itself, since many later identities are compact ways of saying that certain products commute or fail to commute in controlled ways. See Eqs.\ \eqref{eq:sigma-product} and \eqref{eq:dot-cross}. Here \(X,Y\in\C\oplus\C^3\) are generic complex paravectors, and \([X,Y]:=XY-YX\) is their commutator.
+\begin{align}
+[X, Y] &:= X Y - Y X, \\
+[Y, X] &= -[X, Y], \\
+[X, Y] &= 0 \Rightarrow X Y = Y X \Rightarrow \text{commutative}.
+\end{align}
+
+\subsubsection*{Vector Notation, Norms, and Cross Products}
+The elementary vector conventions are made fully explicit before introducing the sigma basis. That choice is retained here so that later products and norms can be read against familiar Euclidean notation.
+\begin{align}
+\mathbf A &= \eqtext{3-element vector}, \\
+\mathbf B &= \eqtext{3-element vector}.
+\end{align}
+\noindent\textit{The dot product is defined as follows.}\par
+\begin{equation}
+\mathbf A \cdot \mathbf B = A_{1}B_{1} + A_{2}B_{2} + A_{3}B_{3}.
+\end{equation}
+\noindent\textit{We denote the squared vector magnitude by.}\par
+\begin{equation}
+\mathbf A^{2} = \mathbf A \cdot \mathbf A.
+\end{equation}
+\noindent\textit{The scalar norm is defined by.}\par
+For \(a \in \mathbb{R}\), the following formulas apply.\par
+\begin{equation}
+|a| = \sqrt{a^{2}}.
+\end{equation}
+For \(a \in \mathbb{R}, b \in \mathbb{R}, c = a + i b\), the following formulas apply.\par
+\begin{align}
+|c| &= \sqrt{cc^{*}},\notag \\
+&= \sqrt{(a + i b)(a - i b)},\notag \\
+&= \sqrt{a^{2} + b^{2}}.
+\end{align}
+\noindent\textit{The vector norm is defined by.}\par
+For \(\mathbf A \in \mathbb{R}^{3}\), the following formulas apply.\par
+\begin{equation}
+\lVert \mathbf A \rVert = \sqrt{\mathbf A^{2}}.
+\end{equation}
+For \(\mathbf A \in \mathbb{R}^{3}, \mathbf B \in \mathbb{R}^{3}, \mathbf C = \mathbf A + i \mathbf B\), the following formulas apply.\par
+\begin{align}
+\lVert \mathbf C \rVert &= \sqrt{CC^{*}},\notag \\
+&= \sqrt{(\mathbf A + i \mathbf B) \cdot (\mathbf A - i \mathbf B)},\notag \\
+&= \sqrt{\mathbf A^{2} + \mathbf B^{2}}.
+\end{align}
+\noindent\emph{Note.} The quadratic product \(C^{2}\) is not the same object as the norm square \(\lVert \mathbf C\rVert^{2}\).\par
+\noindent\textit{The cross product is defined by.}\par
+\begin{equation}
+\mathbf A \times \mathbf B
+=
+\{ A_{2}B_{3} - A_{3}B_{2}, -A_{1}B_{3} + A_{3}B_{1}, A_{1}B_{2} - A_{2}B_{1} \}.
+\end{equation}
+\begin{equation}
+\mathbf B \times \mathbf A = -\mathbf A \times \mathbf B.
+\end{equation}
+
+\subsubsection*{Sigma Algebra}
+The sigma generators and their multiplication rules are written out here in full so that every later paravector identity can be traced back to explicit algebraic relations. See Eqs.\ \eqref{eq:basis} and \eqref{eq:sigma-product}.
+For \(n,m \in \{1,2,3\}\), the following identities hold.\par
+Let \(\sigma _{n}\) denote a basis algebra element.\par
+\begin{equation}
+\sigma _{n}^{2} = +1, \sigma _{n}\sigma _{m} = -\sigma _{m}\sigma _{n} \text{ if } m \neq n.
+\end{equation}
+\noindent\textit{The pseudoscalar connects the sigma algebra to the ordinary imaginary unit.}\par
+\begin{align}
+i &= \sigma _{1}\sigma _{2}\sigma _{3},\notag \\
+i^{2} &= -1,\notag \\
+(\sigma _{1}\sigma _{2}\sigma _{3})^{2} &= \sigma _{1}\sigma _{2}(\sigma _{3}\sigma _{1})\sigma _{2}\sigma _{3},\notag \\
+&= -\sigma _{1}(\sigma _{2}\sigma _{1})(\sigma _{3}\sigma _{2})\sigma _{3},\notag \\
+&= -\sigma _{1}^{2}\sigma _{2}^{2}\sigma _{3}^{2},\notag \\
+&= -1.
+\end{align}
+\noindent\textit{The bivector sector is given by.}\par
+Let \(i \sigv\) denote the vector of bivectors.\par
+\begin{align}
+&= \{\sigma _{2}\sigma _{3}, \sigma _{3}\sigma _{1}, \sigma _{1}\sigma _{2}\}, \\
+[i, \sigma _{n}] &= 0, \\
+i \sigma _{n} &= \sigma _{n} i\qquad \text{commutative}.
+\end{align}
+\noindent\textit{The Kronecker delta is defined by.}\par
+\begin{align}
+\delta _{nm} &= 1 \text{ if } n = m,\notag \\
+&= 0 \text{ else}.
+\end{align}
+\noindent\textit{The Levi-Civita symbol is defined by.}\par
+\begin{align}
+\epsilon _{nmk} &= +1 \text{ if } \{1,2,3\}, \{2,3,1\}, \{3,1,2\}\qquad \text{even permutation},\notag \\
+&= -1 \text{ if } \{3,2,1\}, \{1,3,2\}, \{2,1,3\}\qquad \text{odd permutation},\notag \\
+&= 0 \text{ if any two indices are equal}.
+\end{align}
+\begin{align}
+\sigma _{n}\sigma _{m} &= \delta _{nm} + \epsilon _{nmk} i \sigma _{k},\notag \\
+&= \epsilon _{nmk} i \sigma _{k} \text{ if } n \neq m.
+\end{align}
+\begin{align}
+\sigma _{1}\sigma _{2}\sigma _{3} &= (\delta _{12} + \epsilon _{123} i \sigma _{3}) \sigma _{3},\notag \\
+&= (0 + i \sigma _{3}) \sigma _{3} = i.
+\end{align}
+\begin{align}
+\text{non-commutative algebra if } n \neq m,\notag \\
+[\sigma _{n}, \sigma _{m}] &= \sigma _{n}\sigma _{m} - \sigma _{m}\sigma _{n},\notag \\
+&= \sigma _{n}\sigma _{m} - (-\sigma _{n}\sigma _{m}),\notag \\
+&= 2 \sigma _{n}\sigma _{m},\notag \\
+&= 2 \epsilon _{nmk} i \sigma _{k}.
+\end{align}
+\begin{align}
+[\sigma _{2}, \sigma _{3}] &= 2 \sigma _{1}\sigma _{2}\sigma _{3}\sigma _{1} = 2 i \sigma _{1}, \\
+[\sigma _{3}, \sigma _{1}] &= 2 \sigma _{1}\sigma _{2}\sigma _{3}\sigma _{2} = 2 i \sigma _{2}, \\
+[\sigma _{1}, \sigma _{2}] &= 2 \sigma _{1}\sigma _{2}\sigma _{3}\sigma _{3} = 2 i \sigma _{3}.
+\end{align}
+
+\subsubsection*{Sigma-Conjugate Action on Sigma Products}
+The sigma-conjugate operator changes the sign of each basis vector while preserving scalar coefficients.\par
+\begin{align}
+\sigma _{n}^{*} &= -\sigma _{n},\notag \\
+i^{*} &= -i,\notag \\
+(i \sigma _{n} )^{*} &= i \sigma _{n},\notag \\
+(\sigma _{n}\sigma _{m})^{*} &= \sigma _{n}\sigma _{m},\notag \\
+(\sigma _{1}\sigma _{2}\sigma _{3})^{*} &= \sigma _{1}^{*} \sigma _{2}^{*} \sigma _{3}^{*}\qquad \text{does not flip order},\notag \\
+&= (-\sigma _{1})(-\sigma _{2})(-\sigma _{3}),\notag \\
+&= -\sigma _{1}\sigma _{2}\sigma _{3}.
+\end{align}
+\begin{align}
+(\sigma _{n}\sigma _{m})^{*} &= \sigma _{n}^{*}\sigma _{m}^{*},\notag \\
+&= (-\sigma _{n})(-\sigma _{m}),\notag \\
+&= \sigma _{n}\sigma _{m}.
+\end{align}
+\begin{align}
+( i \sigma _{n} )^{*} &= i^{*} \sigma _{n}^{*},\notag \\
+&= (-i)(-\sigma _{n}),\notag \\
+&= i \sigma _{n}.
+\end{align}
+
+\subsubsection*{Reverse-Operator Action on Sigma Products}
+The reverse operator reverses the order of each basis-vector product.\par
+\begin{align}
+\sigma _{n}^{\mathrm{R}} &= \sigma _{n},\notag \\
+i^{\mathrm{R}} &= -i\qquad (\sigma _{1}\sigma _{2}\sigma _{3})^{\mathrm{R}} = \sigma _{3}\sigma _{2}\sigma _{1} = -\sigma _{1}\sigma _{2}\sigma _{3},\notag \\
+(\sigma _{n}\sigma _{m})^{\mathrm{R}} &= \sigma _{m}\sigma _{n},\notag \\
+&= -\sigma _{n}\sigma _{m} \text{ if } n \neq m.
+\end{align}
+\begin{align}
+(i \sigma _{n})^{\mathrm{R}} &= -i \sigma _{n},\notag \\
+(i \sigma _{n})^{\mathrm{R}} &= \sigma _{n} ( i )^{\mathrm{R}},\notag \\
+&= \sigma _{n} (-i),\notag \\
+&= -i \sigma _{n}.
+\end{align}
+
+\subsubsection*{Sign Table for the Sigma-Conjugate and Reverse Operators}
+Let \(0\) denote scalar.\par
+\begin{align}
+1 &= \text{vector}, \sigma _{n}, \\
+2 &= \text{bi-vector}, \sigma _{n}\sigma _{m} = \epsilon _{nmk} i \sigma _{k}, \\
+3 &= \text{pseudo-scalar}, i = \sigma _{1}\sigma _{2}\sigma _{3}.
+\end{align}
+\noindent\textit{The sigma-conjugate signs are summarized below.}\par
+\begin{align}
+0: 1^{*} &= 1, \\
+1: \sigma _{n}^{*} &= -\sigma _{n}, \\
+2: (i \sigma _{n})^{*} &= i \sigma _{n}, \\
+3: i^{*} &= -i.
+\end{align}
+\noindent\textit{The reverse-operator signs are summarized below.}\par
+\begin{align}
+0: 1^{\mathrm{R}} &= 1, \\
+1: \sigma _{n}^{\mathrm{R}} &= \sigma _{n}, \\
+2: (i \sigma _{n})^{\mathrm{R}} &= -i \sigma _{n}, \\
+3: i^{\mathrm{R}} &= -i.
+\end{align}
+\noindent\textit{The combined sigma-conjugate/reverse signs are summarized below.}\par
+\begin{align}
+0: 1^{*\mathrm{R}} &= 1, \\
+1: \sigma _{n}^{*\mathrm{R}} &= -\sigma _{n}, \\
+2: (i \sigma _{n})^{*\mathrm{R}} &= -i \sigma _{n}, \\
+3: i^{*\mathrm{R}} &= i.
+\end{align}
+\[
+\begin{array}{c|cccc}
+& 0 & 1 & 2 & 3 \\
+( )^{*} & + & - & + & - \\
+( )^{\mathrm{R}} & + & + & - & - \\
+( )^{*\mathrm{R}} & + & - & - & +
+\end{array}
+\]
+
+\subsubsection*{Vector Form and Explicit Sigma Products}
+\begin{equation}
+\sigv = \{ \sigma _{1}, \sigma _{2}, \sigma _{3} \}\qquad \eqtext{vector of algebraic objects}.
+\end{equation}
+\noindent\textit{Let the following notation be fixed.}\par
+\begin{align}
+\mathbf A &= \eqtext{3-element vector}, \\
+\mathbf B &= \eqtext{3-element vector}.
+\end{align}
+\noindent\textit{The dot product is defined as follows.}\par
+\begin{equation}
+\mathbf A \cdot \sigv = A_{1}\sigma _{1}+ A_{2}\sigma _{2} + A_{3}\sigma _{3}.
+\end{equation}
+\noindent\textit{Addition is handled componentwise.}\par
+\begin{equation}
+\mathbf A \cdot \sigv + \mathbf B \cdot \sigv = (\mathbf A + \mathbf B) \cdot \sigv.
+\end{equation}
+\noindent\textit{The corresponding multiplication law is.}\par
+\begin{align}
+(\mathbf A \cdot \sigv ) (\mathbf B \cdot \sigv ) &= \mathbf A \cdot \mathbf B + i (\mathbf A \times \mathbf B) \cdot \sigv,\notag \\
+\qquad i &= \sigma _{1}\sigma _{2}\sigma _{3},\notag \\
+&= \sum_{n}\sum_{m} A_{n}B_{m} \sigma _{n}\sigma _{m},\notag \\
+&= \sum_{n} A_{n}B_{n}\sigma _{n}^{2} + \Sigma _{n<m} (A_{n}B_{m} - A_{m}B_{n})\sigma _{n}\sigma _{m},\notag \\
+&= \mathbf A \cdot \mathbf B,\notag \\
+&\quad + (A_{1}B_{2} - A_{2}B_{1})\sigma _{1}\sigma _{2},\notag \\
+&\quad + (A_{1}B_{3} - A_{3}B_{1})\sigma _{1}\sigma _{3},\notag \\
+&\quad + (A_{2}B_{3} - A_{3}B_{2})\sigma _{2}\sigma _{3},\notag \\
+&= \mathbf A \cdot \mathbf B,\notag \\
+&\quad + (A_{1}B_{2} - A_{2}B_{1})\sigma _{1}\sigma _{2}(\sigma _{3}^{2}),\notag \\
+&\quad + (A_{1}B_{3} - A_{3}B_{1})\sigma _{1}(\sigma _{2}^{2})\sigma _{3},\notag \\
+&\quad + (A_{2}B_{3} - A_{3}B_{2})(\sigma _{1}^{2})\sigma _{2}\sigma _{3},\notag \\
+&= \mathbf A \cdot \mathbf B,\notag \\
+&\quad + (A_{1}B_{2} - A_{2}B_{1})(\sigma _{1}\sigma _{2}\sigma _{3})\sigma _{3},\notag \\
+&\quad - (A_{1}B_{3} - A_{3}B_{1})(\sigma _{1}\sigma _{2}\sigma _{3})\sigma _{2},\notag \\
+&\quad + (A_{2}B_{3} - A_{3}B_{2})(\sigma _{1}\sigma _{2}\sigma _{3})\sigma _{1}.
+\end{align}
+\begin{align}
+(\mathbf A \cdot \sigv )^{2} &= \mathbf A^{2},\notag \\
+(\mathbf A \cdot \sigv )^{2n} &= (\mathbf A^{2})^{n},\notag \\
+(\mathbf A \cdot \sigv )^{2n+1} &= (\mathbf A^{2})^{n} (\mathbf A \cdot \sigv ),\notag \\
+((\mathbf A \cdot \sigv )(\mathbf B \cdot \sigv ))^{*} &= (\mathbf A \cdot \sigv ) (\mathbf B \cdot \sigv ),\notag \\
+(\mathbf A \cdot \sigv ) \sigv &= \mathbf A + i \mathbf A \times \sigv,\notag \\
+\sigma _{n} \sigv &= (e_{n} \cdot \sigv ) \sigv,\notag \\
+&= e_{n} + i e_{n} \times \sigv.
+\end{align}
+\begin{align}
+(\mathbf A \cdot \sigv ) (\mathbf B \cdot \sigv ) &= \mathbf A \cdot \mathbf B + i (\mathbf A \times \mathbf B) \cdot \sigv,\notag \\
+(\mathbf B \cdot \sigv ) (\mathbf A \cdot \sigv ) &= \mathbf A \cdot \mathbf B - i (\mathbf A \times \mathbf B) \cdot \sigv,\notag \\
+[\mathbf A \cdot \sigv , \mathbf B \cdot \sigv ] &= 2 i (\mathbf A \times \mathbf B) \cdot \sigv,\notag \\
+(\mathbf A \times \mathbf B) \cdot \sigv &= [\mathbf A \cdot \sigv , \mathbf B \cdot \sigv ] / (2 i),\notag \\
+\mathbf A \cdot \mathbf B &= ((\mathbf A \cdot \sigv )(\mathbf B \cdot \sigv ) + (\mathbf B \cdot \sigv )(\mathbf A \cdot \sigv )) / 2,\notag \\
+[\mathbf A \cdot \sigv , \sigv ] &= -2 i \mathbf A \times \sigv = 2 i \sigv \times \mathbf A,\notag \\
+[\mathbf A \cdot (i\sigv ), \sigv ] &= 2 \mathbf A \times \sigv,\notag \\
+[\mathbf A \cdot \sigv , \sigv ] \cdot \mathbf B &= 2 i (\sigv \times \mathbf A) \cdot \mathbf B,\notag \\
+&= 2 i (\mathbf A \times \mathbf B) \cdot \sigv,\notag \\
+&= [\mathbf A \cdot \sigv , \mathbf B \cdot \sigv ].
+\end{align}
+
+\subsubsection*{Products of Real Scalars, Vectors, and Paravectors}
+This subsection expands the basic scalar, vector, and paravector product rules used throughout the manuscript.
+\begin{align}
+X &= a + \mathbf A \cdot \sigv \in \mathbb{R}\oplus\mathbb{R}^{3},\notag \\
+Y &= b + \mathbf B \cdot \sigv \in \mathbb{R}\oplus\mathbb{R}^{3},\notag \\
+XY &= (a + \mathbf A \cdot \sigv ) (b + \mathbf B \cdot \sigv ),\notag \\
+&= a b + a (\mathbf B \cdot \sigv ) + b (\mathbf A \cdot \sigv ) + (\mathbf A \cdot \sigv ) (\mathbf B \cdot \sigv ),\notag \\
+&= ( a b + \mathbf A \cdot \mathbf B ) + (a \mathbf B + b \mathbf A + i (\mathbf A \times \mathbf B)) \cdot \sigv,\notag \\
+&= YX \text{ if } \mathbf A \times \mathbf B = 0.
+\end{align}
+The product \(XY\) generally lies in \(\mathbb{R}\oplus\mathbb{C}^{3}\).\par
+\begin{align}
+XY \in \mathbb{R}\oplus\mathbb{R}^{3} \text{ if } \mathbf A \times \mathbf B &= 0,\notag \\
+[ X, Y ] &= 2 i (\mathbf A \times \mathbf B) \cdot \sigv,\notag \\
+&= 0 \text{ if } \mathbf A \times \mathbf B = 0\qquad \text{conditionally commutative}.
+\end{align}
+\begin{align}
+(XY)^{\mathrm{R}} &= ( Y )^{\mathrm{R}} X^{\mathrm{R}},\notag \\
+(XY)^{\mathrm{R}} &= (ab+\mathbf A\cdot\mathbf B)
++\bigl(a\mathbf B+b\mathbf A-i(\mathbf A\times\mathbf B)\bigr)\cdot\sigv,\notag \\
+(XY)^{\mathrm{R}} &= (ab+\mathbf A\cdot\mathbf B)
++\bigl(a\mathbf B+b\mathbf A+i(\mathbf B\times\mathbf A)\bigr)\cdot\sigv,\notag \\
+&= Y X.
+\end{align}
+\begin{align}
+\eqtext{scalar}(XY) &= a b + \mathbf A \cdot \mathbf B,\notag \\
+\eqtext{vector}(XY) &= a \mathbf B + b \mathbf A + i (\mathbf A \times \mathbf B),\notag \\
+\eqtext{scalar}(YX) &= \eqtext{scalar}(XY),\notag \\
+\eqtext{vector}(YX) &= a \mathbf B + b \mathbf A + i (\mathbf B \times \mathbf A),\notag \\
+&= \eqtext{vector}(XY) \text{ if } \mathbf A \times \mathbf B = 0.
+\end{align}
+\begin{align}
+\eqtext{scalar}(X^{2}) &= a^{2} + \mathbf A^{2},\notag \\
+\eqtext{vector}(X^{2}) &= 2 a \mathbf A,\notag \\
+X^{2} &= a^{2} + \mathbf A^{2} + 2 a \mathbf A \cdot \sigv,\notag \\
+&= b + \mathbf B \cdot \sigv,\notag \\
+&= Y.
+\end{align}
+\begin{align}
+X &= \pm \sqrt{Y}, \\
+a^{2} &= \tfrac{1}{2} ( b \pm \sqrt{b^{2} - \mathbf B^{2}} ), \\
+\mathbf A^{2} &= b - a^{2}.
+\end{align}
+\noindent\textit{The minimal polynomial is.}\par
+\begin{align}
+X^{2} - 2 a X + ( a^{2} - \mathbf A^{2} ) &= 0,\notag \\
+\langle\!\langle XY \rangle\!\rangle^{2} &= \langle\!\langle Y \rangle\!\rangle^{2}\langle\!\langle X \rangle\!\rangle^{2}
+\qquad \text{if } \mathbf A \times \mathbf B = 0,\notag \\
+X^{-1} &= X^{*}/(XX^{*}),\notag \\
+&= (a - \mathbf A \cdot \sigv )/(a^{2} - \mathbf A^{2}) \text{ if } a^{2} \neq \mathbf A^{2}.
+\end{align}
+\begin{align}
+X^{-1} X &= 1, \\
+d(X^{-1}) &= -X^{-1} (dX) X^{-1}, \\
+X^{-1} Y &= Y X^{-1} \text{ if } \mathbf A \times \mathbf B = 0.
+\end{align}
+
+\subsubsection*{Exponential of a Real Vector}
+The exponential becomes especially transparent once the unit-direction element
+\(\mathbf u\cdot\sigv\) is resolved into its two eigenprojectors. Write
+\(\mathbf A=\alpha \mathbf u\) with \(\alpha=\lVert \mathbf A\rVert\) and
+\(\mathbf u^{2}=1\). Then the projectors from Eq.\ \eqref{eq:projectors} satisfy
+\begin{align}
+\Pi(\pm) &= \tfrac{1}{2}(1\pm \mathbf u\cdot\sigv),\notag \\
+\mathbf u\cdot\sigv &= \Pi(+) - \Pi(-),\notag \\
+1 &= \Pi(+) + \Pi(-),\notag \\
+(\mathbf u\cdot\sigv)\Pi(\pm) &= \pm \Pi(\pm).
+\end{align}
+Applying the spectral decomposition to the exponential gives the clean projector form
+\begin{align}
+\exp(\mathbf A\cdot\sigv)
+&= \exp(\alpha\,\mathbf u\cdot\sigv)\notag \\
+&= e^{\alpha}\Pi(+) + e^{-\alpha}\Pi(-)\notag \\
+&= \cosh(\alpha) + \sinh(\alpha)\,\mathbf u\cdot\sigv\notag \\
+&= \gamma(1+\mathbf v\cdot\sigv),
+\end{align}
+with
+\begin{align}
+\gamma &= \cosh(\alpha),\notag \\
+\mathbf v &= \tanh(\alpha)\,\mathbf u.
+\end{align}
+For a real paravector \(X=a+\mathbf A\cdot\sigv\in\R\oplus\R^3\), the scalar part commutes with the vector part, so
+\begin{align}
+\exp(X) &= \exp(a)\exp(\mathbf A\cdot\sigv),\notag \\
+\exp(X^{*}) &= \exp(a)\exp(-\mathbf A\cdot\sigv)=\exp(X)^{*},\notag \\
+\exp(-X) &= \exp(-a)\exp(-\mathbf A\cdot\sigv)=\exp(X)^{-1}.
+\end{align}
+The same projector split also gives the compact trigonometric form of the imaginary exponential:
+\begin{align}
+\exp(i\alpha\,\mathbf u\cdot\sigv)
+&= e^{i\alpha}\Pi(+) + e^{-i\alpha}\Pi(-)\notag \\
+&= \cos(\alpha) + i\sin(\alpha)\,\mathbf u\cdot\sigv,
+\end{align}
+and therefore
+\begin{align}
+\exp(-i\mathbf A\cdot\sigv)
+&= \exp(-i\alpha\,\mathbf u\cdot\sigv)\notag \\
+&= e^{-i\alpha}\Pi(+) + e^{i\alpha}\Pi(-)\notag \\
+&= \cos(\alpha) - i\sin(\alpha)\,\mathbf u\cdot\sigv\notag \\
+&= \cos(\alpha) + \sin(\alpha)\,(\mathbf u\cdot\mathbf q)\qquad \text{see quaternions}.
+\end{align}
+Finally, the sigma-conjugate simply flips the projector weights:
+\begin{align}
+\exp(\mathbf A\cdot\sigv)^{*}
+&= e^{-\alpha}\Pi(+) + e^{\alpha}\Pi(-)\notag \\
+&= \gamma(1-\mathbf v\cdot\sigv)\notag \\
+&= \exp(-\mathbf A\cdot\sigv)\notag \\
+&= \exp\bigl((\mathbf A\cdot\sigv)^{*}\bigr)\notag \\
+&= \exp(\mathbf A\cdot\sigv)^{-1}.
+\end{align}
+
+\subsubsection*{Logarithm of a Real Paravector}
+The logarithm is the inverse problem for the same spectral calculus. Let
+\begin{equation}
+Y=b+\mathbf B\cdot\sigv\in\R\oplus\R^3,
+\end{equation}
+and assume \(b>\lVert\mathbf B\rVert\), so that the two real eigenvalues are positive and the principal logarithm is defined. Writing
+\(\mathbf B=\lVert\mathbf B\rVert \mathbf u\) when \(\mathbf B\neq 0\), one has
+\begin{align}
+\lambda(\pm) &= b \pm \lVert\mathbf B\rVert,\notag \\
+Y &= \lambda(+)\Pi(+) + \lambda(-)\Pi(-),
+\end{align}
+with the same projector pair \(\Pi(\pm)=\tfrac12(1\pm \mathbf u\cdot\sigv)\). The logarithm therefore acts separately on the two eigenvalues:
+\begin{align}
+\log(Y)
+&= \log\!\bigl(\lambda(+)\bigr)\Pi(+) + \log\!\bigl(\lambda(-)\bigr)\Pi(-)\notag \\
+&= \tfrac12 \log\!\bigl(\lambda(+)\lambda(-)\bigr)
++ \tfrac12 \log\!\bigl(\lambda(+)/\lambda(-)\bigr)\,\mathbf u\cdot\sigv.
+\end{align}
+If \(Y=\exp(X)\) with \(X=a+\mathbf A\cdot\sigv\) and \(\mathbf A=\alpha\mathbf u\), then \(\lambda(\pm)=e^{a\pm\alpha}\), so the recovered parameters are
+\begin{align}
+a &= \tfrac12 \log\!\bigl(b^{2}-\mathbf B^{2}\bigr), \\
+\alpha &= \operatorname{arctanh}\!\bigl(\lVert\mathbf B\rVert/b\bigr), \\
+\mathbf A &= \alpha\,\mathbf u
+= \operatorname{arctanh}\!\bigl(\lVert\mathbf B\rVert/b\bigr)\,
+\frac{\mathbf B}{\lVert\mathbf B\rVert}.
+\end{align}
+Thus the logarithm of a time-like real paravector is
+\begin{equation}
+\log(Y)=a+\mathbf A\cdot\sigv.
+\end{equation}
+
+\subsubsection*{Complex Paravectors}
+\begin{align}
+i &= \sigma _{1}\sigma _{2}\sigma _{3},\notag \\
+X &= a + \mathbf A \cdot \sigv \in \mathbb{R}\oplus\mathbb{R}^{3},\notag \\
+Y &= b + \mathbf B \cdot \sigv \in \mathbb{R}\oplus\mathbb{R}^{3},\notag \\
+Z &= c + \mathbf C \cdot \sigv \in \mathbb{C}\oplus\mathbb{C}^{3},\notag \\
+&= X + i Y,\notag \\
+&= (a+ b i) + (\mathbf A + i \mathbf B) \cdot \sigv\qquad \text{paravector}.
+\end{align}
+\begin{align}
+a &= \eqtext{scalar}(X) \in \mathbb{R},\notag \\
+\mathbf A &= \eqtext{vector}(X) \in \mathbb{R}^{3},\notag \\
+b &= \eqtext{scalar}(Y) \in \mathbb{R},\notag \\
+\mathbf B &= \eqtext{vector}(Y) \in \mathbb{R}^{3},\notag \\
+c &= \eqtext{scalar}(Z) \in \mathbb{C}\qquad \eqtext{complex scalar},\notag \\
+\mathbf C &= \eqtext{vector}(Z) \in \mathbb{C}^{3}\qquad \eqtext{complex vector},\notag \\
+Z^{*} &= (a - b i) + (-\mathbf A + i \mathbf B) \cdot \sigv,\notag \\
+Z^{\mathrm{R}} &= (a - b i) + (\mathbf A - i \mathbf B) \cdot \sigv,\notag \\
+Z^{\mathrm{R}*} &= (a + b i) - (\mathbf A + i \mathbf B) \cdot \sigv,\notag \\
+X &= \eqtext{real}(Z) = (Z + Z^{\mathrm{R}}) / 2,\notag \\
+Y &= \eqtext{img}(Z) = (Z - Z^{\mathrm{R}}) / (2i),\notag \\
+c &= a + b i,\notag \\
+&= (Z + Z^{\mathrm{R}*}) / 2.
+\end{align}
+\begin{align}
+\mathbf C \cdot \sigv &= (\mathbf A + i \mathbf B) \cdot \sigv,\notag \\
+&= (Z - Z^{\mathrm{R}*}) / 2.
+\end{align}
+
+\subsubsection*{Products of Complex Paravectors}
+\begin{align}
+X &= a + \mathbf A \cdot \sigv \in \mathbb{R}\oplus\mathbb{R}^{3},\notag \\
+Y &= b + \mathbf B \cdot \sigv \in \mathbb{R}\oplus\mathbb{R}^{3},\notag \\
+Z &= c + \mathbf C \cdot \sigv \in \mathbb{C}\oplus\mathbb{C}^{3},\notag \\
+&= X + i Y.
+\end{align}
+
+\begin{equation}
+\eqtext{scalar}(Z Z') = \eqtext{scalar}(Z' Z)\qquad \text{cyclic property}.
+\end{equation}
+If \(Z' = M Z^{*\mathrm{R}},\), then the following relation holds.\par
+\begin{align}
+\eqtext{scalar}(Z M Z^{*\mathrm{R}}) &= \eqtext{scalar}(M Z^{*\mathrm{R}} Z),\notag \\
+&= \eqtext{scalar}(M) (Z^{*\mathrm{R}} Z)\qquad since Z^{*\mathrm{R}} Z is scalar.
+\end{align}
+\begin{align}
+\eqtext{scalar}(Z Z^{*}) &= c c^{*} - \mathbf C \mathbf C^{*}\qquad \text{real},\notag \\
+&= (a^{2} + b^{2}) - (\mathbf A^{2} + \mathbf B^{2}).
+\end{align}
+\begin{align}
+\lVert Z \rVert^{2} &= |c|^{2} + \lVert \mathbf C \rVert^{2},\notag \\
+&= c c^{*} + \mathbf C \mathbf C^{*},\notag \\
+&= (a^{2} + b^{2}) + (\mathbf A^{2} + \mathbf B^{2})\qquad \text{non-negative real},\notag \\
+&= \eqtext{scalar}(Z^{\mathrm{R}} Z),\notag \\
+&= \eqtext{scalar}(Z Z^{\mathrm{R}}),\notag \\
+&= \tfrac{1}{2} ( Z^{\mathrm{R}} Z + (Z^{\mathrm{R}} Z)^{*\mathrm{R}}),\notag \\
+&= \tfrac{1}{2} ( Z^{\mathrm{R}} Z + Z^{*\mathrm{R}} Z^{*} ).
+\end{align}
+\begin{align}
+\lVert \mathbf r \exp(i\theta ) Z \rVert^{2} &= \mathbf r^{2} \lVert Z \rVert^{2}, \\
+Z Z^{*} &= \eqtext{real scalar + complex vector}, \\
+Z Z^{\mathrm{R}} &= \eqtext{real scalar + real vector}.
+\end{align}
+Let \(Z Z^{\mathrm{R}*}\) denote complex scalar.\par
+\begin{align}
+Z^{*} Z^{\mathrm{R}} &= Z^{\mathrm{R}} Z^{*} = (Z^{\mathrm{R}*} Z)^{*}, \\
+Z^{*} Z &= Z Z^{*} \text{ if } \mathbf A \times \mathbf B = 0, \\
+Z^{\mathrm{R}} Z &= Z Z^{\mathrm{R}} \text{ if } \mathbf A \times \mathbf B = 0, \\
+( Z Z' )^{*} &= Z^{*} ( Z' )^{*}, \\
+( Z Z' )^{\mathrm{R}} &= ( Z' )^{\mathrm{R}} Z^{\mathrm{R}}, \\
+( Z Z' )^{*\mathrm{R}} &= ( Z' )^{*\mathrm{R}} Z^{*\mathrm{R}}.
+\end{align}
+\noindent\textit{Partial operator on products.}\par
+\begin{align}
+\partial &= \partial _{t} + \sigv \cdot \delr{}, \\
+\partial (ZZ') &= (\partial Z) Z' + Z (\partial Z') + [\sigv , Z] \cdot \delr{} Z'.
+\end{align}
+
+\subsubsection*{Paravector Metric and Interval Form}
+\begin{align}
+\langle\!\langle \eqtext{scalar} + \vectortext \cdot \sigv \rangle\!\rangle^{2} &:= \eqtext{scalar}^{2} - \vectortext^{2},\notag \\
+&= (\eqtext{scalar} + \vectortext \cdot \sigv )(\eqtext{scalar} - \vectortext \cdot \sigv ),\notag \\
+&= (\eqtext{scalar} - \vectortext \cdot \sigv )(\eqtext{scalar} + \vectortext \cdot \sigv ).
+\end{align}
+\begin{align}
+X &= a + \mathbf A \cdot \sigv \in \mathbb{R}\oplus\mathbb{R}^{3},\notag \\
+Y &= b + \mathbf B \cdot \sigv \in \mathbb{R}\oplus\mathbb{R}^{3},\notag \\
+Z &= c + \mathbf C \cdot \sigv \in \mathbb{C}\oplus\mathbb{C}^{3},\notag \\
+&= X + i Y.
+\end{align}
+\begin{align}
+\langle\!\langle Z \rangle\!\rangle^{2} &= c^{2} - \mathbf C^{2}\qquad \eqtext{complex scalar},\notag \\
+&= Z Z^{\mathrm{R}*} = Z^{\mathrm{R}*}Z,\notag \\
+&= (a + i b)^{2} - (\mathbf A + i \mathbf B)^{2},\notag \\
+&= (a^{2} - b^{2} - \mathbf A^{2} + \mathbf B^{2}) + 2 i (a b - \mathbf A \cdot \mathbf B).
+\end{align}
+\begin{align}
+\langle\!\langle \mathbf r \exp(i\theta ) Z \rangle\!\rangle^{2} &= \mathbf r^{2} \exp(2i\theta ) \langle\!\langle Z \rangle\!\rangle^{2},\notag \\
+\langle\!\langle X \rangle\!\rangle^{2} &= a^{2} - \mathbf A^{2}\qquad \eqtext{real scalar},\notag \\
+&= X X^{*} = X^{*} X.
+\end{align}
+
+\subsubsection*{Inverse Formulas}
+Here \(Z\in\mathbb{C}\oplus\mathbb{C}^{3}\).\par
+\begin{align}
+Z^{-1} &= Z^{\mathrm{R}*} / \langle\!\langle Z \rangle\!\rangle^{2},\notag \\
+&= Z^{\mathrm{R}*} / (Z^{\mathrm{R}*} Z).
+\end{align}
+If \(Z^{\mathrm{R}*} Z = 0\), then the inverse does not exist.\par
+
+\subsubsection*{Minimal Polynomial and Spectral Decomposition}
+The spectral data of a complex paravector are collected here because the later functional calculus, projector formulas, and exponential identities all depend on this algebraic factorization. See Eq.\ \eqref{eq:functional-calculus}.
+\begin{align}
+Z &= c + \mathbf C \cdot \sigv \in \mathbb{C}\oplus\mathbb{C}^{3}, \\
+Z^{2} - 2 c Z + ( c^{2} - \mathbf C^{2} ) &= 0, \\
+\lambda (\pm ) &= c \pm \sqrt{ \mathbf C^{2} }, \\
+( Z - \lambda (-) ) ( Z - \lambda (+) ) &= 0.
+\end{align}
+
+\subsubsection*{Exponentials of Complex Paravectors}
+\begin{align}
+X &= a + \mathbf A \cdot \sigv \in \mathbb{R}\oplus\mathbb{R}^{3},\notag \\
+Y &= b + \mathbf B \cdot \sigv \in \mathbb{R}\oplus\mathbb{R}^{3},\notag \\
+Z &= c + \mathbf C \cdot \sigv \in \mathbb{C}\oplus\mathbb{C}^{3},\notag \\
+&= X + i Y.
+\end{align}
+\begin{align}
+\exp(Z) &= \exp( c + \mathbf C \cdot \sigv ),\notag \\
+&= \exp(c) \exp( \mathbf C \cdot \sigv ).
+\end{align}
+\begin{align}
+\exp(Z^{*}) &= \exp(c^{*}) \exp( -\mathbf C^{*} \cdot \sigv ),\notag \\
+\exp(Z)^{-1} &= \exp(-c) \exp( -\mathbf C \cdot \sigv ),\notag \\
+\exp(Z^{*})^{-1} &= \exp(-c^{*}) \exp( \mathbf C^{*} \cdot \sigv ),\notag \\
+(\mathbf C \cdot \sigv )^{2} &= \mathbf C \cdot \mathbf C = \mathbf C^{2},\notag \\
+&= \mathbf A^{2} - \mathbf B^{2} + 2 i \mathbf A \cdot \mathbf B.
+\end{align}
+\begin{align}
+(\mathbf C \cdot \sigv )^{2n} &= (\mathbf C^{2})^{n},\notag \\
+z &= \sqrt{\mathbf C^{2}}\qquad \eqtext{complex scalar},\notag \\
+\exp(\mathbf C \cdot \sigv ) &= \sum_{n} (\mathbf C \cdot \sigv )^{n} / n!,\notag \\
+&= \sum_{n} (\mathbf C^{2})^{n} / (2n)! + \sum_{n} (\mathbf C^{2})^{n} / (2n+1)! (\mathbf C \cdot \sigv ),\notag \\
+&= \cosh(z) + \sinh(z) (\mathbf C \cdot \sigv ) / z.
+\end{align}
+
+\subsubsection*{Complex Field Decomposition}
+\begin{align}
+\partial &= \partial _{t} + \delr{} \cdot \sigv, \\
+F &= (a + i b) + (\mathbf A + i \mathbf B) \cdot \sigv, \\
+\mathbf a : \mathbb{R}\times \mathbb{R}^{3} &\Rightarrow \mathbb{R}, \\
+\mathbf A : \mathbb{R}\times \mathbb{R}^{3} &\Rightarrow \mathbb{R}^{3}, \\
+\mathbf b : \mathbb{R}\times \mathbb{R}^{3} &\Rightarrow \mathbb{R}, \\
+\mathbf B : \mathbb{R}\times \mathbb{R}^{3} &\Rightarrow \mathbb{R}^{3}, \\
+F : \mathbb{R}\times \mathbb{R}^{3} &\Rightarrow \mathbb{C}\oplus\mathbb{C}^{3}.
+\end{align}
+
+\subsubsection*{Functions of a Unit-Direction Element}
+The projector pair \(\Pi(\pm)\) is the spectral decomposition of the unit-direction element \(\mathbf u\cdot\sigv\). The corresponding eigenvalue data are
+\begin{align}
+\Pi(\pm) &= \tfrac{1}{2}(1\pm \mathbf u\cdot\sigv), \\
+\Pi(\pm)^{2} &= \Pi(\pm), \\
+\Pi(+)\Pi(-) &= 0, \\
+\Pi(+) + \Pi(-) &= 1, \\
+(\mathbf u\cdot\sigv)\Pi(\pm) &= \pm \Pi(\pm),
+\end{align}
+so \(\mathbf u\cdot\sigv\) has the two eigenvalues \(+1\) and \(-1\). Any function with a convergent power series therefore collapses to those two scalar values:
+\begin{align}
+f(\mathbf u\cdot\sigv)
+&= f(+1)\Pi(+) + f(-1)\Pi(-)\notag \\
+&= \tfrac{1}{2}\bigl(f(+1)+f(-1)\bigr)
++ \tfrac{1}{2}\bigl(f(+1)-f(-1)\bigr)\,\mathbf u\cdot\sigv.
+\end{align}
+This is the basic projector calculus for a unit-direction element. Its common special cases are
+\begin{align}
+\sqrt{\mathbf u\cdot\sigv} &= \pm \Pi(+) \pm i\,\Pi(-), \\
+\log(\mathbf u\cdot\sigv) &= 2\pi i\Bigl(n\,\Pi(+)+\bigl(m+\tfrac12\bigr)\Pi(-)\Bigr), \\
+(z+\mathbf u\cdot\sigv)^{-1}
+&= \frac{1}{z+1}\Pi(+) + \frac{1}{z-1}\Pi(-)\notag \\
+&= \frac{z-\mathbf u\cdot\sigv}{z^{2}-1}, \\
+\frac{i-\mathbf u\cdot\sigv}{i+\mathbf u\cdot\sigv} &= i\,\mathbf u\cdot\sigv, \\
+\exp(\theta\,\mathbf u\cdot\sigv) &= e^{\theta}\Pi(+) + e^{-\theta}\Pi(-), \\
+\exp(i\theta\,\mathbf u\cdot\sigv) &= e^{i\theta}\Pi(+) + e^{-i\theta}\Pi(-),
+\end{align}
+where \(m,n\in\mathbb Z\) select the branch of the logarithm.
+
+\subsubsection*{Functions of a Paravector}
+Let
+\begin{align}
+X &= t + \mathbf r\cdot\sigv, \\
+t &= \eqtext{scalar}(X)\in\mathbb R, \\
+\mathbf r &= \eqtext{vector}(X)\in\mathbb R^{3}.
+\end{align}
+If \(\mathbf r\neq 0\), write \(\mathbf r=\lVert\mathbf r\rVert \mathbf u\) with \(\mathbf u^{2}=1\). Then the minimal polynomial of \(X\) is
+\begin{align}
+X^{2} - 2 t X + ( t^{2} - \mathbf r^{2} ) &= 0,\notag \\
+\lambda(\pm) &= t \pm \lVert\mathbf r\rVert,\notag \\
+0 &= (X-\lambda(-))(X-\lambda(+)),
+\end{align}
+so \(X\) has the projector decomposition
+\begin{align}
+\Pi(\pm) &= \tfrac12(1\pm \mathbf u\cdot\sigv), \\
+X &= \lambda(+)\Pi(+) + \lambda(-)\Pi(-), \\
+\Pi(\pm)X &= \lambda(\pm)\Pi(\pm).
+\end{align}
+Any analytic function of \(X\) is therefore obtained by applying the scalar function to the two eigenvalues:
+\begin{align}
+f(X)
+&= f\bigl(\lambda(+)\bigr)\Pi(+) + f\bigl(\lambda(-)\bigr)\Pi(-)\notag \\
+&= \tfrac12\Bigl(f\bigl(\lambda(+)\bigr)+f\bigl(\lambda(-)\bigr)\Bigr)\notag \\
+&\quad + \tfrac12\Bigl(f\bigl(\lambda(+)\bigr)-f\bigl(\lambda(-)\bigr)\Bigr)\,\mathbf u\cdot\sigv.
+\end{align}
+If \(f(X)=t'+\mathbf r'\cdot\sigv\), then
+\begin{align}
+t' &= \tfrac12\Bigl(f\bigl(\lambda(+)\bigr)+f\bigl(\lambda(-)\bigr)\Bigr), \\
+\lVert\mathbf r'\rVert &= \tfrac12\Bigl(f\bigl(\lambda(+)\bigr)-f\bigl(\lambda(-)\bigr)\Bigr), \\
+\mathbf r' &= \lVert\mathbf r'\rVert\,\mathbf u.
+\end{align}
+The main special cases are
+\begin{align}
+\exp(X)
+&= e^{\lambda(+)}\Pi(+) + e^{\lambda(-)}\Pi(-)\notag \\
+&= e^{t}\bigl(\cosh(\lVert\mathbf r\rVert)
++ \sinh(\lVert\mathbf r\rVert)\,\mathbf u\cdot\sigv\bigr), \\
+\sqrt{X} &= \pm \sqrt{\lambda(+)}\,\Pi(+) \pm \sqrt{\lambda(-)}\,\Pi(-), \\
+\log(X) &= \log\!\bigl(\lambda(+)\bigr)\Pi(+) + \log\!\bigl(\lambda(-)\bigr)\Pi(-), \\
+X^{-1}
+&= \frac{\Pi(+)}{\lambda(+)} + \frac{\Pi(-)}{\lambda(-)}\notag \\
+&= \frac{X^{*}}{t^{2}-\mathbf r^{2}}, \\
+X^{n} &= \lambda(+)^{n}\Pi(+) + \lambda(-)^{n}\Pi(-).
+\end{align}
+When two different paravectors
+\(X=t+\lVert\mathbf r\rVert\,\mathbf u\cdot\sigv\) and
+\(X'=t'+\lVert\mathbf r'\rVert\,\mathbf u'\cdot\sigv\) are decomposed along different axes, their functions multiply by combining the two projector families:
+\begin{equation}
+f(X)g(X')
+= \sum_{s,s'=\pm} f\bigl(\lambda(s)\bigr)\,g\bigl(\lambda'(s')\bigr)\,\Pi(s)\Pi'(s').
+\end{equation}
+The mixed projector products are
+\begin{equation}
+\Pi(s)\Pi'(s')
+= \tfrac14\Bigl(
+1 + ss'\,\mathbf u\cdot\mathbf u'
++ \bigl(s\mathbf u + s'\mathbf u' + ss' i(\mathbf u\times\mathbf u')\bigr)\cdot\sigv
+\Bigr),
+\end{equation}
+with \(s,s'\in\{+1,-1\}\). This compact formula reproduces all four explicit same-side and cross-side products.
+As a useful example, the Cayley-type transform is itself a projector exponential:
+\begin{align}
+\frac{1-\mathbf r\cdot\sigv}{1+\mathbf r\cdot\sigv}
+&= \exp\!\bigl(-2\,\operatorname{arctanh}(\mathbf r\cdot\sigv)\bigr)\notag \\
+&= e^{-2\operatorname{arctanh}(\lVert\mathbf r\rVert)}\Pi(+)
++ e^{+2\operatorname{arctanh}(\lVert\mathbf r\rVert)}\Pi(-).
+\end{align}

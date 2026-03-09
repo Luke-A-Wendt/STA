@@ -1,0 +1,270 @@
+\subsubsection*{General Transformation Identities}
+\begin{align}
+X' &= T^{-1} X T,\notag \\
+&= T^{-1} ( t + \mathbf r \cdot \sigv ) T,\notag \\
+&= t + \mathbf r \cdot ( T^{-1}\sigv T ),\notag \\
+&= t + \mathbf r \cdot \sigv '.
+\end{align}
+\begin{equation}
+T^{-1} = T^{\mathrm{R}*} / (T^{\mathrm{R}*} T).
+\end{equation}
+\noindent\textit{For boosts and rotors, the inverse simplifies to}\par
+\begin{align}
+T^{\mathrm{R}*} T &= 1,\qquad T^{-1} = T^{\mathrm{R}*},\notag \\
+T^{-1} T &= 1,\notag \\
+d(T^{-1}) T &= -T^{-1} dT,\notag \\
+dX' &= d(T^{-1}) X T + T^{-1} dX T + T^{-1} X dT,\notag \\
+&= T^{-1} dX T.
+\end{align}
+\noindent\textit{The two intermediate terms are } \(( -T^{-1}dT)(TT^{-1})XT\)\textit{ and } \(T^{-1}X(TT^{-1})dT\)\textit{.}\par
+\begin{align}
+&= T^{-1} dX T + (-T^{-1} dT) X' + X' (T^{-1} dT),\notag \\
+&= T^{-1} dX T + [X', T^{-1} dT].
+\end{align}
+\begin{align}
+d\Theta &:= T^{-1} dT,\notag \\
+dX' &= T^{-1} dX T + [ X', d\Theta ],\notag \\
+ddX' &= d(T^{-1}) dX T + T^{-1} ddX T + T^{-1} dX dT,\notag \\
+&\quad + [dX', d\Theta ] + [X', dd\Theta ].
+\end{align}
+\begin{align}
+d(T^{-1}) dX T &= (-T^{-1} dT) (T^{-1} dX T),\notag \\
+&= -d\Theta (dX' - [ X', d\Theta ]).
+\end{align}
+\begin{align}
+T^{-1} dX dT &= (T^{-1} dX T) (T^{-1} dT),\notag \\
+&= (dX' - [ X', d\Theta ]) d\Theta.
+\end{align}
+\begin{align}
+ddX' &= T^{-1} ddX T,\notag \\
+&\quad +2 [ dX', d\Theta ],\notag \\
+&\quad + [ X', dd\Theta ],\notag \\
+&\quad + [ d\Theta , [ X', d\Theta ] ].
+\end{align}
+\begin{align}
+d\Theta /dt &= \Omega,\notag \\
+dd\Theta /dt^{2} &= d\Omega /dt,\notag \\
+dX'/dt &= T^{-1} (dX/dt) T + [ X', \Omega ],\notag \\
+ddX'/dt^{2} &= T^{-1} (ddX/dt^{2}) T,\notag \\
+&\quad +2 [ dX'/dt, \Omega ],\notag \\
+&\quad + [ X', d\Omega /dt ],\notag \\
+&\quad + [ \Omega , [ X', \Omega ] ].
+\end{align}
+
+\subsubsection*{Transformed Basis Elements}
+\begin{align}
+T(x) &= f(x) + \mathbf g(x) \cdot \sigv, \\
+T^{-1} &= ( f - \mathbf g \cdot \sigv ) / ( f^{2} - \mathbf g^{2} ), \\
+dT &= df + d\mathbf g \cdot \sigv, \\
+\sigma _{n}' &:= T^{-1} \sigma _{n} T, \\
+\sigma _{n} &= T \sigma _{n}' T^{-1}.
+\end{align}
+\noindent\textit{Applying the sigma-conjugate and reverse operators gives}\par
+\begin{align}
+( \sigma _{n}' )^{*} &= (T^{-1})^{*} \sigma _{n}^{*} T^{*},\notag \\
+&= -(T^{*})^{-1} \sigma _{n} T^{*}.
+\end{align}
+\begin{align}
+( \sigma _{n}' )^{\mathrm{R}} &= T^{\mathrm{R}} \sigma _{n}^{\mathrm{R}} (T^{-1})^{\mathrm{R}},\notag \\
+&= T^{\mathrm{R}} \sigma _{n} (T^{\mathrm{R}})^{-1}.
+\end{align}
+\begin{align}
+( \sigma _{n}' )^{*\mathrm{R}} &= -T^{*\mathrm{R}} \sigma _{n} (T^{-1})^{*\mathrm{R}},\notag \\
+&= -T^{-1}\sigma _{n} T \text{ if } T^{-1} = T^{*\mathrm{R}},\notag \\
+&= -\sigma _{n}' \text{ if } T^{-1} = T^{*\mathrm{R}}.
+\end{align}
+\begin{align}
+\sigv ' algebra &= \sigv algebra,\notag \\
+(\sigma _{n}')^{2} &= T^{-1}\sigma _{n}TT^{-1}\sigma _{n}T,\notag \\
+&= T^{-1}\sigma _{n}^{2} T = 1.
+\end{align}
+For \(n\neq m\), the mixed products transform as follows.\par
+\begin{align}
+T^{-1}\sigma _{n}\sigma _{m}T &= T^{-1}\sigma _{n}TT^{-1}\sigma _{m}T = \sigma _{n}'\sigma _{m}',\notag \\
+&= T^{-1}\epsilon _{nmk} i \sigma _{k}T = \epsilon _{nmk} i \sigma _{k}'.
+\end{align}
+\begin{align}
+\sigma _{1}'\sigma _{2}'\sigma _{3}' &= T^{-1}\sigma _{1}TT^{-1}\sigma _{2}TT^{-1}\sigma _{3}T,\notag \\
+&= T^{-1}\sigma _{1}\sigma _{2}\sigma _{3} T = i T^{-1}T = i.
+\end{align}
+\begin{align}
+d\sigma _{n}' &= [\sigma _{n}', T^{-1} dT],\notag \\
+d\sigv ' &= [\sigv ', T^{-1} dT]\qquad \text{vector},\notag \\
+Z &= Z_{s} + Z_{\mathbf v} \cdot \sigv '\qquad \text{paravector},\notag \\
+\langle\!\langle Z \rangle\!\rangle^{2} &= ZZ^{*\mathrm{R}},\notag \\
+&= (Z_{s} + Z_{\mathbf v} \cdot \sigv ' )(Z_{s} - Z_{\mathbf v} \cdot \sigv ' ) \text{ if } T^{-1} = T^{*\mathrm{R}},\notag \\
+&= Z_{s}^{2} - Z_{\mathbf v}^{2} \text{ if } T^{-1} = T^{*\mathrm{R}}.
+\end{align}
+\begin{align}
+dZ &= dZ_{s} + dZ_{\mathbf v} \cdot \sigv ' + Z_{\mathbf v} \cdot d\sigv ',\notag \\
+&= dZ_{s} + dZ_{\mathbf v} \cdot \sigv ' + Z_{\mathbf v} \cdot [\sigv ', T^{-1} dT].
+\end{align}
+\begin{align}
+T^{-1} dT &= (f df - g dg) / ( f^{2} - g^{2} ),\notag \\
+&\quad + (f d\mathbf g - df \mathbf g - i \mathbf g \times d\mathbf g) \cdot \sigv / ( f^{2} - \mathbf g^{2} ).
+\end{align}
+\noindent\textit{Define the following object.}\par
+\begin{align}
+\Omega &:= T^{-1} (dT/dt),\notag \\
+\Omega ' &:= T \Omega T^{-1} = (dT/dt) T^{-1},\notag \\
+\eqtext{scalar}(\sigma _{n}') &= \eqtext{scalar}(T^{-1} \sigma _{n} T),\notag \\
+&= \eqtext{scalar}(\sigma _{n} TT^{-1})\qquad \text{cyclic property},\notag \\
+&= \eqtext{scalar}(\sigma _{n}),\notag \\
+&= 0.
+\end{align}
+\begin{align}
+\eqtext{scalar}(\Omega \sigma _{n}'),\notag \\
+&= \eqtext{scalar}(T^{-1} (dT/dt) T^{-1} \sigma _{n} T),\notag \\
+&= \eqtext{scalar}((dT/dt) T^{-1} \sigma _{n} TT^{-1})\qquad \text{cyclic},\notag \\
+&= \eqtext{scalar}((dT/dt) T^{-1} \sigma _{n} ),\notag \\
+&= \eqtext{scalar}( \Omega ' \sigma _{n} ).
+\end{align}
+\begin{align}
+k_{n} + i \omega _{n} &:= \eqtext{scalar}( 2 \Omega ' \sigma _{n} ),\notag \\
+\Omega &= \Omega_s + \tfrac{1}{2} (k + i \omega ) \cdot \sigv ',\notag \\
+[\sigv ', \omega \cdot ( i \sigv ' )] &= -2 \omega \times \sigv ',\notag \\
+[\sigv ', \mathbf k \cdot \sigv '] &= 2 i \mathbf k \times \sigv ',\notag \\
+d\sigv '/dt &= [\sigv ', \Omega ],\notag \\
+&= i ( k + i \omega ) \times \sigv ',\notag \\
+&= ( -\omega + i k ) \times \sigv '.
+\end{align}
+\begin{align}
+Z_{\mathbf v} \cdot [\sigv ', \Omega ] &= ( -Z_{\mathbf v} \times \omega + i Z_{\mathbf v} \times k ) \cdot \sigv ',\notag \\
+dZ/dt &= dZ_{s}/dt,\notag \\
+&\quad + (dZ_{\mathbf v}/dt - Z_{\mathbf v} \times \omega + i Z_{\mathbf v} \times k ) \cdot \sigv '.
+\end{align}
+\noindent\emph{This interpretation also applies in non-inertial settings.}\par
+\begin{align}
+X &= t + \mathbf r \cdot \sigv ',\notag \\
+dX/dt &= dt/dt,\notag \\
+&\quad + (d\mathbf r/dt - \mathbf r \times \omega + i \mathbf r \times \mathbf k ) \cdot \sigv '.
+\end{align}
+\noindent\textit{Energy \& momentum.}\par
+\begin{align}
+m dX/dt &= E + \mathbf P' \cdot \sigv ', \\
+E / m &= dt/dt, \\
+\mathbf P' / m &= d\mathbf r/dt + \mathbf r \times (-\omega + i k).
+\end{align}
+If \(T^{-1} = T^{*\mathrm{R}},\), then the following relation holds.\par
+\begin{align}
+\langle\!\langle dX \rangle\!\rangle^{2} &= dt^{2} - (d\mathbf r - \mathbf r \times \omega dt + i \mathbf r \times \mathbf k dt)^{2},\notag \\
+&= (1 - (d\mathbf r/dt - \mathbf r \times \omega + i \mathbf r \times \mathbf k)^{2}) dt^{2}.
+\end{align}
+\begin{equation}
+ds' := \sqrt{1 - (\mathbf v - \mathbf r \times \omega + i \mathbf r \times \mathbf k)^{2}} dt.
+\end{equation}
+
+\subsubsection*{Lorentz Boosts}
+\begin{align}
+\theta &= \operatorname{arctanh}(\beta ),\notag \\
+\beta &= \tanh(\theta ),\notag \\
+\gamma &= \cosh(\theta ),\notag \\
+\gamma \beta &= \sinh(\theta ),\notag \\
+\mathbf u &= (u_{1}, u_{2}, u_{3}), \mathbf u^{2} = 1,\notag \\
+L(\theta ,\mathbf u) &:= \exp( \tfrac{1}{2} \theta (\mathbf u \cdot \sigv ) ),\notag \\
+&= \cosh( \tfrac{1}{2} \theta ) + \sinh( \tfrac{1}{2} \theta ) (\mathbf u \cdot \sigv ).
+\end{align}
+\begin{equation}
+L^{-1} = \exp( -\tfrac{1}{2} \theta (\mathbf u \cdot \sigv ) ).
+\end{equation}
+\noindent\emph{Note.} The boost inverse satisfies \(L^{-1}=L^{*}=L^{*\mathrm{R}}\).\par
+\noindent\textit{Commutative over the same axis.}\par
+\begin{equation}
+[ L(\theta ,\mathbf u), L(\theta ',\mathbf u) ] = 0.
+\end{equation}
+\noindent\textit{Co-linear boost.}\par
+\begin{align}
+L(\theta ', \mathbf u) &= L(\theta _{1}, \mathbf u) L(\theta _{2}, \mathbf u), \\
+\beta ' &= (\beta _{1} + \beta _{2}) / (1 + \beta _{1} \beta _{2}), \\
+\gamma ' &= \gamma _{1} \gamma _{2} (1 + \beta _{1} \beta _{2}).
+\end{align}
+\noindent\textit{Re-mapping space-time numbers.}\par
+\begin{align}
+X &= t + \mathbf r \cdot \sigv,\notag \\
+X' &= L^{*} X L,\notag \\
+&= t' + \mathbf r' \cdot \sigv.
+\end{align}
+\begin{align}
+t' &= t \cosh(\theta ) - \sinh(\theta ) (\mathbf u \cdot \mathbf r),\notag \\
+&= \gamma ( t - \beta (\mathbf u \cdot \mathbf r) ).
+\end{align}
+Split the vector \(\mathbf r\) into parts parallel and perpendicular to the boost direction.\par
+\noindent\textit{Parallel and perpendicular to u.}\par
+\begin{align}
+\eqtext{par}(\mathbf r) &:= (\mathbf r \cdot \mathbf u) \mathbf u\qquad \text{parallel to u},\notag \\
+\eqtext{prp}(\mathbf r) &:= \mathbf r - \eqtext{par}(\mathbf r)\qquad \text{perpendicular to u},\notag \\
+\mathbf r &= \eqtext{par}( \mathbf r ) + \eqtext{prp}( \mathbf r ),\notag \\
+\eqtext{par}( \mathbf r' ) &= \gamma ( \eqtext{par}( \mathbf r ) - \beta t \mathbf u),\notag \\
+\eqtext{prp}( \mathbf r' ) &= \eqtext{prp}( \mathbf r ),\notag \\
+\mathbf r' &= \eqtext{par}( \mathbf r' ) + \eqtext{prp}( \mathbf r ' ),\notag \\
+&= \eqtext{prp}( \mathbf r ) + \gamma ( \eqtext{par}( \mathbf r ) - \beta t \mathbf u),\notag \\
+&= \mathbf r +( \gamma ( \mathbf r \cdot \mathbf u - \beta t ) - \mathbf r \cdot \mathbf u ) \mathbf u.
+\end{align}
+If \(\beta \Rightarrow 0,\), then the following relation holds.\par
+\begin{equation}
+\gamma \Rightarrow 1, t' \Rightarrow t, \mathbf r' \Rightarrow \mathbf r.
+\end{equation}
+\noindent\textit{Paravector metric invariance.}\par
+\begin{align}
+\langle\!\langle X' \rangle\!\rangle^{2} &= X' X'^{*},\notag \\
+&= (L^{*} X L) (L^{*} X L)^{*},\notag \\
+&= L^{*} X L L^{*} X^{*} L,\notag \\
+&= L^{*} X X^{*} L,\notag \\
+&= \langle\!\langle X \rangle\!\rangle^{2} L^{*} L,\notag \\
+&= \langle\!\langle X \rangle\!\rangle^{2}.
+\end{align}
+
+\subsubsection*{Spatial Rotations}
+\begin{align}
+R(\theta ,\mathbf u) &:= \exp( \tfrac{1}{2} \theta (\mathbf u \cdot i \sigv ) ),\notag \\
+&= \cos( \tfrac{1}{2} \theta ) + \sin( \tfrac{1}{2} \theta ) (\mathbf u \cdot i \sigv )\qquad \text{rotor}.
+\end{align}
+\begin{equation}
+R^{-1} = \exp( -\tfrac{1}{2} \theta (\mathbf u \cdot i \sigv ) ).
+\end{equation}
+\noindent\emph{Note.} The rotor inverse satisfies \(R^{-1}=R^{\mathrm{R}}=R^{*\mathrm{R}}\).\par
+\begin{align}
+X' &= R^{\mathrm{R}} X R,\notag \\
+&= t' + \mathbf r' \cdot \sigv.
+\end{align}
+\begin{align}
+t' &= t,\notag \\
+\mathbf r' &= \mathbf r \cos(\theta ) + (\mathbf u \times \mathbf r) \sin(\theta ),\notag \\
+&\quad + (\mathbf u \cdot \mathbf r) (1 - \cos(\theta )) \mathbf u,\notag \\
+\qquad \text{Rodrigues's formula}.
+\end{align}
+\noindent\textit{Differentiating the transformed quantities gives.}\par
+\begin{align}
+d(R^{\mathrm{R}}) &= (dR)^{\mathrm{R}} = dR^{\mathrm{R}}, \\
+R^{\mathrm{R}} R &= 1, \\
+dR^{\mathrm{R}} R + R^{\mathrm{R}} dR &= 0, \\
+dR &= -R dR^{\mathrm{R}} R.
+\end{align}
+\noindent\textit{The reverse symmetry can be written as.}\par
+\begin{align}
+\Omega &:= -R (dR^{\mathrm{R}}/ds) = (dR/ds) R^{\mathrm{R}},\notag \\
+\Omega ^{\mathrm{R}} &= -\Omega,\notag \\
+\Omega ' &= R^{\mathrm{R}} \Omega R = R (dR/ds),\notag \\
+\Omega '^{\mathrm{R}} &= -\Omega ',\notag \\
+dR/ds &= \Omega R,\notag \\
+X' &= R^{\mathrm{R}} X R \Rightarrow R X' = X R,\notag \\
+dR X' + R dX' &= dX R + X dR,\notag \\
+R dX' &= dX R + X dR - dR X',\notag \\
+&= dX R + X dR - dR X'.
+\end{align}
+\begin{align}
+dX'/ds &= R^{\mathrm{R}} (dX/ds) R + [ X', \Omega ' ],\notag \\
+&= R^{\mathrm{R}} ( dX/ds + [ X, \Omega ] ) R.
+\end{align}
+
+\subsubsection*{Compositions of Boosts and Rotations}
+\begin{align}
+T &= L R, \\
+T^{-1} &= T^{*\mathrm{R}} = R^{*\mathrm{R}} L^{*\mathrm{R}} = R^{\mathrm{R}} L^{*}, \\
+T &= R L, \\
+T^{-1} &= T^{*\mathrm{R}} = L^{*\mathrm{R}} R^{*\mathrm{R}} = L^{*} R^{\mathrm{R}}, \\
+T &= R_{1} R_{2}, \\
+T^{-1} &= T^{*\mathrm{R}} = R_{2}^{\mathrm{R}} R_{1}^{\mathrm{R}}, \\
+T &= L_{1} L_{2}, \\
+T^{-1} &= T^{*\mathrm{R}} = L_{2}^{*}L_{1}^{*}.
+\end{align}

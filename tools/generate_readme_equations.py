@@ -4,12 +4,14 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-README = Path('/home/luke/STA/README.txt')
-OUT = Path('/home/luke/STA/manuscript/generated/readme_equation_catalog.tex')
-FULL_OUT = Path('/home/luke/STA/manuscript/generated/readme_full_conversion.tex')
-APPENDIX_OUT = Path('/home/luke/STA/manuscript/generated/extended_notes_appendix.tex')
-BODY_OUT = Path('/home/luke/STA/manuscript/generated/integrated_notes_body.tex')
-GROUP_OUT_DIR = Path('/home/luke/STA/manuscript/generated/integrated_sections')
+ROOT = Path(__file__).resolve().parents[1]
+README = ROOT / 'README.txt'
+GENERATED_DIR = ROOT / 'manuscript' / 'generated'
+OUT = GENERATED_DIR / 'readme_equation_catalog.tex'
+FULL_OUT = GENERATED_DIR / 'readme_full_conversion.tex'
+APPENDIX_OUT = GENERATED_DIR / 'extended_notes_appendix.tex'
+BODY_OUT = GENERATED_DIR / 'integrated_notes_body.tex'
+GROUP_OUT_DIR = GENERATED_DIR / 'integrated_sections'
 
 # Unicode sub/superscript maps.
 SUB_MAP = {
@@ -43,7 +45,7 @@ CHAR_REPL = {
     '±': r'\pm ', '∓': r'\mp ',
     '×': r'\times ', '⨯': r'\times ', '•': r'\cdot ',
     '∑': r'\sum ', '∫': r'\int ', '∞': r'\infty ',
-    '𝐈': r'\mathbf{I}',
+    '𝐈': r'\mathrm{I}',
     '𝓔': r'\mathbf E', '𝓑': r'\mathbf B', '𝓕': r'\mathcal{F}',
     'ℒ': r'\mathcal{L}', 'ℋ': r'\mathcal{H}',
     '□': r'\square ',
@@ -2353,11 +2355,12 @@ def main() -> None:
         for slug, content in integrated_group_out.items()
     }
 
+    GENERATED_DIR.mkdir(parents=True, exist_ok=True)
+    GROUP_OUT_DIR.mkdir(parents=True, exist_ok=True)
     OUT.write_text('\n'.join(equation_out) + '\n', encoding='utf-8')
     FULL_OUT.write_text('\n'.join(full_out) + '\n', encoding='utf-8')
     APPENDIX_OUT.write_text('\n'.join(appendix_out) + '\n', encoding='utf-8')
     BODY_OUT.write_text('\n'.join(integrated_out) + '\n', encoding='utf-8')
-    GROUP_OUT_DIR.mkdir(parents=True, exist_ok=True)
     for slug, content in integrated_group_out.items():
         out_path = GROUP_OUT_DIR / f'{slug}.tex'
         out_path.write_text('\n'.join(content) + '\n', encoding='utf-8')

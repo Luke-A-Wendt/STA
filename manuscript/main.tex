@@ -7,23 +7,9 @@
   \newcommand{\STAUnicodeAppendix}{\ttfamily}
 \else
   \usepackage{fontspec}
-  \directlua{
-    luaotfload.add_fallback("staunicodefallback",{
-      "DejaVu Sans Mono:mode=harf;",
-      "Noto Sans Mono:mode=harf;",
-      "FreeSerif:mode=harf;",
-      "DejaVu Math TeX Gyre:mode=harf;",
-      "Latin Modern Math:mode=harf;",
-      "Noto Color Emoji:mode=harf;"
-    })
-  }
-  \IfFontExistsTF{TeX Gyre Termes}{
-    \setmainfont{TeX Gyre Termes}[RawFeature={fallback=staunicodefallback}]
-  }{
-    \setmainfont{DejaVu Serif}[RawFeature={fallback=staunicodefallback}]
-  }
-  \setmonofont{DejaVu Sans Mono}[RawFeature={fallback=staunicodefallback}]
-  \newfontfamily{\STAUnicodeAppendix}{DejaVu Sans Mono}[RawFeature={fallback=staunicodefallback}]
+  \setmainfont{Latin Modern Roman}
+  \setmonofont{Latin Modern Mono}
+  \newfontfamily{\STAUnicodeAppendix}{Latin Modern Mono}
 \fi
 \usepackage{cite}
 \usepackage{amsmath,amssymb,mathtools,bm,booktabs,xcolor,hyperref,fancyvrb,fvextra,array,longtable,caption}
@@ -46,7 +32,7 @@
 \newcommand{\crev}[1]{#1^{*\mathsf R}}
 \newcommand{\flag}[1]{\textcolor{red}{\textbf{#1}}}
 \newcommand{\dd}{\mathrm d}
-\newcommand{\I}{\mathbf I}
+\newcommand{\I}{\mathrm I}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 \newenvironment{componenttable}[2][]{%
   \begin{center}
@@ -54,10 +40,12 @@
   \captionof{table}{Components of $#2$.}%
   \if\relax\detokenize{#1}\relax\else\label{#1}\fi
   \renewcommand{\arraystretch}{1.18}%
-  \setlength{\tabcolsep}{3pt}%
+  \setlength{\tabcolsep}{5pt}%
   \small
-  \begin{tabular}{@{}r@{:\quad}>{\raggedright\arraybackslash}l@{\qquad}>{\raggedright\arraybackslash}l@{}}
+  \begin{tabular}{|r@{:\quad}>{\raggedright\arraybackslash}l@{\qquad}>{\raggedright\arraybackslash}l|}
+  \hline
 }{%
+  \hline
   \end{tabular}
   \end{center}
 }
@@ -127,11 +115,11 @@
   {\par\normalfont\vspace{1.0ex}}
 \makeatother
 
-\title{Space Time Algera (STA)}
+\title{Space-Time Algebra (STA)}
 \author{Dr. Luke A. Wendt}
 \date{}
 \hypersetup{
-  pdftitle={Space Time Algera (STA)},
+  pdftitle={Space-Time Algebra (STA)},
   pdfauthor={Dr. Luke A. Wendt},
   pdfsubject={Space-time algebra and its applications},
   pdfkeywords={space-time algebra, geometric algebra, Maxwell, Dirac, Klein-Gordon, Pauli}
@@ -220,19 +208,19 @@ L &= \exp\!\left(\tfrac12\theta\,\mathbf u\cdot\sigv\right)
 && \text{Lorentz boost; Eq.\ \eqref{eq:boost}}.
 \end{align*}
 \endgroup
-The manuscript develops these formulas in the following order: algebraic primitives in \S\ref{sec:algebra}, space-time kinematics in \S\ref{sec:spacetime}, transformation theory in \S\ref{sec:transforms}, electromagnetism in \S\ref{sec:em}, and relativistic quantum equations in \S\ref{sec:qm}. Each major section then closes with a detailed local development that expands the compact formulas into explicit product rules, intermediate derivations, and special cases before the manuscript moves to the next topic. Verification, historical notes, and cautions on formulas requiring qualification appear later in \S\ref{sec:verification}--\S\ref{sec:flags}.
+The manuscript develops these formulas in the following order: algebraic primitives in \S\ref{sec:algebra}, space-time kinematics in \S\ref{sec:spacetime}, transformation theory in \S\ref{sec:transforms}, electromagnetism in \S\ref{sec:em}, and relativistic quantum equations in \S\ref{sec:qm}. Each major section then closes with a detailed local development that expands the compact formulas into explicit product rules, intermediate derivations, special cases, and component tables before the manuscript moves to the next topic. Verification, historical notes, and cautions on formulas requiring qualification appear later in \S\ref{sec:verification}--\S\ref{sec:flags}.
 
 \clearpage
 \section*{Reading Guide}
 \addcontentsline{toc}{section}{Reading Guide}
 \begin{enumerate}
-\item Section \ref{sec:algebra} fixes notation, types, involutions, products, quadratic forms, exponentials, and projectors.
+\item Section \ref{sec:algebra} fixes notation, types, the sigma-conjugate and reverse operators, products, quadratic forms, exponentials, and projectors.
 \item Section \ref{sec:spacetime} turns those algebraic objects into intervals, proper velocity, proper momentum, and free motion.
 \item Section \ref{sec:transforms} introduces rotors and boosts before any field theory is used.
 \item Section \ref{sec:em} applies the same algebra to Maxwell theory, gauge structure, wave equations, and the Lorentz force.
 \item Section \ref{sec:qm} then develops the Klein--Gordon, Dirac, and Pauli-type formulas using the earlier machinery rather than new notation.
 \item Each major section ends with a detailed development subsection that integrates the broader algebraic and physical notes into the local narrative, so definitions, derivations, and special cases appear near the formulas they support.
-\item Sections \ref{sec:verification}--\ref{sec:flags} separate verification, history, and cautions from the exposition, and Appendix \ref{app:deriv} records selected supporting derivations.
+\item Sections \ref{sec:verification}--\ref{sec:flags} separate verification, history, and cautions from the exposition, while Appendix \ref{app:deriv} records selected supporting derivations.
 \end{enumerate}
 
 \tableofcontents
@@ -243,36 +231,16 @@ Space-time algebra extends the familiar scalar and vector calculus of three-dime
 
 This perspective is consistent with the modern STA and paravector literature of Hestenes, Baylis, and Doran--Lasenby \cite{hestenes1966,baylis1999,doran2003}, but the notation is kept deliberately lean. Lower-case Latin letters denote real scalars unless stated otherwise, bold letters denote real three-vectors, capital letters denote paravectors or operators according to context, and complexification is carried by the pseudoscalar \(i\).
 
-Natural units \(\hbar=c=1\) and metric signature \((+,-,-,-)\) are used unless stated otherwise. The main exposition is simple-first: the real vector product is fixed before the full complex paravector product, and each major topic is developed in two passes, first in compact form and then in a section-local detailed expansion that writes out intermediate identities and special cases. Variable classes are restated when clarity would otherwise be lost over long spans, equation references are used throughout so later formulas can point back to earlier constructions, Appendix \ref{app:deriv} records supporting derivations for selected main-text equations, and bold red notes mark formulas that require qualification or correction.
+Natural units \(\hbar=c=1\) and metric signature \((+,-,-,-)\) are used unless stated otherwise. The main exposition is simple-first: the real vector product is fixed before the full complex paravector product, and each major topic is developed in two passes, first in compact form and then in a section-local detailed expansion that writes out intermediate identities, component tables, and special cases. Variable classes are restated when clarity would otherwise be lost over long spans, equation references are used throughout so later formulas can point back to earlier constructions, Appendix \ref{app:deriv} records supporting derivations for selected main-text equations, and bold red notes mark formulas that require qualification or correction.
 
 The manuscript is organized to keep the logical burden low. First the algebra is developed on its own terms; next the same algebra is reinterpreted as space-time geometry; only after that are electromagnetic and quantum equations introduced. In this way the physics applications appear as consequences of a previously established language rather than as disconnected formulas gathered under one title.
 
 The opening summary page therefore shows the destination, while the main exposition proceeds in the opposite direction: simple rules first, composite objects second, and field equations last. Whenever a formula is likely to be unfamiliar in STA form, the text around it explains both what the formula says algebraically and why it is being introduced at that point in the narrative.
 
 \section{Algebraic Toolkit}\label{sec:algebra}\label{sec:foundations}\label{sec:functions}
-The summary above is deliberately complex-first. The exposition now resets to the simplest ingredients: basis rules, involutions, vector products, paravectors, and then the elementary functional calculus built from them.
+The summary above is deliberately complex-first. The exposition now resets to the simplest ingredients: basis rules, the sigma-conjugate and reverse operators, vector products, paravectors, and then the elementary functional calculus built from them.
 
-\subsection*{Declared types}
-\begin{center}
-\begin{tabular}{@{}ll@{}}
-\toprule
-Object & Type \\
-\midrule
-$a,b\in\R$ & real scalars \\
-$\mathbf A,\mathbf B\in\R^3$ & real vectors \\
-$c=a+ib\in\C$ & complex scalar \\
-$\mathbf C=\mathbf A+i\mathbf B\in\C^3$ & complex vector \\
-$X=a+\mathbf A\cdot\sigv\in\R\oplus\R^3$ & real paravector \\
-$Y=b+\mathbf B\cdot\sigv\in\R\oplus\R^3$ & second real paravector \\
-$Z=c+\mathbf C\cdot\sigv=X+iY\in\C\oplus\C^3$ & complex paravector \\
-\bottomrule
-\end{tabular}
-\end{center}
-This table is archetypal rather than global. No letter is permanently tied to one type throughout the manuscript; instead, each symbol is assigned locally when it first appears in a new context. The basic ambient spaces are \(\R\), \(\C\), \(\R^3\), \(\C^3\), and the direct-sum paravector spaces \(\R\oplus\R^3\) and \(\C\oplus\C^3\).
-
-The few objects that do not belong to one of those six spaces are signaled explicitly where they arise: the basis elements \(\sigma_n\) are algebra generators, the differential symbols \(\partial\), \(E\), \(\mathbf P\), and \(\Omega\) are operators, and the Dirac map \(W(Z)\) together with \(\I\) lives in a \(2\times2\) block-matrix representation built from paravector entries. No additional scalar fields beyond \(\R\) and \(\C\) are used.
-
-\subsection*{Basis, pseudoscalar, and involutions}
+\subsection*{Basis and pseudoscalar}
 The algebra starts with three generators \(\sigma_n\) for \(n\in\{1,2,3\}\). These are basis algebra elements rather than scalars, and they behave like an orthonormal spatial basis whose multiplication carries more information than an ordinary dot product. From these generators one obtains vectors, bivectors, and the pseudoscalar \(i\), which plays the role of the imaginary unit while remaining internal to the algebra.
 
 The basis relations are
@@ -286,7 +254,29 @@ Using $\delta_{nm}$ and $\epsilon_{nmk}$ for indices \(n,m,k\in\{1,2,3\}\),
 \sigma_n\sigma_m=\delta_{nm}+\epsilon_{nmk}\,i\sigma_k.
 \label{eq:sigma-product}
 \end{equation}
-The three involutions used throughout are best introduced as operators before their special values are listed. Conjugation \((\cdot)^*\) flips the sign of each basis generator \(\sigma_n\) while leaving product order unchanged. Reversion \((\cdot)^{\mathrm R}\) leaves each \(\sigma_n\) fixed while reversing the order of generator products. The combined operation \((\cdot)^{*\mathrm R}\) performs both actions, and because sign-flip and order-reversal are independent, they can be applied in either order. Each is an involution, so applying it twice returns the original element. In operator form,
+
+\subsection*{The Sigma-Conjugate, Reverse, and Combined Operators}
+The two basic operators are introduced here on their own because they are used repeatedly in every later section. Each is an involution, and the combined operator built from them is fixed at the same point by the direct rules
+\begin{align}
+(\cdot)^* &:= \eqtext{sigma conjugate; put a minus sign in front of each }\sigma_n,
+\label{eq:star-definition}\\
+(\cdot)^{\mathrm R} &:= \eqtext{reverse multiplied order of each }\sigma_n,
+\label{eq:reversion-definition}
+\\
+(\cdot)^{*\mathrm R} &:= \eqtext{apply the sigma-conjugate operator and then the reverse operator.}
+\label{eq:crev-definition}
+\end{align}
+Equation \eqref{eq:star-definition} defines the sigma-conjugate operator, Eq.\ \eqref{eq:reversion-definition} defines the reverse operator, and Eq.\ \eqref{eq:crev-definition} defines the combined sigma-conjugate/reverse operator. The sigma-conjugate operator \((\cdot)^*\) therefore changes the sign of each basis generator while leaving product order unchanged, the reverse operator \((\cdot)^{\mathrm R}\) leaves each \(\sigma_n\) fixed while reversing the order of generator products, and the combined operator \((\cdot)^{*\mathrm R}\) performs both actions in succession.
+
+For the generators themselves, these defining rules immediately give
+\begin{equation}
+\conj{\sigma_n}=-\sigma_n,
+\qquad
+\rev{\sigma_n}=\sigma_n,
+\qquad
+\crev{\sigma_n}=-\sigma_n.
+\end{equation}
+Because sign-flip and order-reversal are independent, the combined operator may be applied in either order. In operator form,
 \begin{equation}
 {(XY)}^{*}=X^{*}Y^{*},\qquad
 {(XY)}^{\mathrm R}=Y^{\mathrm R}X^{\mathrm R},\qquad
@@ -300,8 +290,7 @@ In particular, on the generators and the pseudoscalar,
 \conj{i}=-i,\qquad \rev{i}=-i,\qquad \crev{i}=i.
 \label{eq:i-involutions}
 \end{align}
-These agree with the standard grade-involution/reversion structure in geometric algebra treatments of STA \cite{hestenes1966,doran2003}.
-These operations will be used constantly, so it is worth emphasizing their distinct roles. Conjugation flips vector sign, reversion reverses multiplication order, and the combined operation is the one that later produces the Minkowski-type quadratic form. Introducing them at the algebraic stage prevents the interval and operator formulas from seeming arbitrary when they appear later.
+These agree with the standard geometric-algebra involution structure described in the STA literature \cite{hestenes1966,doran2003}; throughout this manuscript they are referred to as the sigma-conjugate operator, the reverse operator, and the combined sigma-conjugate/reverse operator. These operators will be used constantly, so it is worth emphasizing their distinct roles. The sigma-conjugate operator flips vector sign, the reverse operator reverses multiplication order, and the combined operation is the one that later produces the Minkowski-type quadratic form. Introducing them at the algebraic stage prevents the interval and operator formulas from seeming arbitrary when they appear later.
 
 \subsection*{Vector product identity and complex paravectors}
 Collect the three generators into the sigma-vector
@@ -336,6 +325,25 @@ ZZ'=(SS'+\mathbf V\cdot\mathbf V')+\big(S\mathbf V'+S'\mathbf V+i(\mathbf V\time
 \end{equation}
 Equation \eqref{eq:paravector-product} is the master multiplication rule: pure scalar, real vector, real paravector, and mixed products all follow by setting the unused parts to zero.
 
+\subsection*{Declared types}
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Object & Type \\
+\midrule
+$a,b\in\R$ & real scalars \\
+$\mathbf A,\mathbf B\in\R^3$ & real vectors \\
+$c=a+ib\in\C$ & complex scalar \\
+$\mathbf C=\mathbf A+i\mathbf B\in\C^3$ & complex vector \\
+$X=a+\mathbf A\cdot\sigv\in\R\oplus\R^3$ & real paravector \\
+$Z=c+\mathbf C\cdot\sigv\in\C\oplus\C^3$ & complex paravector \\
+\bottomrule
+\end{tabular}
+\end{center}
+This table is archetypal rather than global. No letter is permanently tied to one type throughout the manuscript; instead, each symbol is assigned locally when it first appears in a new context. The basic ambient spaces are \(\R\), \(\C\), \(\R^3\), \(\C^3\), and the direct-sum paravector spaces \(\R\oplus\R^3\) and \(\C\oplus\C^3\).
+
+The few objects that do not belong to one of those six spaces are signaled explicitly where they arise: the basis elements \(\sigma_n\) are algebra generators, the differential symbols \(\partial\), \(E\), \(\mathbf P\), and \(\Omega\) are operators, and the Dirac map \(W(Z)\) together with \(\I\) lives in a \(2\times2\) block-matrix representation built from paravector entries. No additional scalar fields beyond \(\R\) and \(\C\) are used.
+
 Two central quadratic forms are
 \begin{align}
 \|Z\|^2 &:= \eqtext{scalar}(Z\rev{Z}) = |S|^2+\|\mathbf V\|^2,
@@ -349,21 +357,27 @@ This distinction between Euclidean and Minkowski-type quadratic forms is one of 
 \subsection*{Exponentials, projectors, and functional calculus}
 Exponentials, roots, and functions of simple STA objects follow directly once Eqs.\ \eqref{eq:sigma-product} and \eqref{eq:dot-cross} are fixed.
 
-If \(\mathbf A\in\R^3\) is written as \(\mathbf A=\|\mathbf A\|\mathbf u\) with \(\mathbf u\in\R^3\) and \(\mathbf u^2=1\), then
-\begin{align}
-\exp(\mathbf A\cdot\sigv)
-&=\cosh \|\mathbf A\|+\sinh\|\mathbf A\|\,\mathbf u\cdot\sigv,
-\label{eq:exp-vector}\\
-\exp(-i\,\mathbf A\cdot\sigv)
-&=\cos \|\mathbf A\|-i\sin\|\mathbf A\|\,\mathbf u\cdot\sigv.
-\label{eq:exp-bivector}
-\end{align}
-The idempotents
+If \(\mathbf A\in\R^3\) is written as \(\mathbf A=\|\mathbf A\|\mathbf u\) with \(\mathbf u\in\R^3\) and \(\mathbf u^2=1\), define the idempotents
 \begin{equation}
 \Pi(\pm):=\frac{1}{2}(1\pm \mathbf u\cdot\sigv)
 \label{eq:projectors}
 \end{equation}
-satisfy $\Pi(\pm)^2=\Pi(\pm)$, $\Pi(+)\Pi(-)=0$, and $\Pi(+)+\Pi(-)=1$. They underlie the later discussions of functions of $\mathbf u\cdot\sigv$, spin decomposition, and the matrix/quaternion bridge.
+satisfying $\Pi(\pm)^2=\Pi(\pm)$, $\Pi(+)\Pi(-)=0$, $\Pi(+)+\Pi(-)=1$, and
+\((\mathbf u\cdot\sigv)\Pi(\pm)=\pm\Pi(\pm)\). In projector form, the real and imaginary exponentials are
+\begin{align}
+\exp(\mathbf A\cdot\sigv)
+&=e^{\|\mathbf A\|}\Pi(+)+e^{-\|\mathbf A\|}\Pi(-)\notag \\
+&=\cosh \|\mathbf A\|+\sinh\|\mathbf A\|\,\mathbf u\cdot\sigv,
+\label{eq:exp-vector}\\
+\exp(i\,\mathbf A\cdot\sigv)
+&=e^{i\|\mathbf A\|}\Pi(+)+e^{-i\|\mathbf A\|}\Pi(-)\notag \\
+&=\cos \|\mathbf A\|+i\sin\|\mathbf A\|\,\mathbf u\cdot\sigv,\notag \\
+\exp(-i\,\mathbf A\cdot\sigv)
+&=e^{-i\|\mathbf A\|}\Pi(+)+e^{i\|\mathbf A\|}\Pi(-)\notag \\
+&=\cos \|\mathbf A\|-i\sin\|\mathbf A\|\,\mathbf u\cdot\sigv.
+\label{eq:exp-bivector}
+\end{align}
+They underlie the later discussions of functions of $\mathbf u\cdot\sigv$, spin decomposition, and the matrix/quaternion bridge.
 Geometrically, \(\Pi(+)\) and \(\Pi(-)\) isolate the parts aligned and anti-aligned with the direction \(\mathbf u\). Later these same idempotents become spin projectors, but their algebraic role is already visible here: they split an object into two sectors adapted to a chosen axis.
 
 For a scalar-valued function \(f:\{\pm 1\}\to\C\),
@@ -376,7 +390,10 @@ The significance of Eq.\ \eqref{eq:functional-calculus} is broader than the spec
 
 \subsection*{Extended Algebraic Identities}
 The compact formulas above give the algebraic spine of the manuscript. The next layer records the more explicit commutator rules, involution tables, inverse formulas, logarithms, complex-product decompositions, and functional identities that are used implicitly later. They are kept here, rather than postponed to a detached catalog, so that the reader can verify every algebraic step before the geometry and physics sections begin.
-\input{generated/integrated_sections/algebra.tex}
+\input{sections/algebra.tex}
+\subsubsection*{Component tables}
+The following tables collect the grade decomposition, involution signs, and component formulas used throughout the algebraic development above.
+\input{sections/algebra_tables.tex}
 
 \section{Space-Time Kinematics}\label{sec:spacetime}
 With the algebraic toolkit in place, the next step is to reinterpret the same paravector structure as space-time. This is the bridge from pure algebra to geometry and mechanics.
@@ -436,7 +453,10 @@ Equation \eqref{eq:free-lagrangian-low} is worth displaying explicitly because i
 
 \subsection*{Supporting Kinematic Derivations}
 This section now expands the interval classification, component forms of proper velocity and proper momentum, and the action-based formulas that support the compact spacetime presentation above. The intent is that every later dynamical equation can be traced back to a previously defined spacetime object without forcing the reader to jump to a separate omnibus section.
-\input{generated/integrated_sections/kinematics.tex}
+\input{sections/kinematics.tex}
+\subsubsection*{Component tables}
+The following tables record the scalar and vector parts of the proper-velocity and proper-acceleration formulas used in the kinematic discussion.
+\input{sections/kinematics_tables.tex}
 
 \section{Rotors, Boosts, and Covariant Transformations}\label{sec:transforms}
 Exponentials appear not only as algebraic functions but also as generators of transformations. After interval structure is established, rotors and boosts are the cleanest next step because they explain how the same objects move between frames before fields and wave equations are introduced.
@@ -466,18 +486,9 @@ X'=\conj{L}XL.
 The symbols \(R\) and \(L\) are invertible algebra elements rather than vectors or paravectors, while \(T\) is reserved for the generic transform law \eqref{eq:general-transform}. Equation \eqref{eq:rotor} produces Rodrigues' rotation formula, while Eq.\ \eqref{eq:boost} produces the usual split into components parallel and perpendicular to the boost axis \cite{einstein1905,minkowski1908,hestenes1966}.
 The formal similarity between Eqs.\ \eqref{eq:rotor} and \eqref{eq:boost} is deliberate. Both are exponential transformations, but bivector-like generators produce trigonometric rotation structure while vector-like generators produce hyperbolic boost structure. The contrast shows how Euclidean and Lorentzian motions coexist inside one algebraic language.
 
-\subsection*{Field transformation formula}
-Once the field \(F\) is introduced in Eq.\ \eqref{eq:F-Phi}, the same boost element acts on it by
-\begin{equation}
-F'=\conj{L}FL.
-\label{eq:field-transform}
-\end{equation}
-This is included here, before the full electromagnetic section, because it shows that fields transform with the same algebraic machinery already used for events.
-That preview matters conceptually. Once the reader sees that intervals, momenta, and fields all transform by related conjugation rules, the later field theory looks like a continuation of the algebraic story rather than a change of subject.
-
 \subsection*{Supporting Transformation Identities}
-The formulas collected here expand the general transformation law into explicit basis transforms, boost parameterizations, field transforms, and composition rules. Placing these details immediately after the core rotor and boost formulas keeps the geometric mechanism visible before the manuscript turns to electromagnetism.
-\input{generated/integrated_sections/transforms.tex}
+The formulas collected here expand the general transformation law into explicit basis transforms, boost parameterizations, and composition rules. Placing these details immediately after the core rotor and boost formulas keeps the geometric mechanism visible before the manuscript turns to electromagnetism.
+\input{sections/transforms.tex}
 
 \section{Electromagnetic Sector}\label{sec:em}
 With space-time and boosts in place, the next step is the first major physics payoff: the electromagnetic field, gauge structure, and Lorentz force written in compact STA form.
@@ -502,6 +513,14 @@ F=(\mathbf E+i\mathbf B)\cdot\sigv,
 \label{eq:F-Phi}
 \end{equation}
 Here \(\Phi\in\R\oplus\R^3\), while \(F\) is a purely vector complex paravector in \(\{0\}\oplus\C^3\subset\C\oplus\C^3\). Equation \eqref{eq:F-Phi} packages electric and magnetic fields into one object \(F\), and scalar and vector potentials into one object \(\Phi\). The purpose is not only notational compression: once these quantities are assembled into STA objects, differentiation and transformation act on their full content in a single step.
+
+\subsection*{Boost transformation of the electromagnetic field}
+With \(F\) now defined, the same boost element \(L\) from Eq.\ \eqref{eq:boost} acts on the field by
+\begin{equation}
+F'=\conj{L}FL.
+\label{eq:field-transform}
+\end{equation}
+This is the direct field analogue of the event transform \(\conj{L}XL\). It matters structurally because it shows that the field is not an extra object living outside the algebraic mechanics already developed: boosts act on \(F\) by the same two-sided rule that acts on space-time paravectors, and the parallel/perpendicular split of \(\mathbf E\) and \(\mathbf B\) follows from the same exponential boost algebra.
 
 The identity
 \begin{equation}
@@ -584,10 +603,13 @@ T:=\frac{1}{2}F\rev{F}
 
 \subsection*{Electromagnetic Component Expansions}
 The detailed electromagnetic development below writes out the field decomposition, potential reconstruction, source formulas, gauge transformations, force law expansions, and variational identities that underlie Eqs.\ \eqref{eq:dalembert}--\eqref{eq:energy-momentum-paravector}. Organizing those details here keeps the field theory self-contained before the manuscript moves to wave equations.
-\input{generated/integrated_sections/em.tex}
+\input{sections/em.tex}
+\subsubsection*{Component tables}
+The following tables keep the electromagnetic invariants, source splits, potential formulas, and stress-energy-related component identities next to the corresponding field equations.
+\input{sections/em_tables.tex}
 
 \section{Relativistic Wave Equations and Spinor Dynamics}\label{sec:qm}
-The relativistic wave-equation sector is best read as a second application of the same algebra: first the scalar wave equation, then minimal coupling and factorization, and only then the Dirac block map and Pauli limit.
+The relativistic wave-equation sector is a second application of the same algebra: first the scalar wave equation, then minimal coupling and factorization, and only then the Dirac block map and Pauli limit.
 
 \subsection*{Klein--Gordon and frequency splitting}
 For a complex scalar field \(\Psi\in\C\),
@@ -670,7 +692,7 @@ D'D\Psi=0
 \label{eq:dirac-square}
 \end{equation}
 The calculation in Eq.\ \eqref{eq:dirac-square} explains why the block construction is more than formal packaging. Squaring the first-order system returns Klein--Gordon-type equations with the expected field couplings, so the Dirac form is seen as a controlled factorization of the relativistic wave operator.
-With the present ordering of \(Z=i\partial-q\conj{\Phi}=E-\sigv\cdot\mathbf P\) inside \(W(Z)\), the upper component carries \(-iqF^*\) and the lower component carries \(+iqF\). Appendix A11 records a symbolic Python verification of this sign structure.
+With the present ordering of \(Z=i\partial-q\conj{\Phi}=E-\sigv\cdot\mathbf P\) inside \(W(Z)\), the upper component carries \(-iqF^*\) and the lower component carries \(+iqF\). The Python verification subsection in Appendix \ref{app:deriv} records a symbolic check of this sign structure.
 
 Gauge covariance combines the electromagnetic gauge law \eqref{eq:gauge} with the block-field phase transformation
 \begin{equation}
@@ -713,10 +735,13 @@ In this special case the projector language acquires an immediate physical meani
 
 \subsection*{Wave-Operator Expansions and Low-Energy Limits}
 The following material expands the scalar and spinor wave equations into their intermediate operator identities, explicit component forms, Fourier interpretations, low-energy limits, and spin-sector decompositions. It is placed here so that every use of minimal coupling, factorization, and projector splitting is developed before the manuscript turns to representation theory.
-\input{generated/integrated_sections/qm.tex}
+\input{sections/qm.tex}
+\subsubsection*{Component tables}
+The following operator tables record the component actions used in the wave-equation factorizations and the spinor-field couplings.
+\input{sections/qm_tables.tex}
 
 \section{Spin Structure and Representation Links}\label{sec:spinrep}
-After the wave-equation sector, the remaining material branches into spin splitting, matrix realization, and quaternion correspondences. These are best read as representation tools and structural side-results rather than prerequisites for the earlier sections.
+After the wave-equation sector, the remaining material branches into spin splitting, matrix realization, and quaternion correspondences. These serve as representation tools and structural side-results rather than prerequisites for the earlier sections.
 
 \subsection*{Spin projectors, ladder operators, and four sectors}
 The spin projectors along a unit direction \(\mathbf u\in\R^3\) are again \eqref{eq:projectors}. About the \(z\) axis, the ladder operators are algebra elements
@@ -787,10 +812,10 @@ The purpose of this correspondence is structural. Quaternion algebra appears her
 
 \subsection*{Representation-Theoretic Complements}
 The final local development collects the quaternion, generalized-metric, and matrix-realization material that extends the main STA narrative into adjacent representational viewpoints. It remains at the end because these formulas clarify and compare the earlier constructions rather than serving as prerequisites for them.
-\input{generated/integrated_sections/representations.tex}
+\input{sections/representations.tex}
 
 \section{Literature Verification and Formula Status}\label{sec:verification}
-The following table records how the principal statements of the manuscript compare with standard literature and with the symbolic checks collected in Appendix A11. Its purpose is to distinguish established reformulations from formulas that require qualification, stronger hypotheses, or explicit correction.
+The following table records how the principal statements of the manuscript compare with standard literature and with the symbolic checks collected in the Python verification subsection of Appendix \ref{app:deriv}. Its purpose is to distinguish established reformulations from formulas that require qualification, stronger hypotheses, or explicit correction.
 \begin{longtable}{@{}L{0.21\linewidth}L{0.28\linewidth}L{0.17\linewidth}L{0.27\linewidth}@{}}
 \toprule
 STA statement & Literature correspondence & Status & Notes \\
