@@ -6,50 +6,6 @@ Before specializing to particular STA objects, it is helpful to record the algeb
 [X, Y] &= 0 \Rightarrow X Y = Y X \Rightarrow \text{commutative}.
 \end{align*}
 
-\subsubsection*{Vector Notation, Norms, and Cross Products}
-The elementary Euclidean conventions are recorded here before the sigma basis is brought back in, so that the later STA formulas can always be read against familiar three-vector operations.
-\begin{align*}
-\mathbf A &= \eqtext{3-element vector}, \\
-\mathbf B &= \eqtext{3-element vector}.
-\end{align*}
-\noindent The dot product and squared magnitude are
-\begin{equation*}
-\mathbf A \cdot \mathbf B = A_{1}B_{1} + A_{2}B_{2} + A_{3}B_{3}.
-\end{equation*}
-\begin{equation*}
-\mathbf A^{2} = \mathbf A \cdot \mathbf A.
-\end{equation*}
-For a real scalar \(a\), the absolute value is
-\begin{equation*}
-|a| = \sqrt{a^{2}}.
-\end{equation*}
-For a complex scalar \(S=a+ib\), the usual modulus is
-\begin{align*}
-|S| &= \sqrt{SS^{*}},\notag \\
-&= \sqrt{(a + i b)(a - i b)},\notag \\
-&= \sqrt{a^{2} + b^{2}}.
-\end{align*}
-The Euclidean norm of a real vector is
-\begin{equation*}
-\lVert \mathbf A \rVert = \sqrt{\mathbf A^{2}}.
-\end{equation*}
-For a complex vector \(\mathbf V=\mathbf A+i\mathbf B\), the corresponding positive norm is
-\begin{align*}
-\lVert \mathbf V \rVert &= \sqrt{\mathbf V \mathbf V^{*}},\notag \\
-&= \sqrt{(\mathbf A + i \mathbf B) \cdot (\mathbf A - i \mathbf B)},\notag \\
-&= \sqrt{\mathbf A^{2} + \mathbf B^{2}}.
-\end{align*}
-\noindent\emph{Note.} The quadratic product \(\mathbf V^{2}\) is not the same object as the norm square \(\lVert \mathbf V\rVert^{2}\).\par
-The cross product is
-\begin{equation*}
-\mathbf A \times \mathbf B
-=
-\{ A_{2}B_{3} - A_{3}B_{2}, -A_{1}B_{3} + A_{3}B_{1}, A_{1}B_{2} - A_{2}B_{1} \}.
-\end{equation*}
-\begin{equation*}
-\mathbf B \times \mathbf A = -\mathbf A \times \mathbf B.
-\end{equation*}
-
 \subsubsection*{Sigma Algebra}
 The sigma generators and their multiplication rules are written out here explicitly so that every later paravector identity can be traced back to the defining algebra. See Eqs.\ \eqref{eq:basis} and \eqref{eq:sigma-product}. For \(n,m\in\{1,2,3\}\),
 \begin{equation*}
@@ -64,7 +20,7 @@ i^{2} &= -1,\notag \\
 &= -\sigma _{1}^{2}\sigma _{2}^{2}\sigma _{3}^{2},\notag \\
 &= -1.
 \end{align*}
-\noindent The bivector sector is
+\noindent The bivector basis elements are
 \begin{align*}
 i \sigv &= \{\sigma _{2}\sigma _{3}, \sigma _{3}\sigma _{1}, \sigma _{1}\sigma _{2}\}, \\
 [i, \sigma _{n}] &= 0, \\
@@ -105,20 +61,14 @@ i \sigma _{n} &= \sigma _{n} i.
 \end{align*}
 
 \subsubsection*{Sigma-Conjugate Action on Sigma Products}
-The sigma-conjugate identities derived from Eqs.\ \eqref{eq:involution-operators}--\eqref{eq:i-involutions} are expanded here on explicit sigma products.\par
+The sigma-conjugate identities derived from Eqs.\ \eqref{eq:involution-operators}--\eqref{eq:i-involutions} take the following explicit sigma-product form.\par
 \begin{align*}
 \sigma _{n}^{*} &= -\sigma _{n},\notag \\
 i^{*} &= -i,\notag \\
 (i \sigma _{n} )^{*} &= i \sigma _{n},\notag \\
-(\sigma _{n}\sigma _{m})^{*} &= \sigma _{n}\sigma _{m},\notag \\
 (\sigma _{1}\sigma _{2}\sigma _{3})^{*} &= \sigma _{1}^{*} \sigma _{2}^{*} \sigma _{3}^{*}\qquad \text{does not flip order},\notag \\
 &= (-\sigma _{1})(-\sigma _{2})(-\sigma _{3}),\notag \\
 &= -\sigma _{1}\sigma _{2}\sigma _{3}.
-\end{align*}
-\begin{align*}
-(\sigma _{n}\sigma _{m})^{*} &= \sigma _{n}^{*}\sigma _{m}^{*},\notag \\
-&= (-\sigma _{n})(-\sigma _{m}),\notag \\
-&= \sigma _{n}\sigma _{m}.
 \end{align*}
 \begin{align*}
 ( i \sigma _{n} )^{*} &= i^{*} \sigma _{n}^{*},\notag \\
@@ -127,12 +77,10 @@ i^{*} &= -i,\notag \\
 \end{align*}
 
 \subsubsection*{Reverse-Operator Action on Sigma Products}
-The reverse identities from Eqs.\ \eqref{eq:involution-operators}--\eqref{eq:i-involutions} are expanded here on explicit sigma products.\par
+The reverse identities from Eqs.\ \eqref{eq:involution-operators}--\eqref{eq:i-involutions} take the following explicit sigma-product form.\par
 \begin{align*}
 \sigma _{n}^{\mathrm{R}} &= \sigma _{n},\notag \\
 i^{\mathrm{R}} &= -i\qquad (\sigma _{1}\sigma _{2}\sigma _{3})^{\mathrm{R}} = \sigma _{3}\sigma _{2}\sigma _{1} = -\sigma _{1}\sigma _{2}\sigma _{3},\notag \\
-(\sigma _{n}\sigma _{m})^{\mathrm{R}} &= \sigma _{m}\sigma _{n},\notag \\
-&= -\sigma _{n}\sigma _{m} \text{ if } n \neq m.
 \end{align*}
 \begin{align*}
 (i \sigma _{n})^{\mathrm{R}} &= -i \sigma _{n},\notag \\
@@ -141,11 +89,30 @@ i^{\mathrm{R}} &= -i\qquad (\sigma _{1}\sigma _{2}\sigma _{3})^{\mathrm{R}} = \s
 &= -i \sigma _{n}.
 \end{align*}
 
-\subsubsection*{Grade Bookkeeping}
-Tables~\ref{tab:sigma-grade-components-app} and \ref{tab:grade-signs} already summarize the four homogeneous grades and the signs acquired under the sigma-conjugate, reverse, and combined operators. The explicit calculations above supply the derivation behind that bookkeeping, while the tables are the summary used later when paravector products and component formulas are decomposed by grade.
+\subsubsection*{Bivector-Pair Involutions}
+For a two-generator bivector pair with \(n \neq m\),
+\begin{align*}
+(\sigma _{n}\sigma _{m})^{*} &= \sigma _{n}^{*}\sigma _{m}^{*},\notag \\
+&= (-\sigma _{n})(-\sigma _{m}),\notag \\
+&= \sigma _{n}\sigma _{m}.
+\end{align*}
+\begin{align*}
+(\sigma _{n}\sigma _{m})^{\mathrm{R}} &= \sigma _{m}\sigma _{n},\notag \\
+&= -\sigma _{n}\sigma _{m}.
+\end{align*}
+\begin{align*}
+(\sigma _{n}\sigma _{m})^{*\mathrm{R}} &= (\sigma _{m}\sigma _{n})^{*},\notag \\
+&= \sigma _{m}^{*}\sigma _{n}^{*},\notag \\
+&= (-\sigma _{m})(-\sigma _{n}),\notag \\
+&= \sigma _{m}\sigma _{n},\notag \\
+&= -\sigma _{n}\sigma _{m}.
+\end{align*}
+
+\subsubsection*{Basis-Element Bookkeeping}
+Tables~\ref{tab:sigma-grade-components-app} and \ref{tab:grade-signs} list the four sigma numbers, the corresponding basis-element types, and the signs acquired under the conjugate, reverse, and reverse-conjugate operators. The explicit calculations above give the derivation behind that bookkeeping.
 
 \subsubsection*{Vector Form and Explicit Sigma Products}
-Equation \eqref{eq:sigma-vector} is expanded here into the concrete sigma-product rules behind Eq.\ \eqref{eq:dot-cross}. The purpose is to show explicitly how ordinary vector operations are encoded inside the algebra.
+Equation \eqref{eq:sigma-vector} gives the concrete sigma-product rules behind Eq.\ \eqref{eq:dot-cross}. These identities show how ordinary vector operations are encoded inside the algebra.
 \begin{equation*}
 \sigv = \{ \sigma _{1}, \sigma _{2}, \sigma _{3} \}\qquad \eqtext{vector of algebraic objects}.
 \end{equation*}
@@ -215,7 +182,7 @@ XY &= (a + \mathbf A \cdot \sigv ) (b + \mathbf B \cdot \sigv ),\notag \\
 &= ( a b + \mathbf A \cdot \mathbf B ) + (a \mathbf B + b \mathbf A + i (\mathbf A \times \mathbf B)) \cdot \sigv,\notag \\
 &= YX \text{ if } \mathbf A \times \mathbf B = 0.
 \end{align*}
-The product \(XY\) generally lies in \(\mathbb{R}\oplus\mathbb{C}^{3}\), and it returns to the real paravector sector precisely when the cross term vanishes:
+The product \(XY\) generally lies in \(\mathbb{R}\oplus\mathbb{C}^{3}\), and it returns to the real paravector form precisely when the cross term vanishes:
 \begin{align*}
 XY \in \mathbb{R}\oplus\mathbb{R}^{3} \text{ if } \mathbf A \times \mathbf B &= 0,\notag \\
 [ X, Y ] &= 2 i (\mathbf A \times \mathbf B) \cdot \sigv,\notag \\
@@ -237,7 +204,7 @@ XY \in \mathbb{R}\oplus\mathbb{R}^{3} \text{ if } \mathbf A \times \mathbf B &= 
 \eqtext{vector}(YX) &= a \mathbf B + b \mathbf A + i (\mathbf B \times \mathbf A),\notag \\
 &= \eqtext{vector}(XY) \text{ if } \mathbf A \times \mathbf B = 0.
 \end{align*}
-\noindent The square of a real paravector stays in the real sector:
+\noindent The square of a real paravector stays in the real paravector form:
 \begin{align*}
 \eqtext{scalar}(X^{2}) &= a^{2} + \mathbf A^{2},\notag \\
 \eqtext{vector}(X^{2}) &= 2 a \mathbf A,\notag \\
@@ -381,6 +348,32 @@ S &= a + b i,\notag \\
 \begin{align*}
 \mathbf V \cdot \sigv &= (\mathbf A + i \mathbf B) \cdot \sigv,\notag \\
 &= (Z - Z^{\mathrm{R}*}) / 2.
+\end{align*}
+
+\subsubsection*{Vector Notation, Norms, and Cross Products}
+The elementary Euclidean conventions used in the product and norm formulas are recorded here after the complex-paravector decomposition has been fixed. Let \(\mathbf A\) and \(\mathbf B\) be real three-vectors. Their dot product, squared magnitude, and Euclidean norm are
+\begin{align*}
+\mathbf A \cdot \mathbf B &= A_{1}B_{1} + A_{2}B_{2} + A_{3}B_{3}, \\
+\mathbf A^{2} &= \mathbf A \cdot \mathbf A, \\
+\lVert \mathbf A \rVert &= \sqrt{\mathbf A^{2}}.
+\end{align*}
+For a real scalar \(a\) and a complex scalar \(S=a+ib\),
+\begin{align*}
+|a| &= \sqrt{a^{2}}, \\
+|S| &= \sqrt{SS^{*}} = \sqrt{(a + i b)(a - i b)} = \sqrt{a^{2} + b^{2}}.
+\end{align*}
+For a complex vector \(\mathbf V=\mathbf A+i\mathbf B\), the corresponding positive norm is
+\begin{align*}
+\lVert \mathbf V \rVert &= \sqrt{\mathbf V \mathbf V^{*}},\notag \\
+&= \sqrt{(\mathbf A + i \mathbf B) \cdot (\mathbf A - i \mathbf B)},\notag \\
+&= \sqrt{\mathbf A^{2} + \mathbf B^{2}}.
+\end{align*}
+\noindent\emph{Note.} The quadratic product \(\mathbf V^{2}\) is not the same object as the norm square \(\lVert \mathbf V\rVert^{2}\).\par
+The cross product and its antisymmetry are
+\begin{align*}
+\mathbf A \times \mathbf B
+&= \{ A_{2}B_{3} - A_{3}B_{2}, A_{3}B_{1} - A_{1}B_{3}, A_{1}B_{2} - A_{2}B_{1} \}, \\
+\mathbf B \times \mathbf A &= -\mathbf A \times \mathbf B.
 \end{align*}
 
 \subsubsection*{Products of Complex Paravectors}
