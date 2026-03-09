@@ -42,7 +42,7 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\sigv}{\bm{\sigma}}
 \newcommand{\gradv}{\bm{\nabla}}
-\newcommand{\delop}{\bm{\partial}}
+\newcommand{\delop}{\partial}
 \newcommand{\delr}{\delop_{\mathbf r}}
 \newcommand{\delv}{\delop_{\mathbf v}}
 \newcommand{\rev}[1]{#1^{\mathsf R}}
@@ -285,6 +285,8 @@ Applied to the generators and the pseudoscalar, these rules reduce to
 \label{eq:i-involutions}
 \end{align}
 These agree with the standard geometric-algebra involution structure described in the STA literature \cite{hestenes1966,doran2003}; throughout this manuscript they are referred to as the sigma-conjugate operator, the reverse operator, and the combined sigma-conjugate/reverse operator. These operators will be used constantly, so it is worth emphasizing their distinct roles. The sigma-conjugate operator flips vector sign, the reverse operator reverses multiplication order, and the combined operation is the one that later produces the Minkowski-type quadratic form. Introducing them at the algebraic stage prevents the interval and operator formulas from seeming arbitrary when they appear later.
+The homogeneous sigma grades and the signs acquired under these three involutions are summarized here before the manuscript moves on to products and paravectors.
+\input{sections/algebra_grade_tables.tex}
 
 \subsection*{Vector product identity and complex paravectors}
 Collect the three generators into the sigma-vector
@@ -383,10 +385,10 @@ This gives a compact spectral calculus for logarithms, exponentials, and project
 The significance of Eq.\ \eqref{eq:functional-calculus} is broader than the specific examples used later. Once the minimal polynomial of an STA element is known, functions of that element can be defined without leaving the algebraic framework already established.
 
 \subsection*{Detailed Algebraic Derivations}
-Eqs.\ \eqref{eq:sigma-involutions}, \eqref{eq:paravector-product}, and \eqref{eq:functional-calculus} form the algebraic spine of the manuscript. The derivations collected next record the commutator rules, involution identities, inverse formulas, logarithms, complex-product decompositions, and functional expansions used later.
+Eqs.\ \eqref{eq:sigma-involutions}, \eqref{eq:paravector-product}, and \eqref{eq:functional-calculus} form the algebraic spine of the manuscript. With the homogeneous grades and their involution signs already summarized above, the derivations collected next can focus on commutators, inverse formulas, logarithms, complex-product decompositions, and functional expansions used later.
 \input{sections/algebra.tex}
 \subsubsection*{Component tables}
-The accompanying tables collect the grade decomposition, involution signs, and component formulas used throughout the algebraic development.
+The accompanying tables collect the remaining recovery formulas, product decompositions, and component expansions used throughout the algebraic development.
 \input{sections/algebra_tables.tex}
 
 \section{Space-Time Kinematics}\label{sec:spacetime}

@@ -1,42 +1,4 @@
-\noindent Table~\ref{tab:sigma-grade-components-app} records the sigma grades \(0\) through \(3\) together with the representative basis elements attached to each sector.
-\begin{center}
-\captionsetup{type=table,font=small,labelfont=bf,skip=4pt}
-\captionof{table}{Sigma grades and representative basis elements.}\label{tab:sigma-grade-components-app}
-\renewcommand{\arraystretch}{1.18}
-\setlength{\tabcolsep}{4pt}
-\small
-\begin{tabularx}{\columnwidth}{@{}c l >{\raggedright\arraybackslash}X@{}}
-\toprule
-grade & sector & representative elements \\
-\midrule
-\(0\) & scalar & \(1\) \\
-\(1\) & vector & \(\sigma_1,\ \sigma_2,\ \sigma_3\) \\
-\(2\) & bivector & \(i\sigv=\{\sigma_2\sigma_3,\ \sigma_3\sigma_1,\ \sigma_1\sigma_2\}\) \\
-\(3\) & pseudo-scalar & \(i=\sigma_1\sigma_2\sigma_3\) \\
-\bottomrule
-\end{tabularx}
-\end{center}
-
-\noindent Table~\ref{tab:grade-signs} then records how the sigma-conjugate, reverse, and combined operators act on each homogeneous grade.
-\begin{center}
-\captionsetup{type=table,font=small,labelfont=bf,skip=4pt}
-\captionof{table}{Signs of the sigma-conjugate, reverse, and combined operators on homogeneous grades.}\label{tab:grade-signs}
-\renewcommand{\arraystretch}{1.18}
-\setlength{\tabcolsep}{4pt}
-\small
-\begin{tabularx}{\columnwidth}{@{}l >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X@{}}
-\toprule
-Grade & sigma conjugate \((\cdot)^*\) & reverse operator \((\cdot)^{\mathrm R}\) & combined \((\cdot)^{*\mathrm R}\) \\
-\midrule
-scalar & \(+\) & \(+\) & \(+\) \\
-vector & \(-\) & \(+\) & \(-\) \\
-bivector & \(+\) & \(-\) & \(-\) \\
-pseudo-scalar & \(-\) & \(-\) & \(+\) \\
-\bottomrule
-\end{tabularx}
-\end{center}
-
-\noindent Table~\ref{tab:components-paravector-recovery} gives the recovery formulas that extract scalar, vector, real, and imaginary parts from a complex paravector.
+\noindent The remaining algebra tables collect the recovery formulas, product decompositions, and order-dependent component expansions used in later calculations.
 \begin{componenttable}[tab:components-paravector-recovery]{Z}
 \componentrow{scalar}{a+ib=(Z+Z^{\mathrm{R}*})/2}{}
 \componentrow{vector}{(\mathbf A+i\mathbf B)\cdot\sigv=(Z-Z^{\mathrm{R}*})/2}{}
