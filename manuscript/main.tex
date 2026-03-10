@@ -304,9 +304,8 @@ For the paravector \(Z\), the same notation may be written with subscripts as
 Z_{S}:=\eqtext{scalar}(Z),\qquad Z_{\mathbf V}:=\eqtext{vector}(Z).
 \end{equation}
 
-\begin{table}[t]
-\centering
-\caption{Type assignments for the full basis as a complex paravector.}
+\begin{tableblock}
+\captionof{table}{Type assignments for the full basis as a complex paravector.}
 \label{tab:paravector-types}
 \normalsize
 \begin{tabular}{@{}lll@{}}
@@ -321,7 +320,7 @@ real paravector & \(\R\oplus\R^3\) & \(X,Y\) \\
 complex paravector & \(\C\oplus\C^3\) & \(Z\) \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{tableblock}
 
 \begin{componenttable}[tab:components-paravector-recovery]{Z}
 \componentrow{scalar}{S=(Z+Z^{\mathrm{R}*})/2}{}
@@ -580,7 +579,7 @@ F:=\mathbf F\cdot\sigv,
 \Phi=V+\mathbf A\cdot\sigv.
 \label{eq:F-Phi}
 \end{equation}
-Here \(\Phi\in\R\oplus\R^3\), \(\mathbf F\in\C^3\) is the complex field vector, and \(F\in\{0\}\oplus\C^3\) is the corresponding STA field paravector. Equation \eqref{eq:F-Phi} packages electric and magnetic fields into one object \(\mathbf F\), scalar and vector potentials into one object \(\Phi\), and then lets the single symbol \(F\) carry the STA field notation used below.
+Here \(\Phi\in\R\oplus\R^3\), \(\mathbf F\in\C^3\) is the complex field vector, and \(F\in\varnothing\oplus\C^3\) is the corresponding STA field paravector. Equation \eqref{eq:F-Phi} packages electric and magnetic fields into one object \(\mathbf F\), scalar and vector potentials into one object \(\Phi\), and then lets the single symbol \(F\) carry the STA field notation used below.
 
 \subsection*{Boost transformation of electro-magnetic fields}
 With \(F\) now defined, the same boost element \(L\) from Eq.\ \eqref{eq:boost} acts on the field paravector by
