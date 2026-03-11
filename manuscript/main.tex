@@ -149,13 +149,13 @@ Space-time algebra extends the familiar scalar and vector calculus of three-dime
 
 The document is organized from simple algebraic structure to physical application. It begins with the sigma basis, the conjugate and reverse operators, the decomposition of a complex paravector into real scalar, imaginary scalar, real vector, and imaginary vector parts, and the corresponding product and quadratic-form identities. It then develops projector algebra, exponential and logarithmic formulas, generalized transform identities, and the matrix and auxiliary \(2\times2\) realizations needed later for the Dirac-type constructions. Only after that algebraic setup is fixed does the presentation turn to space-time kinematics, electromagnetism, and relativistic wave equations.
 
-This perspective is consistent with the modern STA and paravector literature of Hestenes, Baylis, and Doran--Lasenby \cite{hestenes1966,baylis1999,doran2003}, while its algebraic lineage runs back through Hamilton's quaternion construction and Clifford's geometric extension \cite{hamilton1844,clifford1878}. A one-page formula compendium follows this introduction and serves as a reference sheet for the numbered formulas developed in the body.
+This perspective is consistent with the modern STA and paravector literature of Hestenes, Baylis, and Doran--Lasenby \cite{hestenes1966,baylis1999,doran2003}, while its algebraic lineage runs back through Hamilton's quaternion construction and Clifford's geometric extension \cite{hamilton1844,clifford1878}. A one-page Equation Reference Sheet follows this introduction and serves as a reference sheet for the numbered formulas developed in the body.
 
 Bold symbols denote three-vectors, and the remaining symbols are defined where they first appear. Whenever a new symbol is introduced, the text states whether it is a scalar, vector, or paravector and whether it is real or complex. Complexification is carried by the pseudoscalar \(i\). Natural units \(\hbar=c=1\) and metric signature \((+,-,-,-)\) are used unless stated otherwise.
 
 \subsection{Reading Guide}
 \begin{enumerate}
-\item The formula compendium on the next page collects the main numbered equations in the order they are developed.
+\item The Equation Reference Sheet on the next page collects the main numbered equations in the order they are developed.
 \item Section \ref{sec:algebra} develops the algebraic foundations: the sigma basis, the conjugate and reverse operators, complex paravectors, products and quadratic forms, projector algebra, exponential and logarithmic formulas, generalized transform identities, and the matrix and auxiliary \(2\times2\) realizations.
 \item Section \ref{sec:spacetime} interprets the earlier paravector quadratic form as interval geometry and develops proper velocity, proper momentum, acceleration, and free relativistic motion.
 \item Section \ref{sec:em} introduces the differential paravector, field and potential paravectors, Maxwell theory, gauge structure, wave equations for the field, and the Lorentz force.
@@ -167,7 +167,7 @@ Bold symbols denote three-vectors, and the remaining symbols are defined where t
 \clearpage
 \thispagestyle{plain}
 \begin{center}
-\textbf{Formula Compendium}
+\textbf{Equation Reference Sheet}
 \end{center}
 \vspace{-0.65em}
 \iffalse
@@ -219,14 +219,14 @@ X&=\eqtext{real}(Z),\qquad Y=\eqtext{img}(Z)
 \fontsize{8.8}{9.8}\selectfont
 \setlength{\jot}{0.25em}
 \setlength{\tabcolsep}{0pt}
-\renewcommand{\arraystretch}{1.02}
-\newcommand{\compendiumrowplain}[3]{#1 & \(\displaystyle #2\) & #3\\[0.14em]}
-\newcommand{\compendiumsubrowplain}[3]{\hspace*{0.9em}#1 & \(\displaystyle \qquad #2\) & #3\\[0.10em]}
+\renewcommand{\arraystretch}{1.08}
+\newcommand{\compendiumrowplain}[3]{#1 & \(\displaystyle #2\) & #3\\[0.20em]}
+\newcommand{\compendiumsubrowplain}[3]{\hspace*{0.9em}#1 & \(\displaystyle \qquad #2\) & #3\\[0.16em]}
 \noindent Natural units: \(\hbar=c=1\). Metric signature: \((+,-,-,-)\).
-\par\vspace{0.35em}
+\par\vspace{0.45em}
 \noindent
 \begin{tabular}{@{}p{0.27\textwidth}@{\hspace{0.02\textwidth}}p{0.60\textwidth}@{\hspace{0.015\textwidth}}>{\raggedleft\arraybackslash}p{0.085\textwidth}@{}}
- &  & \textbf{Ref.}\\[0.28em]
+ &  & \textbf{Ref.}\\[0.36em]
 \compendiumrowplain{Pseudoscalar}{i=\sigma_1\sigma_2\sigma_3}{\eqref{eq:basis}}
 \compendiumrowplain{Sigma product}{\sigma_n\sigma_m=\delta_{nm}+\epsilon_{nmk}\,i\sigma_k}{\eqref{eq:sigma-product}}
 \compendiumsubrowplain{Conjugate operator}{(\cdot)^*=\eqtext{conjugate that flips signs of }\sigma_n}{\eqref{eq:star-definition}}
@@ -236,9 +236,9 @@ X&=\eqtext{real}(Z),\qquad Y=\eqtext{img}(Z)
 \compendiumsubrowplain{Img function}{Y=\eqtext{img}(Z)}{\eqref{eq:real-imag-parts}}
 \compendiumsubrowplain{Scalar function}{S=\eqtext{scalar}(Z)}{\eqref{eq:scalar-function}}
 \compendiumsubrowplain{Vector function}{\mathbf V=\eqtext{vector}(Z)}{\eqref{eq:vector-function}}
-\compendiumsubrowplain{Conjugate paravector}{\conj{Z}=(a-ib)+(-\mathbf A+i\mathbf B)\cdot\sigv}{\eqref{eq:paravector-involutions}}
-\compendiumsubrowplain{Reverse paravector}{\rev{Z}=X-iY=(a-ib)+(\mathbf A-i\mathbf B)\cdot\sigv}{\eqref{eq:paravector-involutions}}
-\compendiumsubrowplain{Combined involution}{\crev{Z}=(a+ib)-(\mathbf A+i\mathbf B)\cdot\sigv}{\eqref{eq:paravector-involutions}}
+\compendiumsubrowplain{Conjugate paravector}{\conj{Z}=(a-ib)+(-\mathbf A+i\mathbf B)\cdot\sigv}{\eqref{eq:paravector-operator-actions}}
+\compendiumsubrowplain{Reverse paravector}{\rev{Z}=X-iY=(a-ib)+(\mathbf A-i\mathbf B)\cdot\sigv}{\eqref{eq:paravector-operator-actions}}
+\compendiumsubrowplain{Combined action}{\crev{Z}=(a+ib)-(\mathbf A+i\mathbf B)\cdot\sigv}{\eqref{eq:paravector-operator-actions}}
 \compendiumsubrowplain{Vector product}{(\mathbf A\cdot\sigv)(\mathbf B\cdot\sigv)=\mathbf A\cdot\mathbf B+i(\mathbf A\times\mathbf B)\cdot\sigv}{\eqref{eq:dot-cross}}
 \compendiumsubrowplain{Paravector product}{ZZ'=SS'+\mathbf V\cdot\mathbf V'+\bigl(S\mathbf V'+S'\mathbf V+i(\mathbf V\times\mathbf V')\bigr)\cdot\sigv}{\eqref{eq:paravector-product}}
 \compendiumsubrowplain{Paravector commutator}{[Z,Z']=2i(\mathbf V\times\mathbf V')\cdot\sigv}{\eqref{eq:paravector-commutator}}
@@ -284,8 +284,7 @@ X&=\eqtext{real}(Z),\qquad Y=\eqtext{img}(Z)
 This section fixes the basis, the conjugate and reverse operators, complex paravectors, products and quadratic forms, projector formulas, exponential and logarithmic formulas, generalized transforms, and the standard matrix realizations.
 
 \subsection*{Basis and pseudoscalar}
-The algebra is generated by three basis elements \(\sigma_n\) for \(n\in\{1,2,3\}\). Their products generate vectors, bivectors, and the pseudoscalar \(i\).
-
+For \(n\in\{1,2,3\}\), the algebra is generated by the three basis elements \(\sigma_n\). Their products generate scalars, vectors, bivectors, and pseudoscalars.
 The basis relations are
 \begin{equation}
 \begin{aligned}
@@ -294,7 +293,7 @@ i&:=\sigma_1\sigma_2\sigma_3,\qquad i^2=-1.
 \end{aligned}
 \label{eq:basis}
 \end{equation}
-The pseudoscalar square follows directly:
+The element \(i\) is a pseudoscalar because \(i\sigma_n=\sigma_n i\), and squaring \(i\) returns the scalar \(-1\):
 \begin{align*}
 (\sigma_1\sigma_2\sigma_3)^2
 &= \sigma_1\sigma_2(\sigma_3\sigma_1)\sigma_2\sigma_3,\notag\\
@@ -321,17 +320,13 @@ where
 \end{align*}
 
 \subsection*{The Conjugate and Reverse Operators}
-The two basic involutions are
+The two basic operators are
 \begin{align}
 (\cdot)^* &= \eqtext{conjugate that flips signs of } \sigma_n,
 \label{eq:star-definition}\\
 (\cdot)^{\mathrm R} &= \eqtext{reverse order of multiplied } \sigma_n,
 \label{eq:reversion-definition}
 \end{align}
-The conjugate operator flips the sign of each \(\sigma_n\). The reverse operator reverses the order of multiplied generators. Their combined action appears throughout the quadratic forms and transform laws.
-
-The sigma number of a reduced basis product is the number of sigma generators that remain after simplification. Thus \(1\), \(\sigma_n\), \(\sigma_n\sigma_m\) with \(n\neq m\), and \(i\) have sigma numbers \(0\), \(1\), \(2\), and \(3\). Any unreduced product with sigma number larger than \(3\) simplifies to one of these four cases.
-
 In operator form,
 \begin{equation}
 \begin{aligned}
@@ -339,18 +334,18 @@ In operator form,
 {(XY)}^{\mathrm R}=Y^{\mathrm R}X^{\mathrm R},\\
 X^{*\mathrm R}&=(X^{\mathrm R})^{*}=(X^{*})^{\mathrm R}.
 \end{aligned}
-\label{eq:involution-operators}
+\label{eq:operator-rules}
 \end{equation}
 Applied to the generators and the pseudoscalar, these rules reduce to
 \begin{alignat}{3}
 \conj{\sigma_n} &{}= -\sigma_n, \qquad&
 \rev{\sigma_n} &{}= \sigma_n, \qquad&
 \crev{\sigma_n} &{}= -\sigma_n,
-\label{eq:sigma-involutions}\\
+\label{eq:sigma-operator-signs}\\
 \conj{i} &{}= -i, \qquad&
 \rev{i} &{}= -i, \qquad&
 \crev{i} &{}= i.
-\label{eq:i-involutions}
+\label{eq:i-operator-signs}
 \end{alignat}
 For a two-generator bivector pair with \(n\neq m\),
 \begin{align}
@@ -368,11 +363,11 @@ For a two-generator bivector pair with \(n\neq m\),
 &= (-\sigma_m)(-\sigma_n)
 = \sigma_m\sigma_n
 = -\sigma_n\sigma_m.
-\label{eq:bivector-involutions}
+\label{eq:bivector-operator-signs}
 \end{align}
-Equation \eqref{eq:bivector-involutions} records the same sign pattern on the sigma-number-two elements. These rules agree with standard STA conventions \cite{hestenes1966,doran2003}.
+Equation \eqref{eq:bivector-operator-signs} records the same sign pattern on the sigma-number-two elements. These rules agree with standard STA conventions \cite{hestenes1966,doran2003}.
 
-Tables \ref{tab:sigma-number-components} and \ref{tab:sigma-number-signs} summarize the basis elements and involution signs by sigma number.
+The sigma number of a reduced basis product is the number of sigma generators that remain after simplification. Thus \(1\), \(\sigma_n\), \(\sigma_n\sigma_m\) with \(n\neq m\), and \(i\) have sigma numbers \(0\), \(1\), \(2\), and \(3\). Any unreduced product with sigma number larger than \(3\) simplifies to one of these four cases. Tables \ref{tab:sigma-number-components} and \ref{tab:sigma-number-signs} summarize the basis elements and operator signs by sigma number.
 \input{sections/algebra_sigma_number_tables.tex}
 
 \subsection*{Generic Complex Paravector}
@@ -417,9 +412,9 @@ The conjugate and reverse operators act on the generic complex paravector by
 \conj{Z} &= (a-ib)+(-\mathbf A+i\mathbf B)\cdot\sigv,\notag\\
 \rev{Z} &= X-iY=(a-ib)+(\mathbf A-i\mathbf B)\cdot\sigv,\notag\\
 \crev{Z} &= (a+ib)-(\mathbf A+i\mathbf B)\cdot\sigv.
-\label{eq:paravector-involutions}
+\label{eq:paravector-operator-actions}
 \end{align}
-Equation \eqref{eq:paravector-involutions} is the generic operator formula used throughout the later algebraic constructions.
+Equation \eqref{eq:paravector-operator-actions} is the generic operator formula used throughout the later algebraic constructions.
 Define the scalar and vector functions as the functions that extract the scalar and vector elements of the paravector:
 \begin{align}
 \eqtext{scalar}(Z)&:=S,
@@ -525,7 +520,7 @@ Equation \eqref{eq:minkowski-form} is the indefinite quadratic form paired with 
 \input{sections/algebra_products.tex}
 
 \subsection*{Supporting Algebraic Derivations}
-The supporting derivations record the explicit sigma-basis and involution calculations, together with one generic map decomposition, that support the earlier basis and operator formulas without repeating the product development already collected above.
+The supporting derivations record the explicit sigma-basis and operator calculations, together with one generic map decomposition, that support the earlier basis and operator formulas without repeating the product development already collected above.
 \input{sections/algebra.tex}
 
 \subsection*{Projector Algebra}\label{sec:projectors}
