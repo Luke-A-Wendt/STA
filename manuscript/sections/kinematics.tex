@@ -34,10 +34,10 @@ For a time-like worldline, the parameter \(s\) is the proper time in natural uni
 \qquad
 \tau=\int \dd s=\int \sqrt{1-\mathbf v^2}\,\dd t.
 \end{equation*}
-In SI units the same relation is \(ds=c\,d\tau\). The advantage of the paravector notation is that the interval classification and the proper-time formula both come from the single algebraic identity \(\dd X\,\conj{\dd X}=dt^2-d\mathbf r^2\).
+In SI units the same relation is \(ds=c\,d\tau\). The advantage of the paravector notation is that the interval classification and the proper-time formula both come from the single algebraic identity \(\dd X\,\conj{\dd X}=\dd t^2-\dd\mathbf r^2\).
 
 \subsubsection*{Proper Velocity and Proper Acceleration in Components}
-Starting from Eq.\ \eqref{eq:proper-velocity}, the proper-velocity paravector can be read componentwise as
+Starting from Eq.\ \eqref{eq:proper-velocity}, the proper-velocity paravector can be read by its scalar and vector parts as
 \begin{align*}
 U&=\frac{\dd X}{\dd s}=\gamma+\gamma\mathbf v\cdot\sigv,\notag \\
 \eqtext{scalar}(U)&=\gamma,\qquad
@@ -68,6 +68,8 @@ which is strictly space-like unless the acceleration vanishes. Splitting \(\math
 =-\gamma^4\Bigl(\mathbf a_{\perp}^{2}+\gamma^{2}\mathbf a_{\parallel}^{2}\Bigr).
 \end{equation*}
 This is the geometric content later used by the Lorentz-force law.
+Tables \ref{tab:components-proper-velocity}, \ref{tab:components-ua}, and \ref{tab:components-ustara} record the corresponding scalar and vector parts of \(U\), \(UA\), and \(U^{*}A\).
+\input{sections/kinematics_tables.tex}
 
 \subsubsection*{Proper Momentum and the Mass Shell}
 Multiplying proper velocity by the rest mass produces the energy--momentum paravector,
@@ -118,3 +120,31 @@ The low-velocity series
 \mathcal H&=m+\frac12 m\mathbf v^{2}+O(\mathbf v^{4})
 \end{align*}
 shows exactly how the relativistic action contains the Newtonian kinetic term together with the additive rest-energy constant. Classical mechanics therefore appears as the approximation, not as the starting point.
+
+\subsubsection*{Generalized Coordinate Fields and Metric Remarks}
+The preceding derivations depend only on the paravector algebra and the Minkowski-type quadratic form, not on the particular choice of scalar coordinate \(t\) and vector coordinate \(\mathbf r\). For a more general real paravector coordinate field,
+\begin{equation*}
+X=f(t,\mathbf r)+\mathbf g(t,\mathbf r)\cdot\sigv,
+\qquad
+\dd X=\dd f+\dd\mathbf g\cdot\sigv,
+\end{equation*}
+with \(f\in\R\), \(\mathbf g\in\R^3\), and \(X\in\R\oplus\R^3\), one still has the same interval formula
+\begin{equation*}
+\langle\!\langle \dd X\rangle\!\rangle^{2}=\dd X\,\conj{\dd X}=\dd f^{2}-\dd\mathbf g^{2}.
+\end{equation*}
+If \(\dd f\) is time-like, the same algebraic steps as before give
+\begin{equation*}
+\begin{aligned}
+\dd s&=\sqrt{\dd f^{2}-\dd\mathbf g^{2}},\qquad
+\mathbf v=\frac{\dd\mathbf g}{\dd f},\\
+U&=\frac{\dd X}{\dd s}=\gamma(1+\mathbf v\cdot\sigv),\qquad
+\gamma=\frac{\dd f}{\dd s}.
+\end{aligned}
+\end{equation*}
+Thus the proper-velocity formula is a structural consequence of the paravector interval itself; changing coordinates changes only the functions \(f\) and \(\mathbf g\), not the algebraic form of the result.
+
+For comparison with matrix notation, one may also write
+\begin{equation*}
+\dd s^{2}=\dd x^{T}Q(x)\,\dd x
+\end{equation*}
+for a symmetric matrix \(Q(x)\). Standard linear algebra then gives an orthogonal diagonalization \(Q=NDN^{T}\). That matrix rewrite can be useful, but it does not erase the Lorentzian sign structure already built into \(\dd X\conj{\dd X}\). Diagonalization reorganizes the quadratic form; it does not convert the indefinite interval into a positive-definite Euclidean norm. The paravector metric therefore remains the primary statement.

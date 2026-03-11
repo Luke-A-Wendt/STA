@@ -1,5 +1,5 @@
 \subsubsection*{Spin-0 Wave Mechanics and Frequency Splitting}
-Equation \eqref{eq:kg-free} is most transparent when read mode by mode. For a plane-wave ansatz
+Equation \eqref{eq:kg-free} is most transparent when read one Fourier mode at a time. For a plane-wave ansatz
 \begin{equation*}
 \Psi(t,\mathbf r)=c\,e^{-i\omega t+i\mathbf k\cdot\mathbf r},
 \end{equation*}
@@ -7,7 +7,9 @@ the Klein--Gordon equation becomes \(\omega^2=\mathbf k^2+m^2\). The operator \(
 \begin{equation*}
 \omega_{\mathbf k}=\sqrt{\mathbf k^2+m^2}.
 \end{equation*}
-This is the analytic content of the formal factorization
+Accordingly, the symbol \(\Omega\) in Eq.\ \eqref{eq:frequency-split} should be read as the positive scalar square root of the operator \(m^2-\gradv^2\). The factorization is therefore defined one Fourier mode at a time rather than treated as shorthand only.
+
+Equivalently,
 \[
 \partial_t^2+\Omega^2=(\partial_t-i\Omega)(\partial_t+i\Omega).
 \]
@@ -31,7 +33,7 @@ The factorization
 \begin{equation*}
 \square+m^{2}=(m-i\sqrt{\square})(m+i\sqrt{\square})
 \end{equation*}
-is therefore a shorthand for multiplying each Fourier mode by the corresponding dispersion function. The apparently formal root operator is nothing more than the spectral calculus already introduced in Eq.\ \eqref{eq:functional-calculus}, now applied to the wave operator.
+is therefore a shorthand for multiplying each Fourier mode by the corresponding dispersion function. The apparently formal root operator is nothing more than the same function rule already introduced in Eq.\ \eqref{eq:functional-calculus}, now applied to the wave operator.
 
 \subsubsection*{Minimal Coupling and Operator Factorization}
 Once the potential \(\Phi\) has been introduced, it is more economical to couple at the operator level than at the component level. Acting on a smooth test field \(\Psi\), the operators from Eq.\ \eqref{eq:E-P-operators} satisfy
@@ -59,10 +61,10 @@ while reversing the order gives
 (E-\sigv\cdot\mathbf P)(E+\sigv\cdot\mathbf P)\Psi
 =\bigl(E^2-\mathbf P^2-iqF^*\bigr)\Psi.
 \end{equation*}
-This is the structural statement encoded in Eq.\ \eqref{eq:EP-factorization}. The second-order Klein--Gordon operator is recovered from the square of a first-order object, and the field term carried by \(F\) is exactly what remains from the noncommuting covariant momenta.
+Equation \eqref{eq:EP-factorization} states exactly this: the second-order Klein--Gordon operator is recovered from the square of a first-order object, and the field term carried by \(F\) is what remains from the noncommuting covariant momenta.
 
 \subsubsection*{Free Spin-\texorpdfstring{$\frac12$}{1/2} Factorization}
-Before the electromagnetic field is turned on, the Dirac block map already shows how the scalar and spinor theories are related. With
+Before the electromagnetic field is turned on, the auxiliary \(2\times2\) map from Eq.\ \eqref{eq:W-map} already shows how the scalar theory and the two-component field are related. With
 \begin{equation*}
 D_{0}:=W(i\partial)-m\I,
 \qquad
@@ -72,7 +74,7 @@ one has
 \begin{equation*}
 D_{0}'D_{0}=-(\square+m^{2})\I.
 \end{equation*}
-Thus every free Dirac solution satisfies the Klein--Gordon equation componentwise. Conversely, if \(\Psi'\) is a scalar Klein--Gordon solution, then
+Thus every free Dirac solution satisfies the Klein--Gordon equation in each component. Conversely, if \(\Psi'\) is a scalar Klein--Gordon solution, then
 \begin{equation*}
 \Psi=
 \begin{Bmatrix}
@@ -80,24 +82,22 @@ Thus every free Dirac solution satisfies the Klein--Gordon equation componentwis
 \dfrac{i}{m}\,\partial^*\Psi'
 \end{Bmatrix}
 \end{equation*}
+with upper component \(\Psi'\in\C\) and lower component \(\tfrac{i}{m}\partial^*\Psi'\in\C\oplus\C^3\),
 solves the free Dirac system. The Dirac equation is therefore a controlled first-order factorization of the same relativistic mass shell rather than a disconnected model.
 
-\subsubsection*{The Dirac Block System, Gauge Covariance, and Component Form}
-The block map \(W(Z)\) is useful because it converts a paravector \(Z\) into a first-order matrix operator whose square is diagonal:
-\[
-W(Z)^2=\operatorname{diag}(Z\crev{Z},\crev{Z}Z).
-\]
-With
+\subsubsection*{The Dirac Two-Component System, Gauge Covariance, and Component Form}
+Define
 \[
 Z=i\partial-q\conj{\Phi}=E-\sigv\cdot\mathbf P,
 \]
-Eq.\ \eqref{eq:dirac-coupled} becomes a first-order system for the two block components \(\Psi_1\) and \(\Psi_2\):
+so that \(Z\) is a paravector-valued differential operator with scalar part \(E\) and vector part \(-\mathbf P\). The same map from Eq.\ \eqref{eq:W-map} then produces a first-order two-component operator whose square is diagonal in the two paravector components.
+Eq.\ \eqref{eq:dirac-coupled} becomes a first-order system for the two paravector components \(\Psi_1\) and \(\Psi_2\):
 \begin{equation*}
 (i\partial-q\Phi^*)\Psi_2-m\Psi_1=0,
 \qquad
 (i\partial^*-q\Phi)\Psi_1-m\Psi_2=0.
 \end{equation*}
-At the block-operator level this means
+At the operator level this means
 \begin{equation*}
 \begin{aligned}
 W(i\partial-q\conj{\Phi})^2
@@ -113,6 +113,8 @@ D'D\Psi=
 \operatorname{diag}\!\bigl(-E^2+\mathbf P^2+m^2-iqF^*,
 -E^2+\mathbf P^2+m^2+iqF\bigr)\Psi.
 \end{equation*}
+Once the square is taken, the coupled Dirac system separates into two Klein--Gordon-type equations whose field terms differ only by the expected conjugation/sign pattern.
+
 The upper and lower components satisfy Klein--Gordon-type equations with opposite field couplings, exactly as recorded in Eq.\ \eqref{eq:dirac-square}. The sign pattern matters, which is why the caution recorded in Section \ref{sec:flags} is retained explicitly.
 
 Gauge covariance is then immediate. If
@@ -121,9 +123,10 @@ Gauge covariance is then immediate. If
 \qquad
 \Psi=e^{iq\lambda}\Psi',
 \]
-then the phase derivative produced by \(i\partial\) is cancelled by the shift in the potential, leaving the form of Eq.\ \eqref{eq:dirac-coupled} unchanged. The supporting tables that follow collect the direct component actions of \(\partial\), \(\partial^*\), \(\Phi\), \(\Phi^*\), \(iqF\), and \(iqF^*\); those tables supply the explicit two-component formulas corresponding to this block system.
+with \(\lambda\in\R\) a real scalar gauge function, then the phase derivative produced by \(i\partial\) is cancelled by the shift in the potential, leaving the form of Eq.\ \eqref{eq:dirac-coupled} unchanged. The supporting tables that follow collect the direct component actions of \(\partial\), \(\partial^*\), \(\Phi\), \(\Phi^*\), \(iqF\), and \(iqF^*\); those tables supply the explicit two-component formulas corresponding to the same field.
+\input{sections/qm_tables_dirac.tex}
 
-\subsubsection*{Low-Energy Scalar and Spinor Limits}
+\subsubsection*{Low-Energy Scalar and Paravector Limits}
 To reach the nonrelativistic scalar theory, remove the fast rest-energy oscillation by writing \(\Psi'=e^{-imt}\Psi\). Substituting into the minimally coupled Klein--Gordon equation gives
 \begin{equation*}
 0=\bigl(-E^{2}-2mE+\mathbf P^{2}\bigr)\Psi,
@@ -139,7 +142,7 @@ i\partial_t\Psi
 \end{equation*}
 The scalar low-energy limit is therefore already encoded in the relativistic theory.
 
-For the spin-\(\tfrac12\) system, one performs the same rest-phase extraction and then eliminates the small component iteratively. At leading order this yields
+For the spin-\(\tfrac12\) two-component field, one performs the same rest-phase extraction and then eliminates the small component iteratively. At leading order this yields
 \begin{equation*}
 2mE\Psi=(\mathbf P^2-q\mathbf B\cdot\sigv)\Psi+O(1/m),
 \end{equation*}
@@ -149,4 +152,4 @@ For a uniform static magnetic field \(\mathbf B=\|\mathbf B\|\mathbf u\), the pr
 \begin{equation*}
 (\mathbf B\cdot\sigv)\Pi(\pm)=\pm \|\mathbf B\|\,\Pi(\pm).
 \end{equation*}
-The decomposition \(\Psi=\Psi(+)+\Psi(-)\) with \(\Psi(\pm)=\Pi(\pm)\Psi\) therefore separates the Pauli equation into the two scalar Schr\"odinger-type equations shown in Eq.\ \eqref{eq:pauli-spin-split}. It is a clear example of a purely algebraic construction acquiring an immediate physical interpretation.
+The decomposition in Eq.\ \eqref{eq:pauli-spin-decomposition}, namely \(\Psi=\Psi(+)+\Psi(-)\) with \(\Psi(\pm)=\Pi(\pm)\Psi\), therefore separates the Pauli equation into the two scalar Schr\"odinger-type equations shown in Eq.\ \eqref{eq:pauli-spin-split}. The projector identities that make this step possible were derived earlier in Section \ref{sec:projectors}, so the Pauli split is a direct physical use of that earlier algebra rather than a new construction introduced only for the wave equation.

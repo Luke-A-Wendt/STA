@@ -1,0 +1,48 @@
+\noindent Tables \ref{tab:components-fsquare} and \ref{tab:components-ffrev} summarize the two simplest invariants built from \(F\) and the frame-dependent energy-density/Poynting paravector \(T=\tfrac12 F F^{\mathrm R}\).
+\begin{componenttable}[tab:components-fsquare]{\tfrac12F^{2}}
+\componentrow{real scalar}{\tfrac12(\mathbf E^{2}-\mathbf B^{2})}{}
+\componentrow{img scalar}{i\,\mathbf E\cdot\mathbf B}{}
+\componentrow{real vector}{\mathbf 0}{}
+\componentrow{img vector}{\mathbf 0}{}
+\end{componenttable}
+
+\begin{componenttable}[tab:components-ffrev]{\tfrac12F F^{\mathrm R}}
+\componentrow{scalar}{\tfrac12(\mathbf E^{2}+\mathbf B^{2})}{energy density}
+\componentrow{vector}{\mathbf E\times\mathbf B}{Poynting vector}
+\end{componenttable}
+
+\noindent The remaining tables record the differentiated and source-coupled field combinations used in the energy-momentum discussion.
+\begin{componenttable}[tab:components-partial-t]{\partial T}
+\componentrow{real scalar}{\partial_t T_s+\gradv\cdot T_{\mathbf v}}{}
+\componentrow{img scalar}{0}{}
+\componentrow{real vector}{\gradv T_s+\partial_t T_{\mathbf v}}{}
+\componentrow{img vector}{\gradv\times T_{\mathbf v}}{}
+\end{componenttable}
+
+\begin{componenttable}[tab:components-partial-fsquare]{\partial F^{2}}
+\componentrow{real scalar}{\partial_t(\mathbf E^{2}-\mathbf B^{2})}{}
+\componentrow{img scalar}{\partial_t\!\big(2\,\mathbf E\cdot\mathbf B\big)}{}
+\componentrow{real vector}{\gradv(\mathbf E^{2}-\mathbf B^{2})}{}
+\componentrow{img vector}{\gradv\!\big(2\,\mathbf E\cdot\mathbf B\big)}{}
+\end{componenttable}
+
+\begin{componenttable}[tab:components-fdstar]{F D^{*}}
+\componentrow{real scalar}{-\mathbf E\cdot\mathbf J}{}
+\componentrow{img scalar}{-\mathbf B\cdot\mathbf J}{}
+\componentrow{real vector}{\rho\mathbf E+\mathbf B\times\mathbf J}{}
+\componentrow{img vector}{\rho\mathbf B-\mathbf E\times\mathbf J}{}
+\end{componenttable}
+
+\begin{componenttable}[tab:components-dstarf]{D^{*}F}
+\componentrow{real scalar}{-\mathbf E\cdot\mathbf J}{}
+\componentrow{img scalar}{-\mathbf B\cdot\mathbf J}{}
+\componentrow{real vector}{\rho\mathbf E-\mathbf B\times\mathbf J}{}
+\componentrow{img vector}{\rho\mathbf B+\mathbf E\times\mathbf J}{}
+\end{componenttable}
+
+\begin{componenttable}[tab:components-dstarf-plus-fdstar]{D^{*}F+F D^{*}}
+\componentrow{real scalar}{-2\,\mathbf E\cdot\mathbf J}{}
+\componentrow{img scalar}{-2\,\mathbf B\cdot\mathbf J}{}
+\componentrow{real vector}{2\rho\mathbf E}{}
+\componentrow{img vector}{2\rho\mathbf B}{}
+\end{componenttable}

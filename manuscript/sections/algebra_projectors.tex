@@ -1,0 +1,99 @@
+\subsubsection*{Functions of a Unit-Direction Element}
+The projector pair \(\Pi(\pm)\) gives the two-root decomposition of the unit-direction element \(\mathbf u\cdot\sigv\). The corresponding eigenvalue data are
+\begin{align*}
+\Pi(\pm) &= \tfrac{1}{2}(1\pm \mathbf u\cdot\sigv), \\
+\Pi(\pm)^{2} &= \Pi(\pm), \\
+\Pi(+)\Pi(-) &= 0, \\
+\Pi(+) + \Pi(-) &= 1, \\
+(\mathbf u\cdot\sigv)\Pi(\pm) &= \pm \Pi(\pm),
+\end{align*}
+so \(\mathbf u\cdot\sigv\) has the two eigenvalues \(+1\) and \(-1\). Any function with a convergent power series therefore collapses to those two scalar values:
+\begin{align*}
+f(\mathbf u\cdot\sigv)
+&= f(+1)\Pi(+) + f(-1)\Pi(-)\notag \\
+&= \tfrac{1}{2}\bigl(f(+1)+f(-1)\bigr)
++ \tfrac{1}{2}\bigl(f(+1)-f(-1)\bigr)\,\mathbf u\cdot\sigv.
+\end{align*}
+These are the basic projector formulas for a unit-direction element. The first examples below are chosen to illustrate the calculus before the dedicated exponential and logarithm subsections:
+\begin{align*}
+\sqrt{\mathbf u\cdot\sigv} &= \pm \Pi(+) \pm i\,\Pi(-), \\
+(z+\mathbf u\cdot\sigv)^{-1}
+&= \frac{1}{z+1}\Pi(+) + \frac{1}{z-1}\Pi(-)\notag \\
+&= \frac{z-\mathbf u\cdot\sigv}{z^{2}-1}, \\
+\frac{i-\mathbf u\cdot\sigv}{i+\mathbf u\cdot\sigv} &= i\,\mathbf u\cdot\sigv,
+\end{align*}
+where the square root, inverse, and Cayley-type transform are obtained by direct substitution into Eq.\ \eqref{eq:functional-calculus}. The exponential and logarithm cases are developed separately below so that the general projector method is in place first.
+
+\subsubsection*{Functions of a Paravector}
+Let
+\begin{align*}
+X &= t + \mathbf r\cdot\sigv, \\
+t &= \eqtext{scalar}(X)\in\mathbb R, \\
+\mathbf r &= \eqtext{vector}(X)\in\mathbb R^{3}.
+\end{align*}
+If \(\mathbf r\neq 0\), write \(\mathbf r=\lVert\mathbf r\rVert \mathbf u\) with \(\mathbf u^{2}=1\). Then the minimal polynomial of \(X\) is
+\begin{align*}
+X^{2} - 2 t X + ( t^{2} - \mathbf r^{2} ) &= 0,\notag \\
+\lambda(\pm) &= t \pm \lVert\mathbf r\rVert,\notag \\
+0 &= (X-\lambda(-))(X-\lambda(+)),
+\end{align*}
+so \(X\) has the projector decomposition
+\begin{align*}
+\Pi(\pm) &= \tfrac12(1\pm \mathbf u\cdot\sigv), \\
+X &= \lambda(+)\Pi(+) + \lambda(-)\Pi(-), \\
+\Pi(\pm)X &= \lambda(\pm)\Pi(\pm).
+\end{align*}
+Any analytic function of \(X\) is therefore obtained by applying the scalar function to the two eigenvalues:
+\begin{align*}
+f(X)
+&= f\bigl(\lambda(+)\bigr)\Pi(+) + f\bigl(\lambda(-)\bigr)\Pi(-)\notag \\
+&= \tfrac12\Bigl(f\bigl(\lambda(+)\bigr)+f\bigl(\lambda(-)\bigr)\Bigr)\notag \\
+&\quad + \tfrac12\Bigl(f\bigl(\lambda(+)\bigr)-f\bigl(\lambda(-)\bigr)\Bigr)\,\mathbf u\cdot\sigv.
+\end{align*}
+If \(f(X)=t'+\mathbf r'\cdot\sigv\), then
+\begin{align*}
+t' &= \tfrac12\Bigl(f\bigl(\lambda(+)\bigr)+f\bigl(\lambda(-)\bigr)\Bigr), \\
+\lVert\mathbf r'\rVert &= \tfrac12\Bigl(f\bigl(\lambda(+)\bigr)-f\bigl(\lambda(-)\bigr)\Bigr), \\
+\mathbf r' &= \lVert\mathbf r'\rVert\,\mathbf u.
+\end{align*}
+Before turning to exponentials and logarithms, the same construction already gives the useful square-root, inverse, and power formulas:
+\begin{align*}
+\sqrt{X} &= \pm \sqrt{\lambda(+)}\,\Pi(+) \pm \sqrt{\lambda(-)}\,\Pi(-), \\
+X^{-1}
+&= \frac{\Pi(+)}{\lambda(+)} + \frac{\Pi(-)}{\lambda(-)}\notag \\
+&= \frac{X^{*}}{t^{2}-\mathbf r^{2}}, \\
+X^{n} &= \lambda(+)^{n}\Pi(+) + \lambda(-)^{n}\Pi(-).
+\end{align*}
+When two different paravectors are diagonalized along different directions, the only new ingredient is the mixed projector product. Let
+\(X=t+\lVert\mathbf r\rVert\,\mathbf u\cdot\sigv\) and
+\(X'=t'+\lVert\mathbf r'\rVert\,\mathbf u'\cdot\sigv\) be decomposed along different axes. Their functions then multiply by combining the two projector families:
+\begin{equation*}
+f(X)g(X')
+= \sum_{s,s'=\pm} f\bigl(\lambda(s)\bigr)\,g\bigl(\lambda'(s')\bigr)\,\Pi(s)\Pi'(s').
+\end{equation*}
+The mixed projector products are
+\begin{equation*}
+\Pi(s)\Pi'(s')
+= \tfrac14\Bigl(
+1 + ss'\,\mathbf u\cdot\mathbf u'
++ \bigl(s\mathbf u + s'\mathbf u' + ss' i(\mathbf u\times\mathbf u')\bigr)\cdot\sigv
+\Bigr),
+\end{equation*}
+with \(s,s'\in\{+1,-1\}\). This compact formula reproduces all four explicit same-side and cross-side products.
+As a useful example, the Cayley-type transform is itself a projector exponential:
+\begin{align*}
+\frac{1-\mathbf r\cdot\sigv}{1+\mathbf r\cdot\sigv}
+&= \exp\!\bigl(-2\,\operatorname{arctanh}(\mathbf r\cdot\sigv)\bigr)\notag \\
+&= e^{-2\operatorname{arctanh}(\lVert\mathbf r\rVert)}\Pi(+)
++ e^{+2\operatorname{arctanh}(\lVert\mathbf r\rVert)}\Pi(-).
+\end{align*}
+
+\subsubsection*{Minimal Polynomial and Projector Decomposition}
+The two-root data of a complex paravector are collected here because the later function formulas, projector identities, and exponential identities all depend on this algebraic factorization. See Eq.\ \eqref{eq:functional-calculus}.
+\begin{align*}
+Z &= S + \mathbf V \cdot \sigv \in \C\oplus\C^{3}, \\
+Z^{2} - 2 S Z + ( S^{2} - \mathbf V^{2} ) &= 0, \\
+\lambda (\pm ) &= S \pm \sqrt{ \mathbf V^{2} }, \\
+( Z - \lambda (-) ) ( Z - \lambda (+) ) &= 0.
+\end{align*}
+When \(\mathbf V^{2}\neq 0\), these two eigenvalues provide the projector data needed for the same functional calculus used in the real-paravector case.

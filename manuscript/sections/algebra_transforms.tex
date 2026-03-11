@@ -1,0 +1,191 @@
+\subsubsection*{General Similarity-Transform Identities}
+Equation \eqref{eq:general-transform} gives the differential and commutator forms. In the first display, \(t\in\R\), \(\mathbf r\in\R^3\), \(X=t+\mathbf r\cdot\sigv\in\R\oplus\R^3\), and \(T\) is a generic invertible algebra element.
+\begin{align*}
+X' &= T^{-1} X T,\notag \\
+&= T^{-1} ( t + \mathbf r \cdot \sigv ) T,\notag \\
+&= t + \mathbf r \cdot ( T^{-1}\sigv T ),\notag \\
+&= t + \mathbf r \cdot \sigv '.
+\end{align*}
+\begin{equation*}
+T^{-1} = T^{\mathrm{R}*} / (T^{\mathrm{R}*} T).
+\end{equation*}
+This identity matters because it expresses the inverse directly in the algebra. For rotors one has \(T^{\mathrm{R}*}T=1\), so the inverse simplifies to the operator form used throughout the rotation and moving-frame calculations:
+\begin{align*}
+T^{\mathrm{R}*} T &= 1,\qquad T^{-1} = T^{\mathrm{R}*},\notag \\
+T^{-1} T &= 1,\qquad d(T^{-1}) T = -T^{-1} dT,\notag \\
+dX' &= d(T^{-1}) X T + T^{-1} dX T + T^{-1} X dT,\notag \\
+&= -(T^{-1} dT) X' + T^{-1} dX T + X' (T^{-1} dT).
+\end{align*}
+Introducing the differential transform element packages the moving-frame dependence into a single algebra element. Inserting \(TT^{-1}\) into the differentiated expression then isolates the commutator contribution:
+\begin{align*}
+d\Theta &:= T^{-1} dT,\notag \\
+dX' &= T^{-1} dX T + [ X', d\Theta ],\notag \\
+ddX' &= d(T^{-1}) dX T + T^{-1} ddX T + T^{-1} dX dT,\notag \\
+&\quad + [dX', d\Theta ] + [X', dd\Theta ].
+\end{align*}
+The first derivative already shows the main structure: the carried differential \(T^{-1}dXT\) is corrected only by the commutator with the moving-frame element \(d\Theta\). Differentiating once more exposes the higher-order transport terms built from the same object.
+\begin{align*}
+d(T^{-1}) dX T &= (-T^{-1} dT) (T^{-1} dX T),\notag \\
+&= -d\Theta (dX' - [ X', d\Theta ]),
+\end{align*}
+\begin{align*}
+T^{-1} dX dT &= (T^{-1} dX T) (T^{-1} dT),\notag \\
+&= (dX' - [ X', d\Theta ]) d\Theta.
+\end{align*}
+Substituting these auxiliary identities back into \(ddX'\) yields the second-order transport law:
+\begin{align*}
+ddX' &= T^{-1} ddX T,\notag \\
+&\quad +2 [ dX', d\Theta ],\notag \\
+&\quad + [ X', dd\Theta ],\notag \\
+&\quad + [ d\Theta , [ X', d\Theta ] ].
+\end{align*}
+This second-order formula is the clean algebraic statement behind second derivatives in a varying frame. Nothing new is added beyond the similarity transform itself; the extra pieces come only from differentiating the transforming element.
+For a one-parameter family \(t\mapsto T(t)\), with \(t\in\R\), the same transport equation takes the parameter-derivative form
+\begin{align*}
+d\Theta /dt &= \Omega,\notag \\
+dd\Theta /dt^{2} &= d\Omega /dt,\notag \\
+dX'/dt &= T^{-1} (dX/dt) T + [ X', \Omega ],\notag \\
+ddX'/dt^{2} &= T^{-1} (ddX/dt^{2}) T,\notag \\
+&\quad +2 [ dX'/dt, \Omega ],\notag \\
+&\quad + [ X', d\Omega /dt ],\notag \\
+&\quad + [ \Omega , [ X', \Omega ] ].
+\end{align*}
+
+\subsubsection*{Transformed Basis Elements}
+The transformed basis relations below use the conjugate and reverse-operator rules of Eqs.\ \eqref{eq:sigma-involutions} and \eqref{eq:i-involutions}.
+\begin{align*}
+T(x) &= f(x) + \mathbf g(x) \cdot \sigv, \\
+T^{-1} &= ( f - \mathbf g \cdot \sigv ) / ( f^{2} - \mathbf g^{2} ), \\
+dT &= df + d\mathbf g \cdot \sigv, \\
+\sigma _{n}' &:= T^{-1} \sigma _{n} T, \\
+\sigma _{n} &= T \sigma _{n}' T^{-1}.
+\end{align*}
+Here \(f(x)\) is a real scalar-valued function, \(\mathbf g(x)\) is a real vector-valued function, and \(T(x)\in\R\oplus\R^3\) is a real paravector-valued function. These definitions send the original basis into a new basis by similarity transformation. The next identities show that the transformed generators satisfy the same algebra and operator properties.
+\par
+Applying the conjugate and reverse operators gives
+\begin{align*}
+( \sigma _{n}' )^{*} &= (T^{-1})^{*} \sigma _{n}^{*} T^{*},\notag \\
+&= -(T^{*})^{-1} \sigma _{n} T^{*},
+\end{align*}
+\begin{align*}
+( \sigma _{n}' )^{\mathrm{R}} &= T^{\mathrm{R}} \sigma _{n}^{\mathrm{R}} (T^{-1})^{\mathrm{R}},\notag \\
+&= T^{\mathrm{R}} \sigma _{n} (T^{\mathrm{R}})^{-1},
+\end{align*}
+\begin{align*}
+( \sigma _{n}' )^{*\mathrm{R}} &= -T^{*\mathrm{R}} \sigma _{n} (T^{-1})^{*\mathrm{R}},\notag \\
+&= -T^{-1}\sigma _{n} T \text{ if } T^{-1} = T^{*\mathrm{R}},\notag \\
+&= -\sigma _{n}' \text{ if } T^{-1} = T^{*\mathrm{R}}.
+\end{align*}
+Thus, whenever \(T^{-1}=T^{*\mathrm{R}}\), the transformed basis inherits the same parity under the combined conjugate and reverse operators as the original one.
+\begin{align*}
+(\sigma _{n}')^{2} &= T^{-1}\sigma _{n}TT^{-1}\sigma _{n}T,\notag \\
+&= T^{-1}\sigma _{n}^{2} T = 1.
+\end{align*}
+For \(n\neq m\), the mixed products transform as follows:
+\begin{align*}
+T^{-1}\sigma _{n}\sigma _{m}T &= T^{-1}\sigma _{n}TT^{-1}\sigma _{m}T = \sigma _{n}'\sigma _{m}',\notag \\
+&= T^{-1}\epsilon _{nmk} i \sigma _{k}T = \epsilon _{nmk} i \sigma _{k}'.
+\end{align*}
+\begin{align*}
+\sigma _{1}'\sigma _{2}'\sigma _{3}' &= T^{-1}\sigma _{1}TT^{-1}\sigma _{2}TT^{-1}\sigma _{3}T,\notag \\
+&= T^{-1}\sigma _{1}\sigma _{2}\sigma _{3} T = i T^{-1}T = i.
+\end{align*}
+So the transformed basis obeys the same sigma algebra as the original basis. The only genuinely new content appears when the transforming element depends on the parameter and derivatives of the basis must be taken.
+Differentiating the transformed basis makes the additional commutator terms explicit. Let \(Z_s\in\C\) be a scalar-valued function, let \(Z_{\mathbf V}\in\C^3\) be a vector-valued function, and write the corresponding complex paravector as \(Z=Z_s+Z_{\mathbf V}\cdot\sigv'\). Then
+\begin{align*}
+d\sigma _{n}' &= [\sigma _{n}', T^{-1} dT],\notag \\
+d\sigv ' &= [\sigv ', T^{-1} dT]\qquad \text{vector},\notag \\
+Z &= Z_{s} + Z_{\mathbf V} \cdot \sigv '\qquad \text{paravector},\notag \\
+\langle\!\langle Z \rangle\!\rangle^{2} &= ZZ^{*\mathrm{R}},\notag \\
+&= (Z_{s} + Z_{\mathbf V} \cdot \sigv ' )(Z_{s} - Z_{\mathbf V} \cdot \sigv ' ) \text{ if } T^{-1} = T^{*\mathrm{R}},\notag \\
+&= Z_{s}^{2} - Z_{\mathbf V}^{2} \text{ if } T^{-1} = T^{*\mathrm{R}}.
+\end{align*}
+\begin{align*}
+dZ &= dZ_{s} + dZ_{\mathbf V} \cdot \sigv ' + Z_{\mathbf V} \cdot d\sigv ',\notag \\
+&= dZ_{s} + dZ_{\mathbf V} \cdot \sigv ' + Z_{\mathbf V} \cdot [\sigv ', T^{-1} dT].
+\end{align*}
+\begin{align*}
+T^{-1} dT &= (f\,df - \mathbf g \cdot d\mathbf g) / ( f^{2} - \mathbf g^{2} ),\notag \\
+&\quad + (f d\mathbf g - df \mathbf g - i \mathbf g \times d\mathbf g) \cdot \sigv / ( f^{2} - \mathbf g^{2} ).
+\end{align*}
+Thus \(T^{-1}dT\) contains one scalar part and one vector part that drive the transformed basis. The real vector part contributes sigma-number-one terms, while the imaginary vector part contributes sigma-number-two terms.
+\begin{align*}
+\Omega &:= T^{-1} (dT/dt),\notag \\
+\Omega ' &:= T \Omega T^{-1} = (dT/dt) T^{-1},\notag \\
+\eqtext{scalar}(\sigma _{n}') &= \eqtext{scalar}(T^{-1} \sigma _{n} T),\notag \\
+&= \eqtext{scalar}(\sigma _{n}),\notag \\
+&= 0.
+\end{align*}
+\begin{align*}
+\eqtext{scalar}(\Omega \sigma _{n}') &= \eqtext{scalar}( \Omega ' \sigma _{n} ).
+\end{align*}
+Decomposing \(\Omega\) into one scalar part, one real vector part, and one imaginary vector part makes the transformed-basis decomposition explicit. Here \(\Omega_s\in\C\), while \(k=\{k_n\}\in\R^3\) and \(\omega=\{\omega_n\}\in\R^3\) are real vectors:
+\begin{align*}
+k_{n} + i \omega _{n} &:= \eqtext{scalar}( 2 \Omega ' \sigma _{n} ),\notag \\
+\Omega &= \Omega_s + \tfrac{1}{2} (k + i \omega ) \cdot \sigv ',\notag \\
+[\sigv ', \omega \cdot ( i \sigv ' )] &= -2 \omega \times \sigv ',\notag \\
+[\sigv ', \mathbf k \cdot \sigv '] &= 2 i \mathbf k \times \sigv ',\notag \\
+d\sigv '/dt &= [\sigv ', \Omega ],\notag \\
+&= i ( k + i \omega ) \times \sigv ',\notag \\
+&= ( -\omega + i k ) \times \sigv '.
+\end{align*}
+Substituting this basis motion into \(dZ/dt\) produces the transport terms on the vector component:
+\begin{align*}
+Z_{\mathbf V} \cdot [\sigv ', \Omega ] &= ( -Z_{\mathbf V} \times \omega + i Z_{\mathbf V} \times k ) \cdot \sigv ',\notag \\
+dZ/dt &= dZ_{s}/dt,\notag \\
+&\quad + (dZ_{\mathbf V}/dt - Z_{\mathbf V} \times \omega + i Z_{\mathbf V} \times k ) \cdot \sigv '.
+\end{align*}
+
+\subsubsection*{Circular Directional Transforms}
+The identities in this subsection unpack Eq.\ \eqref{eq:rotor} and its component consequences.
+Here the generator has sigma number two, so the exponential is circular rather than hyperbolic.
+\begin{align*}
+R(\theta ,\mathbf u) &:= \exp( \tfrac{1}{2} \theta (\mathbf u \cdot i \sigv ) ),\notag \\
+&= \cos( \tfrac{1}{2} \theta ) + \sin( \tfrac{1}{2} \theta ) (\mathbf u \cdot i \sigv )\qquad \text{rotor}.
+\end{align*}
+\begin{equation*}
+R^{-1} = \exp( -\tfrac{1}{2} \theta (\mathbf u \cdot i \sigv ) ).
+\end{equation*}
+Here \(\theta\in\R\), \(\mathbf u\in\R^3\) is a unit real vector, and \(R\) is generated by the sigma-number-two element \(\mathbf u\cdot i\sigv\). Its inverse satisfies \(R^{-1}=R^{\mathrm{R}}=R^{*\mathrm{R}}\).
+\begin{align*}
+X' &= R^{\mathrm{R}} X R,\notag \\
+&= t' + \mathbf r' \cdot \sigv.
+\end{align*}
+\begin{align*}
+t' &= t,\notag \\
+\mathbf r' &= \mathbf r \cos(\theta ) + (\mathbf u \times \mathbf r) \sin(\theta ),\notag \\
+&\quad + (\mathbf u \cdot \mathbf r) (1 - \cos(\theta )) \mathbf u,\notag \\
+\qquad \text{Rodrigues's formula}.
+\end{align*}
+Differentiating the transformed quantities gives the circular-transform analogue of the general transport law:
+\begin{align*}
+d(R^{\mathrm{R}}) &= (dR)^{\mathrm{R}} = dR^{\mathrm{R}}, \\
+R^{\mathrm{R}} R &= 1, \\
+dR^{\mathrm{R}} R + R^{\mathrm{R}} dR &= 0, \\
+dR &= -R dR^{\mathrm{R}} R.
+\end{align*}
+The associated sigma-number-two angular-velocity element is
+\begin{align*}
+\Omega &:= -R (dR^{\mathrm{R}}/ds) = (dR/ds) R^{\mathrm{R}},\notag \\
+\Omega ^{\mathrm{R}} &= -\Omega,\notag \\
+\Omega ' &= R^{\mathrm{R}} \Omega R,\notag \\
+\Omega '^{\mathrm{R}} &= -\Omega ',\notag \\
+dR/ds &= \Omega R.
+\end{align*}
+The resulting derivative formula has the same commutator structure as Eq.\ \eqref{eq:general-transform}, with \(\Omega\) constrained to be reverse-odd:
+\begin{align*}
+dX'/ds &= R^{\mathrm{R}} (dX/ds) R + [ X', \Omega ' ],\notag \\
+&= R^{\mathrm{R}} ( dX/ds + [ X, \Omega ] ) R.
+\end{align*}
+
+\subsubsection*{Action on Unit Directions}
+Equation \eqref{eq:rotor} gives the algebraic rotation law. When the transformed object is a unit-direction element, one obtains
+\begin{equation*}
+\rev{R}(\mathbf u\cdot\sigv)R=\mathbf u'\cdot\sigv,
+\end{equation*}
+with \(\mathbf u'\) given by the usual Rodrigues formula. If a complex paravector \(\psi\in\C\oplus\C^3\) transforms as \(\psi'=R\psi\), then the scalar projection built from the rotated axis obeys
+\begin{equation*}
+\eqtext{scalar}\!\bigl(\rev{\psi'}(\mathbf u\cdot\sigv)\psi'\bigr)
+=\eqtext{scalar}\!\bigl(\rev{\psi}(\mathbf u'\cdot\sigv)\psi\bigr).
+\end{equation*}
+Here \(\psi\) is just a complex paravector. The axis information is carried entirely by the algebraic transform itself.

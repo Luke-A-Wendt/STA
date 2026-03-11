@@ -1,0 +1,14 @@
+\noindent Tables \ref{tab:components-generic-derivative} and \ref{tab:components-generic-iderivative} record the scalar and vector parts of \(\partial Z\) and \(i\partial Z\) for a generic complex paravector field \(Z\). They provide the identities used repeatedly in the field expansions below.
+\begin{componenttable}[tab:components-generic-derivative]{\partial Z}
+\componentrow{real scalar}{\partial_t a+\gradv\cdot\mathbf A}{}
+\componentrow{img scalar}{\partial_t b+\gradv\cdot\mathbf B}{}
+\componentrow{real vector}{\gradv a+\partial_t\mathbf A-\gradv\times\mathbf B}{}
+\componentrow{img vector}{\gradv b+\gradv\times\mathbf A+\partial_t\mathbf B}{}
+\end{componenttable}
+
+\begin{componenttable}[tab:components-generic-iderivative]{i\,\partial Z}
+\componentrow{real scalar}{-\partial_t b-\gradv\cdot\mathbf B}{}
+\componentrow{img scalar}{\partial_t a+\gradv\cdot\mathbf A}{}
+\componentrow{real vector}{-\gradv b-\gradv\times\mathbf A-\partial_t\mathbf B}{}
+\componentrow{img vector}{\gradv a+\partial_t\mathbf A-\gradv\times\mathbf B}{}
+\end{componenttable}

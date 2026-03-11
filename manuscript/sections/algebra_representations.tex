@@ -1,0 +1,75 @@
+\subsubsection*{Standard \texorpdfstring{$2\times2$}{2x2} Matrix Realization}
+Although the algebra has been developed directly in STA form, it is useful to record a standard \(2\times2\) matrix realization. This realization confirms the earlier product rules in a familiar concrete model without replacing the algebraic viewpoint used throughout the paper \cite{pauli1927}.
+
+Consistent with Eq.\ \eqref{eq:basis}, the matrix realization is
+\begin{equation}
+\sigma_1=\{0, 1; 1, 0\},
+\quad
+\sigma_2=\{0, -i; i, 0\},
+\quad
+\sigma_3=\{1, 0; 0, -1\},
+\label{eq:pauli-matrices}
+\end{equation}
+Equation \eqref{eq:pauli-matrices} gives a concrete \(2\times2\) model for the generators. In that realization, a real paravector \(X=t+\mathbf r\cdot\sigv\in\R\oplus\R^3\) becomes
+\begin{equation}
+\begin{aligned}
+X&=t+\mathbf r\cdot\sigv
+=\{ t+r_3, r_1-ir_2; r_1+ir_2, t-r_3 \},\\
+\det X&=t^2-\mathbf r^2.
+\end{aligned}
+\label{eq:matrix-X}
+\end{equation}
+Equation \eqref{eq:matrix-X} reproduces exactly the indefinite quadratic form already encoded by Eq.\ \eqref{eq:minkowski-form}. The same matrix also carries the familiar trace and characteristic data:
+\begin{align*}
+\operatorname{tr}(X)&=2t,\\
+\lambda^2-(\operatorname{tr}X)\lambda+\det X&=0,\\
+\lambda(\pm)&=t\pm \lVert\mathbf r\rVert.
+\end{align*}
+These eigenvalues are the matrix version of the split into scalar part \(t\) and vector magnitude \(\lVert\mathbf r\rVert\).
+
+Within the same realization, the reverse operator and conjugate operator become concrete matrix maps. Writing
+\begin{equation*}
+M^\dagger:=M^{cT},
+\end{equation*}
+with \(M^c\) denoting entrywise complex conjugation, one has
+\begin{equation*}
+i^c=-i,
+\qquad
+\sigma_1^c=\sigma_1,
+\qquad
+\sigma_2^c=-\sigma_2,
+\qquad
+\sigma_3^c=\sigma_3,
+\end{equation*}
+\begin{equation*}
+(\sigma_n\sigma_m)^{cT}=\sigma_m\sigma_n=-\sigma_n\sigma_m
+\qquad (n\neq m),
+\end{equation*}
+\begin{equation*}
+\sigma_n^{cT}=\sigma_n,
+\qquad
+(i\I)^{cT}=-i\I,
+\qquad
+(i\sigma_n)^{cT}=-i\sigma_n,
+\end{equation*}
+so in the matrix model the reverse operator coincides with the Hermitian adjoint on the sigma basis. The remaining conjugate formulas then follow from a fixed similarity matrix. With
+\begin{equation*}
+\mathsf J:=\{0, 1; -1, 0\},
+\end{equation*}
+the conjugate operator and the combined action of the conjugate and reverse operators may be written as
+\begin{equation*}
+M^{*}=\mathsf J\,M^{c}\,\mathsf J^{-1},
+\qquad
+M^{*\mathrm R}=\mathsf J\,M^{T}\,\mathsf J^{-1}.
+\end{equation*}
+These identities recover the same operator rules defined abstractly in Eqs.\ \eqref{eq:star-definition}--\eqref{eq:paravector-involutions}.
+
+\subsubsection*{Auxiliary \texorpdfstring{$2\times2$}{2x2} Realization}
+It is also useful to package a complex paravector \(Z\in\C\oplus\C^3\) into the auxiliary \(2\times2\) map
+\begin{equation}
+W(Z):=\{0, Z; \crev{Z}, 0\},
+\qquad
+W(Z)^2=\mathrm{diag}(Z\crev{Z},\crev{Z}Z).
+\label{eq:W-map}
+\end{equation}
+Here \(W(Z)\) is a realization built from the same complex paravector and the combined action of the conjugate and reverse operators. Its square is diagonal because the off-diagonal products collapse to the quadratic forms already introduced in Eqs.\ \eqref{eq:euclidean-form} and \eqref{eq:minkowski-form} \cite{hestenes1966,doran2003}.

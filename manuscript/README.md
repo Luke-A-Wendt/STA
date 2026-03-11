@@ -5,8 +5,8 @@ This directory contains the single maintained LaTeX manuscript for the STA proje
 ## Files
 
 - `main.tex`: primary manuscript source.
-- `generated/readme_equation_catalog.tex`: auto-generated catalog of equation-bearing README lines.
-- `generated/readme_full_conversion.tex`: auto-generated full line-by-line README conversion included in the manuscript body.
+- `generated/python_verification.tex`: auto-generated symbolic verification table included by `main.tex`.
+- `generated/readme_equation_catalog.tex`, `generated/readme_full_conversion.tex`, and `generated/integrated_sections/*.tex`: build-time preservation artifacts generated from `README.txt` and kept for traceability during manuscript assembly.
 - `main.pdf`: compiled PDF output after a successful build.
 
 ## Build

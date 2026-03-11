@@ -1,0 +1,210 @@
+\subsubsection*{Vector form and explicit sigma products}
+Equation \eqref{eq:sigma-vector} turns a real vector into an algebra element by contraction against the sigma basis:
+\begin{align*}
+\mathbf A\cdot\sigv &= A_1\sigma_1+A_2\sigma_2+A_3\sigma_3,\\
+\mathbf A\cdot\sigv+\mathbf B\cdot\sigv &= (\mathbf A+\mathbf B)\cdot\sigv.
+\end{align*}
+With Eqs.\ \eqref{eq:basis} and \eqref{eq:sigma-product},
+\begin{align*}
+(\mathbf A\cdot\sigv)(\mathbf B\cdot\sigv)
+&= \sum_{n,m} A_n B_m \sigma_n \sigma_m \notag\\
+&= \sum_n A_n B_n \sigma_n^2 \notag\\
+&\quad + \sum_{n<m}(A_n B_m-A_m B_n)\sigma_n \sigma_m \notag\\
+&= \mathbf A\cdot\mathbf B \notag\\
+&\quad + (A_2B_3-A_3B_2)i\sigma_1 \notag\\
+&\quad - (A_1B_3-A_3B_1)i\sigma_2 \notag\\
+&\quad + (A_1B_2-A_2B_1)i\sigma_3 \notag\\
+&= \mathbf A\cdot\mathbf B \notag\\
+&\quad + i(\mathbf A\times\mathbf B)\cdot\sigv.
+\end{align*}
+Table \ref{tab:components-vector-product} records this component split.
+
+The reversed order flips only the antisymmetric term:
+\begin{align*}
+(\mathbf B\cdot\sigv)(\mathbf A\cdot\sigv)
+&= \mathbf A\cdot\mathbf B-i(\mathbf A\times\mathbf B)\cdot\sigv,\\
+\frac{(\mathbf A\cdot\sigv)(\mathbf B\cdot\sigv)+(\mathbf B\cdot\sigv)(\mathbf A\cdot\sigv)}{2}
+&= \mathbf A\cdot\mathbf B,\\
+\frac{(\mathbf A\cdot\sigv)(\mathbf B\cdot\sigv)-(\mathbf B\cdot\sigv)(\mathbf A\cdot\sigv)}{2}
+&= i(\mathbf A\times\mathbf B)\cdot\sigv.
+\end{align*}
+The same product immediately gives
+\begin{align*}
+(\mathbf A\cdot\sigv)^2 &= \mathbf A^2,\\
+(\mathbf A\cdot\sigv)^{2n} &= (\mathbf A^2)^n,\\
+(\mathbf A\cdot\sigv)^{2n+1} &= (\mathbf A^2)^n(\mathbf A\cdot\sigv),\\
+(\mathbf A\cdot\sigv)\sigv &= \mathbf A+i\,\mathbf A\times\sigv.
+\end{align*}
+These are the basic sigma-product identities from which the later paravector formulas are built.
+
+\subsubsection*{Products of real scalars, vectors, and paravectors}
+Let
+\begin{equation*}
+X=a+\mathbf A\cdot\sigv,\qquad
+Y=b+\mathbf B\cdot\sigv
+\qquad
+(a,b\in\R,\ \mathbf A,\mathbf B\in\R^3).
+\end{equation*}
+Using Eq.\ \eqref{eq:dot-cross},
+\begin{align*}
+XY
+&= (a+\mathbf A\cdot\sigv)(b+\mathbf B\cdot\sigv)\notag\\
+&= (ab+\mathbf A\cdot\mathbf B)
++ \bigl(a\mathbf B+b\mathbf A+i(\mathbf A\times\mathbf B)\bigr)\cdot\sigv,\\
+YX
+&= (ab+\mathbf A\cdot\mathbf B)
++ \bigl(a\mathbf B+b\mathbf A-i(\mathbf A\times\mathbf B)\bigr)\cdot\sigv \notag\\
+&= (XY)^{\mathrm R}.
+\end{align*}
+Table \ref{tab:components-real-paravector-product} gives the same product in component form. The scalar part is symmetric, while the imaginary-vector part changes sign with the order.
+
+Two immediate consequences are
+\begin{align*}
+[X,Y] &= 2i(\mathbf A\times\mathbf B)\cdot\sigv,\\
+XY\in\R\oplus\R^3 &\iff \mathbf A\times\mathbf B=0.
+\end{align*}
+So two real paravectors commute exactly when their vector parts are parallel.
+
+Setting \(Y=X\) removes the antisymmetric term automatically:
+\begin{align*}
+X^2
+&= a^2+\mathbf A^2+2a\,\mathbf A\cdot\sigv.
+\end{align*}
+If \(X^2=b+\mathbf B\cdot\sigv\), then matching scalar and vector parts gives
+\begin{align*}
+b &= a^2+\mathbf A^2,\\
+\mathbf B &= 2a\,\mathbf A,
+\end{align*}
+hence
+\begin{align*}
+a^2 &= \frac{1}{2}\Bigl(b\pm\sqrt{b^2-\mathbf B^2}\Bigr),\\
+\mathbf A^2 &= b-a^2.
+\end{align*}
+This is the real-paravector square-root relation obtained directly from the product decomposition.
+
+\subsubsection*{Products of complex paravectors}
+The master product law \eqref{eq:paravector-product} is the complex extension of the real formulas above. Writing
+\begin{equation*}
+Z=X+iY=S+\mathbf V\cdot\sigv,\qquad
+Z'=X'+iY'=S'+\mathbf V'\cdot\sigv,
+\end{equation*}
+one obtains every later specialization by setting the unused scalar or vector parts to zero. Table \ref{tab:components-paravector-product} gives the full component decomposition of \(ZZ'\), Table \ref{tab:components-paravector-square} gives \(Z^2\), and Tables \ref{tab:components-zzstar}--\ref{tab:components-zcrevz} record the order-sensitive products built from the conjugate and reverse operators.
+
+The scalar part of a product is cyclic:
+\begin{equation*}
+\eqtext{scalar}(ZZ')=\eqtext{scalar}(Z'Z).
+\end{equation*}
+In particular, if \(Z'=MZ^{*\mathrm R}\), then
+\begin{align*}
+\eqtext{scalar}(Z M Z^{*\mathrm R})
+&=\eqtext{scalar}(M Z^{*\mathrm R} Z)\notag\\
+&=\eqtext{scalar}(M)\,(Z^{*\mathrm R} Z),
+\end{align*}
+because \(Z^{*\mathrm R} Z\) is scalar.
+
+The order-sensitive variants fall into three algebraic types:
+\begin{align*}
+ZZ^* &\eqtext{ is a real scalar plus a complex vector},\\
+ZZ^{\mathrm R} &\eqtext{ is a real scalar plus a real vector},\\
+ZZ^{\mathrm{R}*} &\eqtext{ is a complex scalar}.
+\end{align*}
+Those three cases are precisely the ones needed later for quadratic forms, inverses, and transformation formulas.
+
+\input{sections/algebra_tables.tex}
+
+\subsubsection*{Order dependence and commutators}
+The part of a product that depends on order is its commutator. For generic complex paravectors \(Z,Z'\in\C\oplus\C^3\),
+\begin{equation}
+[Z,Z']
+:= ZZ'-Z'Z
+= 2i(\mathbf V\times\mathbf V')\cdot\sigv
+\label{eq:paravector-commutator}
+\end{equation}
+Equation \eqref{eq:paravector-commutator} is the compact commutator law. In real and imaginary vector components it expands to
+\begin{align*}
+[Z,Z']
+&= -2(\mathbf A\times\mathbf B'+\mathbf B\times\mathbf A')\cdot\sigv \notag\\
+&\quad +2i(\mathbf A\times\mathbf A'-\mathbf B\times\mathbf B')\cdot\sigv.
+\end{align*}
+The real-paravector commutator
+\begin{equation*}
+[X,Y]=2i(\mathbf A\times\mathbf B)\cdot\sigv
+\end{equation*}
+is the corresponding specialization. In every case the scalar terms cancel, so the commutator isolates the cross-product part of the multiplication law.
+
+The same order dependence appears already in the sigma basis itself. The pseudoscalar commutes with the generators,
+\begin{align*}
+[i,\sigma_n] &= 0,\\
+i\sigv &= \sigv i = \{\sigma_2\sigma_3,\ \sigma_3\sigma_1,\ \sigma_1\sigma_2\},
+\end{align*}
+while distinct sigma generators satisfy
+\begin{equation*}
+[\sigma_n,\sigma_m]=2\sigma_n\sigma_m=2\epsilon_{nmk}i\sigma_k
+\qquad (n\neq m).
+\end{equation*}
+Thus the oriented sigma-number-two basis is exactly the commutator closure of the sigma-number-one generators.
+
+\subsubsection*{Paravector metric and quadratic forms}
+The quadratic forms \eqref{eq:euclidean-form} and \eqref{eq:minkowski-form} are product formulas rather than added structure. For a real paravector \(X=a+\mathbf A\cdot\sigv\),
+\begin{align*}
+\langle\!\langle X\rangle\!\rangle^2
+&= a^2-\mathbf A^2\\
+&= XX^*=X^*X.
+\end{align*}
+The indefinite form is therefore the product of a real paravector with its conjugate.
+
+For a complex paravector \(Z=S+\mathbf V\cdot\sigv=X+iY\),
+\begin{align*}
+\|Z\|^2
+&= |S|^2+\mathbf V\cdot\mathbf V^*\\
+&= \eqtext{scalar}(Z^{\mathrm R}Z)
+= \eqtext{scalar}(ZZ^{\mathrm R}),
+\end{align*}
+while the indefinite form is
+\begin{align*}
+\langle\!\langle Z\rangle\!\rangle^2
+&= S^2-\mathbf V^2\\
+&= ZZ^{\mathrm{R}*}
+= Z^{\mathrm{R}*}Z \notag\\
+&= (a^2-b^2-\mathbf A^2+\mathbf B^2)
++ 2i(ab-\mathbf A\cdot\mathbf B).
+\end{align*}
+Tables \ref{tab:components-zzrev}--\ref{tab:components-zcrevz} show these same product types in component form.
+
+The same formulas also show how the two quadratic forms scale:
+\begin{align*}
+\|r e^{i\theta} Z\|^2 &= r^2\|Z\|^2,\\
+\langle\!\langle r e^{i\theta} Z\rangle\!\rangle^2
+&= r^2 e^{2i\theta}\langle\!\langle Z\rangle\!\rangle^2.
+\end{align*}
+The Euclidean form is insensitive to phase, while the indefinite form retains the phase square.
+
+\subsubsection*{Inverse formulas}
+The inverse formulas are the algebraic consequence of the quadratic forms. If \(\mathbf A\times\mathbf B=0\), then
+\begin{equation*}
+\langle\!\langle XY\rangle\!\rangle^2
+= \langle\!\langle X\rangle\!\rangle^2\langle\!\langle Y\rangle\!\rangle^2.
+\end{equation*}
+In particular, when \(a^2-\mathbf A^2\neq 0\),
+\begin{align*}
+X^{-1}
+&= \frac{X^*}{XX^*}
+= \frac{a-\mathbf A\cdot\sigv}{a^2-\mathbf A^2}.
+\end{align*}
+When \(\langle\!\langle Z\rangle\!\rangle^2\neq 0\), the same argument gives
+\begin{align}
+Z^{-1}
+&= \frac{\crev{Z}}{\langle\!\langle Z\rangle\!\rangle^2}
+= \frac{\crev{Z}}{\crev{Z}Z}.
+\label{eq:paravector-inverse}
+\end{align}
+If the corresponding quadratic form vanishes, the inverse does not exist.
+
+Differentiating \(X^{-1}X=1\) gives the standard inverse-product rule
+\begin{align*}
+\dd(X^{-1}) &= -X^{-1}(\dd X)X^{-1},
+\end{align*}
+and when \(\mathbf A\times\mathbf B=0\) one also has
+\begin{equation*}
+X^{-1}Y=Y X^{-1}.
+\end{equation*}

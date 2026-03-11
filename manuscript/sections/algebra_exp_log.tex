@@ -1,0 +1,145 @@
+\subsubsection*{Hyperbolic Exponentials and Half-Angle Elements}
+With the projector calculus in hand, the sigma-number-one exponential becomes especially transparent. Write
+\(\mathbf A=\theta \mathbf u\) with \(\theta=\lVert \mathbf A\rVert\) and
+\(\mathbf u^{2}=1\). Then Eq.\ \eqref{eq:functional-calculus} gives
+\begin{align}
+\exp(\pm\mathbf A\cdot\sigv)
+&= \exp(\pm\theta\,\mathbf u\cdot\sigv)\notag \\
+&= e^{\pm\theta}\Pi(+) + e^{\mp\theta}\Pi(-)\notag \\
+&= \cosh(\theta) \pm \sinh(\theta)\,\mathbf u\cdot\sigv.
+\label{eq:exp-vector}
+\end{align}
+With
+\begin{align*}
+\gamma &= \cosh(\theta),\notag \\
+\mathbf V &= \tanh(\theta)\,\mathbf u,
+\end{align*}
+Eq.\ \eqref{eq:exp-vector} becomes the basic hyperbolic parametrization used repeatedly below:
+\begin{align*}
+\exp(\mathbf A\cdot\sigv) &= \gamma(1+\mathbf V\cdot\sigv),\notag \\
+\exp(-\mathbf A\cdot\sigv) &= \gamma(1-\mathbf V\cdot\sigv).
+\end{align*}
+For a real paravector \(X=a+\mathbf A\cdot\sigv\in\R\oplus\R^3\), the scalar part commutes with the vector part, so
+\begin{align*}
+\exp(X) &= \exp(a)\exp(\mathbf A\cdot\sigv),\notag \\
+\exp(X^{*}) &= \exp(a)\exp(-\mathbf A\cdot\sigv)=\exp(X)^{*},\notag \\
+\exp(-X) &= \exp(-a)\exp(-\mathbf A\cdot\sigv)=\exp(X)^{-1}.
+\end{align*}
+The corresponding half-angle element is
+\begin{equation}
+L(\theta,\mathbf u)=\exp\!\left(\frac{\theta}{2}\,\mathbf u\cdot\sigv\right),
+\qquad
+X'=\conj{L}XL.
+\label{eq:boost}
+\end{equation}
+Equation \eqref{eq:boost} is the two-sided hyperbolic transform built from Eq.\ \eqref{eq:exp-vector}. Its detailed transform consequences are developed in the generalized transform section.
+Finally, the conjugate operator simply exchanges the two projector weights:
+\begin{align*}
+\exp(\mathbf A\cdot\sigv)^{*}
+&= e^{-\theta}\Pi(+) + e^{\theta}\Pi(-)\notag \\
+&= \gamma(1-\mathbf V\cdot\sigv)\notag \\
+&= \exp(-\mathbf A\cdot\sigv)\notag \\
+&= \exp\bigl((\mathbf A\cdot\sigv)^{*}\bigr)\notag \\
+&= \exp(\mathbf A\cdot\sigv)^{-1}.
+\end{align*}
+
+\subsubsection*{Logarithm of a Real Paravector}
+The logarithm is the inverse problem for the same projector formulas. Let
+\begin{equation*}
+Y=b+\mathbf B\cdot\sigv\in\R\oplus\R^3,
+\end{equation*}
+and assume \(b>\lVert\mathbf B\rVert\), so that the two real eigenvalues are positive and the principal logarithm is defined. Writing
+\(\mathbf B=\lVert\mathbf B\rVert \mathbf u\) when \(\mathbf B\neq 0\), one has
+\begin{align*}
+\lambda(\pm) &= b \pm \lVert\mathbf B\rVert,\notag \\
+Y &= \lambda(+)\Pi(+) + \lambda(-)\Pi(-),
+\end{align*}
+with the same projector pair \(\Pi(\pm)=\tfrac12(1\pm \mathbf u\cdot\sigv)\). The logarithm therefore acts separately on the two eigenvalues:
+\begin{align}
+\log(Y)
+&= \log\!\bigl(\lambda(+)\bigr)\Pi(+) + \log\!\bigl(\lambda(-)\bigr)\Pi(-)\notag \\
+&= \tfrac12 \log\!\bigl(\lambda(+)\lambda(-)\bigr)
++ \tfrac12 \log\!\bigl(\lambda(+)/\lambda(-)\bigr)\,\mathbf u\cdot\sigv.
+\label{eq:log-paravector}
+\end{align}
+If \(Y=\exp(X)\) with \(X=a+\mathbf A\cdot\sigv\) and \(\mathbf A=\alpha\mathbf u\), then \(\lambda(\pm)=e^{a\pm\alpha}\), so the recovered parameters are
+\begin{align*}
+a &= \tfrac12 \log\!\bigl(b^{2}-\mathbf B^{2}\bigr), \\
+\alpha &= \operatorname{arctanh}\!\bigl(\lVert\mathbf B\rVert/b\bigr), \\
+\mathbf A &= \alpha\,\mathbf u
+= \operatorname{arctanh}\!\bigl(\lVert\mathbf B\rVert/b\bigr)\,
+\frac{\mathbf B}{\lVert\mathbf B\rVert}.
+\end{align*}
+Thus the logarithm of a time-like real paravector is again a real paravector,
+\begin{equation*}
+\log(Y)=a+\mathbf A\cdot\sigv.
+\end{equation*}
+
+\subsubsection*{Circular Exponentials and Half-Angle Elements}
+Replacing \(\theta\) by \(i\theta\) turns the same projector calculation into the trigonometric form of the sigma-number-two exponential:
+\begin{align}
+\exp(\pm i\mathbf A\cdot\sigv)
+&= \exp(\pm i\theta\,\mathbf u\cdot\sigv)\notag \\
+&= e^{\pm i\theta}\Pi(+) + e^{\mp i\theta}\Pi(-)\notag \\
+&= \cos(\theta) \pm i\sin(\theta)\,\mathbf u\cdot\sigv.
+\label{eq:exp-bivector}
+\end{align}
+For a real angle \(\theta\in\R\) and a unit real vector \(\mathbf u\in\R^3\), the corresponding circular half-angle exponential is
+\begin{equation}
+\begin{aligned}
+R(\theta,\mathbf u)&:=\exp\!\left(\frac{\theta}{2}\,\mathbf u\cdot i\sigv\right),\\
+\rev{R}R&=1,\qquad
+X'=\rev{R}XR.
+\end{aligned}
+\label{eq:rotor}
+\end{equation}
+Equation \eqref{eq:rotor} is the circular transform built from Eq.\ \eqref{eq:exp-bivector}. Its detailed transform consequences are developed in the generalized transform section.
+The quaternion form of the same circular exponential is recorded later in Eq.\ \eqref{eq:quaternion-basis}, after the quaternion units have been defined explicitly.
+
+\subsubsection*{Exponentials of Complex Paravectors}
+Because the scalar part \(S\) commutes with \(\mathbf V\cdot\sigv\), the exponential again separates into scalar and directional factors.
+\begin{align*}
+X &= a + \mathbf A \cdot \sigv \in \R\oplus\R^{3},\notag \\
+Y &= b + \mathbf B \cdot \sigv \in \R\oplus\R^{3},\notag \\
+Z &= S + \mathbf V \cdot \sigv \in \C\oplus\C^{3},\notag \\
+&= X + i Y.
+\end{align*}
+\begin{align*}
+\exp(Z) &= \exp( S + \mathbf V \cdot \sigv ),\notag \\
+&= \exp(S) \exp( \mathbf V \cdot \sigv ).
+\end{align*}
+\begin{align*}
+\exp(Z^{*}) &= \exp(S^{*}) \exp( -\mathbf V^{*} \cdot \sigv ),\notag \\
+\exp(Z)^{-1} &= \exp(-S) \exp( -\mathbf V \cdot \sigv ),\notag \\
+\exp(Z^{*})^{-1} &= \exp(-S^{*}) \exp( \mathbf V^{*} \cdot \sigv ),\notag \\
+(\mathbf V \cdot \sigv )^{2} &= \mathbf V \cdot \mathbf V = \mathbf V^{2},\notag \\
+&= \mathbf A^{2} - \mathbf B^{2} + 2 i \mathbf A \cdot \mathbf B.
+\end{align*}
+The key simplification is that all higher powers collapse onto the two basis elements \(1\) and \(\mathbf V\cdot\sigv\):
+\begin{align*}
+(\mathbf V \cdot \sigv )^{2n} &= (\mathbf V^{2})^{n},\notag \\
+z &= \sqrt{\mathbf V^{2}}\qquad \eqtext{complex scalar},\notag \\
+\exp(\mathbf V \cdot \sigv ) &= \sum_{n} (\mathbf V \cdot \sigv )^{n} / n!,\notag \\
+&= \sum_{n} (\mathbf V^{2})^{n} / (2n)! + \sum_{n} (\mathbf V^{2})^{n} / (2n+1)! (\mathbf V \cdot \sigv ),\notag \\
+&= \cosh(z) + \sinh(z) (\mathbf V \cdot \sigv ) / z.
+\end{align*}
+
+\subsubsection*{Quaternion Form of the Exponential Algebra}
+The same sigma-number-two basis used in Eq.\ \eqref{eq:exp-bivector} also reproduces Hamilton's quaternion units, so the exponential rotation algebra can be written in quaternion form without leaving the STA multiplication table \cite{hamilton1844,clifford1878}.
+\begin{equation}
+\begin{aligned}
+q_1&=-\sigma_2\sigma_3,\qquad
+q_2=-\sigma_3\sigma_1,\\
+q_3&=-\sigma_1\sigma_2,\qquad
+\mathbf q=-i\sigv.
+\end{aligned}
+\label{eq:quaternion-basis}
+\end{equation}
+Equation \eqref{eq:quaternion-basis} fixes the identification between the quaternion units and the sigma-number-two basis elements. For \(a\in\R\) and \(\mathbf b\in\R^3\), let the quaternion \(Q=a+\mathbf b\cdot\mathbf q=a-i\mathbf b\cdot\sigv\). Then
+\begin{equation}
+QQ^{\mathsf R}=a^2+\mathbf b^2,
+\qquad
+Q^2=a^2-\mathbf b^2-2ia\,\mathbf b\cdot\sigv.
+\label{eq:quaternion-square}
+\end{equation}
+The linear term must carry the factor \(a\). Equation \eqref{eq:quaternion-square} makes the comparison with Eqs.\ \eqref{eq:exp-bivector} and \eqref{eq:rotor} immediate: quaternion multiplication is the same sigma-number-two multiplication law that generates the circular exponential.
