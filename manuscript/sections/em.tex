@@ -1,22 +1,14 @@
 \subsubsection*{Electric and Magnetic Fields}
-This subsection expands the electromagnetic equations so that the scalar and vector content of the field paravector can be read directly. See Eqs.\ \eqref{eq:dalembert}, \eqref{eq:F-Phi}, and \eqref{eq:maxwell}. Here \(V,\rho,S,q\in\R\), \(\mathbf A,\mathbf E,\mathbf B,\mathbf J\in\R^3\), \(\Phi=V+\mathbf A\cdot\sigv\in\R\oplus\R^3\), \(\mathbf F=\mathbf E+i\mathbf B\in\C^3\), and \(F=\mathbf F\cdot\sigv\in\varnothing\oplus\C^3\).
-Write the spatial derivative vector as \(\gradv:=\delr{}\), and write the STA derivative operator as
-\begin{align*}
-\gradv &= \{\partial /\partial r_{1}, \partial /\partial r_{2}, \partial /\partial r_{3}\},\notag \\
-\partial _{i} &= \partial / \partial r_{i},\notag \\
-\gradv^{2} &= \partial _{1}^{2} + \partial _{2}^{2} + \partial _{3}^{2},\notag \\
-\partial &= \partial _{t} + \sigv \cdot \gradv,\notag \\
-&= \partial _{t} + \sigma _{1}\partial _{1}+ \sigma _{2}\partial _{2} + \sigma _{3}\partial _{3}.
-\end{align*}
-The operator \(\partial\in\R\oplus\R^3\) is a differential paravector: its scalar part is the time derivative and its vector part is the spatial derivative. With that operator fixed, the electric and magnetic fields can be combined without introducing any new multiplication rule.
+This subsection expands the electromagnetic equations so that the scalar and vector content of the field paravector can be read directly. See Eqs.\ \eqref{eq:delr}--\eqref{eq:dalembertian}, \eqref{eq:F-Phi}, and \eqref{eq:maxwell}. Here \(V,\rho,S,q\in\R\), \(\mathbf A,\mathbf E,\mathbf B,\mathbf J\in\R^3\), \(\Phi=V+\mathbf A\cdot\sigv\in\R\oplus\R^3\), \(\mathbf F=\mathbf E+i\mathbf B\in\C^3\), and \(F=\mathbf F\cdot\sigv\in\varnothing\oplus\C^3\).
+The spatial and paravector derivative notation is fixed once in Section \ref{sec:differential}. In particular, Eq.\ \eqref{eq:gradient-notation} gives \(\gradv=\{\partial_1,\partial_2,\partial_3\}\) with \(\partial_i=\partial/\partial r_i\), while Eqs.\ \eqref{eq:partial-operator} and \eqref{eq:partial-conjugate} define \(\partial\) and \(\partial^*\). The operator \(\partial\in\R\oplus\R^3\) is therefore a differential paravector whose scalar part is the time derivative and whose vector part is the spatial derivative. With that notation fixed, the electric and magnetic fields can be combined without introducing any new multiplication rule.
 \input{sections/em_tables_derivative.tex}
 
 Collect the electric and magnetic fields into the complex three-vector \(\mathbf F\) and the field paravector \(F\):
 \begin{align*}
-\mathbf E &= \{E_{1}, E_{2}, E_{3}\}\qquad \text{real vector electric field},\notag \\
-\mathbf B &= \{B_{1}, B_{2}, B_{3}\}\qquad \text{real vector magnetic field},\notag \\
-\mathbf F &= \mathbf E + i \mathbf B\qquad \text{electromagnetic field},\notag \\
-F &= \mathbf F \cdot \sigv = (\mathbf E + i \mathbf B) \cdot \sigv,\qquad i = \sigma _{1}\sigma _{2}\sigma _{3}.
+\mathbf E &= \{E_{1}, E_{2}, E_{3}\} && \text{real vector electric field},\notag \\
+\mathbf B &= \{B_{1}, B_{2}, B_{3}\} && \text{real vector magnetic field},\notag \\
+\mathbf F &= \mathbf E + i \mathbf B && \text{electromagnetic field},\notag \\
+F &= \mathbf F \cdot \sigv = (\mathbf E + i \mathbf B) \cdot \sigv, && i = \sigma _{1}\sigma _{2}\sigma _{3}.
 \end{align*}
 \begin{align*}
 F^{*} &= (-\mathbf E + i \mathbf B) \cdot \sigv,\notag \\
@@ -74,28 +66,14 @@ Equivalently, the transformed fields can be written in the compact form
 The parallel components are unchanged, while the perpendicular components mix by the standard electric-magnetic cross terms. This is the component form of the single algebraic boost law \(F'=\conj{L}FL\) already introduced in Eq.\ \eqref{eq:field-transform}.
 
 \subsubsection*{Wave Operator and d’Alembertian}
-The wave operator is written out here in full so that its factorization into the d'Alembertian and the component field equations can be read directly. See Eq.\ \eqref{eq:dalembert}.
-\begin{align*}
-\partial &= \partial _{t} + \sigv \cdot \gradv, \\
-\partial ^{*} &= \partial _{t} - \sigv \cdot \gradv.
-\end{align*}
-The associated d'Alembertian is
-\begin{equation}
-\begin{aligned}
-\square &:= \partial _{t}^{2} - \gradv^{2},\\
-&= \partial \partial ^{*} = \partial ^{*} \partial,\\
-&= \langle\!\langle \partial \rangle\!\rangle^{2}.
-\end{aligned}
-\label{eq:dalembertian}
-\end{equation}
+The wave-operator conventions are fixed once in Eqs.\ \eqref{eq:partial-operator}, \eqref{eq:partial-conjugate}, and \eqref{eq:dalembertian}. Only the derived identities needed later are recorded here:
 \begin{equation*}
 \partial ^{2} = \partial _{t}^{2} + \gradv^{2} + 2 \partial _{t} \gradv \cdot \sigv.
 \end{equation*}
 Equation \eqref{eq:dalembertian} should be distinguished from \(\partial^2\). The present convention follows Eqs.\ \eqref{eq:F-Phi} and \eqref{eq:maxwell}; different sources may reverse the sign of \(F\), adopt the metric signature \((- ,+,+,+)\), or use a different box notation. The corresponding wave equation is
-\begin{equation}
-\square F = \partial ^{*} \partial F = \partial ^{*} (\rho - \mathbf J \cdot \sigv ).
-\label{eq:field-wave}
-\end{equation}
+\begin{equation*}
+\Box F = \conj{\partial}\partial F = \conj{\partial} (\rho - \mathbf J \cdot \sigv ).
+\end{equation*}
 \begin{align*}
 \square F^{*} &= \partial (\rho + \mathbf J \cdot \sigv ),\notag \\
 &= ( \square \mathbf E + i \square \mathbf B ) \cdot \sigv,\notag \\
@@ -104,7 +82,7 @@ Equation \eqref{eq:dalembertian} should be distinguished from \(\partial^2\). Th
 \begin{equation*}
 \partial _{t} \rho = - \gradv \cdot \mathbf J\qquad \text{conservation of charge}.
 \end{equation*}
-The scalar part of \(\square F^*\) is therefore the continuity equation, while Eq.\ \eqref{eq:field-wave} and the vector part of \(\square F^*\) give the sourced wave equations for \(\mathbf E\) and \(\mathbf B\). In vacuum both source terms disappear and each field component satisfies the ordinary wave equation.
+The scalar part of \(\square F^*\) is therefore the continuity equation, while Eq.\ \eqref{eq:wave-F} and the vector part of \(\square F^*\) give the sourced wave equations for \(\mathbf E\) and \(\mathbf B\). In vacuum both source terms disappear and each field component satisfies the ordinary wave equation.
 
 In vacuum, where \(\rho=0\) and \(\mathbf J=0\), this reduces to
 \begin{align*}
@@ -114,7 +92,7 @@ In vacuum, where \(\rho=0\) and \(\mathbf J=0\), this reduces to
 \input{sections/em_tables_wave.tex}
 
 \subsubsection*{Potential Fields}
-Eqs.\ \eqref{eq:potential-gradient} and \eqref{eq:E-B-from-potential} put gauge freedom, source reconstruction, and the electric/magnetic field split in one place. Here \(V,S,\rho,\lambda\in\R\), \(\mathbf A,\mathbf E,\mathbf B,\mathbf J\in\R^3\), \(\Phi\in\R\oplus\R^3\), \(\mathbf F\in\C^3\), and \(F\in\varnothing\oplus\C^3\).
+Eqs.\ \eqref{eq:potential-gradient} and \eqref{eq:E-B-from-potential} put gauge freedom, source reconstruction, and the electric/magnetic field split in one place. Here \(V,S,\rho,\lambda\in\R\), \(\mathbf A,\mathbf E,\mathbf B,\mathbf J\in\R^3\), \(\Phi\in\R\oplus\R^3\), \(\mathbf F\in\C^3\), and \(F\in\varnothing\oplus\C^3\):
 \begin{align*}
 F^{*} &= (-\mathbf E + i \mathbf B) \cdot \sigv,\notag \\
 \Phi &= V + \mathbf A \cdot \sigv,\notag \\
@@ -122,7 +100,7 @@ F^{*} &= (-\mathbf E + i \mathbf B) \cdot \sigv,\notag \\
 &\quad + ( \partial _{t} \mathbf A + \gradv V ) \cdot \sigv,\notag \\
 &\quad + i ( \gradv \times \mathbf A ) \cdot \sigv.
 \end{align*}
-This expansion separates the potential gradient into one real scalar part and one pure-vector field part. The scalar piece becomes the Lorenz-gauge scalar \(S\), and the remaining vector piece becomes the electromagnetic field.
+This expansion separates the potential gradient into one real scalar part and one pure-vector field part. The scalar piece becomes the Lorenz-gauge scalar \(S\), and the remaining vector piece becomes the electromagnetic field:
 
 \begin{align*}
 S &:= \eqtext{scalar}( \partial \Phi ),\notag \\
@@ -232,7 +210,7 @@ The product \(FU\) naturally separates into real and imaginary parts. The real p
 \eqtext{real}( F U ) &= \tfrac{1}{2} ( F U + U F^{\mathrm{R}} ),\notag \\
 &= \gamma (\mathbf v \cdot \mathbf E + ( \mathbf E + \mathbf v \times \mathbf B ) \cdot \sigv ).
 \end{align*}
-The imaginary part of \(FU\) exchanges the electric and magnetic roles and is therefore not the part used in the physical force law.
+The imaginary part of \(FU\) exchanges the electric and magnetic roles and is therefore not the part used in the physical force law:
 \begin{align*}
 m dU/ds &= q \eqtext{real}( F U ),\notag \\
 &= \tfrac{1}{2} q \big( F U + U F^{\mathrm{R}} \big).
@@ -299,7 +277,7 @@ d(m \gamma )/dt &= q \mathbf v \cdot ( -\gradv V - \partial _{t} \mathbf A ),\no
 \end{align*}
 
 \subsubsection*{Electromagnetic Energy-Momentum}
-The next identities collect the simplest field invariants built from \(F\) and the frame-dependent paravector \(T=\tfrac12F\rev{F}\). They are useful reference formulas, but the caution in the main text remains in force: \(T\) is not by itself the full stress-energy tensor.
+The next identities collect the simplest field invariants built from \(F\) and the frame-dependent paravector \(T=\tfrac12F\rev{F}\). They are useful reference formulas, but the caution in the main text remains in force: \(T\) is not by itself the full stress-energy tensor:
 
 \begin{align*}
 F &= (\mathbf E + i \mathbf B) \cdot \sigv,\notag \\

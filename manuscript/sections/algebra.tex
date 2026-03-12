@@ -1,52 +1,8 @@
-\subsubsection*{Sigma Algebra}
-The sigma generators and their multiplication rules are written out here explicitly so that every later paravector identity can be traced back to the defining algebra. See Eqs.\ \eqref{eq:basis} and \eqref{eq:sigma-product}. For \(n,m\in\{1,2,3\}\),
-\begin{equation*}
-\sigma _{n}^{2} = +1, \sigma _{n}\sigma _{m} = -\sigma _{m}\sigma _{n} \text{ if } m \neq n.
-\end{equation*}
-The first useful consequence is the pseudoscalar relation \(i=\sigma_1\sigma_2\sigma_3\). This fixes the sign convention used later.
-\noindent Using Eq.\ \eqref{eq:sigma-product},
-\begin{align*}
-\sigma _{1}\sigma _{2}\sigma _{3} &= (\delta _{12} + \epsilon _{123} i \sigma _{3}) \sigma _{3},\notag \\
-&= (0 + i \sigma _{3}) \sigma _{3} = i.
-\end{align*}
-\subsubsection*{Conjugate-Operator Action on Sigma Products}
-The conjugate-operator identities derived from Eqs.\ \eqref{eq:operator-rules}--\eqref{eq:i-operator-signs} take the following explicit sigma-product form.\par
-\begin{align*}
-\sigma _{n}^{*} &= -\sigma _{n},\notag \\
-i^{*} &= -i,\notag \\
-(i \sigma _{n} )^{*} &= i \sigma _{n},\notag \\
-(\sigma _{1}\sigma _{2}\sigma _{3})^{*} &= \sigma _{1}^{*} \sigma _{2}^{*} \sigma _{3}^{*}\qquad \text{does not flip order},\notag \\
-&= (-\sigma _{1})(-\sigma _{2})(-\sigma _{3}),\notag \\
-&= -\sigma _{1}\sigma _{2}\sigma _{3}.
-\end{align*}
-The point is that the conjugate operator changes the sign of each sigma-number-one factor without reversing multiplication order. The pseudoscalar is therefore odd under the conjugate operator, whereas the sigma-number-two basis elements remain even.
-\begin{align*}
-( i \sigma _{n} )^{*} &= i^{*} \sigma _{n}^{*},\notag \\
-&= (-i)(-\sigma _{n}),\notag \\
-&= i \sigma _{n}.
-\end{align*}
-
-\subsubsection*{Reverse-Operator Action on Sigma Products}
-The reverse-operator identities derived from Eqs.\ \eqref{eq:operator-rules}--\eqref{eq:i-operator-signs} take the following explicit sigma-product form.\par
-\begin{align*}
-\sigma _{n}^{\mathrm{R}} &= \sigma _{n},\notag \\
-(\sigma _{1}\sigma _{2}\sigma _{3})^{\mathrm{R}} &= \sigma _{3}\sigma _{2}\sigma _{1},\notag \\
-&= -\sigma _{1}\sigma _{2}\sigma _{3},\notag \\
-i^{\mathrm{R}} &= -i.
-\end{align*}
-Thus the reverse leaves each sigma-number-one generator fixed but changes the sign of the pseudoscalar by reversing the multiplication order.
-\begin{align*}
-(i \sigma _{n})^{\mathrm{R}} &= -i \sigma _{n},\notag \\
-(i \sigma _{n})^{\mathrm{R}} &= \sigma _{n} ( i )^{\mathrm{R}},\notag \\
-&= \sigma _{n} (-i),\notag \\
-&= -i \sigma _{n}.
-\end{align*}
-
 \subsubsection*{Basis-Element Classification}
-Table~\ref{tab:sigma-number-components} lists the four sigma numbers and the corresponding basis-element types, while Table~\ref{tab:sigma-number-signs} lists the signs acquired under the conjugate operator, the reverse operator, and their combined action. The explicit calculations above show where that sigma-number classification comes from.
+Table~\ref{tab:sigma-number-components} lists the four sigma numbers and the corresponding basis-element types, while Table~\ref{tab:sigma-number-signs} lists the signs acquired under the conjugate operator, the reverse operator, and the reverse-conjugate operator.
 
 \subsubsection*{Complex Paravector-Valued Maps}
-This notation records how real scalar and vector functions combine into a generic complex paravector-valued map without imposing any physical interpretation.
+This notation records how real scalar and vector functions combine into a generic complex paravector-valued map without imposing any physical interpretation:
 \begin{align*}
 Z(t,\mathbf r) &= \bigl(a(t,\mathbf r)+i\,b(t,\mathbf r)\bigr)\notag\\
 &\quad + \bigl(\mathbf A(t,\mathbf r)+i\,\mathbf B(t,\mathbf r)\bigr)\cdot\sigv,\\

@@ -108,17 +108,20 @@
 \titleformat{name=\subsection,numberless}
   {\normalfont\normalsize\itshape}
   {}{0pt}{}
-\titleformat{name=\subsubsection,numberless}
-  {\normalfont\normalsize\itshape}
+\titleformat{\subsubsection}[hang]
+  {\normalfont\small\sffamily\bfseries}
+  {\makebox[1.6em][l]{\thesubsection.\arabic{subsubsection}}}{0.45em}{}
+\titleformat{name=\subsubsection,numberless}[hang]
+  {\normalfont\small\sffamily\bfseries}
   {}{0pt}{}
 \titlespacing*{\section}{0pt}{1.8ex plus .6ex minus .2ex}{0.8ex plus .2ex}
 \titlespacing*{\subsection}{0pt}{1.3ex plus .5ex minus .2ex}{0.5ex plus .1ex}
-\titlespacing*{\subsubsection}{0pt}{1.0ex plus .4ex minus .1ex}{0.3ex}
+\titlespacing*{\subsubsection}{0pt}{1.15ex plus .4ex minus .1ex}{0.35ex}
 \pagestyle{plain}
 
 \newcommand{\STATitle}{Space-Time Algebra (STA)}
 \newcommand{\STAAuthor}{Dr. Luke A. Wendt}
-\newcommand{\STAAbstractText}{Space-time algebra (STA) is presented in a paravector notation built from scalars and vectors. The development begins with the sigma basis, the conjugate and reverse operators, quadratic forms, projector algebra, exponential and logarithmic algebra, generalized transform identities, and the matrix and quaternion correspondences, then proceeds to interval geometry, proper kinematics, Lorentz boosts, Maxwell electrodynamics, and Klein--Gordon, Dirac, and Pauli-type wave equations. Throughout, the paravector formulas are paired with explicit scalar and vector decompositions so that the component content of each result remains visible.}
+\newcommand{\STAAbstractText}{Space-time algebra (STA) is developed in a paravector notation built from scalars and vectors. The algebraic development begins with the sigma basis, the conjugate and reverse operators, the decomposition of complex paravectors, dot and cross products, general paravector products, norms and scalar paravector metrics, projector algebra, exponential and logarithmic formulas, generalized transform identities, and the matrix and auxiliary realizations. The physical development then interprets the scalar paravector metric as the Minkowski metric, collects the spatial and paravector differential operators, and develops Maxwell electrodynamics together with Klein--Gordon, Dirac, and Pauli-type wave equations. Throughout, the paravector formulas are paired with explicit scalar and vector decompositions so that the component content of each result remains visible.}
 \newcommand{\STAIndexTerms}{space-time algebra, geometric algebra, Lorentz transformations, Maxwell electrodynamics, Dirac equation, Pauli equation}
 \newcommand{\STAMakeTitleBlock}{%
   \begin{center}
@@ -145,9 +148,9 @@
 \thispagestyle{plain}
 
 \section{Introduction}\label{sec:orientation}
-Space-time algebra extends the familiar scalar and vector calculus of three-dimensional space into one associative algebra that can carry rotations, boosts, differential operators, and relativistic wave equations in a common language. The basic objects used here are paravectors in \(\R\oplus\R^3\) and \(\C\oplus\C^3\), so the same product that combines scalar and vector pieces in the algebra section later reappears in kinematics, electromagnetism, and wave mechanics.
+Space-time algebra extends the familiar scalar and vector calculus of three-dimensional space into one associative algebra that can carry rotations, boosts, differential operators, and relativistic wave equations in a common language. The basic objects used here are paravectors in \(\R\oplus\R^3\) and \(\C\oplus\C^3\), so the same algebraic product that combines scalar and vector pieces also supplies the norm, the scalar paravector metric, the space-time interval, the electromagnetic field formulas, and the relativistic wave operators developed later in the manuscript.
 
-The document is organized from simple algebraic structure to physical application. It begins with the sigma basis, the conjugate and reverse operators, the decomposition of a complex paravector into real scalar, imaginary scalar, real vector, and imaginary vector parts, and the corresponding product and quadratic-form identities. It then develops projector algebra, exponential and logarithmic formulas, generalized transform identities, and the matrix and auxiliary \(2\times2\) realizations needed later for the Dirac-type constructions. Only after that algebraic setup is fixed does the presentation turn to space-time kinematics, electromagnetism, and relativistic wave equations.
+The document is organized from simple algebraic structure to physical application. It begins with the sigma basis, the conjugate and reverse operators, the decomposition of a complex paravector into real scalar, imaginary scalar, real vector, and imaginary vector parts, the dot and cross products, the general paravector product laws, and the resulting norm and scalar-paravector-metric identities. It then develops projector algebra, exponential and logarithmic formulas, generalized transform identities, and the matrix and auxiliary \(2\times2\) realizations needed later for the Dirac-type constructions. Only after that algebraic setup is fixed does the presentation turn to space-time kinematics, differential-operator notation, electromagnetism, and relativistic wave equations.
 
 This perspective is consistent with the modern STA and paravector literature of Hestenes, Baylis, and Doran--Lasenby \cite{hestenes1966,baylis1999,doran2003}, while its algebraic lineage runs back through Hamilton's quaternion construction and Clifford's geometric extension \cite{hamilton1844,clifford1878}. A one-page Equation Reference Sheet follows this introduction and serves as a reference sheet for the numbered formulas developed in the body.
 
@@ -156,9 +159,10 @@ Bold symbols denote three-vectors, and the remaining symbols are defined where t
 \subsection{Reading Guide}
 \begin{enumerate}
 \item The Equation Reference Sheet on the next page collects the main numbered equations in the order they are developed.
-\item Section \ref{sec:algebra} develops the algebraic foundations: the sigma basis, the conjugate and reverse operators, complex paravectors, products and quadratic forms, projector algebra, exponential and logarithmic formulas, generalized transform identities, and the matrix and auxiliary \(2\times2\) realizations.
-\item Section \ref{sec:spacetime} interprets the earlier paravector quadratic form as interval geometry and develops proper velocity, proper momentum, acceleration, and free relativistic motion.
-\item Section \ref{sec:em} introduces the differential paravector, field and potential paravectors, Maxwell theory, gauge structure, wave equations for the field, and the Lorentz force.
+\item Section \ref{sec:algebra} develops the algebraic foundations: the sigma basis, the conjugate and reverse operators, complex paravectors, dot and cross products, paravector products, norms and scalar paravector metrics, projector algebra, exponential and logarithmic formulas, generalized transform identities, and the matrix and auxiliary \(2\times2\) realizations.
+\item Section \ref{sec:spacetime} interprets the earlier scalar paravector metric as the Minkowski metric of interval geometry and develops proper velocity, proper momentum, acceleration, and free relativistic motion.
+\item Section \ref{sec:differential} collects the spatial and paravector differential operators in one place, fixing the notation for \(\delr\), \(\gradv\), \(\partial\), \(\conj{\partial}\), and \(\Box\) before they are used in the physical sections.
+\item Section \ref{sec:em} introduces the field and potential paravectors, Maxwell theory, gauge structure, wave equations for the field, and the Lorentz force.
 \item Section \ref{sec:qm} develops the relativistic wave-equation material, from frequency splitting and Klein--Gordon factorization to the Dirac two-component field of complex paravectors, the Pauli limit, and the energy/projector split.
 \item Section \ref{sec:conclusions} summarizes the main structural consequences of the paravector split and records the principal directions that remain to be developed.
 \item After the references, Section \ref{sec:flags} records scope notes and cautions, and Section \ref{sec:verification} records verification and formula status.
@@ -184,14 +188,14 @@ Bold symbols denote three-vectors, and the remaining symbols are defined where t
 \begin{tabular}{@{}p{0.23\textwidth}@{\hspace{0.025\textwidth}}p{0.61\textwidth}@{\hspace{0.02\textwidth}}>{\raggedleft\arraybackslash}p{0.095\textwidth}@{}}
 \textbf{Name} & \textbf{Formula} & \textbf{Ref.}\\[0.45em]
 \compendiumhead{Algebra}
-\compendiumrow{Sigma product}{\sigma_n\sigma_m=\delta_{nm}+\epsilon_{nmk}\,i\sigma_k}{\eqref{eq:sigma-product}}
+\compendiumrow{Sigma product}{\sigma_n\sigma_m=\delta_{nm}+\sum_{k=1}^3\epsilon_{nmk}\,i\sigma_k}{\eqref{eq:sigma-product}}
 \compendiumrow{Complex paravector}{\begin{aligned}[t]
 Z&=(a+ib)+(\mathbf A+i\mathbf B)\cdot\sigv=X+iY,\\
 X&=\eqtext{real}(Z),\qquad Y=\eqtext{img}(Z)
 \end{aligned}}{\eqref{eq:paravector-parts}, \eqref{eq:real-imag-parts}}
 \compendiumrow{Vector product}{(\mathbf A\cdot\sigv)(\mathbf B\cdot\sigv)=\mathbf A\cdot\mathbf B+i(\mathbf A\times\mathbf B)\cdot\sigv}{\eqref{eq:dot-cross}}
 \compendiumrow{Paravector product}{ZZ'=SS'+\mathbf V\cdot\mathbf V'+\bigl(S\mathbf V'+S'\mathbf V+i(\mathbf V\times\mathbf V')\bigr)\cdot\sigv}{\eqref{eq:paravector-product}}
-\compendiumrow{Quadratic forms}{\begin{aligned}[t]
+\compendiumrow{Norms and Metrics}{\begin{aligned}[t]
 \|Z\|^2&=\eqtext{scalar}(Z\rev{Z}),\\
 \langle\!\langle Z\rangle\!\rangle^2&=Z\crev{Z}
 \end{aligned}}{\eqref{eq:euclidean-form}, \eqref{eq:minkowski-form}}
@@ -202,9 +206,10 @@ X&=\eqtext{real}(Z),\qquad Y=\eqtext{img}(Z)
 \compendiumrow{Rotor law}{R(\theta,\mathbf u)=\exp\!\left(\tfrac{\theta}{2}\,\mathbf u\cdot i\sigv\right),\qquad X'=\rev{R}XR}{\eqref{eq:rotor}}
 \compendiumrow{Boost law}{L(\theta,\mathbf u)=\exp\!\left(\tfrac{\theta}{2}\,\mathbf u\cdot\sigv\right),\qquad X'=\conj{L}XL}{\eqref{eq:boost}}
 \compendiumhead{Kinematics and Fields}
-\compendiumrow{Interval}{\dd s^2=\langle\!\langle \dd X\rangle\!\rangle^2=\dd t^2-\dd\mathbf r^2}{\eqref{eq:interval}}
+\compendiumrow{Space-time interval}{\dd s^2=\langle\!\langle \dd X\rangle\!\rangle^2=\langle\!\langle \dd t+\sigv\cdot\dd\mathbf r\rangle\!\rangle^2=\dd t^2-\dd\mathbf r^2}{\eqref{eq:interval}}
 \compendiumrow{Velocity/momentum}{U=\gamma(1+\mathbf v\cdot\sigv),\qquad mU=E+\mathbf P\cdot\sigv}{\eqref{eq:proper-velocity}, \eqref{eq:proper-momentum}}
-\compendiumrow{Wave operator}{\partial=\partial_t+\sigv\cdot\gradv,\qquad \partial\conj{\partial}=\Box}{\eqref{eq:dalembert}}
+\compendiumrow{Spatial derivative}{\delr=\{\partial/\partial r_1,\partial/\partial r_2,\partial/\partial r_3\},\qquad \gradv=\delr=\{\partial_1,\partial_2,\partial_3\}}{\eqref{eq:delr}, \eqref{eq:gradient-notation}}
+\compendiumrow{Wave operator}{\partial=\partial_t+\sigv\cdot\gradv,\qquad \partial^*=\partial_t-\sigv\cdot\gradv,\qquad \Box=\partial\partial^*}{\eqref{eq:partial-operator}, \eqref{eq:dalembertian}}
 \compendiumrow{Maxwell equation}{\partial F=\rho-\mathbf J\cdot\sigv}{\eqref{eq:maxwell}}
 \compendiumrow{Lorentz force}{m\frac{\dd U}{\dd s}=q\,\eqtext{real}(FU)}{\eqref{eq:lorentz-force}}
 \compendiumhead{Wave Equations}
@@ -216,72 +221,86 @@ X&=\eqtext{real}(Z),\qquad Y=\eqtext{img}(Z)
 \endgroup
 \fi
 \begingroup
-\fontsize{8.8}{9.8}\selectfont
+\fontsize{8.55}{9.15}\selectfont
 \setlength{\jot}{0.25em}
 \setlength{\tabcolsep}{0pt}
-\renewcommand{\arraystretch}{1.08}
-\newcommand{\compendiumrowplain}[3]{#1 & \(\displaystyle #2\) & #3\\[0.20em]}
-\newcommand{\compendiumsubrowplain}[3]{\hspace*{0.9em}#1 & \(\displaystyle \qquad #2\) & #3\\[0.16em]}
+\renewcommand{\arraystretch}{1.00}
+\newcommand{\compendiumrowplain}[3]{#1 & \(\displaystyle #2\) & #3\\[0.08em]}
+\newcommand{\compendiumsubrowplain}[3]{\hspace*{0.9em}#1 & \hspace*{0.9em}\(\displaystyle #2\) & #3\\[0.05em]}
+\newcommand{\compendiumsubsubrowplain}[3]{\hspace*{2.4em}#1 & \hspace*{2.4em}\(\displaystyle #2\) & #3\\[0.05em]}
+\newcommand{\compendiumsubsubsubrowplain}[3]{\hspace*{2.7em}#1 & \hspace*{2.7em}\(\displaystyle #2\) & #3\\[0.05em]}
 \noindent Natural units: \(\hbar=c=1\). Metric signature: \((+,-,-,-)\).
-\par\vspace{0.45em}
+\par\vspace{0.18em}
 \noindent
 \begin{tabular}{@{}p{0.27\textwidth}@{\hspace{0.02\textwidth}}p{0.60\textwidth}@{\hspace{0.015\textwidth}}>{\raggedleft\arraybackslash}p{0.085\textwidth}@{}}
  &  & \textbf{Ref.}\\[0.36em]
 \compendiumrowplain{Pseudoscalar}{i=\sigma_1\sigma_2\sigma_3}{\eqref{eq:basis}}
-\compendiumrowplain{Sigma product}{\sigma_n\sigma_m=\delta_{nm}+\epsilon_{nmk}\,i\sigma_k}{\eqref{eq:sigma-product}}
-\compendiumsubrowplain{Conjugate operator}{(\cdot)^*=\eqtext{conjugate that flips signs of }\sigma_n}{\eqref{eq:star-definition}}
-\compendiumsubrowplain{Reverse operator}{(\cdot)^{\mathrm R}=\eqtext{reverse order of multiplied }\sigma_n}{\eqref{eq:reversion-definition}}
+\compendiumrowplain{Sigma product}{\sigma_n\sigma_m=\delta_{nm}+\sum_{k=1}^3\epsilon_{nmk}\,i\sigma_k}{\eqref{eq:sigma-product}}
+\compendiumrowplain{Conjugate operator}{(\cdot)^*=\eqtext{conjugate that flips signs of }\sigma_n}{\eqref{eq:star-definition}}
+\compendiumrowplain{Reverse operator}{(\cdot)^{\mathrm R}=\eqtext{reverse order of multiplied }\sigma_n}{\eqref{eq:reversion-definition}}
 \compendiumrowplain{Complex paravector}{Z=(a+ib)+(\mathbf A+i\mathbf B)\cdot\sigv=S+\mathbf V\cdot\sigv=X+iY}{\eqref{eq:paravector}, \eqref{eq:paravector-parts}}
 \compendiumsubrowplain{Real function}{X=\eqtext{real}(Z)}{\eqref{eq:real-imag-parts}}
 \compendiumsubrowplain{Img function}{Y=\eqtext{img}(Z)}{\eqref{eq:real-imag-parts}}
 \compendiumsubrowplain{Scalar function}{S=\eqtext{scalar}(Z)}{\eqref{eq:scalar-function}}
 \compendiumsubrowplain{Vector function}{\mathbf V=\eqtext{vector}(Z)}{\eqref{eq:vector-function}}
 \compendiumsubrowplain{Conjugate paravector}{\conj{Z}=(a-ib)+(-\mathbf A+i\mathbf B)\cdot\sigv}{\eqref{eq:paravector-operator-actions}}
+\compendiumsubsubrowplain{Real conjugate}{\conj{X}=a-\mathbf A\cdot\sigv}{\eqref{eq:real-paravector-conjugate}}
 \compendiumsubrowplain{Reverse paravector}{\rev{Z}=X-iY=(a-ib)+(\mathbf A-i\mathbf B)\cdot\sigv}{\eqref{eq:paravector-operator-actions}}
-\compendiumsubrowplain{Combined action}{\crev{Z}=(a+ib)-(\mathbf A+i\mathbf B)\cdot\sigv}{\eqref{eq:paravector-operator-actions}}
+\compendiumsubsubrowplain{Real reverse}{\rev{X}=X=a+\mathbf A\cdot\sigv}{\eqref{eq:real-paravector-reverse}}
+\compendiumsubrowplain{Reverse conjugate}{\crev{Z}=(a+ib)-(\mathbf A+i\mathbf B)\cdot\sigv}{\eqref{eq:paravector-operator-actions}}
+\compendiumsubsubrowplain{Real reverse conjugate}{\crev{X}=a-\mathbf A\cdot\sigv=\conj{X}}{\eqref{eq:real-paravector-combined}}
 \compendiumsubrowplain{Vector product}{(\mathbf A\cdot\sigv)(\mathbf B\cdot\sigv)=\mathbf A\cdot\mathbf B+i(\mathbf A\times\mathbf B)\cdot\sigv}{\eqref{eq:dot-cross}}
 \compendiumsubrowplain{Paravector product}{ZZ'=SS'+\mathbf V\cdot\mathbf V'+\bigl(S\mathbf V'+S'\mathbf V+i(\mathbf V\times\mathbf V')\bigr)\cdot\sigv}{\eqref{eq:paravector-product}}
 \compendiumsubrowplain{Paravector commutator}{[Z,Z']=2i(\mathbf V\times\mathbf V')\cdot\sigv}{\eqref{eq:paravector-commutator}}
-\compendiumsubrowplain{Minkowski norm}{\langle\!\langle Z\rangle\!\rangle^2=Z\crev{Z}=S^2-\mathbf V\cdot\mathbf V}{\eqref{eq:minkowski-form}}
-\compendiumsubrowplain{Paravector inverse}{Z^{-1}=\crev{Z}/\langle\!\langle Z\rangle\!\rangle^2=\crev{Z}/(\crev{Z}Z)}{\eqref{eq:paravector-inverse}}
+\compendiumsubrowplain{Scalar norm}{|S|^2=SS^*=a^2+b^2}{\eqref{eq:scalar-norm}}
+\compendiumsubrowplain{Vector norm}{\|\mathbf V\|^2=\mathbf V\cdot\mathbf V^*=\mathbf A^2+\mathbf B^2}{\eqref{eq:vector-norm}}
+\compendiumsubrowplain{Paravector norm}{\|Z\|^2=\eqtext{scalar}(Z\rev{Z})=|S|^2+\|\mathbf V\|^2}{\eqref{eq:euclidean-form}}
+\compendiumsubrowplain{Real scalar paravector metric}{\langle\!\langle X\rangle\!\rangle^2=XX^*=a^2-\mathbf A^2}{\eqref{eq:real-paravector-metric}}
+\compendiumsubrowplain{Scalar paravector metric}{\langle\!\langle Z\rangle\!\rangle^2=Z\crev{Z}=S^2-\mathbf V^2}{\eqref{eq:minkowski-form}}
+\compendiumsubrowplain{Real paravector inverse}{X^{-1}=X^*/\langle\!\langle X\rangle\!\rangle^2=(a-\mathbf A\cdot\sigv)/(a^2-\mathbf A^2)}{\eqref{eq:real-paravector-inverse}}
+\compendiumsubrowplain{Paravector inverse}{Z^{-1}=\crev{Z}/\langle\!\langle Z\rangle\!\rangle^2=(S-\mathbf V\cdot\sigv)/(S^2-\mathbf V^2)}{\eqref{eq:paravector-inverse}}
 \compendiumrowplain{Projector}{\Pi(\pm)=\tfrac12(1\pm \mathbf u\cdot\sigv)}{\eqref{eq:projectors}}
 \compendiumsubrowplain{Functional calculus}{f(\mathbf u\cdot\sigv)=f(+)\Pi(+)+f(-)\Pi(-)}{\eqref{eq:functional-calculus}}
-\compendiumsubrowplain{Vector exponential}{\exp(\theta\,\mathbf u\cdot\sigv)=\cosh\theta+\sinh\theta\,\mathbf u\cdot\sigv}{\eqref{eq:exp-vector}}
-\compendiumsubrowplain{Paravector logarithm}{\log(Y)=\tfrac12\log\!\bigl(\lambda(+)\lambda(-)\bigr)+\tfrac12\log\!\bigl(\lambda(+)/\lambda(-)\bigr)\,\mathbf u\cdot\sigv}{\eqref{eq:log-paravector}}
+\compendiumsubsubrowplain{Vector exponential}{\exp(\theta\,\mathbf u\cdot\sigv)=\cosh\theta+\sinh\theta\,\mathbf u\cdot\sigv}{\eqref{eq:exp-vector}}
+\compendiumsubsubrowplain{Paravector logarithm}{\log(Y)=\tfrac12\log\!\bigl(\lambda(+)\lambda(-)\bigr)+\tfrac12\log\!\bigl(\lambda(+)/\lambda(-)\bigr)\,\mathbf u\cdot\sigv}{\eqref{eq:log-paravector}}
 \compendiumrowplain{General transform}{X'=T^{-1}XT}{\eqref{eq:general-transform}}
 \compendiumsubrowplain{Rotor}{R(\theta,\mathbf u)=\exp\!\left(\tfrac{\theta}{2}\,\mathbf u\cdot i\sigv\right),\ X'=\rev{R}XR}{\eqref{eq:rotor}}
 \compendiumsubrowplain{Boost}{L(\theta,\mathbf u)=\exp\!\left(\tfrac{\theta}{2}\,\mathbf u\cdot\sigv\right),\ X'=\conj{L}XL}{\eqref{eq:boost}}
-\compendiumrowplain{Interval}{\dd s^2=\langle\!\langle \dd X\rangle\!\rangle^2=\dd t^2-\dd\mathbf r^2}{\eqref{eq:interval}}
+\compendiumrowplain{Space-time interval}{\dd s^2=\langle\!\langle \dd X\rangle\!\rangle^2=\langle\!\langle \dd t+\sigv\cdot\dd\mathbf r\rangle\!\rangle^2=\dd t^2-\dd\mathbf r^2}{\eqref{eq:interval}}
 \compendiumrowplain{Proper velocity}{U=\gamma(1+\mathbf v\cdot\sigv)}{\eqref{eq:proper-velocity}}
 \compendiumsubrowplain{Proper momentum}{mU=E+\mathbf P\cdot\sigv}{\eqref{eq:proper-momentum}}
 \compendiumrowplain{Frequency operator}{\Omega=\langle\!\langle m+\sigv\cdot\gradv\rangle\!\rangle=\sqrt{m^2-\gradv^2}}{\eqref{eq:frequency-split}}
 \compendiumsubrowplain{Frequency split}{(\partial_t\pm i\Omega)\Psi(\pm)=0}{\eqref{eq:frequency-split}}
-\compendiumrowplain{Paravector derivative}{\partial=\partial_t+\sigv\cdot\gradv}{\eqref{eq:dalembert}}
-\compendiumsubrowplain{d'Alembertian}{\square=\partial\partial^*=\partial^*\partial}{\eqref{eq:dalembertian}}
-\compendiumsubrowplain{Covariant energy}{E=i\partial_t-qV}{\eqref{eq:E-P-operators}}
-\compendiumsubrowplain{Covariant momentum}{\mathbf P=-i\gradv-q\mathbf A}{\eqref{eq:E-P-operators}}
+\compendiumrowplain{Spatial derivative}{\delr=\{\partial/\partial r_1,\partial/\partial r_2,\partial/\partial r_3\}}{\eqref{eq:delr}}
+\compendiumsubrowplain{Gradient notation}{\gradv=\delr=\{\partial_1,\partial_2,\partial_3\}}{\eqref{eq:gradient-notation}}
+\compendiumsubsubsubrowplain{Spatial Laplacian}{\gradv^2=\partial_1^2+\partial_2^2+\partial_3^2}{\eqref{eq:laplacian}}
+\compendiumrowplain{Paravector derivative}{\partial=\partial_t+\sigv\cdot\gradv=\partial_t+\sigma_1\partial_1+\sigma_2\partial_2+\sigma_3\partial_3}{\eqref{eq:partial-operator}}
+\compendiumsubrowplain{Conjugate derivative}{\partial^*=\partial_t-\sigv\cdot\gradv=\partial_t-\sigma_1\partial_1-\sigma_2\partial_2-\sigma_3\partial_3}{\eqref{eq:partial-conjugate}}
+\compendiumrowplain{d'Alembertian}{\Box=\langle\!\langle\partial\rangle\!\rangle^2=\partial\partial^*=\partial^*\partial=\partial_t^2-\gradv^2}{\eqref{eq:dalembertian-norm}, \eqref{eq:dalembertian}}
+\compendiumrowplain{Field paravector}{F=(\mathbf E+i\mathbf B)\cdot\sigv}{\eqref{eq:F-Phi}}
+\compendiumsubrowplain{Maxwell equation}{\partial F=\rho-\mathbf J\cdot\sigv}{\eqref{eq:maxwell}}
+\compendiumsubsubrowplain{Field wave equation}{\Box F=\partial^*(\rho-\mathbf J\cdot\sigv)}{\eqref{eq:wave-F}}
+\compendiumsubsubrowplain{Charge conservation}{\partial_t\rho+\gradv\cdot\mathbf J=0}{\eqref{eq:charge-conservation}}
+\compendiumsubrowplain{Lorentz force}{m\,\dd U/\dd s=q\,\eqtext{real}(FU)}{\eqref{eq:lorentz-force}}
 \compendiumrowplain{Potential paravector}{\Phi=V+\mathbf A\cdot\sigv}{\eqref{eq:F-Phi}}
 \compendiumsubrowplain{Potential gradient}{\partial\Phi=S+\conj{F}}{\eqref{eq:potential-gradient}}
 \compendiumsubrowplain{Gauge law}{\Phi'=\Phi+\conj{\partial}\lambda}{\eqref{eq:gauge}}
-\compendiumrowplain{Field paravector}{F=(\mathbf E+i\mathbf B)\cdot\sigv}{\eqref{eq:F-Phi}}
-\compendiumsubrowplain{Maxwell equation}{\partial F=\rho-\mathbf J\cdot\sigv}{\eqref{eq:maxwell}}
-\compendiumsubrowplain{Field wave equation}{\square F=\partial^*(\rho-\mathbf J\cdot\sigv)}{\eqref{eq:field-wave}}
-\compendiumsubrowplain{Charge conservation}{\partial_t\rho+\gradv\cdot\mathbf J=0}{\eqref{eq:charge-conservation}}
-\compendiumsubrowplain{Lorentz force}{m\,\dd U/\dd s=q\,\eqtext{real}(FU)}{\eqref{eq:lorentz-force}}
 \compendiumrowplain{Klein--Gordon}{(-E^2+\mathbf P^2+m^2)\Psi=0}{\eqref{eq:kg-coupled}}
+\compendiumsubrowplain{Covariant energy}{E=i\partial_t-qV}{\eqref{eq:E-P-operators}}
+\compendiumsubrowplain{Covariant momentum}{\mathbf P=-i\gradv-q\mathbf A}{\eqref{eq:E-P-operators}}
 \compendiumrowplain{Dirac factorization}{(E+\sigv\cdot\mathbf P)(E-\sigv\cdot\mathbf P)=E^2-\mathbf P^2-iqF}{\eqref{eq:EP-factorization}}
-\compendiumrowplain{W map}{W(Z)=\{0,Z;\crev{Z},0\}}{\eqref{eq:W-map}}
 \compendiumrowplain{Dirac system}{(W(i\partial-q\conj{\Phi})-m\I)\Psi=0}{\eqref{eq:dirac-coupled}}
+\compendiumsubrowplain{W map}{W(Z)=\{0,Z;\crev{Z},0\}}{\eqref{eq:W-map}}
 \compendiumsubrowplain{Dirac square}{\{(-E^2+\mathbf P^2+m^2-iq\conj{F})\Psi_1;\ (-E^2+\mathbf P^2+m^2+iqF)\Psi_2\}=0}{\eqref{eq:dirac-square}}
-\compendiumsubrowplain{Pauli spin split}{i\partial_t\Psi(\pm)=\left((\mathbf P^2\mp q\|\mathbf B\|)/(2m)+qV\right)\Psi(\pm)}{\eqref{eq:pauli-spin-split}}
-\compendiumsubrowplain{Pauli limit}{2mE\Psi=(\mathbf P^2-q\mathbf B\cdot\sigv)\Psi}{\eqref{eq:pauli-operator}}
+\compendiumsubsubrowplain{Pauli spin split}{i\partial_t\Psi(\pm)=\left((\mathbf P^2\mp q\|\mathbf B\|)/(2m)+qV\right)\Psi(\pm)}{\eqref{eq:pauli-spin-split}}
+\compendiumsubsubrowplain{Pauli limit}{2mE\Psi=(\mathbf P^2-q\mathbf B\cdot\sigv)\Psi}{\eqref{eq:pauli-operator}}
 \end{tabular}
 \endgroup
 \clearpage
 
 \twocolumn
 \section{Algebraic Foundations}\label{sec:algebra}\label{sec:foundations}\label{sec:functions}
-This section fixes the basis, the conjugate and reverse operators, complex paravectors, products and quadratic forms, projector formulas, exponential and logarithmic formulas, generalized transforms, and the standard matrix realizations.
+This section fixes the basis, the conjugate and reverse operators, complex paravectors, dot and cross products, norms and metrics, paravector products, projector formulas, exponential and logarithmic formulas, generalized transforms, and the standard matrix realizations.
 
 \subsection*{Basis and pseudoscalar}
 For \(n\in\{1,2,3\}\), the algebra is generated by the three basis elements \(\sigma_n\). Their products generate scalars, vectors, bivectors, and pseudoscalars.
@@ -303,7 +322,7 @@ The element \(i\) is a pseudoscalar because \(i\sigma_n=\sigma_n i\), and squari
 \end{align*}
 With the Kronecker delta and Levi-Civita symbol,
 \begin{equation}
-\sigma_n\sigma_m=\delta_{nm}+\epsilon_{nmk}\,i\sigma_k.
+\sigma_n\sigma_m=\delta_{nm}+\sum_{k=1}^3\epsilon_{nmk}\,i\sigma_k.
 \label{eq:sigma-product}
 \end{equation}
 where
@@ -414,7 +433,16 @@ The conjugate and reverse operators act on the generic complex paravector by
 \crev{Z} &= (a+ib)-(\mathbf A+i\mathbf B)\cdot\sigv.
 \label{eq:paravector-operator-actions}
 \end{align}
-Equation \eqref{eq:paravector-operator-actions} is the generic operator formula used throughout the later algebraic constructions.
+For the purely real paravector \(X=a+\mathbf A\cdot\sigv\in\R\oplus\R^3\), these reduce to
+\begin{align}
+\conj{X} &= a-\mathbf A\cdot\sigv,
+\label{eq:real-paravector-conjugate}\\
+\rev{X} &= X=a+\mathbf A\cdot\sigv,
+\label{eq:real-paravector-reverse}\\
+\crev{X} &= a-\mathbf A\cdot\sigv=\conj{X}.
+\label{eq:real-paravector-combined}
+\end{align}
+Equation \eqref{eq:paravector-operator-actions} is the generic operator formula used throughout the later algebraic constructions, while Eqs.\ \eqref{eq:real-paravector-conjugate}--\eqref{eq:real-paravector-combined} record the purely real specialization used whenever the imaginary scalar and imaginary vector parts vanish.
 Define the scalar and vector functions as the functions that extract the scalar and vector elements of the paravector:
 \begin{align}
 \eqtext{scalar}(Z)&:=S,
@@ -469,38 +497,50 @@ complex paravector & \(\C\oplus\C^3\) & \(Z\) \\
 \end{tabular}
 \end{tableblock}
 
-\subsection*{Dot products, cross products, and norms}
-For real vectors \(\mathbf A,\mathbf B\in\R^3\),
+\subsection*{Dot products and cross products}
+For real vectors \(\mathbf A,\mathbf B\in\R^3\), the dot product is defined by
 \begin{align}
-\mathbf A\cdot\mathbf B &:= A_1B_1+A_2B_2+A_3B_3,\notag\\
-\mathbf A^2 &:= \mathbf A\cdot\mathbf A,
+\mathbf A\cdot\mathbf B
+&:= \sum_{n=1}^3\sum_{m=1}^3\delta_{nm}A_nB_m \notag\\
+&= A_1B_1+A_2B_2+A_3B_3.
 \label{eq:vector-dot-norm}
 \end{align}
-and the cross product is
-\begin{align}
-\mathbf A\times\mathbf B
-&:= \{A_2B_3-A_3B_2,\ A_3B_1-A_1B_3,\ A_1B_2-A_2B_1\},\notag\\
-\mathbf B\times\mathbf A &= -\mathbf A\times\mathbf B.
+Define the square of a vector by
+\begin{equation}
+\mathbf A^2:=\mathbf A\cdot\mathbf A.
+\label{eq:vector-square}
+\end{equation}
+\noindent For the cross product, the Levi-Civita form gives
+\begin{equation*}
+(\mathbf A\times\mathbf B)_k
+\,:= \sum_{n=1}^3\sum_{m=1}^3\epsilon_{nmk}A_nB_m,
+\end{equation*}
+which gives the vector
+\begin{equation}
+\mathbf A\times\mathbf B=
+\left\{
+\begin{aligned}
+&A_2B_3-A_3B_2,\\
+&A_3B_1-A_1B_3,\\
+&A_1B_2-A_2B_1
+\end{aligned}
+\right\}.
 \label{eq:cross-product}
-\end{align}
-In index form these are \(\mathbf A\cdot\mathbf B=\delta_{nm}A_nB_m\) and \((\mathbf A\times\mathbf B)_k=\epsilon_{nmk}A_nB_m\), with repeated indices summed.
-
-For a complex scalar \(S=a+ib\) and a complex vector \(\mathbf V=\mathbf A+i\mathbf B\),
-\begin{align}
-|S| &:= \sqrt{SS^*}=\sqrt{a^2+b^2},\notag\\
-\|\mathbf V\| &:= \sqrt{\mathbf V\cdot\mathbf V^*}
-= \sqrt{\mathbf A^2+\mathbf B^2}.
-\label{eq:scalar-vector-norms}
-\end{align}
-\noindent Equations \eqref{eq:vector-dot-norm}, \eqref{eq:cross-product}, and \eqref{eq:scalar-vector-norms} fix the Euclidean ingredients used in every later paravector product and norm calculation. The quadratic product \(\mathbf V^2\) is not the same object as the positive norm square \(\mathbf V\cdot\mathbf V^*\).
-
-\subsection*{Products and quadratic forms}
-With these vector operations fixed,
+\end{equation}
+Dot products are commutative, whereas cross products are antisymmetric:
+\begin{align*}
+\mathbf A\cdot\mathbf B &= +\mathbf B\cdot\mathbf A,\\
+\mathbf A\times\mathbf B &= -\mathbf B\times\mathbf A.
+\end{align*}
+The sigma basis packages these two products into a single algebra multiplication: the scalar part is the dot product, while the \(i\sigv\) part is the cross product:
 \begin{equation}
 (\mathbf A\cdot\sigv)(\mathbf B\cdot\sigv)=\mathbf A\cdot\mathbf B+i(\mathbf A\times\mathbf B)\cdot\sigv.
 \label{eq:dot-cross}
 \end{equation}
-This real-vector product is the first structural identity because it makes the scalar/vector split transparent before any complexification is introduced. The fully complex product then follows as the master formula from which the simpler cases are recovered by restriction.
+These same dot-product and cross-product definitions extend componentwise to complex vectors in \(\C^3\), and they apply equally to combinations of vectors, vector-valued functions, and vector operators whenever the component expressions are defined.
+
+\subsection*{Products}
+With Eq.\ \eqref{eq:dot-cross} fixing the scalar/vector split for real vectors, the fully complex product follows as the master formula from which the simpler cases are recovered by restriction.
 
 For \(Z=S+\mathbf V\cdot\sigv\) and \(Z'=S'+\mathbf V'\cdot\sigv\) with \(S,S'\in\C\) and \(\mathbf V,\mathbf V'\in\C^3\),
 \begin{equation}
@@ -509,15 +549,97 @@ ZZ'=(SS'+\mathbf V\cdot\mathbf V')+\big(S\mathbf V'+S'\mathbf V+i(\mathbf V\time
 \end{equation}
 Equations \eqref{eq:paravector} and \eqref{eq:paravector-product} fix the generic complex paravector and its master multiplication rule: pure scalar, real vector, real paravector, and mixed products all follow by setting the unused parts to zero.
 
-Two central quadratic forms are
+\input{sections/algebra_products.tex}
+
+\subsection*{Norms and Metrics}
+Using Eq.\ \eqref{eq:vector-square}, the product formulas above now collect the norm and scalar paravector metric identities used later in the paper.
+For a complex scalar \(S=a+ib\in\C\), define the scalar norm by
+\begin{equation}
+|S|^2:=SS^*=a^2+b^2.
+\label{eq:scalar-norm}
+\end{equation}
+If \(S\in\R\), then Eq.\ \eqref{eq:scalar-norm} reduces to the ordinary absolute-value square \(|S|^2=S^2\).
+For a complex vector \(\mathbf V=\mathbf A+i\mathbf B\in\C^3\), define the vector norm by
+\begin{equation}
+\|\mathbf V\|^2:=\mathbf V\cdot\mathbf V^*=\mathbf A^2+\mathbf B^2.
+\label{eq:vector-norm}
+\end{equation}
+The quadratic product \(\mathbf V^2=\mathbf V\cdot\mathbf V\) is not the same object as the positive norm square \(\mathbf V\cdot\mathbf V^*\).
+For a complex paravector \(Z=S+\mathbf V\cdot\sigv=X+iY\in\C\oplus\C^3\), the paravector norm is recovered from the scalar part of the product with its reverse:
 \begin{align}
-\|Z\|^2 &:= \eqtext{scalar}(Z\rev{Z}) = |S|^2+\mathbf V\cdot\mathbf V^*,
-\label{eq:euclidean-form}\\
-\langle\!\langle Z\rangle\!\rangle^2 &:= Z\crev{Z}=S^2-\mathbf V\cdot\mathbf V.
+\|Z\|^2
+&:= \eqtext{scalar}(Z\rev{Z})
+= \eqtext{scalar}(\rev{Z}Z)\notag\\
+&= |S|^2+\|\mathbf V\|^2.
+\label{eq:euclidean-form}
+\end{align}
+This norm is therefore a real scalar. For the scalar paravector metric, write
+\(Z=S+\mathbf V\cdot\sigv\in\C\oplus\C^3\) and \(X=a+\mathbf A\cdot\sigv\in\R\oplus\R^3\).
+The scalar paravector metric \(\langle\!\langle\cdot\rangle\!\rangle^2\) always gives a scalar:
+it lies in \(\C\) for complex paravectors and in \(\R\) for real paravectors.
+Define the complex scalar paravector metric by
+\begin{align}
+\langle\!\langle Z\rangle\!\rangle^2
+&:= Z\crev{Z}=ZZ^{*\mathrm{R}}=Z^{*\mathrm{R}}Z\notag\\
+&= S^2-\mathbf V^2\notag\\
+&= (a^2-b^2-\mathbf A^2+\mathbf B^2)+2i(ab-\mathbf A\cdot\mathbf B).
 \label{eq:minkowski-form}
 \end{align}
-Equation \eqref{eq:minkowski-form} is the indefinite quadratic form paired with the positive Euclidean norm \eqref{eq:euclidean-form} \cite{baylis1999,doran2003}. The distinction between them is central. The first is positive definite, while the second carries the mixed sign structure intrinsic to the paravector product.
-\input{sections/algebra_products.tex}
+The product order does not matter because \(Z^{*\mathrm{R}}Z=ZZ^{*\mathrm{R}}\) is scalar.
+For a real paravector \(X=a+\mathbf A\cdot\sigv\in\R\oplus\R^3\), note that \(X^{*\mathrm{R}}=X^*\), so the real scalar paravector metric is
+\begin{align}
+\langle\!\langle X\rangle\!\rangle^2
+&:= XX^{*\mathrm{R}}=X^{*\mathrm{R}}X=XX^*=X^*X\notag\\
+&= a^2-\mathbf A^2.
+\label{eq:real-paravector-metric}
+\end{align}
+For real paravectors \(X=a+\mathbf A\cdot\sigv\) and \(Y=b+\mathbf B\cdot\sigv\) with \(\mathbf A\times\mathbf B=0\), the real scalar paravector metric is multiplicative:
+\begin{equation}
+\langle\!\langle XY\rangle\!\rangle^2=\langle\!\langle X\rangle\!\rangle^2\langle\!\langle Y\rangle\!\rangle^2.
+\label{eq:real-metric-product}
+\end{equation}
+Under complex scalar multiplication, the norm and scalar paravector metric scale differently:
+\begin{align}
+\|r e^{i\theta} Z\|^2 &= r^2\|Z\|^2,
+\label{eq:norm-scaling}\\
+\langle\!\langle r e^{i\theta} Z\rangle\!\rangle^2
+&= r^2 e^{2i\theta}\langle\!\langle Z\rangle\!\rangle^2.
+\label{eq:metric-scaling}
+\end{align}
+The norm is phase-insensitive, while the scalar paravector metric retains the phase square. Equations \eqref{eq:vector-square}--\eqref{eq:metric-scaling} therefore collect the full norm and scalar paravector metric structure used later in the paper.
+
+\subsection*{Inverse formulas}
+The inverse formulas are the algebraic consequence of the scalar paravector metric identities from Eqs.\ \eqref{eq:real-paravector-metric}, \eqref{eq:minkowski-form}, and \eqref{eq:real-metric-product}. When \(\langle\!\langle X\rangle\!\rangle^2\neq 0\), the real-paravector inverse may be written in any of the equivalent forms
+\begin{align}
+X^{-1}
+&:= \frac{X^*}{\langle\!\langle X\rangle\!\rangle^2}
+= \frac{X^*}{XX^*}
+= \frac{X^*}{X^*X}\notag\\
+&= \frac{a-\mathbf A\cdot\sigv}{a^2-\mathbf A^2}.
+\label{eq:real-paravector-inverse}
+\end{align}
+Since \(\langle\!\langle Z\rangle\!\rangle^2\) is scalar, the complex-paravector inverse has the same left/right denominator freedom:
+\begin{align}
+Z^{-1}
+&:= \frac{\crev{Z}}{\langle\!\langle Z\rangle\!\rangle^2}
+= \frac{\crev{Z}}{Z\crev{Z}}
+= \frac{\crev{Z}}{\crev{Z}Z}\notag\\
+&= \frac{S-\mathbf V\cdot\sigv}{S^2-\mathbf V^2}.
+\label{eq:paravector-inverse}
+\end{align}
+If the corresponding scalar paravector metric vanishes, the inverse does not exist.
+
+Differentiating the identities \(X^{-1}X=1\) and \(Z^{-1}Z=1\) gives
+\begin{align}
+\dd(X^{-1}) &= -X^{-1}(\dd X)X^{-1},
+\label{eq:real-paravector-inverse-diff}\\
+\dd(Z^{-1}) &= -Z^{-1}(\dd Z)Z^{-1}.
+\label{eq:paravector-inverse-diff}
+\end{align}
+When \(\mathbf A\times\mathbf B=0\), one also has
+\begin{equation*}
+X^{-1}Y=Y X^{-1}.
+\end{equation*}
 
 \subsection*{Supporting Algebraic Derivations}
 The supporting derivations record the explicit sigma-basis and operator calculations, together with one generic map decomposition, that support the earlier basis and operator formulas without repeating the product development already collected above.
@@ -561,7 +683,7 @@ With the projector calculus fixed, exponential and logarithmic formulas can be d
 \input{sections/algebra_exp_log.tex}
 
 \subsection*{Generalized Transform Algebra}\label{sec:transform-algebra}
-With the projector and exponential formulas fixed, the remaining purely mathematical transform material can be collected in one place. The order is generic first and special-case second: the similarity law comes first, then the basis-transport identities, then the circular and hyperbolic transforms built from the earlier exponential elements.
+With the projector and exponential formulas fixed, the remaining purely mathematical transform material can be collected in one place. The order is generic first and special-case second: the similarity law comes first, then the basis-transport identities, then the circular and hyperbolic transforms built from the earlier exponential elements:
 
 \begin{equation}
 X'=T^{-1}XT.
@@ -576,7 +698,7 @@ The algebra above is complete on its own, but two familiar realizations are usef
 \input{sections/algebra_representations.tex}
 
 \section{Space-Time Kinematics}\label{sec:spacetime}
-The same paravector structure also carries a space-time interpretation: the quadratic form becomes the interval, and normalized time-like paravectors become proper velocities. This interpretation follows the relativistic kinematic development of Lorentz, Einstein, and Minkowski, recast here in paravector form \cite{lorentz1904,einstein1905,minkowski1908,hestenes1966,baylis1999}.
+The same paravector structure also carries a space-time interpretation: the scalar paravector metric becomes the Minkowski metric of the interval, and normalized time-like paravectors become proper velocities. This interpretation follows the relativistic kinematic development of Lorentz, Einstein, and Minkowski, recast here in paravector form \cite{lorentz1904,einstein1905,minkowski1908,hestenes1966,baylis1999}.
 
 \subsection*{Differential space-time and proper velocity}
 Specializing the real paravector \(X=a+\mathbf A\cdot\sigv\in\R\oplus\R^3\) from Eq.\ \eqref{eq:paravector-parts} to differentials gives
@@ -586,11 +708,11 @@ Specializing the real paravector \(X=a+\mathbf A\cdot\sigv\in\R\oplus\R^3\) from
 \end{equation}
 and the interval is the differential version of Eq.\ \eqref{eq:minkowski-form}:
 \begin{equation}
-\dd s^2=\langle\!\langle \dd X\rangle\!\rangle^2=\dd X\,\conj{\dd X}
+\dd s^2=\langle\!\langle \dd X\rangle\!\rangle^2=\langle\!\langle \dd t+\sigv\cdot\dd\mathbf r\rangle\!\rangle^2=\dd X\,\conj{\dd X}
 =\dd t^2-\dd\mathbf r^2.
 \label{eq:interval}
 \end{equation}
-Here \(t,s,\gamma\in\R\), \(\mathbf r,\mathbf v,\mathbf P\in\R^3\), and \(X,U\in\R\oplus\R^3\). The scalar part \(\dd t\) is the temporal separation and the vector part \(\dd\mathbf r\cdot\sigv\) is the spatial separation. Equation \eqref{eq:interval} is therefore not an added metric axiom but the direct spacetime interpretation of the quadratic form already introduced in Eq.\ \eqref{eq:minkowski-form}.
+Here \(t,s,\gamma\in\R\), \(\mathbf r,\mathbf v,\mathbf P\in\R^3\), and \(X,U\in\R\oplus\R^3\). The scalar part \(\dd t\) is the temporal separation and the vector part \(\dd\mathbf r\cdot\sigv\) is the spatial separation. Equation \eqref{eq:interval} is therefore not an added metric axiom but the direct spacetime interpretation of the scalar paravector metric already introduced in Eq.\ \eqref{eq:minkowski-form}.
 
 If \(\mathbf v=\dd\mathbf r/\dd t\in\R^3\) and \(\gamma=(1-\mathbf v^2)^{-1/2}\in\R\), then
 \begin{equation}
@@ -640,22 +762,52 @@ Section \ref{sec:transform-algebra} established the generic similarity law \eqre
 
 When the real paravector \(X=t+\mathbf r\cdot\sigv\) is read as the spacetime object defined by Eqs.\ \eqref{eq:dX} and \eqref{eq:interval}, Eq.\ \eqref{eq:boost} is the Lorentz transformation and the invariance of \(\langle\!\langle X\rangle\!\rangle^2\) becomes the invariance of the spacetime interval. The same earlier transform formulas are then reused in Section \ref{sec:em} for field transformations and in Section \ref{sec:qm} for ordered operator constructions, so the physical sections can refer back to one common algebraic source rather than restating it.
 
+\section{Differential Operators}\label{sec:differential}
+The electromagnetic and wave-equation sections use one fixed set of differential conventions. They are collected here once so the later sections can refer back to the same numbered equations instead of redefining the operators in multiple places.
+
+For spatial derivatives with respect to \(\mathbf r=(r_1,r_2,r_3)\), define
+\begin{equation}
+\delr:=\left\{\frac{\partial}{\partial r_1},\frac{\partial}{\partial r_2},\frac{\partial}{\partial r_3}\right\}.
+\label{eq:delr}
+\end{equation}
+The gradient notation is then
+\begin{equation}
+\gradv:=\delr
+=\left\{\frac{\partial}{\partial r_1},\frac{\partial}{\partial r_2},\frac{\partial}{\partial r_3}\right\}
+=\{\partial_1,\partial_2,\partial_3\}.
+\label{eq:gradient-notation}
+\end{equation}
+For shorthand, the coordinate symbol \(\mathbf r\) is dropped in the last form, so \(\partial_i:=\partial/\partial r_i\) for \(i\in\{1,2,3\}\). The corresponding spatial Laplacian is
+\begin{equation}
+\gradv^2:=\partial_1^2+\partial_2^2+\partial_3^2.
+\label{eq:laplacian}
+\end{equation}
+The STA differential paravector and its conjugate are
+\begin{equation}
+\partial:=\partial_t+\sigv\cdot\gradv
+=\partial_t+\sigma_1\partial_1+\sigma_2\partial_2+\sigma_3\partial_3.
+\label{eq:partial-operator}
+\end{equation}
+\begin{equation}
+\conj{\partial}:=\partial_t-\sigv\cdot\gradv
+=\partial_t-\sigma_1\partial_1-\sigma_2\partial_2-\sigma_3\partial_3.
+\label{eq:partial-conjugate}
+\end{equation}
+Their product gives the d'Alembertian
+\begin{align}
+\Box&:=\langle\!\langle \partial\rangle\!\rangle^2
+\label{eq:dalembertian-norm}\\
+&=\partial\conj{\partial}\notag\\
+&=\conj{\partial}\partial\notag\\
+&=\partial_t^2-\gradv^2.
+\label{eq:dalembertian}
+\end{align}
+
 \section{Electro-Magnetic Fields}\label{sec:em}
 Electro-magnetic fields, gauge structure, and the Lorentz force admit compact STA forms. In physical content this is Maxwell theory \cite{maxwell1865}, while the paravector packaging follows the later STA presentations of Hestenes, Baylis, and Doran--Lasenby \cite{hestenes1966,baylis1999,doran2003}.
 
 \subsection*{Fields, potentials, and Maxwell equations}
-The derivative operator comes first because every later field equation is built from it. Writing time and space derivatives together as a single paravector operator mirrors the earlier unification of temporal and spatial coordinates in \(\dd X\), and it is this parallelism that makes the electromagnetic formulas compact rather than merely abbreviated.
-
-With the paravector differential operator
-\begin{equation}
-\begin{aligned}
-\partial&:=\partial_t+\sigv\cdot\gradv,\qquad
-\conj{\partial}=\partial_t-\sigv\cdot\gradv,\\
-\partial\conj{\partial}&=\conj{\partial}\partial=\partial_t^2-\gradv^2=: \Box,
-\end{aligned}
-\label{eq:dalembert}
-\end{equation}
-and with \(V,\rho,\lambda,S,q\in\R\), \(\mathbf E,\mathbf B,\mathbf A,\mathbf J\in\R^3\), the electromagnetic field vector and potential are written as
+The differential conventions are fixed once in Section \ref{sec:differential}; in particular, Eqs.\ \eqref{eq:delr}--\eqref{eq:dalembertian} define the spatial derivative vector, the shorthand \(\partial_i\), the paravector derivative, its conjugate, and the d'Alembertian. With those operators fixed, and with \(V,\rho,\lambda,S,q\in\R\), \(\mathbf E,\mathbf B,\mathbf A,\mathbf J\in\R^3\), the electromagnetic field vector and potential are written as
 \begin{equation}
 \mathbf F:=\mathbf E+i\mathbf B,
 \qquad
@@ -704,7 +856,7 @@ Splitting real/imaginary scalar/vector parts of \eqref{eq:maxwell} reproduces
 \gradv\times\mathbf E&=-\partial_t\mathbf B.
 \label{eq:maxwell-vectors}
 \end{align}
-Equations \eqref{eq:maxwell-scalars} and \eqref{eq:maxwell-vectors} are standard STA/GA electrodynamics up to sign conventions fixed by \eqref{eq:F-Phi} and \eqref{eq:dalembert}; component by component they recover Maxwell's field equations in the present signature and field convention \cite{maxwell1865,hestenes1966,baylis1999,jackson1998}.
+Equations \eqref{eq:maxwell-scalars} and \eqref{eq:maxwell-vectors} are standard STA/GA electrodynamics up to sign conventions fixed by Eqs.\ \eqref{eq:partial-operator}, \eqref{eq:partial-conjugate}, \eqref{eq:dalembertian}, and \eqref{eq:F-Phi}; component by component they recover Maxwell's field equations in the present signature and field convention \cite{maxwell1865,hestenes1966,baylis1999,jackson1998}.
 Equation \eqref{eq:maxwell} avoids taking divergence and curl as separate primitive operators at this stage. They emerge automatically when the scalar and vector parts of the single STA equation are separated.
 
 \subsection*{Wave equations, gauge, and Lorentz force}
@@ -755,7 +907,7 @@ T:=\frac{1}{2}F\rev{F}
 \flag{Caution.} Equation \eqref{eq:energy-momentum-paravector} is a useful frame-dependent energy-density/Poynting paravector, but by itself it is not the full electromagnetic stress-energy tensor. In STA language the full stress-energy object is more naturally a linear map such as \(T(a)=\frac{1}{2}F\,a\,\rev{F}\) \cite{hestenes1966,doran2003}.
 
 \subsection*{Supporting Electromagnetic Derivations}
-The supporting derivations write out the field decomposition, potential reconstruction, source formulas, gauge transformations, force-law expansions, and variational identities underlying Eqs.\ \eqref{eq:dalembert}--\eqref{eq:energy-momentum-paravector}.
+The supporting derivations write out the field decomposition, potential reconstruction, source formulas, gauge transformations, force-law expansions, and variational identities underlying Eqs.\ \eqref{eq:delr}--\eqref{eq:energy-momentum-paravector}.
 \input{sections/em.tex}
 
 \section{Relativistic Wave Equations and Spin Dynamics}\label{sec:qm}

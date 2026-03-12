@@ -13,9 +13,13 @@ is the algebraic form of an infinitesimal space-time displacement. The temporal 
 \end{equation*}
 Multiplying the displacement by its conjugate gives the interval again,
 \begin{equation*}
-\langle\!\langle \dd X\rangle\!\rangle^{2}=\dd X\conj{\dd X}=\dd t^{2}-\dd\mathbf r^{2}=\dd s^{2}.
+\langle\!\langle \dd X\rangle\!\rangle^{2}
+=\langle\!\langle \dd t+\sigv\cdot\dd\mathbf r\rangle\!\rangle^{2}
+=\dd X\conj{\dd X}
+=\dd t^{2}-\dd\mathbf r^{2}
+=\dd s^{2}.
 \end{equation*}
-This is the precise point at which the algebraic Minkowski form from Eq.\ \eqref{eq:minkowski-form} becomes the space-time metric of Eq.\ \eqref{eq:interval}. For a non-null displacement, the inverse exists and is
+This is the precise point at which the algebraic scalar paravector metric from Eq.\ \eqref{eq:minkowski-form} becomes the Minkowski metric of Eq.\ \eqref{eq:interval}. For a non-null displacement, the inverse exists and is
 \begin{equation*}
 (\dd X)^{-1}=\frac{\conj{\dd X}}{\dd s^{2}}.
 \end{equation*}
@@ -57,7 +61,7 @@ A=
 \gamma^{4}(\mathbf v\cdot\mathbf a)
 +\Bigl(\gamma^{2}\mathbf a+\gamma^{4}(\mathbf v\cdot\mathbf a)\mathbf v\Bigr)\cdot\sigv.
 \end{equation*}
-Its quadratic form is
+Its metric is
 \begin{equation*}
 \langle\!\langle A\rangle\!\rangle^2
 =-\gamma^4\Bigl(\mathbf a^2+\gamma^2(\mathbf v\cdot\mathbf a)^2\Bigr),
@@ -122,7 +126,7 @@ The low-velocity series
 shows exactly how the relativistic action contains the Newtonian kinetic term together with the additive rest-energy constant. Classical mechanics therefore appears as the approximation, not as the starting point.
 
 \subsubsection*{Generalized Coordinate Fields and Metric Remarks}
-The preceding derivations depend only on the paravector algebra and the Minkowski-type quadratic form, not on the particular choice of scalar coordinate \(t\) and vector coordinate \(\mathbf r\). For a more general real paravector coordinate field,
+The preceding derivations depend only on the paravector algebra and the Minkowski metric, not on the particular choice of scalar coordinate \(t\) and vector coordinate \(\mathbf r\). For a more general real paravector coordinate field,
 \begin{equation*}
 X=f(t,\mathbf r)+\mathbf g(t,\mathbf r)\cdot\sigv,
 \qquad
@@ -147,4 +151,4 @@ For comparison with matrix notation, one may also write
 \begin{equation*}
 \dd s^{2}=\dd x^{T}Q(x)\,\dd x
 \end{equation*}
-for a symmetric matrix \(Q(x)\). Standard linear algebra then gives an orthogonal diagonalization \(Q=NDN^{T}\). That matrix rewrite can be useful, but it does not erase the Lorentzian sign structure already built into \(\dd X\conj{\dd X}\). Diagonalization reorganizes the quadratic form; it does not convert the indefinite interval into a positive-definite Euclidean norm. The paravector metric therefore remains the primary statement.
+for a symmetric matrix \(Q(x)\). Standard linear algebra then gives an orthogonal diagonalization \(Q=NDN^{T}\). That matrix rewrite can be useful, but it does not erase the Lorentzian sign structure already built into \(\dd X\conj{\dd X}\). Diagonalization reorganizes the quadratic form; it does not convert the indefinite interval into a positive-definite Euclidean norm. The Minkowski metric therefore remains the primary statement.
