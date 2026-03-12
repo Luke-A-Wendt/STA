@@ -19,7 +19,7 @@ Eq.\ \eqref{eq:exp-vector} becomes the basic hyperbolic parametrization used rep
 \exp(\mathbf A\cdot\sigv) &= \gamma(1+\mathbf V\cdot\sigv),\notag \\
 \exp(-\mathbf A\cdot\sigv) &= \gamma(1-\mathbf V\cdot\sigv).
 \end{align*}
-For a real paravector \(X=a+\mathbf A\cdot\sigv\in\R\oplus\R^3\), the scalar part commutes with the vector part, so
+For the real paravector \(X\) from Eq.\ \eqref{eq:real-paravector-x}, the scalar part commutes with the vector part, so
 \begin{align*}
 \exp(X) &= \exp(a)\exp(\mathbf A\cdot\sigv),\notag \\
 \exp(X^{*}) &= \exp(a)\exp(-\mathbf A\cdot\sigv)=\exp(X)^{*},\notag \\
@@ -44,11 +44,7 @@ Finally, the conjugate operator simply exchanges the two projector weights:
 \end{align*}
 
 \subsubsection*{Logarithm of a Real Paravector}
-The logarithm is the inverse problem for the same projector formulas. Let
-\begin{equation*}
-Y=b+\mathbf B\cdot\sigv\in\R\oplus\R^3,
-\end{equation*}
-and assume \(b>\lVert\mathbf B\rVert\), so that the two real eigenvalues are positive and the principal logarithm is defined. Writing
+The logarithm is the inverse problem for the same projector formulas. Let \(Y\) be the real paravector from Eq.\ \eqref{eq:real-paravector-y}, and assume \(b>\lVert\mathbf B\rVert\), so that the two real eigenvalues are positive and the principal logarithm is defined. Writing
 \(\mathbf B=\lVert\mathbf B\rVert \mathbf u\) when \(\mathbf B\neq 0\), one has
 \begin{align*}
 \lambda(\pm) &= b \pm \lVert\mathbf B\rVert,\notag \\
@@ -62,7 +58,7 @@ with the same projector pair \(\Pi(\pm)=\tfrac12(1\pm \mathbf u\cdot\sigv)\). Th
 + \tfrac12 \log\!\bigl(\lambda(+)/\lambda(-)\bigr)\,\mathbf u\cdot\sigv.
 \label{eq:log-paravector}
 \end{align}
-If \(Y=\exp(X)\) with \(X=a+\mathbf A\cdot\sigv\) and \(\mathbf A=\alpha\mathbf u\), then \(\lambda(\pm)=e^{a\pm\alpha}\), so the recovered parameters are
+If \(Y=\exp(X)\) with \(X\) from Eq.\ \eqref{eq:real-paravector-x} and \(\mathbf A=\alpha\mathbf u\), then \(\lambda(\pm)=e^{a\pm\alpha}\), so the recovered parameters are
 \begin{align*}
 a &= \tfrac12 \log\!\bigl(b^{2}-\mathbf B^{2}\bigr), \\
 \alpha &= \operatorname{arctanh}\!\bigl(\lVert\mathbf B\rVert/b\bigr), \\
