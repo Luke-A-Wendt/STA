@@ -1,19 +1,82 @@
-\subsubsection{Projector Products and Ladder Operations}
-The projector family in Eq.\ \eqref{eq:projectors} and the ladder elements in Eq.\ \eqref{eq:ladder} admit the following detailed identities:
+\subsubsection{Spin Projectors}
+The projector family from Eq.\ \eqref{eq:projectors} resolves a state into the two spin components along a chosen unit axis \(\mathbf u\in\R^3\). The basic identities are
+\begin{align*}
+\Pi(\pm)&=\tfrac12(1\pm \mathbf u\cdot\sigv),\\
+\Pi(\pm)^2&=\Pi(\pm),\\
+\Pi(+)\Pi(-)&=0,\\
+\Pi(+)+\Pi(-)&=1,\\
+(\mathbf u\cdot\sigv)\Pi(\pm)&=\pm\Pi(\pm),\\
+\Pi(\pm)^{\mathrm R}&=\Pi(\pm),\\
+\Pi(\pm)^*&=\Pi(\mp).
+\end{align*}
+Accordingly,
 \begin{equation*}
-\begin{aligned}
-\Pi(\pm)^2&=\Pi(\pm),\qquad
-\Pi(+)+\Pi(-)=1,\\
-(\mathbf u\cdot\sigv)\Pi(\pm)&=\pm\Pi(\pm).
-\end{aligned}
+\mathbf u\cdot\sigv=(+1)\Pi(+)+(-1)\Pi(-),
 \end{equation*}
-with
+so the two projector parts carry the eigenvalues \(+1\) and \(-1\) of the axis operator.
+
+If the axis is rotated by the rotor \(R\) from Eq.\ \eqref{eq:rotor}, define
 \begin{equation*}
-\Pi(\pm)^{\mathrm R}=\Pi(\pm),
+\mathbf u'\cdot\sigv=\rev{R}(\mathbf u\cdot\sigv)R,
 \qquad
-\Pi(\pm)^*=\Pi(\mp).
+\Pi'(\pm):=\tfrac12(1\pm \mathbf u'\cdot\sigv).
 \end{equation*}
-For a second unit direction \(\mathbf u'\), the same-side and cross-side products are
+Then
+\begin{equation*}
+\mathbf u'\cdot\sigv=(+1)\Pi'(+)+(-1)\Pi'(-).
+\end{equation*}
+
+For a complex paravector state \(\psi\in\C\oplus\C^3\), define the spin-projected parts
+\begin{equation*}
+\psi(\pm):=\Pi(\pm)\psi.
+\end{equation*}
+These satisfy
+\begin{align*}
+(\mathbf u\cdot\sigv)\psi(\pm)&=\pm\psi(\pm),\\
+\psi&=\psi(+)+\psi(-),
+\end{align*}
+so the state is decomposed into spin-up and spin-down parts along \(\mathbf u\). Reversion acts as
+\begin{align*}
+\rev{\psi(\pm)}
+&=\rev{\psi}\,\Pi(\pm)^{\mathrm R}\notag\\
+&=\rev{\psi}\,\Pi(\pm),
+\end{align*}
+and therefore
+\begin{align*}
+\rev{\psi(\pm)}\psi(\pm)&=\rev{\psi}\,\Pi(\pm)\psi,\\
+\rev{\psi(\pm)}\psi(\mp)&=\rev{\psi}\,\Pi(\pm)\Pi(\mp)\psi=0,\\
+\rev{\psi(\mp)}\psi(\pm)&=\rev{\psi}\,\Pi(\mp)\Pi(\pm)\psi=0.
+\end{align*}
+In the bra-ket shorthand
+\begin{equation*}
+\langle\psi\mid M\mid\psi\rangle:=\eqtext{scalar}(\rev{\psi}M\psi),
+\end{equation*}
+the expectation of the rotated axis expands as
+\begin{align*}
+\langle\psi\mid \mathbf u'\cdot\sigv \mid \psi\rangle
+&=\langle\psi(+)+\psi(-)\mid \mathbf u'\cdot\sigv \mid \psi(+)+\psi(-)\rangle\notag\\
+&=\langle\psi(+)\mid \mathbf u'\cdot\sigv \mid \psi(+)\rangle\notag\\
+&\quad+\langle\psi(+)\mid \mathbf u'\cdot\sigv \mid \psi(-)\rangle\notag\\
+&\quad+\langle\psi(-)\mid \mathbf u'\cdot\sigv \mid \psi(+)\rangle\notag\\
+&\quad+\langle\psi(-)\mid \mathbf u'\cdot\sigv \mid \psi(-)\rangle.
+\end{align*}
+
+The algebra governing these same-side and cross-side terms is
+\begin{align*}
+(\mathbf u'\cdot\sigv)(\mathbf u\cdot\sigv)
+&=\mathbf u'\cdot\mathbf u+i(\mathbf u'\times\mathbf u)\cdot\sigv,\\
+(\mathbf u\cdot\sigv)(\mathbf u'\cdot\sigv)
+&=\mathbf u'\cdot\mathbf u-i(\mathbf u'\times\mathbf u)\cdot\sigv,\\
+(\mathbf u\cdot\sigv)(\mathbf u'\cdot\sigv)(\mathbf u\cdot\sigv)
+&=\bigl(2(\mathbf u'\cdot\mathbf u)\mathbf u-\mathbf u'\bigr)\cdot\sigv.
+\end{align*}
+Write the decomposition of the second axis into parts parallel and perpendicular to \(\mathbf u\) as
+\begin{equation*}
+\mathbf u'_{\parallel}:=(\mathbf u\cdot\mathbf u')\mathbf u,
+\qquad
+\mathbf u'_{\perp}:=\mathbf u'-\mathbf u'_{\parallel}.
+\end{equation*}
+Then the projector products are
 \begin{equation*}
 \Pi(\pm)(\mathbf u'\cdot\sigv)\Pi(\pm)=\pm(\mathbf u\cdot\mathbf u')\Pi(\pm),
 \end{equation*}
@@ -21,15 +84,66 @@ For a second unit direction \(\mathbf u'\), the same-side and cross-side product
 \Pi(\pm)(\mathbf u'\cdot\sigv)\Pi(\mp)
 =\frac12\Bigl(\mathbf u'_{\perp}\pm i\,\mathbf u\times\mathbf u'\Bigr)\cdot\sigv\,\Pi(\mp).
 \end{equation*}
-If \(\theta\) is the angle between the two axes, then
-\begin{equation*}
-\frac12(1+\mathbf u\cdot\mathbf u')=\cos^{2}\frac{\theta}{2},
-\qquad
-\frac12(1-\mathbf u\cdot\mathbf u')=\sin^{2}\frac{\theta}{2}.
-\end{equation*}
-These are the projector identities behind the standard half-angle transition factors.
+The diagonal terms are therefore weighted by the axis overlap \(\mathbf u\cdot\mathbf u'\), while the off-diagonal terms are controlled by the perpendicular and commutator parts of the rotated axis.
 
-The ladder elements exchange the two projector parts selected by Eq.\ \eqref{eq:projectors}. They satisfy the sharper one-sided identities
+If \(\theta\) is the angle between \(\mathbf u\) and \(\mathbf u'\), then
+\begin{equation*}
+\mathbf u'\cdot\mathbf u=\cos(\theta),
+\end{equation*}
+so the half-angle transition factors are
+\begin{equation*}
+\frac12(1+\mathbf u'\cdot\mathbf u)=\cos^2\frac{\theta}{2},
+\qquad
+\frac12(1-\mathbf u'\cdot\mathbf u)=\sin^2\frac{\theta}{2}.
+\end{equation*}
+If \(\mathbf u'\) is obtained by rotating \(\mathbf u\) through angle \(\phi\) about a unit axis \(\mathbf n\), Rodrigues's formula gives
+\begin{align*}
+\mathbf u'\cdot\mathbf u
+&=(\mathbf u\cdot\mathbf u)\cos(\phi)
++\bigl(\mathbf u\cdot(\mathbf n\times\mathbf u)\bigr)\sin(\phi)\notag\\
+&\quad+(\mathbf n\cdot\mathbf u)\bigl(1-\cos(\phi)\bigr)(\mathbf n\cdot\mathbf u)\notag\\
+&=(\mathbf n\cdot\mathbf u)^2+\bigl(1-(\mathbf n\cdot\mathbf u)^2\bigr)\cos(\phi).
+\end{align*}
+In the perpendicular case \(\mathbf n\cdot\mathbf u=0\), this reduces to
+\begin{equation*}
+\mathbf u'\cdot\mathbf u=\cos(\phi),
+\end{equation*}
+hence
+\begin{equation*}
+\frac12(1+\mathbf u'\cdot\mathbf u)=\cos^2\frac{\phi}{2},
+\qquad
+\frac12(1-\mathbf u'\cdot\mathbf u)=\sin^2\frac{\phi}{2}.
+\end{equation*}
+These are the projector transition factors for a spin-\(\tfrac12\) axis rotation.
+
+\subsubsection{Ladder Operations About the z Axis}
+For raising and lowering about the \(z\) axis, choose
+\begin{equation*}
+\mathbf u=\mathbf e_3=(0,0,1),
+\qquad
+\Pi(\pm)=\tfrac12(1\pm \sigma_3).
+\end{equation*}
+Define the ladder operators by
+\begin{equation*}
+a(\pm):=\tfrac12(\sigma_1\pm i\sigma_2).
+\end{equation*}
+They satisfy the commutator relation
+\begin{equation*}
+[\sigma_3,a(\pm)]=\pm 2a(\pm),
+\end{equation*}
+so \(a(+)\) raises the \(\sigma_3\) eigenvalue and \(a(-)\) lowers it.
+
+Their projector products are
+\begin{equation*}
+a(+)a(-)=\Pi(+),
+\qquad
+a(-)a(+)=\Pi(-),
+\end{equation*}
+and each ladder operator is nilpotent:
+\begin{equation*}
+a(\pm)^2=0.
+\end{equation*}
+The one-sided projector actions are
 \begin{equation*}
 \begin{aligned}
 a(+)\Pi(+) &= 0, &
@@ -51,18 +165,42 @@ which make the raising/lowering interpretation explicit. The original sigma gene
 \end{aligned}
 \end{equation*}
 
-\subsubsection{Commutators of Unit-Direction Elements}
+\subsubsection{Spin Uncertainty}
 For unit directions \(\mathbf u,\mathbf u'\in\R^3\),
 \begin{equation*}
-(\mathbf u\cdot\sigv)(\mathbf u'\cdot\sigv)=\mathbf u\cdot\mathbf u'+i(\mathbf u\times\mathbf u')\cdot\sigv,
+\mathbf u\cdot\mathbf u=\mathbf u'\cdot\mathbf u'=1.
+\end{equation*}
+Their product is
+\begin{equation*}
+(\mathbf u\cdot\sigv)(\mathbf u'\cdot\sigv)
+=\mathbf u\cdot\mathbf u'+i(\mathbf u\times\mathbf u')\cdot\sigv,
 \end{equation*}
 so the commutator is
 \begin{equation*}
-[\mathbf u\cdot\sigv,\mathbf u'\cdot\sigv]=2i(\mathbf u\times\mathbf u')\cdot\sigv.
+[\mathbf u\cdot\sigv,\mathbf u'\cdot\sigv]
+=2i(\mathbf u\times\mathbf u')\cdot\sigv.
 \end{equation*}
-Its norm is controlled by the angle between the axes,
+Equivalently,
 \begin{equation*}
-\left\|\frac12[\mathbf u\cdot\sigv,\mathbf u'\cdot\sigv]\right\|^{2}
-=(\mathbf u\times\mathbf u')^{2}.
+(\mathbf u\cdot\sigv)(\mathbf u'\cdot\sigv)
+=\mathbf u\cdot\mathbf u'
++\frac12[\mathbf u\cdot\sigv,\mathbf u'\cdot\sigv].
 \end{equation*}
-This is the algebraic content behind axis noncommutativity. It is an operator-level identity for the algebra elements themselves. No probabilistic or variational interpretation is assumed here.
+Using the paravector metric
+\begin{equation*}
+\langle\!\langle Z\rangle\!\rangle^2:=Z\crev{Z},
+\end{equation*}
+one finds
+\begin{align*}
+\langle\!\langle(\mathbf u\cdot\sigv)(\mathbf u'\cdot\sigv)\rangle\!\rangle^2
+&=(\mathbf u\cdot\mathbf u')^2-\bigl(i(\mathbf u\times\mathbf u')\bigr)^2\notag\\
+&=(\mathbf u\cdot\mathbf u')^2+(\mathbf u\times\mathbf u')^2\notag\\
+&\ge(\mathbf u\times\mathbf u')^2\notag\\
+&=\left\|\frac12[\mathbf u\cdot\sigv,\mathbf u'\cdot\sigv]\right\|^2.
+\end{align*}
+In this sense the metric of the ordered product controls the size of the noncommuting part of the two spin-axis elements. Written formally for infinitesimal axis variations \(d\mathbf u\) and \(d\mathbf u'\), this gives the Robertson-style estimate
+\begin{equation*}
+\langle\!\langle(d\mathbf u\cdot\sigv)(d\mathbf u'\cdot\sigv)\rangle\!\rangle
+\ge\frac12\left\|[d\mathbf u\cdot\sigv,d\mathbf u'\cdot\sigv]\right\|.
+\end{equation*}
+This should not be confused with the full Robertson or Robertson--Schr\"odinger state-variance inequality \cite{robertson1929}; only the operator-level noncommutativity of the spin-axis elements is being recorded here.

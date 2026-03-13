@@ -1,123 +1,574 @@
-\subsubsection{Spacetime Paravectors and Interval Recovery}
-Starting from the displacement and interval formulas in Eqs.\ \eqref{eq:dX} and \eqref{eq:interval}, the real paravector
+\subsubsection{Space-Time Numbers}
+A spacetime increment is the real paravector
 \[
-\dd X=\dd t+\dd\mathbf r\cdot\sigv,
-\qquad
-\conj{\dd X}=\dd t-\dd\mathbf r\cdot\sigv,
+\dd X=\dd t+\dd r_{1}\sigma _{1}+\dd r_{2}\sigma _{2}+\dd r_{3}\sigma _{3}
+=\dd t+\dd\mathbf r\cdot\sigv,
 \]
-is the algebraic form of an infinitesimal space-time displacement. The temporal and spatial pieces are recovered directly by
+with conjugate
+\[
+\conj{\dd X}=\dd t-\dd r_{1}\sigma _{1}-\dd r_{2}\sigma _{2}-\dd r_{3}\sigma _{3}
+=\dd t-\dd\mathbf r\cdot\sigv.
+\]
+Here \(\dd t\in\mathbb R\) is the scalar part and \(\dd\mathbf r\in\mathbb R^{3}\) is the spatial vector part. Their recovery formulas are
 \begin{equation*}
 \frac{\dd X+\conj{\dd X}}{2}=\dd t,
 \qquad
-\frac{\dd X-\conj{\dd X}}{2}=\dd\mathbf r\cdot\sigv.
+\frac{\dd X-\conj{\dd X}}{2}=\dd\mathbf r\cdot\sigv,
 \end{equation*}
-Multiplying the displacement by its conjugate gives the interval again,
+so
+\begin{equation*}
+\eqtext{scalar}(\dd X)=\dd t,
+\qquad
+\eqtext{vector}(\dd X)=\dd\mathbf r.
+\end{equation*}
+The paravector metric is
 \begin{equation*}
 \langle\!\langle \dd X\rangle\!\rangle^{2}
-=\langle\!\langle \dd t+\sigv\cdot\dd\mathbf r\rangle\!\rangle^{2}
 =\dd X\conj{\dd X}
+=\conj{\dd X}\dd X
 =\dd t^{2}-\dd\mathbf r^{2}
 =\dd s^{2}.
 \end{equation*}
-This is the precise point at which the algebraic scalar paravector metric from Eq.\ \eqref{eq:minkowski-form} becomes the Minkowski metric of Eq.\ \eqref{eq:interval}. For a non-null displacement, the inverse exists and is
+It obeys the familiar Lorentzian identities
+\begin{align*}
+\dd t^2>\dd\mathbf r^2,\ \dd X\neq 0
+&\Rightarrow \langle\!\langle \dd X\rangle\!\rangle^2>0,\notag\\
+\langle\!\langle \dd X+\dd X'\rangle\!\rangle^2
+&-\langle\!\langle \dd X\rangle\!\rangle^2\notag\\
+&\qquad -\langle\!\langle \dd X'\rangle\!\rangle^2
+=2(\dd t\,\dd t'-\dd\mathbf r\cdot\dd\mathbf r'),\notag\\
+\langle\!\langle a\,\dd X\rangle\!\rangle^2
+&=a^2\langle\!\langle \dd X\rangle\!\rangle^2,
+\qquad a\in\mathbb R.
+\end{align*}
+The commutator of two spacetime increments is purely spatial:
+\begin{align*}
+[\dd X,\dd X']
+&=[\dd\mathbf r\cdot\sigv,\dd\mathbf r'\cdot\sigv]\notag\\
+&=2i(\dd\mathbf r\times\dd\mathbf r')\cdot\sigv.
+\end{align*}
+Along a time-like path, the positive arc length satisfies
+\begin{align*}
+\dd s
+&=\sqrt{\dd t^{2}-\dd\mathbf r^{2}}\notag\\
+&=\sqrt{1-\dd\mathbf r^{2}/\dd t^{2}}\,\dd t\notag\\
+&=\sqrt{1-\mathbf v^{2}}\,\dd t,
+\end{align*}
+where
 \begin{equation*}
-(\dd X)^{-1}=\frac{\conj{\dd X}}{\dd s^{2}}.
+\mathbf v:=\frac{\dd\mathbf r}{\dd t}=(v_{1},v_{2},v_{3})\in\mathbb R^{3},
+\qquad
+\gamma:=\frac{\dd t}{\dd s}=\frac{1}{\sqrt{1-\mathbf v^{2}}}.
 \end{equation*}
+For a real non-null increment, \(\rev{\dd X}=\dd X\), so the inverse exists and
+\begin{align*}
+(\dd X)^{-1}
+&=\frac{\conj{\dd X}}{\langle\!\langle \dd X\rangle\!\rangle^{2}}\notag\\
+&=\frac{\conj{\dd X}}{\dd X\conj{\dd X}}\notag\\
+&=\frac{\conj{\dd X}}{\dd s^{2}}.
+\end{align*}
 Null displacements are singled out algebraically because this inverse breaks down exactly when \(\dd s^{2}=0\).
 
 \subsubsection{Interval Classes and Proper Time}
-Equation \eqref{eq:interval} gives the three standard interval classes without any additional geometric machinery:
+For a spacetime increment \(\dd X=\dd t+\dd \mathbf r\cdot\sigv\), the interval is
+\begin{equation*}
+\langle\!\langle \dd X\rangle\!\rangle^2=\dd X\,\conj{\dd X}=\dd t^2-\dd \mathbf r^2=\dd s^2.
+\end{equation*}
+This identity gives the three standard interval classes without any additional geometric machinery:
 \begin{align*}
 \dd s^2>0 &\;\Rightarrow\; \text{time-like},\notag \\
 \dd s^2=0 &\;\Rightarrow\; \text{null},\notag \\
 \dd s^2<0 &\;\Rightarrow\; \text{space-like}.
 \end{align*}
-For a time-like worldline, the parameter \(s\) is the proper time in natural units. Writing \(\mathbf v=\dd\mathbf r/\dd t\) then gives
-\begin{equation*}
-\dd s=\sqrt{1-\mathbf v^2}\,\dd t,
-\qquad
-\tau=\int \dd s=\int \sqrt{1-\mathbf v^2}\,\dd t.
-\end{equation*}
-In SI units the same relation is \(ds=c\,d\tau\). The advantage of the paravector notation is that the interval classification and the proper-time formula both come from the single algebraic identity \(\dd X\,\conj{\dd X}=\dd t^2-\dd\mathbf r^2\).
-
-\subsubsection{Proper Velocity and Proper Acceleration in Components}
-Starting from Eq.\ \eqref{eq:proper-velocity}, the proper-velocity paravector can be read by its scalar and vector parts as
+If \(\langle\!\langle \dd X\rangle\!\rangle^2>0\), the interval is time-like. Then the arc length \(s\) equals the proper time \(\tau\) measured along the path:
 \begin{align*}
-U&=\frac{\dd X}{\dd s}=\gamma+\gamma\mathbf v\cdot\sigv,\notag \\
-\eqtext{scalar}(U)&=\gamma,\qquad
-\eqtext{vector}(U)=\gamma\mathbf v.
+\tau=s=\int \dd s=\int \dd\tau
+&=\int \sqrt{1-\mathbf v^2}\,\dd t\notag\\
+&=\int \frac{1}{\gamma}\,\dd t.
 \end{align*}
-Its normalization \(\langle\!\langle U\rangle\!\rangle^2=1\) implies \(U^{-1}=U^*\). Differentiating with respect to \(s\) yields
+This is the time-dilation relation in natural units. In SI units the same statement is
 \begin{equation*}
-\eqtext{scalar}(\conj{U}A)=0,
-\qquad
-A:=\frac{\dd U}{\dd s},
+\dd s=c\,\dd\tau.
 \end{equation*}
-so proper acceleration is Minkowski-orthogonal to proper velocity.
 
-If \(\mathbf a=\dd\mathbf v/\dd t\), then
+If \(\langle\!\langle \dd X\rangle\!\rangle^2=0\), the interval is null or light-like. Then
 \begin{equation*}
-A=
-\gamma^{4}(\mathbf v\cdot\mathbf a)
-+\Bigl(\gamma^{2}\mathbf a+\gamma^{4}(\mathbf v\cdot\mathbf a)\mathbf v\Bigr)\cdot\sigv.
+\dd t^2=\dd\mathbf r^2
+\qquad\Rightarrow\qquad
+\dd t=\pm \|\dd\mathbf r\|,
 \end{equation*}
-Its metric is
+and \((\dd X)^{-1}\) does not exist.
+
+If \(\langle\!\langle \dd X\rangle\!\rangle^2<0\), the interval is space-like.
+
+The advantage of the paravector notation is that the interval classification, the proper-time formula, and the null singularity of \((\dd X)^{-1}\) all come from the single algebraic identity \(\dd X\,\conj{\dd X}=\dd t^2-\dd\mathbf r^2\).
+
+\subsubsection{4-Velocity (Proper Velocity)}
+The proper-velocity paravector is the normalized tangent to a time-like worldline:
+\begin{align*}
+\frac{\dd X}{\dd s}
+&=\frac{\dd t}{\dd s}+\frac{\dd\mathbf r}{\dd s}\cdot\sigv\notag\\
+&=\frac{\dd t+\sigv\cdot\dd\mathbf r}{\sqrt{\dd t^2-\dd\mathbf r^2}}\notag\\
+&=\frac{\dd t/\dd t+\sigv\cdot(\dd\mathbf r/\dd t)}{\sqrt{(\dd t/\dd t)^2-(\dd\mathbf r/\dd t)^2}}\notag\\
+&=\frac{1+\mathbf v\cdot\sigv}{\sqrt{1-\mathbf v^2}}\notag\\
+&=\gamma(1+\mathbf v\cdot\sigv).
+\end{align*}
+Its scalar and vector parts are therefore
 \begin{equation*}
+\eqtext{scalar}\!\left(\frac{\dd X}{\dd s}\right)=\gamma,
+\qquad
+\eqtext{vector}\!\left(\frac{\dd X}{\dd s}\right)=\gamma\mathbf v.
+\end{equation*}
+Its norm is unity:
+\begin{align*}
+\left\langle\!\left\langle \frac{\dd X}{\dd s}\right\rangle\!\right\rangle^2
+&=\gamma^2(1+\mathbf v\cdot\sigv)(1-\mathbf v\cdot\sigv)\notag\\
+&=\gamma^2(1-\mathbf v^2)\notag\\
+&=1.
+\end{align*}
+Also,
+\begin{equation*}
+\frac{\dd X}{\dd t}
+=\frac{\dd X}{\dd s}\frac{\dd s}{\dd t}
+=\frac{1}{\gamma}\frac{\dd X}{\dd s}.
+\end{equation*}
+Define
+\begin{align*}
+U&:=\frac{\dd X}{\dd s}\notag\\
+&=\gamma+\gamma\mathbf v\cdot\sigv\notag\\
+&=U_s+U_{\mathbf v}\cdot\sigv,\\
+U_s&=\gamma,\qquad
+U_{\mathbf v}=\gamma\mathbf v.
+\end{align*}
+Since \(\dd s^2=\dd X\conj{\dd X}\) with \(\dd s>0\),
+\begin{align*}
+\frac{\conj{\dd X}}{\dd s}
+&=(\dd X)^{-1}\dd s\notag\\
+&=\left(\frac{\dd X}{\dd s}\right)^{-1},
+\end{align*}
+so \(U^{-1}=U^*\) and
+\begin{equation*}
+\langle\!\langle U\rangle\!\rangle^2=UU^*=1.
+\end{equation*}
+Differentiating this normalization gives
+\begin{align*}
+\frac{\dd}{\dd s}\langle\!\langle U\rangle\!\rangle^2
+&=\frac{\dd U}{\dd s}U^*+U\left(\frac{\dd U}{\dd s}\right)^*\notag\\
+&=\left(\frac{\dd U}{\dd s}U^*\right)+\left(\frac{\dd U}{\dd s}U^*\right)^{*\mathrm R},
+\end{align*}
+hence
+\begin{equation*}
+\eqtext{scalar}\!\left(U^*\frac{\dd U}{\dd s}\right)=0.
+\end{equation*}
+Finally,
+\begin{align*}
+\langle\!\langle \dd X\rangle\!\rangle^2
+&=\dd X\conj{\dd X}\notag\\
+&=\left(\frac{\dd X}{\dd s}\dd s\right)\left(\left(\frac{\dd X}{\dd s}\right)^*\dd s\right)\notag\\
+&=UU^*\,\dd s^2\notag\\
+&=\langle\!\langle U\rangle\!\rangle^2\dd s^2\notag\\
+&=\dd s^2.
+\end{align*}
+This normalization and orthogonality structure is the starting point for the proper-acceleration formulas below.
+\input{sections/kinematics_table_velocity.tex}
+
+\subsubsection{4-Acceleration (Proper Acceleration)}
+Let
+\begin{equation*}
+\mathbf a:=\frac{\dd\mathbf v}{\dd t}=\{a_1,a_2,a_3\}\in\R^3.
+\end{equation*}
+With \(\gamma=(1-\mathbf v^2)^{-1/2}\), one has
+\begin{align*}
+\frac{\dd\gamma}{\dd t}&=\gamma^3(\mathbf v\cdot\mathbf a),\\
+\frac{\dd\gamma}{\dd s}&=\gamma^4(\mathbf v\cdot\mathbf a).
+\end{align*}
+The velocity derivatives needed below are
+\begin{align*}
+\delv{}\!\left(-\frac{1}{\gamma}\right)&=\gamma\mathbf v,\\
+\delv{}(\gamma\mathbf v)&=\gamma\,\mathrm I_3+\gamma^3\mathbf v\mathbf v^{T},
+\end{align*}
+so acting on \(\dd\mathbf v/\dd t=\mathbf a\) gives
+\begin{align*}
+\frac{\dd(\gamma\mathbf v)}{\dd t}
+&=\bigl(\delv{}(\gamma\mathbf v)\bigr)\frac{\dd\mathbf v}{\dd t}\notag\\
+&=\gamma\mathbf a+\gamma^3(\mathbf v\cdot\mathbf a)\mathbf v,\\
+\frac{\dd(\gamma\mathbf v)}{\dd s}
+&=\frac{\dd(\gamma\mathbf v)}{\dd t}\frac{\dd t}{\dd s}\notag\\
+&=\gamma^2\mathbf a+\gamma^4(\mathbf v\cdot\mathbf a)\mathbf v.
+\end{align*}
+
+Recall that the proper-velocity paravector decomposes as
+\begin{align*}
+U&=U_s+U_{\mathbf v}\cdot\sigv,\\
+U_s&=\gamma,\qquad
+U_{\mathbf v}=\gamma\mathbf v.
+\end{align*}
+Therefore the 4-acceleration, also called proper acceleration, is
+\begin{align*}
+A
+&:=\frac{\dd U}{\dd s}\notag\\
+&=\frac{\dd\gamma}{\dd s}+\frac{\dd(\gamma\mathbf v)}{\dd s}\cdot\sigv\notag\\
+&=\gamma^4(\mathbf v\cdot\mathbf a)
++\Bigl(\gamma^4(\mathbf v\cdot\mathbf a)\mathbf v+\gamma^2\mathbf a\Bigr)\cdot\sigv.
+\end{align*}
+Equivalently,
+\begin{equation*}
+A=A_s+A_{\mathbf v}\cdot\sigv,
+\qquad
+A_s=\gamma^4(\mathbf v\cdot\mathbf a),
+\qquad
+A_{\mathbf v}=\gamma^4(\mathbf v\cdot\mathbf a)\mathbf v+\gamma^2\mathbf a.
+\end{equation*}
+
+For \(\mathbf v\neq 0\), let \(\mathbf u=\mathbf v/\|\mathbf v\|\) with \(\mathbf u^2=1\), and decompose
+\begin{align*}
+\eqtext{par}(\mathbf a)&:=(\mathbf a\cdot\mathbf u)\mathbf u,\\
+\eqtext{prp}(\mathbf a)&:=\mathbf a-\eqtext{par}(\mathbf a).
+\end{align*}
+Then
+\begin{align*}
+\mathbf a^2&=\eqtext{par}(\mathbf a)^2+\eqtext{prp}(\mathbf a)^2,\\
+(\mathbf v\cdot\mathbf a)^2&=\mathbf v^2\,\eqtext{par}(\mathbf a)^2,
+\end{align*}
+so the proper-acceleration metric is
+\begin{align*}
 \langle\!\langle A\rangle\!\rangle^2
-=-\gamma^4\Bigl(\mathbf a^2+\gamma^2(\mathbf v\cdot\mathbf a)^2\Bigr),
-\end{equation*}
-which is strictly space-like unless the acceleration vanishes. Splitting \(\mathbf a\) into parts parallel and perpendicular to \(\mathbf v\) makes the same structure more explicit:
+&=-\gamma^4\Bigl(\mathbf a^2+\gamma^2(\mathbf v\cdot\mathbf a)^2\Bigr)\notag\\
+&=-\gamma^4\Bigl(\eqtext{prp}(\mathbf a)^2+\gamma^2\eqtext{par}(\mathbf a)^2\Bigr).
+\end{align*}
+This is strictly space-like unless the acceleration vanishes.
+
+The products with \(U\) are
+\begin{align*}
+UA
+&=(U_sA_s+U_{\mathbf v}\cdot A_{\mathbf v})\notag\\
+&\quad+\bigl(U_sA_{\mathbf v}+A_sU_{\mathbf v}+i(U_{\mathbf v}\times A_{\mathbf v})\bigr)\cdot\sigv,\\
+U^*A
+&=(U_sA_s-U_{\mathbf v}\cdot A_{\mathbf v})\notag\\
+&\quad+\bigl(U_sA_{\mathbf v}-A_sU_{\mathbf v}-i(U_{\mathbf v}\times A_{\mathbf v})\bigr)\cdot\sigv.
+\end{align*}
+Their component forms are
+\begin{align*}
+UA
+&=2\gamma^5(\mathbf v\cdot\mathbf a)\notag\\
+&\quad+\bigl(\gamma^3\mathbf a+2\gamma^5(\mathbf v\cdot\mathbf a)\mathbf v\bigr)\cdot\sigv\notag\\
+&\quad+i\,\gamma^3(\mathbf v\times\mathbf a)\cdot\sigv,\\
+U^*A
+&=\gamma^3\mathbf a\cdot\sigv-i\,\gamma^3(\mathbf v\times\mathbf a)\cdot\sigv.
+\end{align*}
+In particular,
 \begin{equation*}
-\langle\!\langle A\rangle\!\rangle^2
-=-\gamma^4\Bigl(\mathbf a_{\perp}^{2}+\gamma^{2}\mathbf a_{\parallel}^{2}\Bigr).
+\eqtext{scalar}(U^*A)=0,
 \end{equation*}
-This is the geometric content later used by the Lorentz-force law.
-Tables \ref{tab:components-proper-velocity}, \ref{tab:components-ua}, and \ref{tab:components-ustara} record the corresponding scalar and vector parts of \(U\), \(UA\), and \(U^{*}A\).
+which is the orthogonality relation between proper velocity and proper acceleration. Table \ref{tab:components-proper-velocity} records the scalar and vector parts of \(U\), while Tables \ref{tab:components-ua} and \ref{tab:components-ustara} compare the corresponding scalar and vector parts of \(UA\) and \(U^{*}A\).
 \input{sections/kinematics_tables.tex}
 
-\subsubsection{Proper Momentum and the Mass Shell}
+\subsubsection{4-Momentum (Proper Momentum)}
 Multiplying proper velocity by the rest mass produces the energy--momentum paravector,
 \begin{equation*}
-mU=E+\mathbf P\cdot\sigv,
-\qquad
-E=m\gamma,
-\qquad
-\mathbf P=m\gamma\mathbf v.
+mU=E+\mathbf P\cdot\sigv.
 \end{equation*}
-At rest one has \(\mathbf v=0\), hence \(E=m\) in natural units and \(E=mc^{2}\) in SI units. The kinetic energy is therefore \(E-m\).
+Its scalar part is the relativistic energy,
+\begin{align*}
+E
+&:=\eqtext{scalar}(mU)\notag\\
+&=m\gamma.
+\end{align*}
+If \(\mathbf v=0\), then
+\begin{equation*}
+E=m
+\qquad \text{rest energy}
+\qquad (=mc^{2}\text{ in SI units}).
+\end{equation*}
+The kinetic energy is therefore \(E-m\).
+
+Its vector part is the relativistic momentum,
+\begin{align*}
+\mathbf P
+&:=\eqtext{vector}(mU)\notag\\
+&=m\gamma\mathbf v.
+\end{align*}
 
 Because \(\langle\!\langle U\rangle\!\rangle^2=1\), the mass shell follows immediately:
-\begin{equation*}
+\begin{align*}
 \langle\!\langle mU\rangle\!\rangle^2
-=(E+\mathbf P\cdot\sigv)(E-\mathbf P\cdot\sigv)
-=E^{2}-\mathbf P^{2}=m^{2}.
-\end{equation*}
-For \(m=0\), this reduces to \(E^{2}=\mathbf P^{2}\), which is the null case appropriate to massless motion.
-
-\subsubsection{Action Principle, Hamiltonian, and Low-Velocity Expansion}
-The free action is
+&=m^{2}\notag\\
+&=(E+\mathbf P\cdot\sigv)(E-\mathbf P\cdot\sigv)\notag\\
+&=E^{2}-\mathbf P^{2}.
+\end{align*}
+Hence
 \begin{equation*}
-S_{\mathrm{free}}=-m\int \dd s=\int \mathcal L_{\mathrm{free}}\,\dd t,
+E^{2}=\mathbf P^{2}+m^{2}.
+\end{equation*}
+For \(m=0\), this reduces to \(E^{2}=\mathbf P^{2}\), which is the null case appropriate to lightlike or massless motion.
+
+\subsubsection{Generalized Spacetime}
+Let
+\begin{align*}
+f&:\R\times\R^3\to\R,\\
+\mathbf g&:\R\times\R^3\to\R^3,
+\end{align*}
+and define the generalized spacetime paravector
+\begin{equation*}
+X=f(t,\mathbf r)+\mathbf g(t,\mathbf r)\cdot\sigv.
+\end{equation*}
+Its differential is
+\begin{align*}
+\dd X
+&=\dd f+\dd\mathbf g\cdot\sigv\notag\\
+&=\bigl(\partial_t f+\partial_t\mathbf g\cdot\sigv\bigr)\dd t
++\sum_{a=1}^{3}\bigl(\partial_{r_a}f+\partial_{r_a}\mathbf g\cdot\sigv\bigr)\dd r_a\notag\\
+&=:A\,\dd t+\mathbf B\cdot\dd\mathbf r,
+\end{align*}
+where \(A:=\partial_t f+\partial_t\mathbf g\cdot\sigv\) and
+\(B_a:=\partial_{r_a}f+\partial_{r_a}\mathbf g\cdot\sigv\). Hence
+\begin{equation*}
+\frac{\dd X}{\dd t}=A+\mathbf B\cdot\frac{\dd\mathbf r}{\dd t}.
+\end{equation*}
+The conjugate differential is
+\begin{align*}
+\conj{\dd X}
+&=\dd f-\dd\mathbf g\cdot\sigv\notag\\
+&=\bigl(\partial_t f-\partial_t\mathbf g\cdot\sigv\bigr)\dd t
++\sum_{a=1}^{3}\bigl(\partial_{r_a}f-\partial_{r_a}\mathbf g\cdot\sigv\bigr)\dd r_a\notag\\
+&=:A^*\,\dd t+\mathbf B^*\cdot\dd\mathbf r,
+\end{align*}
+so
+\begin{equation*}
+\frac{\conj{\dd X}}{\dd t}=A^*+\mathbf B^*\cdot\frac{\dd\mathbf r}{\dd t}.
+\end{equation*}
+The paravector metric is still determined by the scalar-vector split:
+\begin{align*}
+\langle\!\langle \dd X\rangle\!\rangle^2
+&=\dd X\,\conj{\dd X}\notag\\
+&=\left(\frac{\dd X}{\dd t}\right)\left(\frac{\conj{\dd X}}{\dd t}\right)\dd t^2\notag\\
+&=(\dd f+\dd\mathbf g\cdot\sigv)(\dd f-\dd\mathbf g\cdot\sigv)\notag\\
+&=\dd f^2-\dd\mathbf g^2.
+\end{align*}
+Therefore the proper-time element is
+\begin{align*}
+\dd s
+&=\sqrt{\dd f^2-\dd\mathbf g^2}\notag\\
+&=\sqrt{1-\left(\frac{\dd\mathbf g}{\dd f}\right)^2}\,\dd f.
+\end{align*}
+The corresponding proper velocity is
+\begin{align*}
+U
+&:=\frac{\dd X}{\dd s}\notag\\
+&=\frac{\dd f+\dd\mathbf g\cdot\sigv}{\sqrt{\dd f^2-\dd\mathbf g^2}}\notag\\
+&=\frac{1+\left(\frac{\dd\mathbf g}{\dd f}\right)\cdot\sigv}{\sqrt{1-\left(\frac{\dd\mathbf g}{\dd f}\right)^2}}\notag\\
+&=\frac{1+\mathbf v\cdot\sigv}{\sqrt{1-\mathbf v^2}}\notag\\
+&=\gamma(1+\mathbf v\cdot\sigv),
+\end{align*}
+where the geometric velocity and geometric Lorentz factor are
+\begin{align*}
+\mathbf v
+&:=\frac{\dd\mathbf g}{\dd f}\notag\\
+&=\frac{\dd\mathbf g/\dd t}{\dd f/\dd t}\notag\\
+&=\frac{\dd\mathbf g/\dd s}{\dd f/\dd s},\\
+\gamma
+&:=\frac{\dd f}{\dd s}\notag\\
+&=\frac{\dd f}{\sqrt{\dd f^2-\dd\mathbf g^2}}\notag\\
+&=\frac{\dd f/\dd t}{\dd s/\dd t}\notag\\
+&=\frac{1}{\sqrt{1-\mathbf v^2}}.
+\end{align*}
+The timelike condition is
+\begin{equation*}
+\mathbf v^2<1.
+\end{equation*}
+With this reparametrization the energy-momentum relation is unchanged:
+\begin{equation*}
+mU=E+\mathbf P\cdot\sigv.
+\end{equation*}
+The geometric acceleration is
+\begin{align*}
+\mathbf a
+&:=\frac{\dd\mathbf v}{\dd s}\notag\\
+&=\frac{\dd}{\dd s}\left(\frac{\dd\mathbf g}{\dd f}\right)\notag\\
+&=\frac{\dd f}{\dd s}\frac{\dd}{\dd f}\left(\frac{\dd\mathbf g}{\dd f}\right)\notag\\
+&=\gamma\frac{\dd^2\mathbf g}{\dd f^2}.
+\end{align*}
+Because the proper-velocity algebra is unchanged, the proper acceleration still has the form
+\begin{equation*}
+\frac{\dd U}{\dd s}
+=\gamma^4(\mathbf v\cdot\mathbf a)
++\bigl(\gamma^4(\mathbf v\cdot\mathbf a)\mathbf v+\gamma^2\mathbf a\bigr)\cdot\sigv.
+\end{equation*}
+If
+\begin{equation*}
+f':=\frac{\dd f}{\dd t},
 \qquad
+\mathbf g':=\frac{\dd\mathbf g}{\dd t},
+\qquad
+f'':=\frac{\dd f'}{\dd t},
+\qquad
+\mathbf g'':=\frac{\dd\mathbf g'}{\dd t},
+\end{equation*}
+then
+\begin{equation*}
+\frac{\dd\mathbf v}{\dd t}
+=\frac{\dd}{\dd t}\left(\frac{\mathbf g'}{f'}\right)
+=\frac{\mathbf g''f'-\mathbf g'f''}{(f')^2}.
+\end{equation*}
+For comparison, a plane curve \((x(t),y(t))\) has curvature
+\begin{equation*}
+k=\frac{|x'y''-y'x''|}{(x'^2+y'^2)^{3/2}},
+\end{equation*}
+so the same derivative numerator controls bending in the generalized coordinates. The commutator of proper velocity and proper acceleration is
+\begin{align*}
+\left[U,\frac{\dd U}{\dd s}\right]
+&=\left[U,\frac{\dd U}{\dd t}\right]\frac{\dd t}{\dd s}\notag\\
+&=\gamma\left[U,\frac{\dd U}{\dd t}\right]\notag\\
+&=2\gamma^3(\mathbf v\times\mathbf a)\cdot(i\sigv).
+\end{align*}
+For inertial motion,
+\begin{equation*}
+m\frac{\dd U}{\dd s}=0,
+\end{equation*}
+which is the geodesic equation, equivalently
+\begin{equation*}
+\frac{\dd^2 X}{\dd s^2}=0.
+\end{equation*}
+Its scalar and vector parts are
+\begin{align*}
+\gamma^3(\mathbf v\cdot\mathbf a)&=0,\\
+\gamma^3(\mathbf v\cdot\mathbf a)\mathbf v+\gamma\mathbf a&=0.
+\end{align*}
+The second relation may be written as
+\begin{equation*}
+\gamma M\mathbf a=0,
+\qquad
+M:=\I_3+\gamma^2\mathbf v\mathbf v^T
+=\I_3+\frac{\mathbf v\mathbf v^T}{1-\mathbf v^2}.
+\end{equation*}
+For \(\mathbf v^2<1\), the matrix \(M\) is positive definite, so \(\gamma M\mathbf a=0\) implies \(\mathbf a=0\). Hence
+\begin{equation*}
+\frac{\dd^2\mathbf g}{\dd f^2}=0,
+\end{equation*}
+and along an inertial worldline
+\begin{equation*}
+\mathbf g=\mathbf c_1 f+\mathbf c_2,
+\qquad
+\mathbf v=\frac{\dd\mathbf g}{\dd f}=\mathbf c_1,
+\end{equation*}
+so inertial motion is linear in the \((f,\mathbf g)\) coordinates with constant geometric velocity.
+
+\subsubsection{Lagrangian Mechanics and Conserved Quantities}
+For a particle trajectory written in terms of time, position, and velocity, let the action be
+\begin{equation*}
+S=\int \mathcal L(t,\mathbf r,\mathbf v)\,\dd t.
+\end{equation*}
+The Euler--Lagrange equation is then
+\begin{align*}
+\left(\gradv-\frac{\dd}{\dd t}\delv{}\right)\mathcal L&=0,\\
+\frac{\dd}{\dd t}\delv{}\mathcal L&=\gradv\mathcal L.
+\end{align*}
+This makes the standard conserved quantities immediate. The canonical momentum is
+\begin{equation*}
+\delv{}\mathcal L,
+\end{equation*}
+so if \(\gradv\mathcal L=0\), then
+\begin{equation*}
+\frac{\dd}{\dd t}\delv{}\mathcal L=0,
+\end{equation*}
+and the canonical momentum is constant.
+
+The Hamiltonian is defined by
+\begin{align*}
+\mathcal H
+&=\mathbf v\cdot(\delv{}\mathcal L)-\mathcal L\notag\\
+&=(\mathbf v\cdot\delv{}-1)\mathcal L.
+\end{align*}
+Its time derivative is
+\begin{align*}
+\frac{\dd\mathcal H}{\dd t}
+&=\frac{\dd}{\dd t}(\delv{}\mathcal L)\cdot\mathbf v
++(\delv{}\mathcal L)\cdot\frac{\dd\mathbf v}{\dd t}
+-\frac{\dd\mathcal L}{\dd t}\notag\\
+&=(\gradv\mathcal L)\cdot\mathbf v
++(\delv{}\mathcal L)\cdot\frac{\dd\mathbf v}{\dd t}
+-\frac{\dd\mathcal L}{\dd t}\notag\\
+&=(\gradv\mathcal L)\cdot\mathbf v
++(\delv{}\mathcal L)\cdot\frac{\dd\mathbf v}{\dd t}\notag\\
+&\qquad-\left(
+\partial_t\mathcal L
++(\gradv\mathcal L)\cdot\mathbf v
++(\delv{}\mathcal L)\cdot\frac{\dd\mathbf v}{\dd t}
+\right)\notag\\
+&=-\partial_t\mathcal L.
+\end{align*}
+Therefore, if \(\partial_t\mathcal L=0\), then
+\begin{equation*}
+\frac{\dd\mathcal H}{\dd t}=0,
+\end{equation*}
+so the Hamiltonian is constant. The free-particle and minimally coupled electromagnetic examples below are direct applications of these identities.
+
+\subsubsection{Action of a Free Particle}
+The free-particle action is the mass-weighted proper time along the world line. With \(\tau=\int \dd s\), \(U=\dd X/\dd s\), and \(\gamma=\dd t/\dd s\),
+\begin{align*}
+S_{\mathrm{free}}
+=\int \mathcal L_{\mathrm{free}}\,\dd t
+&=-m\tau\notag\\
+&=-m\int \langle\!\langle \dd X\rangle\!\rangle\notag\\
+&=-m\int \dd s\notag\\
+&=-m\int \left\langle\!\left\langle \frac{\dd X}{\dd t}\right\rangle\!\right\rangle \dd t\notag\\
+&=-m\int \frac{\dd s}{\dd t}\,\dd t\notag\\
+&=-m\int \left\langle\!\left\langle \frac{U}{\gamma}\right\rangle\!\right\rangle \dd t\notag\\
+&=-m\int \frac{1}{\gamma}\,\dd t\notag\\
+&=-m\int \sqrt{1-\mathbf v^2}\,\dd t.
+\end{align*}
+Therefore
+\begin{equation*}
 \mathcal L_{\mathrm{free}}=-\frac{m}{\gamma}.
 \end{equation*}
-Differentiating with respect to \(\mathbf v\) gives the canonical momentum again,
-\begin{equation*}
-\frac{\partial \mathcal L_{\mathrm{free}}}{\partial \mathbf v}
-=m\gamma\mathbf v
-=\mathbf P.
-\end{equation*}
-The Hamiltonian is then
-\begin{equation*}
+Differentiating with respect to velocity gives the canonical momentum,
+\begin{align*}
+\delv{} \mathcal L_{\mathrm{free}}
+&=m\gamma\mathbf v\notag\\
+&=\mathbf P,\\
+(\delv{}\cdot\sigv)\mathcal L_{\mathrm{free}}
+&=\mathbf P\cdot\sigv.
+\end{align*}
+The Hamiltonian is
+\begin{align*}
 \mathcal H
-=\mathbf v\cdot\frac{\partial \mathcal L_{\mathrm{free}}}{\partial \mathbf v}-\mathcal L_{\mathrm{free}}
-=m\gamma\mathbf v^{2}+\frac{m}{\gamma}
-=m\gamma
-=E,
+&=(\delv{}\mathcal L_{\mathrm{free}})\cdot\mathbf v-\mathcal L_{\mathrm{free}}\notag\\
+&=m\gamma\mathbf v^2+\frac{m}{\gamma}\notag\\
+&=m\gamma\left(\mathbf v^2+\frac{1}{\gamma^2}\right)\notag\\
+&=m\gamma\notag\\
+&=E.
+\end{align*}
+Because the free Lagrangian has no explicit time or position dependence,
+\begin{equation*}
+\partial_t\mathcal L_{\mathrm{free}}=0,
+\qquad
+\gradv\mathcal L_{\mathrm{free}}=0,
 \end{equation*}
-so the action principle reproduces both the relativistic momentum and the relativistic energy inside one calculation.
+so the conserved quantities are the relativistic energy \(E=m\gamma\) and momentum \(\mathbf P=m\gamma\mathbf v\).
 
-The low-velocity series
+\subsubsection{Non-Relativistic Approximation}
+For the non-relativistic approximation, expand the free Lagrangian directly:
+\begin{align*}
+\mathcal L_{\mathrm{free}}
+&=-\frac{m}{\gamma}\notag\\
+&=-m+\frac12 m\mathbf v^2+O(\mathbf v^4).
+\end{align*}
+Then the canonical momentum becomes
+\begin{align*}
+\delv{}\mathcal L_{\mathrm{free}}
+&=\frac{\partial}{\partial \mathbf v}\left(\frac12 m\mathbf v^2+O(\mathbf v^4)\right)\notag\\
+&=m\mathbf v+O(\mathbf v^3)\notag\\
+&\approx m\mathbf v.
+\end{align*}
+The total energy is the kinetic term plus the rest-mass term:
+\begin{align*}
+\mathcal H
+&=\bigl(m\mathbf v+O(\mathbf v^3)\bigr)\cdot\mathbf v
++m-\frac12m\mathbf v^2-O(\mathbf v^4)\notag\\
+&=m+\frac12m\mathbf v^2+O(\mathbf v^4)\notag\\
+&\approx m+\frac12m\mathbf v^2.
+\end{align*}
+Equivalently, the low-velocity series can be summarized as
 \begin{align*}
 \mathcal L_{\mathrm{free}}&=-m+\frac12 m\mathbf v^2+O(\mathbf v^4),\notag \\
 \mathbf P&=m\mathbf v+O(\mathbf v^{3}),\notag \\

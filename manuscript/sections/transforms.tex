@@ -1,5 +1,5 @@
-\subsubsection{Hyperbolic Directional Transforms}
-The identities in this subsection unpack Eq.\ \eqref{eq:boost} and its component consequences.
+\subsubsection{Lorentz Boost}
+The identities in this subsection unpack Eq.\ \eqref{eq:boost} as the Lorentz-boost case of the general transform law, with the transform element specialized to \(T=L\).
 They are placed next to the circular identities because both come from the same exponential calculus, with sigma-number-one generators producing hyperbolic functions instead of circular ones.
 The auxiliary parameters \(\beta\) and \(\gamma\) are introduced first because they shorten the resulting formulas:
 \begin{align*}
@@ -18,13 +18,13 @@ Here \(\theta,\beta,\gamma\in\R\), \(\mathbf u\in\R^3\) is a unit real vector, a
 \begin{equation*}
 [ L(\theta ,\mathbf u), L(\theta ',\mathbf u) ] = 0.
 \end{equation*}
-Consequently, collinear transforms combine by addition of the parameter \(\theta\):
+Consequently, collinear boosts combine by addition of the parameter \(\theta\):
 \begin{align*}
 L(\theta ', \mathbf u) &= L(\theta _{1}, \mathbf u) L(\theta _{2}, \mathbf u), \\
 \beta ' &= (\beta _{1} + \beta _{2}) / (1 + \beta _{1} \beta _{2}), \\
 \gamma ' &= \gamma _{1} \gamma _{2} (1 + \beta _{1} \beta _{2}).
 \end{align*}
-Acting on the real paravector \(X=t+\mathbf r\cdot\sigv\), with \(t\in\R\), \(\mathbf r\in\R^3\), and \(X\in\R\oplus\R^3\), the transform gives
+Re-mapping the real space-time paravector \(X=t+\mathbf r\cdot\sigv\), with \(t\in\R\), \(\mathbf r\in\R^3\), and \(X\in\R\oplus\R^3\), the transform gives
 \begin{align*}
 X &= t + \mathbf r \cdot \sigv,\notag \\
 X' &= L^{*} X L,\notag \\
@@ -50,7 +50,7 @@ In the small-parameter limit \(\beta\to 0\),
 \begin{equation*}
 \gamma \Rightarrow 1, t' \Rightarrow t, \mathbf r' \Rightarrow \mathbf r.
 \end{equation*}
-The real scalar paravector metric then follows directly from \(L^{-1}=L^{*}\):
+The paravector metric invariance then follows directly from \(L^{-1}=L^{*}\):
 \begin{align*}
 \langle\!\langle X' \rangle\!\rangle^{2} &= X' X'^{*},\notag \\
 &= (L^{*} X L) (L^{*} X L)^{*},\notag \\

@@ -61,7 +61,7 @@ ddX'/dt^{2} &= T^{-1} (ddX/dt^{2}) T,\notag \\
 &\quad + [ \Omega , [ X', \Omega ] ].
 \end{align*}
 
-\subsubsection{Transformed Basis Elements}
+\subsubsection{Transformed Basis}
 The transformed basis relations below use the conjugate and reverse-operator rules of Eqs.\ \eqref{eq:sigma-operator-signs} and \eqref{eq:i-operator-signs}:
 \begin{align*}
 T(x) &= f(x) + \mathbf g(x) \cdot \sigv, \\
@@ -70,7 +70,7 @@ dT &= df + d\mathbf g \cdot \sigv, \\
 \sigma _{n}' &:= T^{-1} \sigma _{n} T, \\
 \sigma _{n} &= T \sigma _{n}' T^{-1}.
 \end{align*}
-Here \(f(x)\) is a real scalar-valued function, \(\mathbf g(x)\) is a real vector-valued function, and \(T(x)\in\R\oplus\R^3\) is a real paravector-valued function. These definitions send the original basis into a new basis by similarity transformation. The next identities show that the transformed generators satisfy the same algebra and operator properties.
+Here \(f(x)\) is a real scalar-valued function, \(\mathbf g(x)\) is a real vector-valued function, and \(T(x)\in\R\oplus\R^3\) is a real paravector-valued function. These definitions send the original basis into a new basis by similarity transformation. If \(T\) is specialized to a boost or rotor, then \(T^{\mathrm{R}*}T=1\) and \(T^{-1}=T^{\mathrm{R}*}\). The next identities show that the transformed generators satisfy the same algebra and operator properties.
 \par
 Applying the conjugate and reverse operators gives
 \begin{align*}
@@ -123,11 +123,16 @@ Thus \(T^{-1}dT\) contains one scalar part and one vector part that drive the tr
 \Omega &:= T^{-1} (dT/dt),\notag \\
 \Omega ' &:= T \Omega T^{-1} = (dT/dt) T^{-1},\notag \\
 \eqtext{scalar}(\sigma _{n}') &= \eqtext{scalar}(T^{-1} \sigma _{n} T),\notag \\
+&= \eqtext{scalar}(\sigma_n TT^{-1}),\notag \\
 &= \eqtext{scalar}(\sigma _{n}),\notag \\
 &= 0.
 \end{align*}
 \begin{align*}
-\eqtext{scalar}(\Omega \sigma _{n}') &= \eqtext{scalar}( \Omega ' \sigma _{n} ).
+\eqtext{scalar}(\Omega \sigma _{n}')
+&= \eqtext{scalar}(T^{-1}(dT/dt)T^{-1}\sigma_n T)\notag \\
+&= \eqtext{scalar}((dT/dt)T^{-1}\sigma_n TT^{-1})\notag \\
+&= \eqtext{scalar}((dT/dt)T^{-1}\sigma_n)\notag \\
+&= \eqtext{scalar}(\Omega'\sigma_n).
 \end{align*}
 Decomposing \(\Omega\) into one scalar part, one real vector part, and one imaginary vector part makes the transformed-basis decomposition explicit. Here \(\Omega_s\in\C\), while \(k=\{k_n\}\in\R^3\) and \(\omega=\{\omega_n\}\in\R^3\) are real vectors:
 \begin{align*}
@@ -145,9 +150,39 @@ Z_{\mathbf V} \cdot [\sigv ', \Omega ] &= ( -Z_{\mathbf V} \times \omega + i Z_{
 dZ/dt &= dZ_{s}/dt,\notag \\
 &\quad + (dZ_{\mathbf V}/dt - Z_{\mathbf V} \times \omega + i Z_{\mathbf V} \times k ) \cdot \sigv '.
 \end{align*}
+This is the moving-basis transport law for a general paravector in the transformed frame.
 
-\subsubsection{Circular Directional Transforms}
-The identities in this subsection unpack Eq.\ \eqref{eq:rotor} and its component consequences.
+As a simple non-inertial-frame example, let
+\begin{equation*}
+X=t+\mathbf r\cdot\sigv '.
+\end{equation*}
+Then
+\begin{align*}
+dX/dt
+&=dt/dt+\bigl(d\mathbf r/dt-\mathbf r\times\omega+i\,\mathbf r\times k\bigr)\cdot\sigv '.
+\end{align*}
+If one writes the time-parameterized split
+\begin{equation*}
+m\,dX/dt=E+\mathbf P'\cdot\sigv ',
+\end{equation*}
+then
+\begin{align*}
+E/m&=dt/dt,\\
+\mathbf P'/m&=d\mathbf r/dt+\mathbf r\times(-\omega+i\,k).
+\end{align*}
+Whenever \(T^{-1}=T^{*\mathrm{R}}\), the transformed interval remains
+\begin{align*}
+\langle\!\langle dX\rangle\!\rangle^2
+&=dt^2-\bigl(d\mathbf r-\mathbf r\times\omega\,dt+i\,\mathbf r\times k\,dt\bigr)^2\notag\\
+&=\bigl(1-(\mathbf v-\mathbf r\times\omega+i\,\mathbf r\times k)^2\bigr)\,dt^2,
+\end{align*}
+where \(\mathbf v:=d\mathbf r/dt\). The induced transformed proper-time element is therefore
+\begin{equation*}
+ds':=\sqrt{1-(\mathbf v-\mathbf r\times\omega+i\,\mathbf r\times k)^2}\,dt.
+\end{equation*}
+
+\subsubsection{Rotation}
+The identities in this subsection unpack Eq.\ \eqref{eq:rotor} as the rotation case of the general transform law, with the transform element specialized to \(T=R\).
 Here the generator has sigma number two, so the exponential is circular rather than hyperbolic:
 \begin{align*}
 R(\theta ,\mathbf u) &:= \exp( \tfrac{1}{2} \theta (\mathbf u \cdot i \sigv ) ),\notag \\
@@ -178,9 +213,18 @@ The associated sigma-number-two angular-velocity element is
 \begin{align*}
 \Omega &:= -R (dR^{\mathrm{R}}/ds) = (dR/ds) R^{\mathrm{R}},\notag \\
 \Omega ^{\mathrm{R}} &= -\Omega,\notag \\
-\Omega ' &= R^{\mathrm{R}} \Omega R,\notag \\
+\Omega ' &= R^{\mathrm{R}} \Omega R = R^{\mathrm{R}} (dR/ds),\notag \\
 \Omega '^{\mathrm{R}} &= -\Omega ',\notag \\
 dR/ds &= \Omega R.
+\end{align*}
+Starting from \(X'=R^{\mathrm R}XR\), one may equivalently write
+\begin{equation*}
+RX'=XR.
+\end{equation*}
+Differentiating this relation gives the intermediate transport steps
+\begin{align*}
+dR\,X' + R\,dX' &= dX\,R + X\,dR,\notag \\
+R\,dX' &= dX\,R + X\,dR - dR\,X'.
 \end{align*}
 The resulting derivative formula has the same commutator structure as Eq.\ \eqref{eq:general-transform}, with \(\Omega\) constrained to be reverse-odd:
 \begin{align*}
@@ -188,14 +232,97 @@ dX'/ds &= R^{\mathrm{R}} (dX/ds) R + [ X', \Omega ' ],\notag \\
 &= R^{\mathrm{R}} ( dX/ds + [ X, \Omega ] ) R.
 \end{align*}
 
-\subsubsection{Action on Unit Directions}
-Equation \eqref{eq:rotor} gives the algebraic rotation law. When the transformed object is a unit-direction element, one obtains
+\subsubsection{Spin Rotors}
+The rotor used for spin rotations is built from the pseudoscalar
+\begin{equation*}
+i=\sigma_1\sigma_2\sigma_3.
+\end{equation*}
+For each basis index \(k\), multiplication by \(i\) leaves the complementary bivector:
+\begin{equation*}
+i\sigma_k=\sigma_n\sigma_m,
+\qquad
+n\neq m\neq k.
+\end{equation*}
+Let \(\mathbf n=(n_1,n_2,n_3)\in\R^3\) and \(\mathbf u=(u_1,u_2,u_3)\in\R^3\) be unit vectors, so
+\begin{equation*}
+\mathbf n^2=1,
+\qquad
+\mathbf u^2=1.
+\end{equation*}
+The corresponding rotor is
+\begin{align*}
+R&:=\exp\!\left(\frac{\phi}{2}\,(\mathbf n\cdot i\sigv)\right)\notag\\
+&=\cos\!\left(\frac{\phi}{2}\right)+\sin\!\left(\frac{\phi}{2}\right)(\mathbf n\cdot i\sigv).
+\end{align*}
+Because of the half-angle form, the rotor is double-valued:
+\begin{equation*}
+R(\phi+2\pi)=-R(\phi).
+\end{equation*}
+Its reverse is
+\begin{equation*}
+\rev{R}
+=\cos\!\left(\frac{\phi}{2}\right)-\sin\!\left(\frac{\phi}{2}\right)(\mathbf n\cdot i\sigv),
+\end{equation*}
+and therefore
+\begin{equation*}
+\rev{R}R
+=\cos^2\!\left(\frac{\phi}{2}\right)+\sin^2\!\left(\frac{\phi}{2}\right)=1,
+\end{equation*}
+so the inverse is
+\begin{equation*}
+R^{-1}=\rev{R}=R^{*\mathrm R}.
+\end{equation*}
+Acting on a unit-direction element gives
 \begin{equation*}
 \rev{R}(\mathbf u\cdot\sigv)R=\mathbf u'\cdot\sigv,
 \end{equation*}
-with \(\mathbf u'\) given by the usual Rodrigues formula. If a complex paravector \(\psi\in\C\oplus\C^3\) transforms as \(\psi'=R\psi\), then the scalar projection built from the rotated axis obeys
+where \(\mathbf u'\) is the rotated unit vector. In vector form,
+\begin{align*}
+\mathbf u'
+&=\mathbf u\cos(\phi)+(\mathbf n\times\mathbf u)\sin(\phi)\notag\\
+&\qquad+(\mathbf n\cdot\mathbf u)\bigl(1-\cos(\phi)\bigr)\mathbf n,
+\end{align*}
+which is Rodrigues's formula.
+
+Now let \(\psi\in\C\oplus\C^3\) be a complex paravector:
+\begin{align*}
+\psi&=\psi_s+\psi_{\mathbf v}\cdot\sigv,\\
+\psi_s&=\eqtext{scalar}(\psi)\in\C,\\
+\psi_{\mathbf v}&=\eqtext{vector}(\psi)\in\C^3.
+\end{align*}
+Its reverse is
+\begin{align*}
+\rev{\psi}
+&=\psi_s^{\mathrm R}-\psi_{\mathbf v}^{\mathrm R}\cdot\sigv\notag\\
+&=\psi_s^*-\psi_{\mathbf v}^*\cdot\sigv.
+\end{align*}
+Here the reverse operator plays the role of the Hermitian adjoint. If the spinor transforms by left multiplication,
 \begin{equation*}
-\eqtext{scalar}\!\bigl(\rev{\psi'}(\mathbf u\cdot\sigv)\psi'\bigr)
-=\eqtext{scalar}\!\bigl(\rev{\psi}(\mathbf u'\cdot\sigv)\psi\bigr).
+\psi'=R\psi,
 \end{equation*}
-Here \(\psi\) is just a complex paravector. The axis information is carried entirely by the algebraic transform itself.
+then for the bra-ket shorthand
+\begin{equation*}
+\langle\psi\mid M\mid\psi\rangle:=\eqtext{scalar}(\rev{\psi}M\psi),
+\end{equation*}
+one obtains
+\begin{align*}
+\langle \psi' \mid \mathbf u\cdot\sigv \mid \psi' \rangle
+&=\langle R\psi \mid \mathbf u\cdot\sigv \mid R\psi \rangle\notag\\
+&=\eqtext{scalar}\!\bigl(\rev{\psi}(\rev{R}(\mathbf u\cdot\sigv)R)\psi\bigr)\notag\\
+&=\eqtext{scalar}\!\bigl(\rev{\psi}(\mathbf u'\cdot\sigv)\psi\bigr)\notag\\
+&=\langle \psi \mid \mathbf u'\cdot\sigv \mid \psi \rangle.
+\end{align*}
+Finally, decompose the paravector density as
+\begin{equation*}
+\psi\rev{\psi}
+=\eqtext{scalar}(\psi\rev{\psi})
++\eqtext{vector}(\psi\rev{\psi})\cdot\sigv.
+\end{equation*}
+Using the cyclicity of the scalar part,
+\begin{align*}
+\eqtext{scalar}\!\bigl(\rev{\psi}(\mathbf u'\cdot\sigv)\psi\bigr)
+&=\eqtext{scalar}\!\bigl((\mathbf u'\cdot\sigv)\psi\rev{\psi}\bigr)\notag\\
+&=\mathbf u'\cdot\eqtext{vector}(\psi\rev{\psi})\notag\\
+&=\mathbf u\cdot\eqtext{vector}(\psi'\rev{\psi'}).
+\end{align*}
+So the same rotor that rotates the measured axis also rotates the vector part of the spinor density, giving the usual spin-\(\tfrac12\) transformation law in paravector form.

@@ -291,7 +291,7 @@ Z&=(a+ib)+(\mathbf A+i\mathbf B)\cdot\sigv=X+iY,\\
 \compendiumrowplain{Dirac factorization}{(E+\sigv\cdot\mathbf P)(E-\sigv\cdot\mathbf P)=E^2-\mathbf P^2-iqF}{\eqref{eq:EP-factorization}}
 \compendiumrowplain{Dirac system}{(W(i\partial-q\conj{\Phi})-m\I)\Psi=0}{\eqref{eq:dirac-coupled}}
 \compendiumsubrowplain{W map}{W(Z)=\{0,Z;\crev{Z},0\}}{\eqref{eq:W-map}}
-\compendiumsubrowplain{Dirac square}{\{(-E^2+\mathbf P^2+m^2-iq\conj{F})\Psi_1;\ (-E^2+\mathbf P^2+m^2+iqF)\Psi_2\}=0}{\eqref{eq:dirac-square}}
+\compendiumsubrowplain{Dirac square}{\{(-E^2+\mathbf P^2+m^2+iq\conj{F})\Psi_1;\ (-E^2+\mathbf P^2+m^2+iqF)\Psi_2\}=0}{\eqref{eq:dirac-square}}
 \compendiumsubsubrowplain{Pauli spin split}{i\partial_t\Psi(\pm)=\left((\mathbf P^2\mp q\|\mathbf B\|)/(2m)+qV\right)\Psi(\pm)}{\eqref{eq:pauli-spin-split}}
 \compendiumsubsubrowplain{Pauli limit}{2mE\Psi=(\mathbf P^2-q\mathbf B\cdot\sigv)\Psi}{\eqref{eq:pauli-operator}}
 \end{tabular}
@@ -854,6 +854,7 @@ Their product gives the d'Alembertian
 &=\partial_t^2-\gradv^2.
 \label{eq:dalembertian}
 \end{align}
+\input{sections/differential_complex_fields.tex}
 
 \section{Electro-Magnetic Fields}\label{sec:em}
 Electro-magnetic fields, gauge structure, and the Lorentz force admit compact STA forms. In physical content this is Maxwell theory \cite{maxwell1865}, while the paravector packaging follows the later STA presentations of Hestenes, Baylis, and Doran--Lasenby \cite{hestenes1966,baylis1999,doran2003}.
@@ -1033,13 +1034,13 @@ Multiplying \eqref{eq:dirac-coupled} by $D':=W(i\partial-q\conj{\Phi})+m\I$ yiel
 D'D\Psi=0
 \;\Rightarrow\;
 \begin{cases}
-(-E^2+\mathbf P^2+m^2-iq\conj{F})\Psi_1=0,\\[2pt]
+(-E^2+\mathbf P^2+m^2+iq\conj{F})\Psi_1=0,\\[2pt]
 (-E^2+\mathbf P^2+m^2+iqF)\Psi_2=0.
 \end{cases}
 \label{eq:dirac-square}
 \end{equation}
 The calculation in Eq.\ \eqref{eq:dirac-square} explains why the two-component construction is more than formal packaging. Squaring the first-order system returns Klein--Gordon-type equations with the expected field couplings, so the Dirac form is seen as a controlled factorization of the relativistic wave operator.
-For the ordering \(Z=i\partial-q\conj{\Phi}=E-\sigv\cdot\mathbf P\) inside \(W(Z)\), the upper component carries \(-iq\conj{F}\) and the lower component carries \(+iqF\).
+For the ordering \(Z=i\partial-q\conj{\Phi}=E-\sigv\cdot\mathbf P\) inside \(W(Z)\), the upper component carries \(+iq\conj{F}\) and the lower component carries \(+iqF\).
 
 Gauge covariance combines the electromagnetic gauge law \eqref{eq:gauge} with the phase transformation of that same two-component field,
 \begin{equation}
@@ -1097,24 +1098,65 @@ S(\pm):=\bigl(i\partial_t\Pi(\pm)+[\Pi(\pm),H]\bigr)\Psi.
 \end{equation*}
 The uniform static-field split in Eq.\ \eqref{eq:pauli-spin-split} is precisely the case \(S(\pm)=0\).
 
-\subsection{Energy Projectors and On-Shell Split}
-The projector and ladder identities from Section \ref{sec:projectors} are purely algebraic. For the relativistic two-component field, the additional physics-specific split comes from the unit time-like paravector \(U\) in Eq.\ \eqref{eq:proper-velocity} and the auxiliary \(2\times2\) map \(W\) in Eq.\ \eqref{eq:W-map}. Define for \(\epsilon,s\in\{+,-\}\)
-\begin{equation}
+\subsection{4-State Solution to the Dirac Equation}
+For a free on-shell Dirac state, start from the unit momentum paravector
+\begin{equation*}
+U=\frac{dX}{ds}=\frac{E+\mathbf P\cdot\sigv}{m}.
+\end{equation*}
+On the mass shell,
+\begin{equation*}
+\langle\!\langle U\rangle\!\rangle^2
+=\frac{E^2-\mathbf P^2}{m^2}
+=1.
+\end{equation*}
+Using the auxiliary map from Eq.\ \eqref{eq:W-map},
+\begin{equation*}
+W(U)^2
+=\operatorname{diag}\!\bigl(\langle\!\langle U\rangle\!\rangle^2,\langle\!\langle U\rangle\!\rangle^2\bigr)
+=\I.
+\end{equation*}
+The corresponding energy projectors are
+\begin{equation*}
 \Lambda(\pm):=\frac{1}{2}(\I\pm W(U)),
+\end{equation*}
+where \(\Lambda(+)\) selects the positive-energy (matter) branch and \(\Lambda(-)\) the negative-energy (antimatter) branch. Since \(W(U)^2=\I\), they satisfy
+\begin{equation*}
+\Lambda(\pm)^2=\Lambda(\pm),
 \qquad
-\Psi(\epsilon,s):=\Lambda(\epsilon)\Pi(s)\Psi.
+\Lambda(+)\Lambda(-)=0,
+\qquad
+\Lambda(+)+\Lambda(-)=\I.
+\end{equation*}
+For an arbitrary spin axis \(\mathbf u\in\R^3\) with \(\mathbf u^2=1\), use also the spin projectors
+\begin{equation*}
+\Pi(\pm):=\frac{1}{2}(1\pm \mathbf u\cdot\sigv).
+\end{equation*}
+In the free operator picture, the unit momentum is represented by
+\begin{equation*}
+U\ \longrightarrow\ \frac{i\partial}{m}.
+\end{equation*}
+The mass-normalized positive-energy projector condition may therefore be written as
+\begin{equation}
+\begin{aligned}
+\left(W\!\left(\frac{i\partial}{m}\right)-\I\right)\Psi&=0,\\
+(W(U)-\I)\Psi&=0.
+\end{aligned}
+\label{eq:normalized-dirac}
+\end{equation}
+\flag{Equation \eqref{eq:normalized-dirac} is not a replacement for the Dirac equation; it is the free on-shell projector relation obtained after normalizing momentum by $m$ so that $W(U)^2=\I$.}
+
+Combining the energy split with the spin split gives the four sectors
+\begin{equation}
+\Psi(\epsilon,s):=\Lambda(\epsilon)\Pi(s)\Psi,
+\qquad
+\epsilon,s\in\{+,-\},
 \label{eq:energy-spin-projectors}
 \end{equation}
-Here \(\Lambda(\pm)\) are the energy projectors built from the unit time-like paravector \(U\), while \(\Pi(\pm)\) are the axis projectors already defined in Eq.\ \eqref{eq:projectors}. Equation \eqref{eq:energy-spin-projectors} therefore combines the time-like split from Eq.\ \eqref{eq:proper-velocity} with the earlier algebraic axis split. Since Eq.\ \eqref{eq:proper-velocity} gives \(\langle\!\langle U\rangle\!\rangle^2=1\), one has \(W(U)^2=\I\), hence \(\Lambda(\pm)^2=\Lambda(\pm)\) and
+where \(\epsilon\) labels the energy sector and \(s\) the spin along \(\mathbf u\). The full Dirac state therefore decomposes as
 \begin{equation*}
 \Psi=\Psi(+,+)+\Psi(+,-)+\Psi(-,+)+\Psi(-,-).
 \end{equation*}
-After \(U\) has been normalized and the free state has been restricted to the positive-energy branch, one may also write the on-shell projector condition
-\begin{equation}
-(W(U)-\I)\Psi=0.
-\label{eq:normalized-dirac}
-\end{equation}
-\flag{Equation \eqref{eq:normalized-dirac} is not a replacement for the Dirac equation; it is an on-shell projector relation for a free state satisfying $W(U)^2=\I$ after momentum has been normalized by $m$.}
+This is the four-state decomposition of the free Dirac solution: two energy sectors and, within each, two spin sectors.
 
 For a normalized complex paravector state \(\psi\in\C\oplus\C^3\), write the scalar projections
 \begin{equation*}
@@ -1132,7 +1174,7 @@ The supporting derivations expand the scalar and two-component paravector wave e
 \section{Conclusions}\label{sec:conclusions}\label{sec:synthesis}
 The algebraic rules fixed in Section \ref{sec:algebra} generate interval geometry, covariant transformations, electromagnetism, and relativistic wave equations without changing the underlying language. The later physical equations follow from the earlier algebraic setup rather than appearing as separate formalisms placed side by side.
 
-The main structural point is the complex paravector split introduced in Eqs.\ \eqref{eq:paravector}, \eqref{eq:real-function}, and \eqref{eq:img-function}. Once a quantity is resolved into real scalar, imaginary scalar, real vector, and imaginary vector parts, the same algebraic product can be read component by component across several parts of physics. In the space-time sections this split yields the interval and proper-velocity formulas. In electromagnetism it packages \(V\) with \(\mathbf A\), and \(\mathbf E\) with \(\mathbf B\), into one differential framework. In the wave-equation sections it reappears in the paired field couplings of Eq.\ \eqref{eq:dirac-square}, where the two component fields carry the conjugate pair \(-iq\conj{F}\) and \(+iqF\). The benefit is not only compact notation. The same bookkeeping keeps the scalar/vector content visible while also showing which formulas come in natural complementary pairs. Within the flat-space theory developed here, it also avoids explicit tensor notation through the main line of argument.
+The main structural point is the complex paravector split introduced in Eqs.\ \eqref{eq:paravector}, \eqref{eq:real-function}, and \eqref{eq:img-function}. Once a quantity is resolved into real scalar, imaginary scalar, real vector, and imaginary vector parts, the same algebraic product can be read component by component across several parts of physics. In the space-time sections this split yields the interval and proper-velocity formulas. In electromagnetism it packages \(V\) with \(\mathbf A\), and \(\mathbf E\) with \(\mathbf B\), into one differential framework. In the wave-equation sections it reappears in the paired field couplings of Eq.\ \eqref{eq:dirac-square}, where the two component fields carry the conjugate pair \(+iq\conj{F}\) and \(+iqF\). The benefit is not only compact notation. The same bookkeeping keeps the scalar/vector content visible while also showing which formulas come in natural complementary pairs. Within the flat-space theory developed here, it also avoids explicit tensor notation through the main line of argument.
 
 Electromagnetism is the clearest example. Equation \eqref{eq:maxwell} produces the sourced equations from the real scalar and real vector parts, while the complementary imaginary scalar and imaginary vector parts give the magnetic-divergence and Faraday relations in Eqs.\ \eqref{eq:maxwell-scalars} and \eqref{eq:maxwell-vectors}. Tables \ref{tab:components-generic-derivative} and \ref{tab:components-generic-iderivative} show that this is not an isolated coincidence: once the full real/imaginary scalar/vector decomposition is kept, the derivative algebra naturally generates partner formulas in which electric and magnetic roles are exchanged. The same pattern appears in the force product. Equation \eqref{eq:lorentz-force} keeps the real part because it gives the observed power and Lorentz-force terms, while its imaginary companion is
 \begin{equation*}
@@ -1278,7 +1320,7 @@ The list below marks formulas or claims that still require interpretation, corre
 \item \flag{In quaternion intermediate expansions, the linear term carries the factor $a$, as in Eq.\ \eqref{eq:quaternion-square}.}
 \item \flag{The line $T=\frac12F\rev{F}$ should be read as a frame-conditioned energy-density/Poynting paravector, not the full electromagnetic stress-energy tensor.}
 \item \flag{Equation \eqref{eq:normalized-dirac} is an on-shell projector statement for normalized free states, not the general Dirac equation.}
-\item \flag{An earlier sign variant of Eq.\ \eqref{eq:dirac-square} with $+iqF^*$ in the upper component is inconsistent with the operator ordering in $W(i\partial-q\conj{\Phi})$; the corrected sign is $-iqF^*$.}
+\item \flag{An earlier sign variant of Eq.\ \eqref{eq:dirac-square} with $-iqF^*$ in the upper component is inconsistent with the operator ordering in $W(i\partial-q\conj{\Phi})$; the corrected sign is $+iqF^*$.}
 \item \flag{Several operator equalities stated in differential form implicitly assume smooth test functions and benign boundary behavior; those hypotheses should be stated whenever commutators of differential operators are used rigorously.}
 \end{enumerate}
 
@@ -1296,7 +1338,7 @@ Eq. \eqref{eq:lorentz-force} & Lorentz force law in STA packaging \cite{hestenes
 Eq. \eqref{eq:kg-free} & Klein--Gordon equation \cite{klein1926,gordon1926} & \verifiedmark & Standard free relativistic scalar wave equation. \\
 Eq. \eqref{eq:kg-coupled} & Minimal-coupling KG equation \cite{greiner2000,jackson1998} & \verifiedmark & Operator-domain assumptions should be stated when commuting derivatives and fields. \\
 Eq. \eqref{eq:dirac-coupled} & Dirac equation in a $2\times2$ STA auxiliary representation \cite{dirac1928,hestenes1966,doran2003} & \verifiedmark & Representation-dependent, but equivalent in content once the map to the ordinary Dirac component form is fixed. \\
-Eq. \eqref{eq:dirac-square} & Squared Dirac system after STA factorization \cite{dirac1928,hestenes1966,doran2003} & \verifiedmark & The upper component carries $-iqF^*$ and the lower component carries $+iqF$ with the operator ordering used here. \\
+Eq. \eqref{eq:dirac-square} & Squared Dirac system after STA factorization \cite{dirac1928,hestenes1966,doran2003} & \verifiedmark & The upper component carries $+iqF^*$ and the lower component carries $+iqF$ with the operator ordering used here. \\
 Eq. \eqref{eq:pauli} & Leading-order Pauli reduction \cite{pauli1927,sakurai2017} & \verifiedmark\ with caveat & The displayed form is low-energy and omits higher-order electric-field terms. \\
 Eq. \eqref{eq:energy-momentum-paravector} & Electromagnetic energy-momentum density & \flag{Needs qualification} & Useful frame-dependent object, but not the full stress-energy tensor alone. \\
 Spin-axis commutator estimate & Robertson--Schr\"odinger uncertainty relation \cite{robertson1929} & Qualified & Section \ref{sec:projectors} records only the operator-level noncommutativity, not the full state-variance inequality. \\

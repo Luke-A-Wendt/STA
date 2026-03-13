@@ -92,29 +92,37 @@ X'=\rev{R}XR.
 Equation \eqref{eq:rotor} is the circular transform built from Eq.\ \eqref{eq:exp-bivector}. Its detailed transform consequences are developed in the generalized transform section. The quaternion restatement of the same sigma-number-two algebra is collected later, after the transform discussion has been completed.
 
 \subsubsection{Exponentials of Complex Paravectors}
-Because the scalar part \(S\) commutes with \(\mathbf V\cdot\sigv\), the exponential again separates into scalar and directional factors:
+Write the real paravectors
 \begin{align*}
 X &= a + \mathbf A \cdot \sigv \in \R\oplus\R^{3},\notag \\
 Y &= b + \mathbf B \cdot \sigv \in \R\oplus\R^{3},\notag \\
-Z &= S + \mathbf V \cdot \sigv \in \C\oplus\C^{3},\notag \\
-&= X + i Y.
+Z &= c + \mathbf C \cdot \sigv \in \C\oplus\C^{3},\notag \\
+&= X + i Y,
+\end{align*}
+where
+\begin{equation*}
+c:=a+ib\in\C,
+\qquad
+\mathbf C:=\mathbf A+i\mathbf B\in\C^3.
+\end{equation*}
+Because the scalar part \(c\) commutes with \(\mathbf C\cdot\sigv\), the exponential separates into scalar and directional factors:
+\begin{align*}
+\exp(Z) &= \exp( c + \mathbf C \cdot \sigv ),\notag \\
+&= \exp(c) \exp( \mathbf C \cdot \sigv ).
 \end{align*}
 \begin{align*}
-\exp(Z) &= \exp( S + \mathbf V \cdot \sigv ),\notag \\
-&= \exp(S) \exp( \mathbf V \cdot \sigv ).
-\end{align*}
-\begin{align*}
-\exp(Z^{*}) &= \exp(S^{*}) \exp( -\mathbf V^{*} \cdot \sigv ),\notag \\
-\exp(Z)^{-1} &= \exp(-S) \exp( -\mathbf V \cdot \sigv ),\notag \\
-\exp(Z^{*})^{-1} &= \exp(-S^{*}) \exp( \mathbf V^{*} \cdot \sigv ),\notag \\
-(\mathbf V \cdot \sigv )^{2} &= \mathbf V \cdot \mathbf V = \mathbf V^{2},\notag \\
+\exp(Z^{*}) &= \exp(c^{*}) \exp( -\mathbf C^{*} \cdot \sigv ),\notag \\
+\exp(Z)^{-1} &= \exp(-c) \exp( -\mathbf C \cdot \sigv ),\notag \\
+\exp(Z^{*})^{-1} &= \exp(-c^{*}) \exp( \mathbf C^{*} \cdot \sigv ),\notag \\
+(\mathbf C \cdot \sigv )^{2} &= \mathbf C \cdot \mathbf C = \mathbf C^{2},\notag \\
 &= \mathbf A^{2} - \mathbf B^{2} + 2 i \mathbf A \cdot \mathbf B.
 \end{align*}
-The key simplification is that all higher powers collapse onto the two basis elements \(1\) and \(\mathbf V\cdot\sigv\):
+The key simplification is that all higher powers collapse onto the two basis elements \(1\) and \(\mathbf C\cdot\sigv\):
 \begin{align*}
-(\mathbf V \cdot \sigv )^{2n} &= (\mathbf V^{2})^{n},\notag \\
-z &= \sqrt{\mathbf V^{2}}\qquad \eqtext{complex scalar},\notag \\
-\exp(\mathbf V \cdot \sigv ) &= \sum_{n} (\mathbf V \cdot \sigv )^{n} / n!,\notag \\
-&= \sum_{n} (\mathbf V^{2})^{n} / (2n)! + \sum_{n} (\mathbf V^{2})^{n} / (2n+1)! (\mathbf V \cdot \sigv ),\notag \\
-&= \cosh(z) + \sinh(z) (\mathbf V \cdot \sigv ) / z.
+(\mathbf C \cdot \sigv )^{2n} &= (\mathbf C^{2})^{n},\notag \\
+z &= \sqrt{\mathbf C^{2}}\qquad \eqtext{complex scalar},\notag \\
+\exp(\mathbf C \cdot \sigv ) &= \sum_{n=0}^{\infty} \frac{(\mathbf C \cdot \sigv )^{n}}{n!},\notag \\
+&= \sum_{n=0}^{\infty} \frac{(\mathbf C^{2})^{n}}{(2n)!}
++ \sum_{n=0}^{\infty} \frac{(\mathbf C^{2})^{n}}{(2n+1)!}(\mathbf C \cdot \sigv ),\notag \\
+&= \cosh(z) + \sinh(z) \frac{\mathbf C \cdot \sigv}{z}.
 \end{align*}

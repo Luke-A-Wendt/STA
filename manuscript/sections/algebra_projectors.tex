@@ -1,4 +1,4 @@
-\subsubsection{Functions of a Unit-Direction Element}
+\subsubsection{Functions of \texorpdfstring{\(\mathbf u\cdot\sigv\)}{u.sigma}}
 The projector pair \(\Pi(\pm)\) gives the two-root decomposition of the unit-direction element \(\mathbf u\cdot\sigv\). The corresponding eigenvalue data are
 \begin{align*}
 \Pi(\pm) &= \tfrac{1}{2}(1\pm \mathbf u\cdot\sigv), \\
@@ -14,78 +14,122 @@ f(\mathbf u\cdot\sigv)
 &= \tfrac{1}{2}\bigl(f(+1)+f(-1)\bigr)
 + \tfrac{1}{2}\bigl(f(+1)-f(-1)\bigr)\,\mathbf u\cdot\sigv.
 \end{align*}
-These are the basic projector formulas for a unit-direction element. The first examples below are chosen to illustrate the calculus before the dedicated exponential and logarithm subsections:
+These are the basic projector formulas for a unit-direction element. The first examples below collect the square root, logarithm branch data, rational inverse, Cayley transform, and the two exponential families for later reuse:
 \begin{align*}
 \sqrt{\mathbf u\cdot\sigv} &= \pm \Pi(+) \pm i\,\Pi(-), \\
+\log(\mathbf u\cdot\sigv)
+&= 2 i \pi\bigl(n\,\Pi(+) + (\tfrac12+m)\,\Pi(-)\bigr), \\
 (z+\mathbf u\cdot\sigv)^{-1}
 &= \frac{1}{z+1}\Pi(+) + \frac{1}{z-1}\Pi(-)\notag \\
 &= \frac{z-\mathbf u\cdot\sigv}{z^{2}-1}, \\
-\frac{i-\mathbf u\cdot\sigv}{i+\mathbf u\cdot\sigv} &= i\,\mathbf u\cdot\sigv,
+\frac{i-\mathbf u\cdot\sigv}{i+\mathbf u\cdot\sigv} &= i\,\mathbf u\cdot\sigv, \\
+\exp(\theta\,\mathbf u\cdot\sigv)
+&= \cosh(\theta)+\sinh(\theta)\,\mathbf u\cdot\sigv, \\
+\exp(i\theta\,\mathbf u\cdot\sigv)
+&= \cos(\theta)+i\sin(\theta)\,\mathbf u\cdot\sigv,
 \end{align*}
-where the square root, inverse, and Cayley-type transform are obtained by direct substitution into Eq.\ \eqref{eq:functional-calculus}. The exponential and logarithm cases are developed separately below so that the general projector method is in place first.
+where \(m,n\in\mathbb Z\) index logarithm branches. The square root, inverse, Cayley-type transform, and the two exponential identities are all obtained by direct substitution into Eq.\ \eqref{eq:functional-calculus}. The later exponential and logarithm subsections revisit the same formulas in the broader real- and complex-paravector settings.
 
-\subsubsection{Functions of a Paravector}
+\subsubsection{Functions of X}
 Let
 \begin{align*}
 X &= t + \mathbf r\cdot\sigv, \\
 t &= \eqtext{scalar}(X)\in\mathbb R, \\
-\mathbf r &= \eqtext{vector}(X)\in\mathbb R^{3}.
+\mathbf r &= \eqtext{vector}(X)\in\mathbb R^{3}, \\
+\mathbf u &:= \mathbf r/\lVert\mathbf r\rVert \qquad \text{when }\mathbf r\neq 0.
 \end{align*}
 If \(\mathbf r\neq 0\), write \(\mathbf r=\lVert\mathbf r\rVert \mathbf u\) with \(\mathbf u^{2}=1\). Then the minimal polynomial of \(X\) is
 \begin{align*}
 X^{2} - 2 t X + ( t^{2} - \mathbf r^{2} ) &= 0,\notag \\
 \lambda(\pm) &= t \pm \lVert\mathbf r\rVert,\notag \\
-0 &= (X-\lambda(-))(X-\lambda(+)),
+0 &= (X-\lambda(-))(X-\lambda(+))\notag \\
+&= X^{2} - \lambda(-)X\notag \\
+&\quad - X\lambda(+) + \lambda(-)\lambda(+).
 \end{align*}
-so \(X\) has the projector decomposition
+With
+\begin{equation*}
+a:=\lambda(+),
+\qquad
+b:=\lambda(-),
+\end{equation*}
+the corresponding projector decomposition is
 \begin{align*}
 \Pi(\pm) &= \tfrac12(1\pm \mathbf u\cdot\sigv), \\
-X &= \lambda(+)\Pi(+) + \lambda(-)\Pi(-), \\
+X &= a\,\Pi(+) + b\,\Pi(-), \\
 \Pi(\pm)X &= \lambda(\pm)\Pi(\pm).
 \end{align*}
-Any analytic function of \(X\) is therefore obtained by applying the scalar function to the two eigenvalues:
+If \(f\) has a convergent power series, then
 \begin{align*}
 f(X)
-&= f\bigl(\lambda(+)\bigr)\Pi(+) + f\bigl(\lambda(-)\bigr)\Pi(-)\notag \\
-&= \tfrac12\Bigl(f\bigl(\lambda(+)\bigr)+f\bigl(\lambda(-)\bigr)\Bigr)\notag \\
-&\quad + \tfrac12\Bigl(f\bigl(\lambda(+)\bigr)-f\bigl(\lambda(-)\bigr)\Bigr)\,\mathbf u\cdot\sigv.
+&= f(a)\Pi(+) + f(b)\Pi(-)\notag \\
+&= \tfrac12\bigl(f(a)+f(b)\bigr)
++ \tfrac12\bigl(f(a)-f(b)\bigr)\,\mathbf u\cdot\sigv.
 \end{align*}
-If \(f(X)=t'+\mathbf r'\cdot\sigv\), then
+Writing \(X':=f(X)=t'+\mathbf r'\cdot\sigv\), one finds
 \begin{align*}
-t' &= \tfrac12\Bigl(f\bigl(\lambda(+)\bigr)+f\bigl(\lambda(-)\bigr)\Bigr), \\
-\lVert\mathbf r'\rVert &= \tfrac12\Bigl(f\bigl(\lambda(+)\bigr)-f\bigl(\lambda(-)\bigr)\Bigr), \\
+t' &= \tfrac12\bigl(f(a)+f(b)\bigr), \\
+\lVert\mathbf r'\rVert &= \tfrac12\bigl(f(a)-f(b)\bigr), \\
 \mathbf r' &= \lVert\mathbf r'\rVert\,\mathbf u.
 \end{align*}
-Before turning to exponentials and logarithms, the same construction already gives the useful square-root, inverse, and power formulas:
+The projector summary may therefore be recorded as
 \begin{align*}
-\sqrt{X} &= \pm \sqrt{\lambda(+)}\,\Pi(+) \pm \sqrt{\lambda(-)}\,\Pi(-), \\
-X^{-1}
-&= \frac{\Pi(+)}{\lambda(+)} + \frac{\Pi(-)}{\lambda(-)}\notag \\
-&= \frac{X^{*}}{t^{2}-\mathbf r^{2}}, \\
-X^{n} &= \lambda(+)^{n}\Pi(+) + \lambda(-)^{n}\Pi(-).
+\lambda(\pm)&=t\pm\lVert\mathbf r\rVert,\notag\\
+\mathbf u&=\mathbf r/\lVert\mathbf r\rVert,\notag\\
+\Pi(\pm)&=\tfrac12(1\pm\mathbf u\cdot\sigv),\notag\\
+\Pi(\pm)X&=\lambda(\pm)\Pi(\pm),\notag\\
+X&=\lambda(+)\Pi(+)+\lambda(-)\Pi(-),\notag\\
+f(X)&=f\bigl(\lambda(+)\bigr)\Pi(+)+f\bigl(\lambda(-)\bigr)\Pi(-).
 \end{align*}
-When two different paravectors are diagonalized along different directions, the only new ingredient is the mixed projector product. Let
-\(X=t+\lVert\mathbf r\rVert\,\mathbf u\cdot\sigv\) and
-\(X'=t'+\lVert\mathbf r'\rVert\,\mathbf u'\cdot\sigv\) be decomposed along different axes. Their functions then multiply by combining the two projector families:
-\begin{equation*}
+The standard examples then follow immediately:
+\begin{align*}
+\exp(X)
+&= e^{t}\Bigl(\cosh(\lVert\mathbf r\rVert)+\sinh(\lVert\mathbf r\rVert)\,\mathbf u\cdot\sigv\Bigr), \\
+\sqrt{X} &= \pm \sqrt{a}\,\Pi(+) \pm \sqrt{b}\,\Pi(-), \\
+\log(X) &= \log(a)\,\Pi(+) + \log(b)\,\Pi(-), \\
+X^{-1}
+&= \frac{\Pi(+)}{a} + \frac{\Pi(-)}{b}\notag \\
+&= \frac{X^{*}}{t^{2}-\mathbf r^{2}}, \\
+X^{n}
+&= a^{n}\Pi(+) + b^{n}\Pi(-)\notag \\
+&= \tfrac12(a^{n}+b^{n}) + \tfrac12(a^{n}-b^{n})\,\mathbf u\cdot\sigv.
+\end{align*}
+For two paravectors diagonalized along possibly different axes,
+\begin{align*}
 f(X)g(X')
-= \sum_{s,s'=\pm} f\bigl(\lambda(s)\bigr)\,g\bigl(\lambda'(s')\bigr)\,\Pi(s)\Pi'(s').
-\end{equation*}
+&= (f(a)\Pi(+) + f(b)\Pi(-))\notag \\
+&\quad \times (g(a')\Pi'(+)+g(b')\Pi'(-)),
+\end{align*}
+so
+\begin{align*}
+f(X)g(X')
+&= f(a)g(a')\,\Pi(+)\Pi'(+)
+  + f(a)g(b')\,\Pi(+)\Pi'(-)\notag \\
+&\quad + f(b)g(a')\,\Pi(-)\Pi'(+)
+  + f(b)g(b')\,\Pi(-)\Pi'(-)\notag \\
+&= \sum_{s,s'=\pm}
+f\bigl(\lambda(s)\bigr)g\bigl(\lambda'(s')\bigr)\,\Pi(s)\Pi'(s').
+\end{align*}
 The mixed projector products are
-\begin{equation*}
-\Pi(s)\Pi'(s')
-= \tfrac14\Bigl(
-1 + ss'\,\mathbf u\cdot\mathbf u'
-+ \bigl(s\mathbf u + s'\mathbf u' + ss' i(\mathbf u\times\mathbf u')\bigr)\cdot\sigv
-\Bigr),
-\end{equation*}
-with \(s,s'\in\{+1,-1\}\). This compact formula reproduces all four explicit same-side and cross-side products.
+\begin{align*}
+\Pi(+)\Pi'(+)
+&= \tfrac14(1+\mathbf u\cdot\mathbf u')\notag\\
+&\quad + \tfrac14\bigl(\mathbf u'+\mathbf u+i(\mathbf u\times\mathbf u')\bigr)\cdot\sigv, \\
+\Pi(+)\Pi'(-)
+&= \tfrac14(1-\mathbf u\cdot\mathbf u')\notag\\
+&\quad + \tfrac14\bigl(-\mathbf u'+\mathbf u-i(\mathbf u\times\mathbf u')\bigr)\cdot\sigv, \\
+\Pi(-)\Pi'(+)
+&= \tfrac14(1-\mathbf u\cdot\mathbf u')\notag\\
+&\quad + \tfrac14\bigl(\mathbf u'-\mathbf u-i(\mathbf u\times\mathbf u')\bigr)\cdot\sigv, \\
+\Pi(-)\Pi'(-)
+&= \tfrac14(1+\mathbf u\cdot\mathbf u')\notag\\
+&\quad + \tfrac14\bigl(-\mathbf u'-\mathbf u+i(\mathbf u\times\mathbf u')\bigr)\cdot\sigv.
+\end{align*}
 As a useful example, the Cayley-type transform is itself a projector exponential:
 \begin{align*}
 \frac{1-\mathbf r\cdot\sigv}{1+\mathbf r\cdot\sigv}
 &= \exp\!\bigl(-2\,\operatorname{arctanh}(\mathbf r\cdot\sigv)\bigr)\notag \\
-&= e^{-2\operatorname{arctanh}(\lVert\mathbf r\rVert)}\Pi(+)
-+ e^{+2\operatorname{arctanh}(\lVert\mathbf r\rVert)}\Pi(-).
+&= \exp\!\bigl(-2\,\operatorname{arctanh}(\lVert\mathbf r\rVert)\bigr)\Pi(+)\notag \\
+&\quad + \exp\!\bigl(+2\,\operatorname{arctanh}(\lVert\mathbf r\rVert)\bigr)\Pi(-).
 \end{align*}
 
 \subsubsection{Minimal Polynomial and Projector Decomposition}
