@@ -576,7 +576,7 @@ Equivalently, the low-velocity series can be summarized as
 \end{align*}
 shows exactly how the relativistic action contains the Newtonian kinetic term together with the additive rest-energy constant. Classical mechanics therefore appears as the approximation, not as the starting point.
 
-\subsubsection{Generalized Coordinate Fields and Metric Remarks}
+\subsubsection{Generalized Coordinate Fields}
 The preceding derivations depend only on the paravector algebra and the Minkowski metric, not on the particular choice of scalar coordinate \(t\) and vector coordinate \(\mathbf r\). For a more general real paravector coordinate field,
 \begin{equation*}
 X=f(t,\mathbf r)+\mathbf g(t,\mathbf r)\cdot\sigv,
@@ -598,8 +598,57 @@ U&=\frac{\dd X}{\dd s}=\gamma(1+\mathbf v\cdot\sigv),\qquad
 \end{equation*}
 Thus the proper-velocity formula is a structural consequence of the paravector interval itself; changing coordinates changes only the functions \(f\) and \(\mathbf g\), not the algebraic form of the result.
 
-For comparison with matrix notation, one may also write
+\subsubsection{Metric and Diagonalization}
+For comparison with matrix notation, write the coordinate tuple as
+\[
+x=(t,r_1,r_2,r_3)^T,
+\qquad
+\dd x=(\dd t,\dd r_1,\dd r_2,\dd r_3)^T.
+\]
+Then the interval may be written as
 \begin{equation*}
 \dd s^{2}=\dd x^{T}Q(x)\,\dd x
 \end{equation*}
-for a symmetric matrix \(Q(x)\). Standard linear algebra then gives an orthogonal diagonalization \(Q=NDN^{T}\). That matrix rewrite can be useful, but it does not erase the Lorentzian sign structure already built into \(\dd X\conj{\dd X}\). Diagonalization reorganizes the quadratic form; it does not convert the indefinite interval into a positive-definite Euclidean norm. The Minkowski metric therefore remains the primary statement.
+for a symmetric matrix \(Q(x)=Q(x)^T\). The eigenvalue problem is
+\begin{equation*}
+\det\!\bigl(Q-\lambda_n\I\bigr)=0,
+\qquad
+\bigl(Q-\lambda_n\I\bigr)u_n=0,
+\end{equation*}
+so the spectral data may be assembled as
+\[
+D=\operatorname{diag}(\lambda_0,\lambda_1,\lambda_2,\lambda_3),
+\qquad
+N=(u_0\,u_1\,u_2\,u_3).
+\]
+Because \(Q\) is symmetric, the eigenvalues are real and the eigenvectors may be chosen orthonormally, giving
+\[
+N^TN=NN^T=\I,
+\qquad
+N^{-1}=N^T.
+\]
+When \(Q\) is invertible, this yields
+\[
+Q^{-1}=ND^{-1}N^T,
+\]
+and in general
+\begin{align*}
+Q
+&=NDN^T\notag\\
+&=\sum_n \lambda_n\,u_nu_n^T.
+\end{align*}
+Therefore
+\begin{align*}
+\dd s^2
+&=\dd x^TQ\,\dd x\notag\\
+&=\sum_n \lambda_n\,(u_n\cdot \dd x)^2.
+\end{align*}
+Formally, one may absorb the eigenvalues into rescaled coordinates,
+\[
+\dd x_n' := \sqrt{\lambda_n}\,(u_n\cdot \dd x),
+\]
+so that
+\[
+\dd s^2=\dd x'\cdot \dd x'.
+\]
+This diagonalized rewrite can be useful, but it does not erase the Lorentzian sign structure already built into \(\dd X\conj{\dd X}\). For an indefinite metric some \(\lambda_n\) carry negative sign, so the interval is not thereby converted into a positive-definite Euclidean norm. Diagonalization reorganizes the quadratic form; the Minkowski-signature content remains the primary statement.

@@ -97,6 +97,7 @@
 \renewcommand{\thesection}{\arabic{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\setcounter{tocdepth}{3}
 \titleformat{\section}
   {\normalfont\Large\bfseries}
   {\thesection}{0.65em}{}
@@ -119,6 +120,18 @@
 \titlespacing*{\subsection}{0pt}{1.7ex plus .5ex minus .2ex}{0.65ex plus .15ex}
 \titlespacing*{\subsubsection}{0pt}{1.3ex plus .4ex minus .1ex}{0.45ex}
 \pagestyle{plain}
+\makeatletter
+\newcommand{\STACompactTOC}{%
+  \begingroup
+  \footnotesize
+  \setlength{\parskip}{0pt}%
+  \setlength{\columnsep}{0.18in}%
+  \begin{multicols}{2}%
+  \@starttoc{toc}%
+  \end{multicols}%
+  \endgroup
+}
+\makeatother
 
 \newcommand{\STATitle}{Space-Time Algebra (STA)}
 \newcommand{\STAAuthor}{Dr. Luke A. Wendt}
@@ -296,6 +309,15 @@ Z&=(a+ib)+(\mathbf A+i\mathbf B)\cdot\sigv=X+iY,\\
 \compendiumsubsubrowplain{Pauli limit}{2mE\Psi=(\mathbf P^2-q\mathbf B\cdot\sigv)\Psi}{\eqref{eq:pauli-operator}}
 \end{tabular}
 \endgroup
+\clearpage
+\thispagestyle{plain}
+\phantomsection
+\pdfbookmark[1]{Contents}{contents}
+\begin{center}
+\textbf{Contents}
+\end{center}
+\vspace{-0.55em}
+\STACompactTOC
 \clearpage
 
 \twocolumn

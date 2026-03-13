@@ -14,14 +14,77 @@ Recall also that the d'Alembertian is
 \end{align*}
 All differential operators act left to right.
 
-For compact expectation-value notation, let \(\psi\in\C\oplus\C^3\) be a normalized complex paravector state and let \(M\) be any algebra element with a well-defined product on \(\psi\). Write
+\subsubsection{Complex-Paravector Bilinears and Bra-Ket Extraction}
+To make the bra-ket notation precise in the paravector setting, write
 \begin{equation*}
 \begin{aligned}
-\langle \psi \mid \psi \rangle &:= \eqtext{scalar}(\rev{\psi}\psi)=1,\\
-\langle \psi \mid M \mid \psi \rangle &:= \eqtext{scalar}(\rev{\psi}M\psi).
+\psi&=\psi_s+\psi_{\mathbf v}\cdot\sigv,
+&
+O&=O_s+O_{\mathbf v}\cdot\sigv,\\
+Z&=Z_s+Z_{\mathbf v}\cdot\sigv,
+&
+X&=X_s+X_{\mathbf v}\cdot\sigv,
 \end{aligned}
 \end{equation*}
-In this shorthand, reversion \(^{\mathsf R}\) plays the role analogous to Hermitian conjugation.
+with \(\psi_s,Z_s\in\C\), \(\psi_{\mathbf v},Z_{\mathbf v}\in\C^3\), \(X_s\in\R\), \(X_{\mathbf v}\in\R^3\), and with operator-valued components acting left to right. The three involutions on the state are
+\begin{equation*}
+\begin{aligned}
+\conj{\psi}&=\psi_s^*-\psi_{\mathbf v}^*\cdot\sigv,\\
+\rev{\psi}&=\psi_s^*+\psi_{\mathbf v}^*\cdot\sigv,\\
+\crev{\psi}&=\psi_s-\psi_{\mathbf v}\cdot\sigv.
+\end{aligned}
+\end{equation*}
+The basic component products are collected below.
+\input{sections/qm_tables_expectation.tex}
+
+The reverse sandwich with a real scalar is the key probabilistic object. For \(S\in\R\),
+\begin{equation*}
+\rev{\psi}S\psi
+=S\bigl(\rho_\psi+\mathbf j_\psi\cdot\sigv\bigr),
+\end{equation*}
+where
+\begin{equation*}
+\rho_\psi:=|\psi_s|^2+\psi_{\mathbf v}^*\cdot\psi_{\mathbf v},
+\qquad
+\mathbf j_\psi:=\psi_s^*\psi_{\mathbf v}
++\psi_s\psi_{\mathbf v}^*
++i\,\psi_{\mathbf v}^*\times\psi_{\mathbf v}.
+\end{equation*}
+Thus \(\rev{\psi}\psi\) is naturally a density-current paravector: the scalar part is the positive density, while the vector part carries the associated directional information. More generally, the raw bilinear \(\rev{\psi}O\psi\) is a complex paravector, so before any extraction it contains one complex scalar and one complex vector, that is, four real component channels. The scalar channel gives the ordinary expectation value; the remaining channels can encode currents, fluxes, spin-orientation data, or other geometric bilinears depending on the operator.
+
+At fixed time, the natural normalization is therefore
+\begin{equation*}
+\langle \psi\mid\psi\rangle
+:=\int_{\R^3}\eqtext{scalar}(\rev{\psi}\psi)\,\dd^3r
+=\int_{\R^3}\rho_\psi\,\dd^3r
+=1.
+\end{equation*}
+For a complex-paravector operator \(O\), define
+\begin{equation*}
+\langle \psi\mid O\mid\psi\rangle
+:=\int_{\R^3}\eqtext{scalar}(\rev{\psi}O\psi)\,\dd^3r.
+\end{equation*}
+If the state is not already normalized, the corresponding expectation map is
+\begin{equation*}
+\mathbb E_\psi[O]
+:=
+\frac{\int_{\R^3}\eqtext{scalar}(\rev{\psi}O\psi)\,\dd^3r}
+{\int_{\R^3}\eqtext{scalar}(\rev{\psi}\psi)\,\dd^3r}.
+\end{equation*}
+If \(O\psi=\phi_s+\phi_{\mathbf v}\cdot\sigv\), then the extracted scalar channel is simply
+\begin{equation*}
+\eqtext{scalar}(\rev{\psi}O\psi)
+=\psi_s^*\phi_s+\psi_{\mathbf v}^*\cdot\phi_{\mathbf v}.
+\end{equation*}
+When \(O\) is reverse-self-adjoint under the spatial integral and the boundary terms are benign, this scalar expectation is real.
+
+By contrast,
+\begin{equation*}
+\crev{\psi}\psi
+=\psi_s^2-\psi_{\mathbf v}\cdot\psi_{\mathbf v}
+=\langle\!\langle\psi\rangle\!\rangle^2
+\end{equation*}
+is the STA metric bilinear. It is algebraically useful, but it is not positive-definite and so it should not be used as the probabilistic normalization. In this framework the single bra-ket bracket \(\langle\cdot\mid\cdot\rangle\) is therefore best reserved for the scalar expectation map built from reversion, while \(\langle\!\langle\cdot\rangle\!\rangle^2\) continues to denote the paravector metric.
 
 \subsubsection{Spin-0 Wave Mechanics}
 The scalar relativistic wave equation can be read directly from the mass-shell identity developed earlier in the kinematic section. Here \(\Psi\in\C\) is a complex scalar field, \(m\in\R\), and the free-particle operators are defined using the differential conventions from Section \ref{sec:differential}. Start from
