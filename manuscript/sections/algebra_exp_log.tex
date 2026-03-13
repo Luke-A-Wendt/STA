@@ -89,8 +89,7 @@ X'=\rev{R}XR.
 \end{aligned}
 \label{eq:rotor}
 \end{equation}
-Equation \eqref{eq:rotor} is the circular transform built from Eq.\ \eqref{eq:exp-bivector}. Its detailed transform consequences are developed in the generalized transform section.
-The quaternion form of the same circular exponential is recorded later in Eq.\ \eqref{eq:quaternion-basis}, after the quaternion units have been defined explicitly.
+Equation \eqref{eq:rotor} is the circular transform built from Eq.\ \eqref{eq:exp-bivector}. Its detailed transform consequences are developed in the generalized transform section. The quaternion restatement of the same sigma-number-two algebra is collected later, after the transform discussion has been completed.
 
 \subsubsection*{Exponentials of Complex Paravectors}
 Because the scalar part \(S\) commutes with \(\mathbf V\cdot\sigv\), the exponential again separates into scalar and directional factors:
@@ -119,23 +118,3 @@ z &= \sqrt{\mathbf V^{2}}\qquad \eqtext{complex scalar},\notag \\
 &= \sum_{n} (\mathbf V^{2})^{n} / (2n)! + \sum_{n} (\mathbf V^{2})^{n} / (2n+1)! (\mathbf V \cdot \sigv ),\notag \\
 &= \cosh(z) + \sinh(z) (\mathbf V \cdot \sigv ) / z.
 \end{align*}
-
-\subsubsection*{Quaternion Form of the Exponential Algebra}
-The same sigma-number-two basis used in Eq.\ \eqref{eq:exp-bivector} also reproduces Hamilton's quaternion units, so the exponential rotation algebra can be written in quaternion form without leaving the STA multiplication table \cite{hamilton1844,clifford1878}:
-\begin{equation}
-\begin{aligned}
-q_1&=-\sigma_2\sigma_3,\qquad
-q_2=-\sigma_3\sigma_1,\\
-q_3&=-\sigma_1\sigma_2,\qquad
-\mathbf q=-i\sigv.
-\end{aligned}
-\label{eq:quaternion-basis}
-\end{equation}
-Equation \eqref{eq:quaternion-basis} fixes the identification between the quaternion units and the sigma-number-two basis elements. For \(a\in\R\) and \(\mathbf b\in\R^3\), let the quaternion \(Q=a+\mathbf b\cdot\mathbf q=a-i\mathbf b\cdot\sigv\). Then
-\begin{equation}
-QQ^{\mathsf R}=a^2+\mathbf b^2,
-\qquad
-Q^2=a^2-\mathbf b^2-2ia\,\mathbf b\cdot\sigv.
-\label{eq:quaternion-square}
-\end{equation}
-The linear term must carry the factor \(a\). Equation \eqref{eq:quaternion-square} makes the comparison with Eqs.\ \eqref{eq:exp-bivector} and \eqref{eq:rotor} immediate: quaternion multiplication is the same sigma-number-two multiplication law that generates the circular exponential.

@@ -121,19 +121,19 @@
 
 \newcommand{\STATitle}{Space-Time Algebra (STA)}
 \newcommand{\STAAuthor}{Dr. Luke A. Wendt}
-\newcommand{\STAAbstractText}{Space-time algebra (STA) is developed in a paravector notation built from scalars and vectors. The algebraic development begins with the sigma basis, the conjugate and reverse operators, the decomposition of complex paravectors, dot and cross products, general paravector products, norms and scalar paravector metrics, projector algebra, exponential and logarithmic formulas, generalized transform identities, and the matrix and auxiliary realizations. The physical development then interprets the scalar paravector metric as the Minkowski metric, collects the spatial and paravector differential operators, and develops Maxwell electrodynamics together with Klein--Gordon, Dirac, and Pauli-type wave equations. Throughout, the paravector formulas are paired with explicit scalar and vector decompositions so that the component content of each result remains visible.}
+\newcommand{\STAAbstractText}{Space-time algebra (STA) is developed in a paravector notation organized around the conjugate operator \((\cdot)^*\), the reverse operator \((\cdot)^{\mathsf R}\), and the scalar paravector metric \(\langle\!\langle Z\rangle\!\rangle:=\sqrt{Z\crev{Z}}\). Complex paravectors are written as a complex scalar plus complex vector, equivalently as real scalar, imaginary scalar, real vector, and imaginary vector parts. That split makes the algebraic content of products explicit: norms, metrics, projectors, transforms, and matrix realizations follow from the same rules, and the physical development recovers Minkowski interval geometry, Maxwell electrodynamics, and Klein--Gordon, Dirac, and Pauli-type wave equations within one common product structure.}
 \newcommand{\STAIndexTerms}{space-time algebra, geometric algebra, Lorentz transformations, Maxwell electrodynamics, Dirac equation, Pauli equation}
 \newcommand{\STAMakeTitleBlock}{%
   \begin{center}
   {\LARGE\bfseries \STATitle \par}
-  \vspace{0.8em}
+  \vspace{0.55em}
   {\normalsize \STAAuthor \par}
   \end{center}
-  \vspace{0.8em}
+  \vspace{0.55em}
   \noindent\textbf{Abstract}---\STAAbstractText
-  \par\vspace{0.5em}
+  \par\vspace{0.35em}
   \noindent\textit{Index Terms}---\STAIndexTerms.
-  \par\vspace{1.0em}
+  \par\vspace{0.8em}
 }
 \hypersetup{
   pdftitle={\STATitle},
@@ -148,11 +148,11 @@
 \thispagestyle{plain}
 
 \section{Introduction}\label{sec:orientation}
-Space-time algebra extends the familiar scalar and vector calculus of three-dimensional space into one associative algebra that can carry rotations, boosts, differential operators, and relativistic wave equations in a common language. The basic objects used here are paravectors in \(\R\oplus\R^3\) and \(\C\oplus\C^3\), so the same algebraic product that combines scalar and vector pieces also supplies the norm, the scalar paravector metric, the space-time interval, the electromagnetic field formulas, and the relativistic wave operators developed later in the manuscript.
+The main structural emphasis of this manuscript is a paravector form of space-time algebra organized by three operations: the conjugate \((\cdot)^*\), the reverse \((\cdot)^{\mathsf R}\), and the scalar paravector metric \(\langle\!\langle Z\rangle\!\rangle^2\). Writing \(Z\in\C\oplus\C^3\) as a complex scalar plus complex vector, or equivalently as real scalar, imaginary scalar, real vector, and imaginary vector parts, makes several layers of structure visible at once. The same product then encodes scalar-vector couplings, real-imaginary couplings, norms, interval formulas, field terms, and wave operators in one algebraic framework.
 
-The document is organized from simple algebraic structure to physical application. It begins with the sigma basis, the conjugate and reverse operators, the decomposition of a complex paravector into real scalar, imaginary scalar, real vector, and imaginary vector parts, the dot and cross products, the general paravector product laws, and the resulting norm and scalar-paravector-metric identities. It then develops projector algebra, exponential and logarithmic formulas, generalized transform identities, and the matrix and auxiliary \(2\times2\) realizations needed later for the Dirac-type constructions. Only after that algebraic setup is fixed does the presentation turn to space-time kinematics, differential-operator notation, electromagnetism, and relativistic wave equations.
+The document proceeds from algebraic construction to physical interpretation. It begins with the sigma basis, the conjugate and reverse operators, the decomposition of complex paravectors, dot and cross products, general paravector product laws, and the resulting norm and scalar-paravector-metric identities. It then develops projector algebra, exponential and logarithmic formulas, generalized transform identities, and the matrix and auxiliary \(2\times2\) realizations. Only after that algebraic setup is fixed does the presentation turn to space-time kinematics, differential-operator notation, electromagnetism, and relativistic wave equations.
 
-This perspective is consistent with the modern STA and paravector literature of Hestenes, Baylis, and Doran--Lasenby \cite{hestenes1966,baylis1999,doran2003}, while its algebraic lineage runs back through Hamilton's quaternion construction and Clifford's geometric extension \cite{hamilton1844,clifford1878}. A one-page Equation Reference Sheet follows this introduction and serves as a reference sheet for the numbered formulas developed in the body.
+This perspective is consistent with the modern STA and paravector literature of Hestenes, Baylis, and Doran--Lasenby \cite{hestenes1966,baylis1999,doran2003}, while its algebraic lineage runs back through Hamilton's quaternion construction and Clifford's geometric extension \cite{hamilton1844,clifford1878}. The present treatment emphasizes keeping the scalar/vector and real/imaginary decompositions explicit so that familiar physical relations appear as compact consequences of the same algebraic products. A one-page Equation Reference Sheet follows this introduction and collects the main numbered formulas.
 
 Bold symbols denote three-vectors, and the remaining symbols are defined where they first appear. Whenever a new symbol is introduced, the text states whether it is a scalar, vector, or paravector and whether it is real or complex. Complexification is carried by the pseudoscalar \(i\). Natural units \(\hbar=c=1\) and metric signature \((+,-,-,-)\) are used unless stated otherwise.
 
@@ -235,7 +235,7 @@ Z&=(a+ib)+(\mathbf A+i\mathbf B)\cdot\sigv=X+iY,\\
 \begin{tabular}{@{}p{0.27\textwidth}@{\hspace{0.02\textwidth}}p{0.60\textwidth}@{\hspace{0.015\textwidth}}>{\raggedleft\arraybackslash}p{0.085\textwidth}@{}}
  &  & \textbf{Ref.}\\[0.32em]
 \compendiumrowplain{Pseudoscalar}{i=\sigma_1\sigma_2\sigma_3}{\eqref{eq:basis}}
-\compendiumrowplain{Sigma product}{\sigma_n\sigma_m=\delta_{nm}+\sideset{_{k=1}^{3}}{}\sum\epsilon_{nmk}\,i\sigma_k}{\eqref{eq:sigma-product}}
+\compendiumrowplain{Sigma product}{\sigma_n\sigma_m=\delta_{nm}+\mathop{\Sigma}\nolimits_{k=1}^{3}\epsilon_{nmk}\,i\sigma_k}{\eqref{eq:sigma-product}}
 \compendiumrowplain{Conjugate operator}{(\cdot)^*=\eqtext{conjugate that flips signs of }\sigma_n}{\eqref{eq:star-definition}}
 \compendiumrowplain{Reverse operator}{(\cdot)^{\mathrm R}=\eqtext{reverse order of multiplied }\sigma_n}{\eqref{eq:reversion-definition}}
 \compendiumrowplain{Complex paravector}{Z=(a+ib)+(\mathbf A+i\mathbf B)\cdot\sigv=S+\mathbf V\cdot\sigv=X+iY}{\eqref{eq:real-paravector-x}, \eqref{eq:paravector-vector}}
@@ -252,11 +252,11 @@ Z&=(a+ib)+(\mathbf A+i\mathbf B)\cdot\sigv=X+iY,\\
 \compendiumsubrowplain{Vector product}{(\mathbf A\cdot\sigv)(\mathbf B\cdot\sigv)=\mathbf A\cdot\mathbf B+i(\mathbf A\times\mathbf B)\cdot\sigv}{\eqref{eq:dot-cross}}
 \compendiumsubrowplain{Paravector product}{ZZ'=SS'+\mathbf V\cdot\mathbf V'+\bigl(S\mathbf V'+S'\mathbf V+i(\mathbf V\times\mathbf V')\bigr)\cdot\sigv}{\eqref{eq:paravector-product}}
 \compendiumsubrowplain{Paravector commutator}{[Z,Z']=2i(\mathbf V\times\mathbf V')\cdot\sigv}{\eqref{eq:paravector-commutator}}
-\compendiumsubrowplain{Scalar norm}{|S|^2=SS^*=a^2+b^2}{\eqref{eq:scalar-norm}}
-\compendiumsubrowplain{Vector norm}{\|\mathbf V\|^2=\mathbf V\cdot\mathbf V^*=\mathbf A^2+\mathbf B^2}{\eqref{eq:vector-norm}}
-\compendiumsubrowplain{Paravector norm}{\|Z\|^2=\eqtext{scalar}(Z\rev{Z})=|S|^2+\|\mathbf V\|^2}{\eqref{eq:euclidean-form}}
+\compendiumsubrowplain{Scalar norm}{|S|=\sqrt{SS^*}}{\eqref{eq:scalar-norm}}
+\compendiumsubrowplain{Vector norm}{\|\mathbf V\|=\sqrt{\mathbf V\cdot\mathbf V^*}}{\eqref{eq:vector-norm}}
+\compendiumsubrowplain{Paravector norm}{\|Z\|=\sqrt{|S|^2+\|\mathbf V\|^2}}{\eqref{eq:euclidean-form}}
 \compendiumsubrowplain{Real scalar paravector metric}{\langle\!\langle X\rangle\!\rangle^2=XX^*=a^2-\mathbf A^2}{\eqref{eq:real-paravector-metric}}
-\compendiumsubrowplain{Scalar paravector metric}{\langle\!\langle Z\rangle\!\rangle^2=Z\crev{Z}=S^2-\mathbf V^2}{\eqref{eq:minkowski-form}}
+\compendiumsubrowplain{Scalar paravector metric}{\langle\!\langle Z\rangle\!\rangle=\sqrt{S^2-\mathbf V^2}}{\eqref{eq:minkowski-form}}
 \compendiumsubrowplain{Paravector inverse}{Z^{-1}=\crev{Z}/\langle\!\langle Z\rangle\!\rangle^2=(S-\mathbf V\cdot\sigv)/(S^2-\mathbf V^2)}{\eqref{eq:paravector-inverse}}
 \compendiumrowplain{Projector}{\Pi(\pm)=\tfrac12(1\pm \mathbf u\cdot\sigv)}{\eqref{eq:projectors}}
 \compendiumsubrowplain{Functional calculus}{f(\mathbf u\cdot\sigv)=f(+)\Pi(+)+f(-)\Pi(-)}{\eqref{eq:functional-calculus}}
@@ -593,47 +593,59 @@ Equations \eqref{eq:paravector} and \eqref{eq:paravector-product} fix the generi
 Using Eq.\ \eqref{eq:vector-square}, the product formulas above now collect the norm and scalar paravector metric identities used later in the paper.
 For a complex scalar \(S=a+ib\in\C\), define the scalar norm by
 \begin{equation}
-|S|^2:=SS^*=a^2+b^2.
+|S|:=\sqrt{SS^*}.
 \label{eq:scalar-norm}
 \end{equation}
-If \(S\in\R\), then Eq.\ \eqref{eq:scalar-norm} reduces to the ordinary absolute-value square \(|S|^2=S^2\).
+\begin{equation*}
+\begin{aligned}
+|S|^2&=SS^*\\
+&=a^2+b^2.
+\end{aligned}
+\end{equation*}
+If \(S\in\R\), then Eq.\ \eqref{eq:scalar-norm} reduces to the ordinary absolute value \(|S|=\sqrt{S^2}\).
 For a complex vector \(\mathbf V=\mathbf A+i\mathbf B\in\C^3\), define the vector norm by
 \begin{equation}
-\|\mathbf V\|^2:=\mathbf V\cdot\mathbf V^*=\mathbf A^2+\mathbf B^2.
+\|\mathbf V\|:=\sqrt{\mathbf V\cdot\mathbf V^*}.
 \label{eq:vector-norm}
 \end{equation}
+\begin{equation*}
+\begin{aligned}
+\|\mathbf V\|^2&=\mathbf V\cdot\mathbf V^*\\
+&=\mathbf A^2+\mathbf B^2.
+\end{aligned}
+\end{equation*}
 The quadratic product \(\mathbf V^2=\mathbf V\cdot\mathbf V\) is not the same object as the positive norm square \(\mathbf V\cdot\mathbf V^*\).
-For the complex paravector \(Z\) from Eqs.\ \eqref{eq:paravector}--\eqref{eq:paravector-cartesian}, the paravector norm is recovered from the scalar part of the product with its reverse:
+For the complex paravector \(Z\) from Eqs.\ \eqref{eq:paravector}--\eqref{eq:paravector-cartesian}, define the paravector norm by
 \begin{align}
+\|Z\|
+&:= \sqrt{|S|^2+\|\mathbf V\|^2},\label{eq:euclidean-form}\\
 \|Z\|^2
-&:= \eqtext{scalar}(Z\rev{Z})
-= \eqtext{scalar}(\rev{Z}Z)\notag\\
-&= |S|^2+\|\mathbf V\|^2.
-\label{eq:euclidean-form}
+&= |S|^2+\|\mathbf V\|^2\notag\\
+&= a^2+b^2+\mathbf A^2+\mathbf B^2\notag\\
+&= \eqtext{scalar}(Z\rev{Z})
+= \eqtext{scalar}(\rev{Z}Z).\notag
 \end{align}
-This norm is therefore a real scalar. For the scalar paravector metric, use the complex paravector \(Z\) from Eqs.\ \eqref{eq:paravector}--\eqref{eq:paravector-cartesian} and the real paravector \(X\) from Eq.\ \eqref{eq:real-paravector-x}.
-The scalar paravector metric \(\langle\!\langle\cdot\rangle\!\rangle^2\) always gives a scalar:
-it lies in \(\C\) for complex paravectors and in \(\R\) for real paravectors.
-Define the complex scalar paravector metric by
+This norm is therefore a nonnegative real scalar, and it is the reverse operator \((\cdot)^{\mathrm R}\) that supplies the quadratic form. For the scalar paravector metric, use the complex paravector \(Z\) from Eqs.\ \eqref{eq:paravector}--\eqref{eq:paravector-cartesian} and the real paravector \(X\) from Eq.\ \eqref{eq:real-paravector-x}. The scalar paravector metric \(\langle\!\langle\cdot\rangle\!\rangle\) is defined by the principal square root of a scalar: its argument lies in \(\C\) for complex paravectors and in \(\R\) for real paravectors. Define the complex scalar paravector metric by
 \begin{align}
+\langle\!\langle Z\rangle\!\rangle
+&:= \sqrt{S^2-\mathbf V^2},\label{eq:minkowski-form}\\
 \langle\!\langle Z\rangle\!\rangle^2
-&:= Z\crev{Z}=Z^{*\mathrm{R}}Z\notag\\
 &= S^2-\mathbf V^2\notag\\
-&= (a^2-b^2-\mathbf A^2+\mathbf B^2)+2i(ab-\mathbf A\cdot\mathbf B).
-\label{eq:minkowski-form}
+&= (a^2-b^2-\mathbf A^2+\mathbf B^2)+2i(ab-\mathbf A\cdot\mathbf B)\notag\\
+&= Z\crev{Z}
+= \crev{Z}Z.\notag
 \end{align}
-The product order does not matter because \(Z^{*\mathrm{R}}Z=ZZ^{*\mathrm{R}}\) is scalar.
+The product order does not matter because \(\crev{Z}Z=Z\crev{Z}\) is scalar. Thus the metric is built from the reverse-conjugate operator \((\cdot)^{*\mathrm R}\), not from the reverse alone.
 For the real paravector \(X\) from Eq.\ \eqref{eq:real-paravector-x}, note that \(X^{*\mathrm{R}}=X^*\), so the real scalar paravector metric is
 \begin{align}
 \langle\!\langle X\rangle\!\rangle^2
-&:= XX^{*\mathrm{R}}=X^{*\mathrm{R}}X=XX^*=X^*X\notag\\
-&= a^2-\mathbf A^2.
-\label{eq:real-paravector-metric}
+&= a^2-\mathbf A^2\notag\\
+&= XX^*=X^*X.\label{eq:real-paravector-metric}
 \end{align}
 For \(Z,Z'\in\C\oplus\C^3\), the scalar paravector metric is multiplicative:
 \begin{align}
 \langle\!\langle ZZ'\rangle\!\rangle^2
-&:= ZZ'(ZZ')^{*\mathrm{R}}
+&= ZZ'(ZZ')^{*\mathrm{R}}
 = ZZ'Z'^{*\mathrm{R}}Z^{*\mathrm{R}}
 = Z\bigl(Z'Z'^{*\mathrm{R}}\bigr)Z^{*\mathrm{R}}\notag\\
 &= Z\,\langle\!\langle Z'\rangle\!\rangle^2\,Z^{*\mathrm{R}}
@@ -714,7 +726,7 @@ Equation \eqref{eq:ladder} records the nilpotent combinations of \(\sigma_1\) an
 \input{sections/representations.tex}
 
 \subsection*{Exponential and Logarithmic Algebra}
-With the projector calculus fixed, exponential and logarithmic formulas can be developed in one place. The sigma-number-one exponential produces hyperbolic half-angle transform elements, the sigma-number-two exponential produces circular half-angle transform elements, and the quaternion bridge uses that same circular basis.
+With the projector calculus fixed, exponential and logarithmic formulas can be developed in one place. The sigma-number-one exponential produces hyperbolic half-angle transform elements, and the sigma-number-two exponential produces the circular half-angle elements used later for rotors and for the quaternion correspondence.
 \input{sections/algebra_exp_log.tex}
 
 \subsection*{Generalized Transform Algebra}\label{sec:transform-algebra}
@@ -728,8 +740,12 @@ Here \(T\) is a generic invertible algebra element. Equation \eqref{eq:general-t
 \input{sections/algebra_transforms.tex}
 \input{sections/transforms.tex}
 
+\subsection*{Quaternion Correspondence}
+Now that the circular exponential and rotor law have both been developed, the same sigma-number-two algebra can be restated in Hamilton's quaternion language without introducing a new multiplication rule. The point of this subsection is to collect that correspondence in one place after the rotation discussion has been completed.
+\input{sections/algebra_quaternions.tex}
+
 \subsection*{Matrix and Auxiliary Realizations}
-The algebra above is complete on its own, but two familiar realizations are useful to record explicitly. The standard \(2\times 2\) matrix model in Eq.\ \eqref{eq:pauli-matrices} and determinant identity \eqref{eq:matrix-X} give a concrete realization of the generator algebra \cite{pauli1927}, while the auxiliary \(2\times2\) map in Eq.\ \eqref{eq:W-map} packages a complex paravector into a diagonalizable \(2\times2\) operator built from the same conjugate and reverse structure \cite{hestenes1966,doran2003}. The quaternion correspondence has already been included in the exponential and logarithmic block because it uses the same sigma-number-two basis and the same circular exponential structure as Eq.\ \eqref{eq:rotor}.
+The algebra above is complete on its own, but two familiar realizations are useful to record explicitly. The standard \(2\times 2\) matrix model in Eq.\ \eqref{eq:pauli-matrices} and determinant identity \eqref{eq:matrix-X} give a concrete realization of the generator algebra \cite{pauli1927}, while the auxiliary \(2\times2\) map in Eq.\ \eqref{eq:W-map} packages a complex paravector into a diagonalizable \(2\times2\) operator built from the same conjugate and reverse structure \cite{hestenes1966,doran2003}. The quaternion correspondence has been collected in the preceding subsection because it uses the same sigma-number-two basis and the same circular exponential structure as Eq.\ \eqref{eq:rotor}.
 \input{sections/algebra_representations.tex}
 
 \section{Space-Time Kinematics}\label{sec:spacetime}
