@@ -9,7 +9,17 @@ X' &= T^{-1} X T,\notag \\
 \begin{equation*}
 T^{-1} = T^{\mathrm{R}*} / (T^{\mathrm{R}*} T).
 \end{equation*}
-This identity matters because it expresses the inverse directly in the algebra. For rotors one has \(T^{\mathrm{R}*}T=1\), so the inverse simplifies to the operator form used throughout the rotation and moving-frame calculations:
+The scalar paravector metric is invariant under this similarity law because Eq.\ \eqref{eq:metric-product} is multiplicative:
+\begin{align*}
+\langle\!\langle X' \rangle\!\rangle^{2}
+&= \langle\!\langle T^{-1} X T \rangle\!\rangle^{2},\notag \\
+&= \langle\!\langle T^{-1} \rangle\!\rangle^{2}\langle\!\langle X \rangle\!\rangle^{2}\langle\!\langle T \rangle\!\rangle^{2},\notag \\
+&= \langle\!\langle T^{-1} \rangle\!\rangle^{2}\langle\!\langle T \rangle\!\rangle^{2}\langle\!\langle X \rangle\!\rangle^{2},\notag \\
+&= \langle\!\langle T^{-1}T \rangle\!\rangle^{2}\langle\!\langle X \rangle\!\rangle^{2},\notag \\
+&= \langle\!\langle 1 \rangle\!\rangle^{2}\langle\!\langle X \rangle\!\rangle^{2},\notag \\
+&= \langle\!\langle X \rangle\!\rangle^{2}.
+\end{align*}
+So the transform changes the algebraic representative of \(X\) without changing its scalar metric. This identity matters because it expresses the inverse directly in the algebra. For rotors one has \(T^{\mathrm{R}*}T=1\), so the inverse simplifies to the operator form used throughout the rotation and moving-frame calculations:
 \begin{align*}
 T^{\mathrm{R}*} T &= 1,\qquad T^{-1} = T^{\mathrm{R}*},\notag \\
 T^{-1} T &= 1,\qquad d(T^{-1}) T = -T^{-1} dT,\notag \\

@@ -221,21 +221,21 @@ Z&=(a+ib)+(\mathbf A+i\mathbf B)\cdot\sigv=X+iY,\\
 \endgroup
 \fi
 \begingroup
-\fontsize{8.55}{9.15}\selectfont
+\fontsize{8.90}{9.30}\selectfont
 \setlength{\jot}{0.25em}
 \setlength{\tabcolsep}{0pt}
 \renewcommand{\arraystretch}{1.00}
-\newcommand{\compendiumrowplain}[3]{#1 & \(\displaystyle #2\) & #3\\[0.08em]}
-\newcommand{\compendiumsubrowplain}[3]{\hspace*{0.9em}#1 & \hspace*{0.9em}\(\displaystyle #2\) & #3\\[0.05em]}
-\newcommand{\compendiumsubsubrowplain}[3]{\hspace*{2.4em}#1 & \hspace*{2.4em}\(\displaystyle #2\) & #3\\[0.05em]}
-\newcommand{\compendiumsubsubsubrowplain}[3]{\hspace*{2.7em}#1 & \hspace*{2.7em}\(\displaystyle #2\) & #3\\[0.05em]}
+\newcommand{\compendiumrowplain}[3]{#1 & \(\textstyle #2\) & #3\\[0.06em]}
+\newcommand{\compendiumsubrowplain}[3]{\hspace*{0.9em}#1 & \hspace*{0.9em}\(\textstyle #2\) & #3\\[0.05em]}
+\newcommand{\compendiumsubsubrowplain}[3]{\hspace*{2.4em}#1 & \hspace*{2.4em}\(\textstyle #2\) & #3\\[0.05em]}
+\newcommand{\compendiumsubsubsubrowplain}[3]{\hspace*{2.7em}#1 & \hspace*{2.7em}\(\textstyle #2\) & #3\\[0.05em]}
 \noindent Natural units: \(\hbar=c=1\). Metric signature: \((+,-,-,-)\).
-\par\vspace{0.18em}
+\par\vspace{0.15em}
 \noindent
 \begin{tabular}{@{}p{0.27\textwidth}@{\hspace{0.02\textwidth}}p{0.60\textwidth}@{\hspace{0.015\textwidth}}>{\raggedleft\arraybackslash}p{0.085\textwidth}@{}}
- &  & \textbf{Ref.}\\[0.36em]
+ &  & \textbf{Ref.}\\[0.32em]
 \compendiumrowplain{Pseudoscalar}{i=\sigma_1\sigma_2\sigma_3}{\eqref{eq:basis}}
-\compendiumrowplain{Sigma product}{\sigma_n\sigma_m=\delta_{nm}+\sum_{k=1}^3\epsilon_{nmk}\,i\sigma_k}{\eqref{eq:sigma-product}}
+\compendiumrowplain{Sigma product}{\sigma_n\sigma_m=\delta_{nm}+\sideset{_{k=1}^{3}}{}\sum\epsilon_{nmk}\,i\sigma_k}{\eqref{eq:sigma-product}}
 \compendiumrowplain{Conjugate operator}{(\cdot)^*=\eqtext{conjugate that flips signs of }\sigma_n}{\eqref{eq:star-definition}}
 \compendiumrowplain{Reverse operator}{(\cdot)^{\mathrm R}=\eqtext{reverse order of multiplied }\sigma_n}{\eqref{eq:reversion-definition}}
 \compendiumrowplain{Complex paravector}{Z=(a+ib)+(\mathbf A+i\mathbf B)\cdot\sigv=S+\mathbf V\cdot\sigv=X+iY}{\eqref{eq:real-paravector-x}, \eqref{eq:paravector-vector}}
@@ -1127,8 +1127,60 @@ Not every complementary component carries an accepted physical interpretation. S
 
 The extra companion formulas are therefore worth retaining in view, but they should be interpreted with discipline. Some are already standard parts of accepted theory, while others remain algebraically suggestive rather than physically established.
 
+\subsection*{Toward General Relativity}
+The natural gravitational extension is already suggested by Section \ref{sec:transform-algebra}. There the basis was allowed to depend on a transform element \(T(x)\), giving the local sigma basis
+\begin{equation*}
+\sigma_n'(x):=T(x)^{-1}\sigma_n T(x),
+\qquad
+d\sigma_n'=[\sigma_n',T^{-1}dT].
+\end{equation*}
+To move toward general relativity, one would promote that moving basis from a calculational device to the actual local spacetime frame. The interval would then still be built from the same scalar paravector metric as before, but now with position-dependent basis elements:
+\begin{equation*}
+dX=dt+d\mathbf r\cdot\sigv '(x),
+\qquad
+ds^2=\langle\!\langle dX\rangle\!\rangle^2.
+\end{equation*}
+So the metric is still encoded by the same paravector product used throughout this paper; the new ingredient is that the sigma basis is no longer fixed globally.
+
+The corresponding connection is the differential transform element already introduced in Eq.\ \eqref{eq:general-transform}:
+\begin{equation*}
+d\Theta:=T^{-1}dT.
+\end{equation*}
+The transformed-basis calculation in Section \ref{sec:transform-algebra} shows that only the parts of \(d\Theta\) that fail to commute with the basis move the frame. In the decomposition
+\begin{equation*}
+\Omega=T^{-1}(dT/dt)=\Omega_s+\tfrac12 (k+i\omega)\cdot\sigv ',
+\end{equation*}
+the real-vector part \(k\) is the infinitesimal boost data and the imaginary-vector part \(\omega\) is the infinitesimal rotation data. A curved extension would therefore treat these local boost and rotation pieces as the gravitational connection written in the document's own sigma language, rather than introducing separate Christoffel symbols from the start.
+
+For any chosen coordinate direction \(d_a\), define the directional connection element
+\begin{equation*}
+\Omega_a:=T^{-1}(d_a T).
+\end{equation*}
+Then, for a transported paravector \(Z'=T^{-1}ZT\), the same transport identity already derived for \(X'=T^{-1}XT\) suggests the local derivative law
+\begin{equation*}
+D_a Z':=T^{-1}(d_a Z)T+[Z',\Omega_a].
+\end{equation*}
+Curvature is then the failure of these local derivatives to commute:
+\begin{equation*}
+[D_a,D_b]Z'=[Z',F_{ab}],
+\end{equation*}
+with curvature element
+\begin{equation*}
+F_{ab}:=d_a\Omega_b-d_b\Omega_a+[\Omega_a,\Omega_b].
+\end{equation*}
+This is the same algebraic pattern that already appeared in the moving-frame commutator formulas, now interpreted as genuine spacetime curvature. In other words, curvature would be the obstruction to patching the local transforms \(T(x)\) into one global flat frame.
+
+The Einstein equation would then be most naturally written not as one bare paravector product, but as an equality between linear maps on real paravectors \(A\in\R\oplus\R^3\):
+\begin{equation*}
+G(A):=\operatorname{Ric}(A)-\tfrac12 A\,R
+=8\pi G_N\,\mathcal T_{\mathrm m}(A).
+\end{equation*}
+Here \(\operatorname{Ric}(A)\) is the Ricci contraction of the curvature built from the local basis \(\{1,\sigv '(x)\}\), \(R\) is the associated scalar curvature, and \(\mathcal T_{\mathrm m}(A)\) is the matter stress-energy map. This says the same thing as the usual Einstein equation, but it packages the contractions through the scalar paravector metric, commutators, and linear maps instead of explicit tensor indices \cite{lasenby1998,doran2003}.
+
+So the answer remains qualified yes, but in a form closer to the present manuscript: general relativity can be written largely without tensor indexing by extending the already-developed similarity transforms, moving-basis formulas, commutators, and scalar paravector metric to local frames. What cannot be avoided is the need for linear maps. Curvature and stress-energy are not captured by one ordinary product of a single paravector; they require the local transform field \(T(x)\), the connection elements \(\Omega_a\), and the induced curvature and source maps.
+
 \subsection*{Remaining Work}
-The largest missing development is general relativity. The present paper works with a fixed flat-space sigma basis, so curvature never enters. A genuine gravitational extension would require a position-dependent local paravector frame, a covariant derivative with connection terms that describe local rotations and boosts of that frame, and curvature defined from the commutator of those covariant derivatives. In that setting the interval, geodesic motion, Maxwell system, and Dirac system would all have to be rewritten in local frame form, and the energy-momentum discussion around Eq.\ \eqref{eq:energy-momentum-paravector} would have to be replaced by the full source structure needed for Einstein-type field equations. In short, the next gravitational step is not a small correction to the present notation; it is a local-frame version of the whole flat-space construction.
+The gravitational extension sketched above is not developed in the present paper. Every calculation proved here still assumes a fixed flat-space sigma basis, so curvature, covariant transport, and Einstein dynamics are only prospective at this stage. To turn that sketch into a full development, the interval, geodesic law, Maxwell system, and Dirac system would all have to be rewritten in local frame form, and the source discussion around Eq.\ \eqref{eq:energy-momentum-paravector} would have to be replaced by the full stress-energy map required by the Einstein equation. In short, the next gravitational step is not a small correction to the present notation; it is a local-frame version of the whole flat-space construction.
 
 Several other developments are also still missing. The present document does not yet develop non-Abelian gauge structure, so the algebra has not been tested here against the internal symmetries of weak and strong interactions. It does not yet treat many-particle or entangled quantum states, where one needs more than a single paravector or a single \(2\times2\) auxiliary system. It also does not yet give a full account of constitutive laws for anisotropic media, dissipative systems, or continuum mechanics, where higher-rank linear response objects usually appear. On the mathematical side, operator domains, boundary terms, and regularity hypotheses still need to be stated more systematically whenever differential operators are factored or commuted.
 
@@ -1183,6 +1235,9 @@ D. Hestenes, \emph{Space-Time Algebra}, Gordon and Breach, 1966. See also the 2n
 
 \bibitem{baylis1999}
 W. E. Baylis, \emph{Electrodynamics: A Modern Geometric Approach}, Birkh\"auser, 1999.
+
+\bibitem{lasenby1998}
+A. Lasenby, C. Doran, and S. Gull, ``Gravity, gauge theories and geometric algebra,'' \emph{Philosophical Transactions of the Royal Society A} 356 (1998), 487--582. DOI: \url{https://doi.org/10.1098/rsta.1998.0178}.
 
 \bibitem{doran2003}
 C. Doran and A. Lasenby, \emph{Geometric Algebra for Physicists}, Cambridge University Press, 2003.
