@@ -1,4 +1,4 @@
-\subsubsection*{Electric and Magnetic Fields}
+\subsubsection{Electric and Magnetic Fields}
 This subsection expands the electromagnetic equations so that the scalar and vector content of the field paravector can be read directly. See Eqs.\ \eqref{eq:delr}--\eqref{eq:dalembertian}, \eqref{eq:F-Phi}, and \eqref{eq:maxwell}. Here \(V,\rho,S,q\in\R\), \(\mathbf A,\mathbf E,\mathbf B,\mathbf J\in\R^3\), \(\Phi=V+\mathbf A\cdot\sigv\in\R\oplus\R^3\), \(\mathbf F=\mathbf E+i\mathbf B\in\C^3\), and \(F=\mathbf F\cdot\sigv\in\varnothing\oplus\C^3\).
 The spatial and paravector derivative notation is fixed once in Section \ref{sec:differential}. In particular, Eq.\ \eqref{eq:gradient-notation} gives \(\gradv=\{\partial_1,\partial_2,\partial_3\}\) with \(\partial_i=\partial/\partial r_i\), while Eqs.\ \eqref{eq:partial-operator} and \eqref{eq:partial-conjugate} define \(\partial\) and \(\partial^*\). The operator \(\partial\in\R\oplus\R^3\) is therefore a differential paravector whose scalar part is the time derivative and whose vector part is the spatial derivative. With that notation fixed, the electric and magnetic fields can be combined without introducing any new multiplication rule.
 \input{sections/em_tables_derivative.tex}
@@ -46,7 +46,7 @@ Separating the vector components then gives
 \gradv \times \mathbf E &= -\partial _{t} \mathbf B.
 \end{align*}
 
-\subsubsection*{Lorentz Transformation of the Field}
+\subsubsection{Lorentz Transformation of the Field}
 Once the electromagnetic field has been assembled into the single paravector \(F\), the boost law from Eq.\ \eqref{eq:field-transform} can be expanded directly in components. For a boost
 \(L=\exp(\tfrac12\theta\,\mathbf u\cdot\sigv)\) with \(\mathbf u^{2}=1\), \(\beta=\tanh(\theta)\), and \(\gamma=\cosh(\theta)\), the parallel and perpendicular field parts relative to \(\mathbf u\) obey
 \begin{align*}
@@ -65,7 +65,7 @@ Equivalently, the transformed fields can be written in the compact form
 \end{align*}
 The parallel components are unchanged, while the perpendicular components mix by the standard electric-magnetic cross terms. This is the component form of the single algebraic boost law \(F'=\conj{L}FL\) already introduced in Eq.\ \eqref{eq:field-transform}.
 
-\subsubsection*{Wave Operator and d’Alembertian}
+\subsubsection{Wave Operator and d’Alembertian}
 The wave-operator conventions are fixed once in Eqs.\ \eqref{eq:partial-operator}, \eqref{eq:partial-conjugate}, and \eqref{eq:dalembertian}. Only the derived identities needed later are recorded here:
 \begin{equation*}
 \partial ^{2} = \partial _{t}^{2} + \gradv^{2} + 2 \partial _{t} \gradv \cdot \sigv.
@@ -91,7 +91,7 @@ In vacuum, where \(\rho=0\) and \(\mathbf J=0\), this reduces to
 \end{align*}
 \input{sections/em_tables_wave.tex}
 
-\subsubsection*{Potential Fields}
+\subsubsection{Potential Fields}
 Eqs.\ \eqref{eq:potential-gradient} and \eqref{eq:E-B-from-potential} put gauge freedom, source reconstruction, and the electric/magnetic field split in one place. Here \(V,S,\rho,\lambda\in\R\), \(\mathbf A,\mathbf E,\mathbf B,\mathbf J\in\R^3\), \(\Phi\in\R\oplus\R^3\), \(\mathbf F\in\C^3\), and \(F\in\varnothing\oplus\C^3\):
 \begin{align*}
 F^{*} &= (-\mathbf E + i \mathbf B) \cdot \sigv,\notag \\
@@ -130,7 +130,7 @@ Equivalently, without introducing \(S\), one may write
 F^{*} = (\partial \Phi - (\partial \Phi )^{*\mathrm{R}}) / 2.
 \end{equation*}
 
-\subsubsection*{Sources Derived from the Potential}
+\subsubsection{Sources Derived from the Potential}
 Using the previously defined potential \(\Phi=V+\mathbf A\cdot\sigv\), scalar part \(S=\partial_t V+\gradv\cdot\mathbf A\), and identity \(F^{*}=\partial\Phi-S\), one obtains
 \begin{align*}
 F &= \partial ^{*} \Phi ^{*} - S,\notag \\
@@ -152,7 +152,7 @@ In Lorenz gauge, where \(S=0\), these relations reduce to
 \mathbf J &= \square \mathbf A.
 \end{align*}
 
-\subsubsection*{Gauge Transform of the Potential}
+\subsubsection{Gauge Transform of the Potential}
 \begin{align*}
 \eqtext{scalar}( \partial \Phi ) &= S, \\
 S &= \partial _{t} V + \gradv \cdot \mathbf A.
@@ -172,7 +172,7 @@ F' &= F.
 \end{align*}
 This makes the gauge split explicit: \(\Phi\) changes by a derivative of a real scalar, the scalar part of \(\partial\Phi\) shifts by \(\square\lambda\), and the field paravector remains unchanged.
 
-\subsubsection*{Proper Force and Lorentz Dynamics}
+\subsubsection{Proper Force and Lorentz Dynamics}
 \begin{align*}
 m U &= m dX/ds,\notag \\
 &= m \gamma + m \gamma \mathbf v \cdot \sigv.
@@ -219,7 +219,7 @@ m dU/ds &= q \eqtext{real}( F U ),\notag \\
 m ddX/ds^{2} = q \eqtext{real}( F dX/ds )\qquad \text{4-force}.
 \end{equation*}
 
-\subsubsection*{Variational Derivation of the Lorentz Force}
+\subsubsection{Variational Derivation of the Lorentz Force}
 Starting from the Lagrangian of Eq.\ \eqref{eq:em-lagrangian}, together with the potential \(\Phi=V+\mathbf A\cdot\sigv\), proper velocity \(U=dX/ds\), and \(\gamma=dt/ds\), the action takes the form
 \begin{align*}
 \text{action} &= -m \int ds - q \int \eqtext{scalar}( \Phi ^{*} U ) ds,\notag \\
@@ -276,7 +276,7 @@ d(m \gamma )/dt &= q \mathbf v \cdot ( -\gradv V - \partial _{t} \mathbf A ),\no
 &= q \mathbf v \cdot \mathbf E.
 \end{align*}
 
-\subsubsection*{Electromagnetic Energy-Momentum}
+\subsubsection{Electromagnetic Energy-Momentum}
 The next identities collect the simplest field invariants built from \(F\) and the frame-dependent paravector \(T=\tfrac12F\rev{F}\). They are useful reference formulas, but the caution in the main text remains in force: \(T\) is not by itself the full stress-energy tensor:
 
 \begin{align*}
