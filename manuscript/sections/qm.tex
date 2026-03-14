@@ -14,6 +14,42 @@ Recall also that the d'Alembertian is
 \end{align*}
 All differential operators act left to right.
 
+\subsubsection{What a Complex-Paravector State Represents}
+Throughout the spinful part of the wave-equation section, the state is not a space-time event but an algebra-valued amplitude field:
+\begin{equation*}
+\psi:\R\times\R^3\to\C\oplus\C^3,
+\qquad
+\psi(t,\mathbf r)=\psi_s(t,\mathbf r)+\psi_{\mathbf v}(t,\mathbf r)\cdot\sigv.
+\end{equation*}
+The argument \((t,\mathbf r)\) tells where the state is evaluated in space-time, while the value \(\psi(t,\mathbf r)\) lives in the internal complex-paravector algebra. This distinction matters. The real paravector
+\begin{equation*}
+X=t+\mathbf r\cdot\sigv
+\end{equation*}
+describes an event or interval variable, whereas \(\psi\) is a quantum state amplitude defined \emph{over} such events.
+
+At each fixed point \((t,\mathbf r)\), the field carries one complex scalar channel \(\psi_s\) and one complex vector channel \(\psi_{\mathbf v}\). Equivalently, it carries four complex local amplitudes, i.e. eight real local degrees of freedom. This is why the complex-paravector form can play the role usually assigned to a spinor carrier: it stores the same amount of local data, but arranges it as a scalar-plus-vector object adapted to the sigma algebra rather than as a column with separately named components.
+
+The scalar and vector pieces should not be interpreted as separately measurable particles or classical subfields. They are amplitude channels that mix under the wave operators. The scalar part is the sigma-number-zero channel, while the vector part is the sigma-number-one channel that couples directly to \(\sigv\cdot\gradv\), to spin projectors, and to the first-order Dirac factorization. In that sense the vector part of \(\psi\) is not a literal velocity field; it is the part of the quantum amplitude that carries directional and spin-sensitive information.
+
+The quantum-mechanical interpretation is therefore bilinear rather than componentwise. The raw field \(\psi\) is not itself an observable. Observable densities are extracted from sandwiches such as
+\begin{equation*}
+\rev{\psi}\psi
+=\rho_\psi+\mathbf j_\psi\cdot\sigv,
+\qquad
+\rev{\psi}O\psi.
+\end{equation*}
+The scalar part gives the ordinary probability or expectation density, while the vector part records the associated flow, transport, or spin-orientation information. Thus the extra vector channels are not discarded because they are meaningless; they are discarded only when one asks for a scalar expectation value rather than for a current-like or polarization-like quantity.
+
+This viewpoint also explains the later division of labor inside the section. The spin-0 Klein--Gordon subsections use \(\Psi\in\C\) because a scalar carrier is sufficient there. Once one passes to spin-\(\tfrac12\), axis projectors, or first-order Dirac factorization, the complex-paravector carrier becomes the natural one because the sigma algebra must act nontrivially on the state itself. Later, when the manuscript writes a two-component field
+\begin{equation*}
+\Psi=
+\begin{Bmatrix}
+\Psi_1\\[2pt]
+\Psi_2
+\end{Bmatrix},
+\end{equation*}
+it is packaging algebra-valued amplitudes into the auxiliary \(W\)-map factorization of the Dirac system; that notation is a structural reorganization of the same state content, not a redefinition of what the state represents.
+
 \subsubsection{Complex-Paravector Bilinears and Bra-Ket Extraction}
 To make the bra-ket notation precise in the paravector setting, write
 \begin{equation*}
