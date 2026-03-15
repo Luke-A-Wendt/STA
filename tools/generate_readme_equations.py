@@ -841,22 +841,22 @@ def integrated_block_intro(title: str, group_title: str) -> str:
         '4 force ← a.k.a  proper force': r'Here \(q,m\in\R\), \(F\in\{0\}\oplus\C^3\subset\C\oplus\C^3\), \(U\in\R\oplus\R^3\), and \(\mathbf E,\mathbf B,\mathbf v,\mathbf f\in\R^3\).',
         'Lagrangian derivation': r'Here \(X,U,P\in\R\oplus\R^3\), \(s,t,q,m\in\R\), \(\mathbf r,\mathbf v,\mathbf A\in\R^3\), and \(V\in\R\).',
         'relativistic quantum-mechanical setting': r'Here \(\psi=\psi_s+\psi_{\mathbf v}\cdot\sigv\in\C\oplus\C^3\) denotes a generic complex paravector state, while \(M\) is an operator acting on that state.',
-        'spin 0 wave mechanics': r'Here \(\Psi\in\C\) is a complex scalar field, \(m\in\R\), and \(\partial\) is the paravector differential operator.',
-        'positive and negative frequency': r'Here \(\Psi,\Psi(\pm),c(\pm)\in\C\), while the Fourier parameters \(\omega_n\in\R\) and \(\mathbf k_n\in\R^3\) appear when the root operator is analyzed mode by mode.',
-        'Interpreting root operators with Fourier': r'In the Fourier discussion, \(\Psi\in\C\), the coefficients \(c_n\in\C\), the frequencies \(\omega_n\in\R\), and the wave vectors \(\mathbf k_n\in\R^3\).',
-        'spin ½ wave mechanics': r'Here \(\Psi=\{\Psi_1;\Psi_2\}\) is a two-component block field, \(Z\in\C\oplus\C^3\), and \(W(Z)\) is a \(2\times2\) block matrix with paravector entries.',
-        'Klein–Gordon with potential fields': r'Here \(\Psi\in\C\), \(\Phi=V+\mathbf A\cdot\sigv\in\R\oplus\R^3\), \(F\in\{0\}\oplus\C^3\subset\C\oplus\C^3\), \(V,S,q,m\in\R\), and \(\mathbf A,\mathbf E,\mathbf B\in\R^3\).',
-        'Dirac with potential field': r'Here \(\Psi=\{\Psi_1;\Psi_2\}\) is a two-component block field, \(\Phi\in\R\oplus\R^3\), and \(D\) is a block operator built from paravector entries.',
+        'spin 0 wave mechanics': r'Here \(\psi\in\C\) is a complex scalar field, \(m\in\R\), and \(\partial\) is the paravector differential operator.',
+        'positive and negative frequency': r'Here \(\psi,\psi(\pm),c(\pm)\in\C\), while the Fourier parameters \(\omega_n\in\R\) and \(\mathbf k_n\in\R^3\) appear when the root operator is analyzed mode by mode.',
+        'Interpreting root operators with Fourier': r'In the Fourier discussion, \(\psi\in\C\), the coefficients \(c_n\in\C\), the frequencies \(\omega_n\in\R\), and the wave vectors \(\mathbf k_n\in\R^3\).',
+        'spin ½ wave mechanics': r'Here \(\bPsi=\{\bPsi_1;\bPsi_2\}\) is a two-component block field, \(Z\in\C\oplus\C^3\), and \(\Wmat(Z)\) is a \(2\times2\) block matrix with paravector entries.',
+        'Klein–Gordon with potential fields': r'Here \(\psi\in\C\), \(\Phi=V+\mathbf A\cdot\sigv\in\R\oplus\R^3\), \(F\in\{0\}\oplus\C^3\subset\C\oplus\C^3\), \(V,S,q,m\in\R\), and \(\mathbf A,\mathbf E,\mathbf B\in\R^3\).',
+        'Dirac with potential field': r'Here \(\bPsi=\{\bPsi_1;\bPsi_2\}\) is a two-component block field, \(\Phi\in\R\oplus\R^3\), and \(\Dmat\) is a block operator built from paravector entries.',
         'Dirac equation components': r'Here \(\psi=\psi_s+\psi_{\mathbf v}\cdot\sigv\in\C\oplus\C^3\), \(\Phi\in\R\oplus\R^3\), and \(F=F_{\mathbf v}\cdot\sigv\in\{0\}\oplus\C^3\) with \(F_{\mathbf v}\in\C^3\).',
-        'low energy spin 0': r'Here \(\Psi\in\C\), while \(E\) and \(\mathbf P\) remain the scalar and vector differential operators defined in the main text.',
-        'low energy spin ½': r'Here \(\Psi_1\) and \(\Psi_2\) denote the block components of the Dirac field, and the low-energy reduction keeps the same real fields \(V\in\R\) and \(\mathbf A,\mathbf B\in\R^3\).',
+        'low energy spin 0': r'Here \(\psi\in\C\), while \(E\) and \(\mathbf P\) remain the scalar and vector differential operators defined in the main text.',
+        'low energy spin ½': r'Here \(\bPsi_1\) and \(\bPsi_2\) denote the block components of the Dirac field, and the low-energy reduction keeps the same real fields \(V\in\R\) and \(\mathbf A,\mathbf B\in\R^3\).',
         'spin - rotors': r'Here \(\mathbf u,\mathbf n\in\R^3\) are unit directions, and \(R\) is a rotor algebra element.',
         'spin - projectors': r'Here \(\mathbf u,\mathbf u^{\prime}\in\R^3\) are unit directions and \(\Pi(\pm)\) are the corresponding algebraic projectors.',
         'raising and lowering about z': r'Here \(\mathbf u=e_3\in\R^3\), and \(a(\pm)\) are algebra elements built from \(\sigma_1\) and \(\sigma_2\).',
-        'spin up and spin down': r'Here \(\mathbf B,\mathbf u\in\R^3\), \(\|\mathbf u\|=1\), and \(\Psi(\pm)\) are the projector-selected spin sectors of \(\Psi\).',
-        '4-state solution to Dirac equation': r'Here \(\epsilon,s\in\{+,-\}\), \(\Lambda(\epsilon)\) and \(\Pi(s)\) are the energy and spin projectors, and \(\Psi(\epsilon,s)\) is the corresponding block-field sector.',
+        'spin up and spin down': r'Here \(\mathbf B,\mathbf u\in\R^3\), \(\|\mathbf u\|=1\), and \(\bPsi(\pm)\) are the projector-selected spin sectors of \(\bPsi\).',
+        '4-state solution to Dirac equation': r'Here \(\epsilon,s\in\{+,-\}\), \(\Lmat(\epsilon)\) and \(\Pi(s)\) are the energy and spin projectors, and \(\bPsi(\epsilon,s)\) is the corresponding block-field sector.',
         'quaternions': r'Here \(a\in\R\), \(\mathbf b\in\R^3\), and \(Q=a+\mathbf b\cdot\mathbf q=a-i\mathbf b\cdot\sigv\in\C\oplus\C^3\) is the quaternion-paravector correspondence used in this section.',
-        'metric': r'Here \(X\in\R\oplus\R^3\), \(dx\in\R\oplus\R^3\), and \(Q(x)\) is the matrix-valued bilinear form used for comparison with the intrinsic paravector metric.',
+        'metric': r'Here \(X\in\R\oplus\R^3\), \(dx\in\R\oplus\R^3\), and \(\Qmat(x)\) is the matrix-valued bilinear form used for comparison with the intrinsic paravector metric.',
     }
     type_note = local_type_notes.get(title)
     if type_note:
@@ -2085,6 +2085,8 @@ def finalize_generated_tex(lines: list[str]) -> list[str]:
         r'\noindent\emph{Note.} E + P • σ = i ∂*.\par',
         r'\noindent\emph{Note.} Equivalently, \(E+\mathbf P\cdot\sigv=i\partial^{*}\).\par',
     )
+    # The plain-text README format has no bold Greek support, so collapse the
+    # block-field symbol back to ordinary capital Psi during conversion.
     text = text.replace(r'\bPsi', r'\Psi')
     text = text.replace(
         'The formulas below make products of real scalars, vectors, and paravectors explicit and collect identities used later in the manuscript.',
@@ -2104,15 +2106,15 @@ def finalize_generated_tex(lines: list[str]) -> list[str]:
     )
     text = text.replace(
         r'W(Z) &:= \left\{ 0 , Z ; Z^{*\mathrm{R}} , 0 \right\}\qquad 2\times 2 matrix, \\',
-        r'W(Z) &:= \{ 0, Z; Z^{*\mathrm{R}}, 0 \}\qquad \text{$2\times2$ block matrix}, \\',
+        r'\Wmat(Z) &:= \{ 0, Z; Z^{*\mathrm{R}}, 0 \}\qquad \text{$2\times2$ block matrix}, \\',
     )
     text = text.replace(
         r'W(Z) &:= \{ 0 , Z ; Z^{*\mathrm{R}} , 0 \}\qquad 2\times 2 matrix, \\',
-        r'W(Z) &:= \{ 0, Z; Z^{*\mathrm{R}}, 0 \}\qquad \text{$2\times2$ block matrix}, \\',
+        r'\Wmat(Z) &:= \{ 0, Z; Z^{*\mathrm{R}}, 0 \}\qquad \text{$2\times2$ block matrix}, \\',
     )
     text = text.replace(
         r'W( i \partial ) &= i { 0 , \partial ; \partial ^{*} , 0 }, \\',
-        r'W( i \partial ) &= i \{ 0, \partial; \partial ^{*}, 0 \}, \\',
+        r'\Wmat( i \partial ) &= i \{ 0, \partial; \partial ^{*}, 0 \}, \\',
     )
     text = text.replace(
         r'\noindent\textit{If a and b are real scalars,.}\par',
@@ -2124,7 +2126,7 @@ def finalize_generated_tex(lines: list[str]) -> list[str]:
     )
     text = text.replace(
         "\\noindent using the scalar solution Ψ' from KG\\par",
-        r'\noindent\textit{Using a scalar solution \(\Psi^\prime\) of the Klein--Gordon equation, one may construct a Dirac solution by}\par',
+        r'\noindent\textit{Using a scalar solution \(\psi^\prime\) of the Klein--Gordon equation, one may construct a Dirac solution by}\par',
     )
     text = text.replace(
         r'\noindent With \(a = 1 and b = 0\), the formulas reduce to\par',
@@ -2310,7 +2312,7 @@ def finalize_generated_tex(lines: list[str]) -> list[str]:
     )
     text = text.replace(
         r'\noindent\emph{Note.} Ψ is a complex scalar.\par',
-        r'\noindent\emph{Note.} Here \(\Psi\) is a complex scalar field.\par',
+        r'\noindent\emph{Note.} Here \(\psi\) is a complex scalar field.\par',
     )
     text = text.replace(r'+ ···.', r'+ \cdots.')
     text = text.replace(

@@ -40,12 +40,12 @@ The quantum-mechanical interpretation is therefore bilinear rather than componen
 \end{equation*}
 The scalar part gives the ordinary probability or expectation density, while the vector part records the associated flow, transport, or spin-orientation information. Thus the extra vector channels are not discarded because they are meaningless; they are discarded only when one asks for a scalar expectation value rather than for a current-like or polarization-like quantity.
 
-This viewpoint also explains the later division of labor inside the section. The spin-0 Klein--Gordon subsections use \(\Psi\in\C\) because a scalar carrier is sufficient there. Once one passes to spin-\(\tfrac12\), axis projectors, or first-order Dirac factorization, the complex-paravector carrier becomes the natural one because the sigma algebra must act nontrivially on the state itself. Later, when the manuscript writes a two-component field
+This viewpoint also explains the later division of labor inside the section. The spin-0 Klein--Gordon subsections use \(\psi\in\C\) because a scalar carrier is sufficient there. Once one passes to spin-\(\tfrac12\), axis projectors, or first-order Dirac factorization, the complex-paravector carrier becomes the natural one because the sigma algebra must act nontrivially on the state itself. Later, when the manuscript writes a two-component field
 \begin{equation*}
 \bPsi=
 \begin{Bmatrix}
-\Psi_1\\[2pt]
-\Psi_2
+\bPsi_1\\[2pt]
+\bPsi_2
 \end{Bmatrix},
 \end{equation*}
 it is packaging algebra-valued amplitudes into the auxiliary \(W\)-map factorization of the Dirac system; that notation is a structural reorganization of the same state content, not a redefinition of what the state represents.
@@ -123,7 +123,7 @@ By contrast,
 is the STA metric bilinear. It is algebraically useful, but it is not positive-definite and so it should not be used as the probabilistic normalization. In this framework the single bra-ket bracket \(\langle\cdot\mid\cdot\rangle\) is therefore best reserved for the scalar expectation map built from reversion, while \(\langle\!\langle\cdot\rangle\!\rangle^2\) continues to denote the paravector metric.
 
 \subsubsection{Spin-0 Wave Mechanics}
-The scalar relativistic wave equation can be read directly from the mass-shell identity developed earlier in the kinematic section. Here \(\Psi\in\C\) is a complex scalar field, \(m\in\R\), and the free-particle operators are defined using the differential conventions from Section \ref{sec:differential}. Start from
+The scalar relativistic wave equation can be read directly from the mass-shell identity developed earlier in the kinematic section. Here \(\psi\in\C\) is a complex scalar field, \(m\in\R\), and the free-particle operators are defined using the differential conventions from Section \ref{sec:differential}. Start from
 \begin{equation*}
 \langle\!\langle mU\rangle\!\rangle^2=m^2
 \qquad\Rightarrow\qquad
@@ -139,23 +139,23 @@ and equivalently
 \begin{equation*}
 E+\mathbf P\cdot\sigv=i\partial^*.
 \end{equation*}
-Acting on a scalar field \(\Psi\), the operator chain is
+Acting on a scalar field \(\psi\), the operator chain is
 \begin{align*}
-(-E^2+\mathbf P^2+m^2)\Psi
-&=\bigl(-(i\partial_t)^2-\gradv^2+m^2\bigr)\Psi\notag\\
-&=\bigl(\partial_t^2-\gradv^2+m^2\bigr)\Psi\notag\\
-&=(\partial\partial^*+m^2)\Psi\notag\\
-&=(\Box+m^2)\Psi.
+(-E^2+\mathbf P^2+m^2)\psi
+&=\bigl(-(i\partial_t)^2-\gradv^2+m^2\bigr)\psi\notag\\
+&=\bigl(\partial_t^2-\gradv^2+m^2\bigr)\psi\notag\\
+&=(\partial\partial^*+m^2)\psi\notag\\
+&=(\Box+m^2)\psi.
 \end{align*}
 Thus the free spin-0 relativistic wave equation is
 \begin{equation*}
-(\Box+m^2)\Psi=0
+(\Box+m^2)\psi=0
 \qquad\text{Klein--Gordon equation}.
 \end{equation*}
 This is the scalar wave equation recorded in Eq.\ \eqref{eq:kg-free}. The dispersion relation \(\omega^2=\mathbf k^2+m^2\) and the later positive/negative-frequency split are consequences of this same operator identity.
 
 \subsubsection{Positive and Negative Frequency Sectors}
-The frequency decomposition is one of the central interpretive steps in the scalar theory. Here \(\Psi,\Psi(\pm),c(\pm)\in\C\), while \(m\in\R\) and \(\gradv\) is the spatial derivative operator fixed earlier in Section \ref{sec:differential}. The frequency operator is
+The frequency decomposition is one of the central interpretive steps in the scalar theory. Here \(\psi,\psi(\pm),c(\pm)\in\C\), while \(m\in\R\) and \(\gradv\) is the spatial derivative operator fixed earlier in Section \ref{sec:differential}. The frequency operator is
 \begin{align*}
 \Omega
 &=\sqrt{m^2-\gradv^2}\notag\\
@@ -171,25 +171,25 @@ Accordingly,
 \end{align*}
 The positive- and negative-frequency sectors are then defined by
 \begin{align*}
-(\partial_t\pm i\Omega)\Psi(\pm)&=0,\\
-\Psi(\pm)&=c(\pm)\exp(\mp i\Omega t),\\
-\Psi&=\Psi(+)+\Psi(-).
+(\partial_t\pm i\Omega)\psi(\pm)&=0,\\
+\psi(\pm)&=c(\pm)\exp(\mp i\Omega t),\\
+\psi&=\psi(+)+\psi(-).
 \end{align*}
 This decomposition is not merely notation: it separates the two energy branches of the scalar theory in the same way that the Fourier transform separates positive and negative frequencies \cite{greiner2000}.
 
 \subsubsection{Interpreting Root Operators with Fourier}
-Square-root operators are easiest to interpret one Fourier mode at a time. In this subsection \(\Psi\in\C\), the coefficients \(c_n\in\C\), the frequencies \(\omega_n\in\R\), and the wave vectors \(\mathbf k_n\in\R^3\). Write
+Square-root operators are easiest to interpret one Fourier mode at a time. In this subsection \(\psi\in\C\), the coefficients \(c_n\in\C\), the frequencies \(\omega_n\in\R\), and the wave vectors \(\mathbf k_n\in\R^3\). Write
 \begin{align*}
-\Psi&=\sum_{n} c_{n}f_{n},\\
+\psi&=\sum_{n} c_{n}f_{n},\\
 f_{n}&=\exp\!\bigl(i(\omega_{n}t+\mathbf k_{n}\cdot\mathbf r)\bigr).
 \end{align*}
 Then the d'Alembertian and its square root act modewise:
 \begin{align*}
-\Box\Psi
+\Box\psi
 &=\sum_{n}(\mathbf k_{n}^{2}-\omega_{n}^{2})c_{n}f_{n},\\
-\pm\sqrt{\Box}\,\Psi
+\pm\sqrt{\Box}\,\psi
 &=\sum_{n}\pm\sqrt{\mathbf k_{n}^{2}-\omega_{n}^{2}}\,c_{n}f_{n},\\
-(\Box+m^{2})\Psi
+(\Box+m^{2})\psi
 &=\sum_{n}(\mathbf k_{n}^{2}+m^{2}-\omega_{n}^{2})c_{n}f_{n}.
 \end{align*}
 For on-shell Klein--Gordon modes,
@@ -204,9 +204,9 @@ so the operator factorization can be read as the modewise identity
 \end{equation*}
 Likewise, if \(\Omega=\sqrt{m^{2}-\gradv^{2}}\) as in Eq.\ \eqref{eq:frequency-split}, then
 \begin{align*}
-\Omega^{2}\Psi
+\Omega^{2}\psi
 &=\sum_{n}(m^{2}+\mathbf k_{n}^{2})c_{n}f_{n},\\
-\Omega\Psi
+\Omega\psi
 &=\sum_{n}\sqrt{m^{2}+\mathbf k_{n}^{2}}\,c_{n}f_{n}.
 \end{align*}
 This is the concrete meaning of the root operators used above: they do not represent a formal symbolic manipulation, but multiplication of each Fourier mode by the corresponding dispersion function.
@@ -229,19 +229,19 @@ E=i\partial_t-qV,
 \mathbf P=-i\gradv-q\mathbf A.
 \end{equation*}
 
-Acting on a smooth test field \(\Psi\), the Leibniz rules needed below are
+Acting on a smooth test field \(\psi\), the Leibniz rules needed below are
 \begin{align*}
-\partial_t(V\Psi)&=(\partial_tV)\Psi+V\partial_t\Psi,\\
-\partial_m(A_n\Psi)&=(\partial_mA_n)\Psi+A_n\partial_m\Psi.
+\partial_t(V\psi)&=(\partial_tV)\psi+V\partial_t\psi,\\
+\partial_m(A_n\psi)&=(\partial_mA_n)\psi+A_n\partial_m\psi.
 \end{align*}
 From these one obtains
 \begin{align*}
-E^2\Psi
-&=E(i\partial_t\Psi-qV\Psi)\notag\\
-&=\left(-\partial_t^2-iq\,\partial_tV-2iqV\partial_t+q^2V^2\right)\Psi,\\
-\mathbf P^2\Psi
-&=\mathbf P\cdot(-i\gradv\Psi-q\mathbf A\Psi)\notag\\
-&=\left(-\gradv^2+iq\,\gradv\cdot\mathbf A+2iq\,\mathbf A\cdot\gradv+q^2\mathbf A^2\right)\Psi.
+E^2\psi
+&=E(i\partial_t\psi-qV\psi)\notag\\
+&=\left(-\partial_t^2-iq\,\partial_tV-2iqV\partial_t+q^2V^2\right)\psi,\\
+\mathbf P^2\psi
+&=\mathbf P\cdot(-i\gradv\psi-q\mathbf A\psi)\notag\\
+&=\left(-\gradv^2+iq\,\gradv\cdot\mathbf A+2iq\,\mathbf A\cdot\gradv+q^2\mathbf A^2\right)\psi.
 \end{align*}
 
 Recall also
@@ -254,10 +254,10 @@ S&=\partial_tV+\gradv\cdot\mathbf A,\\
 \end{align*}
 Substituting the operator expansions gives the minimally coupled Klein--Gordon equation in explicit form:
 \begin{align*}
-0&=(-E^2+\mathbf P^2+m^2)\Psi\notag\\
+0&=(-E^2+\mathbf P^2+m^2)\psi\notag\\
 &=\Bigl(\Box+iq(\partial_tV+\gradv\cdot\mathbf A)+2iq(V\partial_t+\mathbf A\cdot\gradv)\notag\\
-&\qquad\qquad-q^2(V^2-\mathbf A^2)+m^2\Bigr)\Psi\notag\\
-&=\Bigl(\Box+iqS-q^2\langle\!\langle\Phi\rangle\!\rangle^2+m^2+2iq(V\partial_t+\mathbf A\cdot\gradv)\Bigr)\Psi.
+&\qquad\qquad-q^2(V^2-\mathbf A^2)+m^2\Bigr)\psi\notag\\
+&=\Bigl(\Box+iqS-q^2\langle\!\langle\Phi\rangle\!\rangle^2+m^2+2iq(V\partial_t+\mathbf A\cdot\gradv)\Bigr)\psi.
 \end{align*}
 
 The electromagnetic fields and commutators enter through
@@ -268,17 +268,17 @@ F&=(\mathbf E+i\mathbf B)\cdot\sigv,
 \end{align*}
 and
 \begin{align*}
-[E,P_m]\Psi
-&=(i\partial_t-qV)(-i\partial_m\Psi-qA_m\Psi)\notag\\
-&\quad-(-i\partial_m-qA_m)(i\partial_t\Psi-qV\Psi)\notag\\
-&=-iq\bigl((\partial_tA_m)\Psi+A_m\partial_t\Psi\bigr)\notag\\
-&\quad-iq\bigl((\partial_mV)\Psi+V\partial_m\Psi\bigr)+iqV\partial_m\Psi+iqA_m\partial_t\Psi\notag\\
-&=-iq(\partial_tA_m+\partial_mV)\Psi\notag\\
-&=iqE_m\Psi,\\
-[P_m,P_n]\Psi
-&=(-i\partial_m-qA_m)\bigl(-i\partial_n\Psi-qA_n\Psi\bigr)\notag\\
-&\quad-(-i\partial_n-qA_n)\bigl(-i\partial_m\Psi-qA_m\Psi\bigr)\notag\\
-&=iq(\partial_mA_n-\partial_nA_m)\Psi.
+[E,P_m]\psi
+&=(i\partial_t-qV)(-i\partial_m\psi-qA_m\psi)\notag\\
+&\quad-(-i\partial_m-qA_m)(i\partial_t\psi-qV\psi)\notag\\
+&=-iq\bigl((\partial_tA_m)\psi+A_m\partial_t\psi\bigr)\notag\\
+&\quad-iq\bigl((\partial_mV)\psi+V\partial_m\psi\bigr)+iqV\partial_m\psi+iqA_m\partial_t\psi\notag\\
+&=-iq(\partial_tA_m+\partial_mV)\psi\notag\\
+&=iqE_m\psi,\\
+[P_m,P_n]\psi
+&=(-i\partial_m-qA_m)\bigl(-i\partial_n\psi-qA_n\psi\bigr)\notag\\
+&\quad-(-i\partial_n-qA_n)\bigl(-i\partial_m\psi-qA_m\psi\bigr)\notag\\
+&=iq(\partial_mA_n-\partial_nA_m)\psi.
 \end{align*}
 Hence
 \begin{equation*}
@@ -319,35 +319,35 @@ Consequently,
 \end{align*}
 The same factorizations can be rewritten directly in derivative form:
 \begin{align*}
-(E+\sigv\cdot\mathbf P)(E-\sigv\cdot\mathbf P)\Psi
-&=-(\partial^*+iq\Phi)(\partial+iq\Phi^*)\Psi\notag\\
-&=-\Box\Psi-iq\,\partial^*(\Phi^*\Psi)\notag\\
-&\qquad-iq\,\Phi\,\partial\Psi\notag\\
-&\qquad+q^2\langle\!\langle\Phi\rangle\!\rangle^2\Psi\notag\\
-&=-\Box\Psi-iqS\Psi+q^2\langle\!\langle\Phi\rangle\!\rangle^2\Psi\notag\\
-&\qquad-2iq(V\partial_t+\mathbf A\cdot\gradv)\Psi-iqF\Psi,\\
-(E-\sigv\cdot\mathbf P)(E+\sigv\cdot\mathbf P)\Psi
-&=-(\partial+iq\Phi^*)(\partial^*+iq\Phi)\Psi\notag\\
-&=-\Box\Psi-iq\,\partial(\Phi\Psi)\notag\\
-&\qquad-iq\,\Phi^*\,\partial^*\Psi\notag\\
-&\qquad+q^2\langle\!\langle\Phi\rangle\!\rangle^2\Psi\notag\\
-&=-\Box\Psi-iqS\Psi+q^2\langle\!\langle\Phi\rangle\!\rangle^2\Psi\notag\\
-&\qquad-2iq(V\partial_t+\mathbf A\cdot\gradv)\Psi-iqF^*\Psi.
+(E+\sigv\cdot\mathbf P)(E-\sigv\cdot\mathbf P)\psi
+&=-(\partial^*+iq\Phi)(\partial+iq\Phi^*)\psi\notag\\
+&=-\Box\psi-iq\,\partial^*(\Phi^*\psi)\notag\\
+&\qquad-iq\,\Phi\,\partial\psi\notag\\
+&\qquad+q^2\langle\!\langle\Phi\rangle\!\rangle^2\psi\notag\\
+&=-\Box\psi-iqS\psi+q^2\langle\!\langle\Phi\rangle\!\rangle^2\psi\notag\\
+&\qquad-2iq(V\partial_t+\mathbf A\cdot\gradv)\psi-iqF\psi,\\
+(E-\sigv\cdot\mathbf P)(E+\sigv\cdot\mathbf P)\psi
+&=-(\partial+iq\Phi^*)(\partial^*+iq\Phi)\psi\notag\\
+&=-\Box\psi-iq\,\partial(\Phi\psi)\notag\\
+&\qquad-iq\,\Phi^*\,\partial^*\psi\notag\\
+&\qquad+q^2\langle\!\langle\Phi\rangle\!\rangle^2\psi\notag\\
+&=-\Box\psi-iqS\psi+q^2\langle\!\langle\Phi\rangle\!\rangle^2\psi\notag\\
+&\qquad-2iq(V\partial_t+\mathbf A\cdot\gradv)\psi-iqF^*\psi.
 \end{align*}
 Equivalently,
 \begin{align*}
-\partial^*(\Phi^*\Psi)+\Phi\,\partial\Psi
-&=S\Psi+2(V\partial_t+\mathbf A\cdot\gradv)\Psi+F\Psi,\\
-\partial(\Phi\Psi)+\Phi^*\,\partial^*\Psi
-&=S\Psi+2(V\partial_t+\mathbf A\cdot\gradv)\Psi+F^*\Psi,
+\partial^*(\Phi^*\psi)+\Phi\,\partial\psi
+&=S\psi+2(V\partial_t+\mathbf A\cdot\gradv)\psi+F\psi,\\
+\partial(\Phi\psi)+\Phi^*\,\partial^*\psi
+&=S\psi+2(V\partial_t+\mathbf A\cdot\gradv)\psi+F^*\psi,
 \end{align*}
 and their difference isolates the electric contribution:
 \begin{align*}
-\bigl(\partial^*(\Phi^*\Psi)+\Phi\,\partial\Psi\bigr)
-&-\bigl(\partial(\Phi\Psi)+\Phi^*\,\partial^*\Psi\bigr)\notag\\
-&=\bigl([\Phi,\partial]+[\partial,\Phi]^*\bigr)\Psi\notag\\
-&=(F-F^*)\Psi\notag\\
-&=2(\mathbf E\cdot\sigv)\Psi.
+\bigl(\partial^*(\Phi^*\psi)+\Phi\,\partial\psi\bigr)
+&-\bigl(\partial(\Phi\psi)+\Phi^*\,\partial^*\psi\bigr)\notag\\
+&=\bigl([\Phi,\partial]+[\partial,\Phi]^*\bigr)\psi\notag\\
+&=(F-F^*)\psi\notag\\
+&=2(\mathbf E\cdot\sigv)\psi.
 \end{align*}
 
 In summary,
@@ -364,10 +364,10 @@ S&:=\partial_tV+\gradv\cdot\mathbf A, &
 \end{align*}
 and the scalar Klein--Gordon operator can be recovered from either ordered first-order product:
 \begin{align*}
-0&=(-E^2+\mathbf P^2+m^2)\Psi\notag\\
-&=\Bigl(\Box+iqS-q^2\langle\!\langle\Phi\rangle\!\rangle^2+m^2+2iq(V\partial_t+\mathbf A\cdot\gradv)\Bigr)\Psi\notag\\
-&=(\partial^*+iq\Phi)(\partial+iq\Phi^*)\Psi-iqF\Psi+m^2\Psi\notag\\
-&=(\partial+iq\Phi^*)(\partial^*+iq\Phi)\Psi-iqF^*\Psi+m^2\Psi.
+0&=(-E^2+\mathbf P^2+m^2)\psi\notag\\
+&=\Bigl(\Box+iqS-q^2\langle\!\langle\Phi\rangle\!\rangle^2+m^2+2iq(V\partial_t+\mathbf A\cdot\gradv)\Bigr)\psi\notag\\
+&=(\partial^*+iq\Phi)(\partial+iq\Phi^*)\psi-iqF\psi+m^2\psi\notag\\
+&=(\partial+iq\Phi^*)(\partial^*+iq\Phi)\psi-iqF^*\psi+m^2\psi.
 \end{align*}
 The ordered first-order products themselves obey
 \begin{align*}
@@ -377,7 +377,7 @@ The ordered first-order products themselves obey
 \end{align*}
 Taking the scalar part therefore recovers
 \begin{equation*}
-0=\eqtext{scalar}\!\bigl((\partial+iq\Phi^*)(\partial^*+iq\Phi)\bigr)\Psi+m^2\Psi.
+0=\eqtext{scalar}\!\bigl((\partial+iq\Phi^*)(\partial^*+iq\Phi)\bigr)\psi+m^2\psi.
 \end{equation*}
 Only the scalar part reproduces the Klein--Gordon operator itself; the full ordered products retain the non-scalar field terms \(-iqF\) and \(-iqF^*\) that distinguish the two factorizations.
 
@@ -386,54 +386,54 @@ Before the electromagnetic field is turned on, the same auxiliary \(2\times2\) m
 \begin{equation*}
 \bPsi=
 \begin{Bmatrix}
-\Psi_1\\[2pt]
-\Psi_2
+\bPsi_1\\[2pt]
+\bPsi_2
 \end{Bmatrix}.
 \end{equation*}
 For any complex paravector or paravector-valued operator \(Z\), define
 \begin{align*}
-W(Z)&:=
+\Wmat(Z)&:=
 \begin{bmatrix}
 0 & Z \\
 \crev{Z} & 0
 \end{bmatrix},\\
-W(Z)^2&=\operatorname{diag}(Z\crev{Z},\crev{Z}Z).
+\Wmat(Z)^2&=\operatorname{diag}(Z\crev{Z},\crev{Z}Z).
 \end{align*}
-If \(a,b\in\R\), then \(W((a+ib)Z)=(a+ib)W(Z)\). In particular,
+If \(a,b\in\R\), then \(\Wmat((a+ib)Z)=(a+ib)\Wmat(Z)\). In particular,
 \begin{align*}
-W(i\partial)
+\Wmat(i\partial)
 &=i
 \begin{bmatrix}
 0 & \partial \\
 \partial^* & 0
 \end{bmatrix}
-=iW(\partial),\\
-W(i\partial)^2
+=i\Wmat(\partial),\\
+\Wmat(i\partial)^2
 &=-\operatorname{diag}(\partial\partial^*,\partial^*\partial)\notag\\
 &=-\Box\I.
 \end{align*}
 
 Define the free Dirac operator matrix and its mass conjugate by
 \begin{equation*}
-D:=W(i\partial)-m\I,
+\Dmat:=\Wmat(i\partial)-m\I,
 \qquad
-D':=W(i\partial)+m\I.
+\Dmat':=\Wmat(i\partial)+m\I.
 \end{equation*}
 Then
 \begin{align*}
-D'D
-&=(W(i\partial)+m\I)(W(i\partial)-m\I)\notag\\
-&=W(i\partial)^2-m^2\I\notag\\
+\Dmat'\Dmat
+&=(\Wmat(i\partial)+m\I)(\Wmat(i\partial)-m\I)\notag\\
+&=\Wmat(i\partial)^2-m^2\I\notag\\
 &=-(\Box+m^2)\I.
 \end{align*}
 Thus the free Dirac equation
 \begin{equation*}
-D\bPsi=0
+\Dmat\bPsi=0
 \end{equation*}
 forces each component to satisfy the Klein--Gordon operator. Formally, its characteristic polynomial is
 \begin{align*}
 0
-&=\det(D-s\I)\notag\\
+&=\det(\Dmat-s\I)\notag\\
 &=\det
 \begin{bmatrix}
 -(s+m) & i\partial \\
@@ -443,41 +443,41 @@ i\partial^* & -(s+m)
 \end{align*}
 so the modewise eigenvalue branches are \(s=-m\pm i\sqrt{\Box}\), with the square-root operator interpreted in the Fourier sense from the previous subsection.
 
-Writing out \(D\bPsi=0\) gives the two coupled equations
+Writing out \(\Dmat\bPsi=0\) gives the two coupled equations
 \begin{align*}
-i\partial\Psi_2-m\Psi_1&=0,\\
-i\partial^*\Psi_1-m\Psi_2&=0.
+i\partial\bPsi_2-m\bPsi_1&=0,\\
+i\partial^*\bPsi_1-m\bPsi_2&=0.
 \end{align*}
 Solving the first equation for the upper component and substituting into the second yields
 \begin{align*}
-\Psi_1&=\frac{i\partial\Psi_2}{m},\\
-0&=i\partial^*\Psi_1-m\Psi_2\notag\\
-&=-\frac{\partial^*\partial\Psi_2}{m}-m\Psi_2\notag\\
-&=-\frac{(\Box+m^2)\Psi_2}{m}.
+\bPsi_1&=\frac{i\partial\bPsi_2}{m},\\
+0&=i\partial^*\bPsi_1-m\bPsi_2\notag\\
+&=-\frac{\partial^*\partial\bPsi_2}{m}-m\bPsi_2\notag\\
+&=-\frac{(\Box+m^2)\bPsi_2}{m}.
 \end{align*}
 Hence the lower component is a Klein--Gordon solution, and the upper component is obtained from it by one first-order derivative.
 
-Conversely, let \(\Psi'\) be any scalar Klein--Gordon solution and let \(a,b\in\C\) be constants. Define
+Conversely, let \(\psi'\) be any scalar Klein--Gordon solution and let \(a,b\in\C\) be constants. Define
 \begin{equation*}
-\Psi_1=\frac{(ma+ib\,\partial)\Psi'}{m},
+\bPsi_1=\frac{(ma+ib\,\partial)\psi'}{m},
 \qquad
-\Psi_2=\frac{(ia\,\partial^*+mb)\Psi'}{m}.
+\bPsi_2=\frac{(ia\,\partial^*+mb)\psi'}{m}.
 \end{equation*}
-Because \(a\) and \(b\) are constant and \((\Box+m^2)\Psi'=0\),
+Because \(a\) and \(b\) are constant and \((\Box+m^2)\psi'=0\),
 \begin{align*}
-i\partial\Psi_2-m\Psi_1
-&=\frac{(-\partial a\,\partial^*+im\,\partial b-m^2a-imb\,\partial)\Psi'}{m}\notag\\
-&=-\frac{a}{m}(\Box+m^2)\Psi'=0,\\
-i\partial^*\Psi_1-m\Psi_2
-&=\frac{(mi\,\partial^*a-\partial^*b\,\partial-mi\,a\,\partial^*-m^2b)\Psi'}{m}\notag\\
-&=-\frac{b}{m}(\Box+m^2)\Psi'=0.
+i\partial\bPsi_2-m\bPsi_1
+&=\frac{(-\partial a\,\partial^*+im\,\partial b-m^2a-imb\,\partial)\psi'}{m}\notag\\
+&=-\frac{a}{m}(\Box+m^2)\psi'=0,\\
+i\partial^*\bPsi_1-m\bPsi_2
+&=\frac{(mi\,\partial^*a-\partial^*b\,\partial-mi\,a\,\partial^*-m^2b)\psi'}{m}\notag\\
+&=-\frac{b}{m}(\Box+m^2)\psi'=0.
 \end{align*}
 The family generated from a scalar Klein--Gordon solution therefore solves the free two-component system for any constant \(a\) and \(b\). The simplest choice is \(a=1\) and \(b=0\), for which
 \begin{equation*}
 \bPsi=
 \begin{Bmatrix}
-\Psi'\\[2pt]
-\dfrac{i}{m}\,\partial^*\Psi'
+\psi'\\[2pt]
+\dfrac{i}{m}\,\partial^*\psi'
 \end{Bmatrix}.
 \end{equation*}
 This is the free spin-\(\tfrac12\) wave-mechanics factorization in its most explicit form: the Dirac operator linearizes the Klein--Gordon mass shell, and scalar solutions generate two-component spinor solutions by a first-order lift.
@@ -487,30 +487,30 @@ Consider again the two-component field
 \begin{equation*}
 \bPsi=
 \begin{Bmatrix}
-\Psi_1\\[2pt]
-\Psi_2
+\bPsi_1\\[2pt]
+\bPsi_2
 \end{Bmatrix}.
 \end{equation*}
 For any complex paravector or paravector-valued operator \(Z\), define
 \begin{align*}
-W(Z)&:=
+\Wmat(Z)&:=
 \begin{bmatrix}
 0 & Z \\
 \crev{Z} & 0
 \end{bmatrix},\\
-W(Z)^2&=\operatorname{diag}(Z\crev{Z},\crev{Z}Z),\\
-W(Z)^*&=W(Z^*),\\
-W(Z)^{\mathrm R}&=W(Z^{\mathrm R}).
+\Wmat(Z)^2&=\operatorname{diag}(Z\crev{Z},\crev{Z}Z),\\
+\Wmat(Z)^*&=\Wmat(Z^*),\\
+\Wmat(Z)^{\mathrm R}&=\Wmat(Z^{\mathrm R}).
 \end{align*}
 The Dirac operator with potential is
 \begin{align*}
-D&:=W(i\partial-q\Phi^*)-m\I\notag\\
-&=iW(\partial)-qW(\Phi^*)-m\I.
+\Dmat&:=\Wmat(i\partial-q\Phi^*)-m\I\notag\\
+&=i\Wmat(\partial)-q\Wmat(\Phi^*)-m\I.
 \end{align*}
 Because
 \begin{align*}
-W(\partial)^2&=\Box\I,\\
-W(\partial)W(\Phi^*)
+\Wmat(\partial)^2&=\Box\I,\\
+\Wmat(\partial)\Wmat(\Phi^*)
 &=
 \begin{bmatrix}
 0 & \partial\\
@@ -521,7 +521,7 @@ W(\partial)W(\Phi^*)
 \Phi & 0
 \end{bmatrix}
 =\operatorname{diag}(\partial\Phi,\partial^*\Phi^*),\\
-W(\Phi^*)W(\partial)
+\Wmat(\Phi^*)\Wmat(\partial)
 &=
 \begin{bmatrix}
 0 & \Phi^*\\
@@ -532,7 +532,7 @@ W(\Phi^*)W(\partial)
 \partial^* & 0
 \end{bmatrix}
 =\operatorname{diag}(\Phi^*\partial^*,\Phi\partial),\\
-W(\Phi^*)^2
+\Wmat(\Phi^*)^2
 &=
 \begin{bmatrix}
 0 & \Phi^*\\
@@ -543,10 +543,10 @@ W(\Phi^*)^2
 \end{align*}
 one obtains
 \begin{align*}
-W(i\partial-q\Phi^*)^2
-&=-W(\partial)^2\notag\\
-&\qquad-iq\bigl(W(\partial)W(\Phi^*)+W(\Phi^*)W(\partial)\bigr)\notag\\
-&\qquad+q^2W(\Phi^*)^2\notag\\
+\Wmat(i\partial-q\Phi^*)^2
+&=-\Wmat(\partial)^2\notag\\
+&\qquad-iq\bigl(\Wmat(\partial)\Wmat(\Phi^*)+\Wmat(\Phi^*)\Wmat(\partial)\bigr)\notag\\
+&\qquad+q^2\Wmat(\Phi^*)^2\notag\\
 &=-\Box\I-iq\,\operatorname{diag}(\partial\Phi+\Phi^*\partial^*,\partial^*\Phi^*+\Phi\partial)\notag\\
 &\qquad+q^2\langle\!\langle\Phi\rangle\!\rangle^2\I\notag\\
 &=-\operatorname{diag}\!\Big(
@@ -557,29 +557,29 @@ W(i\partial-q\Phi^*)^2
 \end{align*}
 The Dirac equation
 \begin{equation*}
-D\bPsi=0
+\Dmat\bPsi=0
 \end{equation*}
 therefore becomes the two coupled equations
 \begin{align*}
--m\Psi_1+(i\partial-q\Phi^*)\Psi_2&=0,\\
-(i\partial^*-q\Phi)\Psi_1-m\Psi_2&=0.
+-m\bPsi_1+(i\partial-q\Phi^*)\bPsi_2&=0,\\
+(i\partial^*-q\Phi)\bPsi_1-m\bPsi_2&=0.
 \end{align*}
 Solving the first equation for the upper component and substituting into the second gives
 \begin{align*}
-\Psi_1&=\frac{(i\partial-q\Phi^*)\Psi_2}{m},\\
-0&=(i\partial^*-q\Phi)\Psi_1-m\Psi_2\notag\\
-&=-\frac{\bigl((\partial^*+iq\Phi)(\partial+iq\Phi^*)+m^2\bigr)\Psi_2}{m}.
+\bPsi_1&=\frac{(i\partial-q\Phi^*)\bPsi_2}{m},\\
+0&=(i\partial^*-q\Phi)\bPsi_1-m\bPsi_2\notag\\
+&=-\frac{\bigl((\partial^*+iq\Phi)(\partial+iq\Phi^*)+m^2\bigr)\bPsi_2}{m}.
 \end{align*}
 Thus each component satisfies a Klein--Gordon-type operator with the appropriate ordered field coupling.
 
 The mass-conjugate operator is
 \begin{equation*}
-D':=W(i\partial-q\Phi^*)+m\I.
+\Dmat':=\Wmat(i\partial-q\Phi^*)+m\I.
 \end{equation*}
-Multiplying by \(D'\) yields
+Multiplying by \(\Dmat'\) yields
 \begin{align*}
-0=D'D\bPsi
-&=\bigl(W(i\partial-q\Phi^*)^2-m^2\I\bigr)\bPsi\notag\\
+0=\Dmat'\Dmat\bPsi
+&=\bigl(\Wmat(i\partial-q\Phi^*)^2-m^2\I\bigr)\bPsi\notag\\
 &=-\operatorname{diag}\!\Big(
 (\partial+iq\Phi^*)(\partial^*+iq\Phi)+m^2,\notag\\
 &\qquad\qquad\qquad\quad
@@ -588,10 +588,10 @@ Multiplying by \(D'\) yields
 \end{align*}
 Equivalently,
 \begin{align*}
-0&=\bigl((\partial+iq\Phi^*)(\partial^*+iq\Phi)+m^2\bigr)\Psi_1\notag\\
-&=\bigl(-E^2+\mathbf P^2+m^2+iqF^*\bigr)\Psi_1,\\
-0&=\bigl((\partial^*+iq\Phi)(\partial+iq\Phi^*)+m^2\bigr)\Psi_2\notag\\
-&=\bigl(-E^2+\mathbf P^2+m^2+iqF\bigr)\Psi_2.
+0&=\bigl((\partial+iq\Phi^*)(\partial^*+iq\Phi)+m^2\bigr)\bPsi_1\notag\\
+&=\bigl(-E^2+\mathbf P^2+m^2+iqF^*\bigr)\bPsi_1,\\
+0&=\bigl((\partial^*+iq\Phi)(\partial+iq\Phi^*)+m^2\bigr)\bPsi_2\notag\\
+&=\bigl(-E^2+\mathbf P^2+m^2+iqF\bigr)\bPsi_2.
 \end{align*}
 Once the square is taken, the coupled Dirac system separates into two Klein--Gordon-type equations whose field terms differ only by the conjugation pattern fixed by the operator ordering.
 
@@ -615,15 +615,15 @@ Then the derivative of the phase factor is
 \end{align*}
 Therefore,
 \begin{align*}
-0&=(W(i\partial-q\Phi^*)-m\I)\bPsi\notag\\
-&=(W(i\partial-q\Phi^*)-m\I)e^{iq\lambda}\bPsi'\notag\\
-&=e^{iq\lambda}(W(i\partial-q\,\partial\lambda-q\Phi^*)-m\I)\bPsi'\notag\\
-&=e^{iq\lambda}(W(i\partial-q(\Phi'-\Phi)^*-q\Phi^*)-m\I)\bPsi'\notag\\
-&=e^{iq\lambda}(W(i\partial-q\Phi'^*)-m\I)\bPsi'.
+0&=(\Wmat(i\partial-q\Phi^*)-m\I)\bPsi\notag\\
+&=(\Wmat(i\partial-q\Phi^*)-m\I)e^{iq\lambda}\bPsi'\notag\\
+&=e^{iq\lambda}(\Wmat(i\partial-q\,\partial\lambda-q\Phi^*)-m\I)\bPsi'\notag\\
+&=e^{iq\lambda}(\Wmat(i\partial-q(\Phi'-\Phi)^*-q\Phi^*)-m\I)\bPsi'\notag\\
+&=e^{iq\lambda}(\Wmat(i\partial-q\Phi'^*)-m\I)\bPsi'.
 \end{align*}
 Hence
 \begin{equation*}
-(W(i\partial-q\Phi'^*)-m\I)\bPsi'=0.
+(\Wmat(i\partial-q\Phi'^*)-m\I)\bPsi'=0.
 \end{equation*}
 This is the gauge-covariance statement: the phase change of the Dirac field is exactly compensated by the shift of the potential, so the coupled Dirac equation keeps the same form in the primed gauge.
 
@@ -655,21 +655,21 @@ E=i\partial_t-qV,
 \end{equation*}
 Remove the fast rest-mass oscillation by writing
 \begin{equation*}
-\Psi'=e^{-imt}\Psi.
+\psi'=e^{-imt}\psi.
 \end{equation*}
 Then
 \begin{align*}
-E^2\Psi'&=e^{-imt}(E+m)^2\Psi,\\
-\mathbf P^2\Psi'&=e^{-imt}\mathbf P^2\Psi.
+E^2\psi'&=e^{-imt}(E+m)^2\psi,\\
+\mathbf P^2\psi'&=e^{-imt}\mathbf P^2\psi.
 \end{align*}
 Substituting into the minimally coupled Klein--Gordon equation gives
 \begin{align*}
-0&=(-E^2+\mathbf P^2+m^2)\Psi'\notag\\
-&=e^{-imt}\bigl(-(E+m)^2+\mathbf P^2+m^2\bigr)\Psi,
+0&=(-E^2+\mathbf P^2+m^2)\psi'\notag\\
+&=e^{-imt}\bigl(-(E+m)^2+\mathbf P^2+m^2\bigr)\psi,
 \end{align*}
 hence
 \begin{equation*}
-0=(-E^2-2mE+\mathbf P^2)\Psi.
+0=(-E^2-2mE+\mathbf P^2)\psi.
 \end{equation*}
 Formally iterating this relation gives
 \begin{align*}
@@ -678,17 +678,17 @@ E&=\frac{\mathbf P^2-E^2}{2m},\\
 \end{align*}
 At low energy,
 \begin{equation*}
-E\Psi\approx \frac{\mathbf P^2}{2m}\Psi.
+E\psi\approx \frac{\mathbf P^2}{2m}\psi.
 \end{equation*}
-Solving for \(i\partial_t\Psi\) yields the Schr\"odinger equation
+Solving for \(i\partial_t\psi\) yields the Schr\"odinger equation
 \begin{equation*}
-i\partial_t\Psi
-=\left(\frac{(i\gradv+q\mathbf A)^2}{2m}+qV\right)\Psi.
+i\partial_t\psi
+=\left(\frac{(i\gradv+q\mathbf A)^2}{2m}+qV\right)\psi.
 \end{equation*}
 If \(\mathbf A=0\), this reduces to
 \begin{equation*}
-i\partial_t\Psi
-=\left(-\frac{\gradv^2}{2m}+qV\right)\Psi.
+i\partial_t\psi
+=\left(-\frac{\gradv^2}{2m}+qV\right)\psi.
 \end{equation*}
 The scalar low-energy limit is therefore already encoded in the relativistic Klein--Gordon theory.
 
@@ -697,18 +697,18 @@ Start from the two-component field
 \begin{equation*}
 \bPsi'=
 \begin{Bmatrix}
-\Psi_1'\\[2pt]
-\Psi_2'
+\bPsi_1'\\[2pt]
+\bPsi_2'
 \end{Bmatrix}
 \end{equation*}
 and the potential-coupled Dirac equation
 \begin{equation*}
-\bigl(W(i\partial-q\Phi^*)-m\I\bigr)\bPsi'=0.
+\bigl(\Wmat(i\partial-q\Phi^*)-m\I\bigr)\bPsi'=0.
 \end{equation*}
 Its two component equations are
 \begin{align*}
-(i\partial-q\Phi^*)\Psi_2'-m\Psi_1'&=0,\\
-(i\partial^*-q\Phi)\Psi_1'-m\Psi_2'&=0.
+(i\partial-q\Phi^*)\bPsi_2'-m\bPsi_1'&=0,\\
+(i\partial^*-q\Phi)\bPsi_1'-m\bPsi_2'&=0.
 \end{align*}
 Write
 \begin{align*}
@@ -721,12 +721,12 @@ Write
 \end{align*}
 Then the two equations become
 \begin{align*}
-(i\partial_t-qV)\Psi_2'
-+\bigl((i\gradv+q\mathbf A)\cdot\sigv\bigr)\Psi_2'
--m\Psi_1'&=0,\\
-(i\partial_t-qV)\Psi_1'
--\bigl((i\gradv+q\mathbf A)\cdot\sigv\bigr)\Psi_1'
--m\Psi_2'&=0.
+(i\partial_t-qV)\bPsi_2'
++\bigl((i\gradv+q\mathbf A)\cdot\sigv\bigr)\bPsi_2'
+-m\bPsi_1'&=0,\\
+(i\partial_t-qV)\bPsi_1'
+-\bigl((i\gradv+q\mathbf A)\cdot\sigv\bigr)\bPsi_1'
+-m\bPsi_2'&=0.
 \end{align*}
 Introduce the covariant operators
 \begin{equation*}
@@ -736,29 +736,29 @@ E:=i\partial_t-qV,
 \end{equation*}
 The system is then
 \begin{align*}
-(E-\mathbf P\cdot\sigv)\Psi_2'-m\Psi_1'&=0,\\
-(E+\mathbf P\cdot\sigv)\Psi_1'-m\Psi_2'&=0.
+(E-\mathbf P\cdot\sigv)\bPsi_2'-m\bPsi_1'&=0,\\
+(E+\mathbf P\cdot\sigv)\bPsi_1'-m\bPsi_2'&=0.
 \end{align*}
 Peel off the fast rest-mass oscillation with
 \begin{equation*}
-\Psi_n'=e^{-imt}\Psi_n.
+\bPsi_n'=e^{-imt}\bPsi_n.
 \end{equation*}
 Since
 \begin{equation*}
-E\Psi_n'=e^{-imt}(E+m)\Psi_n,
+E\bPsi_n'=e^{-imt}(E+m)\bPsi_n,
 \end{equation*}
 the reduced system becomes
 \begin{align*}
-(E+m-\mathbf P\cdot\sigv)\Psi_2-m\Psi_1&=0,\\
-(E+m+\mathbf P\cdot\sigv)\Psi_1-m\Psi_2&=0.
+(E+m-\mathbf P\cdot\sigv)\bPsi_2-m\bPsi_1&=0,\\
+(E+m+\mathbf P\cdot\sigv)\bPsi_1-m\bPsi_2&=0.
 \end{align*}
 Solve the first equation for the upper component:
 \begin{equation*}
-\Psi_1=\frac{(E+m-\mathbf P\cdot\sigv)\Psi_2}{m}.
+\bPsi_1=\frac{(E+m-\mathbf P\cdot\sigv)\bPsi_2}{m}.
 \end{equation*}
 Substituting this into the second equation and multiplying by \(m\) gives
 \begin{equation*}
-0=\bigl((E+m+\mathbf P\cdot\sigv)(E+m-\mathbf P\cdot\sigv)-m^2\bigr)\Psi_2.
+0=\bigl((E+m+\mathbf P\cdot\sigv)(E+m-\mathbf P\cdot\sigv)-m^2\bigr)\bPsi_2.
 \end{equation*}
 Expand the operator product as
 \begin{align*}
@@ -807,9 +807,9 @@ one has
 Therefore the exact lower-component equation is
 \begin{align*}
 0
-&=\bigl((E+m)^2-m^2-\mathbf P^2+q\,\mathbf B\cdot\sigv+[\mathbf P\cdot\sigv,E]\bigr)\Psi_2\notag\\
-&=\bigl(E^2+2mE-\mathbf P^2+q\,\mathbf B\cdot\sigv-iq\,\mathbf E\cdot\sigv\bigr)\Psi_2\notag\\
-&=\bigl(E^2+2mE-\mathbf P^2-iqF\bigr)\Psi_2.
+&=\bigl((E+m)^2-m^2-\mathbf P^2+q\,\mathbf B\cdot\sigv+[\mathbf P\cdot\sigv,E]\bigr)\bPsi_2\notag\\
+&=\bigl(E^2+2mE-\mathbf P^2+q\,\mathbf B\cdot\sigv-iq\,\mathbf E\cdot\sigv\bigr)\bPsi_2\notag\\
+&=\bigl(E^2+2mE-\mathbf P^2-iqF\bigr)\bPsi_2.
 \end{align*}
 This can be iterated recursively as
 \begin{align*}
@@ -819,13 +819,13 @@ E
 \end{align*}
 At low energy, the dominant terms satisfy
 \begin{equation*}
-0\approx(2mE-\mathbf P^2+q\,\mathbf B\cdot\sigv)\Psi_2.
+0\approx(2mE-\mathbf P^2+q\,\mathbf B\cdot\sigv)\bPsi_2.
 \end{equation*}
-Solving for \(i\partial_t\Psi_2\) yields the Pauli equation
+Solving for \(i\partial_t\bPsi_2\) yields the Pauli equation
 \begin{equation*}
-i\partial_t\Psi_2
-=\left(\frac{(-i\gradv-q\mathbf A)^2}{2m}+qV\right)\Psi_2
--\frac{q}{2m}\,(\mathbf B\cdot\sigv)\Psi_2.
+i\partial_t\bPsi_2
+=\left(\frac{(-i\gradv-q\mathbf A)^2}{2m}+qV\right)\bPsi_2
+-\frac{q}{2m}\,(\mathbf B\cdot\sigv)\bPsi_2.
 \end{equation*}
 The nonrelativistic spin coupling is therefore not an extra postulate: it is the leading field correction that survives when the massive Dirac system is expanded around its rest-energy oscillation \cite{pauli1927,sakurai2017}.
 

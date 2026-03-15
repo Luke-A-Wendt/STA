@@ -42,6 +42,12 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\sigv}{\bm{\sigma}}
 \newcommand{\bPsi}{\bm{\Psi}}
+\newcommand{\Wmat}{\mathbf W}
+\newcommand{\Dmat}{\mathbf D}
+\newcommand{\Lmat}{\bm{\Lambda}}
+\newcommand{\Mmat}{\bm{\mathsf M}}
+\newcommand{\Qmat}{\mathbf Q}
+\newcommand{\Nmat}{\mathbf N}
 \newcommand{\gradv}{\bm{\nabla}}
 \newcommand{\delop}{\partial}
 \newcommand{\delr}{\delop_{\mathbf r}}
@@ -52,7 +58,7 @@
 \newcommand{\flag}[1]{\textcolor{STAFlag}{\textbf{#1}}}
 \newcommand{\verifiedmark}{\textcolor{green!50!black}{\checkmark}}
 \newcommand{\dd}{\mathrm d}
-\newcommand{\I}{\mathrm I}
+\newcommand{\I}{\mathbf I}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 \captionsetup{font=normalsize,labelfont=bf,labelsep=period,skip=4pt}
@@ -228,9 +234,9 @@ Z&=(a+ib)+(\mathbf A+i\mathbf B)\cdot\sigv=X+iY,\\
 \compendiumrow{Maxwell equation}{\partial F=\rho-\mathbf J\cdot\sigv}{\eqref{eq:maxwell}}
 \compendiumrow{Lorentz force}{m\frac{\dd U}{\dd s}=q\,\eqtext{real}(FU)}{\eqref{eq:lorentz-force}}
 \compendiumhead{Wave Equations}
-\compendiumrow{Klein--Gordon}{(-E^2+\mathbf P^2+m^2)\Psi=0}{\eqref{eq:kg-coupled}}
+\compendiumrow{Klein--Gordon}{(-E^2+\mathbf P^2+m^2)\psi=0}{\eqref{eq:kg-coupled}}
 \compendiumrow{Dirac factorization}{(E+\sigv\cdot\mathbf P)(E-\sigv\cdot\mathbf P)=E^2-\mathbf P^2-iqF}{\eqref{eq:EP-factorization}}
-\compendiumrow{Dirac system}{(W(i\partial-q\conj{\Phi})-m\I)\bPsi=0}{\eqref{eq:dirac-coupled}}
+\compendiumrow{Dirac system}{(\Wmat(i\partial-q\conj{\Phi})-m\I)\bPsi=0}{\eqref{eq:dirac-coupled}}
 \compendiumrow{Pauli limit}{2mE\bPsi=(\mathbf P^2-q\mathbf B\cdot\sigv)\bPsi}{\eqref{eq:pauli-operator}}
 \end{tabular}
 \endgroup
@@ -284,7 +290,7 @@ Z&=(a+ib)+(\mathbf A+i\mathbf B)\cdot\sigv=X+iY,\\
 \compendiumrowplain{Proper velocity}{U=\gamma(1+\mathbf v\cdot\sigv)}{\eqref{eq:proper-velocity}}
 \compendiumsubrowplain{Proper momentum}{mU=E+\mathbf P\cdot\sigv}{\eqref{eq:proper-momentum}}
 \compendiumrowplain{Frequency operator}{\Omega=\langle\!\langle m+\sigv\cdot\gradv\rangle\!\rangle=\sqrt{m^2-\gradv^2}}{\eqref{eq:frequency-split}}
-\compendiumsubrowplain{Frequency split}{(\partial_t\pm i\Omega)\Psi(\pm)=0}{\eqref{eq:frequency-split}}
+\compendiumsubrowplain{Frequency split}{(\partial_t\pm i\Omega)\psi(\pm)=0}{\eqref{eq:frequency-split}}
 \compendiumrowplain{Spatial derivative}{\delr=\{\partial/\partial r_1,\partial/\partial r_2,\partial/\partial r_3\}}{\eqref{eq:delr}}
 \compendiumsubrowplain{Gradient notation}{\gradv=\delr=\{\partial_1,\partial_2,\partial_3\}}{\eqref{eq:gradient-notation}}
 \compendiumsubsubsubrowplain{Spatial Laplacian}{\gradv^2=\partial_1^2+\partial_2^2+\partial_3^2}{\eqref{eq:laplacian}}
@@ -299,13 +305,13 @@ Z&=(a+ib)+(\mathbf A+i\mathbf B)\cdot\sigv=X+iY,\\
 \compendiumrowplain{Potential paravector}{\Phi=V+\mathbf A\cdot\sigv}{\eqref{eq:F-Phi}}
 \compendiumsubrowplain{Potential gradient}{\partial\Phi=S+\conj{F}}{\eqref{eq:potential-gradient}}
 \compendiumsubrowplain{Gauge law}{\Phi'=\Phi+\conj{\partial}\lambda}{\eqref{eq:gauge}}
-\compendiumrowplain{Klein--Gordon}{(-E^2+\mathbf P^2+m^2)\Psi=0}{\eqref{eq:kg-coupled}}
+\compendiumrowplain{Klein--Gordon}{(-E^2+\mathbf P^2+m^2)\psi=0}{\eqref{eq:kg-coupled}}
 \compendiumsubrowplain{Covariant energy}{E=i\partial_t-qV}{\eqref{eq:E-P-operators}}
 \compendiumsubrowplain{Covariant momentum}{\mathbf P=-i\gradv-q\mathbf A}{\eqref{eq:E-P-operators}}
 \compendiumrowplain{Dirac factorization}{(E+\sigv\cdot\mathbf P)(E-\sigv\cdot\mathbf P)=E^2-\mathbf P^2-iqF}{\eqref{eq:EP-factorization}}
-\compendiumrowplain{Dirac system}{(W(i\partial-q\conj{\Phi})-m\I)\bPsi=0}{\eqref{eq:dirac-coupled}}
-\compendiumsubrowplain{W map}{W(Z)=\{0,Z;\crev{Z},0\}}{\eqref{eq:W-map}}
-\compendiumsubrowplain{Dirac square}{\{(-E^2+\mathbf P^2+m^2+iq\conj{F})\Psi_1;\ (-E^2+\mathbf P^2+m^2+iqF)\Psi_2\}=0}{\eqref{eq:dirac-square}}
+\compendiumrowplain{Dirac system}{(\Wmat(i\partial-q\conj{\Phi})-m\I)\bPsi=0}{\eqref{eq:dirac-coupled}}
+\compendiumsubrowplain{W map}{\Wmat(Z)=\{0,Z;\crev{Z},0\}}{\eqref{eq:W-map}}
+\compendiumsubrowplain{Dirac square}{\{(-E^2+\mathbf P^2+m^2+iq\conj{F})\bPsi_1;\ (-E^2+\mathbf P^2+m^2+iqF)\bPsi_2\}=0}{\eqref{eq:dirac-square}}
 \compendiumsubsubrowplain{Pauli spin split}{i\partial_t\bPsi(\pm)=\left((\mathbf P^2\mp q\|\mathbf B\|)/(2m)+qV\right)\bPsi(\pm)}{\eqref{eq:pauli-spin-split}}
 \compendiumsubsubrowplain{Pauli limit}{2mE\bPsi=(\mathbf P^2-q\mathbf B\cdot\sigv)\bPsi}{\eqref{eq:pauli-operator}}
 \end{tabular}
@@ -996,17 +1002,17 @@ The supporting derivations write out the field decomposition, potential reconstr
 The relativistic wave-equation development is a second application of the same algebra: first the scalar wave equation, then minimal coupling and factorization, and only then the two-component paravector factorization, the projector split, and the Pauli limit. The sequence follows the historical progression from Klein and Gordon to Dirac and Pauli, but it is rewritten throughout in the common paravector language established earlier \cite{klein1926,gordon1926,dirac1928,pauli1927}.
 
 \subsection{Klein--Gordon and frequency splitting}
-For a complex scalar field \(\Psi\in\C\),
+For a complex scalar field \(\psi\in\C\),
 \begin{equation}
-(\partial\conj{\partial}+m^2)\Psi=0
+(\partial\conj{\partial}+m^2)\psi=0
 \label{eq:kg-free}
 \end{equation}
 is the free Klein--Gordon equation \cite{klein1926,gordon1926}. Define also
 \begin{equation}
 \begin{aligned}
 \Omega&:=\langle\!\langle m+\sigv\cdot\gradv\rangle\!\rangle=\sqrt{m^2-\gradv^2},\\
-(\partial_t\pm i\Omega)\Psi(\pm)&=0,\qquad
-\Psi=\Psi(+)+\Psi(-),
+(\partial_t\pm i\Omega)\psi(\pm)&=0,\qquad
+\psi=\psi(+)+\psi(-),
 \end{aligned}
 \label{eq:frequency-split}
 \end{equation}
@@ -1016,7 +1022,7 @@ This factorization is useful both conceptually and technically. It separates opp
 \subsection{Minimal coupling and operator factorization}
 Minimal coupling enters directly at the operator level. Rather than modifying each component equation separately, one defines energy and momentum operators that already incorporate the potential \(\Phi\) established in Section \ref{sec:em}.
 
-Here \(\Psi(\pm)\in\C\), while \(\Omega\) is a scalar differential operator built from \(m\in\R\) and \(\gradv\). Define also the scalar differential operator \(E\) and vector differential operator \(\mathbf P\) by
+Here \(\psi(\pm)\in\C\), while \(\Omega\) is a scalar differential operator built from \(m\in\R\) and \(\gradv\). Define also the scalar differential operator \(E\) and vector differential operator \(\mathbf P\) by
 \begin{equation}
 E:=i\partial_t-qV,
 \qquad
@@ -1025,12 +1031,12 @@ E:=i\partial_t-qV,
 \end{equation}
 Then
 \begin{equation}
-(-E^2+\mathbf P^2+m^2)\Psi=0
+(-E^2+\mathbf P^2+m^2)\psi=0
 \label{eq:kg-coupled}
 \end{equation}
 expands to the minimal-coupling Klein--Gordon operator
 \begin{equation}
-\Big(\Box+iqS-q^2\langle\!\langle\Phi\rangle\!\rangle^2+m^2+2iq(V\partial_t+\mathbf A\cdot\gradv)\Big)\Psi=0.
+\Big(\Box+iqS-q^2\langle\!\langle\Phi\rangle\!\rangle^2+m^2+2iq(V\partial_t+\mathbf A\cdot\gradv)\Big)\psi=0.
 \label{eq:kg-expanded}
 \end{equation}
 \noindent The basic covariant-momentum commutators are
@@ -1049,27 +1055,27 @@ one gets the useful factorization
 Equation \eqref{eq:EP-factorization} is the bridge between the Klein--Gordon and Dirac-type formulas below. The square of a first-order operator built from \(E\) and \(\mathbf P\) produces the second-order relativistic operator together with the field term, which is the structural fact needed before introducing a Dirac-type equation.
 
 \subsection{Dirac Two-Component Form, Gauge Covariance, and Pauli Limit}
-Using the auxiliary \(2\times2\) map from Eq.\ \eqref{eq:W-map}, the free and coupled Dirac operators act on a two-component field \(\bPsi=\{\Psi_1;\Psi_2\}\) whose components \(\Psi_1,\Psi_2\in\C\oplus\C^3\) are complex paravectors:
+Using the auxiliary \(2\times2\) map from Eq.\ \eqref{eq:W-map}, the free and coupled Dirac operators act on a two-component field \(\bPsi=\{\bPsi_1;\bPsi_2\}\) whose components \(\bPsi_1,\bPsi_2\in\C\oplus\C^3\) are complex paravectors:
 \begin{align}
-D_0&:=W(i\partial)-m\I,
-\qquad D_0\bPsi=0,
+\Dmat_0&:=\Wmat(i\partial)-m\I,
+\qquad \Dmat_0\bPsi=0,
 \label{eq:dirac-free}\\
-D&:=W(i\partial-q\conj{\Phi})-m\I,
-\qquad D\bPsi=0.
+\Dmat&:=\Wmat(i\partial-q\conj{\Phi})-m\I,
+\qquad \Dmat\bPsi=0.
 \label{eq:dirac-coupled}
 \end{align}
-Multiplying \eqref{eq:dirac-coupled} by $D':=W(i\partial-q\conj{\Phi})+m\I$ yields
+Multiplying \eqref{eq:dirac-coupled} by $\Dmat':=\Wmat(i\partial-q\conj{\Phi})+m\I$ yields
 \begin{equation}
-D'D\bPsi=0
+\Dmat'\Dmat\bPsi=0
 \;\Rightarrow\;
 \begin{cases}
-(-E^2+\mathbf P^2+m^2+iq\conj{F})\Psi_1=0,\\[2pt]
-(-E^2+\mathbf P^2+m^2+iqF)\Psi_2=0.
+(-E^2+\mathbf P^2+m^2+iq\conj{F})\bPsi_1=0,\\[2pt]
+(-E^2+\mathbf P^2+m^2+iqF)\bPsi_2=0.
 \end{cases}
 \label{eq:dirac-square}
 \end{equation}
 The calculation in Eq.\ \eqref{eq:dirac-square} explains why the two-component construction is more than formal packaging. Squaring the first-order system returns Klein--Gordon-type equations with the expected field couplings, so the Dirac form is seen as a controlled factorization of the relativistic wave operator.
-For the ordering \(Z=i\partial-q\conj{\Phi}=E-\sigv\cdot\mathbf P\) inside \(W(Z)\), the upper component carries \(+iq\conj{F}\) and the lower component carries \(+iqF\).
+For the ordering \(Z=i\partial-q\conj{\Phi}=E-\sigv\cdot\mathbf P\) inside \(\Wmat(Z)\), the upper component carries \(+iq\conj{F}\) and the lower component carries \(+iqF\).
 
 Gauge covariance combines the electromagnetic gauge law \eqref{eq:gauge} with the phase transformation of that same two-component field,
 \begin{equation}
@@ -1140,21 +1146,21 @@ On the mass shell,
 \end{equation*}
 Using the auxiliary map from Eq.\ \eqref{eq:W-map},
 \begin{equation*}
-W(U)^2
+\Wmat(U)^2
 =\operatorname{diag}\!\bigl(\langle\!\langle U\rangle\!\rangle^2,\langle\!\langle U\rangle\!\rangle^2\bigr)
 =\I.
 \end{equation*}
 The corresponding energy projectors are
 \begin{equation*}
-\Lambda(\pm):=\frac{1}{2}(\I\pm W(U)),
+\Lmat(\pm):=\frac{1}{2}(\I\pm \Wmat(U)),
 \end{equation*}
-where \(\Lambda(+)\) selects the positive-energy (matter) branch and \(\Lambda(-)\) the negative-energy (antimatter) branch. Since \(W(U)^2=\I\), they satisfy
+where \(\Lmat(+)\) selects the positive-energy (matter) branch and \(\Lmat(-)\) the negative-energy (antimatter) branch. Since \(\Wmat(U)^2=\I\), they satisfy
 \begin{equation*}
-\Lambda(\pm)^2=\Lambda(\pm),
+\Lmat(\pm)^2=\Lmat(\pm),
 \qquad
-\Lambda(+)\Lambda(-)=0,
+\Lmat(+)\Lmat(-)=0,
 \qquad
-\Lambda(+)+\Lambda(-)=\I.
+\Lmat(+)+\Lmat(-)=\I.
 \end{equation*}
 For an arbitrary spin axis \(\mathbf u\in\R^3\) with \(\mathbf u^2=1\), use also the spin projectors
 \begin{equation*}
@@ -1167,16 +1173,16 @@ U\ \longrightarrow\ \frac{i\partial}{m}.
 The mass-normalized positive-energy projector condition may therefore be written as
 \begin{equation}
 \begin{aligned}
-\left(W\!\left(\frac{i\partial}{m}\right)-\I\right)\bPsi&=0,\\
-(W(U)-\I)\bPsi&=0.
+\left(\Wmat\!\left(\frac{i\partial}{m}\right)-\I\right)\bPsi&=0,\\
+(\Wmat(U)-\I)\bPsi&=0.
 \end{aligned}
 \label{eq:normalized-dirac}
 \end{equation}
-\flag{Equation \eqref{eq:normalized-dirac} is not a replacement for the Dirac equation; it is the free on-shell projector relation obtained after normalizing momentum by $m$ so that $W(U)^2=\I$.}
+\flag{Equation \eqref{eq:normalized-dirac} is not a replacement for the Dirac equation; it is the free on-shell projector relation obtained after normalizing momentum by $m$ so that $\Wmat(U)^2=\I$.}
 
 Combining the energy split with the spin split gives the four sectors
 \begin{equation}
-\bPsi(\epsilon,s):=\Lambda(\epsilon)\Pi(s)\bPsi,
+\bPsi(\epsilon,s):=\Lmat(\epsilon)\Pi(s)\bPsi,
 \qquad
 \epsilon,s\in\{+,-\},
 \label{eq:energy-spin-projectors}
@@ -1425,7 +1431,7 @@ The list below marks formulas or claims that still require interpretation, corre
 \item \flag{In quaternion intermediate expansions, the linear term carries the factor $a$, as in Eq.\ \eqref{eq:quaternion-square}.}
 \item \flag{The line $T=\frac12F\rev{F}$ should be read as a frame-conditioned energy-density/Poynting paravector, not the full electromagnetic stress-energy tensor.}
 \item \flag{Equation \eqref{eq:normalized-dirac} is an on-shell projector statement for normalized free states, not the general Dirac equation.}
-\item \flag{An earlier sign variant of Eq.\ \eqref{eq:dirac-square} with $-iqF^*$ in the upper component is inconsistent with the operator ordering in $W(i\partial-q\conj{\Phi})$; the corrected sign is $+iqF^*$.}
+\item \flag{An earlier sign variant of Eq.\ \eqref{eq:dirac-square} with $-iqF^*$ in the upper component is inconsistent with the operator ordering in $\Wmat(i\partial-q\conj{\Phi})$; the corrected sign is $+iqF^*$.}
 \item \flag{Several operator equalities stated in differential form implicitly assume smooth test functions and benign boundary behavior; those hypotheses should be stated whenever commutators of differential operators are used rigorously.}
 \end{enumerate}
 

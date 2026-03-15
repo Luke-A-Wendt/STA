@@ -607,40 +607,40 @@ x=(t,r_1,r_2,r_3)^T,
 \]
 Then the interval may be written as
 \begin{equation*}
-\dd s^{2}=\dd x^{T}Q(x)\,\dd x
+\dd s^{2}=\dd x^{T}\Qmat(x)\,\dd x
 \end{equation*}
-for a symmetric matrix \(Q(x)=Q(x)^T\). The eigenvalue problem is
+for a symmetric matrix \(\Qmat(x)=\Qmat(x)^T\). The eigenvalue problem is
 \begin{equation*}
-\det\!\bigl(Q-\lambda_n\I\bigr)=0,
+\det\!\bigl(\Qmat-\lambda_n\I\bigr)=0,
 \qquad
-\bigl(Q-\lambda_n\I\bigr)u_n=0,
+\bigl(\Qmat-\lambda_n\I\bigr)u_n=0,
 \end{equation*}
 so the spectral data may be assembled as
 \[
-D=\operatorname{diag}(\lambda_0,\lambda_1,\lambda_2,\lambda_3),
+\Dmat=\operatorname{diag}(\lambda_0,\lambda_1,\lambda_2,\lambda_3),
 \qquad
-N=(u_0\,u_1\,u_2\,u_3).
+\Nmat=(u_0\,u_1\,u_2\,u_3).
 \]
-Because \(Q\) is symmetric, the eigenvalues are real and the eigenvectors may be chosen orthonormally, giving
+Because \(\Qmat\) is symmetric, the eigenvalues are real and the eigenvectors may be chosen orthonormally, giving
 \[
-N^TN=NN^T=\I,
+\Nmat^T\Nmat=\Nmat\Nmat^T=\I,
 \qquad
-N^{-1}=N^T.
+\Nmat^{-1}=\Nmat^T.
 \]
-When \(Q\) is invertible, this yields
+When \(\Qmat\) is invertible, this yields
 \[
-Q^{-1}=ND^{-1}N^T,
+\Qmat^{-1}=\Nmat\Dmat^{-1}\Nmat^T,
 \]
 and in general
 \begin{align*}
-Q
-&=NDN^T\notag\\
+\Qmat
+&=\Nmat\Dmat\Nmat^T\notag\\
 &=\sum_n \lambda_n\,u_nu_n^T.
 \end{align*}
 Therefore
 \begin{align*}
 \dd s^2
-&=\dd x^TQ\,\dd x\notag\\
+&=\dd x^T\Qmat\,\dd x\notag\\
 &=\sum_n \lambda_n\,(u_n\cdot \dd x)^2.
 \end{align*}
 Formally, one may absorb the eigenvalues into rescaled coordinates,
