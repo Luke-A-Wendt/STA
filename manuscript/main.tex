@@ -41,6 +41,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\sigv}{\bm{\sigma}}
+\newcommand{\bPsi}{\bm{\Psi}}
 \newcommand{\gradv}{\bm{\nabla}}
 \newcommand{\delop}{\partial}
 \newcommand{\delr}{\delop_{\mathbf r}}
@@ -229,8 +230,8 @@ Z&=(a+ib)+(\mathbf A+i\mathbf B)\cdot\sigv=X+iY,\\
 \compendiumhead{Wave Equations}
 \compendiumrow{Klein--Gordon}{(-E^2+\mathbf P^2+m^2)\Psi=0}{\eqref{eq:kg-coupled}}
 \compendiumrow{Dirac factorization}{(E+\sigv\cdot\mathbf P)(E-\sigv\cdot\mathbf P)=E^2-\mathbf P^2-iqF}{\eqref{eq:EP-factorization}}
-\compendiumrow{Dirac system}{(W(i\partial-q\conj{\Phi})-m\I)\Psi=0}{\eqref{eq:dirac-coupled}}
-\compendiumrow{Pauli limit}{2mE\Psi=(\mathbf P^2-q\mathbf B\cdot\sigv)\Psi}{\eqref{eq:pauli-operator}}
+\compendiumrow{Dirac system}{(W(i\partial-q\conj{\Phi})-m\I)\bPsi=0}{\eqref{eq:dirac-coupled}}
+\compendiumrow{Pauli limit}{2mE\bPsi=(\mathbf P^2-q\mathbf B\cdot\sigv)\bPsi}{\eqref{eq:pauli-operator}}
 \end{tabular}
 \endgroup
 \fi
@@ -302,11 +303,11 @@ Z&=(a+ib)+(\mathbf A+i\mathbf B)\cdot\sigv=X+iY,\\
 \compendiumsubrowplain{Covariant energy}{E=i\partial_t-qV}{\eqref{eq:E-P-operators}}
 \compendiumsubrowplain{Covariant momentum}{\mathbf P=-i\gradv-q\mathbf A}{\eqref{eq:E-P-operators}}
 \compendiumrowplain{Dirac factorization}{(E+\sigv\cdot\mathbf P)(E-\sigv\cdot\mathbf P)=E^2-\mathbf P^2-iqF}{\eqref{eq:EP-factorization}}
-\compendiumrowplain{Dirac system}{(W(i\partial-q\conj{\Phi})-m\I)\Psi=0}{\eqref{eq:dirac-coupled}}
+\compendiumrowplain{Dirac system}{(W(i\partial-q\conj{\Phi})-m\I)\bPsi=0}{\eqref{eq:dirac-coupled}}
 \compendiumsubrowplain{W map}{W(Z)=\{0,Z;\crev{Z},0\}}{\eqref{eq:W-map}}
 \compendiumsubrowplain{Dirac square}{\{(-E^2+\mathbf P^2+m^2+iq\conj{F})\Psi_1;\ (-E^2+\mathbf P^2+m^2+iqF)\Psi_2\}=0}{\eqref{eq:dirac-square}}
-\compendiumsubsubrowplain{Pauli spin split}{i\partial_t\Psi(\pm)=\left((\mathbf P^2\mp q\|\mathbf B\|)/(2m)+qV\right)\Psi(\pm)}{\eqref{eq:pauli-spin-split}}
-\compendiumsubsubrowplain{Pauli limit}{2mE\Psi=(\mathbf P^2-q\mathbf B\cdot\sigv)\Psi}{\eqref{eq:pauli-operator}}
+\compendiumsubsubrowplain{Pauli spin split}{i\partial_t\bPsi(\pm)=\left((\mathbf P^2\mp q\|\mathbf B\|)/(2m)+qV\right)\bPsi(\pm)}{\eqref{eq:pauli-spin-split}}
+\compendiumsubsubrowplain{Pauli limit}{2mE\bPsi=(\mathbf P^2-q\mathbf B\cdot\sigv)\bPsi}{\eqref{eq:pauli-operator}}
 \end{tabular}
 \endgroup
 \clearpage
@@ -1048,18 +1049,18 @@ one gets the useful factorization
 Equation \eqref{eq:EP-factorization} is the bridge between the Klein--Gordon and Dirac-type formulas below. The square of a first-order operator built from \(E\) and \(\mathbf P\) produces the second-order relativistic operator together with the field term, which is the structural fact needed before introducing a Dirac-type equation.
 
 \subsection{Dirac Two-Component Form, Gauge Covariance, and Pauli Limit}
-Using the auxiliary \(2\times2\) map from Eq.\ \eqref{eq:W-map}, the free and coupled Dirac operators act on a two-component field \(\Psi=\{\Psi_1;\Psi_2\}\) whose components \(\Psi_1,\Psi_2\in\C\oplus\C^3\) are complex paravectors:
+Using the auxiliary \(2\times2\) map from Eq.\ \eqref{eq:W-map}, the free and coupled Dirac operators act on a two-component field \(\bPsi=\{\Psi_1;\Psi_2\}\) whose components \(\Psi_1,\Psi_2\in\C\oplus\C^3\) are complex paravectors:
 \begin{align}
 D_0&:=W(i\partial)-m\I,
-\qquad D_0\Psi=0,
+\qquad D_0\bPsi=0,
 \label{eq:dirac-free}\\
 D&:=W(i\partial-q\conj{\Phi})-m\I,
-\qquad D\Psi=0.
+\qquad D\bPsi=0.
 \label{eq:dirac-coupled}
 \end{align}
 Multiplying \eqref{eq:dirac-coupled} by $D':=W(i\partial-q\conj{\Phi})+m\I$ yields
 \begin{equation}
-D'D\Psi=0
+D'D\bPsi=0
 \;\Rightarrow\;
 \begin{cases}
 (-E^2+\mathbf P^2+m^2+iq\conj{F})\Psi_1=0,\\[2pt]
@@ -1072,22 +1073,22 @@ For the ordering \(Z=i\partial-q\conj{\Phi}=E-\sigv\cdot\mathbf P\) inside \(W(Z
 
 Gauge covariance combines the electromagnetic gauge law \eqref{eq:gauge} with the phase transformation of that same two-component field,
 \begin{equation}
-\Psi=e^{iq\lambda}\Psi',
+\bPsi=e^{iq\lambda}\bPsi',
 \label{eq:dirac-gauge}
 \end{equation}
 Equation \eqref{eq:dirac-gauge} leaves the form of \eqref{eq:dirac-coupled} unchanged.
 
-For the low-energy reduction, using the operators from Eq.\ \eqref{eq:E-P-operators}, one obtains the leading-order Pauli equation for the same two-component field \(\Psi\),
+For the low-energy reduction, using the operators from Eq.\ \eqref{eq:E-P-operators}, one obtains the leading-order Pauli equation for the same two-component field \(\bPsi\),
 \begin{equation}
-2mE\Psi=(\mathbf P^2-q\mathbf B\cdot\sigv)\Psi.
+2mE\bPsi=(\mathbf P^2-q\mathbf B\cdot\sigv)\bPsi.
 \label{eq:pauli-operator}
 \end{equation}
-Solving Eq.\ \eqref{eq:pauli-operator} for \(i\partial_t\Psi\) gives the more familiar Schr\"odinger-type form
+Solving Eq.\ \eqref{eq:pauli-operator} for \(i\partial_t\bPsi\) gives the more familiar Schr\"odinger-type form
 \begin{equation}
-i\partial_t\Psi
+i\partial_t\bPsi
 \approx
-\left(\frac{(-i\gradv-q\mathbf A)^2}{2m}+qV\right)\Psi
--\frac{q}{2m}(\mathbf B\cdot\sigv)\Psi.
+\left(\frac{(-i\gradv-q\mathbf A)^2}{2m}+qV\right)\bPsi
+-\frac{q}{2m}(\mathbf B\cdot\sigv)\bPsi.
 \label{eq:pauli}
 \end{equation}
 This matches the usual Zeeman term \cite{pauli1927,sakurai2017}, provided one remembers that \eqref{eq:pauli} is a leading-order $1/m$ approximation and that later specialization to uniform static $\mathbf B$ is used when decoupling the spin-up and spin-down parts.
@@ -1096,15 +1097,15 @@ The nonrelativistic theory therefore appears as an approximation internal to the
 If \(\mathbf B=\|\mathbf B\|\mathbf u\) with \(\mathbf B,\mathbf u\in\R^3\), \(\|\mathbf u\|=1\), and \(\mathbf B\) uniform and constant, decompose
 \begin{equation}
 \begin{aligned}
-\Psi&=\Psi(+)+\Psi(-),\qquad
-\Psi(\pm)=\Pi(\pm)\Psi,\\
+\bPsi&=\bPsi(+)+\bPsi(-),\qquad
+\bPsi(\pm)=\Pi(\pm)\bPsi,\\
 \Pi(\pm)&=\frac{1}{2}(1\pm \mathbf u\cdot\sigv).
 \end{aligned}
 \label{eq:pauli-spin-decomposition}
 \end{equation}
 With the projector decomposition \eqref{eq:pauli-spin-decomposition} in place, Eq.\ \eqref{eq:pauli} separates into
 \begin{equation}
-i\partial_t\Psi(\pm)=\left((\mathbf P^2\mp q\|\mathbf B\|)/(2m)+qV\right)\Psi(\pm).
+i\partial_t\bPsi(\pm)=\left((\mathbf P^2\mp q\|\mathbf B\|)/(2m)+qV\right)\bPsi(\pm).
 \label{eq:pauli-spin-split}
 \end{equation}
 In this special case the projector language acquires an immediate physical meaning: the field direction selects a preferred axis, and the two projector parts evolve with opposite Zeeman shifts.
@@ -1112,17 +1113,17 @@ If the field direction or magnitude varies, the same projector family from Secti
 \begin{equation*}
 H:=\frac{\mathbf P^2}{2m}+qV-\frac{q\lVert\mathbf B\rVert}{2m}\,\mathbf u\cdot\sigv,
 \qquad
-i\partial_t\Psi=H\Psi,
+i\partial_t\bPsi=H\bPsi,
 \end{equation*}
 the projector-selected parts obey
 \begin{align*}
-i\partial_t\Psi(\pm)
-&=i(\partial_t\Pi(\pm))\Psi+\Pi(\pm)(i\partial_t\Psi)\notag\\
-&=H\Psi(\pm)+S(\pm),
+i\partial_t\bPsi(\pm)
+&=i(\partial_t\Pi(\pm))\bPsi+\Pi(\pm)(i\partial_t\bPsi)\notag\\
+&=H\bPsi(\pm)+S(\pm),
 \end{align*}
 with coupling term
 \begin{equation*}
-S(\pm):=\bigl(i\partial_t\Pi(\pm)+[\Pi(\pm),H]\bigr)\Psi.
+S(\pm):=\bigl(i\partial_t\Pi(\pm)+[\Pi(\pm),H]\bigr)\bPsi.
 \end{equation*}
 The uniform static-field split in Eq.\ \eqref{eq:pauli-spin-split} is precisely the case \(S(\pm)=0\).
 
@@ -1166,8 +1167,8 @@ U\ \longrightarrow\ \frac{i\partial}{m}.
 The mass-normalized positive-energy projector condition may therefore be written as
 \begin{equation}
 \begin{aligned}
-\left(W\!\left(\frac{i\partial}{m}\right)-\I\right)\Psi&=0,\\
-(W(U)-\I)\Psi&=0.
+\left(W\!\left(\frac{i\partial}{m}\right)-\I\right)\bPsi&=0,\\
+(W(U)-\I)\bPsi&=0.
 \end{aligned}
 \label{eq:normalized-dirac}
 \end{equation}
@@ -1175,14 +1176,14 @@ The mass-normalized positive-energy projector condition may therefore be written
 
 Combining the energy split with the spin split gives the four sectors
 \begin{equation}
-\Psi(\epsilon,s):=\Lambda(\epsilon)\Pi(s)\Psi,
+\bPsi(\epsilon,s):=\Lambda(\epsilon)\Pi(s)\bPsi,
 \qquad
 \epsilon,s\in\{+,-\},
 \label{eq:energy-spin-projectors}
 \end{equation}
 where \(\epsilon\) labels the energy sector and \(s\) the spin along \(\mathbf u\). The full Dirac state therefore decomposes as
 \begin{equation*}
-\Psi=\Psi(+,+)+\Psi(+,-)+\Psi(-,+)+\Psi(-,-).
+\bPsi=\bPsi(+,+)+\bPsi(+,-)+\bPsi(-,+)+\bPsi(-,-).
 \end{equation*}
 This is the four-state decomposition of the free Dirac solution: two energy sectors and, within each, two spin sectors.
 

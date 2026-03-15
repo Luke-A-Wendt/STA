@@ -42,7 +42,7 @@ The scalar part gives the ordinary probability or expectation density, while the
 
 This viewpoint also explains the later division of labor inside the section. The spin-0 Klein--Gordon subsections use \(\Psi\in\C\) because a scalar carrier is sufficient there. Once one passes to spin-\(\tfrac12\), axis projectors, or first-order Dirac factorization, the complex-paravector carrier becomes the natural one because the sigma algebra must act nontrivially on the state itself. Later, when the manuscript writes a two-component field
 \begin{equation*}
-\Psi=
+\bPsi=
 \begin{Bmatrix}
 \Psi_1\\[2pt]
 \Psi_2
@@ -384,7 +384,7 @@ Only the scalar part reproduces the Klein--Gordon operator itself; the full orde
 \subsubsection{Spin-\texorpdfstring{$\frac12$}{1/2} Wave Mechanics}
 Before the electromagnetic field is turned on, the same auxiliary \(2\times2\) map from Eq.\ \eqref{eq:W-map} gives a self-contained first-order version of the relativistic mass shell. Consider the two-component field
 \begin{equation*}
-\Psi=
+\bPsi=
 \begin{Bmatrix}
 \Psi_1\\[2pt]
 \Psi_2
@@ -428,7 +428,7 @@ D'D
 \end{align*}
 Thus the free Dirac equation
 \begin{equation*}
-D\Psi=0
+D\bPsi=0
 \end{equation*}
 forces each component to satisfy the Klein--Gordon operator. Formally, its characteristic polynomial is
 \begin{align*}
@@ -443,7 +443,7 @@ i\partial^* & -(s+m)
 \end{align*}
 so the modewise eigenvalue branches are \(s=-m\pm i\sqrt{\Box}\), with the square-root operator interpreted in the Fourier sense from the previous subsection.
 
-Writing out \(D\Psi=0\) gives the two coupled equations
+Writing out \(D\bPsi=0\) gives the two coupled equations
 \begin{align*}
 i\partial\Psi_2-m\Psi_1&=0,\\
 i\partial^*\Psi_1-m\Psi_2&=0.
@@ -474,7 +474,7 @@ i\partial^*\Psi_1-m\Psi_2
 \end{align*}
 The family generated from a scalar Klein--Gordon solution therefore solves the free two-component system for any constant \(a\) and \(b\). The simplest choice is \(a=1\) and \(b=0\), for which
 \begin{equation*}
-\Psi=
+\bPsi=
 \begin{Bmatrix}
 \Psi'\\[2pt]
 \dfrac{i}{m}\,\partial^*\Psi'
@@ -485,7 +485,7 @@ This is the free spin-\(\tfrac12\) wave-mechanics factorization in its most expl
 \subsubsection{Dirac with Potential Field}
 Consider again the two-component field
 \begin{equation*}
-\Psi=
+\bPsi=
 \begin{Bmatrix}
 \Psi_1\\[2pt]
 \Psi_2
@@ -557,7 +557,7 @@ W(i\partial-q\Phi^*)^2
 \end{align*}
 The Dirac equation
 \begin{equation*}
-D\Psi=0
+D\bPsi=0
 \end{equation*}
 therefore becomes the two coupled equations
 \begin{align*}
@@ -578,13 +578,13 @@ D':=W(i\partial-q\Phi^*)+m\I.
 \end{equation*}
 Multiplying by \(D'\) yields
 \begin{align*}
-0=D'D\Psi
-&=\bigl(W(i\partial-q\Phi^*)^2-m^2\I\bigr)\Psi\notag\\
+0=D'D\bPsi
+&=\bigl(W(i\partial-q\Phi^*)^2-m^2\I\bigr)\bPsi\notag\\
 &=-\operatorname{diag}\!\Big(
 (\partial+iq\Phi^*)(\partial^*+iq\Phi)+m^2,\notag\\
 &\qquad\qquad\qquad\quad
 (\partial^*+iq\Phi)(\partial+iq\Phi^*)+m^2
-\Big)\Psi.
+\Big)\bPsi.
 \end{align*}
 Equivalently,
 \begin{align*}
@@ -606,24 +606,24 @@ Because \(\lambda\) is real,
 \end{equation*}
 Transform the two-component field by
 \begin{equation*}
-\Psi=e^{iq\lambda}\Psi'.
+\bPsi=e^{iq\lambda}\bPsi'.
 \end{equation*}
 Then the derivative of the phase factor is
 \begin{align*}
-\partial\bigl(e^{iq\lambda}\Psi'\bigr)
-&=e^{iq\lambda}\bigl(iq\,\partial\lambda+\partial\bigr)\Psi'.
+\partial\bigl(e^{iq\lambda}\bPsi'\bigr)
+&=e^{iq\lambda}\bigl(iq\,\partial\lambda+\partial\bigr)\bPsi'.
 \end{align*}
 Therefore,
 \begin{align*}
-0&=(W(i\partial-q\Phi^*)-m\I)\Psi\notag\\
-&=(W(i\partial-q\Phi^*)-m\I)e^{iq\lambda}\Psi'\notag\\
-&=e^{iq\lambda}(W(i\partial-q\,\partial\lambda-q\Phi^*)-m\I)\Psi'\notag\\
-&=e^{iq\lambda}(W(i\partial-q(\Phi'-\Phi)^*-q\Phi^*)-m\I)\Psi'\notag\\
-&=e^{iq\lambda}(W(i\partial-q\Phi'^*)-m\I)\Psi'.
+0&=(W(i\partial-q\Phi^*)-m\I)\bPsi\notag\\
+&=(W(i\partial-q\Phi^*)-m\I)e^{iq\lambda}\bPsi'\notag\\
+&=e^{iq\lambda}(W(i\partial-q\,\partial\lambda-q\Phi^*)-m\I)\bPsi'\notag\\
+&=e^{iq\lambda}(W(i\partial-q(\Phi'-\Phi)^*-q\Phi^*)-m\I)\bPsi'\notag\\
+&=e^{iq\lambda}(W(i\partial-q\Phi'^*)-m\I)\bPsi'.
 \end{align*}
 Hence
 \begin{equation*}
-(W(i\partial-q\Phi'^*)-m\I)\Psi'=0.
+(W(i\partial-q\Phi'^*)-m\I)\bPsi'=0.
 \end{equation*}
 This is the gauge-covariance statement: the phase change of the Dirac field is exactly compensated by the shift of the potential, so the coupled Dirac equation keeps the same form in the primed gauge.
 
@@ -695,7 +695,7 @@ The scalar low-energy limit is therefore already encoded in the relativistic Kle
 \subsubsection{Low-Energy Spin-\texorpdfstring{$\frac12$}{1/2} and Pauli Limit}
 Start from the two-component field
 \begin{equation*}
-\Psi'=
+\bPsi'=
 \begin{Bmatrix}
 \Psi_1'\\[2pt]
 \Psi_2'
@@ -703,7 +703,7 @@ Start from the two-component field
 \end{equation*}
 and the potential-coupled Dirac equation
 \begin{equation*}
-\bigl(W(i\partial-q\Phi^*)-m\I\bigr)\Psi'=0.
+\bigl(W(i\partial-q\Phi^*)-m\I\bigr)\bPsi'=0.
 \end{equation*}
 Its two component equations are
 \begin{align*}
@@ -850,22 +850,22 @@ Accordingly,
 \end{equation*}
 Decompose the Pauli state by
 \begin{align*}
-\Psi(\pm)&:=\Pi(\pm)\Psi,\\
-(\mathbf u\cdot\sigv)\Psi(\pm)&=\pm\Psi(\pm),\\
-\Psi&=\Psi(+)+\Psi(-),
+\bPsi(\pm)&:=\Pi(\pm)\bPsi,\\
+(\mathbf u\cdot\sigv)\bPsi(\pm)&=\pm\bPsi(\pm),\\
+\bPsi&=\bPsi(+)+\bPsi(-),
 \end{align*}
-so \(\Psi(+)\) and \(\Psi(-)\) are the spin-up and spin-down parts along the field axis.
+so \(\bPsi(+)\) and \(\bPsi(-)\) are the spin-up and spin-down parts along the field axis.
 
 Write the Pauli equation as
 \begin{align*}
 \mathbf P&:=-i\gradv-q\mathbf A,\\
-i\partial_t\Psi
-&=\left(\frac{\mathbf P^2}{2m}+qV\right)\Psi
--\frac{q}{2m}\,\|\mathbf B\|(\mathbf u\cdot\sigv)\Psi.
+i\partial_t\bPsi
+&=\left(\frac{\mathbf P^2}{2m}+qV\right)\bPsi
+-\frac{q}{2m}\,\|\mathbf B\|(\mathbf u\cdot\sigv)\bPsi.
 \end{align*}
 Equivalently,
 \begin{equation*}
-i\partial_t\Psi=H\Psi,
+i\partial_t\bPsi=H\bPsi,
 \end{equation*}
 with
 \begin{equation*}
@@ -873,31 +873,31 @@ H:=\frac{\mathbf P^2}{2m}+qV-\frac{q}{2m}\,\|\mathbf B\|\,\mathbf u\cdot\sigv.
 \end{equation*}
 Applying \(\Pi(\pm)\) to the time evolution gives
 \begin{align*}
-i\partial_t\Psi(\pm)
-&=i(\partial_t\Pi(\pm))\Psi+\Pi(\pm)(i\partial_t\Psi)\notag\\
-&=i(\partial_t\Pi(\pm))\Psi+\Pi(\pm)(H\Psi).
+i\partial_t\bPsi(\pm)
+&=i(\partial_t\Pi(\pm))\bPsi+\Pi(\pm)(i\partial_t\bPsi)\notag\\
+&=i(\partial_t\Pi(\pm))\bPsi+\Pi(\pm)(H\bPsi).
 \end{align*}
-Add zero in the form \(H\Pi(\pm)\Psi-H\Pi(\pm)\Psi\):
+Add zero in the form \(H\Pi(\pm)\bPsi-H\Pi(\pm)\bPsi\):
 \begin{align*}
-\Pi(\pm)(H\Psi)
-&=\Pi(\pm)(H\Psi)+H\Pi(\pm)\Psi-H\Pi(\pm)\Psi\notag\\
-&=H\Psi(\pm)+[\Pi(\pm),H]\Psi.
+\Pi(\pm)(H\bPsi)
+&=\Pi(\pm)(H\bPsi)+H\Pi(\pm)\bPsi-H\Pi(\pm)\bPsi\notag\\
+&=H\bPsi(\pm)+[\Pi(\pm),H]\bPsi.
 \end{align*}
 Therefore
 \begin{align*}
-i\partial_t\Psi(\pm)
-&=H\Psi(\pm)+\bigl(i\partial_t\Pi(\pm)+[\Pi(\pm),H]\bigr)\Psi\notag\\
-&=:H\Psi(\pm)+S(\pm).
+i\partial_t\bPsi(\pm)
+&=H\bPsi(\pm)+\bigl(i\partial_t\Pi(\pm)+[\Pi(\pm),H]\bigr)\bPsi\notag\\
+&=:H\bPsi(\pm)+S(\pm).
 \end{align*}
 In explicit form,
 \begin{align*}
-i\partial_t\Psi(\pm)
-&=\left(\frac{\mathbf P^2}{2m}+qV\right)\Psi(\pm)\notag\\
-&\qquad-\frac{q}{2m}\,\|\mathbf B\|(\mathbf u\cdot\sigv)\Psi(\pm)+S(\pm),
+i\partial_t\bPsi(\pm)
+&=\left(\frac{\mathbf P^2}{2m}+qV\right)\bPsi(\pm)\notag\\
+&\qquad-\frac{q}{2m}\,\|\mathbf B\|(\mathbf u\cdot\sigv)\bPsi(\pm)+S(\pm),
 \end{align*}
 with coupling term
 \begin{equation*}
-S(\pm):=\left(i\partial_t\Pi(\pm)+\frac{[\mathbf P^2,\Pi(\pm)]}{2m}\right)\Psi.
+S(\pm):=\left(i\partial_t\Pi(\pm)+\frac{[\mathbf P^2,\Pi(\pm)]}{2m}\right)\bPsi.
 \end{equation*}
 If \(\mathbf B\) is uniform and static, then \(\Pi(\pm)\) is constant and
 \begin{equation*}
@@ -905,11 +905,11 @@ S(+)=S(-)=0,
 \end{equation*}
 so the two spin sectors decouple. In that case
 \begin{equation*}
-(-\mathbf B\cdot\sigv)\Psi(\pm)=\mp \|\mathbf B\|\,\Psi(\pm),
+(-\mathbf B\cdot\sigv)\bPsi(\pm)=\mp \|\mathbf B\|\,\bPsi(\pm),
 \end{equation*}
 and the Zeeman effect appears as
 \begin{equation*}
-i\partial_t\Psi(\pm)
-=\left(\frac{\mathbf P^2\mp q\|\mathbf B\|}{2m}+qV\right)\Psi(\pm).
+i\partial_t\bPsi(\pm)
+=\left(\frac{\mathbf P^2\mp q\|\mathbf B\|}{2m}+qV\right)\bPsi(\pm).
 \end{equation*}
 The field direction therefore selects a preferred axis, and the two projector parts evolve with opposite Zeeman shifts.

@@ -2085,6 +2085,7 @@ def finalize_generated_tex(lines: list[str]) -> list[str]:
         r'\noindent\emph{Note.} E + P • σ = i ∂*.\par',
         r'\noindent\emph{Note.} Equivalently, \(E+\mathbf P\cdot\sigv=i\partial^{*}\).\par',
     )
+    text = text.replace(r'\bPsi', r'\Psi')
     text = text.replace(
         'The formulas below make products of real scalars, vectors, and paravectors explicit and collect identities used later in the manuscript.',
         'This subsection expands the basic scalar, vector, and paravector product rules used throughout the manuscript.',
