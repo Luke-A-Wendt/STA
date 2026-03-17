@@ -81,6 +81,31 @@ The real-paravector commutator
 \end{equation*}
 is the corresponding specialization. In every case the scalar terms cancel, so the commutator isolates the cross-product part of the multiplication law.
 
+The symmetric companion is the anticommutator. For pure vectors,
+\begin{align}
+\operatorname{acom}(\mathbf A\cdot\sigv,\mathbf B\cdot\sigv)
+&:=(\mathbf A\cdot\sigv)(\mathbf B\cdot\sigv)\notag\\
+&\quad+(\mathbf B\cdot\sigv)(\mathbf A\cdot\sigv)\notag\\
+&=2\,\mathbf A\cdot\mathbf B.
+\label{eq:vector-anticommutator}
+\end{align}
+So the anticommutator function \(\operatorname{acom}(\cdot,\cdot)\) isolates the symmetric dot-product part, just as the commutator isolates the antisymmetric cross-product part.
+
+More generally, for generic complex paravectors \(Z,Z'\in\C\oplus\C^3\), define
+\begin{equation}
+\operatorname{acom}(Z,Z')
+:=ZZ'+Z'Z.
+\label{eq:paravector-anticommutator-definition}
+\end{equation}
+Using Eq.\ \eqref{eq:paravector-product}, one finds
+\begin{equation}
+\operatorname{acom}(Z,Z')
+=2\bigl(S S'+\mathbf V\cdot\mathbf V'\bigr)
++2\bigl(S\mathbf V'+S'\mathbf V\bigr)\cdot\sigv.
+\label{eq:paravector-anticommutator}
+\end{equation}
+The cross-product contribution cancels identically, so \(\operatorname{acom}(Z,Z')\) keeps only the symmetric scalar and vector couplings.
+
 The same order dependence appears already in the sigma basis itself. The pseudoscalar commutes with the generators,
 \begin{align*}
 [i,\sigma_n] &= 0,\\

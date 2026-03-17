@@ -34,7 +34,7 @@ The scalar and vector pieces should not be interpreted as separately measurable 
 The quantum-mechanical interpretation is therefore bilinear rather than componentwise. The raw field \(\psi\) is not itself an observable. Observable densities are extracted from sandwiches such as
 \begin{equation*}
 \rev{\psi}\psi
-=\rho_\psi+\mathbf j_\psi\cdot\sigv,
+=\rho_\psi+\mathbf J_\psi\cdot\sigv,
 \qquad
 \rev{\psi}O\psi.
 \end{equation*}
@@ -76,13 +76,13 @@ The basic component products are collected below.
 The reverse sandwich with a real scalar is the key probabilistic object. For \(S\in\R\),
 \begin{equation*}
 \rev{\psi}S\psi
-=S\bigl(\rho_\psi+\mathbf j_\psi\cdot\sigv\bigr),
+=S\bigl(\rho_\psi+\mathbf J_\psi\cdot\sigv\bigr),
 \end{equation*}
 where
 \begin{equation*}
 \rho_\psi:=|\psi_s|^2+\psi_{\mathbf v}^*\cdot\psi_{\mathbf v},
 \qquad
-\mathbf j_\psi:=\psi_s^*\psi_{\mathbf v}
+\mathbf J_\psi:=\psi_s^*\psi_{\mathbf v}
 +\psi_s\psi_{\mathbf v}^*
 +i\,\psi_{\mathbf v}^*\times\psi_{\mathbf v}.
 \end{equation*}
@@ -121,6 +121,268 @@ By contrast,
 =\langle\!\langle\psi\rangle\!\rangle^2
 \end{equation*}
 is the STA metric bilinear. It is algebraically useful, but it is not positive-definite and so it should not be used as the probabilistic normalization. In this framework the single bra-ket bracket \(\langle\cdot\mid\cdot\rangle\) is therefore best reserved for the scalar expectation map built from reversion, while \(\langle\!\langle\cdot\rangle\!\rangle^2\) continues to denote the paravector metric.
+
+\subsubsection{NEW CONTENT FOR REVIEW}
+Standard physics does not assign spin from component count alone. The physically relevant data are
+\begin{equation*}
+(\text{transformation law},\ \text{field equation},\ \text{constraints}).
+\end{equation*}
+In standard Lorentz language,
+\begin{align*}
+\text{spin }0:&\quad (0,0),\\
+\text{spin }\tfrac12:&\quad (\tfrac12,0)\oplus(0,\tfrac12),\\
+\text{spin }1:&\quad (1,0)\oplus(0,1)\quad \text{for }F,\\
+&\quad (\tfrac12,\tfrac12)\quad \text{for }A^\mu.
+\end{align*}
+So the algebraic carrier spaces
+\begin{equation*}
+\C,\qquad
+\C\oplus\C^3,\qquad
+\varnothing\oplus\C^3
+\end{equation*}
+do not determine the physical spin by themselves. They become spin sectors only after the operator law is fixed.
+
+\noindent\textbf{Bilinear pairings.}
+The full reverse product is the one that directly produces the density-current paravector:
+\begin{equation*}
+\rev{\psi}\psi
+=\rho_\psi+\mathbf J_\psi\cdot\sigv,
+\qquad
+\rho_\psi
+=|\psi_s|^2+\psi_{\mathbf v}^*\cdot\psi_{\mathbf v}.
+\end{equation*}
+For two fields \(\phi,\psi\in\C\oplus\C^3\), the three scalar pairings are
+\begin{align*}
+\eqtext{scalar}(\rev{\phi}\psi)
+&=\phi_s^*\psi_s+\phi_{\mathbf v}^*\cdot\psi_{\mathbf v}
+&& \text{Hermitian-type pairing},\\
+\eqtext{scalar}(\crev{\phi}\psi)
+&=\phi_s\psi_s-\phi_{\mathbf v}\cdot\psi_{\mathbf v}
+&& \text{metric pairing},\\
+\eqtext{scalar}(\conj{\phi}\psi)
+&=\phi_s^*\psi_s-\phi_{\mathbf v}^*\cdot\psi_{\mathbf v}
+&& \text{indefinite companion}.
+\end{align*}
+For \(\phi=\psi\), the metric pairing reduces to
+\begin{equation*}
+\eqtext{scalar}(\crev{\psi}\psi)
+=\crev{\psi}\psi
+=\langle\!\langle\psi\rangle\!\rangle^2.
+\end{equation*}
+Only the reverse pairing is being used here as the quantum bra-ket pairing. The metric pairing is the intrinsic STA quadratic form used in factorization identities, and the companion pairing is algebraically well-defined but does not yet carry an independent standard quantum interpretation in this manuscript.
+
+Accordingly, for the spatially integrated bracket
+\begin{equation}
+\langle \phi \mid \psi \rangle
+:=\int_{\R^3}\eqtext{scalar}(\rev{\phi}\psi)\,\dd^3r,
+\qquad
+\langle \phi \mid O\psi \rangle
+=\langle O^\dagger\phi \mid \psi \rangle,
+\label{eq:adjoint-paravector-braket}
+\end{equation}
+the operator adjoint \(O^\dagger\) is the reverse-adjoint determined by this pairing, up to the usual boundary terms when derivatives are present. For left multiplication by a fixed paravector \(Z\), the adjoint is left multiplication by \(\rev{Z}\), since \(\rev{(\rev{Z}\phi)}=\rev{\phi}Z\). The companion vector channel is also worth naming:
+\begin{equation*}
+\mathbf J_{O,\psi}
+:=\eqtext{vector}(\rev{\psi}O\psi).
+\end{equation*}
+The case \(O=1\) gives the density-current pair \((\rho_\psi,\mathbf J_\psi)\), while more general \(O\) produce current-, flux-, or polarization-type vector bilinears alongside the ordinary scalar expectation value.
+
+\noindent\textbf{Generalized operator products.}
+The following identities are algebraic. They describe operator composition on a paravector-valued state, but by themselves they do not assign a physical spin.
+
+For operator-valued components, the commutator no longer collapses to the pure cross-product law of Eq.\ \eqref{eq:paravector-commutator}. Write
+\begin{equation*}
+O=O_s+O_{\mathbf v}\cdot\sigv,
+\qquad
+O'=O_s'+O_{\mathbf v}'\cdot\sigv,
+\end{equation*}
+with component operators commuting with the fixed basis elements and acting left to right on the state. Then, with dot and cross products taken componentwise and in the written operator order,
+\begin{align}
+[O,O']\psi
+&=\Bigl([O_s,O_s']
++O_{\mathbf v}\cdot O_{\mathbf v}'
+-O_{\mathbf v}'\cdot O_{\mathbf v}\Bigr)\psi\notag\\
+&\quad+\Bigl([O_s,O_{\mathbf v}']
++[O_{\mathbf v},O_s']\notag\\
+&\qquad\qquad
++i\bigl(O_{\mathbf v}\times O_{\mathbf v}'
+-O_{\mathbf v}'\times O_{\mathbf v}\bigr)\Bigr)\cdot\sigv\,\psi,
+\label{eq:operator-commutator-action}
+\end{align}
+where the scalar-vector commutators are understood componentwise. Unlike the purely algebraic paravector commutator, Eq.\ \eqref{eq:operator-commutator-action} generally has both scalar and vector parts. Only when all component operators mutually commute does it reduce to the simpler law
+\begin{equation*}
+[O,O']\psi
+=2i\bigl(O_{\mathbf v}\times O_{\mathbf v}'\bigr)\cdot\sigv\,\psi.
+\end{equation*}
+
+The matching anticommutator is
+\begin{align}
+\operatorname{acom}(O,O')\psi
+&:=(OO'+O'O)\psi\notag\\
+&=\Bigl(\operatorname{acom}(O_s,O_s')
++O_{\mathbf v}\cdot O_{\mathbf v}'
++O_{\mathbf v}'\cdot O_{\mathbf v}\Bigr)\psi\notag\\
+&\quad+\Bigl(\operatorname{acom}(O_s,O_{\mathbf v}')\notag\\
+&\qquad\qquad
++\operatorname{acom}(O_{\mathbf v},O_s')\notag\\
+&\qquad\qquad
++i\bigl(O_{\mathbf v}\times O_{\mathbf v}'
++O_{\mathbf v}'\times O_{\mathbf v}\bigr)\Bigr)\cdot\sigv\,\psi,
+\label{eq:operator-anticommutator-action}
+\end{align}
+so that
+\begin{align*}
+OO'
+&=\tfrac12\bigl(\operatorname{acom}(O,O')+[O,O']\bigr).
+\end{align*}
+This is the natural companion to the operator commutator formula and is the form from which covariance and uncertainty identities would be built if that development is expanded later.
+
+\noindent\textbf{Carrier closure.}
+The same algebra shows which carrier spaces are actually closed under which operators:
+\begin{align}
+\partial:\C&\to\C\oplus\C^3,\notag\\
+\partial:\varnothing\oplus\C^3&\to\C\oplus\C^3,\notag\\
+\partial:\C\oplus\C^3&\to\C\oplus\C^3.
+\label{eq:carrier-closure}
+\end{align}
+Indeed,
+\begin{align*}
+\partial\psi_s
+&=(\partial_t\psi_s)+(\gradv\psi_s)\cdot\sigv,\\
+\partial(\psi_{\mathbf v}\cdot\sigv)
+&=(\gradv\cdot\psi_{\mathbf v})
++\bigl(\partial_t\psi_{\mathbf v}+i\,\gradv\times\psi_{\mathbf v}\bigr)\cdot\sigv.
+\end{align*}
+So the full complex-paravector carrier is the minimal space closed under first-order paravector operators such as \(\partial\) and \(E\pm\sigv\cdot\mathbf P\). The scalar subspace closes only after passing to scalar second-order combinations such as \(\Box+m^2\). A pure-vector specialization is algebraically meaningful, but it is not preserved by generic first-order paravector action and therefore requires Maxwell- or Proca-type constraints if it is to describe a spin-1 field. A real-paravector specialization \(\psi\in\R\oplus\R^3\) is also possible algebraically, but it is not a general quantum carrier because it is not closed under multiplication by the phase \(e^{i\alpha}\).
+
+With those algebraic preliminaries fixed, the organizing principle is this: one first chooses a carrier field for \(\psi\), then restricts to the operators that preserve that carrier or define its field equation, and then lists the bilinear pairings that extract the physically relevant observables from that carrier. The bilinears need not take values in the same carrier field; in general they land in scalar, vector, or paravector observable channels.
+
+With that understood, the physically consistent sector-by-sector summary is the following.
+
+\noindent\textbf{1. Spin \(0\): complex scalar Klein--Gordon sector}
+\begin{align*}
+\text{carrier:}\quad
+&\psi:\R^{1,3}\to\C,\\
+\text{representation:}\quad
+&(0,0),\\
+\text{field equation:}\quad
+&(\Box+m^2)\psi=0,\\
+\text{operator class:}\quad
+&O_s:\C\to\C,\\
+\text{examples:}\quad
+&\Box+m^2,\ \partial_t\pm i\Omega,\\
+&-E^2+\mathbf P^2+m^2,\ldots,\\
+\text{spin projector:}\quad
+&\Pi(\pm)\psi\notin\C.
+\end{align*}
+The scalar pairings reduce to
+\begin{align*}
+\eqtext{scalar}(\rev{\phi}\psi)
+&=\phi^*\psi,\\
+\eqtext{scalar}(\crev{\phi}\psi)
+&=\phi\psi,\\
+\eqtext{scalar}(\conj{\phi}\psi)
+&=\phi^*\psi.
+\end{align*}
+So the reverse and sigma-conjugate pairings coincide on the scalar sector, while the metric pairing is different. The ordinary complex sesquilinear product \(\phi^*\psi\) is the known scalar-field pairing, but the standard relativistic conserved Klein--Gordon current is derivative-built rather than simply \(\psi^*\psi\):
+\begin{equation*}
+j^\mu_{\mathrm{KG}}
+:=\frac{i}{2m}\bigl(\psi^*\partial^\mu\psi-(\partial^\mu\psi^*)\psi\bigr).
+\end{equation*}
+Thus \(\phi^*\psi\) is the natural Hermitian scalar pairing, while \(\phi\psi\) is an algebraic metric pairing and not a probability density.
+
+\noindent\textbf{2. Spin \(\tfrac12\): Dirac/Pauli sector}
+\begin{align*}
+\text{algebraic block:}\quad
+&\psi:\R^{1,3}\to\C\oplus\C^3,\\
+\text{physical field:}\quad
+&\bPsi=
+\begin{Bmatrix}
+\bPsi_1\\[2pt]
+\bPsi_2
+\end{Bmatrix},
+\qquad
+\bPsi_1,\bPsi_2\in\C\oplus\C^3,\\
+\text{representation:}\quad
+&(\tfrac12,0)\oplus(0,\tfrac12),\\
+\text{field equations:}\quad
+&(\Wmat(i\partial)-m\I)\bPsi=0,\\
+&(\Wmat(i\partial-q\Phi^*)-m\I)\bPsi=0,\\
+\text{operator class:}\quad
+&O=O_s+O_{\mathbf v}\cdot\sigv,\\
+&\text{acting on each paravector block},\\
+\text{examples:}\quad
+&\partial,\ \partial^*,\\
+&E\pm\sigv\cdot\mathbf P,\ \Pi(\pm),\\
+\text{spin projector:}\quad
+&\Pi(\pm):\C\oplus\C^3\to\C\oplus\C^3,\\
+&\bPsi(\pm):=\Pi(\pm)\bPsi,\\
+&(\mathbf u\cdot\sigv)\bPsi(\pm)=\pm\bPsi(\pm).
+\end{align*}
+The basic one-block pairings are
+\begin{align*}
+\eqtext{scalar}(\rev{\phi}\psi)
+&=\phi_s^*\psi_s+\phi_{\mathbf v}^*\cdot\psi_{\mathbf v},\\
+\mathbf J_{\phi,\psi}
+&:=\eqtext{vector}(\rev{\phi}\psi),\\
+\eqtext{scalar}(\crev{\phi}\psi)
+&=\phi_s\psi_s-\phi_{\mathbf v}\cdot\psi_{\mathbf v},\\
+\eqtext{scalar}(\conj{\phi}\psi)
+&=\phi_s^*\psi_s-\phi_{\mathbf v}^*\cdot\psi_{\mathbf v}.
+\end{align*}
+For the two-block Dirac carrier, the natural extension is
+\begin{equation*}
+\langle \{\Xi_1;\Xi_2\} \mid \{\Psi_1;\Psi_2\} \rangle
+:=\int_{\R^3}
+\sum_{n=1}^{2}\eqtext{scalar}(\rev{\Xi_n}\Psi_n)\,\dd^3r.
+\end{equation*}
+Here the reverse pairing is the Hermitian-type pairing used for expectation values and for current or polarization extraction. The metric pairing is the one used in factorization identities such as \(Z\crev{Z}\) and \(\Wmat(Z)^2\). The companion pairing is indefinite and no unique standard physical observable has been attached to it here.
+
+The key physics point is that the one-block complex paravector is the minimal algebraic block preserved by first-order paravector action, but its scalar-plus-vector component count does not by itself make it an irreducible spin-\(\tfrac12\) field in the standard Lorentz sense. In this manuscript the physical spin-\(\tfrac12\) assignment belongs to the later Dirac system built from those paravector blocks.
+
+\noindent\textbf{3. Spin \(1\): vector or field-strength sector}
+\begin{align*}
+\text{carrier:}\quad
+&F:\R^{1,3}\to\varnothing\oplus\C^3,\\
+\text{main example:}\quad
+&F=(\mathbf E+i\mathbf B)\cdot\sigv,\\
+\text{representation:}\quad
+&(1,0)\oplus(0,1)\quad\text{for }F,\\
+&(\tfrac12,\tfrac12)\quad\text{for a vector potential }A^\mu,\\
+\text{field equation:}\quad
+&\partial F=D^*,\\
+\text{operator class:}\quad
+&\partial,\ \partial^*,\ \Box,\ \text{and Maxwell/Proca constraints},\\
+\text{closure facts:}\quad
+&\partial,\partial^*:\varnothing\oplus\C^3\to\C\oplus\C^3,\\
+&\Box:\varnothing\oplus\C^3\to\varnothing\oplus\C^3,\\
+\text{spin projector:}\quad
+&\Pi(\pm)F\notin\varnothing\oplus\C^3.
+\end{align*}
+So the two-projector split \(\Pi(\pm)\) is not the standard spin-\(1\) decomposition. The standard polarization counts are
+\begin{align*}
+\text{massive spin }1:&\quad m_s=-1,0,1,\\
+\text{massless spin }1:&\quad \lambda=\pm1.
+\end{align*}
+The bilinear quantities already present in the manuscript are
+\begin{align*}
+\tfrac12F^2
+&=\tfrac12(\mathbf E^2-\mathbf B^2)+i\,\mathbf E\cdot\mathbf B,\\
+\tfrac12F F^{\mathrm R}
+&=\tfrac12(\mathbf E^2+\mathbf B^2)+(\mathbf E\times\mathbf B)\cdot\sigv.
+\end{align*}
+These have direct standard physical interpretations: \(\tfrac12F^2\) packages the Lorentz invariants, while \(\tfrac12F F^{\mathrm R}\) packages the energy density and the Poynting vector. A simple bra-ket built from \(\rev{F}F\) is not the standard Maxwell-field pairing used here; the physically relevant quantities are the field bilinears together with the field equations and their gauge or subsidiary constraints.
+
+The consistent summary is therefore this:
+\begin{align*}
+\text{spin}
+&\neq
+\text{component count alone},\\
+\text{spin}
+&=
+(\text{carrier},\ \text{operator law},\ \text{physical bilinears},\ \text{constraints}).
+\end{align*}
+Within that summary, \((\cdot)^{\mathrm R}\) is the pairing used for quantum expectations, \((\cdot)^{*\mathrm R}\) is the metric pairing used for algebraic factorization, and the pure sigma-conjugate pairing remains an auxiliary companion unless and until a further physical identification is supplied.
 
 \subsubsection{Spin-0 Wave Mechanics}
 The scalar relativistic wave equation can be read directly from the mass-shell identity developed earlier in the kinematic section. Here \(\psi\in\C\) is a complex scalar field, \(m\in\R\), and the free-particle operators are defined using the differential conventions from Section \ref{sec:differential}. Start from
