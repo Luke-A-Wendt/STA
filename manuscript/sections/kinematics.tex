@@ -43,11 +43,11 @@ It obeys the familiar Lorentzian identities
 \end{align*}
 The commutator of two spacetime increments is purely spatial:
 \begin{align*}
-[\dd X,\dd X']
-&=[\dd\mathbf r\cdot\sigv,\dd\mathbf r'\cdot\sigv]\notag\\
+\com{\dd X}{\dd X'}
+&=\com{\dd\mathbf r\cdot\sigv}{\dd\mathbf r'\cdot\sigv}\notag\\
 &=2i(\dd\mathbf r\times\dd\mathbf r')\cdot\sigv.
 \end{align*}
-Along a time-like path, the positive arc length satisfies
+Along a future-directed time-like path, so that \(\dd t>0\), the positive arc length satisfies
 \begin{align*}
 \dd s
 &=\sqrt{\dd t^{2}-\dd\mathbf r^{2}}\notag\\
@@ -103,8 +103,8 @@ If \(\langle\!\langle \dd X\rangle\!\rangle^2<0\), the interval is space-like.
 
 The advantage of the paravector notation is that the interval classification, the proper-time formula, and the null singularity of \((\dd X)^{-1}\) all come from the single algebraic identity \(\dd X\,\conj{\dd X}=\dd t^2-\dd\mathbf r^2\).
 
-\subsubsection{4-Velocity (Proper Velocity)}
-The proper-velocity paravector is the normalized tangent to a time-like worldline:
+\subsubsection{Four-Velocity}
+The four-velocity paravector is the normalized tangent to a time-like worldline:
 \begin{align*}
 \frac{\dd X}{\dd s}
 &=\frac{\dd t}{\dd s}+\frac{\dd\mathbf r}{\dd s}\cdot\sigv\notag\\
@@ -172,7 +172,7 @@ Finally,
 This normalization and orthogonality structure is the starting point for the proper-acceleration formulas below.
 \input{sections/kinematics_table_velocity.tex}
 
-\subsubsection{4-Acceleration (Proper Acceleration)}
+\subsubsection{Four-Acceleration}
 Let
 \begin{equation*}
 \mathbf a:=\frac{\dd\mathbf v}{\dd t}=\{a_1,a_2,a_3\}\in\R^3.
@@ -182,10 +182,10 @@ With \(\gamma=(1-\mathbf v^2)^{-1/2}\), one has
 \frac{\dd\gamma}{\dd t}&=\gamma^3(\mathbf v\cdot\mathbf a),\\
 \frac{\dd\gamma}{\dd s}&=\gamma^4(\mathbf v\cdot\mathbf a).
 \end{align*}
-The velocity derivatives needed below are
+Let \(\delv:=\partial/\partial\mathbf v\) denote the gradient with respect to velocity, and let \(\I_3\) denote the \(3\times3\) identity. The velocity derivatives needed below are
 \begin{align*}
 \delv{}\!\left(-\frac{1}{\gamma}\right)&=\gamma\mathbf v,\\
-\delv{}(\gamma\mathbf v)&=\gamma\,\mathrm I_3+\gamma^3\mathbf v\mathbf v^{T},
+\delv{}(\gamma\mathbf v)&=\gamma\,\I_3+\gamma^3\mathbf v\mathbf v^{T},
 \end{align*}
 so acting on \(\dd\mathbf v/\dd t=\mathbf a\) gives
 \begin{align*}
@@ -197,13 +197,13 @@ so acting on \(\dd\mathbf v/\dd t=\mathbf a\) gives
 &=\gamma^2\mathbf a+\gamma^4(\mathbf v\cdot\mathbf a)\mathbf v.
 \end{align*}
 
-Recall that the proper-velocity paravector decomposes as
+Recall that the four-velocity paravector decomposes as
 \begin{align*}
 U&=U_s+U_{\mathbf v}\cdot\sigv,\\
 U_s&=\gamma,\qquad
 U_{\mathbf v}=\gamma\mathbf v.
 \end{align*}
-Therefore the 4-acceleration, also called proper acceleration, is
+Therefore the four-acceleration is
 \begin{align*}
 A
 &:=\frac{\dd U}{\dd s}\notag\\
@@ -220,10 +220,12 @@ A_s=\gamma^4(\mathbf v\cdot\mathbf a),
 A_{\mathbf v}=\gamma^4(\mathbf v\cdot\mathbf a)\mathbf v+\gamma^2\mathbf a.
 \end{equation*}
 
-For \(\mathbf v\neq 0\), let \(\mathbf u=\mathbf v/\|\mathbf v\|\) with \(\mathbf u^2=1\), and decompose
+For \(\mathbf v\neq 0\), let \(\mathbf u=\mathbf v/\|\mathbf v\|\) with
+\(\mathbf u^2=1\). The axis functions in Eq.\ \eqref{eq:axis-functions}
+then give
 \begin{align*}
-\eqtext{par}(\mathbf a)&:=(\mathbf a\cdot\mathbf u)\mathbf u,\\
-\eqtext{prp}(\mathbf a)&:=\mathbf a-\eqtext{par}(\mathbf a).
+\eqtext{par}(\mathbf a)&=(\mathbf a\cdot\mathbf u)\mathbf u,\\
+\eqtext{prp}(\mathbf a)&=\mathbf a-\eqtext{par}(\mathbf a).
 \end{align*}
 Then
 \begin{align*}
@@ -236,7 +238,7 @@ so the proper-acceleration metric is
 &=-\gamma^4\Bigl(\mathbf a^2+\gamma^2(\mathbf v\cdot\mathbf a)^2\Bigr)\notag\\
 &=-\gamma^4\Bigl(\eqtext{prp}(\mathbf a)^2+\gamma^2\eqtext{par}(\mathbf a)^2\Bigr).
 \end{align*}
-This is strictly space-like unless the acceleration vanishes.
+This is strictly space-like unless the acceleration vanishes. Its invariant magnitude \(\sqrt{-\langle\!\langle A\rangle\!\rangle^2}\) is the proper acceleration measured in the instantaneous rest frame.
 
 The products with \(U\) are
 \begin{align*}
@@ -260,11 +262,11 @@ In particular,
 \begin{equation*}
 \eqtext{scalar}(U^*A)=0,
 \end{equation*}
-which is the orthogonality relation between proper velocity and proper acceleration. Table \ref{tab:components-proper-velocity} records the scalar and vector parts of \(U\), while Tables \ref{tab:components-ua} and \ref{tab:components-ustara} compare the corresponding scalar and vector parts of \(UA\) and \(U^{*}A\).
+which is the orthogonality relation between four-velocity and four-acceleration. Table \ref{tab:components-proper-velocity} records the scalar and vector parts of \(U\), while Tables \ref{tab:components-ua} and \ref{tab:components-ustara} compare the corresponding scalar and vector parts of \(UA\) and \(U^{*}A\).
 \input{sections/kinematics_tables.tex}
 
-\subsubsection{4-Momentum (Proper Momentum)}
-Multiplying proper velocity by the rest mass produces the energy--momentum paravector,
+\subsubsection{Four-Momentum}
+For a massive particle with rest mass \(m>0\), multiplying four-velocity by \(m\) produces the energy--momentum paravector,
 \begin{equation*}
 mU=E+\mathbf P\cdot\sigv.
 \end{equation*}
@@ -300,58 +302,38 @@ Hence
 \begin{equation*}
 E^{2}=\mathbf P^{2}+m^{2}.
 \end{equation*}
-For \(m=0\), this reduces to \(E^{2}=\mathbf P^{2}\), which is the null case appropriate to lightlike or massless motion.
+The mass-shell equation also has the null branch \(E^{2}=\mathbf P^{2}\), appropriate to massless motion. That branch must be introduced directly as a null energy--momentum paravector: Eq.\ \(mU=E+\mathbf P\cdot\sigv\) applies only to massive time-like motion because \(\dd s=0\) and \(U=\dd X/\dd s\) is undefined on a null worldline.
 
-\subsubsection{Generalized Spacetime}
+\subsubsection{Flat Paravector Coordinate Map}
 Let
 \begin{align*}
 f&:\R\times\R^3\to\R,\\
 \mathbf g&:\R\times\R^3\to\R^3,
 \end{align*}
-and define the generalized spacetime paravector
+and define a real paravector-valued map into the fixed flat space-time algebra,
 \begin{equation*}
 X=f(t,\mathbf r)+\mathbf g(t,\mathbf r)\cdot\sigv.
 \end{equation*}
-Its differential is
-\begin{align*}
-\dd X
-&=\dd f+\dd\mathbf g\cdot\sigv\notag\\
-&=\bigl(\partial_t f+\partial_t\mathbf g\cdot\sigv\bigr)\dd t
-+\sum_{a=1}^{3}\bigl(\partial_{r_a}f+\partial_{r_a}\mathbf g\cdot\sigv\bigr)\dd r_a\notag\\
-&=:A\,\dd t+\mathbf B\cdot\dd\mathbf r,
-\end{align*}
-where \(A:=\partial_t f+\partial_t\mathbf g\cdot\sigv\) and
-\(B_a:=\partial_{r_a}f+\partial_{r_a}\mathbf g\cdot\sigv\). Hence
+This is a map of the original coordinates into flat Minkowski paravector components; it is not an assertion that an arbitrary coordinate change leaves the Cartesian metric coefficients unchanged. Its differential and conjugate are
 \begin{equation*}
-\frac{\dd X}{\dd t}=A+\mathbf B\cdot\frac{\dd\mathbf r}{\dd t}.
+\dd X=\dd f+\dd\mathbf g\cdot\sigv,
+\qquad
+\conj{\dd X}=\dd f-\dd\mathbf g\cdot\sigv.
 \end{equation*}
-The conjugate differential is
-\begin{align*}
-\conj{\dd X}
-&=\dd f-\dd\mathbf g\cdot\sigv\notag\\
-&=\bigl(\partial_t f-\partial_t\mathbf g\cdot\sigv\bigr)\dd t
-+\sum_{a=1}^{3}\bigl(\partial_{r_a}f-\partial_{r_a}\mathbf g\cdot\sigv\bigr)\dd r_a\notag\\
-&=:A^*\,\dd t+\mathbf B^*\cdot\dd\mathbf r,
-\end{align*}
-so
-\begin{equation*}
-\frac{\conj{\dd X}}{\dd t}=A^*+\mathbf B^*\cdot\frac{\dd\mathbf r}{\dd t}.
-\end{equation*}
-The paravector metric is still determined by the scalar-vector split:
+Their product is
 \begin{align*}
 \langle\!\langle \dd X\rangle\!\rangle^2
 &=\dd X\,\conj{\dd X}\notag\\
-&=\left(\frac{\dd X}{\dd t}\right)\left(\frac{\conj{\dd X}}{\dd t}\right)\dd t^2\notag\\
 &=(\dd f+\dd\mathbf g\cdot\sigv)(\dd f-\dd\mathbf g\cdot\sigv)\notag\\
 &=\dd f^2-\dd\mathbf g^2.
 \end{align*}
-Therefore the proper-time element is
+Along a future-directed time-like path, assume \(\dd f>0\) and \(\dd f^2>\dd\mathbf g^2\). Then
 \begin{align*}
 \dd s
 &=\sqrt{\dd f^2-\dd\mathbf g^2}\notag\\
 &=\sqrt{1-\left(\frac{\dd\mathbf g}{\dd f}\right)^2}\,\dd f.
 \end{align*}
-The corresponding proper velocity is
+The corresponding four-velocity is
 \begin{align*}
 U
 &:=\frac{\dd X}{\dd s}\notag\\
@@ -360,7 +342,7 @@ U
 &=\frac{1+\mathbf v\cdot\sigv}{\sqrt{1-\mathbf v^2}}\notag\\
 &=\gamma(1+\mathbf v\cdot\sigv),
 \end{align*}
-where the geometric velocity and geometric Lorentz factor are
+where the velocity relative to the scalar component \(f\) and its Lorentz factor are
 \begin{align*}
 \mathbf v
 &:=\frac{\dd\mathbf g}{\dd f}\notag\\
@@ -372,64 +354,38 @@ where the geometric velocity and geometric Lorentz factor are
 &=\frac{\dd f/\dd t}{\dd s/\dd t}\notag\\
 &=\frac{1}{\sqrt{1-\mathbf v^2}}.
 \end{align*}
-The timelike condition is
-\begin{equation*}
-\mathbf v^2<1.
-\end{equation*}
-With this reparametrization the energy-momentum relation is unchanged:
+Thus \(\mathbf v^2<1\). For a massive particle, the energy--momentum relation is unchanged:
 \begin{equation*}
 mU=E+\mathbf P\cdot\sigv.
 \end{equation*}
-The geometric acceleration is
+Use the coordinate acceleration relative to \(f\), in direct analogy with \(\mathbf a=\dd\mathbf v/\dd t\) above:
 \begin{align*}
 \mathbf a
-&:=\frac{\dd\mathbf v}{\dd s}\notag\\
-&=\frac{\dd}{\dd s}\left(\frac{\dd\mathbf g}{\dd f}\right)\notag\\
-&=\frac{\dd f}{\dd s}\frac{\dd}{\dd f}\left(\frac{\dd\mathbf g}{\dd f}\right)\notag\\
-&=\gamma\frac{\dd^2\mathbf g}{\dd f^2}.
+&:=\frac{\dd\mathbf v}{\dd f}\notag\\
+&=\frac{\dd^2\mathbf g}{\dd f^2}.
 \end{align*}
-Because the proper-velocity algebra is unchanged, the proper acceleration still has the form
+Because \(\dd/\dd s=\gamma\,\dd/\dd f\), the four-acceleration has the same form as before:
 \begin{equation*}
 \frac{\dd U}{\dd s}
 =\gamma^4(\mathbf v\cdot\mathbf a)
 +\bigl(\gamma^4(\mathbf v\cdot\mathbf a)\mathbf v+\gamma^2\mathbf a\bigr)\cdot\sigv.
 \end{equation*}
-If
-\begin{equation*}
-f':=\frac{\dd f}{\dd t},
-\qquad
-\mathbf g':=\frac{\dd\mathbf g}{\dd t},
-\qquad
-f'':=\frac{\dd f'}{\dd t},
-\qquad
-\mathbf g'':=\frac{\dd\mathbf g'}{\dd t},
-\end{equation*}
-then
-\begin{equation*}
-\frac{\dd\mathbf v}{\dd t}
-=\frac{\dd}{\dd t}\left(\frac{\mathbf g'}{f'}\right)
-=\frac{\mathbf g''f'-\mathbf g'f''}{(f')^2}.
-\end{equation*}
-For comparison, a plane curve \((x(t),y(t))\) has curvature
-\begin{equation*}
-k=\frac{|x'y''-y'x''|}{(x'^2+y'^2)^{3/2}},
-\end{equation*}
-so the same derivative numerator controls bending in the generalized coordinates. The commutator of proper velocity and proper acceleration is
+The commutator of four-velocity and four-acceleration is
 \begin{align*}
-\left[U,\frac{\dd U}{\dd s}\right]
-&=\left[U,\frac{\dd U}{\dd t}\right]\frac{\dd t}{\dd s}\notag\\
-&=\gamma\left[U,\frac{\dd U}{\dd t}\right]\notag\\
+\com{U}{\dfrac{\dd U}{\dd s}}
+&=\com{U}{\dfrac{\dd U}{\dd f}}\frac{\dd f}{\dd s}\notag\\
+&=\gamma\com{U}{\dfrac{\dd U}{\dd f}}\notag\\
 &=2\gamma^3(\mathbf v\times\mathbf a)\cdot(i\sigv).
 \end{align*}
-For inertial motion,
+For a massive free particle in these flat target components,
 \begin{equation*}
 m\frac{\dd U}{\dd s}=0,
 \end{equation*}
-which is the geodesic equation, equivalently
+which is equivalently the straight-worldline equation
 \begin{equation*}
 \frac{\dd^2 X}{\dd s^2}=0.
 \end{equation*}
-Its scalar and vector parts are
+After division by the nonzero factor \(\gamma\), its scalar and vector parts are
 \begin{align*}
 \gamma^3(\mathbf v\cdot\mathbf a)&=0,\\
 \gamma^3(\mathbf v\cdot\mathbf a)\mathbf v+\gamma\mathbf a&=0.
@@ -451,7 +407,7 @@ and along an inertial worldline
 \qquad
 \mathbf v=\frac{\dd\mathbf g}{\dd f}=\mathbf c_1,
 \end{equation*}
-so inertial motion is linear in the \((f,\mathbf g)\) coordinates with constant geometric velocity.
+so inertial motion is linear in the flat target components \((f,\mathbf g)\) with constant velocity. If the same straight worldline is described in arbitrary curvilinear coordinates, its coordinate equation generally contains the corresponding connection terms; no curved-space geodesic equation is being asserted here.
 
 \subsubsection{Lagrangian Mechanics and Conserved Quantities}
 For a particle trajectory written in terms of time, position, and velocity, let the action be
@@ -568,87 +524,43 @@ The total energy is the kinetic term plus the rest-mass term:
 &=m+\frac12m\mathbf v^2+O(\mathbf v^4)\notag\\
 &\approx m+\frac12m\mathbf v^2.
 \end{align*}
-Equivalently, the low-velocity series can be summarized as
+Equivalently, the low-velocity series is
 \begin{align*}
 \mathcal L_{\mathrm{free}}&=-m+\frac12 m\mathbf v^2+O(\mathbf v^4),\notag \\
 \mathbf P&=m\mathbf v+O(\mathbf v^{3}),\notag \\
-\mathcal H&=m+\frac12 m\mathbf v^{2}+O(\mathbf v^{4})
+\mathcal H&=m+\frac12 m\mathbf v^{2}+O(\mathbf v^{4}).
 \end{align*}
-shows exactly how the relativistic action contains the Newtonian kinetic term together with the additive rest-energy constant. Classical mechanics therefore appears as the approximation, not as the starting point.
+This shows exactly how the relativistic action contains the Newtonian kinetic term together with the additive rest-energy constant. Classical mechanics therefore appears as the approximation, not as the starting point.
 
-\subsubsection{Generalized Coordinate Fields}
-The preceding derivations depend only on the paravector algebra and the Minkowski metric, not on the particular choice of scalar coordinate \(t\) and vector coordinate \(\mathbf r\). For a more general real paravector coordinate field,
-\begin{equation*}
-X=f(t,\mathbf r)+\mathbf g(t,\mathbf r)\cdot\sigv,
-\qquad
-\dd X=\dd f+\dd\mathbf g\cdot\sigv,
-\end{equation*}
-with \(f\in\R\), \(\mathbf g\in\R^3\), and \(X\in\R\oplus\R^3\), one still has the same interval formula
-\begin{equation*}
-\langle\!\langle \dd X\rangle\!\rangle^{2}=\dd X\,\conj{\dd X}=\dd f^{2}-\dd\mathbf g^{2}.
-\end{equation*}
-If \(\dd f\) is time-like, the same algebraic steps as before give
-\begin{equation*}
-\begin{aligned}
-\dd s&=\sqrt{\dd f^{2}-\dd\mathbf g^{2}},\qquad
-\mathbf v=\frac{\dd\mathbf g}{\dd f},\\
-U&=\frac{\dd X}{\dd s}=\gamma(1+\mathbf v\cdot\sigv),\qquad
-\gamma=\frac{\dd f}{\dd s}.
-\end{aligned}
-\end{equation*}
-Thus the proper-velocity formula is a structural consequence of the paravector interval itself; changing coordinates changes only the functions \(f\) and \(\mathbf g\), not the algebraic form of the result.
-
-\subsubsection{Metric and Diagonalization}
-For comparison with matrix notation, write the coordinate tuple as
+\subsubsection{Flat Pullback Metric and Diagonalization}
+The map \(X=f+\mathbf g\cdot\sigv\) induces a flat metric in the original coordinate tuple
 \[
 x=(t,r_1,r_2,r_3)^T,
 \qquad
 \dd x=(\dd t,\dd r_1,\dd r_2,\dd r_3)^T.
 \]
-Then the interval may be written as
-\begin{equation*}
-\dd s^{2}=\dd x^{T}\Qmat(x)\,\dd x
-\end{equation*}
-for a symmetric matrix \(\Qmat(x)=\Qmat(x)^T\). The eigenvalue problem is
-\begin{equation*}
-\det\!\bigl(\Qmat-\lambda_n\I\bigr)=0,
-\qquad
-\bigl(\Qmat-\lambda_n\I\bigr)u_n=0,
-\end{equation*}
-so the spectral data may be assembled as
-\[
-\Dmat=\operatorname{diag}(\lambda_0,\lambda_1,\lambda_2,\lambda_3),
-\qquad
-\Nmat=(u_0\,u_1\,u_2\,u_3).
-\]
-Because \(\Qmat\) is symmetric, the eigenvalues are real and the eigenvectors may be chosen orthonormally, giving
-\[
-\Nmat^T\Nmat=\Nmat\Nmat^T=\I,
-\qquad
-\Nmat^{-1}=\Nmat^T.
-\]
-When \(\Qmat\) is invertible, this yields
-\[
-\Qmat^{-1}=\Nmat\Dmat^{-1}\Nmat^T,
-\]
-and in general
-\begin{align*}
-\Qmat
-&=\Nmat\Dmat\Nmat^T\notag\\
-&=\sum_n \lambda_n\,u_nu_n^T.
-\end{align*}
-Therefore
+Expanding \(\dd f\) and \(\dd\mathbf g\) in \(\dd x\) defines the symmetric pullback matrix \(\Qmat(x)\):
 \begin{align*}
 \dd s^2
-&=\dd x^T\Qmat\,\dd x\notag\\
-&=\sum_n \lambda_n\,(u_n\cdot \dd x)^2.
+&=\dd f^2-\dd\mathbf g^2\notag\\
+&=\dd x^T\Qmat(x)\,\dd x.
 \end{align*}
-Formally, one may absorb the eigenvalues into rescaled coordinates,
+If the map is locally invertible, Sylvester's law preserves the signature \((+,-,-,-)\). Position-dependent entries of \(\Qmat\) can arise from curvilinear coordinates even though the target geometry remains flat; they do not by themselves represent curvature. If the map fails to be locally invertible, the pullback may instead be degenerate.
+
+Pointwise, the real symmetric matrix has an orthogonal decomposition
 \[
-\dd x_n' := \sqrt{\lambda_n}\,(u_n\cdot \dd x),
+\Qmat=\Nmat\operatorname{diag}(\lambda_0,\lambda_1,\lambda_2,\lambda_3)\Nmat^T,
+\qquad
+\Nmat^T\Nmat=\I.
 \]
-so that
+Writing the columns of \(\Nmat\) as \(u_n\), define the local coframe components
 \[
-\dd s^2=\dd x'\cdot \dd x'.
+\eta_n:=\operatorname{sgn}(\lambda_n),
+\qquad
+\omega_n:=\sqrt{|\lambda_n|}\,(u_n\cdot\dd x).
 \]
-This diagonalized rewrite can be useful, but it does not erase the Lorentzian sign structure already built into \(\dd X\conj{\dd X}\). For an indefinite metric some \(\lambda_n\) carry negative sign, so the interval is not thereby converted into a positive-definite Euclidean norm. Diagonalization reorganizes the quadratic form; the Minkowski-signature content remains the primary statement.
+Then
+\begin{equation*}
+\dd s^2=\sum_n\eta_n\,\omega_n^2.
+\end{equation*}
+The signs \(\eta_n\) cannot be dropped: diagonalization does not turn a Lorentzian interval into a Euclidean norm. When \(\Qmat\) varies with position, the \(\omega_n\) are local one-form components and need not be exact differentials of globally defined coordinates.

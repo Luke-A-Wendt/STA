@@ -290,7 +290,7 @@ def main():
             if matrix_is_zero(lhs - rhs) and matrix_is_zero(metric_lhs - metric_rhs) and s.simplify(euclid_lhs - euclid_rhs) == 0
             else r"\flag{Failed}",
             (
-                r"The complex paravector product, the Minkowski-type form "
+                r"The complex paravector product, the determinant form "
                 r"$Z Z^{*\mathrm R} = S^2 - \mathbf V^2$, and the Euclidean scalar "
                 r"part $\operatorname{scalar}(Z Z^{\mathrm R}) = |S|^2 + \|\mathbf V\|^2$ "
                 r"all reduce correctly."
@@ -298,7 +298,116 @@ def main():
         )
     )
 
-    # 4. Projectors and proper velocity.
+    # 4. General complex-paravector similarity from the intertwiner.
+    s0, f0 = s.symbols("s0 f0")
+    gv = s.symbols("gx gy gz")
+    vv = s.symbols("vx vy vz")
+    delta_t = s.expand(f0**2 - dot(gv, gv))
+    vector_numerator = tuple(
+        s.expand(
+            (f0**2 + dot(gv, gv)) * vv[n]
+            - 2 * dot(gv, vv) * gv[n]
+            - 2 * s.I * f0 * cross(gv, vv)[n]
+        )
+        for n in range(3)
+    )
+    similarity_numerator = simplify_matrix(
+        mat_paravector(f0, tuple(-gn for gn in gv))
+        * mat_paravector(s0, vv)
+        * mat_paravector(f0, gv)
+    )
+    expected_similarity_numerator = simplify_matrix(
+        mat_paravector(delta_t * s0, vector_numerator)
+    )
+    similarity_formula_ok = matrix_is_zero(
+        simplify_matrix(similarity_numerator - expected_similarity_numerator)
+    )
+    results.append(
+        CheckResult(
+            r"Eqs.\ \eqref{eq:transform-intertwining}--\eqref{eq:similarity-components}",
+            "Verified" if similarity_formula_ok else r"\flag{Failed}",
+            (
+                r"For generic complex $Z=S+\mathbf V\cdot\sigv$ and "
+                r"$T=f+\mathbf g\cdot\sigv$, multiplication through by "
+                r"$\Delta_T=f^2-\mathbf g^2$ reproduces the stated scalar-preserving "
+                r"vector formula for $T^{-1}ZT$. This directly checks the full "
+                r"complex-paravector similarity calculation."
+            ),
+        )
+    )
+
+    # 5. Lorentz congruence for events and similarity for fields.
+    t0, rx, ry, rz = s.symbols("t0 rx ry rz", real=True)
+    # A nontrivial exact rational point on cosh(h)^2-sinh(h)^2=1 keeps
+    # this regression test fast while retaining the full symbolic event/field data.
+    half_c = s.Rational(5, 4)
+    half_s = s.Rational(3, 4)
+    full_c = half_c**2 + half_s**2
+    full_s = 2 * half_c * half_s
+    boost = simplify_matrix(half_c * I2 + half_s * SIGMA[0])
+    boost_star = simplify_matrix(half_c * I2 - half_s * SIGMA[0])
+    event = mat_paravector(t0, (rx, ry, rz))
+    boosted_event = simplify_matrix(boost_star * event * boost_star)
+    expected_event = mat_paravector(
+        full_c * t0 - full_s * rx,
+        (
+            full_c * rx - full_s * t0,
+            ry,
+            rz,
+        ),
+    )
+    similarity_event = simplify_matrix(boost_star * event * boost)
+    event_intertwiner = simplify_matrix(boost * boosted_event - event * boost_star)
+    interval_before = s.simplify(event.det())
+    interval_after = s.simplify(boosted_event.det())
+
+    e1, e2, e3, b1, b2, b3 = s.symbols("e1 e2 e3 b1 b2 b3", real=True)
+    field = mat_paravector(
+        0,
+        (e1 + s.I * b1, e2 + s.I * b2, e3 + s.I * b3),
+    )
+    boosted_field = simplify_matrix(boost_star * field * boost)
+    wrong_field_congruence = simplify_matrix(boost_star * field * boost_star)
+    expected_field = mat_paravector(
+        0,
+        (
+            e1 + s.I * b1,
+            full_c * e2 - full_s * b3
+            + s.I * (full_c * b2 + full_s * e3),
+            full_c * e3 + full_s * b2
+            + s.I * (full_c * b3 - full_s * e2),
+        ),
+    )
+    boost_ok = (
+        matrix_is_zero(simplify_matrix(boosted_event - expected_event))
+        and matrix_is_zero(event_intertwiner)
+        and s.simplify(interval_after - interval_before) == 0
+        and not matrix_is_zero(simplify_matrix(similarity_event - expected_event))
+        and matrix_is_zero(simplify_matrix(boosted_field - expected_field))
+        and s.simplify(
+            scalar_part(wrong_field_congruence) + full_s * (e1 + s.I * b1)
+        ) == 0
+        and not matrix_is_zero(
+            simplify_matrix(wrong_field_congruence - expected_field)
+        )
+    )
+    results.append(
+        CheckResult(
+            r"Eqs.\ \eqref{eq:boost} and \eqref{eq:field-transform}",
+            "Verified" if boost_ok else r"\flag{Failed}",
+            (
+                r"For a boost along the first axis, the event congruence "
+                r"$X'=L^*XL^*$ gives the standard time/longitudinal mixing, leaves "
+                r"the transverse coordinates real and unchanged, and preserves $\det(X)$. "
+                r"It also satisfies the event intertwiner $LX'=XL^*$. "
+                r"The rejected similarity $L^*XL$ does not give that event boost. "
+                r"The field similarity $F'=L^*FL$ gives the standard electric--magnetic mixing, "
+                r"whereas the rejected double-star field sandwich introduces a scalar part."
+            ),
+        )
+    )
+
+    # 5. Projectors and four-velocity.
     ux, uy, uz = s.symbols("ux uy uz", real=True)
     Udir = sigma_dot((ux, uy, uz))
     Pi_plus = simplify_matrix((I2 + Udir) / 2)
@@ -336,7 +445,7 @@ def main():
         )
     )
 
-    # 5. Potential gradient and Maxwell split.
+    # 6. Potential gradient and Maxwell split.
     t, x, y, z, q = s.symbols("t x y z q", real=True)
     Vpot = s.Function("V")(t, x, y, z)
     Avec = tuple(s.Function(name)(t, x, y, z) for name in ("A1", "A2", "A3"))
@@ -392,7 +501,7 @@ def main():
         )
     )
 
-    # 6. Gauge invariance and Lorentz force split.
+    # 7. Gauge invariance and Lorentz force split.
     lam = s.Function("lambda")(t, x, y, z)
     grad_lam = grad_scalar(lam, x, y, z)
     gauge_phi = simplify_matrix(
@@ -437,8 +546,9 @@ def main():
             if matrix_is_zero(gauge_phi - gauge_expected) and matrix_is_zero(FU - fu_decomp)
             else r"\flag{Failed}",
             (
-                r"The gauge law $\Phi'=\Phi+\partial^{*}\lambda$ gives "
-                r"$V' = V+\partial_t\lambda$ and $\mathbf A' = \mathbf A-\nabla\lambda$, "
+                r"The gauge law $\Phi_\lambda=\Phi+\partial^{*}\lambda$ gives "
+                r"$V_\lambda = V+\partial_t\lambda$ and "
+                r"$\mathbf A_\lambda = \mathbf A-\nabla\lambda$, "
                 r"and the product $FU$ splits into the expected power term "
                 r"$\gamma\,\mathbf v\cdot\mathbf E$ and force term "
                 r"$\gamma(\mathbf E+\mathbf v\times\mathbf B)$."
@@ -446,7 +556,7 @@ def main():
         )
     )
 
-    # 7. Minimal coupling, commutators, and factorization.
+    # 8. Minimal coupling, commutators, and factorization.
     psi = s.Function("psi")(t, x, y, z)
     kg_expr = s.simplify(
         s.expand(
@@ -512,14 +622,14 @@ def main():
             else r"\flag{Failed}",
             (
                 r"Acting on a generic test function reproduces the expanded Klein--Gordon "
-                r"operator, the commutators $[E,P_m]=iqE_m$ and "
-                r"$[P_m,P_n]=iq(\partial_mA_n-\partial_nA_m)$, and the factorization "
+                r"operator, the commutators $\com{E}{P_m}=iqE_m$ and "
+                r"$\com{P_m}{P_n}=iq(\partial_mA_n-\partial_nA_m)$, and the factorization "
                 r"$(E+\sigv\cdot\mathbf P)(E-\sigv\cdot\mathbf P)=E^2-\mathbf P^2-iqF$."
             ),
         )
     )
 
-    # 8. Frequency split, Dirac square, Pauli operator, and spin split.
+    # 9. Frequency split, Dirac square, Pauli operator, and spin split.
     uB = (ux, uy, uz)
     B0 = s.symbols("B0", real=True)
     Buniform = tuple(B0 * comp for comp in uB)
@@ -597,9 +707,9 @@ def main():
             and spin_split_ok
             else r"\flag{Failed}",
             (
-                r"Eliminating one Dirac component yields the two squared equations; with the manuscript's "
-                r"operator ordering, the upper component carries $-iqF^{*}$ after everything is moved to "
-                r"the left-hand side, while the lower component carries $+iqF$. The exact Pauli identity "
+                r"Eliminating one Dirac component yields the two squared equations; after the common "
+                r"overall sign is chosen as in Eq.\ \eqref{eq:dirac-square}, the upper component carries "
+                r"$+iqF^{*}$ and the lower component carries $+iqF$. The exact Pauli identity "
                 r"$(\sigv\cdot\mathbf P)^2 = \mathbf P^2 - q\,\mathbf B\cdot\sigv$ "
                 r"holds on a test function; and for uniform $\mathbf B = B_0 \mathbf u$ "
                 r"the projectors satisfy $(\mathbf B\cdot\sigv)\Pi(\pm)=\pm B_0 \Pi(\pm)$."
@@ -607,7 +717,7 @@ def main():
         )
     )
 
-    # 9. Quaternion square.
+    # 10. Quaternion square.
     qa, bx, by, bz = s.symbols("qa bx by bz", real=True)
     qmat = simplify_matrix(qa * I2 - s.I * sigma_dot((bx, by, bz)))
     qlhs = simplify_matrix(qmat * qmat)
@@ -620,8 +730,7 @@ def main():
             (
                 r"The quaternion correspondence satisfies "
                 r"$QQ^{\mathsf R}=a^2+\mathbf b^2$ and "
-                r"$Q^2=a^2-\mathbf b^2-2ia\,\mathbf b\cdot\sigv$; the omitted factor of $a$ "
-                r"in the older intermediate line is indeed an error."
+                r"$Q^2=a^2-\mathbf b^2-2ia\,\mathbf b\cdot\sigv$."
             ),
         )
     )

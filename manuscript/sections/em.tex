@@ -1,5 +1,5 @@
 \subsubsection{Electricity and Magnetism}
-This subsection collects the differential notation, the electromagnetic field paravector, its simplest quadratic combinations, and the component form of Maxwell's equation in one place. Here \(\rho,S\in\R\), \(\mathbf E,\mathbf B,\mathbf J\in\R^3\), \(\mathbf F=\mathbf E+i\mathbf B\in\C^3\), and \(F=\mathbf F\cdot\sigv\in\varnothing\oplus\C^3\). The spatial derivative conventions are
+This subsection expands the compact field definitions in Eqs.\ \eqref{eq:F-Phi} and \eqref{eq:maxwell} into explicit scalar, vector, and bivector parts. Rationalized Heaviside--Lorentz units are used, with \(c=1\). Here \(\rho,S\in\R\), \(\mathbf E,\mathbf B,\mathbf J\in\R^3\), \(\mathbf F=\mathbf E+i\mathbf B\in\C^3\), and \(F=\mathbf F\cdot\sigv\) is a pure-vector complex paravector, so \(\eqtext{scalar}(F)=0\). The spatial derivative conventions are
 \begin{align*}
 \gradv &= \{\partial_1,\partial_2,\partial_3\}, \\
 \partial_i &:= \partial/\partial r_i, \\
@@ -33,7 +33,7 @@ The two simplest quadratic field combinations are
 \tfrac12F F^{\mathrm R}
 &=\tfrac12(\mathbf E^2+\mathbf B^2)+(\mathbf E\times\mathbf B)\cdot\sigv.
 \end{align*}
-Thus \(\tfrac12F^2\) contains the Lorentz invariants, while \(\tfrac12F F^{\mathrm R}\) separates into the energy density and the Poynting vector.
+Thus \(\tfrac12F^2\) contains the proper-Lorentz invariants, while \(\tfrac12F F^{\mathrm R}\) separates into the energy density and the Poynting vector. Under parity, \(\mathbf E\cdot\mathbf B\) changes sign and is therefore a pseudoscalar rather than a scalar invariant of the full Lorentz group.
 
 Define the real source paravector by
 \begin{align*}
@@ -50,7 +50,7 @@ Here \(\rho\in\R\) is the scalar charge density and \(\mathbf J\in\R^3\) is the 
 \end{equation*}
 In this form, the scalar, sigma-number-one, and sigma-number-two parts of \(\partial F\) reproduce the four classical Maxwell equations in one step. Expanding the product shows where each component sits.
 
-Expanding \(\partial F\) into scalar, vector, and bivector parts gives
+Expanding \(\partial F\) into scalar, pseudoscalar, vector, and bivector parts gives
 \begin{align*}
 \partial F &= (\partial _{t} + \sigv \cdot \gradv) ( (\mathbf E + i \mathbf B) \cdot \sigv ),\notag \\
 &= ( \gradv \cdot \mathbf E ),\notag \\
@@ -79,8 +79,26 @@ This subsection specializes the boost law to the electromagnetic field paravecto
 \begin{equation*}
 F=(\mathbf E+i\mathbf B)\cdot\sigv .
 \end{equation*}
-For a boost
-\(L=\exp(\tfrac12\theta\,\mathbf u\cdot\sigv)\) with \(\mathbf u^{2}=1\), \(\beta=\tanh(\theta)\), and \(\gamma=\cosh(\theta)\), the transformed field and its parallel/perpendicular parts relative to \(\mathbf u\) obey
+For a constant inertial boost
+\(L=\exp(\tfrac12\theta\,\mathbf u\cdot\sigv)\) with \(\mathbf u^{2}=1\), \(\beta=\tanh(\theta)\), and \(\gamma=\cosh(\theta)\), the field transforms by the general similarity \eqref{eq:general-field-similarity}, even though event and current paravectors transform by the congruence \eqref{eq:general-event-congruence}. In the inverse-first convention the left spin action is \(L^{-1}=L^*\), so a bivector transforms as
+\[
+F'=L^{-1}FL=L^*FL.
+\]
+The final factor is \(L\), rather than \(L^*\), because a bivector carries
+the adjoint action \(T^{-1}(\,\cdot\,)T\). A double-\(L^*\) sandwich would
+instead apply the event congruence to \(F\) and would not preserve its
+pure-vector form. For example, if
+\(F=E_\parallel\,\mathbf u\cdot\sigv\), then
+\[
+L^*FL=F,
+\qquad
+L^*FL^*
+=\gamma E_\parallel\,\mathbf u\cdot\sigv-\gamma\beta E_\parallel,
+\]
+and the second expression has an inadmissible scalar part. Applying the
+general complex-vector result \eqref{eq:hyperbolic-similarity} to
+\(\mathbf V=\mathbf E+i\mathbf B\) gives the field and its
+parallel/perpendicular parts:
 \begin{align*}
 F' &= L^{*} F L, \\
 \eqtext{par}( \mathbf E ' ) &= \eqtext{par}( \mathbf E ), \\
@@ -91,48 +109,87 @@ F' &= L^{*} F L, \\
 Equivalently, the transformed fields can be written in the compact form
 \begin{align*}
 \mathbf E ' &= \eqtext{par}(\mathbf E) + \gamma ( \eqtext{prp}(\mathbf E) + \beta \mathbf u \times \mathbf B ), \\
-\mathbf B ' &= \eqtext{par}(\mathbf B) + \gamma ( \eqtext{prp}(\mathbf B) - \beta \mathbf u \times \mathbf E ), \\
-\partial ' &= L^{*} \partial L, \\
-\partial ' F' &= L^{*} (\rho - \mathbf J \cdot \sigv ) L.
+\mathbf B ' &= \eqtext{par}(\mathbf B) + \gamma ( \eqtext{prp}(\mathbf B) - \beta \mathbf u \times \mathbf E ).
 \end{align*}
-The parallel components are unchanged, while the perpendicular components mix by the standard electric-magnetic cross terms. This is the component form of the single algebraic boost law \(F'=\conj{L}FL\), together with the induced transformed operator relation \(\partial'F'=L^*(\rho-\mathbf J\cdot\sigv)L\).
+The parallel components are unchanged, while the perpendicular components mix by the standard electric-magnetic cross terms.
+Because \(LL^*=1\) and \(F^2\) is central, the field invariants are preserved directly:
+\begin{equation*}
+F'^2=L^*F(LL^*)FL=L^*F^2L=F^2.
+\end{equation*}
+Thus the real part of \(F^2\) is a scalar and its imaginary part is a pseudoscalar under parity; both are invariant under proper Lorentz transformations.
 
-\subsubsection{Wave Operator and d’Alembertian}
-This subsection collects the differential-operator conventions and their sourced wave consequences in one place:
+For any constant normalized Lorentz element \(T\), the potential and source
+are event-type paravectors, while the derivative carries the complementary
+action:
+\begin{equation*}
+\Phi'=T^{*\mathsf R}\Phi T^*,
+\qquad
+D'=T^{*\mathsf R}DT^*,
+\qquad
+\partial'=T^{\mathsf R}\partial T.
+\end{equation*}
+For the boost \(T=L\), these reduce to
+\[
+\Phi'=L^*\Phi L^*,
+\qquad
+D'=L^*DL^*,
+\qquad
+\partial'=L\partial L.
+\]
+Consequently,
+\begin{align*}
+\partial'F'
+&=(T^{\mathsf R}\partial T)(T^{*\mathsf R}FT)\notag\\
+&=T^{\mathsf R}(\partial F)T\notag\\
+&=T^{\mathsf R}D^*T\notag\\
+&=D'^*.
+\end{align*}
+Thus Maxwell's equation is covariant. In components the current transformation is
+\begin{align*}
+\rho'&=\gamma\bigl(\rho-\beta\,\mathbf u\cdot\mathbf J\bigr),\\
+\eqtext{par}(\mathbf J')
+&=\gamma\bigl(\eqtext{par}(\mathbf J)-\beta\rho\mathbf u\bigr),\\
+\eqtext{prp}(\mathbf J')&=\eqtext{prp}(\mathbf J).
+\end{align*}
+
+\subsubsection{Wave Operator and d'Alembertian}
+The operator conventions were fixed already in Eqs.\ \eqref{eq:partial-operator}--\eqref{eq:dalembertian}. Here we use them only to derive the sourced wave consequences and to distinguish the scalar wave operator \(\Box\) from the full square \(\partial^2\):
 \begin{align*}
 \partial &= \partial _{t} + \sigv \cdot \gradv, \\
 \partial ^{*} &= \partial _{t} - \sigv \cdot \gradv, \\
 \Box &:= \partial _{t}^{2} - \gradv^{2} \\
-&= \partial \partial ^{*} = \partial ^{*}\partial \\
-&= \langle\!\langle \partial \rangle\!\rangle^{2}.
+&= \partial \partial ^{*} = \partial ^{*}\partial.
 \end{align*}
 With the sigma algebra one also has
 \begin{equation*}
 \partial ^{2} = \partial _{t}^{2} + \gradv^{2} + 2 \partial _{t} \gradv \cdot \sigv,
 \end{equation*}
-so \(\partial^2\neq\Box\). Different sources may instead adopt the metric signature \((- ,+,+,+)\) or use a different box notation, including \(\Box^2\), for related wave operators. The sourced wave equations are
-\begin{equation*}
-\Box F = \conj{\partial}\partial F = \conj{\partial} (\rho - \mathbf J \cdot \sigv ).
-\end{equation*}
+so \(\partial^2\neq\Box\). With the conventions of Eqs.\ \eqref{eq:partial-operator}--\eqref{eq:dalembertian}, applying \(\partial^*\) to Maxwell's equation gives
 \begin{align*}
-\square F^{*} &= \partial (\rho + \mathbf J \cdot \sigv ),\notag \\
-&= ( \square \mathbf E + i \square \mathbf B ) \cdot \sigv,\notag \\
-&= (\partial _{t} \rho + \gradv \cdot \mathbf J) + (-\partial _{t} \mathbf J - \gradv \rho + i (\gradv \times \mathbf J)) \cdot \sigv.
+\Box F
+&=\partial^*\partial F\notag\\
+&=\partial^*(\rho-\mathbf J\cdot\sigv)\notag\\
+&=(\partial_t\rho+\gradv\cdot\mathbf J)\notag\\
+&\quad+\bigl(-\partial_t\mathbf J-\gradv\rho
++i\gradv\times\mathbf J\bigr)\cdot\sigv.
 \end{align*}
-\begin{equation*}
-\partial _{t} \rho = - \gradv \cdot \mathbf J\qquad \text{conservation of charge}.
-\end{equation*}
-The scalar part of \(\square F^*\) is therefore the continuity equation, while Eq.\ \eqref{eq:wave-F} and the vector part of \(\square F^*\) give the sourced wave equations for \(\mathbf E\) and \(\mathbf B\). In vacuum both source terms disappear and each field component satisfies the ordinary wave equation.
+Because \(F\) is pure vector, the scalar part of the left-hand side vanishes. The scalar and vector parts therefore give
+\begin{align*}
+\partial_t\rho+\gradv\cdot\mathbf J&=0,\\
+\Box\mathbf E&=-\partial_t\mathbf J-\gradv\rho,\\
+\Box\mathbf B&=\gradv\times\mathbf J.
+\end{align*}
+In vacuum both source terms disappear and each field component satisfies the ordinary wave equation.
 
 In vacuum, where \(\rho=0\) and \(\mathbf J=0\), this reduces to
 \begin{align*}
-\square \mathbf E &= 0 \Rightarrow \partial _{t}^{2} \mathbf E = \gradv^{2} \mathbf E, \\
-\square \mathbf B &= 0 \Rightarrow \partial _{t}^{2} \mathbf B = \gradv^{2} \mathbf B.
+\Box \mathbf E &= 0 \Rightarrow \partial _{t}^{2} \mathbf E = \gradv^{2} \mathbf E, \\
+\Box \mathbf B &= 0 \Rightarrow \partial _{t}^{2} \mathbf B = \gradv^{2} \mathbf B.
 \end{align*}
 \input{sections/em_tables_wave.tex}
 
 \subsubsection{Potential Fields}
-Eqs.\ \eqref{eq:potential-gradient} and \eqref{eq:E-B-from-potential} put gauge freedom, source reconstruction, and the electric/magnetic field split in one place. Here \(V,S,\rho,\lambda\in\R\), \(\mathbf A,\mathbf E,\mathbf B,\mathbf J\in\R^3\), \(\Phi\in\R\oplus\R^3\), \(\mathbf F\in\C^3\), and \(F\in\varnothing\oplus\C^3\):
+Eqs.\ \eqref{eq:potential-gradient} and \eqref{eq:E-B-from-potential} put gauge freedom, source reconstruction, and the electric/magnetic field split in one place. Here \(V,S,\rho,\lambda\in\R\), \(\mathbf A,\mathbf E,\mathbf B,\mathbf J\in\R^3\), \(\Phi\in\R\oplus\R^3\), \(\mathbf F\in\C^3\), and \(F\) is the pure-vector complex paravector defined above:
 \begin{align*}
 F^{*} &= (-\mathbf E + i \mathbf B) \cdot \sigv,\notag \\
 \Phi &= V + \mathbf A \cdot \sigv,\notag \\
@@ -158,13 +215,10 @@ F^{*} &= \partial \Phi - S, \\
 \eqtext{scalar}(F^{*}) &= \eqtext{scalar}(\partial \Phi - S) = 0, \\
 \eqtext{vector}(F^{*}) &= \eqtext{vector}( \partial \Phi ).
 \end{align*}
-The field is therefore the non-scalar part of \(\partial\Phi\). Written this way, gauge freedom changes only the scalar part \(S\) and leaves the field paravector itself unchanged.
+The field is therefore the non-scalar part of \(\partial\Phi\). Under the gauge change below, only the scalar part of \(\partial\Phi\) changes; the field paravector remains unchanged.
 \input{sections/em_tables_potential.tex}
 
-The differential operator acts before the conjugate and reverse operators are applied, so
-\begin{equation*}
-(\partial \Phi )^{*\mathrm{R}} \neq \Phi ^{*\mathrm{R}} \partial ^{*\mathrm{R}}.
-\end{equation*}
+The differential product \(\partial\Phi\) is evaluated first; the involutions then act on the resulting field. No right-acting differential operator is implied.
 Equivalently, without introducing \(S\), one may write
 \begin{equation*}
 F^{*} = (\partial \Phi - (\partial \Phi )^{*\mathrm{R}}) / 2.
@@ -176,21 +230,21 @@ Using the previously defined potential \(\Phi=V+\mathbf A\cdot\sigv\), scalar pa
 \begin{align*}
 F &= \partial ^{*} \Phi ^{*} - S,\notag \\
 \partial F &= \partial \partial ^{*} \Phi ^{*} - \partial S,\notag \\
-&= \square \Phi ^{*} - \partial S,\notag \\
-&= ( \square V - \partial _{t} S) + (- \square \mathbf A - \gradv S) \cdot \sigv,\notag \\
+&= \Box \Phi ^{*} - \partial S,\notag \\
+&= ( \Box V - \partial _{t} S) + (- \Box \mathbf A - \gradv S) \cdot \sigv,\notag \\
 &= \rho - \mathbf J \cdot \sigv.
 \end{align*}
 \begin{align*}
-\rho &= \square V - \partial _{t} S, \\
-\mathbf J &= \square \mathbf A + \gradv S.
+\rho &= \Box V - \partial _{t} S, \\
+\mathbf J &= \Box \mathbf A + \gradv S.
 \end{align*}
 These are the component source-reconstruction formulas hidden inside the compact Maxwell equation. The scalar equation determines charge density from the potential data, and the vector equation determines current density from the same data.
 
 In Lorenz gauge, where \(S=0\), these relations reduce to
 \begin{align*}
 \partial _{t} V &= -\gradv \cdot \mathbf A, \\
-\rho &= \square V, \\
-\mathbf J &= \square \mathbf A.
+\rho &= \Box V, \\
+\mathbf J &= \Box \mathbf A.
 \end{align*}
 
 \subsubsection{Gauge Transform of the Potential}
@@ -198,44 +252,43 @@ In Lorenz gauge, where \(S=0\), these relations reduce to
 \eqtext{scalar}( \partial \Phi ) &= S, \\
 S &= \partial _{t} V + \gradv \cdot \mathbf A.
 \end{align*}
-Let \(\lambda\) be a scalar gauge function. Then
+Let \(\lambda\) be a real scalar gauge function. To distinguish a gauge change from the boost primes used above, write
 \begin{align*}
-\Phi ' &= \Phi + \partial ^{*} \lambda,\notag \\
-\partial \Phi ' &= \partial (\Phi + \partial ^{*}\lambda ),\notag \\
-&= \partial \Phi + \partial (\partial ^{*}\lambda ),\notag \\
-&= \partial \Phi + \square \lambda.
+\Phi&\longmapsto\Phi+\partial^*\lambda,\\
+\partial\Phi&\longmapsto\partial\Phi+\Box\lambda.
 \end{align*}
-Since \(\square\lambda\) is again a scalar field, only the scalar part changes:
+Since \(\Box\lambda\) is again a scalar field, only the scalar part changes:
 \begin{align*}
-\eqtext{scalar}( \partial \Phi ' ) &= S + \square \lambda, \\
-\eqtext{vector}( \partial \Phi ' ) &= \eqtext{vector}( \partial \Phi ), \\
-F' &= F.
+S&\longmapsto S+\Box\lambda,\\
+F&\longmapsto F.
 \end{align*}
-This makes the gauge split explicit: \(\Phi\) changes by a derivative of a real scalar, the scalar part of \(\partial\Phi\) shifts by \(\square\lambda\), and the field paravector remains unchanged.
+This makes the gauge split explicit. Transformations that preserve Lorenz gauge satisfy the residual condition \(\Box\lambda=0\).
 
-\subsubsection{4-Force (Proper Force)}
-This subsection collects the relativistic work law, the Lorentz-force law, the component split of \(FU/\gamma\), and the final proper-force equation in one place.
+\subsubsection{Four-Force}
+This subsection collects the relativistic work law, the Lorentz-force law, the component split of \(FU/\gamma\), and the four-force equation in one place.
 \begin{align*}
-m U &= m dX/ds,\notag \\
+m U &= m\frac{\dd X}{\dd s},\notag \\
 &= m \gamma + m \gamma \mathbf v \cdot \sigv.
 \end{align*}
 \begin{equation*}
-d/ds = \gamma d/dt.
+\frac{\dd}{\dd s}=\gamma\frac{\dd}{\dd t}.
 \end{equation*}
-The scalar part of \(d(mU)/dt\) is the power equation and the vector part is the three-force equation. Writing both pieces in one paravector equation makes the usual split visible without abandoning the relativistic form.
+The scalar part of \(\dd(mU)/\dd t\) is the power equation and the vector part is the three-force equation. Writing both pieces in one paravector equation makes the usual split visible without abandoning the relativistic form.
 
 The time component gives the relativistic work law,
 \begin{equation*}
-d/dt (m \gamma ) = q \mathbf v \cdot \mathbf E.
+\frac{\dd(m\gamma)}{\dd t}=q\mathbf v\cdot\mathbf E.
 \end{equation*}
 Here \(\mathbf E\) denotes the electric field, not the energy operator \(E\), and the magnetic field contributes no work term in the scalar component. The spatial component gives the relativistic Lorentz force law,
 \begin{align*}
 \mathbf P &:= m \gamma \mathbf v, \\
-d\mathbf P/dt &= q \mathbf E + q \mathbf v \times \mathbf B.
+\frac{\dd\mathbf P}{\dd t} &= q \mathbf E + q \mathbf v \times \mathbf B.
 \end{align*}
 Together these assemble into
 \begin{equation*}
-d/dt (m U) = q \mathbf v \cdot \mathbf E + (q \mathbf E + q \mathbf v \times \mathbf B) \cdot \sigv.
+\frac{\dd(mU)}{\dd t}
+=q\mathbf v\cdot\mathbf E
++q(\mathbf E+\mathbf v\times\mathbf B)\cdot\sigv.
 \end{equation*}
 To expose the paravector content explicitly, expand
 \begin{align*}
@@ -252,27 +305,30 @@ The product \(FU\) naturally separates into real and imaginary parts. The real p
 \eqtext{real}( F U ) &= \tfrac{1}{2} ( F U + U F^{\mathrm{R}} ),\notag \\
 &= \gamma (\mathbf v \cdot \mathbf E + ( \mathbf E + \mathbf v \times \mathbf B ) \cdot \sigv ).
 \end{align*}
-The imaginary part of \(FU\) exchanges the electric and magnetic roles and is therefore not the part used in the physical force law:
+The physical four-force is therefore
 \begin{align*}
-m dU/ds &= q \eqtext{real}( F U ),\notag \\
+m\frac{\dd U}{\dd s} &= q \eqtext{real}( F U ),\notag \\
 &= \tfrac{1}{2} q \big( F U + U F^{\mathrm{R}} \big).
 \end{align*}
 \begin{equation*}
-m ddX/ds^{2} = q \eqtext{real}( F dX/ds )\qquad \text{4-force}.
+m\frac{\dd^2X}{\dd s^{2}}
+=q\,\eqtext{real}\!\left(F\frac{\dd X}{\dd s}\right)
+\qquad \text{four-force}.
 \end{equation*}
 
 \subsubsection{Lagrangian Derivation of the Lorentz Force}
 This subsection collects the minimally coupled action, the Euler--Lagrange derivation of the Lorentz force, the Hamiltonian, and the corresponding power identity in one place.
-Starting from the Lagrangian of Eq.\ \eqref{eq:em-lagrangian}, together with the potential \(\Phi=V+\mathbf A\cdot\sigv\), proper velocity \(U=dX/ds\), and \(\gamma=dt/ds\), the action takes the form
+Starting from the Lagrangian of Eq.\ \eqref{eq:em-lagrangian}, together with the potential \(\Phi=V+\mathbf A\cdot\sigv\), four-velocity \(U=\dd X/\dd s\), and \(\gamma=\dd t/\dd s\), the action takes the form
 \begin{align*}
-\text{action} &= -m \int ds - q \int \eqtext{scalar}( \Phi ^{*} U ) ds,\notag \\
-&= \int ( -m / \gamma - q \eqtext{scalar}( \Phi ^{*} U / \gamma )) dt,\notag \\
-&= \int ( -m / \gamma,\notag \\
-&\quad - q \eqtext{scalar}( (V - \mathbf A \cdot \sigv ) (1 + \mathbf v \cdot \sigv )) ) dt,\notag \\
-&= \int ( -m / \gamma - q V + q \mathbf v \cdot \mathbf A ) dt.
+\text{action}
+&=-m\int\dd s-q\int\eqtext{scalar}(\Phi^*U)\,\dd s\notag\\
+&=\int\left[-\frac{m}{\gamma}
+-q\,\eqtext{scalar}\!\left((V-\mathbf A\cdot\sigv)
+(1+\mathbf v\cdot\sigv)\right)\right]\dd t\notag\\
+&=\int\left(-\frac{m}{\gamma}-qV+q\mathbf v\cdot\mathbf A\right)\dd t.
 \end{align*}
 \begin{equation*}
-\mathcal{L} = -m / \gamma - q ( V - \mathbf v \cdot \mathbf A )\qquad \text{Lagrangian}.
+\mathcal{L}=-\frac{m}{\gamma}-q(V-\mathbf v\cdot\mathbf A).
 \end{equation*}
 This is the standard minimal-coupling Lagrangian written in the present paravector notation. The canonical momentum is shifted by the vector potential, exactly as in the ordinary component derivation.
 
@@ -282,45 +338,49 @@ The canonical momentum is
 &= \mathbf P + q \mathbf A.
 \end{align*}
 \begin{align*}
-d/dt \delv{} \mathcal{L} &= d\mathbf P/dt + q \partial _{t} \mathbf A + q (\mathbf v \cdot \gradv) \mathbf A, \\
+\frac{\dd}{\dd t}\delv{} \mathcal{L} &= \frac{\dd\mathbf P}{\dd t} + q \partial _{t} \mathbf A + q (\mathbf v \cdot \gradv) \mathbf A, \\
 \gradv \mathcal{L} &= - q \gradv V + q \gradv (\mathbf v \cdot \mathbf A).
 \end{align*}
 Using the vector-calculus identity
 \begin{equation*}
 (\mathbf v(t) \cdot \gradv) \mathbf A(t, \mathbf r) = \gradv ( \mathbf v \cdot \mathbf A ) - \mathbf v \times ( \gradv \times \mathbf A ).
 \end{equation*}
-the Euler--Lagrange equation \(d/dt \delv{} \mathcal{L} = \gradv \mathcal{L}\) yields
+the Euler--Lagrange equation \((\dd/\dd t)\delv{} \mathcal{L} = \gradv \mathcal{L}\) yields
 \begin{align*}
-d\mathbf P/dt &= - q \gradv V - q \partial _{t} \mathbf A,\notag \\
+\frac{\dd\mathbf P}{\dd t} &= - q \gradv V - q \partial _{t} \mathbf A,\notag \\
 &\quad + q ( \gradv (\mathbf v \cdot \mathbf A) - (\mathbf v \cdot \gradv) \mathbf A ),\notag \\
 &= q ( -\gradv V - \partial _{t}\mathbf A + \mathbf v \times ( \gradv \times \mathbf A ) ),\notag \\
 &= q ( \mathbf E + \mathbf v \times \mathbf B ),\notag \\
-&= m \eqtext{vector}( dU/ds ) / \gamma.
+&= \frac{m}{\gamma}\eqtext{vector}\!\left(\frac{\dd U}{\dd s}\right).
 \end{align*}
+The Hamiltonian is
 \begin{align*}
-\mathcal{H} &= (\delv{} \mathcal{L}) \cdot \mathbf v - \mathcal{L},\notag \\
-&= m \gamma \mathbf v \cdot \mathbf v + q \mathbf v \cdot \mathbf A + m / \gamma.
+\mathcal H
+&=(\delv{}\mathcal L)\cdot\mathbf v-\mathcal L\notag\\
+&=(m\gamma\mathbf v+q\mathbf A)\cdot\mathbf v
++\frac{m}{\gamma}+qV-q\mathbf v\cdot\mathbf A\notag\\
+&=m\gamma\left(\mathbf v^2+\frac{1}{\gamma^2}\right)+qV\notag\\
+&=m\gamma+qV.
 \end{align*}
-Adding the explicit potential contribution \(qV-q\,\mathbf v\cdot\mathbf A\) gives
+Thus \(\mathcal H\) is the mechanical relativistic energy plus the scalar-potential energy. Along a solution,
 \begin{align*}
-&= m \gamma ( \mathbf v^{2} + 1 / \gamma ^{2} ) + q V,\notag \\
-&= m \gamma ( \mathbf v^{2} + 1 - \mathbf v^{2} ) + q V,\notag \\
-&= m \gamma + q V.
+\frac{\dd\mathcal H}{\dd t}
+&=-\partial_t\mathcal L
+=q\partial_tV-q\mathbf v\cdot\partial_t\mathbf A,\\
+\frac{\dd\mathcal H}{\dd t}
+&=\frac{\dd(m\gamma)}{\dd t}
++q\partial_tV+q\mathbf v\cdot\gradv V.
 \end{align*}
-The resulting Hamiltonian is the relativistic energy plus the scalar potential term. Using the Hamiltonian identity \(dH/dt=-\partial_t \mathcal L\),
+Equating these expressions gives
 \begin{align*}
-dH/dt &= - \partial _{t} \mathcal{L},\notag \\
-d\mathcal{H}/dt &= d(m \gamma )/dt + q dV/dt,\notag \\
-&= d(m \gamma )/dt + q \partial _{t}V + q \mathbf v \cdot \gradv V.
+\frac{\dd(m\gamma)}{\dd t}
+&=q\mathbf v\cdot(-\gradv V-\partial_t\mathbf A)\notag\\
+&=q\mathbf v\cdot\mathbf E,
 \end{align*}
-\begin{align*}
-\partial _{t} H &= q \partial _{t} V - q \mathbf v \cdot \partial _{t} \mathbf A,\notag \\
-d(m \gamma )/dt &= q \mathbf v \cdot ( -\gradv V - \partial _{t} \mathbf A ),\notag \\
-&= q \mathbf v \cdot \mathbf E.
-\end{align*}
+in agreement with the scalar component of the Lorentz-force equation.
 
-\subsubsection{Stress-Energy of the Electromagnetic Field}
-This subsection collects the frame-dependent energy-density/Poynting paravector built from \(F\), together with the differentiated and source-coupled identities that accompany it. The caution in the main text remains in force: \(T=\tfrac12F\rev{F}\) is a useful paravector, but it is not by itself the full electromagnetic stress-energy tensor:
+\subsubsection{Energy-Density and Poynting Paravector}
+Equation \eqref{eq:energy-momentum-paravector} packages the electromagnetic energy density and Poynting vector into one paravector. The algebra below records its components and the scalar energy balance implied by Maxwell's equation \eqref{eq:maxwell}:
 
 \begin{align*}
 F &= (\mathbf E + i \mathbf B) \cdot \sigv,\notag \\
@@ -332,36 +392,26 @@ T &= \tfrac{1}{2} F F^{\mathrm{R}},\notag \\
 \begin{equation*}
 \partial = \partial _{t} + \sigv \cdot \gradv.
 \end{equation*}
-\noindent\flag{This is a frame-dependent energy-density/Poynting paravector, not by itself the full electromagnetic stress-energy tensor.}\par
-Using the generic paravector product rule,
-\begin{align*}
-\partial (ZZ') &= (\partial Z) Z' + Z (\partial Z') + [\sigv , Z] \cdot \gradv Z',\notag \\
-\partial T &= \tfrac{1}{2} \partial \big(F F^{\mathrm{R}}\big),\notag \\
-&= \tfrac{1}{2}\big(\partial F\big) F^{\mathrm{R}} + \tfrac{1}{2}F \big(\partial F^{\mathrm{R}}\big) \notag \\
-&\quad + \tfrac{1}{2}[\sigv , F] \cdot \gradv F^{\mathrm{R}}.
-\end{align*}
-\begin{align*}
-D &= \rho + \mathbf J \cdot \sigv\qquad \text{density paravector}, \\
-D^{*} &= \rho - \mathbf J \cdot \sigv, \\
-\partial &= \partial _{t} + \sigv \cdot \gradv, \\
-\partial F &= D^{*}, \\
-F^{2} &= (\mathbf E^{2} - \mathbf B^{2}) + 2 i (\mathbf E \cdot \mathbf B)\qquad \text{scalar}.
-\end{align*}
-
-Applying the same product rule to \(F^2\) gives
-\begin{align*}
-\partial (ZZ') &= (\partial Z) Z' + Z (\partial Z') + [\sigv , Z] \cdot \gradv Z',\notag \\
-\partial \big(F^{2}\big) &= \big(\partial F\big) F + F \big(\partial F\big) \notag \\
-&\quad + [\sigv , F] \cdot \gradv F,\notag \\
-&= D^{*} F + F D^{*} + [\sigv , F] \cdot \gradv F.
-\end{align*}
-\begin{align*}
-[\sigv , F] &= 2 i \mathbf F \times \sigv,\notag \\
-[\sigv , F] \cdot \gradv F &= -2 i \mathbf F \cdot (\gradv \times \mathbf F),\notag \\
-&\quad -2 \big( (\gradv \cdot \mathbf F)\mathbf F - \tfrac{1}{2} \gradv \mathbf F^{2} \big) \cdot \sigv.
-\end{align*}
+The paravector \(T=\tfrac12F\rev{F}\) is the energy density and flux measured relative to the chosen time direction. It is not, by itself, the full electromagnetic stress-energy tensor. The covariant content is the linear map on real paravectors \(a\in\R\oplus\R^3\),
 \begin{equation*}
-\square F^{2} = \partial ^{*} \partial \big(F^{2}\big)\qquad \text{scalar}.
+a\longmapsto\frac12F\,a\,\rev{F},
 \end{equation*}
-The component decompositions needed in this discussion are collected directly below: Tables \ref{tab:components-partial-t}, \ref{tab:components-partial-fsquare}, \ref{tab:components-fdstar}, \ref{tab:components-dstarf}, and \ref{tab:components-dstarf-plus-fdstar} give the components of \(\partial T\), \(\partial F^2\), \(F D^*\), \(D^*F\), and \(D^*F+F D^*\), respectively. Together with \(F^2\) and \(T=\tfrac12F\rev{F}\), these formulas isolate the standard electromagnetic invariants \(\mathbf E^2-\mathbf B^2\) and \(\mathbf E\cdot\mathbf B\), the energy-density/Poynting split, and the source-coupled terms generated by Maxwell's equation \(\partial F=D^*\).
+whose value at \(a=1\) is the displayed paravector \(T\) \cite{hestenes1966,doran2003}.
+Indeed, for \(a'=L^*aL^*\), \(F'=L^*FL\), and \((F')^{\mathrm R}=LF^{\mathrm R}L^*\),
+\begin{equation*}
+\frac12F'a'(F')^{\mathrm R}
+=L^*\left(\frac12FaF^{\mathrm R}\right)L^*,
+\end{equation*}
+so the map has the required event-paravector covariance.
+
+Maxwell's equations immediately give the scalar energy balance:
+\begin{align*}
+\partial_tT_s+\gradv\cdot T_{\mathbf v}
+&=\mathbf E\cdot\partial_t\mathbf E
++\mathbf B\cdot\partial_t\mathbf B
++\gradv\cdot(\mathbf E\times\mathbf B)\notag\\
+&=-\mathbf J\cdot\mathbf E.
+\end{align*}
+This is Poynting's theorem in the present units: the field-energy loss equals the work done on charge.
+The two quadratic field products and their component content are collected below. They display the proper-Lorentz invariants and the frame-dependent energy-density/Poynting split without suggesting a separate field equation for \(F^2\).
 \input{sections/em_tables_energy.tex}

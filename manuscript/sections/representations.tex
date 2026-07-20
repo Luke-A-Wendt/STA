@@ -1,5 +1,6 @@
-\subsubsection{Spin Projectors}
-The projector family from Eq.\ \eqref{eq:projectors} resolves a state into the two spin components along a chosen unit axis \(\mathbf u\in\R^3\). The basic identities are
+\subsubsection{Spin-Axis Projectors}
+The projector family from Eq.\ \eqref{eq:projectors} resolves the left
+action of a chosen unit axis \(\mathbf u\in\R^3\). The basic identities are
 \begin{align*}
 \Pi(\pm)&=\tfrac12(1\pm \mathbf u\cdot\sigv),\\
 \Pi(\pm)^2&=\Pi(\pm),\\
@@ -15,27 +16,37 @@ Accordingly,
 \end{equation*}
 so the two projector parts carry the eigenvalues \(+1\) and \(-1\) of the axis operator.
 
+In the Pauli matrix realization, each \(\Pi(\pm)\) has rank one. A general
+element of \(\C\oplus\C^3\), however, is a full \(2\times2\) complex matrix,
+not one irreducible two-component spinor. The following projection formulas
+therefore hold column by column. They describe a single Pauli spinor after
+one fixes a minimal left ideal by placing a fixed projector on the right;
+without that restriction, the full
+paravector describes two spinor columns or may be interpreted as a density
+amplitude.
+
 If the axis is rotated by the rotor \(R\) from Eq.\ \eqref{eq:rotor}, define
 \begin{equation*}
 \mathbf u'\cdot\sigv=\rev{R}(\mathbf u\cdot\sigv)R,
 \qquad
-\Pi'(\pm):=\tfrac12(1\pm \mathbf u'\cdot\sigv).
+\Pi'(\pm):=\tfrac12(1\pm \mathbf u'\cdot\sigv)
+=\rev{R}\Pi(\pm)R.
 \end{equation*}
 Then
 \begin{equation*}
 \mathbf u'\cdot\sigv=(+1)\Pi'(+)+(-1)\Pi'(-).
 \end{equation*}
 
-For a complex paravector state \(\psi\in\C\oplus\C^3\), define the spin-projected parts
+For an algebra element \(\psi\in\C\oplus\C^3\), define its left-projected parts
 \begin{equation*}
 \psi(\pm):=\Pi(\pm)\psi.
 \end{equation*}
 These satisfy
 \begin{align*}
 (\mathbf u\cdot\sigv)\psi(\pm)&=\pm\psi(\pm),\\
-\psi&=\psi(+)+\psi(-),
+\psi&=\psi(+)+\psi(-).
 \end{align*}
-so the state is decomposed into spin-up and spin-down parts along \(\mathbf u\). Reversion acts as
+Thus each spinor column splits into the two eigenspaces of the chosen axis. Reversion acts as
 \begin{align*}
 \rev{\psi(\pm)}
 &=\rev{\psi}\,\Pi(\pm)^{\mathrm R}\notag\\
@@ -47,11 +58,21 @@ and therefore
 \rev{\psi(\pm)}\psi(\mp)&=\rev{\psi}\,\Pi(\pm)\Pi(\mp)\psi=0,\\
 \rev{\psi(\mp)}\psi(\pm)&=\rev{\psi}\,\Pi(\mp)\Pi(\pm)\psi=0.
 \end{align*}
-In the bra-ket shorthand
+For two algebra elements \(\phi,\psi\), define the mixed pairing
 \begin{equation*}
-\langle\psi\mid M\mid\psi\rangle:=\eqtext{scalar}(\rev{\psi}M\psi),
+\langle\phi\mid M\mid\psi\rangle
+:=\eqtext{scalar}(\rev{\phi}M\psi).
 \end{equation*}
-the expectation of the rotated axis expands as
+For a nonzero \(\psi\), an expectation value is the normalized ratio
+\begin{equation*}
+\langle M\rangle_\psi
+:=\frac{\langle\psi\mid M\mid\psi\rangle}
+        {\eqtext{scalar}(\rev{\psi}\psi)}.
+\end{equation*}
+For a full matrix \(\psi\), this is the Hilbert--Schmidt or density-amplitude
+pairing; for a vector in a fixed minimal left ideal, it is the ordinary
+Pauli-spinor pairing. The unnormalized numerator for the rotated axis
+expands as
 \begin{align*}
 \langle\psi\mid \mathbf u'\cdot\sigv \mid \psi\rangle
 &=\langle\psi(+)+\psi(-)\mid \mathbf u'\cdot\sigv \mid \psi(+)+\psi(-)\rangle\notag\\
@@ -90,11 +111,19 @@ If \(\theta\) is the angle between \(\mathbf u\) and \(\mathbf u'\), then
 \begin{equation*}
 \mathbf u'\cdot\mathbf u=\cos(\theta),
 \end{equation*}
-so the half-angle transition factors are
+and the rank-one projector overlap is
 \begin{equation*}
-\frac12(1+\mathbf u'\cdot\mathbf u)=\cos^2\frac{\theta}{2},
+2\,\eqtext{scalar}\!\bigl(\Pi(s)\Pi'(s')\bigr)
+=\frac12\bigl(1+ss'\,\mathbf u\cdot\mathbf u'\bigr),
+\qquad s,s'\in\{+1,-1\}.
+\end{equation*}
+For a normalized irreducible axis eigenstate this overlap is the transition
+probability. In particular, the same-side and opposite-side probabilities
+are
+\begin{equation*}
+\frac12(1+\mathbf u'\cdot\mathbf u)=\cos^2(\theta/2),
 \qquad
-\frac12(1-\mathbf u'\cdot\mathbf u)=\sin^2\frac{\theta}{2}.
+\frac12(1-\mathbf u'\cdot\mathbf u)=\sin^2(\theta/2).
 \end{equation*}
 If \(\mathbf u'\) is obtained by rotating \(\mathbf u\) through angle \(\phi\) about a unit axis \(\mathbf n\), Rodrigues's formula gives
 \begin{align*}
@@ -110,11 +139,13 @@ In the perpendicular case \(\mathbf n\cdot\mathbf u=0\), this reduces to
 \end{equation*}
 hence
 \begin{equation*}
-\frac12(1+\mathbf u'\cdot\mathbf u)=\cos^2\frac{\phi}{2},
+\frac12(1+\mathbf u'\cdot\mathbf u)=\cos^2(\phi/2),
 \qquad
-\frac12(1-\mathbf u'\cdot\mathbf u)=\sin^2\frac{\phi}{2}.
+\frac12(1-\mathbf u'\cdot\mathbf u)=\sin^2(\phi/2).
 \end{equation*}
-These are the projector transition factors for a spin-\(\tfrac12\) axis rotation.
+These are the familiar spin-\(\tfrac12\) transition probabilities. Without
+the normalization and irreducible-state qualification above, they should
+be read only as projector overlaps.
 
 \subsubsection{Ladder Operations About the z Axis}
 For raising and lowering about the \(z\) axis, choose
@@ -129,7 +160,7 @@ Define the ladder operators by
 \end{equation*}
 They satisfy the commutator relation
 \begin{equation*}
-[\sigma_3,\ell(\pm)]=\pm 2\ell(\pm),
+\com{\sigma_3}{\ell(\pm)}=\pm 2\ell(\pm),
 \end{equation*}
 so \(\ell(+)\) raises the \(\sigma_3\) eigenvalue and \(\ell(-)\) lowers it.
 
@@ -165,42 +196,18 @@ which make the raising/lowering interpretation explicit. The original sigma gene
 \end{aligned}
 \end{equation*}
 
-\subsubsection{Spin Uncertainty}
+\subsubsection{Spin-Axis Noncommutativity}
 For unit directions \(\mathbf u,\mathbf u'\in\R^3\),
-\begin{equation*}
-\mathbf u\cdot\mathbf u=\mathbf u'\cdot\mathbf u'=1.
-\end{equation*}
-Their product is
-\begin{equation*}
-(\mathbf u\cdot\sigv)(\mathbf u'\cdot\sigv)
-=\mathbf u\cdot\mathbf u'+i(\mathbf u\times\mathbf u')\cdot\sigv,
-\end{equation*}
-so the commutator is
-\begin{equation*}
-[\mathbf u\cdot\sigv,\mathbf u'\cdot\sigv]
-=2i(\mathbf u\times\mathbf u')\cdot\sigv.
-\end{equation*}
-Equivalently,
-\begin{equation*}
-(\mathbf u\cdot\sigv)(\mathbf u'\cdot\sigv)
-=\mathbf u\cdot\mathbf u'
-+\frac12[\mathbf u\cdot\sigv,\mathbf u'\cdot\sigv].
-\end{equation*}
-Using the paravector metric
-\begin{equation*}
-\langle\!\langle Z\rangle\!\rangle^2:=Z\crev{Z},
-\end{equation*}
-one finds
 \begin{align*}
-\langle\!\langle(\mathbf u\cdot\sigv)(\mathbf u'\cdot\sigv)\rangle\!\rangle^2
-&=(\mathbf u\cdot\mathbf u')^2-\bigl(i(\mathbf u\times\mathbf u')\bigr)^2\notag\\
-&=(\mathbf u\cdot\mathbf u')^2+(\mathbf u\times\mathbf u')^2\notag\\
-&\ge(\mathbf u\times\mathbf u')^2\notag\\
-&=\left\|\frac12[\mathbf u\cdot\sigv,\mathbf u'\cdot\sigv]\right\|^2.
+\acom{\mathbf u\cdot\sigv}{\mathbf u'\cdot\sigv}
+&=2\,\mathbf u\cdot\mathbf u',\\
+\com{\mathbf u\cdot\sigv}{\mathbf u'\cdot\sigv}
+&=2i(\mathbf u\times\mathbf u')\cdot\sigv.
 \end{align*}
-In this sense the metric of the ordered product controls the size of the noncommuting part of the two spin-axis elements. Written formally for infinitesimal axis variations \(d\mathbf u\) and \(d\mathbf u'\), this gives the Robertson-style estimate
-\begin{equation*}
-\langle\!\langle(d\mathbf u\cdot\sigv)(d\mathbf u'\cdot\sigv)\rangle\!\rangle
-\ge\frac12\left\|[d\mathbf u\cdot\sigv,d\mathbf u'\cdot\sigv]\right\|.
-\end{equation*}
-This should not be confused with the full Robertson or Robertson--Schr\"odinger state-variance inequality \cite{robertson1929}; only the operator-level noncommutativity of the spin-axis elements is being recorded here.
+The anticommutator records the axis overlap, while the commutator records
+the oriented area spanned by the two axes. Thus the axis operators commute
+exactly when the directions are parallel or antiparallel. These identities
+are purely algebraic. A Robertson or Robertson--Schr\"odinger uncertainty
+relation additionally requires a normalized state, expectation functional,
+and state-dependent variances; no such inequality is inferred from the
+commutator alone \cite{robertson1929}.

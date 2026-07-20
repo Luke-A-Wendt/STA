@@ -80,6 +80,17 @@ Now that Eq.\ \eqref{eq:rotor} and its transform consequences have been develope
 \end{equation}
 This is the quaternion version of the rotor action \(\mathbf r'\cdot\sigv=\rev{R}(\mathbf r\cdot\sigv)R\). In particular, choosing
 \begin{equation*}
-Q=\cos\!\left(\frac{\theta}{2}\right)-\sin\!\left(\frac{\theta}{2}\right)\mathbf u\cdot\mathbf q
+Q=\cos\!\left(\frac{\theta}{2}\right)
+ +\sin\!\left(\frac{\theta}{2}\right)\mathbf u\cdot\mathbf q
 \end{equation*}
-is equivalent to the rotor \(R(\theta,\mathbf u)=\exp(\tfrac{\theta}{2}\mathbf u\cdot i\sigv)\), because \(\mathbf q=-i\sigv\). Thus quaternion rotations are not a parallel construction: they are exactly the same circular half-angle algebra already developed in the STA basis.
+gives \(Q=R^{\mathrm R}\), because
+\(\mathbf q=-i\sigv\). Consequently
+\[
+Q(\mathbf r\cdot\mathbf q)Q^{\mathrm R}
+=R^{\mathrm R}(\mathbf r\cdot\mathbf q)R,
+\]
+which has exactly the same orientation as the sigma-vector rotor law. If
+one instead chooses \(Q=R\), the equivalent quaternion sandwich must be
+\(Q^{\mathrm R}(\mathbf r\cdot\mathbf q)Q\). Thus quaternion rotations are
+the same circular half-angle algebra, with the order fixed by the selected
+orientation convention.

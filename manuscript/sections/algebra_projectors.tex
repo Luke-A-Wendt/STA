@@ -1,5 +1,5 @@
 \subsubsection{Functions of \texorpdfstring{\(\mathbf u\cdot\sigv\)}{u.sigma}}
-The projector pair \(\Pi(\pm)\) gives the two-root decomposition of the unit-direction element \(\mathbf u\cdot\sigv\). The corresponding eigenvalue data are
+The projector pair from Eq.\ \eqref{eq:projectors}, together with the functional-calculus rule in Eq.\ \eqref{eq:functional-calculus}, gives the two-root decomposition of the unit-direction element \(\mathbf u\cdot\sigv\). The corresponding eigenvalue data are
 \begin{align*}
 \Pi(\pm) &= \tfrac{1}{2}(1\pm \mathbf u\cdot\sigv), \\
 \Pi(\pm)^{2} &= \Pi(\pm), \\
@@ -7,7 +7,9 @@ The projector pair \(\Pi(\pm)\) gives the two-root decomposition of the unit-dir
 \Pi(+) + \Pi(-) &= 1, \\
 (\mathbf u\cdot\sigv)\Pi(\pm) &= \pm \Pi(\pm),
 \end{align*}
-so \(\mathbf u\cdot\sigv\) has the two eigenvalues \(+1\) and \(-1\). Any function with a convergent power series therefore collapses to those two scalar values:
+so \(\mathbf u\cdot\sigv\) has the two eigenvalues \(+1\) and \(-1\).
+Specified scalar values at those two roots determine the corresponding
+projector function:
 \begin{align*}
 f(\mathbf u\cdot\sigv)
 &= f(+1)\Pi(+) + f(-1)\Pi(-)\notag \\
@@ -16,19 +18,28 @@ f(\mathbf u\cdot\sigv)
 \end{align*}
 These are the basic projector formulas for a unit-direction element. The first examples below collect the square root, logarithm branch data, rational inverse, Cayley transform, and the two exponential families for later reuse:
 \begin{align*}
-\sqrt{\mathbf u\cdot\sigv} &= \pm \Pi(+) \pm i\,\Pi(-), \\
+\sqrt{\mathbf u\cdot\sigv}
+&= \epsilon(+)\Pi(+) + \epsilon(-) i\,\Pi(-), \\
 \log(\mathbf u\cdot\sigv)
 &= 2 i \pi\bigl(n\,\Pi(+) + (\tfrac12+m)\,\Pi(-)\bigr), \\
 (z+\mathbf u\cdot\sigv)^{-1}
 &= \frac{1}{z+1}\Pi(+) + \frac{1}{z-1}\Pi(-)\notag \\
 &= \frac{z-\mathbf u\cdot\sigv}{z^{2}-1}, \\
-\frac{i-\mathbf u\cdot\sigv}{i+\mathbf u\cdot\sigv} &= i\,\mathbf u\cdot\sigv, \\
+\frac{i-\mathbf u\cdot\sigv}{i+\mathbf u\cdot\sigv}
+&= i\,\mathbf u\cdot\sigv, \\
 \exp(\theta\,\mathbf u\cdot\sigv)
 &= \cosh(\theta)+\sinh(\theta)\,\mathbf u\cdot\sigv, \\
 \exp(i\theta\,\mathbf u\cdot\sigv)
 &= \cos(\theta)+i\sin(\theta)\,\mathbf u\cdot\sigv,
 \end{align*}
-where \(m,n\in\mathbb Z\) index logarithm branches. The square root, inverse, Cayley-type transform, and the two exponential identities are all obtained by direct substitution into Eq.\ \eqref{eq:functional-calculus}. The later exponential and logarithm subsections revisit the same formulas in the broader real- and complex-paravector settings.
+where \(m,n\in\mathbb Z\) index independent logarithm branches, and the
+inverse formula requires \(z\neq\pm1\). The signs
+\(\epsilon(+),\epsilon(-)\in\{+1,-1\}\) are likewise independent; the conventional scalar
+branches \(\sqrt{+1}=1\) and \(\sqrt{-1}=i\) correspond to
+\(\epsilon(+)=\epsilon(-)=+1\). These identities follow by
+applying the chosen scalar value separately on the two projector ranges.
+The later exponential and logarithm subsections revisit the same formulas
+with their domains stated for real and complex paravectors.
 
 \subsubsection{Functions of X}
 Let
@@ -58,19 +69,22 @@ the corresponding projector decomposition is
 X &= a\,\Pi(+) + b\,\Pi(-), \\
 \Pi(\pm)X &= \lambda(\pm)\Pi(\pm).
 \end{align*}
-If \(f\) has a convergent power series, then
+If \(f\) is defined at the two eigenvalues, then
 \begin{align*}
 f(X)
 &= f(a)\Pi(+) + f(b)\Pi(-)\notag \\
 &= \tfrac12\bigl(f(a)+f(b)\bigr)
 + \tfrac12\bigl(f(a)-f(b)\bigr)\,\mathbf u\cdot\sigv.
 \end{align*}
-Writing \(X':=f(X)=t'+\mathbf r'\cdot\sigv\), one finds
+Writing \(X':=f(X)\), introduce its scalar and signed axial coefficients by
 \begin{align*}
 t' &= \tfrac12\bigl(f(a)+f(b)\bigr), \\
-\lVert\mathbf r'\rVert &= \tfrac12\bigl(f(a)-f(b)\bigr), \\
-\mathbf r' &= \lVert\mathbf r'\rVert\,\mathbf u.
+\rho'&:=\tfrac12\bigl(f(a)-f(b)\bigr),\\
+X'&=t'+\rho'\,\mathbf u\cdot\sigv.
 \end{align*}
+For complex-valued \(f\), both \(t'\) and \(\rho'\) may be complex. Even
+when they are real, \(\rho'\) is signed; the magnitude of the vector part is
+\(\lvert\rho'\rvert\), not \(\rho'\) itself.
 The projector summary may therefore be recorded as
 \begin{align*}
 \lambda(\pm)&=t\pm\lVert\mathbf r\rVert,\notag\\
@@ -83,8 +97,10 @@ f(X)&=f\bigl(\lambda(+)\bigr)\Pi(+)+f\bigl(\lambda(-)\bigr)\Pi(-).
 The standard examples then follow immediately:
 \begin{align*}
 \exp(X)
-&= e^{t}\Bigl(\cosh(\lVert\mathbf r\rVert)+\sinh(\lVert\mathbf r\rVert)\,\mathbf u\cdot\sigv\Bigr), \\
-\sqrt{X} &= \pm \sqrt{a}\,\Pi(+) \pm \sqrt{b}\,\Pi(-), \\
+&= \exp(t)\Bigl(\cosh(\lVert\mathbf r\rVert)+\sinh(\lVert\mathbf r\rVert)\,\mathbf u\cdot\sigv\Bigr), \\
+\sqrt{X}
+&= \epsilon(+)\sqrt{a}\,\Pi(+)+\epsilon(-)\sqrt{b}\,\Pi(-),\notag\\
+&\qquad \epsilon(+),\epsilon(-)\in\{+1,-1\}, \\
 \log(X) &= \log(a)\,\Pi(+) + \log(b)\,\Pi(-), \\
 X^{-1}
 &= \frac{\Pi(+)}{a} + \frac{\Pi(-)}{b}\notag \\
@@ -93,6 +109,13 @@ X^{n}
 &= a^{n}\Pi(+) + b^{n}\Pi(-)\notag \\
 &= \tfrac12(a^{n}+b^{n}) + \tfrac12(a^{n}-b^{n})\,\mathbf u\cdot\sigv.
 \end{align*}
+Here the scalar square roots and logarithms must be taken on specified
+branches. A square root that is itself a real paravector exists when
+\(a,b\geq0\), equivalently \(t\geq\lVert\mathbf r\rVert\); otherwise the
+displayed roots are complex. The displayed logarithm requires \(a,b\neq0\); it is the real
+principal logarithm when \(a,b>0\). The inverse requires \(ab\neq0\).
+The power formula holds for \(n\geq0\), and also for negative integers when
+\(ab\neq0\).
 For two paravectors diagonalized along possibly different axes,
 \begin{align*}
 f(X)g(X')
@@ -102,12 +125,10 @@ f(X)g(X')
 so
 \begin{align*}
 f(X)g(X')
-&= f(a)g(a')\,\Pi(+)\Pi'(+)
-  + f(a)g(b')\,\Pi(+)\Pi'(-)\notag \\
-&\quad + f(b)g(a')\,\Pi(-)\Pi'(+)
-  + f(b)g(b')\,\Pi(-)\Pi'(-)\notag \\
-&= \sum_{s,s'=\pm}
-f\bigl(\lambda(s)\bigr)g\bigl(\lambda'(s')\bigr)\,\Pi(s)\Pi'(s').
+&= f(a)g(a')\,\Pi(+)\Pi'(+)\notag\\
+&\quad+f(a)g(b')\,\Pi(+)\Pi'(-)\notag \\
+&\quad+f(b)g(a')\,\Pi(-)\Pi'(+)\notag\\
+&\quad+f(b)g(b')\,\Pi(-)\Pi'(-).
 \end{align*}
 The mixed projector products are
 \begin{align*}
@@ -131,13 +152,41 @@ As a useful example, the Cayley-type transform is itself a projector exponential
 &= \exp\!\bigl(-2\,\operatorname{arctanh}(\lVert\mathbf r\rVert)\bigr)\Pi(+)\notag \\
 &\quad + \exp\!\bigl(+2\,\operatorname{arctanh}(\lVert\mathbf r\rVert)\bigr)\Pi(-).
 \end{align*}
+The rational expression requires \(\lVert\mathbf r\rVert\neq1\).
+For a real-valued \(\operatorname{arctanh}\) and the displayed real
+exponentials, one further assumes \(\lVert\mathbf r\rVert<1\); otherwise a
+complex branch must be selected.
 
 \subsubsection{Minimal Polynomial and Projector Decomposition}
-The two-root data of a complex paravector are collected here because the later function formulas, projector identities, and exponential identities all depend on this algebraic factorization; see Eq.\ \eqref{eq:functional-calculus}:
+The two-root data of a complex paravector are collected here because the later function formulas, projector identities, and exponential identities all depend on this algebraic factorization; see Eqs.\ \eqref{eq:paravector-product} and \eqref{eq:functional-calculus}:
 \begin{align*}
 Z &= S + \mathbf V \cdot \sigv \in \C\oplus\C^{3}, \\
-Z^{2} - 2 S Z + ( S^{2} - \mathbf V^{2} ) &= 0, \\
-\lambda (\pm ) &= S \pm \sqrt{ \mathbf V^{2} }, \\
-( Z - \lambda (-) ) ( Z - \lambda (+) ) &= 0.
+Z^{2} - 2 S Z + ( S^{2} - \mathbf V^{2} ) &= 0.
 \end{align*}
-When \(\mathbf V^{2}\neq 0\), these two eigenvalues provide the projector data needed for the same functional calculus used in the real-paravector case.
+When \(\mathbf V^{2}\neq0\), choose \(z\) with \(z^2=\mathbf V^2\) and set
+\begin{align*}
+\lambda(\pm)&:=S\pm z,\\
+\Pi_Z(\pm)&:=\frac12\left(1\pm
+\frac{\mathbf V\cdot\sigv}{z}\right).
+\end{align*}
+Then
+\begin{align*}
+( Z - \lambda (-) ) ( Z - \lambda (+) ) &= 0,\\
+Z&=\lambda(+)\Pi_Z(+)+\lambda(-)\Pi_Z(-),\\
+f(Z)&=f\bigl(\lambda(+)\bigr)\Pi_Z(+)
+ \notag\\
+&\quad+f\bigl(\lambda(-)\bigr)\Pi_Z(-)
+\end{align*}
+for any scalar function defined on the two eigenvalues. Changing the sign of
+\(z\) merely exchanges the two labels.
+
+The case \(\mathbf V^2=0\) must be treated separately. If
+\(\mathbf V=\mathbf0\), then \(Z=S\) is scalar. If
+\(\mathbf V\neq\mathbf0\), let \(N:=\mathbf V\cdot\sigv\); then \(N^2=0\),
+\(Z=S+N\) is not diagonalizable, and for a function analytic at
+\(S\),
+\begin{equation*}
+f(Z)=f(S)+f'(S)N.
+\end{equation*}
+This nilpotent formula is the continuous replacement for the two-projector
+formula when the two roots coalesce.
