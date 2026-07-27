@@ -1,148 +1,186 @@
+\subsubsection{Order functions}
+For arbitrary algebra elements \(\pv{A}\) and \(\pv{B}\), the commutator
+function is defined by
+\begin{equation}
+\com{\pv{A}}{\pv{B}}:=\pv{A}\pv{B}-\pv{B}\pv{A}.
+\label{eq:com-function}
+\end{equation}
+The anticommutator function is defined independently by
+\begin{equation}
+\acom{\pv{A}}{\pv{B}}:=\pv{A}\pv{B}+\pv{B}\pv{A}.
+\label{eq:acom-function}
+\end{equation}
+
 \subsubsection{Products of real scalars, vectors, and paravectors}
-Let \(X\) and \(Y\) be the real paravectors from Eqs.\ \eqref{eq:real-paravector-x} and \eqref{eq:real-paravector-y}. Using Eq.\ \eqref{eq:dot-cross},
+For the real paravectors \(\pv{X}\) and \(\pv{Y}\) from
+Eqs.\ \eqref{eq:real-paravector-x} and \eqref{eq:real-paravector-y},
+Eq.\ \eqref{eq:dot-cross} gives
 \begin{align*}
-XY
-&= (a+\mathbf A\cdot\sigv)(b+\mathbf B\cdot\sigv)\notag\\
-&= (ab+\mathbf A\cdot\mathbf B)
-+ \bigl(a\mathbf B+b\mathbf A+i(\mathbf A\times\mathbf B)\bigr)\cdot\sigv,\\
-YX
-&= (ab+\mathbf A\cdot\mathbf B)
-+ \bigl(a\mathbf B+b\mathbf A-i(\mathbf A\times\mathbf B)\bigr)\cdot\sigv \notag\\
-&= (XY)^{\mathrm R}.
+\pv{X}\pv{Y}
+&= (a+\vct{A}\cdot\sigv)(b+\vct{B}\cdot\sigv)\notag\\
+&= (ab+\vct{A}\cdot\vct{B})
++ \bigl(a\vct{B}+b\vct{A}+i(\vct{A}\times\vct{B})\bigr)\cdot\sigv,\\
+\pv{Y}\pv{X}
+&= (ab+\vct{A}\cdot\vct{B})
++ \bigl(a\vct{B}+b\vct{A}-i(\vct{A}\times\vct{B})\bigr)\cdot\sigv \notag\\
+&= (\pv{X}\pv{Y})^{\mathsf H}.
 \end{align*}
-Table \ref{tab:components-real-paravector-product} gives the same product in component form. The scalar part is symmetric, while the imaginary-vector part changes sign with the order.
+The same product is given in component form in
+Table \ref{tab:components-real-paravector-product}. The scalar part is
+symmetric, while the sign of the imaginary-vector part is changed by the
+order.
 
 Two immediate consequences are
 \begin{align*}
-\com{X}{Y} &= 2i(\mathbf A\times\mathbf B)\cdot\sigv,\\
-XY\in\R\oplus\R^3 &\iff \mathbf A\times\mathbf B=0.
+\com{\pv{X}}{\pv{Y}} &= 2i(\vct{A}\times\vct{B})\cdot\sigv,\\
+\pv{X}\pv{Y}\in\R+\R^3
+&\quad\eqtext{if and only if}\quad \vct{A}\times\vct{B}=0.
 \end{align*}
-So two real paravectors commute exactly when their vector parts are parallel.
+Thus exact commutation of two real paravectors is obtained precisely when
+their vector parts are parallel.
 
-Setting \(Y=X\) removes the antisymmetric term automatically:
+The antisymmetric term is removed automatically by setting
+\(\pv{Y}=\pv{X}\):
 \begin{align*}
-X^2
-&= a^2+\mathbf A^2+2a\,\mathbf A\cdot\sigv.
+\pv{X}^2
+&= a^2+\vct{A}^2+2a\,\vct{A}\cdot\sigv.
 \end{align*}
-If \(X^2=b+\mathbf B\cdot\sigv\), then matching scalar and vector parts gives
+If \(\pv{X}^2=b+\vct{B}\cdot\sigv\), the following relations are obtained by
+matching scalar and vector parts:
 \begin{align*}
-b &= a^2+\mathbf A^2,\\
-\mathbf B &= 2a\,\mathbf A,
+b &= a^2+\vct{A}^2,\\
+\vct{B} &= 2a\,\vct{A},
 \end{align*}
 hence
 \begin{align*}
-a^2 &= \frac{1}{2}\Bigl(b\pm\sqrt{b^2-\mathbf B^2}\Bigr),\\
-\mathbf A^2 &= b-a^2.
+a^2 &= \frac{1}{2}\Bigl(b\pm\sqrt{b^2-\vct{B}^2}\Bigr),\\
+\vct{A}^2 &= b-a^2.
 \end{align*}
 These equations are necessary, but the direction equation
-\(\mathbf B=2a\mathbf A\) must also be retained. When
-\(\mathbf B\neq\mathbf 0\), real paravector roots exist precisely when
-\(b\geq\lVert\mathbf B\rVert\). For either choice of the inner sign, choose
-one of the two signs of the resulting nonzero \(a\) and set
+\(\vct{B}=2a\vct{A}\) must also be retained. When
+\(\vct{B}\neq\vct{0}\), real paravector roots exist precisely when
+\(b\geq\lVert\vct{B}\rVert\). For either choice of the inner sign, either
+sign of the resulting nonzero \(a\) may be chosen, with
 \begin{equation*}
-\mathbf A=\frac{\mathbf B}{2a}.
+\vct{A}=\frac{\vct{B}}{2a}.
 \end{equation*}
-When \(\mathbf B=\mathbf0\), a real root requires \(b\geq0\); the scalar
-roots are \(X=\pm\sqrt b\), and the degenerate pure-vector roots satisfy
-\(a=0\) and \(\mathbf A^2=b\). Thus the displayed quadratic relation is a
+When \(\vct{B}=\vct{0}\), a real root requires \(b\geq0\); the scalar
+roots are \(\pv{X}=\pm\sqrt{b}\), and the degenerate pure-vector roots satisfy
+\(a=0\) and \(\vct{A}^2=b\). Thus the displayed quadratic relation is a
 branch condition, rather than by itself a complete square-root formula.
 
 \subsubsection{Products of complex paravectors}
-The master product law \eqref{eq:paravector-product} is the complex extension of the real formulas above. Writing \(Z\) as in Eqs.\ \eqref{eq:paravector}--\eqref{eq:paravector-cartesian} and \(Z'=X'+iY'=S'+\mathbf V'\cdot\sigv\), one obtains every later specialization by setting the unused scalar or vector parts to zero. Here \(S,S'\) and the components of \(\mathbf V,\mathbf V'\) are central complex scalars. This hypothesis permits scalar coefficients to pass through one another and through the sigma generators. Table \ref{tab:components-paravector-product} gives the full component decomposition of \(ZZ'\), Table \ref{tab:components-paravector-square} gives \(Z^2\), and Tables \ref{tab:components-zzstar}--\ref{tab:components-zcrevz} record the order-sensitive products built from the conjugate and reverse operators.
+The master product law \eqref{eq:paravector-product} is the complex extension of the real formulas. When \(\pv{Z}\) is written as in Eqs.\ \eqref{eq:paravector}--\eqref{eq:paravector-cartesian} and \(\pv{Z}'=\pv{X}'+i\pv{Y}'=S'+\vct{V}'\cdot\sigv\), every specialization is obtained by setting the unused scalar or vector parts to zero. The quantities \(S,S'\) and the components of \(\vct{V},\vct{V}'\) are central complex scalars. Scalar coefficients may therefore be passed through one another and through the sigma generators. The full component decomposition of \(\pv{Z}\pv{Z}'\) is given in Table \ref{tab:components-paravector-product}, that of \(\pv{Z}^2\) is given in Table \ref{tab:components-paravector-square}, and the order-sensitive products built from the conjugate and Hermitian operations are recorded in Tables \ref{tab:components-zzstar}--\ref{tab:components-zcrevz}.
 
 Within this finite-dimensional scalar-coefficient algebra, the scalar part is cyclic:
 \begin{equation*}
-\eqtext{scalar}(ZZ')=\eqtext{scalar}(Z'Z).
+\eqtext{scalar}(\pv{Z}\pv{Z}')=\eqtext{scalar}(\pv{Z}'\pv{Z}).
 \end{equation*}
-In particular, if \(Z'=MZ^{*\mathrm R}\), then
+In particular, if \(\pv{Z}'=\pv{M}\pv{Z}^{*\mathsf H}\), then
 \begin{align*}
-\eqtext{scalar}(Z M Z^{*\mathrm R})
-&=\eqtext{scalar}(M Z^{*\mathrm R} Z)\notag\\
-&=\eqtext{scalar}(M)\,(Z^{*\mathrm R} Z),
+\eqtext{scalar}(\pv{Z}\pv{M}\pv{Z}^{*\mathsf H})
+&=\eqtext{scalar}(\pv{M}\pv{Z}^{*\mathsf H}\pv{Z})\notag\\
+&=\eqtext{scalar}(\pv{M})\,(\pv{Z}^{*\mathsf H}\pv{Z}),
 \end{align*}
-because \(Z^{*\mathrm R} Z\) is scalar.
+because \(\pv{Z}^{*\mathsf H}\pv{Z}\) is scalar.
 
-The order-sensitive variants fall into three algebraic types:
+The order-sensitive variants are divided into three algebraic types:
 \begin{align*}
-ZZ^* &\eqtext{ is a real scalar plus a complex vector},\\
-ZZ^{\mathrm R} &\eqtext{ is a real scalar plus a real vector},\\
-ZZ^{\mathrm{R}*} &\eqtext{ is a complex scalar}.
+\pv{Z}\pv{Z}^* &\eqtext{ is a real scalar plus a complex vector},\\
+\pv{Z}\pv{Z}^{\mathsf H} &\eqtext{ is a real scalar plus a real vector},\\
+\pv{Z}\pv{Z}^{*\mathsf H} &\eqtext{ is a complex scalar}.
 \end{align*}
-Those three cases are precisely the ones needed later for positive norms, determinant forms, inverses, and transformation formulas.
+The positive norms, determinant forms, inverses, and transformation formulas
+are supplied by those three cases.
 
 If a component is instead a differential or another noncommuting operator,
 the ordered expansion must be used before any simplification: in general
-\(\mathbf V S'\neq S'\mathbf V\), Leibniz terms may occur, and cyclicity of
+\(\vct{V} S'\neq S'\vct{V}\), Leibniz terms may occur, and cyclicity of
 the algebraic scalar projection alone does not justify cycling the operator
-coefficients. The operator applications later in the manuscript therefore
-require their displayed ordering and are not automatic substitutions into
-the central-coefficient formulas of this subsection.
+coefficients. The displayed ordering is therefore required in operator
+applications, which cannot be obtained by automatic substitution into the
+central-coefficient formulas.
 
 \input{sections/algebra_tables.tex}
 
 \subsubsection{Order dependence and commutators}
-For arbitrary algebra elements \(A\) and \(B\), define the order functions
+The order-dependent part of a product is represented by the commutator
+function defined in Eq.\ \eqref{eq:com-function}. For generic complex paravectors
+\(\pv{Z},\pv{Z}'\in\C+\C^3\),
 \begin{equation}
-\com{A}{B}:=AB-BA,
-\qquad
-\acom{A}{B}:=AB+BA.
-\label{eq:order-functions}
-\end{equation}
-The part of a product that depends on order is its commutator function. For generic complex paravectors \(Z,Z'\in\C\oplus\C^3\),
-\begin{equation}
-\com{Z}{Z'}
-= 2i(\mathbf V\times\mathbf V')\cdot\sigv
+\com{\pv{Z}}{\pv{Z}'}
+= 2i(\vct{V}\times\vct{V}')\cdot\sigv
 \label{eq:paravector-commutator}
 \end{equation}
-Equation \eqref{eq:paravector-commutator} is the compact commutator law. In real and imaginary vector components it expands to
+Equation \eqref{eq:paravector-commutator} is the compact commutator law. In
+real and imaginary vector components, the following expansion is obtained:
 \begin{align*}
-\com{Z}{Z'}
-&= -2(\mathbf A\times\mathbf B'+\mathbf B\times\mathbf A')\cdot\sigv \notag\\
-&\quad +2i(\mathbf A\times\mathbf A'-\mathbf B\times\mathbf B')\cdot\sigv.
+\com{\pv{Z}}{\pv{Z}'}
+&= -2(\vct{A}\times\vct{B}'+\vct{B}\times\vct{A}')\cdot\sigv \notag\\
+&\quad +2i(\vct{A}\times\vct{A}'-\vct{B}\times\vct{B}')\cdot\sigv.
 \end{align*}
 The real-paravector commutator
 \begin{equation*}
-\com{X}{Y}=2i(\mathbf A\times\mathbf B)\cdot\sigv
+\com{\pv{X}}{\pv{Y}}=2i(\vct{A}\times\vct{B})\cdot\sigv
 \end{equation*}
-is the corresponding specialization. In every case the scalar terms cancel, so the commutator isolates the cross-product part of the multiplication law.
+is the corresponding specialization. In every case the scalar terms are canceled,
+so the cross-product part of the multiplication law is isolated by the
+commutator.
+The following identity is obtained by contracting the basis commutators
+with a second vector:
+\begin{equation}
+\sum_{n=1}^3 B_n\com{\vct{A}\cdot\sigv}{\pv{\sigma}_n}
+=\com{\vct{A}\cdot\sigv}{\vct{B}\cdot\sigv}
+=2i(\vct{A}\times\vct{B})\cdot\sigv.
+\label{eq:sigma-commutator-contraction}
+\end{equation}
+This is the component bridge between the vector cross-product law and the
+commutator correction in the paravector Leibniz rule.
 
-The symmetric companion is the anticommutator. For pure vectors,
+The symmetric companion is the anticommutator from
+Eq.\ \eqref{eq:acom-function}. For pure vectors,
 \begin{align}
-\acom{\mathbf A\cdot\sigv}{\mathbf B\cdot\sigv}
-&=(\mathbf A\cdot\sigv)(\mathbf B\cdot\sigv)\notag\\
-&\quad+(\mathbf B\cdot\sigv)(\mathbf A\cdot\sigv)\notag\\
-&=2\,\mathbf A\cdot\mathbf B.
+\acom{\vct{A}\cdot\sigv}{\vct{B}\cdot\sigv}
+&=(\vct{A}\cdot\sigv)(\vct{B}\cdot\sigv)\notag\\
+&\quad+(\vct{B}\cdot\sigv)(\vct{A}\cdot\sigv)\notag\\
+&=2\,\vct{A}\cdot\vct{B}.
 \label{eq:vector-anticommutator}
 \end{align}
-So \(\acom{\mathord\cdot}{\mathord\cdot}\) isolates the symmetric
-dot-product part, just as \(\com{\mathord\cdot}{\mathord\cdot}\) isolates
-the antisymmetric cross-product part.
+Thus the symmetric dot-product part is isolated by
+\(\acom{\mathord\cdot}{\mathord\cdot}\), just as the antisymmetric
+cross-product part is isolated by \(\com{\mathord\cdot}{\mathord\cdot}\).
 
-More generally, for generic complex paravectors \(Z,Z'\in\C\oplus\C^3\), define
+More generally, for generic complex paravectors
+\(\pv{Z},\pv{Z}'\in\C+\C^3\), Eq.\ \eqref{eq:acom-function} gives
 \begin{equation}
-\acom{Z}{Z'}=ZZ'+Z'Z.
-\label{eq:paravector-anticommutator-definition}
+\acom{\pv{Z}}{\pv{Z}'}=\pv{Z}\pv{Z}'+\pv{Z}'\pv{Z}.
+\label{eq:paravector-anticommutator-expansion}
 \end{equation}
-Using Eq.\ \eqref{eq:paravector-product}, one finds
+The anticommutator is therefore
 \begin{equation}
-\acom{Z}{Z'}
-=2\bigl(S S'+\mathbf V\cdot\mathbf V'\bigr)
-+2\bigl(S\mathbf V'+S'\mathbf V\bigr)\cdot\sigv.
+\acom{\pv{Z}}{\pv{Z}'}
+=2\bigl(S S'+\vct{V}\cdot\vct{V}'\bigr)
++2\bigl(S\vct{V}'+S'\vct{V}\bigr)\cdot\sigv.
 \label{eq:paravector-anticommutator}
 \end{equation}
-The cross-product contribution to the anticommutator cancels identically.
-The result keeps only the symmetric scalar and vector couplings.
+The cross-product contribution to the anticommutator is canceled identically.
+Only the symmetric scalar and vector couplings are retained.
 
-The same order dependence appears already in the sigma basis itself. The pseudoscalar commutes with the generators,
+The same order dependence is already present in the sigma basis itself.
+Commutation of the pseudoscalar with the generators is expressed by
 \begin{align*}
-\com{i}{\sigma_n} &= 0,\\
-i\sigv &= \sigv i = \{\sigma_2\sigma_3,\ \sigma_3\sigma_1,\ \sigma_1\sigma_2\},
+\com{i}{\pv{\sigma}_n} &= 0,\\
+i\sigv &= \sigv i = \{\pv{\sigma}_2\pv{\sigma}_3,\ \pv{\sigma}_3\pv{\sigma}_1,\ \pv{\sigma}_1\pv{\sigma}_2\},
 \end{align*}
-while distinct sigma generators satisfy
+while the following relation is satisfied by distinct sigma generators:
 \begin{equation*}
-\com{\sigma_n}{\sigma_m}=2\sigma_n\sigma_m=2\sum_{k=1}^3\epsilon_{nmk}i\sigma_k
+\com{\pv{\sigma}_n}{\pv{\sigma}_m}=2\pv{\sigma}_n\pv{\sigma}_m=2\sum_{k=1}^3\epsilon_{nmk}i\pv{\sigma}_k
 \qquad (n\neq m).
 \end{equation*}
 Thus the oriented sigma-number-two basis is exactly the commutator closure of the sigma-number-one generators.
 
-Tables \ref{tab:components-zzrev}--\ref{tab:components-zcrevz} display the same product types in full component form. Their positive-norm and determinant-form consequences are already fixed by Eqs.\ \eqref{eq:euclidean-form}, \eqref{eq:real-paravector-metric}, and \eqref{eq:minkowski-form}, so no new quadratic definitions are introduced here.
+The same product types are displayed in full component form in Tables
+\ref{tab:components-zzrev}--\ref{tab:components-zcrevz}. Their positive-norm
+and determinant-form consequences are fixed by Eqs.\
+\eqref{eq:euclidean-form}, \eqref{eq:real-paravector-metric}, and
+\eqref{eq:minkowski-form}; no additional quadratic definitions are required.

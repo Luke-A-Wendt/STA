@@ -1,32 +1,40 @@
-\noindent Tables \ref{tab:components-partial-psi} and \ref{tab:components-partialstar-psi} record the direct component action of \(\partial\) and \(\partial^{*}\) on a complex paravector test field.
-\begin{componenttable}[tab:components-partial-psi]{\partial \psi}
-\componentrow{scalar}{\partial_t\psi_s+\gradv\cdot\psi_{\mathbf v}}{}
-\componentrow{vector}{\partial_t\psi_{\mathbf v}+\gradv\psi_s+i(\gradv\times\psi_{\mathbf v})}{}
+\noindent The direct component action of \(\pv{\partial}\) and \(\conj{\pv{\partial}}\) on a complex paravector test field is recorded in Tables \ref{tab:components-partial-psi} and \ref{tab:components-partialstar-psi}.
+\begin{componenttable}[tab:components-partial-psi]{\pv{\partial} \pv{\psi}}
+\componentrow{scalar}{\partial_t\psi_s+\gradv\cdot\vct{\psi}_{\vct{v}}}{}
+\componentrow{vector}{\partial_t\vct{\psi}_{\vct{v}}+\gradv\psi_s+i(\gradv\times\vct{\psi}_{\vct{v}})}{}
 \end{componenttable}
 
-\begin{componenttable}[tab:components-partialstar-psi]{\partial^{*}\psi}
-\componentrow{scalar}{\partial_t\psi_s-\gradv\cdot\psi_{\mathbf v}}{}
-\componentrow{vector}{\partial_t\psi_{\mathbf v}-\gradv\psi_s-i(\gradv\times\psi_{\mathbf v})}{}
+\begin{componenttable}[tab:components-partialstar-psi]{\conj{\pv{\partial}}\pv{\psi}}
+\componentrow{scalar}{\partial_t\psi_s-\gradv\cdot\vct{\psi}_{\vct{v}}}{}
+\componentrow{vector}{\partial_t\vct{\psi}_{\vct{v}}-\gradv\psi_s-i(\gradv\times\vct{\psi}_{\vct{v}})}{}
 \end{componenttable}
 
-\noindent Tables \ref{tab:components-phi-psi} and \ref{tab:components-phistar-psi} then show how the potential \(\Phi\) and its conjugate act on the same field in components.
-\begin{componenttable}[tab:components-phi-psi]{\Phi\psi}
-\componentrow{scalar}{V\psi_s+\mathbf A\cdot\psi_{\mathbf v}}{}
-\componentrow{vector}{V\psi_{\mathbf v}+\psi_s\mathbf A+i(\mathbf A\times\psi_{\mathbf v})}{}
+\noindent The component actions of the potential \(\pv{\Phi}\) and its conjugate on the same field are then shown in Tables \ref{tab:components-phi-psi} and \ref{tab:components-phistar-psi}.
+\begin{componenttable}[tab:components-phi-psi]{\pv{\Phi}\pv{\psi}}
+\componentrow{scalar}{V\psi_s+\vct{A}\cdot\vct{\psi}_{\vct{v}}}{}
+\componentrow{vector}{V\vct{\psi}_{\vct{v}}+\psi_s\vct{A}+i(\vct{A}\times\vct{\psi}_{\vct{v}})}{}
 \end{componenttable}
 
-\begin{componenttable}[tab:components-phistar-psi]{\Phi^{*}\psi}
-\componentrow{scalar}{V\psi_s-\mathbf A\cdot\psi_{\mathbf v}}{}
-\componentrow{vector}{V\psi_{\mathbf v}-\psi_s\mathbf A-i(\mathbf A\times\psi_{\mathbf v})}{}
+\begin{componenttable}[tab:components-phistar-psi]{\conj{\pv{\Phi}}\pv{\psi}}
+\componentrow{scalar}{V\psi_s-\vct{A}\cdot\vct{\psi}_{\vct{v}}}{}
+\componentrow{vector}{V\vct{\psi}_{\vct{v}}-\psi_s\vct{A}-i(\vct{A}\times\vct{\psi}_{\vct{v}})}{}
 \end{componenttable}
 
-\noindent Tables \ref{tab:components-iqf-psi} and \ref{tab:components-iqfstar-psi} complete the Dirac-block operator tables by recording the field-coupling terms \(iqF\psi\) and \(iqF^{*}\psi\).
-\begin{componenttable}[tab:components-iqf-psi]{iqF\psi}
-\componentrow{scalar}{iq(\mathbf F\cdot\psi_{\mathbf v})}{}
-\componentrow{vector}{iq\,\psi_s \mathbf F-q(\mathbf F\times\psi_{\mathbf v})}{}
+\noindent The Dirac-block operator tables are completed by Tables
+\ref{tab:components-iqf-psi} and \ref{tab:components-iqfstar-psi}, in which
+the field-coupling terms \(iq\pv{F}\pv{\psi}\) and
+\(iq\conj{\pv{F}}\pv{\psi}\) are recorded. In the second table,
+\(\conj{\pv{F}}=-\vct{F}^{*}\cdot\sigv
+=-(\vct{E}-i\vct{B})\cdot\sigv\), so no entrywise matrix conjugation is
+hidden in the notation.
+\begin{componenttable}[tab:components-iqf-psi]{iq\pv{F}\pv{\psi}}
+\componentrow{scalar}{iq\bigl(\vct{F}\cdot\vct{\psi}_{\vct{v}}\bigr)}{}
+\componentrow{vector}{iq\,\psi_s\vct{F}
+-q\bigl(\vct{F}\times\vct{\psi}_{\vct{v}}\bigr)}{}
 \end{componenttable}
 
-\begin{componenttable}[tab:components-iqfstar-psi]{iqF^{*}\psi}
-\componentrow{scalar}{-iq(\mathbf F^{*}\cdot\psi_{\mathbf v})}{}
-\componentrow{vector}{-iq\,\psi_s \mathbf F^{*}+q(\mathbf F^{*}\times\psi_{\mathbf v})}{}
+\begin{componenttable}[tab:components-iqfstar-psi]{iq\conj{\pv{F}}\pv{\psi}}
+\componentrow{scalar}{-iq\bigl(\vct{F}^{*}\cdot\vct{\psi}_{\vct{v}}\bigr)}{}
+\componentrow{vector}{-iq\,\psi_s\vct{F}^{*}
++q\bigl(\vct{F}^{*}\times\vct{\psi}_{\vct{v}}\bigr)}{}
 \end{componenttable}

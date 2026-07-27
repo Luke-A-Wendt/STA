@@ -1,14 +1,14 @@
-\noindent Tables \ref{tab:components-generic-derivative} and \ref{tab:components-generic-iderivative} record the scalar and vector parts of \(\partial F\) and \(i\partial F\) for the generic complex paravector field \(F=(a+ib)+(\mathbf A+i\mathbf B)\cdot\sigv\).
-\begin{componenttable}[tab:components-generic-derivative]{\partial F}
-\componentrow{real scalar}{\partial_t a+\gradv\cdot\mathbf A}{}
-\componentrow{img scalar}{\partial_t b+\gradv\cdot\mathbf B}{}
-\componentrow{real vector}{\gradv a+\partial_t\mathbf A-\gradv\times\mathbf B}{}
-\componentrow{img vector}{\gradv b+\gradv\times\mathbf A+\partial_t\mathbf B}{}
+\noindent The scalar and vector parts of \(\pv{\partial}\pv{F}\) and \(i\pv{\partial}\pv{F}\) for the generic complex paravector field \(\pv{F}=(a+ib)+(\vct{A}+i\vct{B})\cdot\sigv\) are recorded in Tables \ref{tab:components-generic-derivative} and \ref{tab:components-generic-iderivative}.
+\begin{componenttable}[tab:components-generic-derivative]{\pv{\partial} \pv{F}}
+\componentrow{real scalar}{\partial_t a+\gradv\cdot\vct{A}}{}
+\componentrow{img scalar}{\partial_t b+\gradv\cdot\vct{B}}{}
+\componentrow{real vector}{\gradv a+\partial_t\vct{A}-\gradv\times\vct{B}}{}
+\componentrow{img vector}{\gradv b+\gradv\times\vct{A}+\partial_t\vct{B}}{}
 \end{componenttable}
 
-\begin{componenttable}[tab:components-generic-iderivative]{i\,\partial F}
-\componentrow{real scalar}{-\partial_t b-\gradv\cdot\mathbf B}{}
-\componentrow{img scalar}{\partial_t a+\gradv\cdot\mathbf A}{}
-\componentrow{real vector}{-\gradv b-\gradv\times\mathbf A-\partial_t\mathbf B}{}
-\componentrow{img vector}{\gradv a+\partial_t\mathbf A-\gradv\times\mathbf B}{}
+\begin{componenttable}[tab:components-generic-iderivative]{i\,\pv{\partial} \pv{F}}
+\componentrow{real scalar}{-\partial_t b-\gradv\cdot\vct{B}}{}
+\componentrow{img scalar}{\partial_t a+\gradv\cdot\vct{A}}{}
+\componentrow{real vector}{-\gradv b-\gradv\times\vct{A}-\partial_t\vct{B}}{}
+\componentrow{img vector}{\gradv a+\partial_t\vct{A}-\gradv\times\vct{B}}{}
 \end{componenttable}

@@ -91,8 +91,16 @@ def E_op(expr, q, V, t):
     return s.I * s.diff(expr, t) - q * V * expr
 
 
+def E_conjugate_op(expr, q, V, t):
+    return -s.I * s.diff(expr, t) - q * V * expr
+
+
 def P_component(expr, q, A_component, spatial_coord):
     return -s.I * s.diff(expr, spatial_coord) - q * A_component * expr
+
+
+def P_conjugate_component(expr, q, A_component, spatial_coord):
+    return s.I * s.diff(expr, spatial_coord) - q * A_component * expr
 
 
 def E_matrix(mat, q, V, t):
@@ -200,10 +208,10 @@ def write_report(results):
             r"\end{longtable}",
             "",
             (
-                r"These symbolic checks complement the literature comparison in "
-                r"Section~\ref{sec:verification}. They separate purely algebraic and "
-                r"operator-theoretic identities from statements whose interpretation still "
-                r"depends on physical conventions."
+                r"The literature comparison in Section~\ref{sec:verification} is complemented "
+                r"by these symbolic checks. Purely algebraic and operator-theoretic identities "
+                r"are thereby separated from statements whose interpretation is still determined "
+                r"by physical conventions."
             ),
             "",
         ]
@@ -236,9 +244,10 @@ def main():
             r"Eqs.\ \eqref{eq:basis}--\eqref{eq:sigma-product}",
             "Verified" if sigma_ok else r"\flag{Failed}",
             (
-                r"All nine basis products satisfy "
-                r"$\sigma_n \sigma_m = \delta_{nm} + \epsilon_{nmk} i \sigma_k$ "
-                r"in the Pauli realization."
+                r"The identity "
+                r"$\pv{\sigma}_n\pv{\sigma}_m"
+                r"=\delta_{nm}+\epsilon_{nmk}i\pv{\sigma}_k$ is satisfied by "
+                r"all nine basis products in the Pauli realization."
             ),
         )
     )
@@ -254,8 +263,8 @@ def main():
             r"Eq.\ \eqref{eq:dot-cross}",
             "Verified" if matrix_is_zero(lhs - rhs) else r"\flag{Failed}",
             (
-                r"The product $(\mathbf A\cdot\sigv)(\mathbf B\cdot\sigv)$ reduces to "
-                r"$\mathbf A\cdot\mathbf B + i(\mathbf A\times\mathbf B)\cdot\sigv$ "
+                r"The product $(\vct{A}\cdot\sigv)(\vct{B}\cdot\sigv)$ is reduced to "
+                r"$\vct{A}\cdot\vct{B} + i(\vct{A}\times\vct{B})\cdot\sigv$ "
                 r"for symbolic components $A_n,B_n$."
             ),
         )
@@ -278,8 +287,10 @@ def main():
             tuple(S * Vp[n] + Sp * V[n] + s.I * cross(V, Vp)[n] for n in range(3)),
         )
     )
-    metric_lhs = simplify_matrix(mat_paravector(S, V) * mat_paravector(S, tuple(-vn for vn in V)))
-    metric_rhs = simplify_matrix((S**2 - dot(V, V)) * I2)
+    determinant_lhs = simplify_matrix(
+        mat_paravector(S, V) * mat_paravector(S, tuple(-vn for vn in V))
+    )
+    determinant_rhs = simplify_matrix((S**2 - dot(V, V)) * I2)
     euclid_rhs = (a**2 + b**2) + sum(Av[n] ** 2 + Bv[n] ** 2 for n in range(3))
     ZR = mat_paravector(a - s.I * b, tuple(Av[n] - s.I * Bv[n] for n in range(3)))
     euclid_lhs = s.simplify(s.expand(scalar_part(mat_paravector(S, V) * ZR)))
@@ -287,18 +298,55 @@ def main():
         CheckResult(
             r"Eqs.\ \eqref{eq:paravector-product}--\eqref{eq:minkowski-form}",
             "Verified"
-            if matrix_is_zero(lhs - rhs) and matrix_is_zero(metric_lhs - metric_rhs) and s.simplify(euclid_lhs - euclid_rhs) == 0
+            if matrix_is_zero(lhs - rhs)
+            and matrix_is_zero(determinant_lhs - determinant_rhs)
+            and s.simplify(euclid_lhs - euclid_rhs) == 0
             else r"\flag{Failed}",
             (
-                r"The complex paravector product, the determinant form "
-                r"$Z Z^{*\mathrm R} = S^2 - \mathbf V^2$, and the Euclidean scalar "
-                r"part $\operatorname{scalar}(Z Z^{\mathrm R}) = |S|^2 + \|\mathbf V\|^2$ "
-                r"all reduce correctly."
+                r"Correct reduction is obtained for the complex paravector product, the adjugate identity "
+                r"$\pv{Z}\adjf{\pv{Z}}=\detf{\pv{Z}}=S^2-\vct{V}^2$, "
+                r"and the Euclidean scalar part "
+                r"$\eqtext{scalar}(\pv{Z}\herm{\pv{Z}})=|S|^2+\|\vct{V}\|^2$."
             ),
         )
     )
 
-    # 4. General complex-paravector similarity from the intertwiner.
+    # 4. Intrinsic involutions in the two-by-two matrix realization.
+    ka, kb, kc, kd = s.symbols("ka kb kc kd")
+    M = s.Matrix([[ka, kb], [kc, kd]])
+    T2 = s.Matrix([[0, 1], [-1, 0]])
+    Mc = M.conjugate()
+    MH = Mc.T
+    Mstar = simplify_matrix(T2 * Mc * T2.inv())
+    Madj = simplify_matrix(T2 * M.T * T2.inv())
+    expected_adj = s.Matrix([[kd, -kb], [-kc, ka]])
+    star_of_adj = simplify_matrix(T2 * Madj.conjugate() * T2.inv())
+    adj_of_star = simplify_matrix(T2 * Mstar.T * T2.inv())
+    matrix_dictionary_ok = (
+        matrix_is_zero(Madj - expected_adj)
+        and matrix_is_zero(M * Madj - M.det() * I2)
+        and matrix_is_zero(Madj * M - M.det() * I2)
+        and matrix_is_zero(star_of_adj - MH)
+        and matrix_is_zero(adj_of_star - MH)
+    )
+    results.append(
+        CheckResult(
+            r"Eqs.\ \eqref{eq:hermitian-adjugate-identity} and "
+            r"\eqref{eq:matrix-operation-dictionary}",
+            "Verified" if matrix_dictionary_ok else r"\flag{Failed}",
+            (
+                r"For an arbitrary complex two-by-two matrix, intrinsic $H$ is represented "
+                r"by the matrix conjugate transpose, intrinsic star by "
+                r"$\Tmat\mat{M}^{c}\Tmat^{-1}$, and star--$H$ by "
+                r"$\adjf{\mat{M}}=\Tmat\mat{M}^{T}\Tmat^{-1}$. The result "
+                r"$\detf{\mat{M}}\I$ is obtained from both adjugate products, and both "
+                r"$\conj{\adjf{\mat{M}}}$ and $\adjf{\conj{\mat{M}}}$ are reduced to "
+                r"$\herm{\mat{M}}=\mherm{\mat{M}}$."
+            ),
+        )
+    )
+
+    # 5. General complex-paravector similarity from the intertwiner.
     s0, f0 = s.symbols("s0 f0")
     gv = s.symbols("gx gy gz")
     vv = s.symbols("vx vy vz")
@@ -327,16 +375,16 @@ def main():
             r"Eqs.\ \eqref{eq:transform-intertwining}--\eqref{eq:similarity-components}",
             "Verified" if similarity_formula_ok else r"\flag{Failed}",
             (
-                r"For generic complex $Z=S+\mathbf V\cdot\sigv$ and "
-                r"$T=f+\mathbf g\cdot\sigv$, multiplication through by "
-                r"$\Delta_T=f^2-\mathbf g^2$ reproduces the stated scalar-preserving "
-                r"vector formula for $T^{-1}ZT$. This directly checks the full "
-                r"complex-paravector similarity calculation."
+                r"For generic complex $\pv{Z}=S+\vct{V}\cdot\sigv$ and "
+                r"$\pv{T}=f+\vct{g}\cdot\sigv$, the stated scalar-preserving "
+                r"vector formula for $\pv{T}^{-1}\pv{Z}\pv{T}$ is reproduced after "
+                r"multiplication through by $\detf{\pv{T}}=f^2-\vct{g}^2$. The full "
+                r"complex-paravector similarity calculation is thereby checked."
             ),
         )
     )
 
-    # 5. Lorentz congruence for events and similarity for fields.
+    # 6. Lorentz congruence for events and similarity for fields.
     t0, rx, ry, rz = s.symbols("t0 rx ry rz", real=True)
     # A nontrivial exact rational point on cosh(h)^2-sinh(h)^2=1 keeps
     # this regression test fast while retaining the full symbolic event/field data.
@@ -396,18 +444,21 @@ def main():
             r"Eqs.\ \eqref{eq:boost} and \eqref{eq:field-transform}",
             "Verified" if boost_ok else r"\flag{Failed}",
             (
-                r"For a boost along the first axis, the event congruence "
-                r"$X'=L^*XL^*$ gives the standard time/longitudinal mixing, leaves "
-                r"the transverse coordinates real and unchanged, and preserves $\det(X)$. "
-                r"It also satisfies the event intertwiner $LX'=XL^*$. "
-                r"The rejected similarity $L^*XL$ does not give that event boost. "
-                r"The field similarity $F'=L^*FL$ gives the standard electric--magnetic mixing, "
-                r"whereas the rejected double-star field sandwich introduces a scalar part."
+                r"For a boost along the first axis, standard time/longitudinal mixing is "
+                r"produced by the event congruence "
+                r"$\pv{X}'=\conj{\pv{L}}\pv{X}\conj{\pv{L}}$; the transverse coordinates are left "
+                r"real and unchanged, and $\detf{\pv{X}}$ is preserved. "
+                r"The event intertwiner "
+                r"$\pv{L}\pv{X}'=\pv{X}\conj{\pv{L}}$ is also satisfied. "
+                r"That event boost is not produced by the rejected similarity "
+                r"$\conj{\pv{L}}\pv{X}\pv{L}$. Standard electric--magnetic mixing is produced by "
+                r"the field similarity $\pv{F}'=\conj{\pv{L}}\pv{F}\pv{L}$, whereas a scalar part "
+                r"is introduced by the rejected double-star field sandwich."
             ),
         )
     )
 
-    # 5. Projectors and four-velocity.
+    # 7. Projectors and four-velocity.
     ux, uy, uz = s.symbols("ux uy uz", real=True)
     Udir = sigma_dot((ux, uy, uz))
     Pi_plus = simplify_matrix((I2 + Udir) / 2)
@@ -438,9 +489,10 @@ def main():
             if proj_ok and matrix_is_zero(simplify_matrix(U * U_crev - I2)) and mass_shell == 0
             else r"\flag{Failed}",
             (
-                r"The idempotents $\Pi(\pm)$ satisfy the projector identities, "
-                r"$U U^{*\mathrm R}=1$, and $E^2-\mathbf P^2 = m^2$ follows from "
-                r"$mU = E + \mathbf P\cdot\sigv$."
+                r"The projector identities are satisfied by the idempotents $\pv{\Pi}(\pm)$, "
+                r"the normalization $\detf{\pv{U}}=1$ is obtained, and "
+                r"$E^2-\vct{P}^2 = m^2$ is implied by "
+                r"$m\pv{U} = E + \vct{P}\cdot\sigv$."
             ),
         )
     )
@@ -492,11 +544,11 @@ def main():
             if matrix_is_zero(partial_phi - phi_rhs) and matrix_is_zero(partialF - maxwell_rhs)
             else r"\flag{Failed}",
             (
-                r"The potential identity gives "
-                r"$S=\partial_t V+\nabla\cdot\mathbf A$, "
-                r"$\mathbf E=-\partial_t\mathbf A-\nabla V$, and "
-                r"$\mathbf B=\nabla\times\mathbf A$, while $\partial F$ splits into "
-                r"Gauss, Faraday, and Amp\`ere--Maxwell component equations with the manuscript's signs."
+                r"The relations $S=\partial_t V+\gradv\cdot\vct{A}$, "
+                r"$\vct{E}=-\partial_t\vct{A}-\gradv V$, and "
+                r"$\vct{B}=\gradv\times\vct{A}$ are obtained from the potential identity, "
+                r"while Gauss, Faraday, and Amp\`ere--Maxwell component equations with the "
+                r"manuscript's signs are obtained from $\pv{\partial}\pv{F}$."
             ),
         )
     )
@@ -546,12 +598,12 @@ def main():
             if matrix_is_zero(gauge_phi - gauge_expected) and matrix_is_zero(FU - fu_decomp)
             else r"\flag{Failed}",
             (
-                r"The gauge law $\Phi_\lambda=\Phi+\partial^{*}\lambda$ gives "
-                r"$V_\lambda = V+\partial_t\lambda$ and "
-                r"$\mathbf A_\lambda = \mathbf A-\nabla\lambda$, "
-                r"and the product $FU$ splits into the expected power term "
-                r"$\gamma\,\mathbf v\cdot\mathbf E$ and force term "
-                r"$\gamma(\mathbf E+\mathbf v\times\mathbf B)$."
+                r"The component laws $V(\lambda) = V+\partial_t\lambda$ and "
+                r"$\vct{A}(\lambda) = \vct{A}-\gradv\lambda$ are obtained from "
+                r"$\pv{\Phi}(\lambda)=\pv{\Phi}+\conj{\pv{\partial}}\lambda$. "
+                r"The expected power term $\gamma\,\vct{v}\cdot\vct{E}$ and force term "
+                r"$\gamma(\vct{E}+\vct{v}\times\vct{B})$ are obtained from "
+                r"the product $\pv{F}\pv{U}$."
             ),
         )
     )
@@ -611,28 +663,86 @@ def main():
          - sum(P_component(P_component(psi, q, Avec[n], coord), q, Avec[n], coord) for n, coord in enumerate((x, y, z)))) * I2
         - s.I * q * sigma_dot(tuple(Em[n] + s.I * Bm[n] for n in range(3))) * psi
     )
+    phi_c = s.Function("phi_c")(t, x, y, z)
+    m_kg = s.symbols("m_kg", real=True, nonzero=True)
+    rho_kg = s.expand(
+        (
+            phi_c * E_op(psi, q, Vpot, t)
+            + E_conjugate_op(phi_c, q, Vpot, t) * psi
+        )
+        / (2 * m_kg)
+    )
+    j_kg = tuple(
+        s.expand(
+            (
+                phi_c * P_component(psi, q, Avec[n], coord)
+                + P_conjugate_component(phi_c, q, Avec[n], coord) * psi
+            )
+            / (2 * m_kg)
+        )
+        for n, coord in enumerate((x, y, z))
+    )
+    E2_psi = E_op(E_op(psi, q, Vpot, t), q, Vpot, t)
+    E2_phi_c = E_conjugate_op(
+        E_conjugate_op(phi_c, q, Vpot, t), q, Vpot, t
+    )
+    P2_psi = sum(
+        P_component(
+            P_component(psi, q, Avec[n], coord), q, Avec[n], coord
+        )
+        for n, coord in enumerate((x, y, z))
+    )
+    P2_phi_c = sum(
+        P_conjugate_component(
+            P_conjugate_component(phi_c, q, Avec[n], coord),
+            q,
+            Avec[n],
+            coord,
+        )
+        for n, coord in enumerate((x, y, z))
+    )
+    kg_current_lhs = s.expand(
+        s.diff(rho_kg, t) + div_vector(j_kg, x, y, z)
+    )
+    kg_current_rhs = s.expand(
+        s.I
+        * (
+            E2_phi_c * psi
+            - phi_c * E2_psi
+            + phi_c * P2_psi
+            - P2_phi_c * psi
+        )
+        / (2 * m_kg)
+    )
+    kg_current_ok = s.simplify(
+        s.expand(kg_current_lhs - kg_current_rhs)
+    ) == 0
     results.append(
         CheckResult(
-            r"Eqs.\ \eqref{eq:kg-expanded}, \eqref{eq:commutators}, and \eqref{eq:EP-factorization}",
+            r"Eqs.\ \eqref{eq:kg-expanded}, \eqref{eq:kg-continuity-proof}, and \eqref{eq:EP-factorization}",
             "Verified"
             if s.simplify(kg_expr - kg_expected) == 0
             and all(s.simplify(expr) == 0 for expr in comm_EPm)
             and all(s.simplify(expr) == 0 for expr in comm_P)
             and matrix_is_zero(factor_lhs - factor_rhs)
+            and kg_current_ok
             else r"\flag{Failed}",
             (
-                r"Acting on a generic test function reproduces the expanded Klein--Gordon "
-                r"operator, the commutators $\com{E}{P_m}=iqE_m$ and "
-                r"$\com{P_m}{P_n}=iq(\partial_mA_n-\partial_nA_m)$, and the factorization "
-                r"$(E+\sigv\cdot\mathbf P)(E-\sigv\cdot\mathbf P)=E^2-\mathbf P^2-iqF$."
+                r"The expanded Klein--Gordon operator and the commutators "
+                r"$\com{E}{P_m}=iqE_m$ and "
+                r"$\com{P_m}{P_n}=iq(\partial_mA_n-\partial_nA_m)$ "
+                r"are reproduced on a generic test function. The mixed-current divergence "
+                r"is reduced to the difference of the two Klein--Gordon equations, and the ordered factorization "
+                r"$(E+\sigv\cdot\vct{P})(E-\sigv\cdot\vct{P})"
+                r"=E^2-\vct{P}^2-iq\pv{F}$ is obtained."
             ),
         )
     )
 
     # 9. Frequency split, Dirac square, Pauli operator, and spin split.
     uB = (ux, uy, uz)
-    B0 = s.symbols("B0", real=True)
-    Buniform = tuple(B0 * comp for comp in uB)
+    B_magnitude = s.symbols("B_magnitude", nonnegative=True)
+    Buniform = tuple(B_magnitude * comp for comp in uB)
     psi1 = s.Function("psi1")(t, x, y, z)
     psi2 = s.Function("psi2")(t, x, y, z)
     dirac_upper = simplify_matrix(
@@ -670,7 +780,7 @@ def main():
     spin_split_ok = all(
         matrix_is_zero(
             matrix_apply_unit_norm(
-                sigma_dot(Buniform) * Pi_plus - B0 * Pi_plus,
+                sigma_dot(Buniform) * Pi_plus - B_magnitude * Pi_plus,
                 ux,
                 uy,
                 uz,
@@ -679,7 +789,7 @@ def main():
         for _ in [0]
     ) and matrix_is_zero(
         matrix_apply_unit_norm(
-            sigma_dot(Buniform) * Pi_minus + B0 * Pi_minus,
+            sigma_dot(Buniform) * Pi_minus + B_magnitude * Pi_minus,
             ux,
             uy,
             uz,
@@ -707,17 +817,115 @@ def main():
             and spin_split_ok
             else r"\flag{Failed}",
             (
-                r"Eliminating one Dirac component yields the two squared equations; after the common "
-                r"overall sign is chosen as in Eq.\ \eqref{eq:dirac-square}, the upper component carries "
-                r"$+iqF^{*}$ and the lower component carries $+iqF$. The exact Pauli identity "
-                r"$(\sigv\cdot\mathbf P)^2 = \mathbf P^2 - q\,\mathbf B\cdot\sigv$ "
-                r"holds on a test function; and for uniform $\mathbf B = B_0 \mathbf u$ "
-                r"the projectors satisfy $(\mathbf B\cdot\sigv)\Pi(\pm)=\pm B_0 \Pi(\pm)$."
+                r"The two squared equations are obtained by elimination of one Dirac component. "
+                r"After selection of the common overall sign in Eq.\ \eqref{eq:dirac-square}, "
+                r"$+iq\conj{\pv{F}}$ is carried by the upper component and $+iq\pv{F}$ by the lower component. "
+                r"The exact Pauli identity "
+                r"$(\sigv\cdot\vct{P})^2 = \vct{P}^2 - q\,\vct{B}\cdot\sigv$ "
+                r"is satisfied on a test function. For uniform "
+                r"$\vct{B}=\lVert\vct{B}\rVert\vct{u}$, the relation "
+                r"$(\vct{B}\cdot\sigv)\pv{\Pi}(\pm)"
+                r"=\pm\lVert\vct{B}\rVert\pv{\Pi}(\pm)$ is satisfied by the projectors."
             ),
         )
     )
 
-    # 10. Quaternion square.
+    # 10. Fixed-column amplitudes, Dirac components, and current.
+    block_s, block_v = s.symbols("block_s block_v")
+    Pi_column = simplify_matrix((I2 + SIGMA[2]) / 2)
+    projected_block = simplify_matrix(
+        mat_paravector(block_s, (block_v, -s.I * block_v, block_s))
+    )
+    projected_expected = s.Matrix([[2 * block_s, 0], [2 * block_v, 0]])
+
+    Ee, p1, p2, p3 = s.symbols("Ee p1 p2 p3", real=True)
+    aa, bb, cc, dd = s.symbols("aa bb cc dd")
+    column1 = s.Matrix([aa, bb])
+    column2 = s.Matrix([cc, dd])
+    sigma_p = sigma_dot((p1, p2, p3))
+    upper_components = simplify_matrix((Ee * I2 - sigma_p) * column2)
+    upper_expected = s.Matrix(
+        [
+            [(Ee - p3) * cc - (p1 - s.I * p2) * dd],
+            [-(p1 + s.I * p2) * cc + (Ee + p3) * dd],
+        ]
+    )
+    lower_components = simplify_matrix((Ee * I2 + sigma_p) * column1)
+    lower_expected = s.Matrix(
+        [
+            [(Ee + p3) * aa + (p1 - s.I * p2) * bb],
+            [(p1 + s.I * p2) * aa + (Ee - p3) * bb],
+        ]
+    )
+
+    carrier = s.Matrix([[aa, 0], [bb, 0]])
+    carrier_norm = s.conjugate(aa) * aa + s.conjugate(bb) * bb
+    right_norm = simplify_matrix(
+        carrier.conjugate().T * carrier - carrier_norm * Pi_column
+    )
+    pure_density = simplify_matrix(carrier * carrier.conjugate().T)
+    density_rank_one = simplify_matrix(pure_density * pure_density - carrier_norm * pure_density)
+
+    rho_psi = s.simplify(
+        (column1.conjugate().T * column1)[0]
+        + (column2.conjugate().T * column2)[0]
+    )
+    current_psi = tuple(
+        s.simplify(
+            (column2.conjugate().T * SIGMA[n] * column2)[0]
+            - (column1.conjugate().T * SIGMA[n] * column1)[0]
+        )
+        for n in range(3)
+    )
+    rho_expected = sum(
+        s.conjugate(entry) * entry for entry in (aa, bb, cc, dd)
+    )
+    current_expected = (
+        s.conjugate(cc) * dd + s.conjugate(dd) * cc
+        - s.conjugate(aa) * bb - s.conjugate(bb) * aa,
+        -s.I * s.conjugate(cc) * dd + s.I * s.conjugate(dd) * cc
+        + s.I * s.conjugate(aa) * bb - s.I * s.conjugate(bb) * aa,
+        s.conjugate(cc) * cc - s.conjugate(dd) * dd
+        - s.conjugate(aa) * aa + s.conjugate(bb) * bb,
+    )
+    carrier_ok = (
+        matrix_is_zero(projected_block - projected_expected)
+        and matrix_is_zero(projected_block * Pi_column - projected_block)
+        and matrix_is_zero(upper_components - upper_expected)
+        and matrix_is_zero(lower_components - lower_expected)
+        and matrix_is_zero(right_norm)
+        and matrix_is_zero(density_rank_one)
+        and s.simplify(rho_psi - rho_expected) == 0
+        and all(
+            s.simplify(current_psi[n] - current_expected[n]) == 0
+            for n in range(3)
+        )
+    )
+    results.append(
+        CheckResult(
+            r"Eqs.\ \eqref{eq:fixed-column-carrier}, \eqref{eq:dirac-four-components}, and \eqref{eq:dirac-current}",
+            "Verified" if carrier_ok else r"\flag{Failed}",
+            (
+                r"Exactly one two-entry column is retained by the fixed right projector. "
+                r"All four displayed Dirac component equations are reproduced by direct "
+                r"Pauli-matrix multiplication. The expressions "
+                r"$\rho(\bPsi)="
+                r"\begin{Bmatrix}a^*&b^*\end{Bmatrix}"
+                r"\begin{Bmatrix}a\\b\end{Bmatrix}"
+                r"+\begin{Bmatrix}c^*&d^*\end{Bmatrix}"
+                r"\begin{Bmatrix}c\\d\end{Bmatrix}$ and "
+                r"$\vct{j}(\bPsi)="
+                r"\begin{Bmatrix}c^*&d^*\end{Bmatrix}\sigv"
+                r"\begin{Bmatrix}c\\d\end{Bmatrix}"
+                r"-\begin{Bmatrix}a^*&b^*\end{Bmatrix}\sigv"
+                r"\begin{Bmatrix}a\\b\end{Bmatrix}$ are obtained from the opposite-order "
+                r"bilinears, while Hermiticity and rank one are obtained for the normalized "
+                r"one-block product."
+            ),
+        )
+    )
+
+    # 11. Quaternion square.
     qa, bx, by, bz = s.symbols("qa bx by bz", real=True)
     qmat = simplify_matrix(qa * I2 - s.I * sigma_dot((bx, by, bz)))
     qlhs = simplify_matrix(qmat * qmat)
@@ -728,9 +936,10 @@ def main():
             r"Eq.\ \eqref{eq:quaternion-square}",
             "Verified" if matrix_is_zero(qlhs - qrhs) and matrix_is_zero(qnorm) else r"\flag{Failed}",
             (
-                r"The quaternion correspondence satisfies "
-                r"$QQ^{\mathsf R}=a^2+\mathbf b^2$ and "
-                r"$Q^2=a^2-\mathbf b^2-2ia\,\mathbf b\cdot\sigv$."
+                r"The identities "
+                r"$\pv{Q}\herm{\pv{Q}}=a^2+\vct{b}^2$ and "
+                r"$\pv{Q}^2=a^2-\vct{b}^2-2ia\,\vct{b}\cdot\sigv$ "
+                r"are satisfied by the quaternion correspondence."
             ),
         )
     )

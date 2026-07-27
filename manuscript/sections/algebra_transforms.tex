@@ -1,413 +1,479 @@
 \subsubsection{Intertwining and the General Similarity Transform}
-The starting relation \eqref{eq:transform-intertwining} expresses
-compatibility between two descriptions of the same algebraic action. Let
-\(T\) carry a primed carrier into the unprimed description. If an algebra
-element acts as \(Z'\) before that identification and as \(Z\) afterward,
-then applying the action and changing description must commute:
+Compatibility between two descriptions of the same algebraic action is
+expressed by the starting relation \eqref{eq:transform-intertwining}. A
+primed carrier is carried into the unprimed description by \(\pv{T}\). If an algebraic
+action is represented by \(\pv{Z}'\) before that identification and by \(\pv{Z}\)
+afterward, then commutation of the action with the change of description is required:
 \begin{equation*}
-T(Z'\psi')=Z(T\psi')
-\qquad\text{for every carrier }\psi'.
+\pv{T}(\pv{Z}'\pv{\psi}')=\pv{Z}(\pv{T}\pv{\psi}')
+\qquad\text{for every carrier }\pv{\psi}'.
 \end{equation*}
-Removing the arbitrary carrier gives \(TZ'=ZT\). Because \(T\) is
-invertible, its unique solution is
+The relation \(\pv{T}\pv{Z}'=\pv{Z}\pv{T}\) is obtained by removing the
+arbitrary carrier. Because \(\pv{T}\) is invertible, its unique solution is
 \begin{equation*}
-Z'=T^{-1}ZT.
+\pv{Z}'=\pv{T}^{-1}\pv{Z}\pv{T}.
 \end{equation*}
 Thus Eq.\ \eqref{eq:general-transform} is not an additional dynamical law:
 it is the change-of-description law forced by the intertwining requirement.
-Defining \(T\) to carry descriptions in the opposite direction would replace
-it everywhere by \(T^{-1}\) and would give the equivalent convention
-\(Z'=TZT^{-1}\). The inverse-first convention is retained here because the
-positive exponent in Eq.\ \eqref{eq:rotor} then gives the displayed positive
-sign in Rodrigues's formula.
+Under the opposite carrier direction, \(\pv{T}\) is replaced everywhere by
+\(\pv{T}^{-1}\), and the equivalent convention
+\(\pv{Z}'=\pv{T}\pv{Z}\pv{T}^{-1}\) is obtained. Under the inverse-first
+convention, the displayed positive sign in Rodrigues's formula is produced
+by the positive exponent in Eq.\ \eqref{eq:rotor-element}.
 
-Now take the fully general complex paravectors
+The fully general complex paravectors are written as
 \begin{align*}
-Z&=S+\mathbf V\cdot\sigv,
+\pv{Z}&=S+\vct{V}\cdot\sigv,
 &S&\in\C,
-&\mathbf V&\in\C^3,\\
-T&=f+\mathbf g\cdot\sigv,
+&\vct{V}&\in\C^3,\\
+\pv{T}&=f+\vct{g}\cdot\sigv,
 &f&\in\C,
-&\mathbf g&\in\C^3,
+&\vct{g}&\in\C^3,
 \end{align*}
-where the dot and cross products are extended complex-bilinearly. Define
-the central determinant of \(T\) by
+where the dot and cross products are extended complex-bilinearly. The central
+determinant of \(\pv{T}\) is \(\detf{\pv{T}}=f^2-\vct{g}^2\). When
+\(\detf{\pv{T}}\neq0\), the inverse is given by the general formula
+\eqref{eq:paravector-inverse}:
 \begin{equation*}
-\Delta_T:=T\crev T=f^2-\mathbf g^2.
-\end{equation*}
-When \(\Delta_T\neq0\), the general inverse formula
-\eqref{eq:paravector-inverse} gives
-\begin{equation*}
-T^{-1}=\frac{\crev T}{\Delta_T}
-=\frac{f-\mathbf g\cdot\sigv}{f^2-\mathbf g^2}.
+\pv{T}^{-1}=\frac{\cherm{\pv{T}}}{\detf{\pv{T}}}
+=\frac{f-\vct{g}\cdot\sigv}{f^2-\vct{g}^2}.
 \end{equation*}
 Because the scalar part \(S\) is central,
 \begin{align*}
-Z'
-&=S+\frac{(f-\mathbf g\cdot\sigv)
- (\mathbf V\cdot\sigv)(f+\mathbf g\cdot\sigv)}{\Delta_T}.
+\pv{Z}'
+&=S+\frac{(f-\vct{g}\cdot\sigv)
+ (\vct{V}\cdot\sigv)(f+\vct{g}\cdot\sigv)}{\detf{\pv{T}}}.
 \end{align*}
 The first multiplication is
 \begin{equation*}
-(f-\mathbf g\cdot\sigv)(\mathbf V\cdot\sigv)
-=-\mathbf g\cdot\mathbf V
-+\bigl(f\mathbf V-i\,\mathbf g\times\mathbf V\bigr)\cdot\sigv.
+(f-\vct{g}\cdot\sigv)(\vct{V}\cdot\sigv)
+=-\vct{g}\cdot\vct{V}
++\bigl(f\vct{V}-i\,\vct{g}\times\vct{V}\bigr)\cdot\sigv.
 \end{equation*}
-After multiplication by the final factor, the scalar terms cancel and the
-remaining vector terms give
+After multiplication by the final factor, the scalar terms are canceled and the
+remaining vector terms are
 \begin{align}
-Z'&=S+\mathbf V'\cdot\sigv,\notag\\
-\mathbf V'
-&=\frac{(f^2+\mathbf g^2)\mathbf V
--2(\mathbf g\cdot\mathbf V)\mathbf g
--2if(\mathbf g\times\mathbf V)}{f^2-\mathbf g^2}.
+\pv{Z}'&=S+\vct{V}'\cdot\sigv,\notag\\
+\vct{V}'
+&=\frac{(f^2+\vct{g}^2)\vct{V}
+-2(\vct{g}\cdot\vct{V})\vct{g}
+-2if(\vct{g}\times\vct{V})}{f^2-\vct{g}^2}.
 \label{eq:similarity-components}
 \end{align}
-This is the similarity law for every complex paravector \(Z\) and every
-invertible complex paravector \(T\). It shows directly that the complex
-scalar part is fixed. Multiplying \(T\) by any nonzero central complex
-scalar changes neither Eq.\ \eqref{eq:general-transform} nor
-Eq.\ \eqref{eq:similarity-components}.
+This is the similarity law for every complex paravector \(\pv{Z}\) and every
+invertible complex paravector \(\pv{T}\). The complex scalar part is fixed.
+Neither Eq.\ \eqref{eq:general-transform} nor
+Eq.\ \eqref{eq:similarity-components} is changed when \(\pv{T}\) is multiplied
+by a nonzero central complex scalar.
 
-The same intertwining controls products, inverses, and functions. For a
-second algebra element \(W\),
+Products, inverses, and functions are governed by the same intertwining. For a
+second algebra element \(\pv{W}\),
 \begin{align}
-(ZW)'&=T^{-1}ZWT
-=T^{-1}ZT\,T^{-1}WT=Z'W',\notag\\
-(Z')^{-1}&=T^{-1}Z^{-1}T
-\qquad\text{when }Z^{-1}\text{ exists},\notag\\
-(Z')^n&=T^{-1}Z^nT,\notag\\
-h(Z')&=T^{-1}h(Z)T.
+(\pv{Z}\pv{W})'&=\pv{T}^{-1}\pv{Z}\pv{W}\pv{T}
+=\pv{T}^{-1}\pv{Z}\pv{T}\,\pv{T}^{-1}\pv{W}\pv{T}=\pv{Z}'\pv{W}',\notag\\
+(\pv{Z}')^{-1}&=\pv{T}^{-1}\pv{Z}^{-1}\pv{T}
+\qquad\text{when }\pv{Z}^{-1}\text{ exists},\notag\\
+(\pv{Z}')^n&=\pv{T}^{-1}\pv{Z}^n\pv{T},\notag\\
+h(\pv{Z}')&=\pv{T}^{-1}h(\pv{Z})\pv{T}.
 \label{eq:similarity-covariance}
 \end{align}
-The last line holds for every convergent power-series function \(h\), and
+The last line is valid for every convergent power-series function \(h\), and
 therefore in particular
 \begin{equation*}
-\exp(Z')=T^{-1}\exp(Z)T.
+\exp(\pv{Z}')=\pv{T}^{-1}\exp(\pv{Z})\pv{T}.
 \end{equation*}
-Logarithms, roots, and rational functions obey the same relation wherever
-the same branch and domain are defined.
+The same relation is obeyed by logarithms, roots, and rational functions
+wherever the same branch and domain are defined.
 
-The reverse conjugation also commutes with this similarity. Since
-\(\crev T=\Delta_TT^{-1}\) and
-\(\crev{(T^{-1})}=T/\Delta_T\),
+Commutation of the adjugate with this similarity is also obtained. Since
+\(\cherm{\pv{T}}=\detf{\pv{T}}\pv{T}^{-1}\) and
+\(\cherm{(\pv{T}^{-1})}=\pv{T}/\detf{\pv{T}}\),
 \begin{align*}
-\crev{Z'}
-&=\crev T\,\crev Z\,\crev{(T^{-1})}
-=T^{-1}\crev ZT,\\
-Z'\crev{Z'}
-&=T^{-1}(Z\crev Z)T=Z\crev Z.
+\cherm{\pv{Z}'}
+&=\cherm{\pv{T}}\,\cherm{\pv{Z}}\,\cherm{(\pv{T}^{-1})}
+=\pv{T}^{-1}\cherm{\pv{Z}}\pv{T},\\
+\pv{Z}'\cherm{\pv{Z}'}
+&=\pv{T}^{-1}(\pv{Z}\cherm{\pv{Z}})\pv{T}=\pv{Z}\cherm{\pv{Z}}.
 \end{align*}
-Thus similarity preserves the determinant form
-\(S^2-\mathbf V^2\), the spectrum, and the inverse framework for every
-invertible \(T\). The positive coefficient norm is a different construction
-and is not generally invariant under a nonunitary similarity.
+Thus the determinant form \(S^2-\vct{V}^2\), the spectrum, and the inverse
+framework are preserved by similarity for every invertible \(\pv{T}\). The
+positive coefficient norm is a different construction and is not generally
+preserved by a nonunitary similarity.
 
-The similarity law transports algebra elements that act by multiplication;
-it is not automatically the Lorentz law for every physical representation.
-A real event paravector satisfies \(X^{\mathsf R}=X\). Such paravectors are
-spanned by Hermitian carrier bilinears \(\psi\psi^{\mathsf R}\): concretely,
-in the Pauli realization every Hermitian \(2\times2\) matrix is a real linear
-combination of bilinears of this form. The same carrier identification used
-above is \(\psi'=T^{-1}\psi\), and therefore
+Algebra elements whose action is represented by multiplication are transported
+by the similarity law; this law is not automatically the Lorentz law for every
+physical representation. A real event paravector is characterized by
+\(\pv{X}^{\mathsf H}=\pv{X}\). Such paravectors are
+spanned by Hermitian carrier bilinears
+\(\pv{\psi}\pv{\psi}^{\mathsf H}\): concretely, in the Pauli realization every
+Hermitian two-by-two matrix is a real linear
+combination of bilinears of this form. The carrier identification is
+\(\pv{\psi}'=\pv{T}^{-1}\pv{\psi}\), and therefore
 \begin{equation*}
-\psi'\psi'^{\mathsf R}
-=T^{-1}(\psi\psi^{\mathsf R})(T^{-1})^{\mathsf R}.
+\pv{\psi}'\pv{\psi}'^{\mathsf H}
+=\pv{T}^{-1}(\pv{\psi}\pv{\psi}^{\mathsf H})(\pv{T}^{-1})^{\mathsf H}.
 \end{equation*}
 By real linearity, the event law is consequently forced to be the
 inverse-carried Hermitian congruence. For a normalized Lorentz element
-\(T\crev T=1\), it is
+\(\pv{T}\cherm{\pv{T}}=1\), it is
 \begin{align}
-X'
-&=T^{-1}X(T^{-1})^{\mathsf R}\notag\\
-&=T^{*\mathsf R}XT^*.
+\pv{X}'
+&=\pv{T}^{-1}\pv{X}(\pv{T}^{-1})^{\mathsf H}\notag\\
+&=\pv{T}^{*\mathsf H}\pv{X}\pv{T}^*.
 \label{eq:general-event-congruence}
 \end{align}
-Here the involutions have distinct roles. In the Pauli realization,
-\({}^{\mathsf R}\) is Hermitian adjunction, whereas
-\({}^{*\mathsf R}\) is the adjugate. The latter equals \(T^{-1}\) only
-after the determinant-one normalization \(T\crev T=1\) has been imposed.
-It preserves the real subspace because
-\((X')^{\mathsf R}=X'\), and it preserves the event determinant because
-\(T^{-1}\) has unit determinant. When \(X\) is invertible, the transformed
-inverse follows without a new definition:
+Distinct roles are assigned to the involutions. In the Pauli realization,
+\({}^{\mathsf H}\) is Hermitian adjunction, whereas
+\({}^{*\mathsf H}\) is the adjugate. The latter equals \(\pv{T}^{-1}\) only
+after the determinant-one normalization \(\pv{T}\cherm{\pv{T}}=1\) has been imposed.
+The real subspace is preserved because
+\((\pv{X}')^{\mathsf H}=\pv{X}'\), and the event determinant is preserved because
+\(\pv{T}^{-1}\) has unit determinant. When \(\pv{X}\) is invertible, the
+transformed inverse is obtained without a new definition:
 \begin{equation}
-(X')^{-1}=T^{\mathsf R}X^{-1}T,
+(\pv{X}')^{-1}=\pv{T}^{\mathsf H}\pv{X}^{-1}\pv{T},
 \label{eq:event-inverse-transform}
 \end{equation}
-because direct multiplication with
-\(X'=T^{-1}X(T^{-1})^{\mathsf R}\) gives the identity. This complementary
-law is also the algebraic pattern used later by the dual derivative
-paravector. Multiplying
-Eq.\ \eqref{eq:general-event-congruence} on the left by \(T\) gives the
-event intertwiner
+because the identity is obtained by direct multiplication with
+\(\pv{X}'=\pv{T}^{-1}\pv{X}(\pv{T}^{-1})^{\mathsf H}\). The algebraic
+pattern for the dual derivative paravector is also supplied by this
+complementary law. The event intertwiner is obtained by multiplication of
+Eq.\ \eqref{eq:general-event-congruence} on the left by \(\pv{T}\):
 \begin{equation}
-TX'=XT^*.
+\pv{T}\pv{X}'=\pv{X}\pv{T}^*.
 \label{eq:event-intertwining}
 \end{equation}
-This becomes \(TX'=XT\) for a circular rotor because \(R^*=R\), but not
-for a boost. Deriving Rodrigues's formula first can therefore make the
-similarity intertwiner look universal even though the boost event belongs
-to a different representation.
+The form \(\pv{T}\pv{X}'=\pv{X}\pv{T}\) is obtained for a circular rotor because
+\(\pv{R}^*=\pv{R}\), but not for a boost. The similarity and event
+intertwiners are therefore identical for circular rotors but remain distinct
+for boosts.
 
-In contrast, a bivector such as the electromagnetic field acts by left
-multiplication on a carrier. Applying the original intertwining argument
-to that operator forces the similarity
+In contrast, the action of a bivector such as the electromagnetic field is
+represented by left multiplication on a carrier. The following similarity is
+then required by the original intertwining argument:
 \begin{equation}
-F'=T^{-1}FT.
+\pv{F}'=\pv{T}^{-1}\pv{F}\pv{T}.
 \label{eq:general-field-similarity}
 \end{equation}
-For a circular rotor, \(R^*=R\) and
-\(R^{-1}=R^{\mathsf R}\), so Eq.\ \eqref{eq:general-event-congruence}
-reduces to \(X'=R^{\mathsf R}XR\). For a hyperbolic element,
-\(L^{\mathsf R}=L\) and \(L^{-1}=L^*=L^{*\mathsf R}\), so the same equation
-reduces to \(X'=L^*XL^*\), whereas
-Eq.\ \eqref{eq:general-field-similarity} reduces to \(F'=L^*FL\).
-The unequal right factors therefore follow from the representations being
-transported, not from an inconsistent choice of inverse.
-With the present definition of \(L(\theta,\mathbf u)\), the sandwich
-\(L^{\mathsf R}XL=LXL\) is the inverse-direction event boost, obtained by
+For a circular rotor, \(\pv{R}^*=\pv{R}\) and
+\(\pv{R}^{-1}=\pv{R}^{\mathsf H}\), so Eq.\ \eqref{eq:general-event-congruence}
+is reduced to the active spatial rotation
+\begin{equation}
+\pv{X}'=\herm{\pv{R}}\pv{X}\pv{R}.
+\label{eq:rotor}
+\end{equation}
+For the hyperbolic element in Eq.\ \eqref{eq:boost-element},
+\(\pv{L}^{\mathsf H}=\pv{L}\) and
+\(\pv{L}^{-1}=\pv{L}^*=\pv{L}^{*\mathsf H}\), so the same general event law
+is reduced to the passive boost
+\begin{equation}
+\pv{X}'=\conj{\pv{L}}\pv{X}\conj{\pv{L}}.
+\label{eq:boost}
+\end{equation}
+By contrast,
+Eq.\ \eqref{eq:general-field-similarity} is reduced to
+\(\pv{F}'=\pv{L}^*\pv{F}\pv{L}\).
+The unequal right factors are therefore consequences of the representations
+being transported, not of an inconsistent choice of inverse.
+Under the definition of \(\pv{L}(\theta,\vct{u})\), the sandwich
+\(\pv{L}^{\mathsf H}\pv{X}\pv{L}=\pv{L}\pv{X}\pv{L}\) is the inverse-direction event boost, obtained by
 replacing \(\theta\) with \(-\theta\). It is physically legitimate, but it
 is not the passive \(+\theta\) convention used in Eq.\ \eqref{eq:boost}.
 
-The hyperbolic reduction of the general complex formula can also be read
-off directly. With
+The hyperbolic reduction of the general complex formula is obtained
+directly with
 \[
 f=\cosh(\theta/2),
 \qquad
-\mathbf g=\sinh(\theta/2)\mathbf u,
+\vct{g}=\sinh(\theta/2)\vct{u},
 \qquad
-\mathbf u^2=1,
+\vct{u}^2=1,
 \]
-Eq.\ \eqref{eq:similarity-components} becomes
+Eq.\ \eqref{eq:similarity-components} is reduced to
 \begin{equation}
-\mathbf V'
-=(\mathbf u\cdot\mathbf V)\mathbf u
-+\cosh(\theta)\bigl(\mathbf V-(\mathbf u\cdot\mathbf V)\mathbf u\bigr)
--i\sinh(\theta)\,\mathbf u\times\mathbf V.
+\vct{V}'
+=(\vct{u}\cdot\vct{V})\vct{u}
++\cosh(\theta)\bigl(\vct{V}-(\vct{u}\cdot\vct{V})\vct{u}\bigr)
+-i\sinh(\theta)\,\vct{u}\times\vct{V}.
 \label{eq:hyperbolic-similarity}
 \end{equation}
-For \(\mathbf V=\mathbf E+i\mathbf B\), its real and imaginary parts are
-exactly the electric--magnetic boost formulas derived later. For a real
-\(\mathbf V\), however, the cross term is generally imaginary; this again
-shows why hyperbolic similarity is a bivector or basis transformation and
-not an event boost.
+For \(\vct{V}=\vct{E}+i\vct{B}\), its real and imaginary parts are
+exactly the electric--magnetic boost formulas. For a real \(\vct{V}\),
+however, the cross term is generally imaginary; hyperbolic similarity is
+therefore a bivector or basis transformation rather than an event boost.
 
-The infinitesimal forms make the distinction especially transparent. If
-\(T=1+K+O(K^2)\), then
+The distinction is exposed by the infinitesimal forms. If
+\(\pv{T}=1+\pv{K}+O(\pv{K}^2)\), the order functions defined in
+Eqs.\ \eqref{eq:com-function} and \eqref{eq:acom-function} give
 \begin{align*}
-Z'&=Z+\com{Z}{K}+O(K^2),\\
-X'&=X-KX-XK^{\mathsf R}+O(K^2).
+\pv{Z}'&=\pv{Z}+\com{\pv{Z}}{\pv{K}}+O(\pv{K}^2),\\
+\pv{X}'&=\pv{X}-\pv{K}\pv{X}-\pv{X}\pv{K}^{\mathsf H}+O(\pv{K}^2).
 \end{align*}
-For a circular generator \(K^{\mathsf R}=-K\), the event law reduces to the
-same commutator that generates the similarity rotation. For a hyperbolic
-generator \(K^{\mathsf R}=K\), it instead contains an anticommutator:
-\(X'=X-\acom{K}{X}+O(K^2)\). The former rotates spatial vectors; the latter
-mixes the scalar time component with the vector component parallel to the
-boost. This is why the rotation can first be derived as a similarity while
-the event boost cannot.
+For a circular generator \(\pv{K}^{\mathsf H}=-\pv{K}\), the event law is reduced
+to the same commutator by which the similarity rotation is generated. For a
+hyperbolic generator \(\pv{K}^{\mathsf H}=\pv{K}\), an anticommutator is obtained instead:
+\(\pv{X}'=\pv{X}-\acom{\pv{K}}{\pv{X}}+O(\pv{K}^2)\). Spatial vectors are
+rotated by the former, while the scalar time component is mixed with the
+vector component parallel to the boost by the latter. Thus similarity
+rotations are produced by circular generators, whereas event congruences
+are produced by hyperbolic generators.
 
-For a one-parameter family \(\lambda\mapsto T(\lambda)\), introduce
+A transform element \(\pv{T}(\lambda)\) is taken to depend on one real
+parameter \(\lambda\). All displayed derivatives are ordinary derivatives
+with respect to that parameter. The similarity generator is defined by
+\begin{equation}
+\pv{\Omega}:=\pv{T}^{-1}\frac{\dd\pv{T}}{\dd\lambda}.
+\label{eq:similarity-generator}
+\end{equation}
+Differentiation of the inverse and of the transported paravector then gives
 \begin{align*}
-\Omega&:=T^{-1}\dot T,\qquad
-\dot T^{-1}=-T^{-1}\dot T\,T^{-1},\\
-\dot Z' &= T^{-1}\dot Z T + \com{Z'}{\Omega},\notag \\
-\ddot Z' &= T^{-1}\ddot Z T,\notag \\
-&\quad +2\com{\dot Z'}{\Omega},\notag \\
-&\quad +\com{Z'}{\dot\Omega},\notag \\
-&\quad +\com{\Omega}{\com{Z'}{\Omega}}.
+\frac{\dd(\pv{T}^{-1})}{\dd\lambda}
+&=-\pv{T}^{-1}\frac{\dd\pv{T}}{\dd\lambda}\pv{T}^{-1},\\
+\frac{\dd\pv{Z}'}{\dd\lambda} &=
+\pv{T}^{-1}\frac{\dd\pv{Z}}{\dd\lambda}\pv{T}
++\com{\pv{Z}'}{\pv{\Omega}},\notag \\
+\frac{\dd^2\pv{Z}'}{\dd\lambda^2} &=
+\pv{T}^{-1}\frac{\dd^2\pv{Z}}{\dd\lambda^2}\pv{T}\notag \\
+&\quad +2\com{\dfrac{\dd\pv{Z}'}{\dd\lambda}}{\pv{\Omega}},\notag \\
+&\quad +\com{\pv{Z}'}{\dfrac{\dd\pv{\Omega}}{\dd\lambda}},\notag \\
+&\quad +\com{\pv{\Omega}}{\com{\pv{Z}'}{\pv{\Omega}}}.
 \end{align*}
-Dots here mean ordinary derivatives with respect to the real parameter
-\(\lambda\). This avoids confusing the transport calculation with exterior
-differentiation, for which \(d^2=0\).
+They are not space-time derivatives.
 
 \subsubsection{Transformed Basis}
-Let the parameter-dependent element be
+The parameter-dependent element is written as
 \begin{align*}
-T(\lambda)&=f(\lambda)+\mathbf g(\lambda)\cdot\sigv,
-\qquad f\in\C,\quad \mathbf g\in\C^3,\\
-T^{-1}&=\frac{f-\mathbf g\cdot\sigv}{f^2-\mathbf g^2},
-\qquad f^2-\mathbf g^2\neq0,\\
-\sigma_n'&:=T^{-1}\sigma_nT,\qquad
-\sigma_n=T\sigma_n'T^{-1}.
+\pv{T}(\lambda)&=f(\lambda)+\vct{g}(\lambda)\cdot\sigv,
+\qquad f\in\C,\quad \vct{g}\in\C^3,\\
+\pv{T}^{-1}&=\frac{f-\vct{g}\cdot\sigv}{f^2-\vct{g}^2},
+\qquad f^2-\vct{g}^2\neq0.
 \end{align*}
-Allowing complex \(\mathbf g\) includes both real hyperbolic elements and
-imaginary-vector rotors. Similarity immediately gives
+The transformed basis function is defined by
+\begin{equation}
+\pv{\sigma}_n':=\pv{T}^{-1}\pv{\sigma}_n\pv{T}.
+\label{eq:transformed-basis-definition}
+\end{equation}
+Its inverse relation is
+\[
+\pv{\sigma}_n=\pv{T}\pv{\sigma}_n'\pv{T}^{-1}.
+\]
+Both real hyperbolic elements and imaginary-vector rotors are included by
+allowing complex \(\vct{g}\). The following relations are obtained
+immediately by similarity:
 \begin{align*}
-(\sigma_n')^2&=1,\\
-\sigma_n'\sigma_m'
-&=\delta_{nm}+\sum_{k=1}^3\epsilon_{nmk}\,i\sigma_k',\\
-\sigma_1'\sigma_2'\sigma_3'&=i.
+(\pv{\sigma}_n')^2&=1,\\
+\pv{\sigma}_n'\pv{\sigma}_m'
+&=\delta_{nm}+\sum_{k=1}^3\epsilon_{nmk}\,i\pv{\sigma}_k',\\
+\pv{\sigma}_1'\pv{\sigma}_2'\pv{\sigma}_3'&=i.
 \end{align*}
-Thus the transformed generators obey the same Clifford algebra for every
-invertible \(T\).
+Thus the same Clifford algebra is satisfied by the transformed generators
+for every invertible \(\pv{T}\).
 
-For every invertible \(T\), reverse conjugation commutes with the
-similarity. Using
-\(\crev T=(f^2-\mathbf g^2)T^{-1}\) and
-\(\crev{(T^{-1})}=T/(f^2-\mathbf g^2)\),
+The separate actions of the two basic involutions on the transformed
+generators are represented by
 \begin{align*}
-(\sigma_n')^{*\mathsf R}
-&=(f^2-\mathbf g^2)T^{-1}(-\sigma_n)
-  \frac{T}{f^2-\mathbf g^2}\\
-&=-T^{-1}\sigma_nT=-\sigma_n'.
+\conj{\pv{\sigma}_n'}
+&=\conj{(\pv{T}^{-1})}\conj{\pv{\sigma}_n}\conj{\pv{T}}
+=-(\conj{\pv{T}})^{-1}\pv{\sigma}_n\conj{\pv{T}},\\
+\herm{\pv{\sigma}_n'}
+&=\herm{\pv{T}}\herm{\pv{\sigma}_n}\herm{(\pv{T}^{-1})}
+=\herm{\pv{T}}\pv{\sigma}_n(\herm{\pv{T}})^{-1}.
+\end{align*}
+The scalar part is also preserved by similarity, so
+\(\eqtext{scalar}(\pv{\sigma}_n')=\eqtext{scalar}(\pv{\sigma}_n)=0\).
+The individual star and \(H\) actions are recorded separately by these
+formulas and are combined by the adjugate relation.
+
+For every invertible \(\pv{T}\), commutation of the adjugate with the
+similarity is obtained from
+\(\cherm{\pv{T}}=(f^2-\vct{g}^2)\pv{T}^{-1}\) and
+\(\cherm{(\pv{T}^{-1})}=\pv{T}/(f^2-\vct{g}^2)\):
+\begin{align*}
+(\pv{\sigma}_n')^{*\mathsf H}
+&=(f^2-\vct{g}^2)\pv{T}^{-1}(-\pv{\sigma}_n)
+  \frac{\pv{T}}{f^2-\vct{g}^2}\\
+&=-\pv{T}^{-1}\pv{\sigma}_n\pv{T}=-\pv{\sigma}_n'.
 \end{align*}
 Consequently a paravector written in the transformed basis,
 \[
-Z=Z_s+Z_{\mathbf V}\cdot\sigv',
+\pv{Z}=Z_s+\vct{Z}_{\vct{v}}\cdot\sigv',
 \]
-has the same determinant quadratic form,
+is assigned the same determinant quadratic form,
 \[
-ZZ^{*\mathsf R}=Z_s^2-Z_{\mathbf V}^2.
+\pv{Z}\pv{Z}^{*\mathsf H}=Z_s^2-\vct{Z}_{\vct{v}}^2.
 \]
 
-For differentiation with respect to \(\lambda\), let
-\[
-\Omega:=T^{-1}\dot T.
-\]
-Then
+For differentiation with respect to \(\lambda\), the generator from
+Eq.\ \eqref{eq:similarity-generator} gives
 \begin{align*}
-\dot\sigma_n'&=\com{\sigma_n'}{\Omega},&
-\dot\sigv'&=\com{\sigv'}{\Omega}.
+\frac{\dd\pv{\sigma}_n'}{\dd\lambda}
+&=\com{\pv{\sigma}_n'}{\pv{\Omega}},&
+\frac{\dd\sigv'}{\dd\lambda}
+&=\com{\sigv'}{\pv{\Omega}}.
 \end{align*}
-The coefficient form follows directly from
+The coefficient form is obtained directly from
 \begin{align*}
-\Omega
-&=\frac{f\dot f-\mathbf g\cdot\dot{\mathbf g}}
-        {f^2-\mathbf g^2}\\
+\pv{\Omega}
+&=\frac{f\,\dfrac{\dd f}{\dd\lambda}
+        -\vct{g}\cdot\dfrac{\dd\vct{g}}{\dd\lambda}}
+        {f^2-\vct{g}^2}\\
 &\quad+
-\frac{f\dot{\mathbf g}-\dot f\,\mathbf g
-      -i\,\mathbf g\times\dot{\mathbf g}}
-     {f^2-\mathbf g^2}\cdot\sigv.
+\frac{f\,\dfrac{\dd\vct{g}}{\dd\lambda}
+      -\dfrac{\dd f}{\dd\lambda}\vct{g}
+      -i\,\vct{g}\times\dfrac{\dd\vct{g}}{\dd\lambda}}
+     {f^2-\vct{g}^2}\cdot\sigv.
 \end{align*}
-Relative to the primed basis, write its vector coefficient uniquely as
+Relative to the primed basis, its vector coefficient is written uniquely as
 \[
-\Omega=\Omega_s+\tfrac12(\mathbf k+i\boldsymbol\omega)\cdot\sigv',
-\qquad \mathbf k,\boldsymbol\omega\in\R^3.
+\pv{\Omega}=\Omega_s+\tfrac12(\vct{k}+i\vct{\boldsymbol\omega})\cdot\sigv',
+\qquad \vct{k},\vct{\boldsymbol\omega}\in\R^3.
 \]
-The scalar part commutes with the basis, while
+The same generator carried into the unprimed basis is defined by
+\begin{equation}
+\pv{\Omega}':=\pv{T}\pv{\Omega}\pv{T}^{-1}.
+\label{eq:carried-similarity-generator}
+\end{equation}
+The definition in Eq.\ \eqref{eq:similarity-generator} then gives
+\[
+\pv{\Omega}'=\frac{\dd\pv{T}}{\dd\lambda}\pv{T}^{-1}.
+\]
+The coefficients are recovered through scalar extraction.
+For \(n\in\{1,2,3\}\), the coefficients are given by cyclicity of the
+algebraic scalar part:
+\[
+k_n+i\omega_n
+=2\,\eqtext{scalar}(\pv{\Omega}\pv{\sigma}_n')
+=2\,\eqtext{scalar}(\pv{\Omega}'\pv{\sigma}_n).
+\]
+The scalar part is central with respect to the basis, while
 \begin{align*}
-\dot\sigv'
-&=(-\boldsymbol\omega+i\mathbf k)\times\sigv',\\
-\dot Z
-&=\dot Z_s+
-\bigl(\dot Z_{\mathbf V}
-      -Z_{\mathbf V}\times\boldsymbol\omega
-      +i\,Z_{\mathbf V}\times\mathbf k\bigr)\cdot\sigv'.
+\frac{\dd\sigv'}{\dd\lambda}
+&=(-\vct{\boldsymbol\omega}+i\vct{k})\times\sigv',\\
+\frac{\dd\pv{Z}}{\dd\lambda}
+&=\frac{\dd Z_s}{\dd\lambda}+
+\left(\frac{\dd\vct{Z}_{\vct{v}}}{\dd\lambda}
+      -\vct{Z}_{\vct{v}}\times\vct{\boldsymbol\omega}
+      +i\,\vct{Z}_{\vct{v}}\times\vct{k}\right)\cdot\sigv'.
 \end{align*}
 These are algebraic moving-basis identities. No space-time, energy, or
-proper-time interpretation follows from similarity alone; such an
-interpretation requires a specified Lorentz congruence and frame geometry.
+proper-time interpretation is implied by similarity alone; a specified
+Lorentz congruence and frame geometry are required for such an interpretation.
 
 \subsubsection{Rotation}
-The identities in this subsection unpack Eq.\ \eqref{eq:rotor} as the rotation case of the general transform law, with the transform element specialized to \(T=R\).
-Here the generator has sigma number two, so the exponential is circular rather than hyperbolic:
+Equation \eqref{eq:rotor} is obtained as the rotation case of the general
+transform law by specializing the transform element to \(\pv{T}=\pv{R}\).
+Sigma number two is assigned to the generator, so the exponential is circular
+rather than hyperbolic. The rotor function defined in
+Eq.\ \eqref{eq:rotor-element} has the expanded form
 \begin{align*}
-R(\theta ,\mathbf u) &:= \exp( \tfrac{1}{2} \theta (\mathbf u \cdot i \sigv ) ),\notag \\
-&= \cos( \tfrac{1}{2} \theta ) + \sin( \tfrac{1}{2} \theta ) (\mathbf u \cdot i \sigv )\qquad \text{rotor}.
+\pv{R}(\theta ,\vct{u}) &= \exp( \tfrac{1}{2} \theta (\vct{u} \cdot i \sigv ) ),\notag \\
+&= \cos( \tfrac{1}{2} \theta ) + \sin( \tfrac{1}{2} \theta ) (\vct{u} \cdot i \sigv )\qquad \text{rotor}.
 \end{align*}
 \begin{equation*}
-R^{-1} = \exp( -\tfrac{1}{2} \theta (\mathbf u \cdot i \sigv ) ).
+\pv{R}^{-1} = \exp( -\tfrac{1}{2} \theta (\vct{u} \cdot i \sigv ) ).
 \end{equation*}
-Here \(\theta\in\R\), \(\mathbf u\in\R^3\) is a unit real vector, and \(R\) is generated by the sigma-number-two element \(\mathbf u\cdot i\sigv\). Its inverse satisfies \(R^{-1}=R^{\mathrm{R}}=R^{*\mathrm{R}}\).
-To derive the sign rather than choose it afterward, substitute
+\(\theta\in\R\), \(\vct{u}\in\R^3\) is a unit real vector, and \(\pv{R}\)
+is generated by the sigma-number-two element \(\vct{u}\cdot i\sigv\). The
+inverse relation is
+\(\pv{R}^{-1}=\pv{R}^{\mathsf H}=\pv{R}^{*\mathsf H}\).
+The orientation sign is fixed by the substitution
 \begin{equation*}
 f=\cos(\theta/2),
 \qquad
-\mathbf g=i\sin(\theta/2)\mathbf u
+\vct{g}=i\sin(\theta/2)\vct{u}
 \end{equation*}
 into Eq.\ \eqref{eq:similarity-components}. Then
 \begin{align*}
-f^2-\mathbf g^2&=1,\\
-f^2+\mathbf g^2&=\cos(\theta),\\
--2(\mathbf g\cdot\mathbf r)\mathbf g
-&=(1-\cos(\theta))(\mathbf u\cdot\mathbf r)\mathbf u,\\
--2if(\mathbf g\times\mathbf r)
-&=\sin(\theta)(\mathbf u\times\mathbf r).
+f^2-\vct{g}^2&=1,\\
+f^2+\vct{g}^2&=\cos(\theta),\\
+-2(\vct{g}\cdot\vct{r})\vct{g}
+&=(1-\cos(\theta))(\vct{u}\cdot\vct{r})\vct{u},\\
+-2if(\vct{g}\times\vct{r})
+&=\sin(\theta)(\vct{u}\times\vct{r}).
 \end{align*}
 Therefore the transformed paravector is
 \begin{align*}
-X' &= R^{\mathrm{R}} X R,\notag \\
-&= t' + \mathbf r' \cdot \sigv.
+\pv{X}' &= \pv{R}^{\mathsf H} \pv{X} \pv{R},\notag \\
+&= t' + \vct{r}' \cdot \sigv.
 \end{align*}
 \begin{align*}
 t' &= t,\notag \\
-\mathbf r' &= \mathbf r \cos(\theta ) + (\mathbf u \times \mathbf r) \sin(\theta ),\notag \\
-&\quad + (\mathbf u \cdot \mathbf r) (1 - \cos(\theta )) \mathbf u,\notag \\
+\vct{r}' &= \vct{r} \cos(\theta ) + (\vct{u} \times \vct{r}) \sin(\theta ),\notag \\
+&\quad + (\vct{u} \cdot \vct{r}) (1 - \cos(\theta )) \vct{u},\notag \\
 \qquad \text{Rodrigues's formula}.
 \end{align*}
-For a parameter-dependent rotor, define the right- and left-carried
-generators
-\begin{equation*}
-\Omega:=\dot R R^{\mathsf R},
-\qquad
-\Omega':=R^{\mathsf R}\dot R=R^{\mathsf R}\Omega R.
-\end{equation*}
-Differentiating \(R^{\mathsf R}R=1\) gives
+For a parameter-dependent rotor, the specialization of the general generator
+is \(\pv{R}^{\mathsf H}(\dd\pv{R}/\dd\lambda)\). Its form carried to the
+other side is
+\((\dd\pv{R}/\dd\lambda)\pv{R}^{\mathsf H}\).
+The following identities are obtained by differentiating
+\(\pv{R}^{\mathsf H}\pv{R}=1\):
 \[
-\Omega^{\mathsf R}=-\Omega,\qquad
-(\Omega')^{\mathsf R}=-\Omega'.
+\left(\pv{R}^{\mathsf H}\frac{\dd\pv{R}}{\dd\lambda}\right)^{\mathsf H}
+=-\pv{R}^{\mathsf H}\frac{\dd\pv{R}}{\dd\lambda},
+\qquad
+\left(\frac{\dd\pv{R}}{\dd\lambda}\pv{R}^{\mathsf H}\right)^{\mathsf H}
+=-\frac{\dd\pv{R}}{\dd\lambda}\pv{R}^{\mathsf H}.
 \]
 The rotation transport law is the specialization of the general
 one-parameter similarity formula:
 \begin{align*}
-\dot X'
-&=R^{\mathsf R}\dot X R+\com{X'}{\Omega'}\\
-&=R^{\mathsf R}\bigl(\dot X+\com{X}{\Omega}\bigr)R.
+\frac{\dd\pv{X}'}{\dd\lambda}
+&=\pv{R}^{\mathsf H}\frac{\dd\pv{X}}{\dd\lambda}\pv{R}
++\com{\pv{X}'}{\pv{R}^{\mathsf H}\dfrac{\dd\pv{R}}{\dd\lambda}}\\
+&=\pv{R}^{\mathsf H}
+\left(\frac{\dd\pv{X}}{\dd\lambda}
++\com{\pv{X}}{\dfrac{\dd\pv{R}}{\dd\lambda}\pv{R}^{\mathsf H}}\right)\pv{R}.
 \end{align*}
 
 \subsubsection{Spin Rotors}
-The pseudoscalar identifies each oriented complementary bivector without an
-index-order ambiguity:
+Each oriented complementary bivector is identified by the pseudoscalar
+without an index-order ambiguity:
 \[
-i\sigma_1=\sigma_2\sigma_3,\qquad
-i\sigma_2=\sigma_3\sigma_1,\qquad
-i\sigma_3=\sigma_1\sigma_2.
+i\pv{\sigma}_1=\pv{\sigma}_2\pv{\sigma}_3,\qquad
+i\pv{\sigma}_2=\pv{\sigma}_3\pv{\sigma}_1,\qquad
+i\pv{\sigma}_3=\pv{\sigma}_1\pv{\sigma}_2.
 \]
-For unit \(\mathbf n,\mathbf u\in\R^3\), let
+For unit \(\vct{n},\vct{u}\in\R^3\), the rotor function defined in
+Eq.\ \eqref{eq:rotor-element} is evaluated as
 \begin{align*}
-R(\phi,\mathbf n)
-&=\exp\!\left(\frac{\phi}{2}\,\mathbf n\cdot i\sigv\right)\\
+\pv{R}(\phi,\vct{n})
+&=\exp\!\left(\frac{\phi}{2}\,\vct{n}\cdot i\sigv\right)\\
 &=\cos(\phi/2)
- +\sin(\phi/2)\,\mathbf n\cdot i\sigv .
+ +\sin(\phi/2)\,\vct{n}\cdot i\sigv .
 \end{align*}
 Then
 \[
-R^{-1}=R^{\mathsf R}=R^{*\mathsf R},\qquad
-R^{\mathsf R}R=1,
+\pv{R}^{-1}=\pv{R}^{\mathsf H}=\pv{R}^{*\mathsf H},\qquad
+\pv{R}^{\mathsf H}\pv{R}=1,
 \]
 and
 \[
-R^{\mathsf R}(\mathbf u\cdot\sigv)R
-=\mathbf u'\cdot\sigv
+\pv{R}^{\mathsf H}(\vct{u}\cdot\sigv)\pv{R}
+=\vct{u}'\cdot\sigv
 \]
-with \(\mathbf u'\) given by Rodrigues's formula in the preceding
-subsection. The rotor itself is single-valued and \(4\pi\)-periodic:
+with \(\vct{u}'\) defined by Rodrigues's formula. The rotor itself is
+single-valued and \(4\pi\)-periodic:
 \[
-R(\phi+2\pi,\mathbf n)=-R(\phi,\mathbf n),\qquad
-R(\phi+4\pi,\mathbf n)=R(\phi,\mathbf n).
+\pv{R}(\phi+2\pi,\vct{n})=-\pv{R}(\phi,\vct{n}),\qquad
+\pv{R}(\phi+4\pi,\vct{n})=\pv{R}(\phi,\vct{n}).
 \]
-The induced spatial rotation is two-to-one because \(R\) and \(-R\) give
-the same conjugation.
+The induced spatial rotation is two-to-one because the same conjugation is
+produced by \(\pv{R}\) and \(-\pv{R}\).
 
-In the Pauli matrix realization, reversion is Hermitian adjunction. A
-general \(\psi\in\C\oplus\C^3\) is therefore a full \(2\times2\) matrix, not
-one irreducible two-component spinor: left multiplication rotates its two
-columns independently. It may instead be used as a density amplitude, or
-restricted to a minimal left ideal, implemented by a fixed projector on the
-right, to represent one Pauli spinor.
-With the active convention consistent with the vector action above,
+In the Pauli matrix realization, the two-by-two representation is transposed
+and complex-conjugated by \(H\). A general
+\(\pv{\psi}\in\C+\C^3\) is therefore a full two-by-two matrix, not one
+selected two-entry column: its two columns are rotated independently by
+left multiplication. One column is selected by a fixed projector on the
+right when a single Pauli wave function is intended.
+Under the active convention associated with this vector action,
 \[
-\psi'=R^{\mathsf R}\psi,\qquad
-\psi'\psi'^{\mathsf R}
-=R^{\mathsf R}(\psi\psi^{\mathsf R})R.
+\pv{\psi}'=\pv{R}^{\mathsf H}\pv{\psi},\qquad
+\pv{\psi}'\pv{\psi}'^{\mathsf H}
+=\pv{R}^{\mathsf H}(\pv{\psi}\pv{\psi}^{\mathsf H})\pv{R}.
 \]
-For a nonzero state, a normalized expectation numerator is converted into
-an expectation value by
-\[
-\langle M\rangle_\psi
-:=\frac{\eqtext{scalar}(\psi^{\mathsf R}M\psi)}
-        {\eqtext{scalar}(\psi^{\mathsf R}\psi)}.
-\]
-These qualifications separate the algebra action from the choice of an
-irreducible spin state.
+A scalar pairing, normalization, expectation map, projected carrier, and
+specified operator action are additionally required for a physical spin state. The
+algebra action is thereby separated from the choice of a single physical
+spin state.

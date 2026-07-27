@@ -1,74 +1,83 @@
-\noindent The following tables collect the basic product decompositions and the order-dependent component expansions used throughout this subsection.
-\begin{componenttable}[tab:components-vector-product]{(\mathbf A\cdot\sigv)(\mathbf B\cdot\sigv)}
-\componentrow{real scalar}{\mathbf A\cdot\mathbf B}{}
+\noindent The basic product decompositions and order-dependent component
+expansions are collected in the following tables.
+\begin{componenttable}[tab:components-vector-product]{(\vct{A}\cdot\sigv)(\vct{B}\cdot\sigv)}
+\componentrow{real scalar}{\vct{A}\cdot\vct{B}}{}
 \componentrow{img scalar}{0}{}
-\componentrow{real vector}{\mathbf 0}{}
-\componentrow{img vector}{\mathbf A\times\mathbf B}{}
+\componentrow{real vector}{\vct{0}}{}
+\componentrow{img vector}{\vct{A}\times\vct{B}}{}
 \end{componenttable}
 
-\begin{componenttable}[tab:components-real-paravector-product]{X Y}
-\componentrow{real scalar}{ab+\mathbf A\cdot\mathbf B}{}
+\begin{componenttable}[tab:components-real-paravector-product]{\pv{X} \pv{Y}}
+\componentrow{real scalar}{ab+\vct{A}\cdot\vct{B}}{}
 \componentrow{img scalar}{0}{}
-\componentrow{real vector}{a\mathbf B+b\mathbf A}{}
-\componentrow{img vector}{\mathbf A\times\mathbf B}{}
+\componentrow{real vector}{a\vct{B}+b\vct{A}}{}
+\componentrow{img vector}{\vct{A}\times\vct{B}}{}
 \end{componenttable}
 
-\noindent Tables \ref{tab:components-paravector-product} and \ref{tab:components-paravector-square} collect the full component expansions for the generic product \(ZZ'\) and the special case \(Z^2\).
-\begin{componenttable}[tab:components-paravector-product]{Z Z'}
-\componentrow{real scalar}{aa'-bb'+\mathbf A\cdot\mathbf A'-\mathbf B\cdot\mathbf B'}{}
-\componentrow{img scalar}{ab'+ba'+\mathbf A\cdot\mathbf B'+\mathbf B\cdot\mathbf A'}{}
-\componentrow{real vector}{a\mathbf A'-b\mathbf B'+a'\mathbf A-b'\mathbf B-\mathbf A\times\mathbf B'-\mathbf B\times\mathbf A'}{}
-\componentrow{img vector}{a\mathbf B'+b\mathbf A'+a'\mathbf B+b'\mathbf A+\mathbf A\times\mathbf A'-\mathbf B\times\mathbf B'}{}
+\noindent The full component expansions for the generic product
+\(\pv{Z}\pv{Z}'\) and the special case \(\pv{Z}^2\) are collected in
+Tables \ref{tab:components-paravector-product} and
+\ref{tab:components-paravector-square}.
+\begin{componenttable}[tab:components-paravector-product]{\pv{Z} \pv{Z}'}
+\componentrow{real scalar}{aa'-bb'+\vct{A}\cdot\vct{A}'-\vct{B}\cdot\vct{B}'}{}
+\componentrow{img scalar}{ab'+ba'+\vct{A}\cdot\vct{B}'+\vct{B}\cdot\vct{A}'}{}
+\componentrow{real vector}{a\vct{A}'-b\vct{B}'+a'\vct{A}-b'\vct{B}-\vct{A}\times\vct{B}'-\vct{B}\times\vct{A}'}{}
+\componentrow{img vector}{a\vct{B}'+b\vct{A}'+a'\vct{B}+b'\vct{A}+\vct{A}\times\vct{A}'-\vct{B}\times\vct{B}'}{}
 \end{componenttable}
 
-\begin{componenttable}[tab:components-paravector-square]{Z^{2}}
-\componentrow{real scalar}{a^{2}-b^{2}+\mathbf A^{2}-\mathbf B^{2}}{}
-\componentrow{img scalar}{2ab+2\mathbf A\cdot\mathbf B}{}
-\componentrow{real vector}{2(a\mathbf A-b\mathbf B)}{}
-\componentrow{img vector}{2(a\mathbf B+b\mathbf A)}{}
+\begin{componenttable}[tab:components-paravector-square]{\pv{Z}^{2}}
+\componentrow{real scalar}{a^{2}-b^{2}+\vct{A}^{2}-\vct{B}^{2}}{}
+\componentrow{img scalar}{2ab+2\vct{A}\cdot\vct{B}}{}
+\componentrow{real vector}{2(a\vct{A}-b\vct{B})}{}
+\componentrow{img vector}{2(a\vct{B}+b\vct{A})}{}
 \end{componenttable}
 
-\noindent Tables \ref{tab:components-zzstar} and \ref{tab:components-zstarz} make the order dependence of \(ZZ^{*}\) and \(Z^{*}Z\) explicit.
-\begin{componenttable}[tab:components-zzstar]{Z Z^{*}}
-\componentrow{real scalar}{a^{2}+b^{2}-\mathbf A^{2}-\mathbf B^{2}}{}
+\noindent The order dependence of \(\pv{Z}\pv{Z}^{*}\) and
+\(\pv{Z}^{*}\pv{Z}\) is made explicit in Tables
+\ref{tab:components-zzstar} and \ref{tab:components-zstarz}.
+\begin{componenttable}[tab:components-zzstar]{\pv{Z} \pv{Z}^{*}}
+\componentrow{real scalar}{a^{2}+b^{2}-\vct{A}^{2}-\vct{B}^{2}}{}
 \componentrow{img scalar}{0}{}
-\componentrow{real vector}{-2\,\mathbf A\times\mathbf B}{\(\leftarrow\) differs}
-\componentrow{img vector}{2(a\mathbf B-b\mathbf A)}{}
+\componentrow{real vector}{-2\,\vct{A}\times\vct{B}}{\(\leftarrow\) differs}
+\componentrow{img vector}{2(a\vct{B}-b\vct{A})}{}
 \end{componenttable}
 
-\begin{componenttable}[tab:components-zstarz]{Z^{*} Z}
-\componentrow{real scalar}{a^{2}+b^{2}-\mathbf A^{2}-\mathbf B^{2}}{}
+\begin{componenttable}[tab:components-zstarz]{\pv{Z}^{*} \pv{Z}}
+\componentrow{real scalar}{a^{2}+b^{2}-\vct{A}^{2}-\vct{B}^{2}}{}
 \componentrow{img scalar}{0}{}
-\componentrow{real vector}{2\,\mathbf A\times\mathbf B}{\(\leftarrow\) differs}
-\componentrow{img vector}{2(a\mathbf B-b\mathbf A)}{}
+\componentrow{real vector}{2\,\vct{A}\times\vct{B}}{\(\leftarrow\) differs}
+\componentrow{img vector}{2(a\vct{B}-b\vct{A})}{}
 \end{componenttable}
 
-\noindent Tables \ref{tab:components-zzrev} and \ref{tab:components-zrevz} play the same role for products involving the reverse operator.
-\begin{componenttable}[tab:components-zzrev]{Z Z^{\mathrm R}}
-\componentrow{real scalar}{a^{2}+b^{2}+\mathbf A^{2}+\mathbf B^{2}}{}
+\noindent Products involving the Hermitian operation are treated analogously
+in Tables \ref{tab:components-zzrev} and \ref{tab:components-zrevz}.
+\begin{componenttable}[tab:components-zzrev]{\pv{Z} \pv{Z}^{\mathsf H}}
+\componentrow{real scalar}{a^{2}+b^{2}+\vct{A}^{2}+\vct{B}^{2}}{}
 \componentrow{img scalar}{0}{}
-\componentrow{real vector}{2(a\mathbf A+b\mathbf B+\mathbf A\times\mathbf B)}{\(\leftarrow\) differs}
-\componentrow{img vector}{\mathbf 0}{}
+\componentrow{real vector}{2(a\vct{A}+b\vct{B}+\vct{A}\times\vct{B})}{\(\leftarrow\) differs}
+\componentrow{img vector}{\vct{0}}{}
 \end{componenttable}
 
-\begin{componenttable}[tab:components-zrevz]{Z^{\mathrm R} Z}
-\componentrow{real scalar}{a^{2}+b^{2}+\mathbf A^{2}+\mathbf B^{2}}{}
+\begin{componenttable}[tab:components-zrevz]{\pv{Z}^{\mathsf H} \pv{Z}}
+\componentrow{real scalar}{a^{2}+b^{2}+\vct{A}^{2}+\vct{B}^{2}}{}
 \componentrow{img scalar}{0}{}
-\componentrow{real vector}{2(a\mathbf A+b\mathbf B-\mathbf A\times\mathbf B)}{\(\leftarrow\) differs}
-\componentrow{img vector}{\mathbf 0}{}
+\componentrow{real vector}{2(a\vct{A}+b\vct{B}-\vct{A}\times\vct{B})}{\(\leftarrow\) differs}
+\componentrow{img vector}{\vct{0}}{}
 \end{componenttable}
 
-\noindent Tables \ref{tab:components-zzcrev} and \ref{tab:components-zcrevz} show that the products formed with the reverse-conjugate operator collapse to purely scalar and imaginary-scalar parts.
-\begin{componenttable}[tab:components-zzcrev]{Z Z^{\mathrm{R}*}}
-\componentrow{real scalar}{a^{2}-b^{2}-\mathbf A^{2}+\mathbf B^{2}}{}
-\componentrow{img scalar}{2ab-2\mathbf A\cdot\mathbf B}{}
-\componentrow{real vector}{\mathbf 0}{}
-\componentrow{img vector}{\mathbf 0}{}
+\noindent The collapse of products formed with the star--\(H\) operation to
+purely scalar and imaginary-scalar parts is shown in Tables
+\ref{tab:components-zzcrev} and \ref{tab:components-zcrevz}.
+\begin{componenttable}[tab:components-zzcrev]{\pv{Z} \pv{Z}^{*\mathsf H}}
+\componentrow{real scalar}{a^{2}-b^{2}-\vct{A}^{2}+\vct{B}^{2}}{}
+\componentrow{img scalar}{2ab-2\vct{A}\cdot\vct{B}}{}
+\componentrow{real vector}{\vct{0}}{}
+\componentrow{img vector}{\vct{0}}{}
 \end{componenttable}
 
-\begin{componenttable}[tab:components-zcrevz]{Z^{\mathrm{R}*} Z}
-\componentrow{real scalar}{a^{2}-b^{2}-\mathbf A^{2}+\mathbf B^{2}}{}
-\componentrow{img scalar}{2ab-2\mathbf A\cdot\mathbf B}{}
-\componentrow{real vector}{\mathbf 0}{}
-\componentrow{img vector}{\mathbf 0}{}
+\begin{componenttable}[tab:components-zcrevz]{\pv{Z}^{*\mathsf H} \pv{Z}}
+\componentrow{real scalar}{a^{2}-b^{2}-\vct{A}^{2}+\vct{B}^{2}}{}
+\componentrow{img scalar}{2ab-2\vct{A}\cdot\vct{B}}{}
+\componentrow{real vector}{\vct{0}}{}
+\componentrow{img vector}{\vct{0}}{}
 \end{componenttable}

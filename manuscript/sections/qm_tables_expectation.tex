@@ -16,116 +16,116 @@
 }
 \newcommand{\bcomponentrow}[2]{\eqtext{#1} & \(\displaystyle #2\) \\}
 
-\noindent Table \ref{tab:components-O-psi} records the direct action of a complex paravector operator on a complex paravector state.
-\begin{bilineartable}[tab:components-O-psi]{O\psi}
-\bcomponentrow{scalar}{O_s\psi_s+O_{\mathbf v}\cdot\psi_{\mathbf v}}
-\bcomponentrow{vector}{O_s\psi_{\mathbf v}+O_{\mathbf v}\psi_s+i(O_{\mathbf v}\times\psi_{\mathbf v})}
+\noindent The direct action of a complex paravector operator on a complex paravector state is recorded in Table \ref{tab:components-O-psi}.
+\begin{bilineartable}[tab:components-O-psi]{\pv{\mathcal{O}}\pv{\psi}}
+\bcomponentrow{scalar}{\eqtext{scalar}(\pv{\mathcal{O}})\psi_s+\eqtext{vector}(\pv{\mathcal{O}})\cdot\vct{\psi}_{\vct{v}}}
+\bcomponentrow{vector}{\eqtext{scalar}(\pv{\mathcal{O}})\vct{\psi}_{\vct{v}}+\eqtext{vector}(\pv{\mathcal{O}})\psi_s+i\bigl(\eqtext{vector}(\pv{\mathcal{O}})\times\vct{\psi}_{\vct{v}}\bigr)}
 \end{bilineartable}
 
-\noindent Tables \ref{tab:components-psistar-Z-psi}--\ref{tab:components-psistarR-Z-psi} give the three basic bilinear sandwiches with a generic complex paravector \(Z=Z_s+Z_{\mathbf v}\cdot\sigv\).
-\begin{bilineartable}[tab:components-psistar-Z-psi]{\conj{\psi}Z\psi}
+\noindent The three basic bilinear sandwiches with a generic complex paravector \(\pv{Z}=Z_s+\vct{Z}_{\vct{v}}\cdot\sigv\) are given in Tables \ref{tab:components-psistar-Z-psi}--\ref{tab:components-psistarR-Z-psi}.
+\begin{bilineartable}[tab:components-psistar-Z-psi]{\conj{\pv{\psi}}\pv{Z}\pv{\psi}}
 \bcomponentrow{scalar}{\begin{aligned}[t]
-&Z_s\bigl(|\psi_s|^2-\psi_{\mathbf v}^*\cdot\psi_{\mathbf v}\bigr)\\
-&\quad+\psi_s^*(Z_{\mathbf v}\cdot\psi_{\mathbf v})
--\psi_s(Z_{\mathbf v}\cdot\psi_{\mathbf v}^*)\\
-&\quad-i\,\psi_{\mathbf v}^*\cdot(Z_{\mathbf v}\times\psi_{\mathbf v})
+&Z_s\bigl(|\psi_s|^2-\vct{\psi}_{\vct{v}}^*\cdot\vct{\psi}_{\vct{v}}\bigr)\\
+&\quad+\psi_s^*(\vct{Z}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}})
+-\psi_s(\vct{Z}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}}^*)\\
+&\quad-i\,\vct{\psi}_{\vct{v}}^*\cdot(\vct{Z}_{\vct{v}}\times\vct{\psi}_{\vct{v}})
 \end{aligned}}
 \bcomponentrow{vector}{\begin{aligned}[t]
-&Z_s\bigl(\psi_s^*\psi_{\mathbf v}-\psi_s\psi_{\mathbf v}^*
--i\,\psi_{\mathbf v}^*\times\psi_{\mathbf v}\bigr)\\
-&\quad+\bigl(|\psi_s|^2+\psi_{\mathbf v}^*\cdot\psi_{\mathbf v}\bigr)Z_{\mathbf v}\\
-&\quad-(Z_{\mathbf v}\cdot\psi_{\mathbf v}^*)\psi_{\mathbf v}
--(Z_{\mathbf v}\cdot\psi_{\mathbf v})\psi_{\mathbf v}^*\\
-&\quad+i\bigl(\psi_s^* Z_{\mathbf v}\times\psi_{\mathbf v}
-+\psi_s Z_{\mathbf v}\times\psi_{\mathbf v}^*\bigr)
+&Z_s\bigl(\psi_s^*\vct{\psi}_{\vct{v}}-\psi_s\vct{\psi}_{\vct{v}}^*
+-i\,\vct{\psi}_{\vct{v}}^*\times\vct{\psi}_{\vct{v}}\bigr)\\
+&\quad+\bigl(|\psi_s|^2+\vct{\psi}_{\vct{v}}^*\cdot\vct{\psi}_{\vct{v}}\bigr)\vct{Z}_{\vct{v}}\\
+&\quad-(\vct{Z}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}}^*)\vct{\psi}_{\vct{v}}
+-(\vct{Z}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}})\vct{\psi}_{\vct{v}}^*\\
+&\quad+i\bigl(\psi_s^* \vct{Z}_{\vct{v}}\times\vct{\psi}_{\vct{v}}
++\psi_s \vct{Z}_{\vct{v}}\times\vct{\psi}_{\vct{v}}^*\bigr)
 \end{aligned}}
 \end{bilineartable}
 
-\begin{bilineartable}[tab:components-psiR-Z-psi]{\rev{\psi}Z\psi}
+\begin{bilineartable}[tab:components-psiR-Z-psi]{\herm{\pv{\psi}}\pv{Z}\pv{\psi}}
 \bcomponentrow{scalar}{\begin{aligned}[t]
-&Z_s\bigl(|\psi_s|^2+\psi_{\mathbf v}^*\cdot\psi_{\mathbf v}\bigr)\\
-&\quad+\psi_s^*(Z_{\mathbf v}\cdot\psi_{\mathbf v})
-+\psi_s(Z_{\mathbf v}\cdot\psi_{\mathbf v}^*)\\
-&\quad+i\,\psi_{\mathbf v}^*\cdot(Z_{\mathbf v}\times\psi_{\mathbf v})
+&Z_s\bigl(|\psi_s|^2+\vct{\psi}_{\vct{v}}^*\cdot\vct{\psi}_{\vct{v}}\bigr)\\
+&\quad+\psi_s^*(\vct{Z}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}})
++\psi_s(\vct{Z}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}}^*)\\
+&\quad+i\,\vct{\psi}_{\vct{v}}^*\cdot(\vct{Z}_{\vct{v}}\times\vct{\psi}_{\vct{v}})
 \end{aligned}}
 \bcomponentrow{vector}{\begin{aligned}[t]
-&Z_s\bigl(\psi_s^*\psi_{\mathbf v}+\psi_s\psi_{\mathbf v}^*
-+i\,\psi_{\mathbf v}^*\times\psi_{\mathbf v}\bigr)\\
-&\quad+\bigl(|\psi_s|^2-\psi_{\mathbf v}^*\cdot\psi_{\mathbf v}\bigr)Z_{\mathbf v}\\
-&\quad+(Z_{\mathbf v}\cdot\psi_{\mathbf v}^*)\psi_{\mathbf v}
-+(Z_{\mathbf v}\cdot\psi_{\mathbf v})\psi_{\mathbf v}^*\\
-&\quad+i\bigl(\psi_s^* Z_{\mathbf v}\times\psi_{\mathbf v}
--\psi_s Z_{\mathbf v}\times\psi_{\mathbf v}^*\bigr)
+&Z_s\bigl(\psi_s^*\vct{\psi}_{\vct{v}}+\psi_s\vct{\psi}_{\vct{v}}^*
++i\,\vct{\psi}_{\vct{v}}^*\times\vct{\psi}_{\vct{v}}\bigr)\\
+&\quad+\bigl(|\psi_s|^2-\vct{\psi}_{\vct{v}}^*\cdot\vct{\psi}_{\vct{v}}\bigr)\vct{Z}_{\vct{v}}\\
+&\quad+(\vct{Z}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}}^*)\vct{\psi}_{\vct{v}}
++(\vct{Z}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}})\vct{\psi}_{\vct{v}}^*\\
+&\quad+i\bigl(\psi_s^* \vct{Z}_{\vct{v}}\times\vct{\psi}_{\vct{v}}
+-\psi_s \vct{Z}_{\vct{v}}\times\vct{\psi}_{\vct{v}}^*\bigr)
 \end{aligned}}
 \end{bilineartable}
 
-\begin{bilineartable}[tab:components-psistarR-Z-psi]{\crev{\psi}Z\psi}
-\bcomponentrow{scalar}{Z_s\bigl(\psi_s^2-\psi_{\mathbf v}\cdot\psi_{\mathbf v}\bigr)}
+\begin{bilineartable}[tab:components-psistarR-Z-psi]{\cherm{\pv{\psi}}\pv{Z}\pv{\psi}}
+\bcomponentrow{scalar}{Z_s\bigl(\psi_s^2-\vct{\psi}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}}\bigr)}
 \bcomponentrow{vector}{\begin{aligned}[t]
-&\bigl(\psi_s^2+\psi_{\mathbf v}\cdot\psi_{\mathbf v}\bigr)Z_{\mathbf v}\\
-&\quad-2(Z_{\mathbf v}\cdot\psi_{\mathbf v})\psi_{\mathbf v}
-+2i\,\psi_s Z_{\mathbf v}\times\psi_{\mathbf v}
+&\bigl(\psi_s^2+\vct{\psi}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}}\bigr)\vct{Z}_{\vct{v}}\\
+&\quad-2(\vct{Z}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}})\vct{\psi}_{\vct{v}}
++2i\,\psi_s \vct{Z}_{\vct{v}}\times\vct{\psi}_{\vct{v}}
 \end{aligned}}
 \end{bilineartable}
 
-\noindent Specializing to a real paravector \(X=X_s+X_{\mathbf v}\cdot\sigv\), with \(X_s\in\R\) and \(X_{\mathbf v}\in\R^3\), gives Tables \ref{tab:components-psistar-X-psi}--\ref{tab:components-psistarR-X-psi}.
-\begin{bilineartable}[tab:components-psistar-X-psi]{\conj{\psi}X\psi}
+\noindent Tables \ref{tab:components-psistar-X-psi}--\ref{tab:components-psistarR-X-psi} are obtained by specialization to a real paravector \(\pv{X}=X_s+\vct{X}_{\vct{v}}\cdot\sigv\), with \(X_s\in\R\) and \(\vct{X}_{\vct{v}}\in\R^3\).
+\begin{bilineartable}[tab:components-psistar-X-psi]{\conj{\pv{\psi}}\pv{X}\pv{\psi}}
 \bcomponentrow{scalar}{\begin{aligned}[t]
-&X_s\bigl(|\psi_s|^2-\psi_{\mathbf v}^*\cdot\psi_{\mathbf v}\bigr)\\
-&\quad+\psi_s^*(X_{\mathbf v}\cdot\psi_{\mathbf v})
--\psi_s(X_{\mathbf v}\cdot\psi_{\mathbf v}^*)\\
-&\quad-i\,\psi_{\mathbf v}^*\cdot(X_{\mathbf v}\times\psi_{\mathbf v})
+&X_s\bigl(|\psi_s|^2-\vct{\psi}_{\vct{v}}^*\cdot\vct{\psi}_{\vct{v}}\bigr)\\
+&\quad+\psi_s^*(\vct{X}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}})
+-\psi_s(\vct{X}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}}^*)\\
+&\quad-i\,\vct{\psi}_{\vct{v}}^*\cdot(\vct{X}_{\vct{v}}\times\vct{\psi}_{\vct{v}})
 \end{aligned}}
 \bcomponentrow{vector}{\begin{aligned}[t]
-&X_s\bigl(\psi_s^*\psi_{\mathbf v}-\psi_s\psi_{\mathbf v}^*
--i\,\psi_{\mathbf v}^*\times\psi_{\mathbf v}\bigr)\\
-&\quad+\bigl(|\psi_s|^2+\psi_{\mathbf v}^*\cdot\psi_{\mathbf v}\bigr)X_{\mathbf v}\\
-&\quad-(X_{\mathbf v}\cdot\psi_{\mathbf v}^*)\psi_{\mathbf v}
--(X_{\mathbf v}\cdot\psi_{\mathbf v})\psi_{\mathbf v}^*\\
-&\quad+i\bigl(\psi_s^* X_{\mathbf v}\times\psi_{\mathbf v}
-+\psi_s X_{\mathbf v}\times\psi_{\mathbf v}^*\bigr)
+&X_s\bigl(\psi_s^*\vct{\psi}_{\vct{v}}-\psi_s\vct{\psi}_{\vct{v}}^*
+-i\,\vct{\psi}_{\vct{v}}^*\times\vct{\psi}_{\vct{v}}\bigr)\\
+&\quad+\bigl(|\psi_s|^2+\vct{\psi}_{\vct{v}}^*\cdot\vct{\psi}_{\vct{v}}\bigr)\vct{X}_{\vct{v}}\\
+&\quad-(\vct{X}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}}^*)\vct{\psi}_{\vct{v}}
+-(\vct{X}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}})\vct{\psi}_{\vct{v}}^*\\
+&\quad+i\bigl(\psi_s^* \vct{X}_{\vct{v}}\times\vct{\psi}_{\vct{v}}
++\psi_s \vct{X}_{\vct{v}}\times\vct{\psi}_{\vct{v}}^*\bigr)
 \end{aligned}}
 \end{bilineartable}
 
-\begin{bilineartable}[tab:components-psiR-X-psi]{\rev{\psi}X\psi}
+\begin{bilineartable}[tab:components-psiR-X-psi]{\herm{\pv{\psi}}\pv{X}\pv{\psi}}
 \bcomponentrow{scalar}{\begin{aligned}[t]
-&X_s\bigl(|\psi_s|^2+\psi_{\mathbf v}^*\cdot\psi_{\mathbf v}\bigr)\\
-&\quad+\psi_s^*(X_{\mathbf v}\cdot\psi_{\mathbf v})
-+\psi_s(X_{\mathbf v}\cdot\psi_{\mathbf v}^*)\\
-&\quad+i\,\psi_{\mathbf v}^*\cdot(X_{\mathbf v}\times\psi_{\mathbf v})
+&X_s\bigl(|\psi_s|^2+\vct{\psi}_{\vct{v}}^*\cdot\vct{\psi}_{\vct{v}}\bigr)\\
+&\quad+\psi_s^*(\vct{X}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}})
++\psi_s(\vct{X}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}}^*)\\
+&\quad+i\,\vct{\psi}_{\vct{v}}^*\cdot(\vct{X}_{\vct{v}}\times\vct{\psi}_{\vct{v}})
 \end{aligned}}
 \bcomponentrow{vector}{\begin{aligned}[t]
-&X_s\bigl(\psi_s^*\psi_{\mathbf v}+\psi_s\psi_{\mathbf v}^*
-+i\,\psi_{\mathbf v}^*\times\psi_{\mathbf v}\bigr)\\
-&\quad+\bigl(|\psi_s|^2-\psi_{\mathbf v}^*\cdot\psi_{\mathbf v}\bigr)X_{\mathbf v}\\
-&\quad+(X_{\mathbf v}\cdot\psi_{\mathbf v}^*)\psi_{\mathbf v}
-+(X_{\mathbf v}\cdot\psi_{\mathbf v})\psi_{\mathbf v}^*\\
-&\quad+i\bigl(\psi_s^* X_{\mathbf v}\times\psi_{\mathbf v}
--\psi_s X_{\mathbf v}\times\psi_{\mathbf v}^*\bigr)
+&X_s\bigl(\psi_s^*\vct{\psi}_{\vct{v}}+\psi_s\vct{\psi}_{\vct{v}}^*
++i\,\vct{\psi}_{\vct{v}}^*\times\vct{\psi}_{\vct{v}}\bigr)\\
+&\quad+\bigl(|\psi_s|^2-\vct{\psi}_{\vct{v}}^*\cdot\vct{\psi}_{\vct{v}}\bigr)\vct{X}_{\vct{v}}\\
+&\quad+(\vct{X}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}}^*)\vct{\psi}_{\vct{v}}
++(\vct{X}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}})\vct{\psi}_{\vct{v}}^*\\
+&\quad+i\bigl(\psi_s^* \vct{X}_{\vct{v}}\times\vct{\psi}_{\vct{v}}
+-\psi_s \vct{X}_{\vct{v}}\times\vct{\psi}_{\vct{v}}^*\bigr)
 \end{aligned}}
 \end{bilineartable}
 
-\begin{bilineartable}[tab:components-psistarR-X-psi]{\crev{\psi}X\psi}
-\bcomponentrow{scalar}{X_s\bigl(\psi_s^2-\psi_{\mathbf v}\cdot\psi_{\mathbf v}\bigr)}
+\begin{bilineartable}[tab:components-psistarR-X-psi]{\cherm{\pv{\psi}}\pv{X}\pv{\psi}}
+\bcomponentrow{scalar}{X_s\bigl(\psi_s^2-\vct{\psi}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}}\bigr)}
 \bcomponentrow{vector}{\begin{aligned}[t]
-&\bigl(\psi_s^2+\psi_{\mathbf v}\cdot\psi_{\mathbf v}\bigr)X_{\mathbf v}\\
-&\quad-2(X_{\mathbf v}\cdot\psi_{\mathbf v})\psi_{\mathbf v}
-+2i\,\psi_s X_{\mathbf v}\times\psi_{\mathbf v}
+&\bigl(\psi_s^2+\vct{\psi}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}}\bigr)\vct{X}_{\vct{v}}\\
+&\quad-2(\vct{X}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}})\vct{\psi}_{\vct{v}}
++2i\,\psi_s \vct{X}_{\vct{v}}\times\vct{\psi}_{\vct{v}}
 \end{aligned}}
 \end{bilineartable}
 
-\noindent For a scalar function \(S\), the same three sandwiches reduce to Tables \ref{tab:components-psistar-S-psi}--\ref{tab:components-psistarR-S-psi}.
-\begin{bilineartable}[tab:components-psistar-S-psi]{\conj{\psi}S\psi}
-\bcomponentrow{scalar}{S\bigl(|\psi_s|^2-\psi_{\mathbf v}^*\cdot\psi_{\mathbf v}\bigr)}
-\bcomponentrow{vector}{S\bigl(\psi_s^*\psi_{\mathbf v}-\psi_s\psi_{\mathbf v}^*-i\,\psi_{\mathbf v}^*\times\psi_{\mathbf v}\bigr)}
+\noindent For a scalar function \(S\), the same three sandwiches are reduced to Tables \ref{tab:components-psistar-S-psi}--\ref{tab:components-psistarR-S-psi}.
+\begin{bilineartable}[tab:components-psistar-S-psi]{\conj{\pv{\psi}}S\pv{\psi}}
+\bcomponentrow{scalar}{S\bigl(|\psi_s|^2-\vct{\psi}_{\vct{v}}^*\cdot\vct{\psi}_{\vct{v}}\bigr)}
+\bcomponentrow{vector}{S\bigl(\psi_s^*\vct{\psi}_{\vct{v}}-\psi_s\vct{\psi}_{\vct{v}}^*-i\,\vct{\psi}_{\vct{v}}^*\times\vct{\psi}_{\vct{v}}\bigr)}
 \end{bilineartable}
 
-\begin{bilineartable}[tab:components-psiR-S-psi]{\rev{\psi}S\psi}
-\bcomponentrow{scalar}{S\bigl(|\psi_s|^2+\psi_{\mathbf v}^*\cdot\psi_{\mathbf v}\bigr)}
-\bcomponentrow{vector}{S\bigl(\psi_s^*\psi_{\mathbf v}+\psi_s\psi_{\mathbf v}^*+i\,\psi_{\mathbf v}^*\times\psi_{\mathbf v}\bigr)}
+\begin{bilineartable}[tab:components-psiR-S-psi]{\herm{\pv{\psi}}S\pv{\psi}}
+\bcomponentrow{scalar}{S\bigl(|\psi_s|^2+\vct{\psi}_{\vct{v}}^*\cdot\vct{\psi}_{\vct{v}}\bigr)}
+\bcomponentrow{vector}{S\bigl(\psi_s^*\vct{\psi}_{\vct{v}}+\psi_s\vct{\psi}_{\vct{v}}^*+i\,\vct{\psi}_{\vct{v}}^*\times\vct{\psi}_{\vct{v}}\bigr)}
 \end{bilineartable}
 
-\begin{bilineartable}[tab:components-psistarR-S-psi]{\crev{\psi}S\psi}
-\bcomponentrow{scalar}{S\bigl(\psi_s^2-\psi_{\mathbf v}\cdot\psi_{\mathbf v}\bigr)}
+\begin{bilineartable}[tab:components-psistarR-S-psi]{\cherm{\pv{\psi}}S\pv{\psi}}
+\bcomponentrow{scalar}{S\bigl(\psi_s^2-\vct{\psi}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}}\bigr)}
 \bcomponentrow{vector}{0}
 \end{bilineartable}

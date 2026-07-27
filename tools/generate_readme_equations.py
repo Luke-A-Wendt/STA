@@ -49,7 +49,7 @@ CHAR_REPL = {
     '𝓔': r'\mathbf E', '𝓑': r'\mathbf B', '𝓕': r'\mathcal{F}',
     'ℒ': r'\mathcal{L}', 'ℋ': r'\mathcal{H}',
     '□': r'\square ',
-    '→': r'\Rightarrow ', '←': r'\leftarrow ', '⟨': r'\langle ', '⟩': r'\rangle ',
+    '→': r'\to ', '←': r'\leftarrow ', '⟨': r'\langle ', '⟩': r'\rangle ',
     'ℝ': r'\mathbb{R}', 'ℂ': r'\mathbb{C}',
     '½': r'\tfrac{1}{2}', '⅓': r'\tfrac{1}{3}', '¼': r'\tfrac{1}{4}', '⅛': r'\tfrac{1}{8}',
     '′': "'",
@@ -518,7 +518,7 @@ def romanize_equation_phrases(s: str) -> str:
     ):
         return r'\sigv = (\sigma _{1}, \sigma _{2}, \sigma _{3})\qquad \eqtext{vector of algebraic objects}.'
 
-    s = re.sub(r'\\Rightarrow\s+commutative\b', r'\\Rightarrow \\text{commutative}', s)
+    s = re.sub(r'\\to\s+commutative\b', r'\\to \\text{commutative}', s)
     s = re.sub(r'\\qquad\s+different than\s+', r'\\qquad \\text{different from }', s)
     s = re.sub(r'\\text\{ if \}\s+any two indices are equal', r'\\text{ if any two indices are equal}', s)
     s = s.replace(r'non-commutative algebra \text{ if }', r'\text{non-commutative algebra if }')
@@ -629,7 +629,7 @@ def convert_expr(line: str) -> str:
     s = re.sub(r'(?<=\s)if and only if(?=\s)', r'\\text{ if and only if }', s)
     s = re.sub(r'(?<=\s)if(?=\s)', r'\\text{ if }', s)
     s = re.sub(r'(?<=\s)else(?=\s)', r'\\text{ else }', s)
-    s = s.replace('to commutative', r'\Rightarrow \text{commutative}')
+    s = s.replace('to commutative', r'to \text{commutative}')
 
     # Light cleanup of repeated spaces.
     s = re.sub(r'\s+', ' ', s).strip()
@@ -1250,7 +1250,7 @@ def split_for_alignment(eq: str) -> str:
         return '&' + s
     if s.startswith('+') or s.startswith('-'):
         return r'&\quad ' + s
-    for op, aligned in ((':=', '&:='), ('=', '&='), (r'\Rightarrow', r'&\Rightarrow')):
+    for op, aligned in ((':=', '&:='), ('=', '&='), (r'\to', r'&\to')):
         idx = s.find(op)
         if idx > 0:
             lhs = s[:idx].rstrip()

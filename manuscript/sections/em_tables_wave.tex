@@ -1,14 +1,14 @@
-\noindent Tables \ref{tab:components-maxwell} and \ref{tab:components-wave-f} record the scalar and vector parts of Maxwell's equation and its sourced wave consequence.
-\begin{componenttable}[tab:components-maxwell]{\partial F=\rho-\mathbf J\cdot\sigv}
-\componentrow{real scalar}{\gradv\cdot\mathbf E=\rho}{}
-\componentrow{img scalar}{\gradv\cdot\mathbf B=0}{}
-\componentrow{real vector}{\partial_t\mathbf E-\gradv\times\mathbf B=-\mathbf J}{}
-\componentrow{img vector}{\partial_t\mathbf B+\gradv\times\mathbf E=0}{}
+\noindent The scalar and vector parts of Maxwell's equation and its sourced wave consequence are recorded in Tables \ref{tab:components-maxwell} and \ref{tab:components-wave-f}.
+\begin{componenttable}[tab:components-maxwell]{\pv{\partial} \pv{F}=\rho-\vct{J}\cdot\sigv}
+\componentrow{real scalar}{\gradv\cdot\vct{E}=\rho}{}
+\componentrow{img scalar}{\gradv\cdot\vct{B}=0}{}
+\componentrow{real vector}{\partial_t\vct{E}-\gradv\times\vct{B}=-\vct{J}}{}
+\componentrow{img vector}{\partial_t\vct{B}+\gradv\times\vct{E}=0}{}
 \end{componenttable}
 
-\begin{componenttable}[tab:components-wave-f]{\Box F=\partial^{*}(\rho-\mathbf J\cdot\sigv)}
-\componentrow{real scalar}{\partial_t\rho+\gradv\cdot\mathbf J=0}{}
+\begin{componenttable}[tab:components-wave-f]{\Box \pv{F}=\pv{\partial}^{*}(\rho-\vct{J}\cdot\sigv)}
+\componentrow{real scalar}{\partial_t\rho+\gradv\cdot\vct{J}=0}{}
 \componentrow{img scalar}{0=0}{}
-\componentrow{real vector}{\Box\mathbf E=-\partial_t\mathbf J-\gradv\rho}{}
-\componentrow{img vector}{\Box\mathbf B=\gradv\times\mathbf J}{}
+\componentrow{real vector}{\Box\vct{E}=-\partial_t\vct{J}-\gradv\rho}{}
+\componentrow{img vector}{\Box\vct{B}=\gradv\times\vct{J}}{}
 \end{componenttable}

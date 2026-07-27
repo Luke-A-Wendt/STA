@@ -1,12 +1,87 @@
-\noindent Table \ref{tab:components-fsquare} lists the two proper-Lorentz invariants. Table \ref{tab:components-ffrev} gives the frame-dependent energy-density/Poynting paravector \(T=\tfrac12 F F^{\mathrm R}\).
-\begin{componenttable}[tab:components-fsquare]{\tfrac12F^{2}}
-\componentrow{real scalar}{\tfrac12(\mathbf E^{2}-\mathbf B^{2})}{}
-\componentrow{img scalar}{\mathbf E\cdot\mathbf B}{}
-\componentrow{real vector}{\mathbf 0}{}
-\componentrow{img vector}{\mathbf 0}{}
+\noindent The two proper-Lorentz invariants are listed in Table \ref{tab:components-fsquare}. The frame-dependent energy-density/Poynting paravector \(\pv{T}=\tfrac12 \pv{F} \pv{F}^{\mathsf H}\) is given in Table \ref{tab:components-ffrev}.
+\begin{componenttable}[tab:components-fsquare]{\tfrac12\pv{F}^{2}}
+\componentrow{real scalar}{\tfrac12(\vct{E}^{2}-\vct{B}^{2})}{}
+\componentrow{img scalar}{\vct{E}\cdot\vct{B}}{}
+\componentrow{real vector}{\vct{0}}{}
+\componentrow{img vector}{\vct{0}}{}
 \end{componenttable}
 
-\begin{componenttable}[tab:components-ffrev]{\tfrac12F F^{\mathrm R}}
-\componentrow{scalar}{\tfrac12(\mathbf E^{2}+\mathbf B^{2})}{energy density}
-\componentrow{vector}{\mathbf E\times\mathbf B}{Poynting vector}
+\begin{componenttable}[tab:components-ffrev]{\tfrac12\pv{F} \pv{F}^{\mathsf H}}
+\componentrow{scalar}{\tfrac12(\vct{E}^{2}+\vct{B}^{2})}{energy density}
+\componentrow{vector}{\vct{E}\times\vct{B}}{Poynting vector}
 \end{componenttable}
+
+\noindent
+The differentiated and source-coupled combinations used in the energy
+discussion are restored in the next five tables. They are algebraic identities
+and consequences of Maxwell's equation
+\(\pv{\partial}\pv{F}=\pv{D}^{*}\), not additional field equations.
+In particular, the derivative is a left-acting paravector, so the
+noncommutative rule \eqref{eq:paravector-leibniz} must be used for products.
+For the energy-density/Poynting paravector, the following relation is obtained:
+\begin{equation*}
+\pv{\partial}\pv{T}
+=\frac12(\pv{\partial}\pv{F})\pv{F}^{\mathsf H}
++\frac12\pv{F}(\pv{\partial}\pv{F}^{\mathsf H})
++\frac12\sum_{n=1}^{3}
+\com{\pv{\sigma}_n}{\pv{F}}\,\partial_n\pv{F}^{\mathsf H}.
+\end{equation*}
+The direct component split of the left-hand side given in the following table
+is therefore a derived identity.
+\begin{componenttable}[tab:components-partial-t]{\pv{\partial} \pv{T}}
+\componentrow{real scalar}{\partial_t T_s+\gradv\cdot \vct{T}_{\vct{v}}}{}
+\componentrow{img scalar}{0}{}
+\componentrow{real vector}{\gradv T_s+\partial_t \vct{T}_{\vct{v}}}{}
+\componentrow{img vector}{\gradv\times \vct{T}_{\vct{v}}}{}
+\end{componenttable}
+
+Because \(\pv{F}^{2}\) is a complex scalar, its derivative can also be
+expanded directly:
+\begin{componenttable}[tab:components-partial-fsquare]{\pv{\partial}(\pv{F}^{2})}
+\componentrow{real scalar}{\partial_t(\vct{E}^{2}-\vct{B}^{2})}{}
+\componentrow{img scalar}{\partial_t\!\big(2\,\vct{E}\cdot\vct{B}\big)}{}
+\componentrow{real vector}{\gradv(\vct{E}^{2}-\vct{B}^{2})}{}
+\componentrow{img vector}{\gradv\!\big(2\,\vct{E}\cdot\vct{B}\big)}{}
+\end{componenttable}
+
+The two ordered source products are given by Maxwell's equation:
+\begin{componenttable}[tab:components-fdstar]{\pv{F} \pv{D}^{*}}
+\componentrow{real scalar}{-\vct{E}\cdot\vct{J}}{}
+\componentrow{img scalar}{-\vct{B}\cdot\vct{J}}{}
+\componentrow{real vector}{\rho\vct{E}+\vct{B}\times\vct{J}}{}
+\componentrow{img vector}{\rho\vct{B}-\vct{E}\times\vct{J}}{}
+\end{componenttable}
+
+\begin{componenttable}[tab:components-dstarf]{\pv{D}^{*}\pv{F}}
+\componentrow{real scalar}{-\vct{E}\cdot\vct{J}}{}
+\componentrow{img scalar}{-\vct{B}\cdot\vct{J}}{}
+\componentrow{real vector}{\rho\vct{E}-\vct{B}\times\vct{J}}{}
+\componentrow{img vector}{\rho\vct{B}+\vct{E}\times\vct{J}}{}
+\end{componenttable}
+
+Their symmetric sum is
+\begin{componenttable}[tab:components-dstarf-plus-fdstar]{\pv{D}^{*}\pv{F}+\pv{F} \pv{D}^{*}}
+\componentrow{real scalar}{-2\,\vct{E}\cdot\vct{J}}{}
+\componentrow{img scalar}{-2\,\vct{B}\cdot\vct{J}}{}
+\componentrow{real vector}{2\rho\vct{E}}{}
+\componentrow{img vector}{2\rho\vct{B}}{}
+\end{componenttable}
+
+\noindent
+Only part of the derivative of \(\pv{F}^{2}\) is contained in the last table. The complete
+identity is
+\begin{align*}
+\pv{\partial}(\pv{F}^{2})
+&=\pv{D}^{*}\pv{F}+\pv{F}\pv{D}^{*}
++\sum_{n=1}^{3}\com{\pv{\sigma}_n}{\pv{F}}\,\partial_n\pv{F}.
+\end{align*}
+With \(\pv{F}=\vct{F}\cdot\sigv\), the correction term is
+\begin{align*}
+\sum_{n=1}^{3}\com{\pv{\sigma}_n}{\pv{F}}\,\partial_n\pv{F}
+&=-2i\,\vct{F}\cdot(\gradv\times\vct{F})\notag\\
+&\quad
+-2\left((\gradv\cdot\vct{F})\vct{F}
+-\frac12\gradv(\vct{F}^{2})\right)\cdot\sigv.
+\end{align*}
+It is precisely the correction that would be lost by applying an ordinary
+two-term Leibniz rule to noncommuting paravector factors.

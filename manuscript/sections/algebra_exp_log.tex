@@ -1,198 +1,209 @@
 \subsubsection{Real Exponential and Half-Angle Elements}
-With the projector calculus in hand, the sigma-number-one exponential becomes especially transparent. For the real paravector
+The sigma-number-one exponential is resolved by the projector calculus. For the real paravector
 \[
-X=a+\mathbf A\cdot\sigv\in\R\oplus\R^3,
+\pv{X}=a+\vct{A}\cdot\sigv\in\R+\R^3,
 \]
-write
+the vector part is decomposed as
 \begin{equation*}
 \begin{aligned}
-\mathbf A&=\theta \mathbf u,\qquad \theta=\lVert \mathbf A\rVert,\\
-\mathbf u&=\frac{\mathbf A}{\lVert \mathbf A\rVert}\ \ (\mathbf A\neq 0),\qquad
-\mathbf u=(u_1,u_2,u_3),\\
-\mathbf u^2&=1.
+\vct{A}&=\theta \vct{u},\qquad \theta=\lVert \vct{A}\rVert,\\
+\vct{u}&=\frac{\vct{A}}{\lVert \vct{A}\rVert}\ \ (\vct{A}\neq 0),\qquad
+\vct{u}=(u_1,u_2,u_3),\\
+\vct{u}^2&=1.
 \end{aligned}
 \end{equation*}
-Then Eq.\ \eqref{eq:functional-calculus} gives
+The exponential is given by the functional calculus of
+Eq.\ \eqref{eq:functional-calculus}:
 \begin{align}
-\exp(\pm\mathbf A\cdot\sigv)
-&= \exp(\pm\theta\,\mathbf u\cdot\sigv)\notag \\
-&= \exp(\pm\theta)\Pi(+) + \exp(\mp\theta)\Pi(-)\notag \\
-&= \cosh(\theta) \pm \sinh(\theta)\,\mathbf u\cdot\sigv.
+\exp(\pm\vct{A}\cdot\sigv)
+&= \exp(\pm\theta\,\vct{u}\cdot\sigv)\notag \\
+&= \exp(\pm\theta)\pv{\Pi}(+) + \exp(\mp\theta)\pv{\Pi}(-)\notag \\
+&= \cosh(\theta) \pm \sinh(\theta)\,\vct{u}\cdot\sigv.
 \label{eq:exp-vector}
 \end{align}
-Equivalently, the same result follows directly from the power series by separating the even and odd powers:
+An equivalent derivation is obtained from the power series by separating
+the even and odd powers:
 \begin{align*}
-\exp(\mathbf A\cdot\sigv)
-&= \exp(\theta\,\mathbf u\cdot\sigv)\notag \\
-&= \sum_{n=0}^{\infty}\frac{\theta^n(\mathbf u\cdot\sigv)^n}{n!}\notag \\
-&= \sum_{n=0}^{\infty}\frac{\theta^{2n}}{(2n)!}
-+ \sum_{n=0}^{\infty}\frac{\theta^{2n+1}}{(2n+1)!}\,\mathbf u\cdot\sigv\notag \\
-&= \cosh(\theta)+\sinh(\theta)\,\mathbf u\cdot\sigv.
+\exp(\vct{A}\cdot\sigv)
+&= \exp(\theta\,\vct{u}\cdot\sigv)\notag \\
+&= \sum_{n\geq0}\frac{\theta^n(\vct{u}\cdot\sigv)^n}{n!}\notag \\
+&= \sum_{n\geq0}\frac{\theta^{2n}}{(2n)!}
++ \sum_{n\geq0}\frac{\theta^{2n+1}}{(2n+1)!}\,\vct{u}\cdot\sigv\notag \\
+&= \cosh(\theta)+\sinh(\theta)\,\vct{u}\cdot\sigv.
 \end{align*}
 With
 \begin{align*}
 \gamma &= \cosh(\theta),\notag \\
-\mathbf v &= \tanh(\theta)\,\mathbf u,
+\vct{v} &= \tanh(\theta)\,\vct{u},
 \end{align*}
-Eq.\ \eqref{eq:exp-vector} becomes the basic hyperbolic parametrization used repeatedly below:
+the basic hyperbolic parametrization is obtained from
+Eq.\ \eqref{eq:exp-vector}:
 \begin{align*}
-\exp(\mathbf A\cdot\sigv) &= \gamma(1+\mathbf v\cdot\sigv),\notag \\
-\exp(-\mathbf A\cdot\sigv) &= \gamma(1-\mathbf v\cdot\sigv).
+\exp(\vct{A}\cdot\sigv) &= \gamma(1+\vct{v}\cdot\sigv),\notag \\
+\exp(-\vct{A}\cdot\sigv) &= \gamma(1-\vct{v}\cdot\sigv).
 \end{align*}
-For the real paravector \(X\) from Eq.\ \eqref{eq:real-paravector-x}, the scalar part commutes with the vector part, so
+For the real paravector \(\pv{X}\) from Eq.\ \eqref{eq:real-paravector-x}, the scalar part commutes with the vector part, so
 \begin{align*}
-\exp(X) &= \exp(a)\exp(\mathbf A\cdot\sigv),\notag \\
-\exp(X^{*}) &= \exp(a)\exp(-\mathbf A\cdot\sigv)=\exp(X)^{*},\notag \\
-\exp(-X) &= \exp(-a)\exp(-\mathbf A\cdot\sigv)=\exp(X)^{-1}.
+\exp(\pv{X}) &= \exp(a)\exp(\vct{A}\cdot\sigv),\notag \\
+\exp(\pv{X}^{*}) &= \exp(a)\exp(-\vct{A}\cdot\sigv)=\exp(\pv{X})^{*},\notag \\
+\exp(-\pv{X}) &= \exp(-a)\exp(-\vct{A}\cdot\sigv)=\exp(\pv{X})^{-1}.
 \end{align*}
 The corresponding half-angle element is
 \begin{equation}
-L(\theta,\mathbf u)=\exp\!\left(\frac{\theta}{2}\,\mathbf u\cdot\sigv\right),
-\qquad
-X'=\conj{L}X\conj{L}.
-\label{eq:boost}
+\pv{L}(\theta,\vct{u})
+:=\exp\!\left(\frac{\theta}{2}\,\vct{u}\cdot\sigv\right).
+\label{eq:boost-element}
 \end{equation}
-Equation \eqref{eq:boost} is the \(T=L\) specialization of the general
-event congruence \eqref{eq:general-event-congruence}, derived below from
-the carrier transformation. Because \(L^{\mathsf R}=L\) and
-\(L^*=L^{-1}\), it reads
+Its conjugation properties are
 \[
-X'=L^{-1}X(L^{-1})^{\mathsf R}.
+\pv{L}^{\mathsf H}=\pv{L},
+\qquad
+\conj{\pv{L}}=\pv{L}^{-1}.
 \]
-It preserves the real-paravector subspace and mixes the scalar component
-with the vector component parallel to \(\mathbf u\). It must be distinguished
-from the similarity \(T^{-1}XT\), which preserves the scalar part and is
-used below as an algebra and basis automorphism. For rotations the two
-actions have the same appearance because the rotor is unitary; for
-hyperbolic elements they do not.
-Finally, the conjugate operator simply exchanges the two projector weights:
+The action of this element on real events is fixed by the generalized
+transform law and differs from hyperbolic similarity. The exponential and
+its inverse are specified by Eq.\ \eqref{eq:boost-element}. The two
+projector weights are exchanged by the conjugate operator:
 \begin{align*}
-\exp(\mathbf A\cdot\sigv)^{*}
-&= \exp(-\theta)\Pi(+) + \exp(\theta)\Pi(-)\notag \\
-&= \gamma(1-\mathbf v\cdot\sigv)\notag \\
-&= \exp(-\mathbf A\cdot\sigv)\notag \\
-&= \exp\bigl((\mathbf A\cdot\sigv)^{*}\bigr)\notag \\
-&= \exp(\mathbf A\cdot\sigv)^{-1}.
+\exp(\vct{A}\cdot\sigv)^{*}
+&= \exp(-\theta)\pv{\Pi}(+) + \exp(\theta)\pv{\Pi}(-)\notag \\
+&= \gamma(1-\vct{v}\cdot\sigv)\notag \\
+&= \exp(-\vct{A}\cdot\sigv)\notag \\
+&= \exp\bigl((\vct{A}\cdot\sigv)^{*}\bigr)\notag \\
+&= \exp(\vct{A}\cdot\sigv)^{-1}.
 \end{align*}
 
 \subsubsection{Real Logarithm of a Paravector}
-The logarithm is the inverse problem for the same projector formulas. Let \(Y\) be the real paravector from Eq.\ \eqref{eq:real-paravector-y}, and assume \(b>\lVert\mathbf B\rVert\), so that the two real eigenvalues are positive and the principal logarithm is defined. For \(\mathbf B\neq0\), write
-\(\mathbf B=\lVert\mathbf B\rVert \mathbf u\). Then
+The logarithm is the inverse problem for the same projector formulas. The
+real paravector \(\pv{Y}\) from Eq.\ \eqref{eq:real-paravector-y} is assumed
+to satisfy \(b>\lVert\vct{B}\rVert\), so that the two real eigenvalues are
+positive and the principal logarithm is defined. For \(\vct{B}\neq0\), the
+decomposition \(\vct{B}=\lVert\vct{B}\rVert \vct{u}\) is used. The
+eigenvalue function from
+Eq.\ \eqref{eq:real-paravector-eigenvalues} and the projector function from
+Eq.\ \eqref{eq:projectors} are then specialized to \(\pv{Y}\):
 \begin{align*}
-\lambda(\pm) &= b \pm \lVert\mathbf B\rVert,\notag \\
-Y &= \lambda(+)\Pi(+) + \lambda(-)\Pi(-),
+\lambda(\pv{Y},\pm) &= b \pm \lVert\vct{B}\rVert,\notag \\
+\pv{Y} &= \lambda(\pv{Y},+)\pv{\Pi}(+) + \lambda(\pv{Y},-)\pv{\Pi}(-),
 \end{align*}
-with the same projector pair \(\Pi(\pm)=\tfrac12(1\pm \mathbf u\cdot\sigv)\). The logarithm therefore acts separately on the two eigenvalues:
+with the same projector pair
+\(\pv{\Pi}(\pm)=\tfrac12(1\pm \vct{u}\cdot\sigv)\). The logarithm is
+therefore applied separately to the two eigenvalues:
 \begin{align}
-\log(Y)
-&= \log\!\bigl(\lambda(+)\bigr)\Pi(+) + \log\!\bigl(\lambda(-)\bigr)\Pi(-)\notag \\
-&= \tfrac12 \log\!\bigl(\lambda(+)\lambda(-)\bigr)
-+ \tfrac12 \log\!\bigl(\lambda(+)/\lambda(-)\bigr)\,\mathbf u\cdot\sigv.
+\log(\pv{Y})
+&= \log\!\bigl(\lambda(\pv{Y},+)\bigr)\pv{\Pi}(+)\notag\\
+&\quad+\log\!\bigl(\lambda(\pv{Y},-)\bigr)\pv{\Pi}(-)\notag \\
+&= \tfrac12 \log\!\bigl(\lambda(\pv{Y},+)\lambda(\pv{Y},-)\bigr)
+\notag\\
+&\quad+ \tfrac12 \log\!\bigl(\lambda(\pv{Y},+)/\lambda(\pv{Y},-)\bigr)
+\,\vct{u}\cdot\sigv.
 \label{eq:log-paravector}
 \end{align}
-When \(\mathbf B=\mathbf0\), the axis is unnecessary and this formula
-reduces directly to \(\log(Y)=\log(b)\).
-For \(\mathbf B\neq0\), if \(Y=\exp(X)\) with \(X\) from
-Eq.\ \eqref{eq:real-paravector-x} and \(\mathbf A=\alpha\mathbf u\), then
-\(\lambda(\pm)=\exp(a\pm\alpha)\), so the recovered parameters are
+When \(\vct{B}=\vct{0}\), the axis is unnecessary and this formula is
+reduced directly to \(\log(\pv{Y})=\log(b)\).
+For \(\vct{B}\neq0\), if \(\pv{Y}=\exp(\pv{X})\) with \(\pv{X}\) from
+Eq.\ \eqref{eq:real-paravector-x} and \(\vct{A}=\theta\vct{u}\), then
+\(\lambda(\pv{Y},\pm)=\exp(a\pm\theta)\), so the recovered parameters are
 \begin{align*}
-Y
-&=\exp(X)\notag \\
-&=\exp(a+\mathbf A\cdot\sigv)\notag \\
-&=\exp(a)\exp(\mathbf A\cdot\sigv)\notag \\
-&=\exp(a)\bigl(\cosh(\alpha)+\sinh(\alpha)\,\mathbf u\cdot\sigv\bigr)\notag \\
-&=b+\lVert\mathbf B\rVert\,\mathbf u\cdot\sigv,
+\pv{Y}
+&=\exp(\pv{X})\notag \\
+&=\exp(a+\vct{A}\cdot\sigv)\notag \\
+&=\exp(a)\exp(\vct{A}\cdot\sigv)\notag \\
+&=\exp(a)\bigl(\cosh(\theta)+\sinh(\theta)\,\vct{u}\cdot\sigv\bigr)\notag \\
+&=b+\lVert\vct{B}\rVert\,\vct{u}\cdot\sigv,
 \end{align*}
-so one reads off
+and the recovered parameters are
 \begin{align*}
-\alpha &= \operatorname{arctanh}\!\bigl(\lVert\mathbf B\rVert/b\bigr), \\
-\exp(a) &= \sqrt{b^{2}-\mathbf B^{2}}, \\
-a &= \tfrac12 \log\!\bigl(b^{2}-\mathbf B^{2}\bigr), \\
-\mathbf A &= \alpha\,\mathbf u
-= \operatorname{arctanh}\!\bigl(\lVert\mathbf B\rVert/b\bigr)\,
-\frac{\mathbf B}{\lVert\mathbf B\rVert}.
+\theta &= \operatorname{arctanh}\!\bigl(\lVert\vct{B}\rVert/b\bigr), \\
+\exp(a) &= \sqrt{b^{2}-\vct{B}^{2}}, \\
+a &= \tfrac12 \log\!\bigl(b^{2}-\vct{B}^{2}\bigr), \\
+\vct{A} &= \theta\,\vct{u}
+= \operatorname{arctanh}\!\bigl(\lVert\vct{B}\rVert/b\bigr)\,
+\frac{\vct{B}}{\lVert\vct{B}\rVert}.
 \end{align*}
 Thus the principal logarithm of a future-directed time-like real paravector
 is again a real paravector,
 \begin{equation*}
-\log(Y)=a+\mathbf A\cdot\sigv.
+\log(\pv{Y})=a+\vct{A}\cdot\sigv.
 \end{equation*}
 
 \subsubsection{Circular Exponentials and Half-Angle Elements}
-Replacing \(\theta\) by \(i\theta\) turns the same projector calculation into the trigonometric form of the sigma-number-two exponential:
+The trigonometric form of the sigma-number-two exponential is obtained from
+the same projector calculation by replacing \(\theta\) with \(i\theta\):
 \begin{align}
-\exp(\pm i\mathbf A\cdot\sigv)
-&= \exp(\pm i\theta\,\mathbf u\cdot\sigv)\notag \\
-&= \exp(\pm i\theta)\Pi(+) + \exp(\mp i\theta)\Pi(-)\notag \\
-&= \cos(\theta) \pm i\sin(\theta)\,\mathbf u\cdot\sigv.
+\exp(\pm i\vct{A}\cdot\sigv)
+&= \exp(\pm i\theta\,\vct{u}\cdot\sigv)\notag \\
+&= \exp(\pm i\theta)\pv{\Pi}(+) + \exp(\mp i\theta)\pv{\Pi}(-)\notag \\
+&= \cos(\theta) \pm i\sin(\theta)\,\vct{u}\cdot\sigv.
 \label{eq:exp-bivector}
 \end{align}
 In particular, the negative-sign form may be written as
 \begin{equation*}
-\exp(-i\mathbf A\cdot\sigv)
-=\cos(\theta)+\sin(\theta)\,\mathbf u\cdot(-i\sigv).
+\exp(-i\vct{A}\cdot\sigv)
+=\cos(\theta)+\sin(\theta)\,\vct{u}\cdot(-i\sigv).
 \end{equation*}
-Later, after introducing the quaternion basis \(\mathbf q=-i\sigv\), this same formula becomes
+In the quaternion basis \(\vct{q}=-i\sigv\), the same formula is written as
 \begin{equation*}
-\exp(-i\mathbf A\cdot\sigv)
-=\cos(\theta)+\sin(\theta)\,\mathbf u\cdot\mathbf q.
+\exp(-i\vct{A}\cdot\sigv)
+=\cos(\theta)+\sin(\theta)\,\vct{u}\cdot\vct{q}.
 \end{equation*}
-For a real angle \(\theta\in\R\) and a unit real vector \(\mathbf u\in\R^3\), the corresponding circular half-angle exponential is
+For a real angle \(\theta\in\R\) and a unit real vector \(\vct{u}\in\R^3\), the corresponding circular half-angle exponential is
 \begin{equation}
-\begin{aligned}
-R(\theta,\mathbf u)&:=\exp\!\left(\frac{\theta}{2}\,\mathbf u\cdot i\sigv\right),\\
-\rev{R}R&=1,\qquad
-X'=\rev{R}XR.
-\end{aligned}
-\label{eq:rotor}
+\pv{R}(\theta,\vct{u}):=\exp\!\left(\frac{\theta}{2}\,\vct{u}\cdot i\sigv\right).
+\label{eq:rotor-element}
 \end{equation}
-Equation \eqref{eq:rotor} is the circular transform built from
-Eq.\ \eqref{eq:exp-bivector}. Because \(R^*=R\), it is simultaneously the
-\(T=R\) specialization of the general similarity
-\eqref{eq:general-transform} and of the event congruence
-\eqref{eq:general-event-congruence}. Their common derivation and the detailed
-transform consequences are given in the generalized transform section. The
-quaternion restatement of the same sigma-number-two algebra is collected
-later, after the transform discussion has been completed.
+Its conjugation properties are
+\[
+\herm{\pv{R}}\pv{R}=1,
+\qquad
+\conj{\pv{R}}=\pv{R}.
+\]
+Equation \eqref{eq:rotor-element} is the circular half-angle element built
+from Eq.\ \eqref{eq:exp-bivector}. Its transform action is fixed by the
+general similarity and event-congruence laws, from which Rodrigues's formula
+is obtained. The equivalent quaternion form is obtained from the same
+sigma-number-two algebra.
 
 \subsubsection{Exponentials of Complex Paravectors}
-Write the real paravectors
+The real paravectors are written as
 \begin{align*}
-X &= a + \mathbf A \cdot \sigv \in \R\oplus\R^{3},\notag \\
-Y &= b + \mathbf B \cdot \sigv \in \R\oplus\R^{3},\notag \\
-Z &= S + \mathbf V \cdot \sigv \in \C\oplus\C^{3},\notag \\
-&= X + i Y,
+\pv{X} &= a + \vct{A} \cdot \sigv \in \R+\R^{3},\notag \\
+\pv{Y} &= b + \vct{B} \cdot \sigv \in \R+\R^{3},\notag \\
+\pv{Z} &= S + \vct{V} \cdot \sigv \in \C+\C^{3},\notag \\
+&= \pv{X} + i \pv{Y},
 \end{align*}
 where
 \begin{equation*}
-S:=a+ib\in\C,
+S=a+ib\in\C,
 \qquad
-\mathbf V:=\mathbf A+i\mathbf B\in\C^3.
+\vct{V}=\vct{A}+i\vct{B}\in\C^3.
 \end{equation*}
-Because the scalar part \(S\) commutes with \(\mathbf V\cdot\sigv\), the exponential separates into scalar and directional factors:
+Because the scalar part \(S\) commutes with \(\vct{V}\cdot\sigv\), the
+exponential is separated into scalar and directional factors:
 \begin{align*}
-\exp(Z) &= \exp( S + \mathbf V \cdot \sigv ),\notag \\
-&= \exp(S) \exp( \mathbf V \cdot \sigv ).
+\exp(\pv{Z}) &= \exp( S + \vct{V} \cdot \sigv ),\notag \\
+&= \exp(S) \exp( \vct{V} \cdot \sigv ).
 \end{align*}
 \begin{align*}
-\exp(Z^{*}) &= \exp(S^{*}) \exp( -\mathbf V^{*} \cdot \sigv ),\notag \\
-\exp(Z)^{-1} &= \exp(-S) \exp( -\mathbf V \cdot \sigv ),\notag \\
-\exp(Z^{*})^{-1} &= \exp(-S^{*}) \exp( \mathbf V^{*} \cdot \sigv ),\notag \\
-(\mathbf V \cdot \sigv )^{2} &= \mathbf V \cdot \mathbf V = \mathbf V^{2},\notag \\
-&= \mathbf A^{2} - \mathbf B^{2} + 2 i \mathbf A \cdot \mathbf B.
+\exp(\pv{Z}^{*}) &= \exp(S^{*}) \exp( -\vct{V}^{*} \cdot \sigv ),\notag \\
+\exp(\pv{Z})^{-1} &= \exp(-S) \exp( -\vct{V} \cdot \sigv ),\notag \\
+\exp(\pv{Z}^{*})^{-1} &= \exp(-S^{*}) \exp( \vct{V}^{*} \cdot \sigv ),\notag \\
+(\vct{V} \cdot \sigv )^{2} &= \vct{V} \cdot \vct{V} = \vct{V}^{2},\notag \\
+&= \vct{A}^{2} - \vct{B}^{2} + 2 i \vct{A} \cdot \vct{B}.
 \end{align*}
-The key simplification is that all higher powers collapse onto the two basis elements \(1\) and \(\mathbf V\cdot\sigv\):
+The key simplification is that all higher powers are reduced to the two basis
+elements \(1\) and \(\vct{V}\cdot\sigv\):
 \begin{align*}
-(\mathbf V \cdot \sigv )^{2n} &= (\mathbf V^{2})^{n},\notag \\
-z &= \sqrt{\mathbf V^{2}}\qquad \eqtext{complex scalar},\notag \\
-\exp(\mathbf V \cdot \sigv ) &= \sum_{n=0}^{\infty} \frac{(\mathbf V \cdot \sigv )^{n}}{n!},\notag \\
-&= \sum_{n=0}^{\infty} \frac{(\mathbf V^{2})^{n}}{(2n)!}
-+ \sum_{n=0}^{\infty} \frac{(\mathbf V^{2})^{n}}{(2n+1)!}(\mathbf V \cdot \sigv ),\notag \\
-&= \cosh(z) + \sinh(z) \frac{\mathbf V \cdot \sigv}{z}.
+(\vct{V} \cdot \sigv )^{2n} &= (\vct{V}^{2})^{n},\notag \\
+z &= \sqrt{\vct{V}^{2}}\qquad \eqtext{complex scalar},\notag \\
+\exp(\vct{V} \cdot \sigv ) &= \sum_{n\geq0} \frac{(\vct{V} \cdot \sigv )^{n}}{n!},\notag \\
+&= \sum_{n\geq0} \frac{(\vct{V}^{2})^{n}}{(2n)!}
++ \sum_{n\geq0} \frac{(\vct{V}^{2})^{n}}{(2n+1)!}(\vct{V} \cdot \sigv ),\notag \\
+&= \cosh(z) + \sinh(z) \frac{\vct{V} \cdot \sigv}{z}.
 \end{align*}
 The final expression is independent of the sign chosen for \(z\). When
-\(\mathbf V^2=0\), the quotient \(\sinh(z)/z\) is understood by its
-continuous value \(1\), and the formula becomes
+\(\vct{V}^2=0\), the quotient \(\sinh(z)/z\) is understood by its
+continuous value \(1\), and the formula is reduced to
 \begin{equation*}
-\exp(Z)=\exp(S)\bigl(1+\mathbf V\cdot\sigv\bigr).
+\exp(\pv{Z})=\exp(S)\bigl(1+\vct{V}\cdot\sigv\bigr).
 \end{equation*}

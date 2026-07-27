@@ -1,18 +1,19 @@
 \subsubsection{Relativistic Quantum-Mechanical Setting}
-The wave-equation section uses one fixed operator language throughout. With the differential conventions from Section \ref{sec:differential},
+One fixed operator language is used throughout the wave-equation section. With the differential conventions from Section \ref{sec:differential},
 \begin{align*}
-\partial&=\partial_t+\sigv\cdot\gradv,\\
-\partial^*&=\partial_t-\sigv\cdot\gradv,\\
-(i\partial)^*&=-i\partial^*.
+\pv{\partial}&=\partial_t+\sigv\cdot\gradv,\\
+\conj{\pv{\partial}}&=\partial_t-\sigv\cdot\gradv,\\
+\conj{(i\pv{\partial})}&=-i\conj{\pv{\partial}}.
 \end{align*}
-Recall also that the d'Alembertian is
+The d'Alembertian is
 \begin{align*}
 \Box
-&:=\partial_t^2-\gradv^2\notag\\
-&=\partial\partial^*=\partial^*\partial.
+&=\partial_t^2-\gradv^2\notag\\
+&=\pv{\partial}\conj{\pv{\partial}}
+=\conj{\pv{\partial}}\pv{\partial}.
 \end{align*}
-All differential operators act on the fields to their right.  In an ordered
-product the rightmost factor acts first, and the written order is retained
+All fields are acted on by the differential operators to their left. In an ordered
+product, the action of the rightmost factor is applied first, and the written order is retained
 whenever potentials and derivatives do not commute.
 
 \subsubsection{Algebra Blocks and the Physical Spinor Carrier}
@@ -20,41 +21,40 @@ Throughout the spinful part of the wave-equation section, a wave field is not a
 space-time event but an algebra-valued amplitude field.  A generic algebra
 block may be written
 \begin{equation*}
-\psi:\R\times\R^3\to\C\oplus\C^3,
+\pv{\psi}:\R\times\R^3\to\C+\C^3,
 \qquad
-\psi(t,\mathbf r)=\psi_s(t,\mathbf r)+\psi_{\mathbf v}(t,\mathbf r)\cdot\sigv.
+\pv{\psi}(t,\vct{r})=\psi_s(t,\vct{r})+\vct{\psi}_{\vct{v}}(t,\vct{r})\cdot\sigv.
 \end{equation*}
-The argument \((t,\mathbf r)\) tells where the state is evaluated in space-time, while the value \(\psi(t,\mathbf r)\) lives in the internal complex-paravector algebra. This distinction matters. The real paravector
+The location at which the state is evaluated in space-time is specified by the argument \((t,\vct{r})\), while the value \(\pv{\psi}(t,\vct{r})\) is contained in the internal complex-paravector algebra. The real paravector
 \begin{equation*}
-X=t+\mathbf r\cdot\sigv
+\pv{X}=t+\vct{r}\cdot\sigv
 \end{equation*}
-describes an event or interval variable, whereas \(\psi\) is a quantum state amplitude defined \emph{over} such events.
+is used to describe an event or interval variable, whereas \(\pv{\psi}\) is a quantum state amplitude defined \emph{over} such events.
 
-At each fixed point, an unrestricted complex paravector has four complex
-coefficients.  In the Pauli matrix realization it is an arbitrary
-\(2\times2\) complex matrix, and left multiplication acts independently on
-its two columns.  It is therefore the regular algebra module, not one
-irreducible two-component spinor.  To select one spinor column without adding
-component indices, fix once and for all
+At each fixed point, four complex coefficients are contained in an
+unrestricted complex paravector. In the Pauli matrix realization it is an arbitrary
+\(2\times2\) complex matrix, and its two columns are acted on independently
+by left multiplication. Two independent two-entry columns are therefore contained,
+not one physical wave-function block. One column is selected without adding
+component indices by the fixed selector \(\pv{\Pi}(\eqtext{column})\) from
+Eq.\ \eqref{eq:fixed-column-carrier}, and a physical block is restricted by
 \begin{equation*}
-\Pi_0:=\frac12(1+\sigma_3)
+\pv{\psi}=\pv{\psi}\pv{\Pi}(\eqtext{column}).
 \end{equation*}
-and restrict a physical Weyl block by
-\begin{equation*}
-\psi=\psi\Pi_0.
-\end{equation*}
-The set \((\C\oplus\C^3)\Pi_0\) is a minimal left ideal, selected by the
-fixed factor on the right.  Every operator used below acts on the left, so the
-restriction is preserved.  The factor \(\Pi_0\) is only a column selector; it
+The column is selected by the fixed factor on the right. Every displayed operator
+is applied on the left, so the restriction is preserved by associativity:
+\((\pv{Z}\pv{\psi})\pv{\Pi}(\eqtext{column})
+=\pv{Z}(\pv{\psi}\pv{\Pi}(\eqtext{column}))=\pv{Z}\pv{\psi}\).
+The factor \(\pv{\Pi}(\eqtext{column})\) is only a column selector; it
 is not a measurement of spin along the third axis.
 
 The scalar and vector coefficients of an algebra block are amplitude channels,
 not separately measurable particles or classical subfields.  A bare component
-count also does not assign physical spin: the transformation law, field
+count also does not cause physical spin to be assigned: the transformation law, field
 equation, and carrier restriction must be specified together.
 
-The spin-0 Klein--Gordon subsections use \(\psi\in\C\).  The Dirac construction
-uses a two-block field
+The field \(\psi\in\C\) is used in the spin-0 Klein--Gordon subsections. A
+two-block field is used in the Dirac construction:
 \begin{equation*}
 \bPsi=
 \begin{Bmatrix}
@@ -62,430 +62,466 @@ uses a two-block field
 \bPsi_2
 \end{Bmatrix},
 \end{equation*}
-with \(\bPsi_n=\bPsi_n\Pi_0\).  Each block then carries two complex
-amplitudes and the pair carries the four complex amplitudes of one Dirac
-field.  If the minimal-ideal restriction is omitted, the same equations remain
-algebraically valid but describe two independent Dirac fields, one in each
-matrix column.
+with \(\bPsi_n=\bPsi_n\pv{\Pi}(\eqtext{column})\). Two complex amplitudes are
+then carried by each block, and the four complex amplitudes of one Dirac
+field are carried by the pair. If the fixed-column restriction is omitted,
+the same equations remain algebraically valid but are applicable to two
+independent Dirac fields, one in each matrix column.
 
 \subsubsection{Complex-Paravector Bilinears and Bra-Ket Extraction}
-To make the bra-ket notation precise in the paravector setting, write
+The bra-ket notation is made precise in the paravector setting by the
+decompositions
 \begin{equation*}
 \begin{aligned}
-\psi&=\psi_s+\psi_{\mathbf v}\cdot\sigv,
+\pv{\psi}&=\psi_s+\vct{\psi}_{\vct{v}}\cdot\sigv,
+&&
+\pv{Z}&=Z_s+\vct{Z}_{\vct{v}}\cdot\sigv,
 &
-O&=O_s+O_{\mathbf v}\cdot\sigv,\\
-Z&=Z_s+Z_{\mathbf v}\cdot\sigv,
-&
-X&=X_s+X_{\mathbf v}\cdot\sigv,
+\pv{X}&=X_s+\vct{X}_{\vct{v}}\cdot\sigv,
 \end{aligned}
 \end{equation*}
-with \(\psi_s,Z_s\in\C\), \(\psi_{\mathbf v},Z_{\mathbf v}\in\C^3\),
-\(X_s\in\R\), \(X_{\mathbf v}\in\R^3\), and with operator-valued
-components acting on fields to their right. The three involutions on the state
+with \(\psi_s,Z_s\in\C\), \(\vct{\psi}_{\vct{v}},\vct{Z}_{\vct{v}}\in\C^3\),
+\(X_s\in\R\), \(\vct{X}_{\vct{v}}\in\R^3\), and with fields acted on by
+operator-valued components to their left. The three involutions on the state
 are
 \begin{equation*}
 \begin{aligned}
-\conj{\psi}&=\psi_s^*-\psi_{\mathbf v}^*\cdot\sigv,\\
-\rev{\psi}&=\psi_s^*+\psi_{\mathbf v}^*\cdot\sigv,\\
-\crev{\psi}&=\psi_s-\psi_{\mathbf v}\cdot\sigv.
+\conj{\pv{\psi}}&=\psi_s^*-\vct{\psi}_{\vct{v}}^*\cdot\sigv,\\
+\herm{\pv{\psi}}&=\psi_s^*+\vct{\psi}_{\vct{v}}^*\cdot\sigv,\\
+\cherm{\pv{\psi}}&=\psi_s-\vct{\psi}_{\vct{v}}\cdot\sigv.
 \end{aligned}
 \end{equation*}
+The reason for the \(H\) pairing is made explicit by
+Eq.\ \eqref{eq:matrix-operation-dictionary}. If \(\pv{\phi}\) and
+\(\pv{\psi}\) are realized by the fixed right projector as the two-entry columns
+\(\{a;b\}\) and \(\{c;d\}\), then
+\begin{equation}
+2\,\eqtext{scalar}(\herm{\pv{\phi}}\pv{\psi})
+=\eqtext{tr}(\herm{\pv{\phi}}\pv{\psi})
+=\begin{Bmatrix}a^*&b^*\end{Bmatrix}
+ \begin{Bmatrix}c\\d\end{Bmatrix}
+=a^*c+b^*d.
+\label{eq:hermitian-column-pairing}
+\end{equation}
+Thus \(\herm{\pv{\phi}}\) is precisely the familiar row bra in the
+selected-column realization, and
+\(2\,\eqtext{scalar}(\herm{\pv{\psi}}\pv{\psi})\) is its nonnegative
+ordinary column norm. The factor \(2\) is required because intrinsic
+scalar extraction is one half of the matrix trace. By summation of this
+relation over the two projected Dirac blocks, the density is obtained; the
+spatial current is instead obtained from the opposite-order block bilinears
+fixed by the Dirac equation.
 The basic component products are collected below.
 \input{sections/qm_tables_expectation.tex}
 
-For \(S\in\R\), the reverse sandwich is
+For \(S\in\R\), the Hermitian sandwich is
 \begin{equation*}
-\rev{\psi}S\psi
-=S\rev{\psi}\psi,
+\herm{\pv{\psi}}S\pv{\psi}
+=S\herm{\pv{\psi}}\pv{\psi},
 \end{equation*}
-whose scalar part is
+whose physical selected-column density was defined in
+Eq.\ \eqref{eq:projected-block-density-function}. Its local form is
 \begin{equation*}
-\rho_\psi:=\eqtext{scalar}(\rev{\psi}\psi)
-=|\psi_s|^2+\psi_{\mathbf v}^*\cdot\psi_{\mathbf v}\geq0.
+\rho(\pv{\psi})
+=2\,\eqtext{scalar}(\herm{\pv{\psi}}\pv{\psi})
+=2\bigl(|\psi_s|^2
++\vct{\psi}_{\vct{v}}^*\cdot\vct{\psi}_{\vct{v}}\bigr)\geq0.
 \end{equation*}
-In the matrix realization scalar extraction is one half of the trace, so on a
-selected column the conventional column norm is \(2\rho_\psi\). The factor is
-shown explicitly below when the physical Dirac density is defined.
-This positive scalar supplies the time-slice Hilbert norm.  The vector part of
-\(\rev{\psi}\psi\), however, is not automatically a spatial probability
+In the matrix realization scalar extraction is one half of the trace, so
+\(\rho(\pv{\psi})\) is the conventional selected-column norm. The factor is
+retained explicitly in the scalar-extraction formula.
+The time-slice norm for a projected Pauli carrier and, after summation over
+both blocks, for a Dirac carrier is supplied by this positive scalar. It is not the
+conserved Klein--Gordon norm of a scalar relativistic field. The vector part of
+\(\herm{\pv{\psi}}\pv{\psi}\), however, is not automatically a spatial probability
 current.  In fact, under the active spinor convention
-\(\psi'=\rev{R}\psi\), it is invariant:
+\(\pv{\psi}'=\herm{\pv{R}}\pv{\psi}\), it is invariant:
 \begin{equation*}
-\rev{\psi'}\psi'=\rev{\psi}R\rev{R}\psi=\rev{\psi}\psi.
+\herm{\pv{\psi}'}\pv{\psi}'
+=\herm{\pv{\psi}}\pv{R}\herm{\pv{R}}\pv{\psi}
+=\herm{\pv{\psi}}\pv{\psi}.
 \end{equation*}
 Spatial spin or polarization information instead occurs in bilinears with the
-opposite order, such as \(\psi\rev{\psi}\), or in operator sandwiches fixed by
-the field equation.  More generally, \(\rev{\psi}O\psi\) contains four complex,
-hence eight real, coefficient channels before an extraction is chosen.  No
+opposite order, such as \(\pv{\psi}\herm{\pv{\psi}}\), or in operator sandwiches fixed by
+the field equation. More generally, four complex, hence eight real,
+coefficient channels are contained in
+\(\herm{\pv{\psi}}\pv{\mathcal{O}}\pv{\psi}\) before an extraction is chosen. No
 generic physical interpretation is assigned to its nonscalar channels.
 
-At fixed time, the algebra-block normalization is
+For a nonzero projected block, the scale is defined by
+\begin{equation}
+N:=\rho(\pv{\psi}).
+\label{eq:projected-block-scale}
+\end{equation}
+The following useful opposite-order identities are obtained from the fixed-column condition:
+\begin{equation}
+\begin{aligned}
+\herm{\pv{\psi}}\pv{\psi}&=N\pv{\Pi}(\eqtext{column}),\\
+\herm{\left(\frac{\pv{\psi}\herm{\pv{\psi}}}{N}\right)}
+&=\frac{\pv{\psi}\herm{\pv{\psi}}}{N},\\
+\left(\frac{\pv{\psi}\herm{\pv{\psi}}}{N}\right)^2
+&=\frac{\pv{\psi}\herm{\pv{\psi}}}{N}.
+\end{aligned}
+\label{eq:projected-block-density}
+\end{equation}
+Only the selected right column is retained by the first product. In the
+matrix realization the second product is the ordinary rank-one pure-state
+density matrix; its determinant is zero and twice the vector part of
+\(\pv{\psi}\herm{\pv{\psi}}\) is the selected column's sigma-polarization
+vector. This is the familiar geometry of a two-entry state, not an additional
+paravector degree of freedom.
+
+At fixed time, the spatially integrated bracket defined in
+Eq.\ \eqref{eq:adjoint-paravector-braket} is
 \begin{equation*}
-\langle \psi\mid\psi\rangle
-:=\int_{\R^3}\eqtext{scalar}(\rev{\psi}\psi)\,\dd^3r
-=\int_{\R^3}\rho_\psi\,\dd^3r
+\langle \pv{\phi} \mid \pv{\psi} \rangle
+=2\iiint\eqtext{scalar}(\herm{\pv{\phi}}\pv{\psi})\,
+\dd r_1\,\dd r_2\,\dd r_3.
+\end{equation*}
+Conversion of intrinsic scalar extraction, which is one half of the matrix
+trace, into the ordinary inner product of the selected two-entry column in
+Eq.\ \eqref{eq:hermitian-column-pairing} is provided by the factor \(2\). It is therefore a
+normalization convention rather than an additional physical factor.
+For a projected one-block Pauli carrier, the normalization is its equal-field
+specialization,
+\begin{equation*}
+\langle \pv{\psi}\mid\pv{\psi}\rangle
+=\iiint\rho(\pv{\psi})\,\dd r_1\,\dd r_2\,\dd r_3
 =1.
 \end{equation*}
-For a complex-paravector operator \(O\), define
+For a complex-paravector operator \(\pv{\mathcal{O}}\),
 \begin{equation*}
-\langle \psi\mid O\mid\psi\rangle
-:=\int_{\R^3}\eqtext{scalar}(\rev{\psi}O\psi)\,\dd^3r.
+\langle \pv{\psi}\mid\pv{\mathcal{O}}\pv{\psi}\rangle
+=2\iiint\eqtext{scalar}(\herm{\pv{\psi}}\pv{\mathcal{O}}\pv{\psi})\,
+\dd r_1\,\dd r_2\,\dd r_3.
 \end{equation*}
-If the state is not already normalized, the corresponding expectation map is
+For a state that is not already normalized, its normalized scalar matrix
+element is the ratio
+\begin{equation}
+\frac{\langle\pv{\psi}\mid\pv{\mathcal{O}}\pv{\psi}\rangle}
+{\langle\pv{\psi}\mid\pv{\psi}\rangle}.
+\label{eq:expectation-map}
+\end{equation}
+If \(\pv{\mathcal{O}}\pv{\psi}=\phi_s+\vct{\phi}_{\vct{v}}\cdot\sigv\), then the extracted scalar channel is simply
 \begin{equation*}
-\mathbb E_\psi(O)
-:=
-\frac{\int_{\R^3}\eqtext{scalar}(\rev{\psi}O\psi)\,\dd^3r}
-{\int_{\R^3}\eqtext{scalar}(\rev{\psi}\psi)\,\dd^3r}.
+\eqtext{scalar}(\herm{\pv{\psi}}\pv{\mathcal{O}}\pv{\psi})
+=\psi_s^*\phi_s+\vct{\psi}_{\vct{v}}^*\cdot\vct{\phi}_{\vct{v}}.
 \end{equation*}
-If \(O\psi=\phi_s+\phi_{\mathbf v}\cdot\sigv\), then the extracted scalar channel is simply
-\begin{equation*}
-\eqtext{scalar}(\rev{\psi}O\psi)
-=\psi_s^*\phi_s+\psi_{\mathbf v}^*\cdot\phi_{\mathbf v}.
-\end{equation*}
-When \(O\) is reverse-self-adjoint under the spatial integral and the boundary
-terms are benign, this scalar expectation is real.  For the Dirac field the
-physical norm in the conventional column normalization used below is twice the
-sum of this expression over its two restricted blocks; the field equation
-below supplies the associated conserved spatial current.
+When \(\pv{\mathcal{O}}\) is Hermitian under the spatial integral and the
+boundary terms are benign, this map is a real expectation value. For a
+general \(\pv{\mathcal{O}}\), it is only a normalized matrix element and may be complex.
+For the Dirac field the physical norm is the sum of this same selected-column
+pairing over its two restricted blocks; the associated conserved spatial
+current is supplied by the field equation. No separately conserved norm is
+assigned to either massive Dirac block.
 
-By contrast,
+By contrast, for an unrestricted algebra-valued paravector field,
 \begin{equation*}
-\crev{\psi}\psi
-=\psi_s^2-\psi_{\mathbf v}\cdot\psi_{\mathbf v}
-=\langle\!\langle\psi\rangle\!\rangle^2
+\adjf{\pv{\psi}}\pv{\psi}
+=\psi_s^2-\vct{\psi}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}}
+=\detf{\pv{\psi}}
 \end{equation*}
-is the determinant bilinear. It is algebraically useful, but it is not positive-definite and so it should not be used as the probabilistic normalization. In this framework the single bra-ket bracket \(\langle\cdot\mid\cdot\rangle\) is therefore best reserved for the scalar expectation map built from reversion, while \(\langle\!\langle\cdot\rangle\!\rangle^2\) continues to denote the determinant form.
+is the determinant quadratic form. It is algebraically useful, but it is not
+positive-definite and so it should not be used as the probabilistic
+normalization. Moreover, after the fixed-projector restriction to one matrix
+column, this determinant vanishes identically because the rank of the resulting
+matrix is at most one. In this framework the single bra-ket bracket
+\(\langle\cdot\mid\cdot\rangle\) is therefore reserved for the scalar
+expectation map built from \(H\).
 
-\subsubsection{Carrier Spaces, Pairings, and Spin Assignment}
-This subsection sharpens the interpretation of the carrier spaces already used above and connects them to the projector, commutator, and adjoint formulas in Eqs.\ \eqref{eq:projectors}, \eqref{eq:paravector-commutator}, and \eqref{eq:adjoint-paravector-braket}. The goal is to keep the algebraic carrier, the physical spin assignment, and the observable bilinears conceptually separate.
-Standard physics does not assign spin from component count alone. The physically relevant data are
+\subsubsection{Carrier Interpretation and Pairings}
+In standard physics, spin is not assigned from component count alone. The physically relevant data are
 \begin{equation*}
 (\text{transformation law},\ \text{field equation},\ \text{constraints}).
 \end{equation*}
-In standard Lorentz language,
-\begin{align*}
-\text{spin }0:&\quad (0,0),\\
-\text{spin }\tfrac12:&\quad (\tfrac12,0)\oplus(0,\tfrac12),\\
-\text{spin }1:&\quad (1,0)\ \text{or}\ (0,1)\quad \text{for one chiral }F,\\
-&\quad (1,0)\oplus(0,1)\quad \text{for }F\text{ together with its conjugate},\\
-&\quad (\tfrac12,\tfrac12)\quad \text{for }A^\mu.
-\end{align*}
-So the algebraic carrier spaces
-\begin{equation*}
-\C,\qquad
-\C\oplus\C^3,\qquad
-\{0\}\oplus\C^3
-\end{equation*}
-do not determine the physical spin by themselves. They become spin sectors only after the operator law is fixed.
+Thus the spin-zero Klein--Gordon field is carried by a complex scalar only
+after its scalar transformation law and field equation are imposed. A
+one-half-unit Dirac block is carried by a selected two-entry column only after
+the paired first-order equations are imposed. The spin-one electromagnetic
+field is carried by the pure-vector complex paravector \(\pv{F}\) only with
+its field transformation law and Maxwell equation. A connection between the present
+construction and the standard classification is made by these statements in
+words, without introduction of another symbolic notation.
 
 \noindent\textbf{Bilinear pairings.}
-The reverse product supplies the positive scalar norm
-\begin{equation*}
-\rho_\psi:=\eqtext{scalar}(\rev{\psi}\psi)
-=|\psi_s|^2+\psi_{\mathbf v}^*\cdot\psi_{\mathbf v}.
-\end{equation*}
-Its vector part is an algebraic column-space channel, not a universal
-space-time current.  Currents are identified only after a field equation and
-transformation law have been fixed.
-For two fields \(\phi,\psi\in\C\oplus\C^3\), the three scalar pairings are
+For two complex-paravector fields \(\pv{\phi}\) and \(\pv{\psi}\), the three scalar pairings are
 \begin{align*}
-\eqtext{scalar}(\rev{\phi}\psi)
-&=\phi_s^*\psi_s+\phi_{\mathbf v}^*\cdot\psi_{\mathbf v}
-&& \text{Hermitian-type pairing},\\
-\eqtext{scalar}(\crev{\phi}\psi)
-&=\phi_s\psi_s-\phi_{\mathbf v}\cdot\psi_{\mathbf v}
-&& \text{metric pairing},\\
-\eqtext{scalar}(\conj{\phi}\psi)
-&=\phi_s^*\psi_s-\phi_{\mathbf v}^*\cdot\psi_{\mathbf v}
-&& \text{indefinite companion}.
+\eqtext{scalar}(\herm{\pv{\phi}}\pv{\psi})
+&=\phi_s^*\psi_s+\vct{\phi}_{\vct{v}}^*\cdot\vct{\psi}_{\vct{v}},\\
+\eqtext{scalar}(\cherm{\pv{\phi}}\pv{\psi})
+&=\phi_s\psi_s-\vct{\phi}_{\vct{v}}\cdot\vct{\psi}_{\vct{v}},\\
+\eqtext{scalar}(\conj{\pv{\phi}}\pv{\psi})
+&=\phi_s^*\psi_s-\vct{\phi}_{\vct{v}}^*\cdot\vct{\psi}_{\vct{v}}.
 \end{align*}
-For \(\phi=\psi\), the metric pairing reduces to
+When the two fields agree, the first line is the positive Hermitian pairing;
+the second is the determinant extension; and the third is its indefinite
+companion.
+For \(\pv{\phi}=\pv{\psi}\), the determinant extension reduces to
 \begin{equation*}
-\eqtext{scalar}(\crev{\psi}\psi)
-=\crev{\psi}\psi
-=\langle\!\langle\psi\rangle\!\rangle^2.
+\eqtext{scalar}(\cherm{\pv{\psi}}\pv{\psi})
+=\adjf{\pv{\psi}}\pv{\psi}
+=\detf{\pv{\psi}}.
 \end{equation*}
-Only the reverse pairing is being used here as the quantum bra-ket pairing. The determinant pairing is the intrinsic quadratic form used in factorization identities, and the companion pairing is algebraically well-defined but does not carry an independent standard quantum interpretation here.
+Only the Hermitian pairing is being used here as the quantum bra-ket pairing.
+The equal-argument determinant is the intrinsic quadratic form used in
+factorization identities, and the companion pairing is algebraically
+well-defined but does not carry an independent standard quantum
+interpretation here.
 
-Accordingly, for the spatially integrated bracket
-\begin{equation}
-\langle \phi \mid \psi \rangle
-:=\int_{\R^3}\eqtext{scalar}(\rev{\phi}\psi)\,\dd^3r,
-\qquad
-\langle \phi \mid O\psi \rangle
-=\langle O^\dagger\phi \mid \psi \rangle,
-\label{eq:adjoint-paravector-braket}
-\end{equation}
-the operator adjoint \(O^\dagger\) is the reverse-adjoint determined by this
-pairing, up to the usual boundary terms when derivatives are present. For left
-multiplication by a fixed paravector \(Z\), the adjoint is left multiplication
-by \(\rev{Z}\), since
-\(\rev{(\rev{Z}\phi)}=\rev{\phi}Z\).  Nonscalar parts of
-\(\rev{\psi}O\psi\) remain available as algebraic bilinears, but a current,
+For the spatial bracket already defined in
+Eq.\ \eqref{eq:adjoint-paravector-braket}, an operator \(\pv{\mathcal{O}}\) is
+Hermitian on the chosen fields and
+boundary conditions when
+\[
+\langle\pv{\phi}\mid\pv{\mathcal{O}}\pv{\psi}\rangle
+=\langle\pv{\mathcal{O}}\pv{\phi}\mid\pv{\psi}\rangle.
+\]
+For left multiplication by a fixed paravector \(\pv{Z}\), moving the
+operator to the first field replaces it by \(\herm{\pv{Z}}\), because
+\(\herm{(\herm{\pv{Z}}\pv{\phi})}=\herm{\pv{\phi}}\pv{Z}\).
+For a pointwise multiplication operator, \(H\) is exactly the matrix
+Hermitian adjoint from Eq.\ \eqref{eq:matrix-operation-dictionary}. For a
+differential operator, integration by parts, its domain, and the boundary
+terms must also be included before it can be called Hermitian under the
+spatial bracket. Nonscalar parts of
+\(\herm{\pv{\psi}}\pv{\mathcal{O}}\pv{\psi}\) remain available as algebraic bilinears, but a current,
 flux, or polarization interpretation must be established separately for the
 chosen operator and field equation.
 
 \noindent\textbf{Generalized operator products.}
-The following identities are algebraic. They describe operator composition on a paravector-valued state, but by themselves they do not assign a physical spin.
+The following identities are algebraic. Operator composition on a paravector-valued state is described by them, but no physical spin is assigned by them alone.
 
-For operator-valued components, the commutator no longer collapses to the pure cross-product law of Eq.\ \eqref{eq:paravector-commutator}. Write
+For operator-valued components, reduction of the commutator to the pure
+cross-product law of Eq.\ \eqref{eq:paravector-commutator} no longer occurs.
+For compactness, the scalar operator is denoted by \(S\) and the vector
+operator by \(\vct{V}\):
 \begin{equation*}
-O=O_s+O_{\mathbf v}\cdot\sigv,
+\pv{\mathcal{O}}=S+\vct{V}\cdot\sigv,
 \qquad
-O'=O_s'+O_{\mathbf v}'\cdot\sigv,
+\pv{\mathcal{O}}'=S'+\vct{V}'\cdot\sigv,
 \end{equation*}
-with component operators commuting with the fixed basis elements and acting on
-the state to their right. Then, with dot and cross products taken componentwise
+with the state acted on by component operators to its left; those operators
+commute with the fixed basis elements. Then, with dot and cross products taken componentwise
 and in the written operator order,
 \begin{align}
-\com{O}{O'}\psi
-&=\Bigl(\com{O_s}{O_s'}
-+O_{\mathbf v}\cdot O_{\mathbf v}'
--O_{\mathbf v}'\cdot O_{\mathbf v}\Bigr)\psi\notag\\
-&\quad+\Bigl(\com{O_s}{O_{\mathbf v}'}
-+\com{O_{\mathbf v}}{O_s'}\notag\\
+\com{\pv{\mathcal{O}}}{\pv{\mathcal{O}}'}\pv{\psi}
+&=\Bigl(\com{S}{S'}
++\vct{V}\cdot \vct{V}'
+-\vct{V}'\cdot \vct{V}\Bigr)\pv{\psi}\notag\\
+&\quad+\Bigl(\com{S}{\vct{V}'}
++\com{\vct{V}}{S'}\notag\\
 &\qquad\qquad
-+i\bigl(O_{\mathbf v}\times O_{\mathbf v}'
--O_{\mathbf v}'\times O_{\mathbf v}\bigr)\Bigr)\cdot\sigv\,\psi,
++i\bigl(\vct{V}\times \vct{V}'
+-\vct{V}'\times \vct{V}\bigr)\Bigr)\cdot\sigv\,\pv{\psi},
 \label{eq:operator-commutator-action}
 \end{align}
-where the scalar-vector commutators are understood componentwise. Unlike the purely algebraic paravector commutator, Eq.\ \eqref{eq:operator-commutator-action} generally has both scalar and vector parts. Only when all component operators mutually commute does it reduce to the simpler law
+where the scalar-vector commutators are understood componentwise. Unlike the
+purely algebraic paravector commutator, both scalar and vector parts are
+generally contained in Eq.\ \eqref{eq:operator-commutator-action}. Only when
+all component operators mutually commute is the following simpler law
+obtained:
 \begin{equation*}
-\com{O}{O'}\psi
-=2i\bigl(O_{\mathbf v}\times O_{\mathbf v}'\bigr)\cdot\sigv\,\psi.
+\com{\pv{\mathcal{O}}}{\pv{\mathcal{O}}'}\pv{\psi}
+=2i\bigl(\vct{V}\times \vct{V}'\bigr)\cdot\sigv\,\pv{\psi}.
 \end{equation*}
 
 The matching anticommutator is
 \begin{align}
-\acom{O}{O'}\psi
-&=(OO'+O'O)\psi\notag\\
-&=\Bigl(\acom{O_s}{O_s'}
-+O_{\mathbf v}\cdot O_{\mathbf v}'
-+O_{\mathbf v}'\cdot O_{\mathbf v}\Bigr)\psi\notag\\
-&\quad+\Bigl(\acom{O_s}{O_{\mathbf v}'}\notag\\
+\acom{\pv{\mathcal{O}}}{\pv{\mathcal{O}}'}\pv{\psi}
+&=(\pv{\mathcal{O}}\pv{\mathcal{O}}'+\pv{\mathcal{O}}'\pv{\mathcal{O}})\pv{\psi}\notag\\
+&=\Bigl(\acom{S}{S'}
++\vct{V}\cdot \vct{V}'
++\vct{V}'\cdot \vct{V}\Bigr)\pv{\psi}\notag\\
+&\quad+\Bigl(\acom{S}{\vct{V}'}\notag\\
 &\qquad\qquad
-+\acom{O_{\mathbf v}}{O_s'}\notag\\
++\acom{\vct{V}}{S'}\notag\\
 &\qquad\qquad
-+i\bigl(O_{\mathbf v}\times O_{\mathbf v}'
-+O_{\mathbf v}'\times O_{\mathbf v}\bigr)\Bigr)\cdot\sigv\,\psi,
++i\bigl(\vct{V}\times \vct{V}'
++\vct{V}'\times \vct{V}\bigr)\Bigr)\cdot\sigv\,\pv{\psi},
 \label{eq:operator-anticommutator-action}
 \end{align}
 so that
 \begin{align*}
-OO'
-&=\tfrac12\bigl(\acom{O}{O'}+\com{O}{O'}\bigr).
+\pv{\mathcal{O}}\pv{\mathcal{O}}'
+&=\tfrac12\bigl(\acom{\pv{\mathcal{O}}}{\pv{\mathcal{O}}'}+\com{\pv{\mathcal{O}}}{\pv{\mathcal{O}}'}\bigr).
 \end{align*}
-This is the natural companion to the operator commutator formula and is also the algebraic starting point for covariance and uncertainty identities once a state, expectation functional, and operator domain have been specified.
+This is the natural companion to the operator commutator formula. A covariance
+or uncertainty identity can be formed from it only after a state space, expectation
+functional, Hermitian operators, and common domains have been specified; no
+such physical statement is obtained from this algebraic identity alone.
 
 \noindent\textbf{Carrier closure.}
-The same algebra shows which carrier spaces are actually closed under which operators:
+The carrier spaces that are closed under the respective operators are displayed by the same algebra:
 \begin{align}
-\partial:\C&\to\C\oplus\C^3,\notag\\
-\partial:\{0\}\oplus\C^3&\to\C\oplus\C^3,\notag\\
-\partial:\C\oplus\C^3&\to\C\oplus\C^3,\notag\\
-\partial:(\C\oplus\C^3)\Pi_0
-&\to(\C\oplus\C^3)\Pi_0.
+\pv{\partial}:\C&\to\C+\C^3,\notag\\
+\pv{\partial}:\{0\}+\C^3&\to\C+\C^3,\notag\\
+\pv{\partial}:\C+\C^3&\to\C+\C^3,\notag\\
+\pv{\partial}:(\C+\C^3)\pv{\Pi}(\eqtext{column})
+&\to(\C+\C^3)\pv{\Pi}(\eqtext{column}).
 \label{eq:carrier-closure}
 \end{align}
 Indeed,
 \begin{align*}
-\partial\psi_s
+\pv{\partial}\psi_s
 &=(\partial_t\psi_s)+(\gradv\psi_s)\cdot\sigv,\\
-\partial(\psi_{\mathbf v}\cdot\sigv)
-&=(\gradv\cdot\psi_{\mathbf v})
-+\bigl(\partial_t\psi_{\mathbf v}+i\,\gradv\times\psi_{\mathbf v}\bigr)\cdot\sigv.
+\pv{\partial}(\vct{\psi}_{\vct{v}}\cdot\sigv)
+&=(\gradv\cdot\vct{\psi}_{\vct{v}})
++\bigl(\partial_t\vct{\psi}_{\vct{v}}+i\,\gradv\times\vct{\psi}_{\vct{v}}\bigr)\cdot\sigv.
 \end{align*}
 The full complex-paravector space is the smallest algebra containing the scalar
-and vector channels, but it is not the smallest left module. The minimal left
-ideal \((\C\oplus\C^3)\Pi_0\), selected by a fixed right factor, is a
-two-complex-dimensional left module and is
-also closed because every differential and potential operator acts on the
-left.  The scalar subspace closes only after passing to scalar second-order
-combinations such as \(\Box+m^2\). A pure-vector specialization is
+and vector channels, but the projected fixed-column carrier is smaller.
+Two complex amplitudes are carried by the carrier
+\((\C+\C^3)\pv{\Pi}(\eqtext{column})\), selected by a fixed right factor, and
+closure is preserved because every differential and potential operator is
+applied on the left. Closure of the scalar subspace is obtained only after
+passage to scalar second-order combinations such as \(\Box+m^2\). A
+pure-vector specialization is
 algebraically meaningful, but it is not preserved by generic first-order
-paravector action and therefore requires Maxwell- or Proca-type constraints if
-it is to describe a spin-1 field. A real-paravector specialization is not a
+paravector action; Maxwell equations or separately defined massive-vector
+constraints are therefore required if a spin-1 field is to be described by it.
+A real-paravector specialization is not a
 general quantum carrier because it is not closed under multiplication by the
-phase \(\exp(i\alpha)\).
+phase \(\exp(i\theta)\).
 
-With those algebraic preliminaries fixed, the organizing principle is this: one first chooses a carrier field for \(\psi\), then restricts to the operators that preserve that carrier or define its field equation, and then lists the bilinear pairings that extract the physically relevant observables from that carrier. The bilinears need not take values in the same carrier field; in general they land in scalar, vector, or paravector observable channels.
+With those algebraic preliminaries fixed, a carrier field is chosen first,
+followed by the equation and operators under which it is preserved, and then
+by the bilinears from which physical observables are defined. Bilinears need
+not take values in the original carrier; scalar, vector, or paravector
+observables may be obtained.
 
-With that understood, the physically consistent sector-by-sector summary is the following.
+\noindent\textbf{Scalar carrier.}
+The Klein--Gordon field \(\psi\) is a complex scalar. Multiplication by
+\(\pv{\Pi}(\pm)\) from Eq.\ \eqref{eq:projectors} would take it out of
+that carrier, so the axis projectors are
+not scalar-wave spin projectors. The positive quantity \(|\psi|^2\) is not
+the time component of the relativistic conserved current. For \(m>0\), the
+mixed current is defined in Eq.\ \eqref{eq:kg-mixed-current}. The following
+relations are obtained by direct differentiation:
+\begin{align*}
+2m\,\partial_t\rho(\phi,\psi)
+&=i\left((E^2\phi)^*\psi-\phi^*E^2\psi\right),\\
+2m\,\gradv\cdot\vct{j}(\phi,\psi)
+&=i\left(\phi^*\vct{P}^2\psi-(\vct{P}^2\phi)^*\psi\right).
+\end{align*}
+Equation \eqref{eq:kg-continuity-proof} is established by addition of the
+lines and application of the two Klein--Gordon equations. For a constant-potential mode
+\[
+\psi=N\exp(-i\omega t+i\vct{k}\cdot\vct{r}),
+\]
+where \(N\) is a constant complex amplitude, the component check is
+\begin{align*}
+E\psi&=(\omega-qV)\psi,
+&\vct{P}\psi&=(\vct{k}-q\vct{A})\psi,\\
+(\omega-qV)^2&=(\vct{k}-q\vct{A})^2+m^2,\\
+\rho(\psi,\psi)
+&=\frac{\omega-qV}{m}|N|^2,
+&\vct{j}(\psi,\psi)
+&=\frac{\vct{k}-q\vct{A}}{m}|N|^2.
+\end{align*}
+Every potential and current sign is thereby verified.
 
-\noindent\textbf{1. Spin \(0\): complex scalar Klein--Gordon sector}
-\begin{align*}
-\text{carrier:}\quad
-&\psi:\R^{1,3}\to\C,\\
-\text{representation:}\quad
-&(0,0),\\
-\text{field equation:}\quad
-&(\Box+m^2)\psi=0,\\
-\text{operator class:}\quad
-&O_s:\C\to\C,\\
-\text{examples:}\quad
-&\Box+m^2,\ \partial_t\pm i\Omega,\\
-&-E^2+\mathbf P^2+m^2,\ldots,\\
-\text{spin projector:}\quad
-&\Pi(\pm)\psi\notin\C.
-\end{align*}
-The scalar pairings reduce to
-\begin{align*}
-\eqtext{scalar}(\rev{\phi}\psi)
-&=\phi^*\psi,\\
-\eqtext{scalar}(\crev{\phi}\psi)
-&=\phi\psi,\\
-\eqtext{scalar}(\conj{\phi}\psi)
-&=\phi^*\psi.
-\end{align*}
-So the reverse and sigma-conjugate pairings coincide on the scalar sector,
-while the metric pairing is different.  The local quantity \(|\psi|^2\) is
-positive but is not the time component of the conserved relativistic current.
-For \(m>0\), the derivative-built current can be kept in scalar/vector form using the covariant operators already defined:
-\begin{align*}
-\rho_{\mathrm{KG}}
-&:=\frac{1}{2m}\left(\psi^*E\psi+(E\psi)^*\psi\right),\\
-\mathbf j_{\mathrm{KG}}
-&:=\frac{1}{2m}\left(\psi^*\mathbf P\psi
-+(\mathbf P\psi)^*\psi\right),\\
-\partial_t\rho_{\mathrm{KG}}+\gradv\cdot\mathbf j_{\mathrm{KG}}&=0.
-\end{align*}
-For the free field set \(q=0\).  The density is conserved but is not positive
-on the full positive- and negative-frequency solution space. A one-particle
-interpretation therefore requires a frequency restriction, while quantum
-field theory interprets the two branches as particle and antiparticle modes.
+The free field is obtained by setting \(q=0\). The integrated pairing in
+Eq.\ \eqref{eq:kg-pairing} is positive after restriction to the
+positive-frequency sector, although its local density need not be pointwise
+positive for a superposition. That solution sector must be preserved by a
+scalar measurement operator, which must be Hermitian under this pairing. The split is
+preserved for the free field, or for a stationary background with a
+separately established positive-energy subspace; a global frequency split need
+not be preserved by a general time-dependent electromagnetic background.
+Accordingly, no local position-probability rule is claimed for the
+one-particle Klein--Gordon field.
 
-\noindent\textbf{2. Spin \(\tfrac12\): Dirac/Pauli sector}
-\begin{align*}
-\text{algebraic block:}\quad
-&\psi:\R^{1,3}\to\C\oplus\C^3,\\
-\text{physical field:}\quad
-&\bPsi=
-\begin{Bmatrix}
-\bPsi_1\\[2pt]
-\bPsi_2
-\end{Bmatrix},
-\qquad
-\bPsi_n\in(\C\oplus\C^3)\Pi_0,\\
-\text{representation:}\quad
-&(\tfrac12,0)\oplus(0,\tfrac12),\\
-\text{field equations:}\quad
-&(\Wmat(i\partial)-m\I)\bPsi=0,\\
-&(\Wmat(i\partial-q\Phi^*)-m\I)\bPsi=0,\\
-\text{operator class:}\quad
-&O=O_s+O_{\mathbf v}\cdot\sigv,\\
-&\text{acting on each paravector block},\\
-\text{examples:}\quad
-&\partial,\ \partial^*,\\
-&E\pm\sigv\cdot\mathbf P,\ \Pi(\pm),\\
-\text{spin projector:}\quad
-&\Pi(\pm)\text{ acts from the left on each block}.
-\end{align*}
-The basic one-block pairings are
-\begin{align*}
-\eqtext{scalar}(\rev{\phi}\psi)
-&=\phi_s^*\psi_s+\phi_{\mathbf v}^*\cdot\psi_{\mathbf v},\\
-\eqtext{scalar}(\crev{\phi}\psi)
-&=\phi_s\psi_s-\phi_{\mathbf v}\cdot\psi_{\mathbf v},\\
-\eqtext{scalar}(\conj{\phi}\psi)
-&=\phi_s^*\psi_s-\phi_{\mathbf v}^*\cdot\psi_{\mathbf v}.
-\end{align*}
-For the two-block Dirac carrier, the natural extension is
-\begin{equation*}
-\langle \{\Xi_1;\Xi_2\} \mid \{\Psi_1;\Psi_2\} \rangle
-:=2\int_{\R^3}
-\sum_{n=1}^{2}\eqtext{scalar}(\rev{\Xi_n}\Psi_n)\,\dd^3r.
-\end{equation*}
-The reverse pairing is the positive Hermitian-type pairing used for time-slice
-expectations. The metric pairing is the algebraic form used in identities such
-as \(Z\crev{Z}\), and the companion pairing is indefinite. The minimal-ideal
-restriction makes each block one Weyl spinor. Without it, the two matrix
-columns give two independent copies of every displayed Dirac and Pauli
-equation.
+\noindent\textbf{Projected two-block carrier.}
+For two projected blocks, the Hermitian pairing is
+Eq.\ \eqref{eq:dirac-pairing}. For the block operator
+\[
+\mat{\mathcal{O}}=
+\begin{pmatrix}
+\pv{\mathcal{O}}_{11}&\pv{\mathcal{O}}_{12}\\
+\pv{\mathcal{O}}_{21}&\pv{\mathcal{O}}_{22}
+\end{pmatrix},
+\]
+the operator pairing defined in Eq.\ \eqref{eq:dirac-operator-pairing}
+is expanded explicitly as
+\[
+\begin{aligned}
+&\langle\bPsi(\eqtext{left})\mid
+\mat{\mathcal{O}}\bPsi(\eqtext{right})\rangle\\
+&=2\iiint\eqtext{scalar}\!\Big(
+\herm{\bPsi_1(\eqtext{left})}
+\pv{\mathcal{O}}_{11}\bPsi_1(\eqtext{right})\\
+&\qquad
++\herm{\bPsi_1(\eqtext{left})}
+\pv{\mathcal{O}}_{12}\bPsi_2(\eqtext{right})\\
+&\qquad
++\herm{\bPsi_2(\eqtext{left})}
+\pv{\mathcal{O}}_{21}\bPsi_1(\eqtext{right})\\
+&\qquad
++\herm{\bPsi_2(\eqtext{left})}
+\pv{\mathcal{O}}_{22}\bPsi_2(\eqtext{right})
+\Big)\,\dd r_1\,\dd r_2\,\dd r_3.
+\end{aligned}
+\]
+Conversion of scalar extraction in the matrix realization to the ordinary
+two-entry column normalization is provided by the factor \(2\). Without the
+fixed right projector, two independent copies of every displayed Dirac and
+Pauli equation are obtained from the two matrix columns. The conserved density
+and current in Eq.\ \eqref{eq:dirac-current} are supplied by the coupled
+first-order equation rather than by the vector part of a generic Hermitian
+product. Equation
+\eqref{eq:dirac-expectation} is the corresponding complete two-block
+measurement rule.
 
-The coupled first-order equation gives the conserved Dirac density and current
-directly:
-\begin{align*}
-\rho_D
-&:=2\,\eqtext{scalar}\!\left(
-\rev{\bPsi_1}\bPsi_1+\rev{\bPsi_2}\bPsi_2\right),\\
-\mathbf j_D
-&:=2\,\eqtext{vector}\!\left(
-\bPsi_2\rev{\bPsi_2}-\bPsi_1\rev{\bPsi_1}\right),\\
-\partial_t\rho_D+\gradv\cdot\mathbf j_D&=0.
-\end{align*}
-The opposite product order in \(\mathbf j_D\) is essential: it is the order
-that transforms as a spatial vector under left spinor transformations.
+\noindent\textbf{Pure-vector field carrier.}
+The electromagnetic field \(\pv{F}\) is a pure-vector complex paravector.
+That pure-vector space is not preserved under left multiplication by the
+projectors \(\pv{\Pi}(\pm)\) from Eq.\ \eqref{eq:projectors}, so this
+two-projector split is not the electromagnetic polarization
+split. A free massless electromagnetic field has two independent transverse
+polarizations; a massive spin-one vector field would have three. The
+invariant field square and the observer-dependent energy and flux paravector
+are the bilinears already derived in the electromagnetic section. A generic
+Hermitian-product bracket is not substituted for those field observables.
 
-\noindent\textbf{3. Spin \(1\): vector or field-strength sector}
-\begin{align*}
-\text{carrier:}\quad
-&F:\R^{1,3}\to\{0\}\oplus\C^3,\\
-\text{main example:}\quad
-&F=(\mathbf E+i\mathbf B)\cdot\sigv,\\
-\text{representation:}\quad
-&(1,0)\ \text{or}\ (0,1)\quad\text{for }F,\\
-&(1,0)\oplus(0,1)\quad\text{for }F\text{ and its conjugate},\\
-&(\tfrac12,\tfrac12)\quad\text{for a vector potential }A^\mu,\\
-\text{field equation:}\quad
-&\partial F=D^*,\\
-\text{operator class:}\quad
-&\partial,\ \partial^*,\ \Box,\ \text{and Maxwell/Proca constraints},\\
-\text{closure facts:}\quad
-&\partial,\partial^*:\{0\}\oplus\C^3\to\C\oplus\C^3,\\
-&\Box:\{0\}\oplus\C^3\to\{0\}\oplus\C^3,\\
-\text{spin projector:}\quad
-&\Pi(\pm)F\notin\{0\}\oplus\C^3.
-\end{align*}
-So the two-projector split \(\Pi(\pm)\) is not the standard spin-\(1\) decomposition. The standard polarization counts are
-\begin{align*}
-\text{massive spin }1:&\quad m_s=-1,0,1,\\
-\text{massless spin }1:&\quad \lambda=\pm1.
-\end{align*}
-The bilinear quantities already present in the manuscript are
-\begin{align*}
-\tfrac12F^2
-&=\tfrac12(\mathbf E^2-\mathbf B^2)+i\,\mathbf E\cdot\mathbf B,\\
-\tfrac12F F^{\mathrm R}
-&=\tfrac12(\mathbf E^2+\mathbf B^2)+(\mathbf E\times\mathbf B)\cdot\sigv.
-\end{align*}
-These have direct standard physical interpretations: \(\tfrac12F^2\) packages the Lorentz invariants, while \(\tfrac12F F^{\mathrm R}\) packages the energy density and the Poynting vector. A simple bra-ket built from \(\rev{F}F\) is not the standard Maxwell-field pairing used here; the physically relevant quantities are the field bilinears together with the field equations and their gauge or subsidiary constraints.
-
-The consistent summary is therefore this:
-\begin{align*}
-\text{spin}
-&\neq
-\text{component count alone},\\
-\text{spin}
-&=
-(\text{carrier},\ \text{operator law},\ \text{physical bilinears},\ \text{constraints}).
-\end{align*}
-Within that summary, \((\cdot)^{\mathrm R}\) is the pairing used for quantum expectations, \((\cdot)^{*\mathrm R}\) supplies the determinant pairing used for algebraic factorization, and the pure sigma-conjugate pairing remains an auxiliary companion.
+Thus spin is never fixed by component count alone. The carrier, transformation law,
+field equation, constraints, and observable bilinears must agree. In the
+present notation, the positive wave-function pairing is supplied by \(H\),
+the determinant used in factorization is supplied by the star--\(H\) composition, and the
+pure conjugate pairing remains an algebraic companion without an additional
+physical interpretation.
 
 \subsubsection{Spin-0 Wave Mechanics}
-The scalar relativistic wave equation can be read directly from the mass-shell identity developed earlier in the kinematic section. Here \(\psi\in\C\) is a complex scalar field, \(m\in\R\), and the free-particle operators are defined using the differential conventions from Section \ref{sec:differential}. Start from
+The scalar relativistic wave operator is motivated by the classical
+mass-shell identity developed in the kinematic section. Replacement of classical energy
+and momentum by differential operators is the standard quantization
+prescription and is an additional physical input, not a consequence of the
+determinant identity alone. Here \(\psi\in\C\) is a complex scalar field,
+\(m\in\R\), and the differential conventions from
+Section \ref{sec:differential} are used for the free-particle operators. The
+mass-shell identity is
 \begin{equation*}
-\langle\!\langle mU\rangle\!\rangle^2=m^2
-\qquad\Rightarrow\qquad
--E^2+\mathbf P^2+m^2=0.
+\detf{m\pv{U}}=m^2.
+\end{equation*}
+Its scalar form is
+\begin{equation*}
+-E^2+\vct{P}^2+m^2=0.
 \end{equation*}
 For a free particle,
 \begin{equation*}
 E=i\partial_t,
 \qquad
-\mathbf P=-i\gradv,
+\vct{P}=-i\gradv,
 \end{equation*}
 and equivalently
 \begin{equation*}
-E+\mathbf P\cdot\sigv=i\partial^*.
+E+\vct{P}\cdot\sigv=i\conj{\pv{\partial}}.
 \end{equation*}
 Acting on a scalar field \(\psi\), the operator chain is
 \begin{align*}
-(-E^2+\mathbf P^2+m^2)\psi
+(-E^2+\vct{P}^2+m^2)\psi
 &=\bigl(-(i\partial_t)^2-\gradv^2+m^2\bigr)\psi\notag\\
 &=\bigl(\partial_t^2-\gradv^2+m^2\bigr)\psi\notag\\
-&=(\partial\partial^*+m^2)\psi\notag\\
+&=(\pv{\partial}\conj{\pv{\partial}}+m^2)\psi\notag\\
 &=(\Box+m^2)\psi.
 \end{align*}
 Thus the free spin-0 relativistic wave equation is
@@ -493,16 +529,17 @@ Thus the free spin-0 relativistic wave equation is
 (\Box+m^2)\psi=0
 \qquad\text{Klein--Gordon equation}.
 \end{equation*}
-This is the scalar wave equation recorded in Eq.\ \eqref{eq:kg-free}. The dispersion relation \(\omega^2=\mathbf k^2+m^2\) and the later positive/negative-frequency split are consequences of this same operator identity.
+This is the scalar wave equation recorded in Eq.\ \eqref{eq:kg-free}. The dispersion relation \(\omega^2=\vct{k}^2+m^2\) and the later positive/negative-frequency split are consequences of this same operator identity.
 
 \subsubsection{Positive and Negative Frequency Sectors}
 The frequency decomposition is one of the central interpretive steps in the
 free scalar theory. On a spatial domain where the positive square root is
-defined, set
+defined, the frequency function from Eq.\ \eqref{eq:frequency-operator}
+is given by
 \begin{align*}
 \Omega
 &=\sqrt{m^2-\gradv^2}\notag\\
-&=\langle\!\langle m+\sigv\cdot\gradv\rangle\!\rangle.
+&=\sqrt{\detf{\pv{m+\sigv\cdot\gradv}}}.
 \end{align*}
 Accordingly,
 \begin{align*}
@@ -512,104 +549,137 @@ Accordingly,
 &=(\partial_t-i\Omega)(\partial_t+i\Omega)\notag\\
 &=(\partial_t+i\Omega)(\partial_t-i\Omega).
 \end{align*}
-The positive- and negative-frequency sectors are then defined by
+The sector definitions in Eq.\ \eqref{eq:frequency-split} are then restated as
 \begin{align*}
 (\partial_t\pm i\Omega)\psi(\pm)&=0,\\
-\psi(\pm,t)&=\exp\!\bigl(\mp i\Omega(t-t_0)\bigr)\psi(\pm,t_0),\\
+\psi(\pm,t)&=\exp(\mp i\Omega t)\psi(\pm,0),\\
 \psi&=\psi(+)+\psi(-).
 \end{align*}
 Here the parenthesized sign labels frequency and is not the spin-axis label
-in \(\Pi(\pm)\psi\).
+in the spin-axis action
+\(\pv{\Pi}(\pm)\pv{\phi}(\eqtext{large})\) defined by
+Eq.\ \eqref{eq:projectors}.
 When \(\Omega^{-1}\) exists, the two parts of a Klein--Gordon solution at any
 time can equivalently be extracted as
 \begin{equation*}
 \psi(\pm)=\frac12\left(\psi\pm i\Omega^{-1}\partial_t\psi\right).
 \end{equation*}
-For a massless field the spatial zero mode is treated separately.  The split
-separates the two frequency branches; it does not turn the negative-frequency
-part into a negative probability.  In a relativistic quantum field, the two
-branches acquire the particle--antiparticle interpretation \cite{greiner2000}.
+For a massless field the spatial zero mode is treated separately. The
+Klein--Gordon pairing has opposite sign on a pure negative-frequency mode and
+is not a positive norm on the combined solution space. In a quantized
+relativistic field the particle--antiparticle interpretation is supplied by
+the field-operator construction, not by reinterpreting this one-particle
+density alone \cite{greiner2000}.
 
 \subsubsection{Fourier Meaning of the Frequency Operator}
 The nonlocal square root \(\Omega\) is most transparent one spatial Fourier
-mode at a time.  With the standard phase convention, write schematically
+mode at a time. With the standard phase convention, the field and modes are
+written schematically as
 \begin{align*}
 \psi&=\sum_{n} c_{n}f_{n},\\
-f_{n}&=\exp\!\bigl(-i\omega_{n}t+i\mathbf k_{n}\cdot\mathbf r\bigr).
+f_{n}&=\exp\!\bigl(-i\omega_{n}t+i\vct{k}_{n}\cdot\vct{r}\bigr).
 \end{align*}
 Then
 \begin{align*}
 \Box\psi
-&=\sum_{n}(\mathbf k_{n}^{2}-\omega_{n}^{2})c_{n}f_{n},\\
+&=\sum_{n}(\vct{k}_{n}^{2}-\omega_{n}^{2})c_{n}f_{n},\\
 (\Box+m^{2})\psi
-&=\sum_{n}(\mathbf k_{n}^{2}+m^{2}-\omega_{n}^{2})c_{n}f_{n},\\
+&=\sum_{n}(\vct{k}_{n}^{2}+m^{2}-\omega_{n}^{2})c_{n}f_{n},\\
 \Omega\psi
-&=\sum_n\sqrt{m^2+\mathbf k_n^2}\,c_nf_n.
+&=\sum_n\sqrt{m^2+\vct{k}_n^2}\,c_nf_n.
 \end{align*}
-For on-shell Klein--Gordon modes,
+For modes satisfying the Klein--Gordon dispersion relation,
 \begin{equation*}
-\mathbf k_{n}^{2}+m^{2}=\omega_{n}^{2},
+\vct{k}_{n}^{2}+m^{2}=\omega_{n}^{2},
 \qquad
-\omega_{n}=\pm\sqrt{\mathbf k_{n}^{2}+m^{2}},
+\omega_{n}=\pm\sqrt{\vct{k}_{n}^{2}+m^{2}},
 \end{equation*}
-and \(\Omega\) multiplies each spatial mode by its positive energy magnitude.
-This defines the only square-root operator needed in the frequency split and
-avoids assigning an unnecessary branch to \(\sqrt{\Box}\).
+and each spatial mode is multiplied by its positive energy magnitude by
+\(\Omega\).
+The only square-root operator needed in the frequency split is thereby
+defined, and an unnecessary branch is not assigned to \(\sqrt{\Box}\).
 
 \subsubsection{Klein--Gordon with Potential Fields}
-To keep the minimally coupled scalar theory in one self-contained place, start from the charged-particle Lagrangian
+The charged-particle Lagrangian is taken as the starting point so that the
+minimally coupled scalar theory is kept in one self-contained place:
 \begin{equation*}
-\mathcal L=-\frac{m}{\gamma}-q(V-\mathbf v\cdot\mathbf A).
+\mathcal L=-\frac{m}{\gamma}-q(V-\vct{v}\cdot\vct{A}).
 \end{equation*}
-Here \(E\) denotes the energy operator, not the electric field \(\mathbf E\). The Hamiltonian and canonical momentum are then
-\begin{equation*}
-i\partial_t=\mathcal H=E+qV,
-\qquad
--i\gradv=\delv\mathcal L=\mathbf P+q\mathbf A,
-\end{equation*}
-so the covariant energy and momentum operators are
+Here \(E\) denotes the energy operator, not the electric field \(\vct{E}\).
+The canonical energy and momentum are identified by the classical Lagrangian.
+After the standard differential replacement, the covariant operators are
 \begin{equation*}
 E=i\partial_t-qV,
 \qquad
-\mathbf P=-i\gradv-q\mathbf A.
+\vct{P}=-i\gradv-q\vct{A}.
 \end{equation*}
+This differential replacement, together with minimal coupling, is the
+standard quantization input.
 
 Acting on a smooth test field \(\psi\), the Leibniz rules needed below are
 \begin{align*}
 \partial_t(V\psi)&=(\partial_tV)\psi+V\partial_t\psi,\\
 \partial_m(A_n\psi)&=(\partial_mA_n)\psi+A_n\partial_m\psi.
 \end{align*}
-From these one obtains
+The following expansions are obtained:
 \begin{align*}
 E^2\psi
 &=E(i\partial_t\psi-qV\psi)\notag\\
 &=\left(-\partial_t^2-iq\,\partial_tV-2iqV\partial_t+q^2V^2\right)\psi,\\
-\mathbf P^2\psi
-&=\mathbf P\cdot(-i\gradv\psi-q\mathbf A\psi)\notag\\
-&=\left(-\gradv^2+iq\,\gradv\cdot\mathbf A+2iq\,\mathbf A\cdot\gradv+q^2\mathbf A^2\right)\psi.
+\vct{P}^2\psi
+&=\vct{P}\cdot(-i\gradv\psi-q\vct{A}\psi)\notag\\
+&=\left(-\gradv^2+iq\,\gradv\cdot\vct{A}+2iq\,\vct{A}\cdot\gradv+q^2\vct{A}^2\right)\psi.
 \end{align*}
 
-Recall also
+The required identities are
 \begin{align*}
 \Box&=\partial_t^2-\gradv^2,\\
-\Phi&=V+\mathbf A\cdot\sigv,\\
-S&=\partial_tV+\gradv\cdot\mathbf A,\\
-\langle\!\langle\partial\rangle\!\rangle^2&=\Box,\\
-\langle\!\langle\Phi\rangle\!\rangle^2&=V^2-\mathbf A^2.
+\pv{\Phi}&=V+\vct{A}\cdot\sigv,\\
+S&=\partial_tV+\gradv\cdot\vct{A},\\
+\detf{\pv{\partial}}&=\Box,\\
+\detf{\pv{\Phi}}&=V^2-\vct{A}^2.
 \end{align*}
-Substituting the operator expansions gives the minimally coupled Klein--Gordon equation in explicit form:
+Here \(\detf{\pv{\partial}}=\pv{\partial}\conj{\pv{\partial}}\) is valid because the
+coordinate derivatives commute. The coupled energy and momentum operators
+below do not commute and therefore remain explicit ordered products rather
+than determinants.
+The minimally coupled Klein--Gordon equation is obtained in explicit form by substitution of the operator expansions:
 \begin{align*}
-0&=(-E^2+\mathbf P^2+m^2)\psi\notag\\
-&=\Bigl(\Box+iq(\partial_tV+\gradv\cdot\mathbf A)+2iq(V\partial_t+\mathbf A\cdot\gradv)\notag\\
-&\qquad\qquad-q^2(V^2-\mathbf A^2)+m^2\Bigr)\psi\notag\\
-&=\Bigl(\Box+iqS-q^2\langle\!\langle\Phi\rangle\!\rangle^2+m^2+2iq(V\partial_t+\mathbf A\cdot\gradv)\Bigr)\psi.
+0&=(-E^2+\vct{P}^2+m^2)\psi\notag\\
+&=\Bigl(\Box+iq(\partial_tV+\gradv\cdot\vct{A})+2iq(V\partial_t+\vct{A}\cdot\gradv)\notag\\
+&\qquad\qquad-q^2(V^2-\vct{A}^2)+m^2\Bigr)\psi\notag\\
+&=\Bigl(\Box+iqS-q^2\detf{\pv{\Phi}}+m^2+2iq(V\partial_t+\vct{A}\cdot\gradv)\Bigr)\psi.
 \end{align*}
 
-The electromagnetic fields and commutators enter through
+For the gauge-shifted potential and components defined in
+Eqs.\ \eqref{eq:gauge}, \eqref{eq:gauge-scalar-potential}, and
+\eqref{eq:gauge-vector-potential},
+\[
+\begin{aligned}
+V(\lambda)&=V+\partial_t\lambda,\\
+\vct{A}(\lambda)&=\vct{A}-\gradv\lambda,\\
+\psi(\lambda)&=\exp(-iq\lambda)\psi.
+\end{aligned}
+\]
+The ordinary product rule is obeyed by the central scalar phase. Consequently,
 \begin{align*}
-\mathbf E&=-\partial_t\mathbf A-\gradv V,\\
-\mathbf B&=\gradv\times\mathbf A,\\
-F&=(\mathbf E+i\mathbf B)\cdot\sigv,
+(i\partial_t-qV(\lambda))\psi(\lambda)
+&=\exp(-iq\lambda)(i\partial_t-qV)\psi,\\
+(-i\gradv-q\vct{A}(\lambda))\psi(\lambda)
+&=\exp(-iq\lambda)(-i\gradv-q\vct{A})\psi.
+\end{align*}
+Equation \eqref{eq:kg-gauge} and the gauge covariance of the coupled
+Klein--Gordon equation are established by a second application of either
+relation. Substitution in
+Eq.\ \eqref{eq:kg-mixed-current} also cancels the phase from both current
+components.
+
+The electromagnetic fields and commutators are incorporated through
+\begin{align*}
+\vct{E}&=-\partial_t\vct{A}-\gradv V,\\
+\vct{B}&=\gradv\times\vct{A},\\
+\pv{F}&=(\vct{E}+i\vct{B})\cdot\sigv,\qquad
+\conj{\pv{F}}=(-\vct{E}+i\vct{B})\cdot\sigv,
 \end{align*}
 and
 \begin{align*}
@@ -628,115 +698,116 @@ and
 \end{align*}
 Hence
 \begin{equation*}
-\com{E}{\mathbf P}=iq\mathbf E,
+\com{E}{\vct{P}}=iq\vct{E},
 \qquad
-\mathbf P\times\mathbf P=iq\mathbf B.
+\vct{P}\times\vct{P}=iq\vct{B}.
 \end{equation*}
-Substituting those commutators into the ordered products yields
+The following ordered products are obtained by substitution of those commutators:
 \begin{align*}
-(E+\sigv\cdot\mathbf P)(E-\sigv\cdot\mathbf P)
-&=E^2-\mathbf P^2\notag\\
-&\qquad+\sigv\cdot\bigl(-\com{E}{\mathbf P}-i\,\mathbf P\times\mathbf P\bigr)\notag\\
-&=E^2-\mathbf P^2-iqF,\\
-(E-\sigv\cdot\mathbf P)(E+\sigv\cdot\mathbf P)
-&=E^2-\mathbf P^2\notag\\
-&\qquad+\sigv\cdot\bigl(\com{E}{\mathbf P}-i\,\mathbf P\times\mathbf P\bigr)\notag\\
-&=E^2-\mathbf P^2-iqF^*.
+(E+\sigv\cdot\vct{P})(E-\sigv\cdot\vct{P})
+&=E^2-\vct{P}^2\notag\\
+&\qquad+\sigv\cdot\bigl(-\com{E}{\vct{P}}-i\,\vct{P}\times\vct{P}\bigr)\notag\\
+&=E^2-\vct{P}^2-iq\pv{F},\\
+(E-\sigv\cdot\vct{P})(E+\sigv\cdot\vct{P})
+&=E^2-\vct{P}^2\notag\\
+&\qquad+\sigv\cdot\bigl(\com{E}{\vct{P}}-i\,\vct{P}\times\vct{P}\bigr)\notag\\
+&=E^2-\vct{P}^2-iq\conj{\pv{F}}.
 \end{align*}
 Since
 \begin{equation*}
-E+\sigv\cdot\mathbf P=i\partial^*-q\Phi,
+E+\sigv\cdot\vct{P}=i\conj{\pv{\partial}}-q\pv{\Phi},
 \qquad
-E-\sigv\cdot\mathbf P=i\partial-q\Phi^*
-=(E+\sigv\cdot\mathbf P)^{*\mathrm R},
+E-\sigv\cdot\vct{P}=i\pv{\partial}-q\conj{\pv{\Phi}}
+=(E+\sigv\cdot\vct{P})^{*\mathsf H},
 \end{equation*}
-the two ordered reverse-conjugate products are
+the two ordered star--\(H\) products are
 \begin{equation*}
-(E\pm\sigv\cdot\mathbf P)
-(E\pm\sigv\cdot\mathbf P)^{*\mathrm R}
-=E^2-\mathbf P^2+\sigv\cdot\bigl(\mp\com{E}{\mathbf P}-i\,\mathbf P\times\mathbf P\bigr).
+(E\pm\sigv\cdot\vct{P})
+(E\pm\sigv\cdot\vct{P})^{*\mathsf H}
+=E^2-\vct{P}^2+\sigv\cdot\bigl(\mp\com{E}{\vct{P}}-i\,\vct{P}\times\vct{P}\bigr).
 \end{equation*}
-Unlike the determinant form defined for commuting complex
+Unlike the determinant function defined for commuting complex
 coefficients, these operator products retain a vector part.  Operator ordering
 therefore matters, and the two first-order products remain distinct.
 Consequently,
 \begin{align*}
--(E+\sigv\cdot\mathbf P)(E+\sigv\cdot\mathbf P)^{*\mathrm R}
-&=(\partial^*+iq\Phi)(\partial+iq\Phi^*),\\
--(E+\sigv\cdot\mathbf P)^{*\mathrm R}(E+\sigv\cdot\mathbf P)
-&=(\partial+iq\Phi^*)(\partial^*+iq\Phi).
+-(E+\sigv\cdot\vct{P})(E+\sigv\cdot\vct{P})^{*\mathsf H}
+&=(\conj{\pv{\partial}}+iq\pv{\Phi})(\pv{\partial}+iq\conj{\pv{\Phi}}),\\
+-(E+\sigv\cdot\vct{P})^{*\mathsf H}(E+\sigv\cdot\vct{P})
+&=(\pv{\partial}+iq\conj{\pv{\Phi}})(\conj{\pv{\partial}}+iq\pv{\Phi}).
 \end{align*}
 The same factorizations can be rewritten directly in derivative form:
 \begin{align*}
-(E+\sigv\cdot\mathbf P)(E-\sigv\cdot\mathbf P)\psi
-&=-(\partial^*+iq\Phi)(\partial+iq\Phi^*)\psi\notag\\
-&=-\Box\psi-iq\,\partial^*(\Phi^*\psi)\notag\\
-&\qquad-iq\,\Phi\,\partial\psi\notag\\
-&\qquad+q^2\langle\!\langle\Phi\rangle\!\rangle^2\psi\notag\\
-&=-\Box\psi-iqS\psi+q^2\langle\!\langle\Phi\rangle\!\rangle^2\psi\notag\\
-&\qquad-2iq(V\partial_t+\mathbf A\cdot\gradv)\psi\notag\\
-&\qquad-iqF\psi,\\
-(E-\sigv\cdot\mathbf P)(E+\sigv\cdot\mathbf P)\psi
-&=-(\partial+iq\Phi^*)(\partial^*+iq\Phi)\psi\notag\\
-&=-\Box\psi-iq\,\partial(\Phi\psi)\notag\\
-&\qquad-iq\,\Phi^*\,\partial^*\psi\notag\\
-&\qquad+q^2\langle\!\langle\Phi\rangle\!\rangle^2\psi\notag\\
-&=-\Box\psi-iqS\psi+q^2\langle\!\langle\Phi\rangle\!\rangle^2\psi\notag\\
-&\qquad-2iq(V\partial_t+\mathbf A\cdot\gradv)\psi\notag\\
-&\qquad-iqF^*\psi.
+(E+\sigv\cdot\vct{P})(E-\sigv\cdot\vct{P})\psi
+&=-(\conj{\pv{\partial}}+iq\pv{\Phi})(\pv{\partial}+iq\conj{\pv{\Phi}})\psi\notag\\
+&=-\Box\psi-iq\,\conj{\pv{\partial}}(\conj{\pv{\Phi}}\psi)\notag\\
+&\qquad-iq\,\pv{\Phi}\,\pv{\partial}\psi\notag\\
+&\qquad+q^2\detf{\pv{\Phi}}\psi\notag\\
+&=-\Box\psi-iqS\psi+q^2\detf{\pv{\Phi}}\psi\notag\\
+&\qquad-2iq(V\partial_t+\vct{A}\cdot\gradv)\psi\notag\\
+&\qquad-iq\pv{F}\psi,\\
+(E-\sigv\cdot\vct{P})(E+\sigv\cdot\vct{P})\psi
+&=-(\pv{\partial}+iq\conj{\pv{\Phi}})(\conj{\pv{\partial}}+iq\pv{\Phi})\psi\notag\\
+&=-\Box\psi-iq\,\pv{\partial}(\pv{\Phi}\psi)\notag\\
+&\qquad-iq\,\conj{\pv{\Phi}}\,\conj{\pv{\partial}}\psi\notag\\
+&\qquad+q^2\detf{\pv{\Phi}}\psi\notag\\
+&=-\Box\psi-iqS\psi+q^2\detf{\pv{\Phi}}\psi\notag\\
+&\qquad-2iq(V\partial_t+\vct{A}\cdot\gradv)\psi\notag\\
+&\qquad-iq\conj{\pv{F}}\psi.
 \end{align*}
 Equivalently,
 \begin{align*}
-\partial^*(\Phi^*\psi)+\Phi\,\partial\psi
-&=S\psi+2(V\partial_t+\mathbf A\cdot\gradv)\psi+F\psi,\\
-\partial(\Phi\psi)+\Phi^*\,\partial^*\psi
-&=S\psi+2(V\partial_t+\mathbf A\cdot\gradv)\psi+F^*\psi,
+\conj{\pv{\partial}}(\conj{\pv{\Phi}}\psi)+\pv{\Phi}\,\pv{\partial}\psi
+&=S\psi+2(V\partial_t+\vct{A}\cdot\gradv)\psi+\pv{F}\psi,\\
+\pv{\partial}(\pv{\Phi}\psi)+\conj{\pv{\Phi}}\,\conj{\pv{\partial}}\psi
+&=S\psi+2(V\partial_t+\vct{A}\cdot\gradv)\psi+\conj{\pv{F}}\psi,
 \end{align*}
 and their difference isolates the electric contribution:
 \begin{align*}
-\bigl(\partial^*(\Phi^*\psi)+\Phi\,\partial\psi\bigr)
-&-\bigl(\partial(\Phi\psi)+\Phi^*\,\partial^*\psi\bigr)\notag\\
-&=\bigl((\partial\Phi)^*-\partial\Phi\bigr)\psi\notag\\
-&=(F-F^*)\psi\notag\\
-&=2(\mathbf E\cdot\sigv)\psi.
+\bigl(\conj{\pv{\partial}}(\conj{\pv{\Phi}}\psi)+\pv{\Phi}\,\pv{\partial}\psi\bigr)
+&-\bigl(\pv{\partial}(\pv{\Phi}\psi)+\conj{\pv{\Phi}}\,\conj{\pv{\partial}}\psi\bigr)\notag\\
+&=\bigl(\conj{\pv{\partial}\pv{\Phi}}-\pv{\partial}\pv{\Phi}\bigr)\psi\notag\\
+&=(\pv{F}-\conj{\pv{F}})\psi\notag\\
+&=2(\vct{E}\cdot\sigv)\psi.
 \end{align*}
 
-In summary,
+From the definitions in
+Eqs.\ \eqref{eq:energy-operator} and \eqref{eq:momentum-operator},
+\eqref{eq:partial-operator}, \eqref{eq:partial-conjugate}, and
+\eqref{eq:F-Phi}, the scalar Klein--Gordon operator can therefore be recovered
+from either ordered first-order product:
 \begin{align*}
-E&:=i\partial_t-qV, &
-\mathbf P&:=-i\gradv-q\mathbf A,\\
-\partial&:=\partial_t+\sigv\cdot\gradv, &
-\partial^*&:=\partial_t-\sigv\cdot\gradv,\\
-\Phi&:=V+\mathbf A\cdot\sigv, &
-F&:=(\mathbf E+i\mathbf B)\cdot\sigv,\\
-S&:=\partial_tV+\gradv\cdot\mathbf A, &
-\mathbf E&:=-\partial_t\mathbf A-\gradv V,\\
-\mathbf B&:=\gradv\times\mathbf A,
+0&=(-E^2+\vct{P}^2+m^2)\psi\notag\\
+&=\Bigl(\Box+iqS-q^2\detf{\pv{\Phi}}+m^2+2iq(V\partial_t+\vct{A}\cdot\gradv)\Bigr)\psi\notag\\
+&=(\conj{\pv{\partial}}+iq\pv{\Phi})(\pv{\partial}+iq\conj{\pv{\Phi}})\psi-iq\pv{F}\psi+m^2\psi\notag\\
+&=(\pv{\partial}+iq\conj{\pv{\Phi}})(\conj{\pv{\partial}}+iq\pv{\Phi})\psi-iq\conj{\pv{F}}\psi+m^2\psi.
 \end{align*}
-and the scalar Klein--Gordon operator can be recovered from either ordered first-order product:
+The following identities are satisfied by the ordered first-order products:
 \begin{align*}
-0&=(-E^2+\mathbf P^2+m^2)\psi\notag\\
-&=\Bigl(\Box+iqS-q^2\langle\!\langle\Phi\rangle\!\rangle^2+m^2+2iq(V\partial_t+\mathbf A\cdot\gradv)\Bigr)\psi\notag\\
-&=(\partial^*+iq\Phi)(\partial+iq\Phi^*)\psi-iqF\psi+m^2\psi\notag\\
-&=(\partial+iq\Phi^*)(\partial^*+iq\Phi)\psi-iqF^*\psi+m^2\psi.
+(E\pm\sigv\cdot\vct{P})(E\mp\sigv\cdot\vct{P})
+&=E^2-(\sigv\cdot\vct{P})^2\mp\com{E}{\sigv\cdot\vct{P}}\notag\\
+&=E^2-\vct{P}^2-iq(\pm\vct{E}+i\vct{B})\cdot\sigv.
 \end{align*}
-The ordered first-order products themselves obey
-\begin{align*}
-(E\pm\sigv\cdot\mathbf P)(E\mp\sigv\cdot\mathbf P)
-&=E^2-(\sigv\cdot\mathbf P)^2\mp\com{E}{\sigv\cdot\mathbf P}\notag\\
-&=E^2-\mathbf P^2-iq(\pm\mathbf E+i\mathbf B)\cdot\sigv.
-\end{align*}
-Taking the scalar part therefore recovers
+The following equation is therefore recovered by taking the scalar part:
 \begin{equation*}
-0=\eqtext{scalar}\!\bigl((\partial+iq\Phi^*)(\partial^*+iq\Phi)\bigr)\psi+m^2\psi.
+0=\eqtext{scalar}\!\bigl((\pv{\partial}+iq\conj{\pv{\Phi}})(\conj{\pv{\partial}}+iq\pv{\Phi})\bigr)\psi+m^2\psi.
 \end{equation*}
-Only the scalar part reproduces the Klein--Gordon operator itself; the full ordered products retain the non-scalar field terms \(-iqF\) and \(-iqF^*\) that distinguish the two factorizations.
+The Klein--Gordon operator itself is reproduced only by the scalar part; the full
+ordered products retain the non-scalar field terms \(-iq\pv{F}\) and
+\(-iq\conj{\pv{F}}\) that distinguish the two factorizations. Explicitly,
+\[
+-iq\pv{F}=(-iq\vct{E}+q\vct{B})\cdot\sigv,
+\qquad
+-iq\conj{\pv{F}}=(iq\vct{E}+q\vct{B})\cdot\sigv.
+\]
+These residuals are not new components of the scalar equation. They are the
+standard spin--field terms retained by the two ordered Dirac squares below.
 
 \subsubsection{Spin-\texorpdfstring{$\frac12$}{1/2} Wave Mechanics}
-Before the electromagnetic field is turned on, the same auxiliary
-\(2\times2\) map from Eq.\ \eqref{eq:W-map} gives a self-contained
-first-order version of the relativistic mass shell. Consider the two-block
-field
+Before the electromagnetic field is turned on, a self-contained first-order
+version of the relativistic mass shell is obtained from the same auxiliary
+\(2\times2\) map in Eq.\ \eqref{eq:W-map}. The two-block field is
+considered in the form
 \begin{equation*}
 \bPsi=
 \begin{Bmatrix}
@@ -744,123 +815,225 @@ field
 \bPsi_2
 \end{Bmatrix}.
 \end{equation*}
-For one Dirac field both blocks obey \(\bPsi_n=\bPsi_n\Pi_0\).  If they are
-left unrestricted, every formula below acts independently on the two matrix
-columns and therefore describes two identical Dirac fields.
-For any complex paravector or paravector-valued operator \(Z\), define
+For one Dirac field, the following restriction is satisfied by both blocks:
+\(\bPsi_n=\bPsi_n\pv{\Pi}(\eqtext{column})\). If they are
+left unrestricted, every formula is applied independently to the two matrix
+columns, and two identical Dirac fields are therefore described.
+From Eqs.\ \eqref{eq:W-map} and \eqref{eq:W-square}, complex linearity of the
+auxiliary block map and block diagonality of its square are obtained. Therefore
 \begin{align*}
-\Wmat(Z)&:=
-\begin{bmatrix}
-0 & Z \\
-\crev{Z} & 0
-\end{bmatrix},\\
-\Wmat(Z)^2&=\operatorname{diag}(Z\crev{Z},\crev{Z}Z).
-\end{align*}
-The map is complex-linear, so in particular
-\begin{align*}
-\Wmat(i\partial)
+\Wmat(i\pv{\partial})
 &=i
 \begin{bmatrix}
-0 & \partial \\
-\partial^* & 0
+0 & \pv{\partial} \\
+\conj{\pv{\partial}} & 0
 \end{bmatrix}
-=i\Wmat(\partial),\\
-\Wmat(i\partial)^2
-&=-\operatorname{diag}(\partial\partial^*,\partial^*\partial)\notag\\
+=i\Wmat(\pv{\partial}),\\
+\Wmat(i\pv{\partial})^2
+&=-\eqtext{diag}(\pv{\partial}\conj{\pv{\partial}},
+                  \conj{\pv{\partial}}\pv{\partial})\notag\\
 &=-\Box\I.
 \end{align*}
 
-Define the free Dirac operator matrix and its mass conjugate by
-\begin{equation*}
-\Dmat:=\Wmat(i\partial)-m\I,
-\qquad
-\Dmat':=\Wmat(i\partial)+m\I.
-\end{equation*}
-Then
+The free operator in Eq.\ \eqref{eq:dirac-free} is
+\(\Wmat(i\pv{\partial})-m\I\). Its factorization partner is obtained by
+reversing only the sign of the mass. Their product in either order is
 \begin{align*}
-\Dmat'\Dmat=\Dmat\Dmat'
-&=(\Wmat(i\partial)+m\I)(\Wmat(i\partial)-m\I)\notag\\
-&=\Wmat(i\partial)^2-m^2\I\notag\\
+(\Wmat(i\pv{\partial})+m\I)
+(\Wmat(i\pv{\partial})-m\I)
+&=\Wmat(i\pv{\partial})^2-m^2\I\notag\\
+&=-(\Box+m^2)\I,\notag\\
+(\Wmat(i\pv{\partial})-m\I)
+(\Wmat(i\pv{\partial})+m\I)
 &=-(\Box+m^2)\I.
 \end{align*}
 Thus the free Dirac equation
 \begin{equation*}
-\Dmat\bPsi=0
+(\Wmat(i\pv{\partial})-m\I)\bPsi=0
 \end{equation*}
-forces each block to satisfy the Klein--Gordon operator.  No determinant of
-algebra-valued blocks is needed: Eq.\ \eqref{eq:W-square} supplies the relevant
-minimal polynomial directly.
+requires the Klein--Gordon operator to be satisfied by each block. No
+determinant of algebra-valued blocks is needed: the relevant minimal
+polynomial is supplied directly by Eq.\ \eqref{eq:W-square}.
 
-The equivalence with the usual Weyl form is explicit in the Pauli matrix
-realization.  For a plane wave
+The equivalence with the standard two-coupled-column form is explicit in the
+Pauli matrix realization. For a plane wave
 \begin{equation*}
-\exp(-iEt+i\mathbf p\cdot\mathbf r)
+\exp(-iEt+i\vct{p}\cdot\vct{r})
 \end{equation*}
-and one selected matrix column \(\xi_n\) of each block, the two equations are
+the selected columns are represented by
+\(\{a;b\}\) for \(\bPsi_1\) and
+\(\{c;d\}\) for \(\bPsi_2\). The two equations are
 \begin{equation*}
-(E-\mathbf p\cdot\sigv)\xi_2=m\xi_1,
+(E-\vct{p}\cdot\sigv)\{c;d\}=m\{a;b\},
 \qquad
-(E+\mathbf p\cdot\sigv)\xi_1=m\xi_2.
+(E+\vct{p}\cdot\sigv)\{a;b\}=m\{c;d\}.
 \end{equation*}
-Their product gives \(E^2=\mathbf p^2+m^2\).  These are precisely the two
-Weyl equations for one four-component Dirac spinor: the two selected columns
-carry the conjugate Weyl transformation laws, and their pair realizes
-\((\tfrac12,0)\oplus(0,\tfrac12)\). Retaining both matrix columns gives two
-independent copies of this system.
+The relation \(E^2=\vct{p}^2+m^2\) is obtained from their product. These are the standard two
+first-order equations for the four complex entries of one Dirac field.
+Two independent copies of this system are obtained by retaining both matrix
+columns. With a potential present, the operator equations in
+Eq.\ \eqref{eq:dirac-four-components} are represented by the same four
+entries; hence component-by-component agreement with the compact paravector
+equation is obtained before squaring.
 
-Writing out \(\Dmat\bPsi=0\) gives the two coupled equations
+The two coupled equations are obtained by writing out the free equation:
 \begin{align*}
-i\partial\bPsi_2-m\bPsi_1&=0,\\
-i\partial^*\bPsi_1-m\bPsi_2&=0.
+i\pv{\partial}\bPsi_2-m\bPsi_1&=0,\\
+i\conj{\pv{\partial}}\bPsi_1-m\bPsi_2&=0.
 \end{align*}
-For \(m>0\), solving the first equation for the upper component and substituting into the second yields
+Their transformation law is determined by covariance rather than component
+count. For a constant determinant-one transform \(\pv{T}\), with
+\(\pv{X}'\) given by Eq.\ \eqref{eq:general-event-congruence}, the transformed
+blocks from Eqs.\ \eqref{eq:dirac-transform} and
+\eqref{eq:dirac-transform-lower} obey
 \begin{align*}
-\bPsi_1&=\frac{i\partial\bPsi_2}{m},\\
-0&=i\partial^*\bPsi_1-m\bPsi_2\notag\\
-&=-\frac{\partial^*\partial\bPsi_2}{m}-m\bPsi_2\notag\\
+\bPsi_1'(\pv{X}')&=\pv{T}^{\mathsf H}\bPsi_1(\pv{X}),\\
+\bPsi_2'(\pv{X}')&=\pv{T}^{-1}\bPsi_2(\pv{X}).
+\end{align*}
+The corresponding derivative and potential laws are
+\begin{equation}
+\pv{\partial}'=\pv{T}^{\mathsf H}\pv{\partial}\pv{T}.
+\label{eq:dirac-transform-derivative}
+\end{equation}
+\begin{equation}
+\conj{\pv{\partial}'}
+=\pv{T}^{-1}\conj{\pv{\partial}}\conj{\pv{T}}.
+\label{eq:dirac-transform-conjugate-derivative}
+\end{equation}
+\begin{equation}
+\pv{\Phi}'=\pv{T}^{-1}\pv{\Phi}\pv{T}^*.
+\label{eq:dirac-transform-potential}
+\end{equation}
+\begin{equation}
+\conj{\pv{\Phi}'}
+=\pv{T}^{\mathsf H}\conj{\pv{\Phi}}\pv{T}.
+\label{eq:dirac-transform-conjugate-potential}
+\end{equation}
+For a spatial rotor, the same left factor \(\pv{R}^{\mathsf H}\) is assigned
+to both blocks. For a boost, \(\pv{L}\) is assigned to the first block and
+\(\conj{\pv{L}}\) to the second. Since
+\(\detf{\pv{T}}=1\), the identities
+\(\pv{T}\pv{T}^{-1}=1\) and
+\(\conj{\pv{T}}\pv{T}^{\mathsf H}=1\) imply the following explicit substitutions:
+\begin{align*}
+(i\pv{\partial}'-q\conj{\pv{\Phi}'})\bPsi_2'
+&=\pv{T}^{\mathsf H}
+(i\pv{\partial}-q\conj{\pv{\Phi}})\bPsi_2
+=m\bPsi_1',\\
+(i\conj{\pv{\partial}'}-q\pv{\Phi}')\bPsi_1'
+&=\pv{T}^{-1}
+(i\conj{\pv{\partial}}-q\pv{\Phi})\bPsi_1
+=m\bPsi_2'.
+\end{align*}
+Thus both coupled equations are covariant.
+Because all transform factors are applied from the left, the fixed right projector
+is preserved.
+
+The real current paravector defined in
+Eq.\ \eqref{eq:dirac-current-paravector} is expanded as
+\begin{equation*}
+\pv{J}(\bPsi)
+=2\left(
+\bPsi_2\herm{\bPsi_2}
++\conj{\bigl(\bPsi_1\herm{\bPsi_1}\bigr)}
+\right)
+=\rho(\bPsi)+\vct{j}(\bPsi)\cdot\sigv.
+\end{equation*}
+The following transformation is obtained from
+Eqs.\ \eqref{eq:dirac-transform} and \eqref{eq:dirac-transform-lower}
+in each product:
+\[
+\pv{J}(\bPsi')(\pv{X}')
+=\pv{T}^{-1}\pv{J}(\bPsi)(\pv{X})(\pv{T}^{-1})^{\mathsf H},
+\]
+so the current is transformed under the same congruence law as a real event paravector.
+For the selected columns used in Eq.\ \eqref{eq:dirac-four-components}, the
+component form is
+\begin{align*}
+\rho(\bPsi)&=|a|^2+|b|^2+|c|^2+|d|^2,\\
+\vct{j}(\bPsi)&=
+\begin{Bmatrix}
+2\,\eqtext{real}(c^*d-a^*b)\\
+2\,\eqtext{img}(c^*d-a^*b)\\
+|c|^2-|d|^2-|a|^2+|b|^2
+\end{Bmatrix}.
+\end{align*}
+These are the conventional Dirac density and current components. The two
+uncancelled block balances are Eq.\
+\eqref{eq:dirac-continuity-components}; by their addition,
+\(\partial_t\rho(\bPsi)+\gradv\cdot\vct{j}(\bPsi)=0\) is established. In particular,
+\[
+\vct{u}\cdot\vct{j}(\bPsi)
+=2\,\eqtext{scalar}\!\left(
+\herm{\bPsi_2}(\vct{u}\cdot\sigv)\bPsi_2
+-\herm{\bPsi_1}(\vct{u}\cdot\sigv)\bPsi_1\right),
+\]
+so this is the local matrix-element density for the ordinary two-block
+velocity operator. Its spatial integral divided by
+\(\langle\bPsi\mid\bPsi\rangle\) is the corresponding velocity expectation.
+The constant-time density is a frame component of this covariant current,
+not a Lorentz scalar.
+
+For \(m>0\), the following result is obtained by solving the first equation for the upper component and substituting into the second:
+\begin{align*}
+\bPsi_1&=\frac{i\pv{\partial}\bPsi_2}{m},\\
+0&=i\conj{\pv{\partial}}\bPsi_1-m\bPsi_2\notag\\
+&=-\frac{\conj{\pv{\partial}}\pv{\partial}\bPsi_2}{m}-m\bPsi_2\notag\\
 &=-\frac{(\Box+m^2)\bPsi_2}{m}.
 \end{align*}
 Hence the lower component is a Klein--Gordon solution, and the upper component is obtained from it by one first-order derivative.
 
-Conversely, let \(\psi'\) be a scalar Klein--Gordon solution and let
-\(a,b\in(\C\oplus\C^3)\Pi_0\) be constant polarization elements.  Apply the
-mass-conjugate operator to the ideal-valued seed:
-\begin{equation*}
+Conversely, a scalar Klein--Gordon solution \(\psi\) and constant
+polarization elements
+\(\pv{a},\pv{b}\in(\C+\C^3)\pv{\Pi}(\eqtext{column})\) are taken. The
+mass-conjugate operator is applied to the projected seed:
+\begin{equation}
 \bPsi
-:=\frac1m\Dmat'
+:=\frac1m\bigl(\Wmat(i\pv{\partial})+m\I\bigr)
 \begin{Bmatrix}
-\psi'a\\[2pt]
-\psi'b
+\psi\pv{a}\\[2pt]
+\psi\pv{b}
 \end{Bmatrix}.
-\end{equation*}
-Because the constants occur on the right, derivatives act only on \(\psi'\),
-and the two blocks are
+\label{eq:dirac-klein-gordon-lift}
+\end{equation}
+Because the constants occur on the right, only \(\psi\) is acted on by the
+derivatives, and the two blocks are
+\begin{align*}
+\bPsi_1&=\psi\pv{a}
++\frac{i}{m}(\pv{\partial}\psi)\pv{b},\\
+\bPsi_2&=\frac{i}{m}(\conj{\pv{\partial}}\psi)\pv{a}
++\psi\pv{b}.
+\end{align*}
+The following result is obtained from the factorization:
 \begin{equation*}
-\bPsi_1=\psi'a+\frac{i}{m}(\partial\psi')b,
-\qquad
-\bPsi_2=\frac{i}{m}(\partial^*\psi')a+\psi'b.
-\end{equation*}
-Using \(\Dmat\Dmat'=-(\Box+m^2)\I\) gives
-\begin{equation*}
-\Dmat\bPsi
-=-\frac1m(\Box+m^2)\psi'
-\begin{Bmatrix}a\\ b\end{Bmatrix}
+\bigl(\Wmat(i\pv{\partial})-m\I\bigr)\bPsi
+=-\frac1m(\Box+m^2)\psi
+\begin{Bmatrix}\pv{a}\\ \pv{b}\end{Bmatrix}
 =0.
 \end{equation*}
-The constants \(a\) and \(b\) carry the spin polarization; a bare scalar
-solution alone does not.  For example, \(a=\Pi_0\), \(b=0\) gives
+The spin polarization is carried by the constants \(\pv{a}\) and \(\pv{b}\);
+it is not carried by a bare scalar solution alone. For example, the following
+field is obtained with \(\pv{a}=\pv{\Pi}(\eqtext{column})\) and
+\(\pv{b}=0\):
 \begin{equation*}
 \bPsi=
 \begin{Bmatrix}
-\psi'\Pi_0\\[2pt]
-\dfrac{i}{m}(\partial^*\psi')\Pi_0
+\psi\pv{\Pi}(\eqtext{column})\\[2pt]
+\dfrac{i}{m}(\conj{\pv{\partial}}\psi)
+ \pv{\Pi}(\eqtext{column})
 \end{Bmatrix}.
 \end{equation*}
 This is the first-order lift from the Klein--Gordon mass shell into the chosen
-Dirac spinor module.
+projected Dirac carrier. The two-seed presentation is symmetric but
+redundant: on the Klein--Gordon mass shell,
+\(\Wmat(i\pv{\partial})+m\I\) has a kernel, so
+the same Dirac field can be produced by different seed pairs. For any fixed
+nonzero massive momentum mode, the two spin polarizations are already spanned
+by one projected seed block. Four new polarization degrees of freedom are
+therefore not introduced by the symbols \(\pv{a}\) and \(\pv{b}\).
 
 \subsubsection{Dirac with Potential Field}
-Consider again the two-block field
+The two-block field is again considered:
 \begin{equation*}
 \bPsi=
 \begin{Bmatrix}
@@ -869,442 +1042,584 @@ Consider again the two-block field
 \end{Bmatrix}.
 \end{equation*}
 The one-field interpretation continues to impose
-\(\bPsi_n=\bPsi_n\Pi_0\); all potential and derivative factors act from the
-left and preserve the ideal.
-For any complex paravector or paravector-valued operator \(Z\), define
-\begin{align*}
-\Wmat(Z)&:=
-\begin{bmatrix}
-0 & Z \\
-\crev{Z} & 0
-\end{bmatrix},\\
-\Wmat(Z)^2&=\operatorname{diag}(Z\crev{Z},\crev{Z}Z),\\
-\Wmat(Z)^*&=\Wmat(Z^*),\\
-\Wmat(Z)^{\mathrm R}&=\Wmat(Z^{\mathrm R}).
-\end{align*}
+\[
+\bPsi_n=\bPsi_n\pv{\Pi}(\eqtext{column}).
+\]
+All potential and derivative factors are applied from the left, and the
+fixed-column carrier is therefore preserved. The auxiliary block function
+already defined in Eq.\ \eqref{eq:W-map} is used.
 The Dirac operator with potential is
+\begin{equation}
+\Dmat:=\Wmat(i\pv{\partial}-q\conj{\pv{\Phi}})-m\I.
+\label{eq:dirac-potential-operator}
+\end{equation}
+By linearity of the block function, this definition is equivalently
+\begin{equation*}
+\Dmat=i\Wmat(\pv{\partial})
+-q\Wmat(\conj{\pv{\Phi}})-m\I.
+\end{equation*}
+Its field equation is Eq.\ \eqref{eq:dirac-coupled}. Because
 \begin{align*}
-\Dmat&:=\Wmat(i\partial-q\Phi^*)-m\I\notag\\
-&=i\Wmat(\partial)-q\Wmat(\Phi^*)-m\I.
-\end{align*}
-Because
-\begin{align*}
-\Wmat(\partial)^2&=\Box\I,\\
-\Wmat(\partial)\Wmat(\Phi^*)
+\Wmat(\pv{\partial})^2&=\Box\I,\\
+\Wmat(\pv{\partial})\Wmat(\conj{\pv{\Phi}})
 &=
 \begin{bmatrix}
-0 & \partial\\
-\partial^* & 0
+0 & \pv{\partial}\\
+\conj{\pv{\partial}} & 0
 \end{bmatrix}
 \begin{bmatrix}
-0 & \Phi^*\\
-\Phi & 0
+0 & \conj{\pv{\Phi}}\\
+\pv{\Phi} & 0
 \end{bmatrix}
-=\operatorname{diag}(\partial\Phi,\partial^*\Phi^*),\\
-\Wmat(\Phi^*)\Wmat(\partial)
+=\eqtext{diag}(\pv{\partial}\pv{\Phi},
+ \conj{\pv{\partial}}\conj{\pv{\Phi}}),\\
+\Wmat(\conj{\pv{\Phi}})\Wmat(\pv{\partial})
 &=
 \begin{bmatrix}
-0 & \Phi^*\\
-\Phi & 0
+0 & \conj{\pv{\Phi}}\\
+\pv{\Phi} & 0
 \end{bmatrix}
 \begin{bmatrix}
-0 & \partial\\
-\partial^* & 0
+0 & \pv{\partial}\\
+\conj{\pv{\partial}} & 0
 \end{bmatrix}
-=\operatorname{diag}(\Phi^*\partial^*,\Phi\partial),\\
-\Wmat(\Phi^*)^2
+=\eqtext{diag}(\conj{\pv{\Phi}}\conj{\pv{\partial}},
+ \pv{\Phi}\pv{\partial}),\\
+\Wmat(\conj{\pv{\Phi}})^2
 &=
 \begin{bmatrix}
-0 & \Phi^*\\
-\Phi & 0
+0 & \conj{\pv{\Phi}}\\
+\pv{\Phi} & 0
 \end{bmatrix}^{2}
-=\operatorname{diag}(\Phi^*\Phi,\Phi\Phi^*)\notag\\
-&=\langle\!\langle\Phi\rangle\!\rangle^2\I,
+=\eqtext{diag}(\conj{\pv{\Phi}}\pv{\Phi},
+ \pv{\Phi}\conj{\pv{\Phi}})\notag\\
+&=\detf{\pv{\Phi}}\I,
 \end{align*}
-one obtains
+the following result is obtained:
 \begin{align*}
-\Wmat(i\partial-q\Phi^*)^2
-&=-\Wmat(\partial)^2\notag\\
-&\qquad-iq\bigl(\Wmat(\partial)\Wmat(\Phi^*)+\Wmat(\Phi^*)\Wmat(\partial)\bigr)\notag\\
-&\qquad+q^2\Wmat(\Phi^*)^2\notag\\
-&=-\Box\I-iq\,\operatorname{diag}(\partial\Phi+\Phi^*\partial^*,\partial^*\Phi^*+\Phi\partial)\notag\\
-&\qquad+q^2\langle\!\langle\Phi\rangle\!\rangle^2\I\notag\\
-&=-\operatorname{diag}\!\Big(
-(\partial+iq\Phi^*)(\partial^*+iq\Phi),\notag\\
+\Wmat(i\pv{\partial}-q\conj{\pv{\Phi}})^2
+&=-\Wmat(\pv{\partial})^2\notag\\
+&\qquad-iq\bigl(\Wmat(\pv{\partial})\Wmat(\conj{\pv{\Phi}})
+ +\Wmat(\conj{\pv{\Phi}})\Wmat(\pv{\partial})\bigr)\notag\\
+&\qquad+q^2\Wmat(\conj{\pv{\Phi}})^2\notag\\
+&=-\Box\I-iq\,\eqtext{diag}(
+ \pv{\partial}\pv{\Phi}+\conj{\pv{\Phi}}\conj{\pv{\partial}},
+ \conj{\pv{\partial}}\conj{\pv{\Phi}}+\pv{\Phi}\pv{\partial})\notag\\
+&\qquad+q^2\detf{\pv{\Phi}}\I\notag\\
+&=-\eqtext{diag}\!\Big(
+(\pv{\partial}+iq\conj{\pv{\Phi}})
+(\conj{\pv{\partial}}+iq\pv{\Phi}),\notag\\
 &\qquad\qquad\qquad\quad
-(\partial^*+iq\Phi)(\partial+iq\Phi^*)
+(\conj{\pv{\partial}}+iq\pv{\Phi})
+(\pv{\partial}+iq\conj{\pv{\Phi}})
 \Big).
 \end{align*}
 The Dirac equation
 \begin{equation*}
 \Dmat\bPsi=0
 \end{equation*}
-therefore becomes the two coupled equations
+is therefore reduced to the two coupled equations
 \begin{align*}
--m\bPsi_1+(i\partial-q\Phi^*)\bPsi_2&=0,\\
-(i\partial^*-q\Phi)\bPsi_1-m\bPsi_2&=0.
+-m\bPsi_1+(i\pv{\partial}-q\conj{\pv{\Phi}})\bPsi_2&=0,\\
+(i\conj{\pv{\partial}}-q\pv{\Phi})\bPsi_1-m\bPsi_2&=0.
 \end{align*}
 Equivalently, their time evolution is
 \begin{align*}
 i\partial_t\bPsi_1
-&=(qV-\sigv\cdot\mathbf P)\bPsi_1+m\bPsi_2,\\
+&=(qV-\sigv\cdot\vct{P})\bPsi_1+m\bPsi_2,\\
 i\partial_t\bPsi_2
-&=(qV+\sigv\cdot\mathbf P)\bPsi_2+m\bPsi_1.
+&=(qV+\sigv\cdot\vct{P})\bPsi_2+m\bPsi_1.
 \end{align*}
-Reverse these equations, multiply on the opposite side, and take scalar
-parts.  The real potential terms cancel within each block, the two mass
-terms cancel in the sum, and the derivative terms combine into a divergence.
-Consequently,
+The \(H\) operation is applied to these equations, multiplication is
+performed on the opposite side, and scalar parts are taken. In
+selected-column form the two separate balance equations are written
+out in Eq.\ \eqref{eq:dirac-continuity-components}. The real potential terms
+cancel within each block, while the mass terms are equal and opposite between
+the blocks. The following relation is obtained by addition of those two equations:
 \begin{equation*}
 \partial_t\eqtext{scalar}\!\left(
-\rev{\bPsi_1}\bPsi_1+\rev{\bPsi_2}\bPsi_2\right)
+\herm{\bPsi_1}\bPsi_1+\herm{\bPsi_2}\bPsi_2\right)
 +\gradv\cdot\eqtext{vector}\!\left(
-\bPsi_2\rev{\bPsi_2}-\bPsi_1\rev{\bPsi_1}\right)=0.
+\bPsi_2\herm{\bPsi_2}-\bPsi_1\herm{\bPsi_1}\right)=0.
 \end{equation*}
-This verifies the density and current stated above and explains why the vector
-part of a single \(\rev{\psi}\psi\) is not the Dirac current.
-Solving the first equation for the upper component and substituting into the second gives
+The stated density and current are thereby verified, and the distinction
+between the vector part of a single \(\herm{\pv{\psi}}\pv{\psi}\) and the
+Dirac current is established. The following result is obtained by solving the
+first equation for the upper component and substituting into the second:
 \begin{align*}
-\bPsi_1&=\frac{(i\partial-q\Phi^*)\bPsi_2}{m},\\
-0&=(i\partial^*-q\Phi)\bPsi_1-m\bPsi_2\notag\\
-&=-\frac{\bigl((\partial^*+iq\Phi)(\partial+iq\Phi^*)+m^2\bigr)\bPsi_2}{m}.
+\bPsi_1&=\frac{(i\pv{\partial}-q\conj{\pv{\Phi}})\bPsi_2}{m},\\
+0&=(i\conj{\pv{\partial}}-q\pv{\Phi})\bPsi_1-m\bPsi_2\notag\\
+&=-\frac{\bigl((\conj{\pv{\partial}}+iq\pv{\Phi})
+(\pv{\partial}+iq\conj{\pv{\Phi}})+m^2\bigr)\bPsi_2}{m}.
 \end{align*}
-Thus each block satisfies a Klein--Gordon-type operator with the appropriate
-ordered field coupling.
+Thus a Klein--Gordon-type operator with the appropriate ordered field
+coupling is satisfied by each block.
 
-The mass-conjugate operator is
+The mass-conjugate operator defined in
+Eq.\ \eqref{eq:dirac-mass-conjugate-operator} is
 \begin{equation*}
-\Dmat':=\Wmat(i\partial-q\Phi^*)+m\I.
+\Dmat'=\Wmat(i\pv{\partial}-q\conj{\pv{\Phi}})+m\I.
 \end{equation*}
-Multiplying by \(\Dmat'\) yields
+The following result is obtained by multiplication by \(\Dmat'\):
 \begin{align*}
 0=\Dmat'\Dmat\bPsi
-&=\bigl(\Wmat(i\partial-q\Phi^*)^2-m^2\I\bigr)\bPsi\notag\\
-&=-\operatorname{diag}\!\Big(
-(\partial+iq\Phi^*)(\partial^*+iq\Phi)+m^2,\notag\\
+&=\bigl(\Wmat(i\pv{\partial}-q\conj{\pv{\Phi}})^2-m^2\I\bigr)\bPsi\notag\\
+&=-\eqtext{diag}\!\Big(
+(\pv{\partial}+iq\conj{\pv{\Phi}})
+(\conj{\pv{\partial}}+iq\pv{\Phi})+m^2,\notag\\
 &\qquad\qquad\qquad\quad
-(\partial^*+iq\Phi)(\partial+iq\Phi^*)+m^2
+(\conj{\pv{\partial}}+iq\pv{\Phi})
+(\pv{\partial}+iq\conj{\pv{\Phi}})+m^2
 \Big)\bPsi.
 \end{align*}
 Equivalently,
 \begin{align*}
-0&=\bigl((\partial+iq\Phi^*)(\partial^*+iq\Phi)+m^2\bigr)\bPsi_1\notag\\
-&=\bigl(-E^2+\mathbf P^2+m^2+iqF^*\bigr)\bPsi_1,\\
-0&=\bigl((\partial^*+iq\Phi)(\partial+iq\Phi^*)+m^2\bigr)\bPsi_2\notag\\
-&=\bigl(-E^2+\mathbf P^2+m^2+iqF\bigr)\bPsi_2.
+0&=\bigl((\pv{\partial}+iq\conj{\pv{\Phi}})
+(\conj{\pv{\partial}}+iq\pv{\Phi})+m^2\bigr)\bPsi_1\notag\\
+&=\bigl(-E^2+\vct{P}^2+m^2+iq\conj{\pv{F}}\bigr)\bPsi_1,\\
+0&=\bigl((\conj{\pv{\partial}}+iq\pv{\Phi})
+(\pv{\partial}+iq\conj{\pv{\Phi}})+m^2\bigr)\bPsi_2\notag\\
+&=\bigl(-E^2+\vct{P}^2+m^2+iq\pv{F}\bigr)\bPsi_2.
 \end{align*}
-Once the square is taken, the coupled Dirac system separates into two Klein--Gordon-type equations whose field terms differ only by the conjugation pattern fixed by the operator ordering.
+Since
+\[
+iq\conj{\pv{F}}=(-iq\vct{E}-q\vct{B})\cdot\sigv,
+\qquad
+iq\pv{F}=(iq\vct{E}-q\vct{B})\cdot\sigv,
+\]
+the two equations are exactly the component forms in
+Eq.\ \eqref{eq:dirac-square-components}. Once the square is taken, the
+coupled Dirac system is separated into two Klein--Gordon-type equations with the
+same magnetic term and opposite electric terms, as required by the two
+first-order blocks.
 
 \subsubsection{Gauge Transform of the Dirac System}
-Let \(\lambda\in\R\) be a real scalar gauge field and define
+For a real scalar gauge field \(\lambda\in\R\), the potential defined in
+Eq.\ \eqref{eq:gauge} is
 \begin{equation*}
-\Phi_\lambda=\Phi+\partial^*\lambda.
+\pv{\Phi}(\lambda)=\pv{\Phi}+\conj{\pv{\partial}}\lambda.
 \end{equation*}
 Because \(\lambda\) is real,
 \begin{equation*}
-\partial\lambda=(\Phi_\lambda-\Phi)^*.
+\pv{\partial}\lambda=\conj{\pv{\Phi}(\lambda)-\pv{\Phi}}.
 \end{equation*}
-Transform the two-block field by
+The field transformation defined in Eq.\ \eqref{eq:dirac-gauge} is
+equivalently written as
 \begin{equation*}
-\bPsi=\exp(iq\lambda)\bPsi_\lambda.
+\bPsi=\exp(iq\lambda)\bPsi(\lambda).
 \end{equation*}
-Then the derivative of the phase factor is
+The phase factor is a central scalar, so every commutator correction in
+Eq.\ \eqref{eq:paravector-leibniz} is zero. The ordinary two-term product rule
+is therefore obeyed by the derivative of the phase factor:
 \begin{align*}
-\partial\bigl(\exp(iq\lambda)\bPsi_\lambda\bigr)
-&=\exp(iq\lambda)\bigl(iq\,\partial\lambda+\partial\bigr)\bPsi_\lambda.
+\pv{\partial}\bigl(\exp(iq\lambda)\bPsi(\lambda)\bigr)
+&=\exp(iq\lambda)\bigl(iq\,\pv{\partial}\lambda+\pv{\partial}\bigr)\bPsi(\lambda).
 \end{align*}
 Therefore,
 \begin{align*}
-0&=(\Wmat(i\partial-q\Phi^*)-m\I)\bPsi\notag\\
-&=(\Wmat(i\partial-q\Phi^*)-m\I)\exp(iq\lambda)\bPsi_\lambda\notag\\
-&=\exp(iq\lambda)(\Wmat(i\partial-q\,\partial\lambda-q\Phi^*)-m\I)\bPsi_\lambda\notag\\
-&=\exp(iq\lambda)(\Wmat(i\partial-q(\Phi_\lambda-\Phi)^*-q\Phi^*)-m\I)\bPsi_\lambda\notag\\
-&=\exp(iq\lambda)(\Wmat(i\partial-q\Phi_\lambda^*)-m\I)\bPsi_\lambda.
+0&=(\Wmat(i\pv{\partial}-q\conj{\pv{\Phi}})-m\I)\bPsi\notag\\
+&=(\Wmat(i\pv{\partial}-q\conj{\pv{\Phi}})-m\I)\exp(iq\lambda)\bPsi(\lambda)\notag\\
+&=\exp(iq\lambda)(\Wmat(i\pv{\partial}-q\,\pv{\partial}\lambda-q\conj{\pv{\Phi}})-m\I)\bPsi(\lambda)\notag\\
+&=\exp(iq\lambda)(\Wmat(i\pv{\partial}-q\conj{\pv{\Phi}(\lambda)-\pv{\Phi}}-q\conj{\pv{\Phi}})-m\I)\bPsi(\lambda)\notag\\
+&=\exp(iq\lambda)(\Wmat(i\pv{\partial}-q\conj{\pv{\Phi}(\lambda)})-m\I)\bPsi(\lambda).
 \end{align*}
 Hence
 \begin{equation*}
-(\Wmat(i\partial-q\Phi_\lambda^*)-m\I)\bPsi_\lambda=0.
+(\Wmat(i\pv{\partial}-q\conj{\pv{\Phi}(\lambda)})-m\I)\bPsi(\lambda)=0.
 \end{equation*}
-This is the gauge-covariance statement: the phase change of the Dirac field is exactly compensated by the shift of the potential, so the coupled Dirac equation keeps the same form in the transformed gauge.
+This is the gauge-covariance statement: the phase change of the Dirac field is exactly compensated by the shift of the potential, so the same form of the coupled Dirac equation is retained in the transformed gauge.
 
 \subsubsection{Dirac Equation Components}
-For the component form of the coupled Dirac equation, write
-\begin{align*}
-\partial&:=\partial_t+\sigv\cdot\gradv,\\
-\partial^*&:=\partial_t-\sigv\cdot\gradv,\\
-\Phi&:=V+\mathbf A\cdot\sigv\in\R\oplus\R^3,\\
-\Phi^*&:=V-\mathbf A\cdot\sigv,\\
-\psi&:=\psi_s+\psi_{\mathbf v}\cdot\sigv\in\C\oplus\C^3.
-\end{align*}
-For the field term, use
-\begin{align*}
-F&:=\mathbf F\cdot\sigv,\\
-\eqtext{scalar}(F)&=0,\\
-\mathbf F&:=\mathbf E+i\mathbf B\in\C^3,\\
-F^*&=-\mathbf F^*\cdot\sigv.
-\end{align*}
-The supporting tables then give the scalar and vector parts of \(\partial\psi\),
-\(\partial^*\psi\), \(\Phi\psi\), \(\Phi^*\psi\), \(iqF\psi\), and
-\(iqF^*\psi\) explicitly. They are identities in the full algebra; imposing
-\(\psi=\psi\Pi_0\) selects the physical submodule without changing those
-identities.
+The canonical definitions of \(\pv{\partial}\), \(\pv{\Phi}\), and
+\(\pv{F}\) from Eqs.\ \eqref{eq:partial-operator},
+\eqref{eq:partial-conjugate}, and \eqref{eq:F-Phi}, together with the generic
+block \(\pv{\psi}=\psi_s+\vct{\psi}_{\vct{v}}\cdot\sigv\) defined above, are
+used. The
+scalar and vector parts of \(\pv{\partial}\pv{\psi}\),
+\(\conj{\pv{\partial}}\pv{\psi}\),
+\(\pv{\Phi}\pv{\psi}\), \(\conj{\pv{\Phi}}\pv{\psi}\),
+\(iq\pv{F}\pv{\psi}\), and \(iq\conj{\pv{F}}\pv{\psi}\) are given explicitly
+in the supporting tables. They are identities in the full algebra; the
+fixed-column carrier is selected by imposing
+\(\pv{\psi}=\pv{\psi}\pv{\Pi}(\eqtext{column})\), without alteration of those
+identities. The actual constrained-column equations are
+Eq.\ \eqref{eq:dirac-four-components}; only the action of each generic algebra
+factor before application of that constraint is exposed by the tables.
 \input{sections/qm_tables_dirac.tex}
 
 \subsubsection{Low-Energy Spin-0 Limit}
-For the minimally coupled scalar theory, use the covariant operators
+For the minimally coupled scalar theory, the covariant operators are
 \begin{equation*}
 E=i\partial_t-qV,
 \qquad
-\mathbf P=-i\gradv-q\mathbf A.
+\vct{P}=-i\gradv-q\vct{A}.
 \end{equation*}
-Remove the fast rest-mass oscillation by writing
+The fast rest-mass oscillation is removed by writing
 \begin{equation*}
-\psi'=\exp(-imt)\psi.
+\psi=\exp(-imt)\psi(\eqtext{slow}).
 \end{equation*}
 Then
 \begin{align*}
-E^2\psi'&=\exp(-imt)(E+m)^2\psi,\\
-\mathbf P^2\psi'&=\exp(-imt)\mathbf P^2\psi.
+E^2\psi
+&=\exp(-imt)(E+m)^2\psi(\eqtext{slow}),\\
+\vct{P}^2\psi
+&=\exp(-imt)\vct{P}^2\psi(\eqtext{slow}).
 \end{align*}
-Substituting into the minimally coupled Klein--Gordon equation gives
+The following result is obtained by substitution into the minimally coupled Klein--Gordon equation:
 \begin{align*}
-0&=(-E^2+\mathbf P^2+m^2)\psi'\notag\\
-&=\exp(-imt)\bigl(-(E+m)^2+\mathbf P^2+m^2\bigr)\psi,
+0&=(-E^2+\vct{P}^2+m^2)\psi\notag\\
+&=\exp(-imt)\bigl(-(E+m)^2+\vct{P}^2+m^2\bigr)
+\psi(\eqtext{slow}),
 \end{align*}
 hence
 \begin{equation*}
-0=(-E^2-2mE+\mathbf P^2)\psi.
+0=(-E^2-2mE+\vct{P}^2)\psi(\eqtext{slow}).
 \end{equation*}
 For the free theory, or more generally when the operators in the iteration
-commute, this gives
+commute, the following two branches are admitted by the quadratic equation:
+\[
+E=-m\pm\sqrt{m^2+\vct{P}^2}.
+\]
+The root near zero is selected by the slow positive-energy assumption:
 \begin{align*}
-E&=\frac{\mathbf P^2-E^2}{2m},\\
-&=\frac{\mathbf P^2}{2m}-\frac{\mathbf P^4}{8m^3}+\cdots.
+E\psi(\eqtext{slow})
+&=\left(-m+\sqrt{m^2+\vct{P}^2}\right)\psi(\eqtext{slow})\notag\\
+&=\left(\frac{\vct{P}^2}{2m}-\frac{\vct{P}^4}{8m^3}
++O(\vct{P}^6/m^5)\right)
+\psi(\eqtext{slow}).
 \end{align*}
-For noncommuting or time-dependent potentials the higher-order terms also
-contain commutators; the leading low-energy relation remains
+The other root begins at \(-2m\) after the rest phase is removed and is
+incompatible with the assumed slowly varying positive-energy branch.
+For noncommuting or time-dependent potentials, commutators are also contained
+in the higher-order terms; the leading low-energy relation remains
 \begin{equation*}
-E\psi\approx \frac{\mathbf P^2}{2m}\psi.
+E\psi(\eqtext{slow})
+\approx \frac{\vct{P}^2}{2m}\psi(\eqtext{slow}).
 \end{equation*}
-Solving for \(i\partial_t\psi\) yields the Schr\"odinger equation
+The Schr\"odinger equation is obtained by solving for
+\(i\partial_t\psi(\eqtext{slow})\):
 \begin{equation*}
-i\partial_t\psi
-\approx\left(\frac{(-i\gradv-q\mathbf A)^2}{2m}+qV\right)\psi.
+i\partial_t\psi(\eqtext{slow})
+\approx\left(\frac{(-i\gradv-q\vct{A})^2}{2m}+qV\right)
+\psi(\eqtext{slow}).
 \end{equation*}
-If \(\mathbf A=0\), this reduces to
+If \(\vct{A}=0\), this reduces to
 \begin{equation*}
-i\partial_t\psi
-\approx\left(-\frac{\gradv^2}{2m}+qV\right)\psi.
+i\partial_t\psi(\eqtext{slow})
+\approx\left(-\frac{\gradv^2}{2m}+qV\right)\psi(\eqtext{slow}).
 \end{equation*}
 The scalar low-energy limit is therefore already encoded in the relativistic Klein--Gordon theory.
 
 \subsubsection{Low-Energy Spin-\texorpdfstring{$\frac12$}{1/2} and Pauli Limit}
-Start from the minimal-left-ideal two-block field
-\begin{equation*}
-\bPsi'=
-\begin{Bmatrix}
-\bPsi_1'\\[2pt]
-\bPsi_2'
-\end{Bmatrix}
-\end{equation*}
-and the potential-coupled Dirac equation
-\begin{equation*}
-\bigl(\Wmat(i\partial-q\Phi^*)-m\I\bigr)\bPsi'=0.
-\end{equation*}
-Its two block equations are
+The fixed-column two-block field from
+Eq.\ \eqref{eq:dirac-coupled} is used. Its two block equations are
 \begin{align*}
-(i\partial-q\Phi^*)\bPsi_2'-m\bPsi_1'&=0,\\
-(i\partial^*-q\Phi)\bPsi_1'-m\bPsi_2'&=0.
+(i\pv{\partial}-q\conj{\pv{\Phi}})\bPsi_2-m\bPsi_1&=0,\\
+(i\conj{\pv{\partial}}-q\pv{\Phi})\bPsi_1-m\bPsi_2&=0.
 \end{align*}
-Introduce the covariant operators
+With the covariant operators from
+Eqs.\ \eqref{eq:energy-operator} and \eqref{eq:momentum-operator},
 \begin{equation*}
-E:=i\partial_t-qV,
+E=i\partial_t-qV,
 \qquad
-\mathbf P:=-i\gradv-q\mathbf A.
+\vct{P}=-i\gradv-q\vct{A},
 \end{equation*}
-The system is then
+the system is
 \begin{align*}
-(E-\mathbf P\cdot\sigv)\bPsi_2'-m\bPsi_1'&=0,\\
-(E+\mathbf P\cdot\sigv)\bPsi_1'-m\bPsi_2'&=0.
+(E-\vct{P}\cdot\sigv)\bPsi_2-m\bPsi_1&=0,\\
+(E+\vct{P}\cdot\sigv)\bPsi_1-m\bPsi_2&=0.
 \end{align*}
-Peel off the fast rest-mass oscillation with
+The slow fields defined in Eq.\ \eqref{eq:slow-field-definition} are related by
 \begin{equation*}
-\bPsi_n'=\exp(-imt)\bPsi_n.
+\bPsi_n=\exp(-imt)\bPsi_n(\eqtext{slow}).
 \end{equation*}
 Since
 \begin{equation*}
-E\bPsi_n'=\exp(-imt)(E+m)\bPsi_n,
+E\bPsi_n=\exp(-imt)(E+m)\bPsi_n(\eqtext{slow}),
 \end{equation*}
-the reduced system becomes
+the system is reduced to
 \begin{align*}
-(E+m-\mathbf P\cdot\sigv)\bPsi_2-m\bPsi_1&=0,\\
-(E+m+\mathbf P\cdot\sigv)\bPsi_1-m\bPsi_2&=0.
+(E+m-\vct{P}\cdot\sigv)\bPsi_2(\eqtext{slow})
+-m\bPsi_1(\eqtext{slow})&=0,\\
+(E+m+\vct{P}\cdot\sigv)\bPsi_1(\eqtext{slow})
+-m\bPsi_2(\eqtext{slow})&=0.
 \end{align*}
-In the Weyl basis neither block is small at rest.  The energy-basis combinations
-are instead
-\begin{equation*}
-\phi:=\frac{\bPsi_1+\bPsi_2}{\sqrt2},
-\qquad
-\chi:=\frac{\bPsi_2-\bPsi_1}{\sqrt2}.
-\end{equation*}
-Adding and subtracting the reduced equations gives the exact system
-\begin{equation*}
-E\phi=(\mathbf P\cdot\sigv)\chi,
-\qquad
-(E+2m)\chi=(\mathbf P\cdot\sigv)\phi.
-\end{equation*}
-Thus \(\phi\) is the large positive-energy field and \(\chi\) is suppressed
-by one power of \(1/m\).  Formally,
+Neither original block is small at rest. With the energy-basis combinations
+from Eq.\ \eqref{eq:large-small},
 \begin{align*}
-\chi&=(E+2m)^{-1}(\mathbf P\cdot\sigv)\phi,\\
-E\phi
-&=(\mathbf P\cdot\sigv)(E+2m)^{-1}
-  (\mathbf P\cdot\sigv)\phi\notag\\
-&=\frac{(\mathbf P\cdot\sigv)^2}{2m}\phi+O(m^{-2}),
+\pv{\phi}(\eqtext{large})
+&=\frac{\bPsi_1(\eqtext{slow})+\bPsi_2(\eqtext{slow})}{\sqrt{2}},\\
+\pv{\phi}(\eqtext{small})
+&=\frac{\bPsi_2(\eqtext{slow})-\bPsi_1(\eqtext{slow})}{\sqrt{2}}.
 \end{align*}
-where the expansion assumes energies small compared with \(2m\) and smooth
-external fields on the Compton scale.
+The exact system is obtained by addition and subtraction of the reduced equations:
+\begin{align*}
+E\pv{\phi}(\eqtext{large})
+&=(\vct{P}\cdot\sigv)\pv{\phi}(\eqtext{small}),\\
+(E+2m)\pv{\phi}(\eqtext{small})
+&=(\vct{P}\cdot\sigv)\pv{\phi}(\eqtext{large}).
+\end{align*}
+Thus \(\pv{\phi}(\eqtext{large})\) is the large positive-energy field, and
+\(\pv{\phi}(\eqtext{small})\) is suppressed by one power of \(1/m\).
+Formally,
+\begin{align*}
+\pv{\phi}(\eqtext{small})
+&=(E+2m)^{-1}(\vct{P}\cdot\sigv)\pv{\phi}(\eqtext{large}),\\
+E\pv{\phi}(\eqtext{large})
+&=(\vct{P}\cdot\sigv)(E+2m)^{-1}
+  (\vct{P}\cdot\sigv)\pv{\phi}(\eqtext{large})\notag\\
+&=\frac{(\vct{P}\cdot\sigv)^2}{2m}
+\pv{\phi}(\eqtext{large})+O(m^{-2}),
+\end{align*}
+where energies small compared with \(2m\) and external fields smooth on the
+Compton scale are assumed.
 
-The magnetic term follows directly from the covariant-momentum commutator:
+The magnetic term is obtained directly from the covariant-momentum commutator:
 \begin{align*}
 \com{P_m}{P_n}&=iq(\partial_mA_n-\partial_nA_m),\\
-\mathbf P\times\mathbf P&=iq\,\mathbf B,\\
-(\mathbf P\cdot\sigv)^2
-&=\mathbf P^2+i(\mathbf P\times\mathbf P)\cdot\sigv\notag\\
-&=\mathbf P^2-q\,\mathbf B\cdot\sigv.
+\vct{P}\times\vct{P}&=iq\,\vct{B},\\
+(\vct{P}\cdot\sigv)^2
+&=\vct{P}^2+i(\vct{P}\times\vct{P})\cdot\sigv\notag\\
+&=\vct{P}^2-q\,\vct{B}\cdot\sigv.
 \end{align*}
 Consequently,
 \begin{equation*}
-E\phi
-=\frac{\mathbf P^2-q\,\mathbf B\cdot\sigv}{2m}\phi
+E\pv{\phi}(\eqtext{large})
+=\frac{\vct{P}^2-q\,\vct{B}\cdot\sigv}{2m}
+\pv{\phi}(\eqtext{large})
 +O(m^{-2}),
 \end{equation*}
 and the Pauli equation is
-\begin{equation*}
-i\partial_t\phi
-=\left(\frac{(-i\gradv-q\mathbf A)^2}{2m}+qV\right)\phi
--\frac{q}{2m}(\mathbf B\cdot\sigv)\phi+O(m^{-2}).
-\end{equation*}
-Electric-field, spin-orbit, and Darwin terms arise at the next order through
-the noncommutation of \(E\) and \(\mathbf P\); they must not be obtained by
-discarding the electric term in the second-order equation for a single Weyl
-block.  The leading spin coupling is therefore a controlled consequence of
-the Dirac system \cite{pauli1927,sakurai2017}.
+\begin{align*}
+i\partial_t\pv{\phi}(\eqtext{large})
+&=\left(\frac{(-i\gradv-q\vct{A})^2}{2m}+qV\right)
+\pv{\phi}(\eqtext{large})\notag\\
+&\quad-\frac{q}{2m}(\vct{B}\cdot\sigv)
+\pv{\phi}(\eqtext{large})+O(m^{-2}).
+\end{align*}
+The spin--orbit, Darwin, and time-dependent corrections at the next order are
+generated by electric-field commutators through the noncommutation of
+\(E\) and \(\vct{P}\). They must be retained consistently rather than
+discarded from the second-order equation for one original block. The leading
+spin coupling is therefore a controlled consequence of the Dirac system
+\cite{pauli1927,sakurai2017}.
+
+The Pauli current in Eq.\ \eqref{eq:pauli-current} is obtained from the same
+controlled reduction. The selected columns of
+\(\pv{\phi}(\eqtext{large})\) and \(\pv{\phi}(\eqtext{small})\) are denoted
+by \(\vct{\phi}(\eqtext{large})\) and
+\(\vct{\phi}(\eqtext{small})\), respectively. Then
+\begin{align*}
+\vct{j}(\bPsi)
+&=\mherm{\vct{\phi}(\eqtext{large})}\sigv
+\vct{\phi}(\eqtext{small})\notag\\
+&\quad+\mherm{\vct{\phi}(\eqtext{small})}\sigv
+\vct{\phi}(\eqtext{large}),\\
+\vct{\phi}(\eqtext{small})
+&=\frac{\sigv\cdot\vct{P}}{2m}
+\vct{\phi}(\eqtext{large})+O(m^{-2}).
+\end{align*}
+The product identity
+\(\pv{\sigma}_m\pv{\sigma}_n
+=\delta_{mn}+i\epsilon_{mnk}\pv{\sigma}_k\) is used in the written order,
+and the result is separated into the following vector expression:
+\begin{align*}
+\vct{j}(\pv{\phi}(\eqtext{large}))
+&=\frac{1}{2m}\Bigl(
+\mherm{\vct{\phi}(\eqtext{large})}
+  (\vct{P}\vct{\phi}(\eqtext{large}))\notag\\
+&\qquad
++\mherm{(\vct{P}\vct{\phi}(\eqtext{large}))}
+  \vct{\phi}(\eqtext{large})\Bigr)\notag\\
+&\quad+\frac{\gradv\times
+(\mherm{\vct{\phi}(\eqtext{large})}\sigv
+ \vct{\phi}(\eqtext{large}))}{2m}
++O(m^{-2}).
+\end{align*}
+In the first numerator, the three entries are obtained by replacing
+\(\vct{P}\) in turn by \(P_1,P_2,P_3\); thus this compact line is exactly
+the three component equations.
+The first term is the covariant-momentum flow and the second is the
+magnetization curl. The latter has zero divergence, so agreement of both the
+current and the continuity equation with the standard Pauli limit is obtained.
 
 \subsubsection{Spin Up and Spin Down}
-Where \(\mathbf B\neq\mathbf0\), let its direction define the spin axis,
+Where \(\vct{B}\neq\vct{0}\), its direction is used as the spin axis:
 \begin{equation*}
-\mathbf u:=\frac{\mathbf B}{\|\mathbf B\|},
+\vct{u}=\frac{\vct{B}}{\|\vct{B}\|},
 \end{equation*}
-and use the projector pair from Eq.\ \eqref{eq:projectors},
+The projector pair from Eq.\ \eqref{eq:projectors} is then used:
 \begin{equation*}
-\Pi(\pm)=\tfrac12(1\pm \mathbf u\cdot\sigv),
+\pv{\Pi}(\pm)=\tfrac12(1\pm \vct{u}\cdot\sigv),
 \qquad
-(\mathbf u\cdot\sigv)\Pi(\pm)=\pm\Pi(\pm).
+(\vct{u}\cdot\sigv)\pv{\Pi}(\pm)=\pm\pv{\Pi}(\pm).
 \end{equation*}
-Decompose the Pauli state by
+The Pauli state is decomposed by
 \begin{align*}
-\phi(\pm)&:=\Pi(\pm)\phi,\\
-(\mathbf u\cdot\sigv)\phi(\pm)&=\pm\phi(\pm),\\
-\phi&=\phi(+)+\phi(-),
+\pv{\phi}(\eqtext{large},\pm)
+&=\pv{\Pi}(\pm)\pv{\phi}(\eqtext{large}),\\
+(\vct{u}\cdot\sigv)\pv{\phi}(\eqtext{large},\pm)
+&=\pm\pv{\phi}(\eqtext{large},\pm),\\
+\pv{\phi}(\eqtext{large})
+&=\pv{\phi}(\eqtext{large},+)+\pv{\phi}(\eqtext{large},-),
 \end{align*}
-so \(\phi(+)\) and \(\phi(-)\) are the spin-up and spin-down parts along
-the field axis.  These left projectors preserve the fixed minimal-ideal
-condition \(\phi=\phi\Pi_0\).
+so \(\pv{\phi}(\eqtext{large},+)\) and
+\(\pv{\phi}(\eqtext{large},-)\) are the spin-up and spin-down parts along
+the field axis. The fixed-column condition
+\(\pv{\phi}(\eqtext{large})
+=\pv{\phi}(\eqtext{large})\pv{\Pi}(\eqtext{column})\) is preserved under
+these left projectors.
 
-At leading order, write the Pauli equation as
+At leading order, the Pauli equation is written as
 \begin{align*}
-\mathbf P&:=-i\gradv-q\mathbf A,\\
-i\partial_t\phi
-&=\left(\frac{\mathbf P^2}{2m}+qV\right)\phi
--\frac{q}{2m}\,\|\mathbf B\|(\mathbf u\cdot\sigv)\phi.
+\vct{P}&=-i\gradv-q\vct{A},\\
+i\partial_t\pv{\phi}(\eqtext{large})
+&=\left(\frac{\vct{P}^2}{2m}+qV\right)
+\pv{\phi}(\eqtext{large})\notag\\
+&\quad-\frac{q}{2m}\,\|\vct{B}\|(\vct{u}\cdot\sigv)
+\pv{\phi}(\eqtext{large}).
 \end{align*}
-Equivalently,
-\begin{equation*}
-i\partial_t\phi=H\phi,
-\end{equation*}
-with
-\begin{equation*}
-H:=\frac{\mathbf P^2}{2m}+qV-\frac{q}{2m}\,\|\mathbf B\|\,\mathbf u\cdot\sigv.
-\end{equation*}
-Applying \(\Pi(\pm)\) to the time evolution gives
+The following result is obtained by applying \(\pv{\Pi}(\pm)\) to the time evolution:
 \begin{align*}
-i\partial_t\phi(\pm)
-&=H\phi(\pm)
-+\bigl(i\partial_t\Pi(\pm)+\com{\Pi(\pm)}{H}\bigr)\phi\notag\\
-&=H\phi(\pm)
-+\left(i\partial_t\Pi(\pm)
-+\frac{\com{\Pi(\pm)}{\mathbf P^2}}{2m}\right)\phi.
+i\partial_t\pv{\phi}(\eqtext{large},\pm)
+&=\left(\frac{\vct{P}^2}{2m}+qV
+-\frac{q}{2m}\|\vct{B}\|\,\vct{u}\cdot\sigv\right)
+\pv{\phi}(\eqtext{large},\pm)\notag\\
+&\quad
++\left(i\partial_t\pv{\Pi}(\pm)
++\frac{\com{\pv{\Pi}(\pm)}{\vct{P}^2}}{2m}\right)
+\pv{\phi}(\eqtext{large}).
 \end{align*}
 Here \(qV\) and the local field-axis term commute pointwise with
-\(\Pi(\pm)\); spatial variation enters through the displayed kinetic
-commutator.  This term, together with \(\partial_t\Pi(\pm)\), couples the two
-local spin sectors.
-If \(\mathbf B\) is uniform and static, then \(\Pi(\pm)\) is constant and
-the coupling term vanishes, so the two spin sectors decouple. In that case
+\(\pv{\Pi}(\pm)\); spatial variation is incorporated through the displayed
+kinetic commutator. The two local spin sectors are coupled by this term
+together with \(\partial_t\pv{\Pi}(\pm)\).
+If \(\vct{B}\) is uniform and static, then \(\pv{\Pi}(\pm)\) is constant and
+the coupling term is zero, so the two spin sectors are decoupled. In that case
 \begin{equation*}
-(-\mathbf B\cdot\sigv)\phi(\pm)=\mp \|\mathbf B\|\,\phi(\pm),
+(-\vct{B}\cdot\sigv)\pv{\phi}(\eqtext{large},\pm)
+=\mp \|\vct{B}\|\,\pv{\phi}(\eqtext{large},\pm),
 \end{equation*}
-and the Zeeman effect appears as
+and the Zeeman effect is represented by
 \begin{equation*}
-i\partial_t\phi(\pm)
-=\left(\frac{\mathbf P^2\mp q\|\mathbf B\|}{2m}+qV\right)\phi(\pm).
+i\partial_t\pv{\phi}(\eqtext{large},\pm)
+=\left(\frac{\vct{P}^2\mp q\|\vct{B}\|}{2m}+qV\right)
+\pv{\phi}(\eqtext{large},\pm).
 \end{equation*}
-The field direction therefore selects a preferred axis, and the two projector parts evolve with opposite Zeeman shifts.
+A preferred axis is therefore selected by the field direction, and opposite Zeeman shifts are acquired by the two projector parts.
 
-\subsubsection{Free Energy and Helicity Projector Checks}
-For the free momentum-mode Hamiltonian in Eq.\ \eqref{eq:dirac-hamiltonian},
-direct block multiplication gives
+\subsubsection{Free Energy and Momentum-Axis Checks}
+The definitions in
+Eqs.\ \eqref{eq:dirac-hamiltonian}--\eqref{eq:energy-spin-projectors} are
+expanded; no additional projector notation is needed. The following result
+is obtained by direct block multiplication:
 \begin{align*}
-H_D^2
+\mat{\mathcal H}^{\,2}
 &=
 \begin{pmatrix}
-(\sigv\cdot\mathbf p)^2+m^2
-&-m\sigv\cdot\mathbf p+m\sigv\cdot\mathbf p\\
--m\sigv\cdot\mathbf p+m\sigv\cdot\mathbf p
-&(\sigv\cdot\mathbf p)^2+m^2
+(\sigv\cdot\vct{p})^2+m^2
+&-m\sigv\cdot\vct{p}+m\sigv\cdot\vct{p}\\
+-m\sigv\cdot\vct{p}+m\sigv\cdot\vct{p}
+&(\sigv\cdot\vct{p})^2+m^2
 \end{pmatrix}\notag\\
-&=(m^2+\mathbf p^2)\I
-=E_{\mathbf p}^2\I.
+&=(m^2+\vct{p}^2)\I
+=E(\vct{p})^2\I.
 \end{align*}
-It follows immediately that
+Here \((\sigv\cdot\vct{p})^2=\vct{p}^2\) is obtained directly from the sigma
+product. Because \(m\), \(\vct{p}\), and the sigma matrices are Hermitian,
+\(\herm{\mat{\mathcal H}}=\mat{\mathcal H}\). The calligraphic
+\(\mat{\mathcal H}\) names this block operator; the superscript \(H\) still
+means the Hermitian operation.
+
+The following relations are obtained from the definition of \(\bPsi(e)\) and the square:
 \begin{align*}
-\Lmat(\epsilon)^2
-&=\frac14\left(
-\I+2\epsilon\frac{H_D}{E_{\mathbf p}}
-+\frac{H_D^2}{E_{\mathbf p}^2}\right)
-=\Lmat(\epsilon),\\
-H_D\Lmat(\epsilon)&=\epsilon E_{\mathbf p}\Lmat(\epsilon).
+\mat{\mathcal H}\bPsi(e)
+&=\frac12\left(
+\mat{\mathcal H}\bPsi
++e\frac{\mat{\mathcal H}^{\,2}\bPsi}{E(\vct{p})}\right)\notag\\
+&=\frac12\left(
+\mat{\mathcal H}\bPsi+eE(\vct{p})\bPsi\right)
+=eE(\vct{p})\bPsi(e),\\
+\bPsi(+)+\bPsi(-)&=\bPsi.
 \end{align*}
-The complementary relations are
-\begin{equation*}
-\Lmat(+)\Lmat(-)=0,
-\qquad
-\Lmat(+)+\Lmat(-)=\I.
-\end{equation*}
+Thus the two displayed fields really are the two energy-sign parts. Since
+\(\mat{\mathcal H}\) is Hermitian, zero Hermitian pairing is obtained between
+parts with different real eigenvalues.
 
-For \(\mathbf p\neq\mathbf0\), the helicity axis obeys
-\begin{equation*}
-(\sigv\cdot\mathbf p)\Pi(s)
-=s\|\mathbf p\|\Pi(s),
-\qquad
-\com{\sigv\cdot\mathbf p}{\Pi(s)}=0.
-\end{equation*}
-The mass entries commute with every \(\Pi(s)\), so
-\begin{equation*}
-\com{H_D}{\Pi_h(s)}=0,
-\qquad
-\com{\Lmat(\epsilon)}{\Pi_h(s)}=0.
-\end{equation*}
-Thus the commuting product in Eq.\ \eqref{eq:energy-spin-projectors} is a
-projector onto a simultaneous energy--helicity sector.
+For \(\vct{p}\neq\vct{0}\), the following relation is obtained from Eq.\ \eqref{eq:energy-spin-projectors}:
+\[
+(\sigv\cdot\vct{p})\pv{\Pi}(s)
+=s\|\vct{p}\|\pv{\Pi}(s).
+\]
+The projector commutes with \(\sigv\cdot\vct{p}\), and its left action
+commutes with the real mass entries of \(\mat{\mathcal H}\). Consequently
+\begin{align*}
+\mat{\mathcal H}\bPsi(e,s)
+&=eE(\vct{p})\bPsi(e,s),\\
+(\sigv\cdot\vct{p})\bPsi_n(e,s)
+&=s\|\vct{p}\|\bPsi_n(e,s).
+\end{align*}
+The following especially transparent check is now obtained by writing the
+Hamiltonian equation one block at a time:
+\begin{align}
+m\bPsi_2(e,s)
+&=\bigl(eE(\vct{p})+s\|\vct{p}\|\bigr)\bPsi_1(e,s),\notag\\
+m\bPsi_1(e,s)
+&=\bigl(eE(\vct{p})-s\|\vct{p}\|\bigr)\bPsi_2(e,s).
+\label{eq:energy-axis-block-check}
+\end{align}
+The following relation is recovered by multiplication of these two scalar factors:
+\[
+m^2
+=\bigl(eE(\vct{p})+s\|\vct{p}\|\bigr)
+ \bigl(eE(\vct{p})-s\|\vct{p}\|\bigr)
+=E(\vct{p})^2-\vct{p}^2.
+\]
 
-Finally, all entries of \(H_D\), \(\Lmat(\epsilon)\), and \(\Pi_h(s)\) act
-from the left.  Hence, whenever a block satisfies the fixed-ideal condition
-\(\bPsi_n=\bPsi_n\Pi_0\), every projected block satisfies it as well, since
-\begin{equation*}
-(O\bPsi_n)\Pi_0=O(\bPsi_n\Pi_0)=O\bPsi_n
-\end{equation*}
-for each such left-acting block entry \(O\).  The energy and helicity
-decomposition therefore introduces no second spinor column and preserves the
-one-Dirac-field carrier selected in Eq.\ \eqref{eq:minimal-ideal}.
+Within one fixed \((e,s)\) sector, the selected columns are represented
+locally by \(\{a;b\}\) for \(\bPsi_1(e,s)\) and
+\(\{c;d\}\) for \(\bPsi_2(e,s)\). The momentum-axis equation is then exactly
+\begin{align*}
+p_3a+(p_1-ip_2)b&=s\|\vct{p}\|a,&
+(p_1+ip_2)a-p_3b&=s\|\vct{p}\|b,\\
+p_3c+(p_1-ip_2)d&=s\|\vct{p}\|c,&
+(p_1+ip_2)c-p_3d&=s\|\vct{p}\|d.
+\end{align*}
+The following relations are obtained component by component from Eq.\ \eqref{eq:energy-axis-block-check}:
+\begin{align*}
+mc&=\bigl(eE(\vct{p})+s\|\vct{p}\|\bigr)a,&
+md&=\bigl(eE(\vct{p})+s\|\vct{p}\|\bigr)b,\\
+ma&=\bigl(eE(\vct{p})-s\|\vct{p}\|\bigr)c,&
+mb&=\bigl(eE(\vct{p})-s\|\vct{p}\|\bigr)d.
+\end{align*}
+These are the usual free Dirac energy and momentum-axis spin relations,
+written entirely with the present paravector conventions.
+The physical current is also verified directly:
+\begin{align*}
+\frac{\vct{u}\cdot\vct{j}(\bPsi(e,s))}
+{\rho(\bPsi(e,s))}
+&=
+s\,
+\frac{|c|^2+|d|^2-|a|^2-|b|^2}
+{|a|^2+|b|^2+|c|^2+|d|^2}
+=\frac{e\|\vct{p}\|}{E(\vct{p})},\\
+\frac{\vct{j}(\bPsi(e,s))}{\rho(\bPsi(e,s))}
+&=\frac{e\vct{p}}{E(\vct{p})}.
+\end{align*}
+Thus the current divided by the density is the expected relativistic
+velocity for each energy-sign mode.
+
+Every displayed operation is applied on the left. Therefore the fixed-column
+condition is preserved directly:
+\[
+\begin{aligned}
+&\bigl(\pv{\Pi}(s)\bPsi_n(e)\bigr)
+\pv{\Pi}(\eqtext{column})\\
+&\qquad=\pv{\Pi}(s)
+\bigl(\bPsi_n(e)\pv{\Pi}(\eqtext{column})\bigr)\\
+&\qquad=\pv{\Pi}(s)\bPsi_n(e).
+\end{aligned}
+\]
+No second matrix column is introduced. At \(\vct{p}=0\) the momentum
+direction, and hence helicity, is undefined; any separately chosen spin axis
+may still be used.

@@ -1,96 +1,113 @@
 \subsubsection{Quaternion Basis and Involutions}
-The same sigma-number-two basis used in Eq.\ \eqref{eq:exp-bivector} also reproduces Hamilton's quaternion units, so the rotation algebra can be written in quaternion form without leaving the STA multiplication table \cite{hamilton1844,clifford1878}:
+Hamilton's quaternion units are also reproduced by the same sigma-number-two
+basis used in Eq.\ \eqref{eq:exp-bivector}, so the rotation algebra can be
+written in quaternion form without leaving the STA multiplication table
+\cite{hamilton1844,clifford1878}:
 \begin{equation}
 \begin{aligned}
-q_1&=-\sigma_2\sigma_3,\qquad
-q_2=-\sigma_3\sigma_1,\\
-q_3&=-\sigma_1\sigma_2,\qquad
-\mathbf q:=(q_1,q_2,q_3)=-i\sigv.
+\pv{q}_1&=-\pv{\sigma}_2\pv{\sigma}_3,\qquad
+\pv{q}_2=-\pv{\sigma}_3\pv{\sigma}_1,\\
+\pv{q}_3&=-\pv{\sigma}_1\pv{\sigma}_2,\qquad
+\vct{q}:=(\pv{q}_1,\pv{q}_2,\pv{q}_3)=-i\sigv.
 \end{aligned}
 \label{eq:quaternion-basis}
 \end{equation}
-These basis elements satisfy the standard quaternion identities
+The standard quaternion identities are satisfied by these basis elements:
 \begin{equation*}
-q_1^2=q_2^2=q_3^2=q_1q_2q_3=-1.
+\pv{q}_1^2=\pv{q}_2^2=\pv{q}_3^2=\pv{q}_1\pv{q}_2\pv{q}_3=-1.
 \end{equation*}
-So the quaternion units are not new generators; they are the sigma-number-two basis already present in the STA algebra, only relabeled.
+Thus the quaternion units are not new generators; the existing
+sigma-number-two basis is only relabeled.
 
-If \(\mathbf B=(B_1,B_2,B_3)\in\R^3\), then \(\mathbf B\cdot\mathbf q=-i\,\mathbf B\cdot\sigv\). Since \(q_k=-i\sigma_k\), the abstract operator rules immediately give
+If \(\vct{B}=(B_1,B_2,B_3)\in\R^3\), then
+\(\vct{B}\cdot\vct{q}=-i\,\vct{B}\cdot\sigv\). Since
+\(\pv{q}_k=-i\pv{\sigma}_k\), the following relations are obtained
+immediately from the abstract operator rules:
 \begin{equation*}
-\mathbf q^*=\mathbf q,
+\vct{q}^*=\vct{q},
 \qquad
-\mathbf q^{\mathrm R}=-\mathbf q.
+\vct{q}^{\mathsf H}=-\vct{q}.
 \end{equation*}
-Thus the conjugate operator fixes the quaternion basis, while the reverse operator changes its sign.
+Thus the quaternion basis is fixed by the conjugate operator, while its
+sign is changed by the Hermitian operation.
 
 \subsubsection{Quaternion Products}
-For \(a\in\R\) and \(\mathbf B\in\R^3\), define the quaternion
+For \(a\in\R\) and \(\vct{B}\in\R^3\), the quaternion is defined by
 \begin{equation}
-Q:=a+\mathbf B\cdot\mathbf q
-=a-i\,\mathbf B\cdot\sigv.
+\pv{Q}:=a+\vct{B}\cdot\vct{q}
+=a-i\,\vct{B}\cdot\sigv.
 \label{eq:quaternion-paravector}
 \end{equation}
-In the manuscript's complex-paravector notation, the same quaternion may be written as
+In complex-paravector notation, the same quaternion may be written as
 \begin{equation*}
-Q=X-iY,
+\pv{Q}=\pv{X}-i\pv{Y},
 \qquad
-X=a+\mathbf A\cdot\sigv,
+\pv{X}=a+\vct{A}\cdot\sigv,
 \qquad
-Y=b+\mathbf B\cdot\sigv,
+\pv{Y}=b+\vct{B}\cdot\sigv,
 \end{equation*}
 with the quaternion specialization
 \begin{equation*}
-\mathbf A=0,
+\vct{A}=0,
 \qquad
 b=0.
 \end{equation*}
-So here \(X=a\) is purely scalar and \(Y=\mathbf B\cdot\sigv\) is purely vector.
-Because \(\mathbf q^*=\mathbf q\), one has
+Under this specialization, \(\pv{X}=a\) is purely scalar and
+\(\pv{Y}=\vct{B}\cdot\sigv\) is purely vector. Because
+\(\vct{q}^*=\vct{q}\),
 \begin{equation*}
-Q^*=Q.
+\pv{Q}^*=\pv{Q}.
 \end{equation*}
 Therefore
 \begin{align}
-QQ^*&=Q^2\notag\\
-&=(a-i\,\mathbf B\cdot\sigv)^2\notag\\
-&=a^2-2ia\,\mathbf B\cdot\sigv+(-i)^2(\mathbf B\cdot\sigv)^2\notag\\
-&=a^2-\mathbf B^2-2ia\,\mathbf B\cdot\sigv.
+\pv{Q}\pv{Q}^*&=\pv{Q}^2\notag\\
+&=(a-i\,\vct{B}\cdot\sigv)^2\notag\\
+&=a^2-2ia\,\vct{B}\cdot\sigv+(-i)^2(\vct{B}\cdot\sigv)^2\notag\\
+&=a^2-\vct{B}^2-2ia\,\vct{B}\cdot\sigv.
 \label{eq:quaternion-square}
 \end{align}
-The linear term must carry the factor \(a\). This is just the sigma-number-two multiplication law written in quaternion language.
+The factor \(a\) must be carried by the linear term. This is just the
+sigma-number-two multiplication law written in quaternion language.
 
-Since \(\mathbf q^{\mathrm R}=-\mathbf q\), the reverse of \(Q\) is
+Since \(\vct{q}^{\mathsf H}=-\vct{q}\), the Hermitian counterpart of \(\pv{Q}\) is
 \begin{equation*}
-Q^{\mathrm R}=a-\mathbf B\cdot\mathbf q
-=a+i\,\mathbf B\cdot\sigv.
+\pv{Q}^{\mathsf H}=a-\vct{B}\cdot\vct{q}
+=a+i\,\vct{B}\cdot\sigv.
 \end{equation*}
-Multiplying \(Q\) by its reverse gives
+The result of multiplication by the Hermitian counterpart is
 \begin{equation}
-QQ^{\mathrm R}=a^2+\mathbf B^2.
+\pv{Q}\pv{Q}^{\mathsf H}=a^2+\vct{B}^2.
 \label{eq:quaternion-norm}
 \end{equation}
-So the reverse product recovers the standard positive quaternion norm square, while Eq.\ \eqref{eq:quaternion-square} records the ordinary algebra square.
+Thus the standard positive quaternion norm square is recovered by the
+Hermitian product, while the ordinary algebra square is recorded by
+Eq.\ \eqref{eq:quaternion-square}.
 
 \subsubsection{Quaternion Form of the Rotor Law}
-Now that Eq.\ \eqref{eq:rotor} and its transform consequences have been developed, the quaternion rotation law can be read off directly. For a unit quaternion \(Q\) satisfying \(QQ^{\mathrm R}=1\), and for a real vector \(\mathbf r\in\R^3\), one has
+For a unit quaternion \(\pv{Q}\) satisfying
+\(\pv{Q}\pv{Q}^{\mathsf H}=1\), and for a real vector
+\(\vct{r}\in\R^3\), the quaternion rotation law is
 \begin{equation}
-\mathbf r'\cdot\mathbf q
-=Q(\mathbf r\cdot\mathbf q)Q^{\mathrm R}.
+\vct{r}'\cdot\vct{q}
+=\pv{Q}(\vct{r}\cdot\vct{q})\pv{Q}^{\mathsf H}.
 \label{eq:quaternion-rotation}
 \end{equation}
-This is the quaternion version of the rotor action \(\mathbf r'\cdot\sigv=\rev{R}(\mathbf r\cdot\sigv)R\). In particular, choosing
+This is the quaternion version of the rotor action
+\(\vct{r}'\cdot\sigv=\herm{\pv{R}}(\vct{r}\cdot\sigv)\pv{R}\). With the
+choice
 \begin{equation*}
-Q=\cos\!\left(\frac{\theta}{2}\right)
- +\sin\!\left(\frac{\theta}{2}\right)\mathbf u\cdot\mathbf q
+\pv{Q}=\cos\!\left(\frac{\theta}{2}\right)
+ +\sin\!\left(\frac{\theta}{2}\right)\vct{u}\cdot\vct{q}
 \end{equation*}
-gives \(Q=R^{\mathrm R}\), because
-\(\mathbf q=-i\sigv\). Consequently
+the relation \(\pv{Q}=\pv{R}^{\mathsf H}\) is obtained because
+\(\vct{q}=-i\sigv\). Consequently
 \[
-Q(\mathbf r\cdot\mathbf q)Q^{\mathrm R}
-=R^{\mathrm R}(\mathbf r\cdot\mathbf q)R,
+\pv{Q}(\vct{r}\cdot\vct{q})\pv{Q}^{\mathsf H}
+=\pv{R}^{\mathsf H}(\vct{r}\cdot\vct{q})\pv{R},
 \]
-which has exactly the same orientation as the sigma-vector rotor law. If
-one instead chooses \(Q=R\), the equivalent quaternion sandwich must be
-\(Q^{\mathrm R}(\mathbf r\cdot\mathbf q)Q\). Thus quaternion rotations are
+which has exactly the same orientation as the sigma-vector rotor law. The
+equivalent quaternion sandwich
+\(\pv{Q}^{\mathsf H}(\vct{r}\cdot\vct{q})\pv{Q}\) is required under the
+alternative choice \(\pv{Q}=\pv{R}\). Thus quaternion rotations are
 the same circular half-angle algebra, with the order fixed by the selected
 orientation convention.

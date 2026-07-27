@@ -1,115 +1,140 @@
 \subsection{Lorentz Boost}
-The boost element comes from the same exponential calculus as the circular rotor, but its action on a space-time paravector is a congruence rather than the similarity action used for a spatial rotation. This distinction keeps a real event paravector real and allows its scalar and parallel-vector parts to mix.
-The auxiliary parameters \(\beta\) and \(\gamma\) are introduced first because they shorten the resulting formulas:
+The boost element is obtained from the same exponential calculus as the circular rotor, but a space-time paravector is acted on by a congruence rather than by the similarity action used for a spatial rotation. A real event paravector is thereby kept real, while its scalar and parallel-vector parts are allowed to mix.
+The auxiliary parameters \(\beta\) and \(\gamma\) are introduced first so that the resulting formulas are shortened:
 \begin{align*}
 \theta &= \operatorname{arctanh}(\beta ),\notag \\
 \beta &= \tanh(\theta ),\notag \\
 \gamma &= \cosh(\theta ),\notag \\
 \gamma \beta &= \sinh(\theta ),\notag \\
-\mathbf u &= (u_{1}, u_{2}, u_{3}), \mathbf u^{2} = 1,\notag \\
-L(\theta ,\mathbf u) &:= \exp( \tfrac{1}{2} \theta (\mathbf u \cdot \sigv ) ),\notag \\
-&= \cosh( \tfrac{1}{2} \theta ) + \sinh( \tfrac{1}{2} \theta ) (\mathbf u \cdot \sigv ).
+\vct{u} &= (u_{1}, u_{2}, u_{3}), \vct{u}^{2} = 1,\notag \\
+\pv{L}(\theta ,\vct{u}) &= \exp( \tfrac{1}{2} \theta (\vct{u} \cdot \sigv ) ),\notag \\
+&= \cosh( \tfrac{1}{2} \theta ) + \sinh( \tfrac{1}{2} \theta ) (\vct{u} \cdot \sigv ).
 \end{align*}
+The boost element defined in Eq.\ \eqref{eq:boost-element} is displayed in
+expanded form for the calculation.
 \begin{equation*}
-L^{-1} = \exp( -\tfrac{1}{2} \theta (\mathbf u \cdot \sigv ) ).
+\pv{L}^{-1} = \exp( -\tfrac{1}{2} \theta (\vct{u} \cdot \sigv ) ).
 \end{equation*}
-Here \(\theta,\gamma\in\R\), \(\beta\in\R\) with \(|\beta|<1\), \(\mathbf u\in\R^3\) is a unit real vector, and \(L\in\R\oplus\R^3\) is the hyperbolic transform element. Its inverse satisfies \(L^{-1}=L^{*}=L^{*\mathrm{R}}\). Elements along the same axis commute:
+Here \(\theta,\gamma\in\R\), \(\beta\in\R\) with \(|\beta|<1\), \(\vct{u}\in\R^3\) is a unit real vector, and \(\pv{L}\in\R+\R^3\) is the hyperbolic transform element. Its inverse is \(\pv{L}^{-1}=\pv{L}^{*}=\pv{L}^{*\mathsf H}\). Commutation is obtained for elements along the same axis:
 \begin{equation*}
-\com{L(\theta ,\mathbf u)}{L(\theta ',\mathbf u)}=0.
+\com{\pv{L}(\theta ,\vct{u})}{\pv{L}(\theta ',\vct{u})}=0.
 \end{equation*}
-Consequently, collinear boosts combine by addition of the parameter \(\theta\):
+Consequently, collinear boosts are combined by addition of the parameter
+\(\theta\). With \(\beta'=\tanh(\theta')\) and
+\(\gamma'=\cosh(\theta')\),
 \begin{align*}
-\theta'&=\theta_1+\theta_2,\\
-L(\theta ', \mathbf u) &= L(\theta _{1}, \mathbf u) L(\theta _{2}, \mathbf u), \\
-\beta ' &= (\beta _{1} + \beta _{2}) / (1 + \beta _{1} \beta _{2}), \\
-\gamma ' &= \gamma _{1} \gamma _{2} (1 + \beta _{1} \beta _{2}).
+\pv{L}(\theta,\vct{u})\pv{L}(\theta',\vct{u})
+&=\pv{L}(\theta+\theta',\vct{u}),\\
+\tanh(\theta+\theta')&=\frac{\beta+\beta'}{1+\beta\beta'},\\
+\cosh(\theta+\theta')&=\gamma\gamma'(1+\beta\beta').
 \end{align*}
-For the passive boost with the signs used below, the real space-time paravector \(X=t+\mathbf r\cdot\sigv\), with \(t\in\R\), \(\mathbf r\in\R^3\), and \(X\in\R\oplus\R^3\), transforms as
+For the passive boost with the signs used below, the real space-time paravector \(\pv{X}=t+\vct{r}\cdot\sigv\), with \(t\in\R\), \(\vct{r}\in\R^3\), and \(\pv{X}\in\R+\R^3\), is transformed as
 \begin{align*}
-X &= t + \mathbf r \cdot \sigv,\notag \\
-X' &= L^{*} X L^{*},\notag \\
-&= t' + \mathbf r' \cdot \sigv.
+\pv{X} &= t + \vct{r} \cdot \sigv,\notag \\
+\pv{X}' &= \pv{L}^{*} \pv{X} \pv{L}^{*},\notag \\
+&= t' + \vct{r}' \cdot \sigv.
 \end{align*}
 \begin{align*}
-t' &= t \cosh(\theta ) - \sinh(\theta ) (\mathbf u \cdot \mathbf r),\notag \\
-&= \gamma ( t - \beta (\mathbf u \cdot \mathbf r) ).
+t' &= t \cosh(\theta ) - \sinh(\theta ) (\vct{u} \cdot \vct{r}),\notag \\
+&= \gamma ( t - \beta (\vct{u} \cdot \vct{r}) ).
 \end{align*}
-The vector part is clearest after using the axis functions in
-Eq.\ \eqref{eq:axis-functions} to split \(\mathbf r\) into components parallel
-and perpendicular to the chosen direction:
+The vector part is made explicit by the axis functions in
+Eqs.\ \eqref{eq:par-function} and \eqref{eq:prp-function}, through which
+\(\vct{r}\) is split into
+components parallel and perpendicular to the chosen direction:
 \begin{align*}
-\eqtext{par}(\mathbf r) &= (\mathbf r \cdot \mathbf u) \mathbf u\qquad \text{parallel to } \mathbf u,\notag \\
-\eqtext{prp}(\mathbf r) &= \mathbf r - \eqtext{par}(\mathbf r)\qquad \text{perpendicular to } \mathbf u,\notag \\
-\mathbf r &= \eqtext{par}( \mathbf r ) + \eqtext{prp}( \mathbf r ),\notag \\
-\eqtext{par}( \mathbf r' ) &= \gamma ( \eqtext{par}( \mathbf r ) - \beta t \mathbf u),\notag \\
-\eqtext{prp}( \mathbf r' ) &= \eqtext{prp}( \mathbf r ),\notag \\
-\mathbf r' &= \eqtext{par}( \mathbf r' ) + \eqtext{prp}( \mathbf r ' ),\notag \\
-&= \eqtext{prp}( \mathbf r ) + \gamma ( \eqtext{par}( \mathbf r ) - \beta t \mathbf u),\notag \\
-&= \mathbf r +( \gamma ( \mathbf r \cdot \mathbf u - \beta t ) - \mathbf r \cdot \mathbf u ) \mathbf u.
+\eqtext{par}(\vct{r}) &= (\vct{r} \cdot \vct{u}) \vct{u}\qquad \text{parallel to } \vct{u},\notag \\
+\eqtext{prp}(\vct{r}) &= \vct{r} - \eqtext{par}(\vct{r})\qquad \text{perpendicular to } \vct{u},\notag \\
+\vct{r} &= \eqtext{par}( \vct{r} ) + \eqtext{prp}( \vct{r} ),\notag \\
+\eqtext{par}( \vct{r}' ) &= \gamma ( \eqtext{par}( \vct{r} ) - \beta t \vct{u}),\notag \\
+\eqtext{prp}( \vct{r}' ) &= \eqtext{prp}( \vct{r} ),\notag \\
+\vct{r}' &= \eqtext{par}( \vct{r}' ) + \eqtext{prp}( \vct{r} ' ),\notag \\
+&= \eqtext{prp}( \vct{r} ) + \gamma ( \eqtext{par}( \vct{r} ) - \beta t \vct{u}),\notag \\
+&= \vct{r} +( \gamma ( \vct{r} \cdot \vct{u} - \beta t ) - \vct{r} \cdot \vct{u} ) \vct{u}.
 \end{align*}
-Equivalently, direct multiplication gives the full transformed paravector in one line:
+Equivalently, the full transformed paravector is obtained in one line by direct multiplication:
 \begin{equation*}
-L^*XL^*
-=\gamma\bigl(t-\beta\,\mathbf u\cdot\mathbf r\bigr)
-+\Bigl(\eqtext{prp}(\mathbf r)
-+\gamma\bigl(\eqtext{par}(\mathbf r)-\beta t\mathbf u\bigr)\Bigr)\cdot\sigv.
+\pv{L}^*\pv{X}\pv{L}^*
+=\gamma\bigl(t-\beta\,\vct{u}\cdot\vct{r}\bigr)
++\Bigl(\eqtext{prp}(\vct{r})
++\gamma\bigl(\eqtext{par}(\vct{r})-\beta t\vct{u}\bigr)\Bigr)\cdot\sigv.
 \end{equation*}
-Thus the component parallel to \(\mathbf u\) mixes with the scalar part while the perpendicular component is unchanged.
+Thus the component parallel to \(\vct{u}\) is mixed with the scalar part while the perpendicular component is left unchanged.
 In the small-parameter limit \(\beta\to 0\),
 \begin{equation*}
-\gamma \to 1, t' \to t, \mathbf r' \to \mathbf r.
+\gamma \to 1, t' \to t, \vct{r}' \to \vct{r}.
 \end{equation*}
-The interval invariance then follows directly from \(L^{-1}=L^{*}\):
+The interval invariance is then obtained directly from \(\pv{L}^{-1}=\pv{L}^{*}\):
 \begin{align*}
-\langle\!\langle X' \rangle\!\rangle^{2} &= X' X'^{*},\notag \\
-&= (L^{*} X L^{*}) (L^{*} X L^{*})^{*},\notag \\
-&= L^{*} X L^{*} L X^{*} L,\notag \\
-&= L^{*} X X^{*} L,\notag \\
-&= \langle\!\langle X \rangle\!\rangle^{2} L^{*} L,\notag \\
-&= \langle\!\langle X \rangle\!\rangle^{2}.
+\detf{\pv{X}'} &= \pv{X}'\conj{\pv{X}'},\notag \\
+&= (\pv{L}^{*} \pv{X} \pv{L}^{*}) (\pv{L}^{*} \pv{X} \pv{L}^{*})^{*},\notag \\
+&= \pv{L}^{*} \pv{X} \pv{L}^{*} \pv{L} \pv{X}^{*} \pv{L},\notag \\
+&= \pv{L}^{*} \pv{X} \pv{X}^{*} \pv{L},\notag \\
+&= \detf{\pv{X}} \pv{L}^{*} \pv{L},\notag \\
+&= \detf{\pv{X}}.
 \end{align*}
 
-Length contraction follows only after the simultaneity condition is specified. Let a rod be at rest in the unprimed frame and aligned with \(\mathbf u\), so \(\Delta\eqtext{prp}(\mathbf r)=0\) and its proper length is \(\ell_0=\|\Delta\eqtext{par}(\mathbf r)\|\). The primed frame compares its endpoints at the same primed time, so \(\Delta t'=0\). The inverse boost then gives
+Length contraction is obtained only after the simultaneity condition is
+specified. A rod is taken to be at rest in the unprimed frame and aligned
+with \(\vct{u}\). Its two endpoints are denoted by the function inputs
+\((1)\) and \((2)\), so
+\[
+\eqtext{prp}\bigl(\vct{r}(2)-\vct{r}(1)\bigr)=0,
+\qquad
+l:=\left\|\eqtext{par}\bigl(\vct{r}(2)-\vct{r}(1)\bigr)\right\|.
+\]
+Thus \(l\) is measured in the rod's rest frame. The endpoint events are
+compared in the primed frame at the same primed time, so
+\(t'(2)-t'(1)=0\). The following relation is then obtained from the inverse
+boost:
 \begin{equation*}
-\Delta\eqtext{par}(\mathbf r)
-=\gamma\bigl(\Delta\eqtext{par}(\mathbf r')+\beta\,\Delta t'\mathbf u\bigr)
-=\gamma\,\Delta\eqtext{par}(\mathbf r'),
+\begin{aligned}
+&\eqtext{par}\bigl(\vct{r}(2)-\vct{r}(1)\bigr)\\
+&\quad=\gamma\,
+\eqtext{par}\bigl(\vct{r}'(2)-\vct{r}'(1)\bigr)\\
+&\qquad+\gamma\beta\bigl(t'(2)-t'(1)\bigr)\vct{u}\\
+&\quad=\gamma\,
+\eqtext{par}\bigl(\vct{r}'(2)-\vct{r}'(1)\bigr).
+\end{aligned}
 \end{equation*}
-and therefore
+and therefore the primed length is
 \begin{equation*}
-\ell'=\frac{\ell_0}{\gamma}.
+l':=\left\|\eqtext{par}\bigl(\vct{r}'(2)-\vct{r}'(1)\bigr)\right\|
+=\frac{l}{\gamma}.
 \end{equation*}
 The perpendicular length is unchanged.
 
-The same congruence acts on the four-momentum of a massive particle:
+The four-momentum of a massive particle is acted on by the same congruence:
 \begin{align*}
-(mU)'&=L^*(mU)L^*\notag\\
-&=E'+\mathbf P'\cdot\sigv.
+(m\pv{U})'&=\pv{L}^*(m\pv{U})\pv{L}^*\notag\\
+&=E'+\vct{P}'\cdot\sigv.
 \end{align*}
 Consequently,
 \begin{align*}
-E'&=\gamma\bigl(E-\beta\,\mathbf u\cdot\mathbf P\bigr),\\
-\eqtext{par}(\mathbf P')
-&=\gamma\bigl(\eqtext{par}(\mathbf P)-\beta E\mathbf u\bigr),\\
-\eqtext{prp}(\mathbf P')&=\eqtext{prp}(\mathbf P).
+E'&=\gamma\bigl(E-\beta\,\vct{u}\cdot\vct{P}\bigr),\\
+\eqtext{par}(\vct{P}')
+&=\gamma\bigl(\eqtext{par}(\vct{P})-\beta E\vct{u}\bigr),\\
+\eqtext{prp}(\vct{P}')&=\eqtext{prp}(\vct{P}).
 \end{align*}
-Because this is the same real-paravector transformation as for \(X\), it preserves \(E^2-\mathbf P^2=m^2\).
+Because the same real-paravector transformation is used as for \(\pv{X}\), \(E^2-\vct{P}^2=m^2\) is preserved.
 
 \subsection{Compositions of Boosts and Rotors}
-The ordered products are listed here with their inverses. The order matters even when each factor separately has a simple inverse rule.
+The ordered products and their inverses are listed. The order remains significant even when a simple inverse rule is satisfied separately by each factor.
 
 For one hyperbolic element and one circular element,
 \begin{align*}
-T &= L R, \\
-T^{-1} &= T^{*\mathrm{R}} = R^{*\mathrm{R}} L^{*\mathrm{R}} = R^{\mathrm{R}} L^{*}, \\
-T &= R L, \\
-T^{-1} &= T^{*\mathrm{R}} = L^{*\mathrm{R}} R^{*\mathrm{R}} = L^{*} R^{\mathrm{R}}.
+\pv{T} &= \pv{L} \pv{R}, \\
+\pv{T}^{-1} &= \pv{T}^{*\mathsf H} = \pv{R}^{*\mathsf H} \pv{L}^{*\mathsf H} = \pv{R}^{\mathsf H} \pv{L}^{*}, \\
+\pv{T} &= \pv{R} \pv{L}, \\
+\pv{T}^{-1} &= \pv{T}^{*\mathsf H} = \pv{L}^{*\mathsf H} \pv{R}^{*\mathsf H} = \pv{L}^{*} \pv{R}^{\mathsf H}.
 \end{align*}
 For two factors of the same type,
 \begin{align*}
-T &= R_{1} R_{2}, \\
-T^{-1} &= T^{*\mathrm{R}} = R_{2}^{\mathrm{R}} R_{1}^{\mathrm{R}}, \\
-T &= L_{1} L_{2}, \\
-T^{-1} &= T^{*\mathrm{R}} = L_{2}^{*}L_{1}^{*}.
+\pv{T} &= \pv{R}\pv{R}', \\
+\pv{T}^{-1} &= \pv{T}^{*\mathsf H}
+=\herm{\pv{R}'}\herm{\pv{R}}, \\
+\pv{T} &= \pv{L}\pv{L}', \\
+\pv{T}^{-1} &= \pv{T}^{*\mathsf H}
+=\conj{\pv{L}'}\conj{\pv{L}}.
 \end{align*}
-These formulas are simple order identities, but they matter because they fix the inverse of each ordered product without ambiguity.
+These formulas are simple order identities, but the inverse of each ordered product is fixed by them without ambiguity.

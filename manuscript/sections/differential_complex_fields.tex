@@ -1,19 +1,20 @@
 \subsection{Complex Fields}\label{subsec:differential-complex-fields}
-For a generic complex paravector field, write
+For a generic complex paravector field, the differential operator and field
+are written as
 \begin{align*}
-\partial &= \partial_t+\gradv\cdot\sigv,\\
-F &= (a+ib)+(\mathbf A+i\mathbf B)\cdot\sigv.
+\pv{\partial} &= \partial_t+\gradv\cdot\sigv,\\
+\pv{F} &= (a+ib)+(\vct{A}+i\vct{B})\cdot\sigv.
 \end{align*}
-Assume
+The component fields are assumed to have the domains
 \begin{align*}
 a &: \R\times\R^3\to\R, &
-\mathbf A &: \R\times\R^3\to\R^3,\\
+\vct{A} &: \R\times\R^3\to\R^3,\\
 b &: \R\times\R^3\to\R, &
-\mathbf B &: \R\times\R^3\to\R^3,
+\vct{B} &: \R\times\R^3\to\R^3,
 \end{align*}
 so that
 \begin{equation*}
-F:\R\times\R^3\to\C\oplus\C^3.
+\pv{F}:\R\times\R^3\to\C+\C^3.
 \end{equation*}
-The real/imaginary scalar/vector parts of \(\partial F\) and \(i\partial F\) are then:
+The real/imaginary scalar/vector parts of \(\pv{\partial}\pv{F}\) and \(i\pv{\partial}\pv{F}\) are then given by:
 \input{sections/em_tables_derivative.tex}
