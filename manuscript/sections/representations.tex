@@ -9,9 +9,10 @@ definition is restated here as an ordinary equality:
 \qquad
 \text{from Eq.\ \eqref{eq:projectors}.}
 \]
-In addition to the
-idempotence, orthogonality, completeness, and axis-eigenvalue identities
-listed there, the following involution actions are obtained:
+Equation \eqref{eq:projectors} also shows that each projector is unchanged
+when squared, their mixed products are zero, their sum is \(1\), and
+multiplication by \(\vct{u}\cdot\sigv\) returns each projector multiplied by
+its sign. The following star and \(H\) actions are obtained:
 \begin{align*}
 \pv{\Pi}(\pm)^{\mathsf H}&=\pv{\Pi}(\pm),\\
 \pv{\Pi}(\pm)^*&=\pv{\Pi}(\mp).
@@ -20,11 +21,13 @@ Accordingly,
 \begin{equation*}
 \vct{u}\cdot\sigv=(+1)\pv{\Pi}(+)+(-1)\pv{\Pi}(-),
 \end{equation*}
-so the eigenvalues \(+1\) and \(-1\) of the axis operator are carried by the
-two projector parts.
+so the eigenvalues \(+1\) and \(-1\) of the axis element are carried by the
+two projector parts. Here an eigenvalue is the scalar returned when the
+action leaves a nonzero projector part otherwise unchanged.
 
-In the Pauli matrix realization, each \(\pv{\Pi}(\pm)\) is of rank one. A general
-element of \(\C+\C^3\), however, is a full \(2\times2\) complex matrix,
+In the Pauli matrix realization, each nonzero \(\pv{\Pi}(\pm)\) has only one
+independent column. A matrix with this property is said to have rank one. A general
+element of \(\Pspace(\C)\), however, is a full \(2\times2\) complex matrix,
 not one selected two-entry column. The projection formulas are therefore
 valid column by column. A single Pauli wave-function column is described after a
 fixed projector is placed on the right; without that restriction, two
@@ -44,7 +47,7 @@ Then
 \vct{u}'\cdot\sigv=(+1)\pv{\Pi}'(+)+(-1)\pv{\Pi}'(-).
 \end{equation*}
 
-For an algebra element \(\pv{\psi}\in\C+\C^3\), specialize the left-projected
+For an algebra element \(\pv{\psi}\in\Pspace(\C)\), specialize the left-projected
 parts from Eq.\ \eqref{eq:projectors}:
 \begin{equation*}
 \pv{\psi}(\pm)=\pv{\Pi}(\pm)\pv{\psi}.
@@ -54,7 +57,10 @@ The following identities are obtained:
 (\vct{u}\cdot\sigv)\pv{\psi}(\pm)&=\pm\pv{\psi}(\pm),\\
 \pv{\psi}&=\pv{\psi}(+)+\pv{\psi}(-).
 \end{align*}
-Thus each spinor column is split into the two eigenspaces of the chosen axis.
+Thus each two-entry Pauli state column is split into two parts on which the
+chosen axis acts by multiplication by \(+1\) or \(-1\). The sets of columns
+with these fixed multipliers are conventionally called eigenspaces
+\cite{pauli1927,sakurai2017}.
 The Hermitian operation is represented by
 \begin{align*}
 \herm{\pv{\psi}(\pm)}
@@ -67,52 +73,66 @@ and therefore
 \herm{\pv{\psi}(\pm)}\pv{\psi}(\mp)&=\herm{\pv{\psi}}\,\pv{\Pi}(\pm)\pv{\Pi}(\mp)\pv{\psi}=0,\\
 \herm{\pv{\psi}(\mp)}\pv{\psi}(\pm)&=\herm{\pv{\psi}}\,\pv{\Pi}(\mp)\pv{\Pi}(\pm)\pv{\psi}=0.
 \end{align*}
-For two algebra elements \(\pv{\phi},\pv{\psi}\), the pointwise algebraic
-pairing associated with \(\pv{M}\) is
-\(\eqtext{scalar}(\herm{\pv{\phi}}\pv{M}\pv{\psi})\). For a nonzero
-\(\pv{\psi}\), the corresponding normalized diagonal matrix element is
+For two algebra elements \(\pv{\phi},\pv{\psi}\) and a specified measurement
+element \(\pv{\mathcal{O}}\), the algebraic pairing at one position is
+\(\eqtext{scalar}(\herm{\pv{\phi}}\pv{\mathcal{O}}\pv{\psi})\). For a nonzero
+\(\pv{\psi}\), the identity pairing
+\(\eqtext{scalar}(\herm{\pv{\psi}}\pv{\psi})\) is positive by
+Eq.\ \eqref{eq:euclidean-form}. Division by this positive value gives
 \begin{equation*}
-\frac{\eqtext{scalar}(\herm{\pv{\psi}}\pv{M}\pv{\psi})}
+\frac{\eqtext{scalar}(\herm{\pv{\psi}}\pv{\mathcal{O}}\pv{\psi})}
      {\eqtext{scalar}(\herm{\pv{\psi}}\pv{\psi})}.
 \end{equation*}
-When \(\pv{M}\) is Hermitian for the relevant pairing, this
-diagonal element is real and is an expectation value. For a general
-\(\pv{M}\), it is only a normalized matrix element and may be complex.
-Scalar extraction is one half of the matrix trace. Consequently, for a full
+This quotient is called a normalized diagonal matrix element because the
+same state occurs on both sides of \(\pv{\mathcal{O}}\). When
+\(\herm{\pv{\mathcal{O}}}=\pv{\mathcal{O}}\), the numerator is real. If
+\(\pv{\mathcal{O}}\) represents a
+measurement in quantum mechanics, the quotient is its predicted average,
+conventionally called its expectation value \cite{sakurai2017}. For a
+general \(\pv{\mathcal{O}}\), it is only a normalized matrix element and may be
+complex.
+Scalar extraction is one half of the sum of the two diagonal matrix entries.
+That sum is called the matrix trace and is defined explicitly in
+Eq.\ \eqref{eq:matrix-trace}. Consequently, for a full
 matrix \(\pv{\psi}\) the numerator and denominator are each one half of the
 sum of their two ordinary column pairings. After one column is selected by a
 fixed right projector, they are each one half of the corresponding ordinary
 selected-column quantity. The common factor is canceled in the normalized
-matrix element. The spatially integrated quantum bracket is defined
+matrix element. The corresponding spatially integrated pairing is defined
 separately in Eq.\ \eqref{eq:adjoint-paravector-braket}.
 
-Rotational covariance is made explicit by the same convention. Under the
-active rotation
+An active rotation means that the state and measurement element are rotated
+while the coordinate axes are held fixed. Under this convention,
 \begin{equation*}
 \pv{\psi}'=\herm{\pv{R}}\pv{\psi},
 \qquad
-\pv{M}'=\herm{\pv{R}}\pv{M}\pv{R},
+\pv{\mathcal{O}}'=\herm{\pv{R}}\pv{\mathcal{O}}\pv{R},
 \qquad
 \pv{R}\herm{\pv{R}}=1,
 \end{equation*}
 both the numerator and denominator of the normalized matrix element are
 unchanged:
 \begin{equation}
-\frac{\eqtext{scalar}(\herm{\pv{\psi}'}\pv{M}'\pv{\psi}')}
+\frac{\eqtext{scalar}(\herm{\pv{\psi}'}\pv{\mathcal{O}}'\pv{\psi}')}
      {\eqtext{scalar}(\herm{\pv{\psi}'}\pv{\psi}')}
 =
-\frac{\eqtext{scalar}(\herm{\pv{\psi}}\pv{M}\pv{\psi})}
+\frac{\eqtext{scalar}(\herm{\pv{\psi}}\pv{\mathcal{O}}\pv{\psi})}
      {\eqtext{scalar}(\herm{\pv{\psi}}\pv{\psi})}.
 \label{eq:rotor-expectation-covariance}
 \end{equation}
-Equivalently, if the observable \(\pv{M}\) is held fixed while only the
-carrier is actively rotated, its value in the original carrier is computed
-with the rotated-back observable \(\pv{R}\pv{M}\herm{\pv{R}}\). This is the
-active-versus-passive equivalence expressed in
+The unchanged form of this value under a common rotation is called
+rotational covariance. Equivalently, if the Hermitian measurement element
+\(\pv{\mathcal{O}}\), conventionally called an observable, is held fixed while only
+the state is actively rotated, its value in the original state is computed
+with the rotated-back observable
+\(\pv{R}\pv{\mathcal{O}}\herm{\pv{R}}\). Describing
+the same change by rotating the axes while holding the state fixed is called
+the passive description. This active-versus-passive equivalence is expressed in
 Eq.\ \eqref{eq:rotated-axis-projectors}.
 
-For an axis observable, the following identity is obtained by cyclic scalar
-extraction:
+The Hermitian element \(\vct{u}\cdot\sigv\) represents measurement along
+the chosen axis and is therefore an axis observable. The following identity
+is obtained by cyclic scalar extraction:
 \begin{equation}
 \eqtext{scalar}\!\left(
   \herm{\pv{\psi}}(\vct{u}\cdot\sigv)\pv{\psi}
@@ -122,7 +142,7 @@ extraction:
 \eqtext{vector}\!\left(\pv{\psi}\herm{\pv{\psi}}\right).
 \label{eq:axis-polarization-identity}
 \end{equation}
-Consequently its normalized pointwise value is
+Consequently its normalized value at one position is
 \begin{equation*}
 \frac{\vct{u}\cdot
   \eqtext{vector}(\pv{\psi}\herm{\pv{\psi}})}
@@ -130,11 +150,11 @@ Consequently its normalized pointwise value is
 \end{equation*}
 In the selected-column matrix realization, twice the numerator is the
 ordinary column matrix element and twice the denominator is the ordinary
-column norm, so the common factor is canceled. For a spatial wave field the
+column magnitude squared, so the common factor is canceled. For a spatial wave field the
 same statement is valid with both quantities integrated as in
 Eqs.\ \eqref{eq:adjoint-paravector-braket} and \eqref{eq:expectation-map}.
 
-The unnormalized pointwise numerator for the rotated axis is expanded as
+The unnormalized numerator at one position for the rotated axis is expanded as
 \begin{align*}
 \eqtext{scalar}\!\left(\herm{\pv{\psi}}(\vct{u}'\cdot\sigv)\pv{\psi}\right)
 &=\eqtext{scalar}\!\left(\herm{\pv{\psi}(+)}(\vct{u}'\cdot\sigv)\pv{\psi}(+)\right)\notag\\
@@ -168,29 +188,36 @@ Then the projector products are
 \pv{\Pi}(\pm)(\vct{u}'\cdot\sigv)\pv{\Pi}(\mp)
 =\frac12\Bigl(\eqtext{prp}(\vct{u}')\pm i\,\vct{u}\times\vct{u}'\Bigr)\cdot\sigv\,\pv{\Pi}(\mp).
 \end{equation*}
-The diagonal terms are therefore weighted by the axis overlap \(\vct{u}\cdot\vct{u}'\), while the off-diagonal terms are controlled by the \(\eqtext{prp}\) and commutator parts of the rotated axis.
+The diagonal terms are therefore weighted by the axis overlap
+\(\vct{u}\cdot\vct{u}'\), while the off-diagonal terms are controlled by the
+\(\eqtext{prp}\) and commutator parts of the rotated axis.
 
 If \(\theta\) is the angle between \(\vct{u}\) and \(\vct{u}'\), then
 \begin{equation*}
-\vct{u}'\cdot\vct{u}=\cos(\theta),
+\vct{u}'\cdot\vct{u}=\cos(\theta).
 \end{equation*}
-Because scalar extraction is one half of the matrix trace, the
-trace-normalized rank-one projector overlap is
+Because scalar extraction is one half of the sum of the diagonal entries,
+the projector overlap normalized to the ordinary matrix trace is
 \begin{equation*}
 2\,\eqtext{scalar}\!\bigl(\pv{\Pi}(s)\pv{\Pi}'(s')\bigr)
 =\frac12\bigl(1+ss'\,\vct{u}\cdot\vct{u}'\bigr),
 \qquad s,s'\in\{+1,-1\}.
 \end{equation*}
-For a normalized irreducible axis eigenstate this overlap is the transition
-probability. In particular, the same-side and opposite-side probabilities
-are
+When a normalized two-entry state lies entirely in the projector part
+labelled by \(s\), this overlap is the probability that measurement along
+the second axis returns \(s'\). This predicted change from one selected
+axis part to another is called a transition probability
+\cite{sakurai2017}. In particular, the same-side and opposite-side
+probabilities are
 \begin{equation*}
 \frac12(1+\vct{u}'\cdot\vct{u})=\cos^2(\theta/2),
 \qquad
 \frac12(1-\vct{u}'\cdot\vct{u})=\sin^2(\theta/2).
 \end{equation*}
 If \(\vct{u}'\) is obtained by rotating \(\vct{u}\) through angle \(\phi\)
-about a unit axis \(\vct{n}\), the overlap is given by Rodrigues's formula:
+about a unit axis \(\vct{n}\), the overlap is given by the standard
+axis--angle formula commonly called Rodrigues's formula
+\cite{doran2003}:
 \begin{align*}
 \vct{u}'\cdot\vct{u}
 &=(\vct{u}\cdot\vct{u})\cos(\phi)
@@ -208,15 +235,16 @@ hence
 \qquad
 \frac12(1-\vct{u}'\cdot\vct{u})=\sin^2(\phi/2).
 \end{equation*}
-These are the familiar spin-\(\tfrac12\) transition probabilities. Without
-normalization and the irreducible-state qualification, only projector
-overlaps are represented.
+These are the standard transition probabilities for a two-outcome Pauli
+spin state, conventionally called a spin-\(\tfrac12\) state
+\cite{pauli1927,sakurai2017}. Without normalization and selection of one
+two-entry state column, only projector overlaps are represented.
 
 \subsubsection{Ladder Operations About the z Axis}
 For raising and lowering about the \(z\) axis, the following axis and
 projector pair are chosen:
 \begin{equation*}
-\vct{u}=\vct{e}_3=(0,0,1),
+\vct{u}=\vct{e}_3=\vcol{0,0,1},
 \qquad
 \pv{\Pi}(\pm)=\tfrac12(1\pm \pv{\sigma}_3).
 \end{equation*}
@@ -237,10 +265,12 @@ Their projector products are
 \qquad
 \pv{a}(-)\pv{a}(+)=\pv{\Pi}(-),
 \end{equation*}
-and each ladder operator is nilpotent:
+and each ladder element has square zero:
 \begin{equation*}
 \pv{a}(\pm)^2=0.
 \end{equation*}
+An element for which a positive power is zero is conventionally called
+nilpotent; here that power is \(2\).
 The one-sided projector actions are
 \begin{equation*}
 \begin{aligned}
@@ -274,9 +304,13 @@ For unit directions \(\vct{u},\vct{u}'\in\R^3\),
 \end{align*}
 The axis overlap is recorded by the anticommutator, while the oriented area
 spanned by the two axes is recorded by the commutator. Thus exact commutation
-of the axis operators is obtained when the directions are parallel or
+of the axis elements is obtained when the directions are parallel or
 antiparallel. These identities are purely algebraic. A normalized state,
-expectation functional, and state-dependent variances are additionally
-required for a Robertson or Robertson--Schr\"odinger uncertainty relation;
-no such inequality is inferred from the
-commutator alone \cite{robertson1929}.
+a rule for calculating measurement averages, and each measurement's mean
+squared deviation from its average are additionally required. The last
+quantity is called the variance, and its square root is called the
+uncertainty. Only after these choices are supplied can
+the commutator be used in the standard inequality that bounds the product
+of two measurement uncertainties, called the Robertson or
+Robertson--Schr\"odinger uncertainty relation. No such inequality is
+inferred from the commutator alone \cite{robertson1929}.

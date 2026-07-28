@@ -1,23 +1,23 @@
 \noindent The direct component action of \(\pv{\partial}\) and \(\conj{\pv{\partial}}\) on a complex paravector test field is recorded in Tables \ref{tab:components-partial-psi} and \ref{tab:components-partialstar-psi}.
 \begin{componenttable}[tab:components-partial-psi]{\pv{\partial} \pv{\psi}}
-\componentrow{scalar}{\partial_t\psi_s+\gradv\cdot\vct{\psi}_{\vct{v}}}{}
-\componentrow{vector}{\partial_t\vct{\psi}_{\vct{v}}+\gradv\psi_s+i(\gradv\times\vct{\psi}_{\vct{v}})}{}
+\componentrow{scalar}{\partial_t\eqtext{scalar}(\pv{\psi})+\gradv\cdot\eqtext{vector}(\pv{\psi})}{}
+\componentrow{vector}{\partial_t\eqtext{vector}(\pv{\psi})+\gradv\eqtext{scalar}(\pv{\psi})+i(\gradv\times\eqtext{vector}(\pv{\psi}))}{}
 \end{componenttable}
 
 \begin{componenttable}[tab:components-partialstar-psi]{\conj{\pv{\partial}}\pv{\psi}}
-\componentrow{scalar}{\partial_t\psi_s-\gradv\cdot\vct{\psi}_{\vct{v}}}{}
-\componentrow{vector}{\partial_t\vct{\psi}_{\vct{v}}-\gradv\psi_s-i(\gradv\times\vct{\psi}_{\vct{v}})}{}
+\componentrow{scalar}{\partial_t\eqtext{scalar}(\pv{\psi})-\gradv\cdot\eqtext{vector}(\pv{\psi})}{}
+\componentrow{vector}{\partial_t\eqtext{vector}(\pv{\psi})-\gradv\eqtext{scalar}(\pv{\psi})-i(\gradv\times\eqtext{vector}(\pv{\psi}))}{}
 \end{componenttable}
 
 \noindent The component actions of the potential \(\pv{\Phi}\) and its conjugate on the same field are then shown in Tables \ref{tab:components-phi-psi} and \ref{tab:components-phistar-psi}.
 \begin{componenttable}[tab:components-phi-psi]{\pv{\Phi}\pv{\psi}}
-\componentrow{scalar}{V\psi_s+\vct{A}\cdot\vct{\psi}_{\vct{v}}}{}
-\componentrow{vector}{V\vct{\psi}_{\vct{v}}+\psi_s\vct{A}+i(\vct{A}\times\vct{\psi}_{\vct{v}})}{}
+\componentrow{scalar}{V\eqtext{scalar}(\pv{\psi})+\vct{A}\cdot\eqtext{vector}(\pv{\psi})}{}
+\componentrow{vector}{V\eqtext{vector}(\pv{\psi})+\eqtext{scalar}(\pv{\psi})\vct{A}+i(\vct{A}\times\eqtext{vector}(\pv{\psi}))}{}
 \end{componenttable}
 
 \begin{componenttable}[tab:components-phistar-psi]{\conj{\pv{\Phi}}\pv{\psi}}
-\componentrow{scalar}{V\psi_s-\vct{A}\cdot\vct{\psi}_{\vct{v}}}{}
-\componentrow{vector}{V\vct{\psi}_{\vct{v}}-\psi_s\vct{A}-i(\vct{A}\times\vct{\psi}_{\vct{v}})}{}
+\componentrow{scalar}{V\eqtext{scalar}(\pv{\psi})-\vct{A}\cdot\eqtext{vector}(\pv{\psi})}{}
+\componentrow{vector}{V\eqtext{vector}(\pv{\psi})-\eqtext{scalar}(\pv{\psi})\vct{A}-i(\vct{A}\times\eqtext{vector}(\pv{\psi}))}{}
 \end{componenttable}
 
 \noindent The Dirac-block operator tables are completed by Tables
@@ -28,13 +28,13 @@ the field-coupling terms \(iq\pv{F}\pv{\psi}\) and
 =-(\vct{E}-i\vct{B})\cdot\sigv\), so no entrywise matrix conjugation is
 hidden in the notation.
 \begin{componenttable}[tab:components-iqf-psi]{iq\pv{F}\pv{\psi}}
-\componentrow{scalar}{iq\bigl(\vct{F}\cdot\vct{\psi}_{\vct{v}}\bigr)}{}
-\componentrow{vector}{iq\,\psi_s\vct{F}
--q\bigl(\vct{F}\times\vct{\psi}_{\vct{v}}\bigr)}{}
+\componentrow{scalar}{iq\bigl(\vct{F}\cdot\eqtext{vector}(\pv{\psi})\bigr)}{}
+\componentrow{vector}{iq\,\eqtext{scalar}(\pv{\psi})\vct{F}
+-q\bigl(\vct{F}\times\eqtext{vector}(\pv{\psi})\bigr)}{}
 \end{componenttable}
 
 \begin{componenttable}[tab:components-iqfstar-psi]{iq\conj{\pv{F}}\pv{\psi}}
-\componentrow{scalar}{-iq\bigl(\vct{F}^{*}\cdot\vct{\psi}_{\vct{v}}\bigr)}{}
-\componentrow{vector}{-iq\,\psi_s\vct{F}^{*}
-+q\bigl(\vct{F}^{*}\times\vct{\psi}_{\vct{v}}\bigr)}{}
+\componentrow{scalar}{-iq\bigl(\vct{F}^{*}\cdot\eqtext{vector}(\pv{\psi})\bigr)}{}
+\componentrow{vector}{-iq\,\eqtext{scalar}(\pv{\psi})\vct{F}^{*}
++q\bigl(\vct{F}^{*}\times\eqtext{vector}(\pv{\psi})\bigr)}{}
 \end{componenttable}

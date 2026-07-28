@@ -1,14 +1,14 @@
-\subsubsection{Quaternion Basis and Involutions}
+\subsubsection{Quaternion Basis Under Star and H}
 Hamilton's quaternion units are also reproduced by the same sigma-number-two
 basis used in Eq.\ \eqref{eq:exp-bivector}, so the rotation algebra can be
-written in quaternion form without leaving the STA multiplication table
-\cite{hamilton1844,clifford1878}:
+written in quaternion form without changing any multiplication rule
+\cite{hamilton1844}:
 \begin{equation}
 \begin{aligned}
 \pv{q}_1&=-\pv{\sigma}_2\pv{\sigma}_3,\qquad
 \pv{q}_2=-\pv{\sigma}_3\pv{\sigma}_1,\\
 \pv{q}_3&=-\pv{\sigma}_1\pv{\sigma}_2,\qquad
-\vct{q}:=(\pv{q}_1,\pv{q}_2,\pv{q}_3)=-i\sigv.
+\vct{q}:=\vcol{\pv{q}_1,\pv{q}_2,\pv{q}_3}=-i\sigv.
 \end{aligned}
 \label{eq:quaternion-basis}
 \end{equation}
@@ -19,10 +19,10 @@ The standard quaternion identities are satisfied by these basis elements:
 Thus the quaternion units are not new generators; the existing
 sigma-number-two basis is only relabeled.
 
-If \(\vct{B}=(B_1,B_2,B_3)\in\R^3\), then
+If \(\vct{B}=\vcol{B_1,B_2,B_3}\in\R^3\), then
 \(\vct{B}\cdot\vct{q}=-i\,\vct{B}\cdot\sigv\). Since
 \(\pv{q}_k=-i\pv{\sigma}_k\), the following relations are obtained
-immediately from the abstract operator rules:
+immediately from the previously defined star and \(H\) rules:
 \begin{equation*}
 \vct{q}^*=\vct{q},
 \qquad
@@ -38,6 +38,8 @@ For \(a\in\R\) and \(\vct{B}\in\R^3\), the quaternion is defined by
 =a-i\,\vct{B}\cdot\sigv.
 \label{eq:quaternion-paravector}
 \end{equation}
+A real scalar coefficient and a purely imaginary vector coefficient are
+carried, so \(\pv{Q}\in\Pspace(\C)\).
 In complex-paravector notation, the same quaternion may be written as
 \begin{equation*}
 \pv{Q}=\pv{X}-i\pv{Y},
@@ -80,13 +82,15 @@ The result of multiplication by the Hermitian counterpart is
 \label{eq:quaternion-norm}
 \end{equation}
 Thus the standard positive quaternion norm square is recovered by the
-Hermitian product, while the ordinary algebra square is recorded by
+Hermitian product. Here ``norm square'' means the nonnegative real number
+that measures the coefficient magnitude. The ordinary algebra square is
+instead recorded by
 Eq.\ \eqref{eq:quaternion-square}.
 
 \subsubsection{Quaternion Form of the Rotor Law}
-For a unit quaternion \(\pv{Q}\) satisfying
-\(\pv{Q}\pv{Q}^{\mathsf H}=1\), and for a real vector
-\(\vct{r}\in\R^3\), the quaternion rotation law is
+A quaternion satisfying \(\pv{Q}\pv{Q}^{\mathsf H}=1\) is called a unit
+quaternion. For such a quaternion and a real vector
+\(\vct{r}\in\R^3\), the rotation law is
 \begin{equation}
 \vct{r}'\cdot\vct{q}
 =\pv{Q}(\vct{r}\cdot\vct{q})\pv{Q}^{\mathsf H}.
@@ -106,8 +110,8 @@ the relation \(\pv{Q}=\pv{R}^{\mathsf H}\) is obtained because
 =\pv{R}^{\mathsf H}(\vct{r}\cdot\vct{q})\pv{R},
 \]
 which has exactly the same orientation as the sigma-vector rotor law. The
-equivalent quaternion sandwich
+equivalent two-sided quaternion product
 \(\pv{Q}^{\mathsf H}(\vct{r}\cdot\vct{q})\pv{Q}\) is required under the
 alternative choice \(\pv{Q}=\pv{R}\). Thus quaternion rotations are
 the same circular half-angle algebra, with the order fixed by the selected
-orientation convention.
+choice of positive rotation direction.

@@ -1,25 +1,42 @@
 \subsection{Lorentz Boost}
-The boost element is obtained from the same exponential calculus as the circular rotor, but a space-time paravector is acted on by a congruence rather than by the similarity action used for a spatial rotation. A real event paravector is thereby kept real, while its scalar and parallel-vector parts are allowed to mix.
-The auxiliary parameters \(\beta\) and \(\gamma\) are introduced first so that the resulting formulas are shortened:
+A coordinate system in which force-free motion has constant velocity is
+called an inertial frame. A Lorentz boost relates two inertial frames whose
+spatial origins move at constant relative velocity
+\cite{lorentz1904,einstein1905,minkowski1908}. The velocity of the primed
+frame relative to the unprimed frame is written
+\(\beta\vct{u}\) in the sign convention used below. Thus \(\vct{u}\) gives
+the direction, \(\vct{u}^{2}=1\), and the signed speed \(\beta\) satisfies
+\(|\beta|<1\). The parameters and the corresponding algebra element are
 \begin{align*}
-\theta &= \operatorname{arctanh}(\beta ),\notag \\
+\theta &:= \operatorname{arctanh}(\beta ),\notag \\
 \beta &= \tanh(\theta ),\notag \\
-\gamma &= \cosh(\theta ),\notag \\
+\gamma &:= \cosh(\theta ),\notag \\
 \gamma \beta &= \sinh(\theta ),\notag \\
-\vct{u} &= (u_{1}, u_{2}, u_{3}), \vct{u}^{2} = 1,\notag \\
-\pv{L}(\theta ,\vct{u}) &= \exp( \tfrac{1}{2} \theta (\vct{u} \cdot \sigv ) ),\notag \\
+\vct{u} &:= \vcol{u_{1},u_{2},u_{3}},
+\qquad \vct{u}^{2} = 1,\notag \\
+\pv{L}(\theta ,\vct{u}) &:= \exp( \tfrac{1}{2} \theta (\vct{u} \cdot \sigv ) ),\notag \\
 &= \cosh( \tfrac{1}{2} \theta ) + \sinh( \tfrac{1}{2} \theta ) (\vct{u} \cdot \sigv ).
 \end{align*}
-The boost element defined in Eq.\ \eqref{eq:boost-element} is displayed in
-expanded form for the calculation.
+The parameter \(\theta\), defined by
+\(\beta=\tanh(\theta)\), is conventionally called rapidity, and
+\(\gamma=1/\sqrt{1-\beta^{2}}\) is the Lorentz factor. The functions
+\(\cosh(\theta)\) and \(\sinh(\theta)\) replace the cosine and sine of a
+spatial rotation, which is why \(\pv{L}\) is called a hyperbolic transform
+element \cite{baylis1999,doran2003}. The element defined in
+Eq.\ \eqref{eq:boost-element} has the
+inverse
 \begin{equation*}
 \pv{L}^{-1} = \exp( -\tfrac{1}{2} \theta (\vct{u} \cdot \sigv ) ).
 \end{equation*}
-Here \(\theta,\gamma\in\R\), \(\beta\in\R\) with \(|\beta|<1\), \(\vct{u}\in\R^3\) is a unit real vector, and \(\pv{L}\in\R+\R^3\) is the hyperbolic transform element. Its inverse is \(\pv{L}^{-1}=\pv{L}^{*}=\pv{L}^{*\mathsf H}\). Commutation is obtained for elements along the same axis:
+Here \(\theta,\gamma,\beta\in\R\), \(\vct{u}\in\R^3\), and
+\(\pv{L}\in\Pspace(\R)\). Direct application of the two algebra operations
+gives
+\(\pv{L}^{-1}=\pv{L}^{*}=\pv{L}^{*\mathsf H}\). Elements with the same
+direction \(\vct{u}\), conventionally called collinear boosts, commute:
 \begin{equation*}
 \com{\pv{L}(\theta ,\vct{u})}{\pv{L}(\theta ',\vct{u})}=0.
 \end{equation*}
-Consequently, collinear boosts are combined by addition of the parameter
+Consequently, boosts along that same direction are combined by addition of
 \(\theta\). With \(\beta'=\tanh(\theta')\) and
 \(\gamma'=\cosh(\theta')\),
 \begin{align*}
@@ -28,12 +45,32 @@ Consequently, collinear boosts are combined by addition of the parameter
 \tanh(\theta+\theta')&=\frac{\beta+\beta'}{1+\beta\beta'},\\
 \cosh(\theta+\theta')&=\gamma\gamma'(1+\beta\beta').
 \end{align*}
-For the passive boost with the signs used below, the real space-time paravector \(\pv{X}=t+\vct{r}\cdot\sigv\), with \(t\in\R\), \(\vct{r}\in\R^3\), and \(\pv{X}\in\R+\R^3\), is transformed as
+The coordinates assigned to one fixed event by the two frames are now
+compared. This interpretation, in which the event is unchanged while its
+coordinate description changes, is called a passive boost. With the signs
+fixed by \(\beta\vct{u}\) above, the real event paravector
+\(\pv{X}=t+\vct{r}\cdot\sigv\), with \(t\in\R\),
+\(\vct{r}\in\R^3\), and \(\pv{X}\in\Pspace(\R)\), is transformed as
 \begin{align*}
 \pv{X} &= t + \vct{r} \cdot \sigv,\notag \\
-\pv{X}' &= \pv{L}^{*} \pv{X} \pv{L}^{*},\notag \\
+\pv{X}' &= \pv{L}^{-1}\pv{X}(\pv{L}^{-1})^{\mathsf H},\notag\\
+&=\pv{L}^{*} \pv{X} \pv{L}^{*},\notag \\
 &= t' + \vct{r}' \cdot \sigv.
 \end{align*}
+This is the event transformation
+\(\pv{X}'=\pv{T}^{-1}\pv{X}(\pv{T}^{-1})^{\mathsf H}\) from
+Eq.\ \eqref{eq:general-event-congruence}, specialized to
+\(\pv{T}=\pv{L}\). A product of the form
+\(\pv{A}\pv{X}\pv{A}^{\mathsf H}\) is conventionally called a congruence.
+It preserves
+\(\herm{\pv{X}'}=\pv{X}'\) whenever
+\(\herm{\pv{X}}=\pv{X}\), which is the Hermitian condition that makes an
+event paravector real.
+An active reading would keep the coordinate frame fixed and move the event;
+the inverse transformation, obtained by replacing \(\theta\) with
+\(-\theta\), would then describe the corresponding motion. Only the passive
+reading is used in the component formulas below
+\cite{einstein1905,baylis1999}.
 \begin{align*}
 t' &= t \cosh(\theta ) - \sinh(\theta ) (\vct{u} \cdot \vct{r}),\notag \\
 &= \gamma ( t - \beta (\vct{u} \cdot \vct{r}) ).
@@ -64,7 +101,8 @@ In the small-parameter limit \(\beta\to 0\),
 \begin{equation*}
 \gamma \to 1, t' \to t, \vct{r}' \to \vct{r}.
 \end{equation*}
-The interval invariance is then obtained directly from \(\pv{L}^{-1}=\pv{L}^{*}\):
+Preservation of the interval is then obtained directly from
+\(\pv{L}^{-1}=\pv{L}^{*}\):
 \begin{align*}
 \detf{\pv{X}'} &= \pv{X}'\conj{\pv{X}'},\notag \\
 &= (\pv{L}^{*} \pv{X} \pv{L}^{*}) (\pv{L}^{*} \pv{X} \pv{L}^{*})^{*},\notag \\
@@ -74,17 +112,19 @@ The interval invariance is then obtained directly from \(\pv{L}^{-1}=\pv{L}^{*}\
 &= \detf{\pv{X}}.
 \end{align*}
 
-Length contraction is obtained only after the simultaneity condition is
-specified. A rod is taken to be at rest in the unprimed frame and aligned
-with \(\vct{u}\). Its two endpoints are denoted by the function inputs
-\((1)\) and \((2)\), so
+Length contraction is obtained only after the two endpoint events to be
+compared are specified. A rod is taken to have fixed endpoint positions in
+the unprimed frame; this frame is therefore the rod's rest frame. The rod is
+aligned with \(\vct{u}\). Its two endpoints are denoted by the function
+inputs \((1)\) and \((2)\), so
 \[
 \eqtext{prp}\bigl(\vct{r}(2)-\vct{r}(1)\bigr)=0,
 \qquad
 l:=\left\|\eqtext{par}\bigl(\vct{r}(2)-\vct{r}(1)\bigr)\right\|.
 \]
-Thus \(l\) is measured in the rod's rest frame. The endpoint events are
-compared in the primed frame at the same primed time, so
+Thus \(l\) is the separation of the endpoints in the frame where both
+positions are fixed. A length measured in the primed frame must instead use
+two endpoint events occurring at the same primed time, so
 \(t'(2)-t'(1)=0\). The following relation is then obtained from the inverse
 boost:
 \begin{equation*}
@@ -116,7 +156,10 @@ E'&=\gamma\bigl(E-\beta\,\vct{u}\cdot\vct{P}\bigr),\\
 &=\gamma\bigl(\eqtext{par}(\vct{P})-\beta E\vct{u}\bigr),\\
 \eqtext{prp}(\vct{P}')&=\eqtext{prp}(\vct{P}).
 \end{align*}
-Because the same real-paravector transformation is used as for \(\pv{X}\), \(E^2-\vct{P}^2=m^2\) is preserved.
+Because the same real-paravector transformation is used as for \(\pv{X}\),
+\(E^2-\vct{P}^2=m^2\) is preserved. As defined in the four-momentum
+section, this equation is the mass shell condition: it is the restriction
+that relates the allowed energy and momentum of a particle of mass \(m\).
 
 \subsection{Compositions of Boosts and Rotors}
 The ordered products and their inverses are listed. The order remains significant even when a simple inverse rule is satisfied separately by each factor.

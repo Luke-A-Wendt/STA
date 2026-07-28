@@ -1,5 +1,5 @@
 \subsubsection{Order functions}
-For arbitrary algebra elements \(\pv{A}\) and \(\pv{B}\), the commutator
+For arbitrary paravectors \(\pv{A},\pv{B}\in\Pspace\), the commutator
 function is defined by
 \begin{equation}
 \com{\pv{A}}{\pv{B}}:=\pv{A}\pv{B}-\pv{B}\pv{A}.
@@ -33,11 +33,12 @@ order.
 Two immediate consequences are
 \begin{align*}
 \com{\pv{X}}{\pv{Y}} &= 2i(\vct{A}\times\vct{B})\cdot\sigv,\\
-\pv{X}\pv{Y}\in\R+\R^3
+\pv{X}\pv{Y}\in\Pspace(\R)
 &\quad\eqtext{if and only if}\quad \vct{A}\times\vct{B}=0.
 \end{align*}
 Thus exact commutation of two real paravectors is obtained precisely when
-their vector parts are parallel.
+\(\vct{A}\times\vct{B}=0\), including either zero-vector case. For two
+nonzero vector parts, this means that they are parallel or antiparallel.
 
 The antisymmetric term is removed automatically by setting
 \(\pv{Y}=\pv{X}\):
@@ -65,48 +66,69 @@ sign of the resulting nonzero \(a\) may be chosen, with
 \vct{A}=\frac{\vct{B}}{2a}.
 \end{equation*}
 When \(\vct{B}=\vct{0}\), a real root requires \(b\geq0\); the scalar
-roots are \(\pv{X}=\pm\sqrt{b}\), and the degenerate pure-vector roots satisfy
-\(a=0\) and \(\vct{A}^2=b\). Thus the displayed quadratic relation is a
-branch condition, rather than by itself a complete square-root formula.
+roots are \(\pv{X}=\pm\sqrt{b}\), and the exceptional pure-vector roots satisfy
+\(a=0\) and \(\vct{A}^2=b\). Thus the displayed quadratic relation selects
+among possible square-root values but is not, by itself, a complete
+square-root formula. Such a selection among the possible values of a
+multivalued function is called a branch choice.
 
 \subsubsection{Products of complex paravectors}
-The master product law \eqref{eq:paravector-product} is the complex extension of the real formulas. When \(\pv{Z}\) is written as in Eqs.\ \eqref{eq:paravector}--\eqref{eq:paravector-cartesian} and \(\pv{Z}'=\pv{X}'+i\pv{Y}'=S'+\vct{V}'\cdot\sigv\), every specialization is obtained by setting the unused scalar or vector parts to zero. The quantities \(S,S'\) and the components of \(\vct{V},\vct{V}'\) are central complex scalars. Scalar coefficients may therefore be passed through one another and through the sigma generators. The full component decomposition of \(\pv{Z}\pv{Z}'\) is given in Table \ref{tab:components-paravector-product}, that of \(\pv{Z}^2\) is given in Table \ref{tab:components-paravector-square}, and the order-sensitive products built from the conjugate and Hermitian operations are recorded in Tables \ref{tab:components-zzstar}--\ref{tab:components-zcrevz}.
+The master product law \eqref{eq:paravector-product} is the complex
+extension of the real formulas. When \(\pv{Z}\) is written as in Eqs.\
+\eqref{eq:paravector}--\eqref{eq:paravector-cartesian} and
+\(\pv{Z}'=\pv{X}'+i\pv{Y}'=S'+\vct{V}'\cdot\sigv\), every special case is
+obtained by setting the unused scalar or vector parts to zero. The
+quantities \(S,S'\) and the components of \(\vct{V},\vct{V}'\) may be
+passed through one another and through every sigma generator. Complex
+scalars with this property are called central. The full components of
+\(\pv{Z}\pv{Z}'\) are given in
+Table \ref{tab:components-paravector-product}, those of \(\pv{Z}^2\) are
+given in Table \ref{tab:components-paravector-square}, and the
+order-sensitive products built from star and \(H\) are recorded in
+Tables \ref{tab:components-zzstar}--\ref{tab:components-zcrevz}.
 
-Within this finite-dimensional scalar-coefficient algebra, the scalar part is cyclic:
+For products with ordinary scalar coefficients, exchanging the order of two
+factors does not change the extracted scalar:
 \begin{equation*}
 \eqtext{scalar}(\pv{Z}\pv{Z}')=\eqtext{scalar}(\pv{Z}'\pv{Z}).
 \end{equation*}
-In particular, if \(\pv{Z}'=\pv{M}\pv{Z}^{*\mathsf H}\), then
+This order-independence of the scalar part is conventionally called
+cyclicity.
+In particular, if
+\(\pv{Z}'=\pv{\mathcal{O}}\pv{Z}^{*\mathsf H}\), then
 \begin{align*}
-\eqtext{scalar}(\pv{Z}\pv{M}\pv{Z}^{*\mathsf H})
-&=\eqtext{scalar}(\pv{M}\pv{Z}^{*\mathsf H}\pv{Z})\notag\\
-&=\eqtext{scalar}(\pv{M})\,(\pv{Z}^{*\mathsf H}\pv{Z}),
+\eqtext{scalar}(\pv{Z}\pv{\mathcal{O}}\pv{Z}^{*\mathsf H})
+&=\eqtext{scalar}(\pv{\mathcal{O}}\pv{Z}^{*\mathsf H}\pv{Z})\notag\\
+&=\eqtext{scalar}(\pv{\mathcal{O}})\,
+  (\pv{Z}^{*\mathsf H}\pv{Z}),
 \end{align*}
 because \(\pv{Z}^{*\mathsf H}\pv{Z}\) is scalar.
 
 The order-sensitive variants are divided into three algebraic types:
 \begin{align*}
-\pv{Z}\pv{Z}^* &\eqtext{ is a real scalar plus a complex vector},\\
-\pv{Z}\pv{Z}^{\mathsf H} &\eqtext{ is a real scalar plus a real vector},\\
-\pv{Z}\pv{Z}^{*\mathsf H} &\eqtext{ is a complex scalar}.
+\pv{Z}\pv{Z}^* &\eqtext{ is a real scalar plus a complex vector in }\Pspace(\C),\\
+\pv{Z}\pv{Z}^{\mathsf H} &\eqtext{ is a real scalar plus a real vector in }\Pspace(\R),\\
+\pv{Z}\pv{Z}^{*\mathsf H} &\eqtext{ is a complex scalar in }\Pspace(\C).
 \end{align*}
 The positive norms, determinant forms, inverses, and transformation formulas
 are supplied by those three cases.
 
-If a component is instead a differential or another noncommuting operator,
+If a component is instead a derivative operation or another quantity whose
+order cannot be exchanged,
 the ordered expansion must be used before any simplification: in general
-\(\vct{V} S'\neq S'\vct{V}\), Leibniz terms may occur, and cyclicity of
+\(\vct{V} S'\neq S'\vct{V}\), terms from the ordinary derivative product
+rule may occur, and cyclicity of
 the algebraic scalar projection alone does not justify cycling the operator
-coefficients. The displayed ordering is therefore required in operator
-applications, which cannot be obtained by automatic substitution into the
-central-coefficient formulas.
+coefficients. The displayed ordering is therefore required when the factors
+act on functions. Such results cannot be obtained by automatic substitution
+into the central-coefficient formulas.
 
 \input{sections/algebra_tables.tex}
 
 \subsubsection{Order dependence and commutators}
 The order-dependent part of a product is represented by the commutator
 function defined in Eq.\ \eqref{eq:com-function}. For generic complex paravectors
-\(\pv{Z},\pv{Z}'\in\C+\C^3\),
+\(\pv{Z},\pv{Z}'\in\Pspace(\C)\),
 \begin{equation}
 \com{\pv{Z}}{\pv{Z}'}
 = 2i(\vct{V}\times\vct{V}')\cdot\sigv
@@ -123,11 +145,11 @@ The real-paravector commutator
 \begin{equation*}
 \com{\pv{X}}{\pv{Y}}=2i(\vct{A}\times\vct{B})\cdot\sigv
 \end{equation*}
-is the corresponding specialization. In every case the scalar terms are canceled,
+is the corresponding special case. In every case the scalar terms cancel,
 so the cross-product part of the multiplication law is isolated by the
 commutator.
-The following identity is obtained by contracting the basis commutators
-with a second vector:
+The following identity is obtained by multiplying the \(n\)th basis
+commutator by \(B_n\) and summing:
 \begin{equation}
 \sum_{n=1}^3 B_n\com{\vct{A}\cdot\sigv}{\pv{\sigma}_n}
 =\com{\vct{A}\cdot\sigv}{\vct{B}\cdot\sigv}
@@ -135,7 +157,8 @@ with a second vector:
 \label{eq:sigma-commutator-contraction}
 \end{equation}
 This is the component bridge between the vector cross-product law and the
-commutator correction in the paravector Leibniz rule.
+commutator correction when the ordinary derivative product rule is applied
+to a paravector product.
 
 The symmetric companion is the anticommutator from
 Eq.\ \eqref{eq:acom-function}. For pure vectors,
@@ -151,7 +174,7 @@ Thus the symmetric dot-product part is isolated by
 cross-product part is isolated by \(\com{\mathord\cdot}{\mathord\cdot}\).
 
 More generally, for generic complex paravectors
-\(\pv{Z},\pv{Z}'\in\C+\C^3\), Eq.\ \eqref{eq:acom-function} gives
+\(\pv{Z},\pv{Z}'\in\Pspace(\C)\), Eq.\ \eqref{eq:acom-function} gives
 \begin{equation}
 \acom{\pv{Z}}{\pv{Z}'}=\pv{Z}\pv{Z}'+\pv{Z}'\pv{Z}.
 \label{eq:paravector-anticommutator-expansion}
@@ -163,21 +186,25 @@ The anticommutator is therefore
 +2\bigl(S\vct{V}'+S'\vct{V}\bigr)\cdot\sigv.
 \label{eq:paravector-anticommutator}
 \end{equation}
-The cross-product contribution to the anticommutator is canceled identically.
+The cross-product contribution to the anticommutator cancels identically.
 Only the symmetric scalar and vector couplings are retained.
 
 The same order dependence is already present in the sigma basis itself.
 Commutation of the pseudoscalar with the generators is expressed by
 \begin{align*}
 \com{i}{\pv{\sigma}_n} &= 0,\\
-i\sigv &= \sigv i = \{\pv{\sigma}_2\pv{\sigma}_3,\ \pv{\sigma}_3\pv{\sigma}_1,\ \pv{\sigma}_1\pv{\sigma}_2\},
+i\sigv &= \sigv i
+=\vcol{\pv{\sigma}_2\pv{\sigma}_3,
+\pv{\sigma}_3\pv{\sigma}_1,
+\pv{\sigma}_1\pv{\sigma}_2},
 \end{align*}
 while the following relation is satisfied by distinct sigma generators:
 \begin{equation*}
 \com{\pv{\sigma}_n}{\pv{\sigma}_m}=2\pv{\sigma}_n\pv{\sigma}_m=2\sum_{k=1}^3\epsilon_{nmk}i\pv{\sigma}_k
 \qquad (n\neq m).
 \end{equation*}
-Thus the oriented sigma-number-two basis is exactly the commutator closure of the sigma-number-one generators.
+Thus commutators of the sigma-number-one generators reproduce the entire
+oriented sigma-number-two basis.
 
 The same product types are displayed in full component form in Tables
 \ref{tab:components-zzrev}--\ref{tab:components-zcrevz}. Their positive-norm

@@ -1,4 +1,9 @@
-\noindent The two proper-Lorentz invariants are listed in Table \ref{tab:components-fsquare}. The frame-dependent energy-density/Poynting paravector \(\pv{T}=\tfrac12 \pv{F} \pv{F}^{\mathsf H}\) is given in Table \ref{tab:components-ffrev}.
+\noindent The two coefficients preserved by the proper,
+time-orientation-preserving Lorentz transformations are listed in Table
+\ref{tab:components-fsquare}. The
+energy-density/Poynting paravector
+\(\pv{T}=\tfrac12 \pv{F} \pv{F}^{\mathsf H}\), whose components depend on
+the chosen inertial frame, is given in Table \ref{tab:components-ffrev}.
 \begin{componenttable}[tab:components-fsquare]{\tfrac12\pv{F}^{2}}
 \componentrow{real scalar}{\tfrac12(\vct{E}^{2}-\vct{B}^{2})}{}
 \componentrow{img scalar}{\vct{E}\cdot\vct{B}}{}
@@ -12,13 +17,15 @@
 \end{componenttable}
 
 \noindent
-The differentiated and source-coupled combinations used in the energy
-discussion are restored in the next five tables. They are algebraic identities
-and consequences of Maxwell's equation
+The differentiated field products and the products containing the source
+are displayed in the next five tables. They are algebraic identities and
+consequences of Maxwell's equation
 \(\pv{\partial}\pv{F}=\pv{D}^{*}\), not additional field equations.
-In particular, the derivative is a left-acting paravector, so the
-noncommutative rule \eqref{eq:paravector-leibniz} must be used for products.
-For the energy-density/Poynting paravector, the following relation is obtained:
+The algebra products do not generally commute:
+\(\pv{A}\pv{B}\) need not equal \(\pv{B}\pv{A}\). The spatial part of the
+derivative acts from the left, so differentiating a product requires the
+ordered correction in Eq.\ \eqref{eq:paravector-leibniz}. For the
+energy-density/Poynting paravector, the result is
 \begin{equation*}
 \pv{\partial}\pv{T}
 =\frac12(\pv{\partial}\pv{F})\pv{F}^{\mathsf H}
@@ -26,13 +33,15 @@ For the energy-density/Poynting paravector, the following relation is obtained:
 +\frac12\sum_{n=1}^{3}
 \com{\pv{\sigma}_n}{\pv{F}}\,\partial_n\pv{F}^{\mathsf H}.
 \end{equation*}
-The direct component split of the left-hand side given in the following table
-is therefore a derived identity.
+The component split of the left side is therefore the derived identity
+shown next.
 \begin{componenttable}[tab:components-partial-t]{\pv{\partial} \pv{T}}
-\componentrow{real scalar}{\partial_t T_s+\gradv\cdot \vct{T}_{\vct{v}}}{}
+\componentrow{real scalar}{\partial_t\eqtext{scalar}(\pv{T})
++\gradv\cdot\eqtext{vector}(\pv{T})}{}
 \componentrow{img scalar}{0}{}
-\componentrow{real vector}{\gradv T_s+\partial_t \vct{T}_{\vct{v}}}{}
-\componentrow{img vector}{\gradv\times \vct{T}_{\vct{v}}}{}
+\componentrow{real vector}{\gradv\eqtext{scalar}(\pv{T})
++\partial_t\eqtext{vector}(\pv{T})}{}
+\componentrow{img vector}{\gradv\times\eqtext{vector}(\pv{T})}{}
 \end{componenttable}
 
 Because \(\pv{F}^{2}\) is a complex scalar, its derivative can also be
@@ -59,7 +68,7 @@ The two ordered source products are given by Maxwell's equation:
 \componentrow{img vector}{\rho\vct{B}+\vct{E}\times\vct{J}}{}
 \end{componenttable}
 
-Their symmetric sum is
+Their sum in the two possible product orders is
 \begin{componenttable}[tab:components-dstarf-plus-fdstar]{\pv{D}^{*}\pv{F}+\pv{F} \pv{D}^{*}}
 \componentrow{real scalar}{-2\,\vct{E}\cdot\vct{J}}{}
 \componentrow{img scalar}{-2\,\vct{B}\cdot\vct{J}}{}
@@ -83,5 +92,6 @@ With \(\pv{F}=\vct{F}\cdot\sigv\), the correction term is
 -2\left((\gradv\cdot\vct{F})\vct{F}
 -\frac12\gradv(\vct{F}^{2})\right)\cdot\sigv.
 \end{align*}
-It is precisely the correction that would be lost by applying an ordinary
-two-term Leibniz rule to noncommuting paravector factors.
+It is precisely the correction that would be lost by treating the ordered
+paravector factors as though they commuted while applying the ordinary
+two-term derivative product rule.

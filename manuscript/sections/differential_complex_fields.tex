@@ -1,11 +1,13 @@
 \subsection{Complex Fields}\label{subsec:differential-complex-fields}
-For a generic complex paravector field, the differential operator and field
-are written as
+The differential identities are first recorded for an arbitrary complex
+paravector field. The letter \(\pv{Z}\) is used here so that \(\pv{F}\) can
+be reserved for the electromagnetic field introduced later:
 \begin{align*}
 \pv{\partial} &= \partial_t+\gradv\cdot\sigv,\\
-\pv{F} &= (a+ib)+(\vct{A}+i\vct{B})\cdot\sigv.
+\pv{Z} &:= (a+ib)+(\vct{A}+i\vct{B})\cdot\sigv.
 \end{align*}
-The component fields are assumed to have the domains
+At each time and position, \(a\) and \(b\) return real numbers, while
+\(\vct{A}\) and \(\vct{B}\) return real three-component vectors:
 \begin{align*}
 a &: \R\times\R^3\to\R, &
 \vct{A} &: \R\times\R^3\to\R^3,\\
@@ -14,7 +16,23 @@ b &: \R\times\R^3\to\R, &
 \end{align*}
 so that
 \begin{equation*}
-\pv{F}:\R\times\R^3\to\C+\C^3.
+\pv{Z}:\R\times\R^3\to\Pspace(\C).
 \end{equation*}
-The real/imaginary scalar/vector parts of \(\pv{\partial}\pv{F}\) and \(i\pv{\partial}\pv{F}\) are then given by:
-\input{sections/em_tables_derivative.tex}
+The letters \(\vct{A}\) and \(\vct{B}\) in this subsection are generic
+placeholders. Their electromagnetic meanings are assigned only in Section
+\ref{sec:em}.
+Direct multiplication gives the scalar and vector parts of
+\(\pv{\partial}\pv{Z}\) and \(i\pv{\partial}\pv{Z}\):
+\begin{componenttable}[tab:components-generic-derivative]{\pv{\partial} \pv{Z}}
+\componentrow{real scalar}{\partial_t a+\gradv\cdot\vct{A}}{}
+\componentrow{img scalar}{\partial_t b+\gradv\cdot\vct{B}}{}
+\componentrow{real vector}{\gradv a+\partial_t\vct{A}-\gradv\times\vct{B}}{}
+\componentrow{img vector}{\gradv b+\gradv\times\vct{A}+\partial_t\vct{B}}{}
+\end{componenttable}
+
+\begin{componenttable}[tab:components-generic-iderivative]{i\,\pv{\partial} \pv{Z}}
+\componentrow{real scalar}{-\partial_t b-\gradv\cdot\vct{B}}{}
+\componentrow{img scalar}{\partial_t a+\gradv\cdot\vct{A}}{}
+\componentrow{real vector}{-\gradv b-\gradv\times\vct{A}-\partial_t\vct{B}}{}
+\componentrow{img vector}{\gradv a+\partial_t\vct{A}-\gradv\times\vct{B}}{}
+\end{componenttable}

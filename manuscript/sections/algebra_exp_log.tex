@@ -1,18 +1,23 @@
 \subsubsection{Real Exponential and Half-Angle Elements}
-The sigma-number-one exponential is resolved by the projector calculus. For the real paravector
+The sigma-number-one exponential is evaluated by applying the scalar
+exponential separately to the two projector parts defined in
+Eq.\ \eqref{eq:functional-calculus}. For the real paravector
 \[
-\pv{X}=a+\vct{A}\cdot\sigv\in\R+\R^3,
+\pv{X}=a+\vct{A}\cdot\sigv\in\Pspace(\R),
 \]
 the vector part is decomposed as
 \begin{equation*}
 \begin{aligned}
 \vct{A}&=\theta \vct{u},\qquad \theta=\lVert \vct{A}\rVert,\\
 \vct{u}&=\frac{\vct{A}}{\lVert \vct{A}\rVert}\ \ (\vct{A}\neq 0),\qquad
-\vct{u}=(u_1,u_2,u_3),\\
+\vct{u}=\vcol{u_1,u_2,u_3},\\
 \vct{u}^2&=1.
 \end{aligned}
 \end{equation*}
-The exponential is given by the functional calculus of
+When \(\vct{A}=\vct{0}\), the vector exponential is \(1\) and no direction
+is needed. The directional formulas below apply to
+\(\vct{A}\neq\vct{0}\).
+The exponential is therefore given by the projector-based function rule of
 Eq.\ \eqref{eq:functional-calculus}:
 \begin{align}
 \exp(\pm\vct{A}\cdot\sigv)
@@ -33,11 +38,12 @@ the even and odd powers:
 \end{align*}
 With
 \begin{align*}
-\gamma &= \cosh(\theta),\notag \\
-\vct{v} &= \tanh(\theta)\,\vct{u},
+\gamma &:= \cosh(\theta),\notag \\
+\vct{v} &:= \tanh(\theta)\,\vct{u},
 \end{align*}
-the basic hyperbolic parametrization is obtained from
-Eq.\ \eqref{eq:exp-vector}:
+Eq.\ \eqref{eq:exp-vector} gives the same formula in terms of
+\(\cosh(\theta)\), \(\sinh(\theta)\), and their ratio
+\(\tanh(\theta)\):
 \begin{align*}
 \exp(\vct{A}\cdot\sigv) &= \gamma(1+\vct{v}\cdot\sigv),\notag \\
 \exp(-\vct{A}\cdot\sigv) &= \gamma(1-\vct{v}\cdot\sigv).
@@ -60,9 +66,10 @@ Its conjugation properties are
 \qquad
 \conj{\pv{L}}=\pv{L}^{-1}.
 \]
-The action of this element on real events is fixed by the generalized
-transform law and differs from hyperbolic similarity. The exponential and
-its inverse are specified by Eq.\ \eqref{eq:boost-element}. The two
+The action of this element on real events is derived from the two-sided
+event law in Eq.\ \eqref{eq:general-event-congruence}; it is not obtained
+from the inverse-pair product in Eq.\ \eqref{eq:general-transform}. The
+exponential and its inverse are specified by Eq.\ \eqref{eq:boost-element}. The two
 projector weights are exchanged by the conjugate operator:
 \begin{align*}
 \exp(\vct{A}\cdot\sigv)^{*}
@@ -76,8 +83,10 @@ projector weights are exchanged by the conjugate operator:
 \subsubsection{Real Logarithm of a Paravector}
 The logarithm is the inverse problem for the same projector formulas. The
 real paravector \(\pv{Y}\) from Eq.\ \eqref{eq:real-paravector-y} is assumed
-to satisfy \(b>\lVert\vct{B}\rVert\), so that the two real eigenvalues are
-positive and the principal logarithm is defined. For \(\vct{B}\neq0\), the
+to satisfy \(b>\lVert\vct{B}\rVert\), so that the two real values in
+Eq.\ \eqref{eq:real-paravector-eigenvalues} are positive. The unique ordinary
+real logarithm of each positive value is used; this choice is called the
+principal logarithm. For \(\vct{B}\neq0\), the
 decomposition \(\vct{B}=\lVert\vct{B}\rVert \vct{u}\) is used. The
 eigenvalue function from
 Eq.\ \eqref{eq:real-paravector-eigenvalues} and the projector function from
@@ -103,7 +112,7 @@ When \(\vct{B}=\vct{0}\), the axis is unnecessary and this formula is
 reduced directly to \(\log(\pv{Y})=\log(b)\).
 For \(\vct{B}\neq0\), if \(\pv{Y}=\exp(\pv{X})\) with \(\pv{X}\) from
 Eq.\ \eqref{eq:real-paravector-x} and \(\vct{A}=\theta\vct{u}\), then
-\(\lambda(\pv{Y},\pm)=\exp(a\pm\theta)\), so the recovered parameters are
+\(\lambda(\pv{Y},\pm)=\exp(a\pm\theta)\). The relation is expanded as
 \begin{align*}
 \pv{Y}
 &=\exp(\pv{X})\notag \\
@@ -121,15 +130,18 @@ a &= \tfrac12 \log\!\bigl(b^{2}-\vct{B}^{2}\bigr), \\
 = \operatorname{arctanh}\!\bigl(\lVert\vct{B}\rVert/b\bigr)\,
 \frac{\vct{B}}{\lVert\vct{B}\rVert}.
 \end{align*}
-Thus the principal logarithm of a future-directed time-like real paravector
-is again a real paravector,
+The condition \(b>\lVert\vct{B}\rVert\) gives a positive scalar part and
+\(\detf{\pv{Y}}=b^2-\vct{B}^2>0\). In special-relativity language this is
+the future-directed timelike region \cite{minkowski1908,einstein1905}.
+Thus its principal logarithm is again a real paravector,
 \begin{equation*}
 \log(\pv{Y})=a+\vct{A}\cdot\sigv.
 \end{equation*}
 
 \subsubsection{Circular Exponentials and Half-Angle Elements}
-The trigonometric form of the sigma-number-two exponential is obtained from
-the same projector calculation by replacing \(\theta\) with \(i\theta\):
+Replacing \(\theta\) with \(i\theta\) changes the hyperbolic functions into
+the ordinary sine and cosine functions. The resulting sigma-number-two
+exponential is therefore called circular:
 \begin{align}
 \exp(\pm i\vct{A}\cdot\sigv)
 &= \exp(\pm i\theta\,\vct{u}\cdot\sigv)\notag \\
@@ -152,6 +164,8 @@ For a real angle \(\theta\in\R\) and a unit real vector \(\vct{u}\in\R^3\), the 
 \pv{R}(\theta,\vct{u}):=\exp\!\left(\frac{\theta}{2}\,\vct{u}\cdot i\sigv\right).
 \label{eq:rotor-element}
 \end{equation}
+A real scalar coefficient and a purely imaginary vector coefficient are
+carried, so \(\pv{R}\in\Pspace(\C)\).
 Its conjugation properties are
 \[
 \herm{\pv{R}}\pv{R}=1,
@@ -159,17 +173,20 @@ Its conjugation properties are
 \conj{\pv{R}}=\pv{R}.
 \]
 Equation \eqref{eq:rotor-element} is the circular half-angle element built
-from Eq.\ \eqref{eq:exp-bivector}. Its transform action is fixed by the
-general similarity and event-congruence laws, from which Rodrigues's formula
-is obtained. The equivalent quaternion form is obtained from the same
-sigma-number-two algebra.
+from Eq.\ \eqref{eq:exp-bivector}. This element is called a rotor because
+its two-sided action produces a spatial rotation. That action is derived in
+the Rotation subsection from Eqs.\ \eqref{eq:rotor} and
+\eqref{eq:similarity-components}, where the result is reduced to
+Rodrigues's rotation formula \cite{doran2003}. The
+equivalent quaternion form is obtained from the same sigma-number-two
+algebra.
 
 \subsubsection{Exponentials of Complex Paravectors}
 The real paravectors are written as
 \begin{align*}
-\pv{X} &= a + \vct{A} \cdot \sigv \in \R+\R^{3},\notag \\
-\pv{Y} &= b + \vct{B} \cdot \sigv \in \R+\R^{3},\notag \\
-\pv{Z} &= S + \vct{V} \cdot \sigv \in \C+\C^{3},\notag \\
+\pv{X} &= a + \vct{A} \cdot \sigv \in \Pspace(\R),\notag \\
+\pv{Y} &= b + \vct{B} \cdot \sigv \in \Pspace(\R),\notag \\
+\pv{Z} &= S + \vct{V} \cdot \sigv \in \Pspace(\C),\notag \\
 &= \pv{X} + i \pv{Y},
 \end{align*}
 where

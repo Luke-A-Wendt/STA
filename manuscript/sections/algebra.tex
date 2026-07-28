@@ -5,8 +5,9 @@ conjugate, Hermitian, and combined star--\(H\) operations are listed in
 Table~\ref{tab:sigma-number-signs}.
 
 \subsubsection{Complex Paravector-Valued Maps}
-A generic complex paravector-valued map is formed from real scalar and
-vector functions without imposing any physical interpretation:
+A map is a rule that assigns an output to each allowed input. A generic map
+whose output is a complex paravector is formed from real scalar and vector
+functions without imposing any physical interpretation:
 \begin{equation}
 \begin{aligned}
 \pv{Z}(t,\vct{r}) &:= \bigl(a(t,\vct{r})+i\,b(t,\vct{r})\bigr)\\
@@ -14,9 +15,9 @@ vector functions without imposing any physical interpretation:
 \end{aligned}
 \label{eq:complex-paravector-map}
 \end{equation}
-Its domain and the coefficient-function types are
+Its allowed inputs and coefficient-function outputs are
 \begin{align*}
 a,b &: \R\times\R^3 \to \R,\\
 \vct{A},\vct{B} &: \R\times\R^3 \to \R^3,\\
-\pv{Z} &: \R\times\R^3 \to \C+\C^3.
+\pv{Z} &: \R\times\R^3 \to \Pspace(\C).
 \end{align*}

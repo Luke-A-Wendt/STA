@@ -29,7 +29,8 @@ The determinant of the increment is
 =\dd t^{2}-\dd\vct{r}^{2}
 =\dd s^{2}.
 \end{equation*}
-The familiar Lorentzian identities are obeyed:
+The following identities are direct consequences of the difference
+\(\dd t^2-\dd\vct{r}^2\):
 \begin{align*}
 \dd t^2>\dd\vct{r}^2,\ \dd\pv{X}\neq 0
 &\eqtext{ implies }\detf{\dd\pv{X}}>0,\notag\\
@@ -41,13 +42,18 @@ The familiar Lorentzian identities are obeyed:
 &=a^2\detf{\dd\pv{X}},
 \qquad a\in\R.
 \end{align*}
-The commutator of two spacetime increments is purely spatial:
+The commutator of two spacetime increments has zero scalar part and lies
+entirely in the imaginary-vector part:
 \begin{align*}
 \com{\dd\pv{X}}{\dd\pv{X}'}
 &=\com{\dd\vct{r}\cdot\sigv}{\dd\vct{r}'\cdot\sigv}\notag\\
 &=2i(\dd\vct{r}\times\dd\vct{r}')\cdot\sigv.
 \end{align*}
-Along a future-directed time-like path, so that \(\dd t>0\), the following relation is satisfied by the positive arc length:
+A path is now taken for which \(\dd t>0\) and
+\(\dd t^2-\dd\vct{r}^2>0\). The first condition selects increasing time,
+and the second makes the interval timelike. Such a path is conventionally
+called future-directed and timelike \cite{einstein1905,minkowski1908}.
+Its positive interval length satisfies
 \begin{align*}
 \dd s
 &=\sqrt{\dd t^{2}-\dd\vct{r}^{2}}\notag\\
@@ -56,10 +62,13 @@ Along a future-directed time-like path, so that \(\dd t>0\), the following relat
 \end{align*}
 where
 \begin{equation*}
-\vct{v}:=\frac{\dd\vct{r}}{\dd t}=(v_{1},v_{2},v_{3})\in\R^{3},
+\vct{v}:=\frac{\dd\vct{r}}{\dd t}
+=\vcol{v_{1},v_{2},v_{3}}\in\R^{3},
 \qquad
 \gamma:=\frac{\dd t}{\dd s}=\frac{1}{\sqrt{1-\vct{v}^{2}}}.
 \end{equation*}
+The factor \(\gamma\), which compares coordinate time with proper time, is
+conventionally called the Lorentz factor.
 For a real non-null increment, \(\herm{\dd\pv{X}}=\dd\pv{X}\), so the inverse exists and
 \begin{align*}
 (\dd\pv{X})^{-1}
@@ -68,32 +77,40 @@ For a real non-null increment, \(\herm{\dd\pv{X}}=\dd\pv{X}\), so the inverse ex
 &=\frac{\conj{\dd\pv{X}}}{\dd\pv{X}\conj{\dd\pv{X}}}\notag\\
 &=\frac{\conj{\dd\pv{X}}}{\dd s^{2}}.
 \end{align*}
-Null displacements are singled out algebraically because this inverse breaks down exactly when \(\dd s^{2}=0\).
+An increment with \(\dd s^{2}=0\) is called null below. Such increments are
+singled out algebraically because the inverse breaks down at exactly that
+value.
 
 \subsubsection{Interval Classes and Proper Time}
 For a spacetime increment \(\dd\pv{X}=\dd t+\dd \vct{r}\cdot\sigv\), the interval is
 \begin{equation*}
 \detf{\dd\pv{X}}=\dd\pv{X}\,\conj{\dd\pv{X}}=\dd t^2-\dd \vct{r}^2=\dd s^2.
 \end{equation*}
-The three standard interval classes are obtained from this identity without any additional geometric machinery:
+The sign of this displayed quantity defines the three standard interval
+classes \cite{lorentz1904,einstein1905,minkowski1908}:
 \begin{align*}
-\dd s^2>0 &\quad\eqtext{implies a time-like interval},\notag \\
+\dd s^2>0 &\quad\eqtext{implies a timelike interval},\notag \\
 \dd s^2=0,\ \dd\pv{X}\neq0
 &\quad\eqtext{implies a null interval},\notag \\
-\dd s^2<0 &\quad\eqtext{implies a space-like interval}.
+\dd s^2<0 &\quad\eqtext{implies a spacelike interval}.
 \end{align*}
-If \(\detf{\dd\pv{X}}>0\), the interval is time-like. Then the arc length \(s\) equals the proper time \(\tau\) measured along the path:
+If \(\detf{\dd\pv{X}}>0\), the interval is timelike. The time read by a
+clock moving along the path is called proper time. In the units used here,
+it is the accumulated positive interval length \(s\):
 \begin{align*}
-\tau=s=\int \dd s=\int \dd\tau
+s=\int \dd s
 &=\int \sqrt{1-\vct{v}^2}\,\dd t\notag\\
 &=\int \frac{1}{\gamma}\,\dd t.
 \end{align*}
-This is the time-dilation relation in natural units. In SI units the same statement is
+The difference between \(\dd t\) and the moving clock reading \(\dd s\)
+is the time-dilation relation. In the International System of Units (SI),
+the interval has length units, and the corresponding clock-time increment is
 \begin{equation*}
-\dd s=c\,\dd\tau.
+\frac{\dd s}{c}.
 \end{equation*}
 
-If \(\detf{\dd\pv{X}}=0\) with \(\dd\pv{X}\neq0\), the interval is null or light-like. Then
+If \(\detf{\dd\pv{X}}=0\) with \(\dd\pv{X}\neq0\), the interval is null or
+lightlike. Then
 \begin{equation*}
 \dd t^2=\dd\vct{r}^2
 \qquad\eqtext{implies}\qquad
@@ -101,12 +118,17 @@ If \(\detf{\dd\pv{X}}=0\) with \(\dd\pv{X}\neq0\), the interval is null or light
 \end{equation*}
 and \((\dd\pv{X})^{-1}\) does not exist.
 
-If \(\detf{\dd\pv{X}}<0\), the interval is space-like.
+If \(\detf{\dd\pv{X}}<0\), the interval is spacelike.
 
-In the paravector notation, the interval classification, the proper-time formula, and the null singularity of \((\dd\pv{X})^{-1}\) are all obtained from the single algebraic identity \(\dd\pv{X}\,\conj{\dd\pv{X}}=\dd t^2-\dd\vct{r}^2\).
+Thus the interval classification, the moving-clock formula, and the failure
+of \((\dd\pv{X})^{-1}\) for a null increment all follow from the one
+algebraic identity
+\(\dd\pv{X}\,\conj{\dd\pv{X}}=\dd t^2-\dd\vct{r}^2\).
 
 \subsubsection{Four-Velocity}
-The four-velocity paravector is the normalized tangent to a time-like worldline:
+A particle path through space and time is called its worldline. For a
+timelike worldline, division of its increment by the corresponding proper
+time gives
 \begin{align*}
 \frac{\dd\pv{X}}{\dd s}
 &=\frac{\dd t}{\dd s}+\frac{\dd\vct{r}}{\dd s}\cdot\sigv\notag\\
@@ -134,13 +156,13 @@ Also,
 =\frac{\dd\pv{X}}{\dd s}\frac{\dd s}{\dd t}
 =\frac{1}{\gamma}\frac{\dd\pv{X}}{\dd s}.
 \end{equation*}
-The four-velocity paravector is defined by
+This determinant-one rate of change is called the four-velocity paravector
+and is defined by
 \begin{align*}
 \pv{U}&=\frac{\dd\pv{X}}{\dd s}\notag\\
-&=\gamma+\gamma\vct{v}\cdot\sigv\notag\\
-&=U_s+\vct{U}_{\vct{v}}\cdot\sigv,\\
-U_s&=\gamma,\qquad
-\vct{U}_{\vct{v}}=\gamma\vct{v}.
+&=\gamma+\gamma\vct{v}\cdot\sigv,\\
+\eqtext{scalar}(\pv{U})&=\gamma,\qquad
+\eqtext{vector}(\pv{U})=\gamma\vct{v}.
 \end{align*}
 Since \(\dd s^2=\dd\pv{X}\conj{\dd\pv{X}}\) with \(\dd s>0\),
 \begin{align*}
@@ -152,7 +174,7 @@ so \(\pv{U}^{-1}=\pv{U}^*\) and
 \begin{equation*}
 \detf{\pv{U}}=\pv{U}\pv{U}^*=1.
 \end{equation*}
-The following relation is obtained by differentiation of this normalization:
+Differentiation of the determinant-one condition gives
 \begin{align*}
 \frac{\dd}{\dd s}\detf{\pv{U}}
 &=\frac{\dd\pv{U}}{\dd s}\pv{U}^*+\pv{U}\left(\frac{\dd\pv{U}}{\dd s}\right)^*\notag\\
@@ -160,7 +182,9 @@ The following relation is obtained by differentiation of this normalization:
 \end{align*}
 hence
 \begin{equation*}
-\eqtext{scalar}\!\left(\pv{U}^*\frac{\dd\pv{U}}{\dd s}\right)=0.
+\eqtext{scalar}\!\left(\frac{\dd\pv{U}}{\dd s}\pv{U}^*\right)
+=\eqtext{scalar}\!\left(\pv{U}^*\frac{\dd\pv{U}}{\dd s}\right)
+=0.
 \end{equation*}
 The determinant identity is recovered as
 \begin{align*}
@@ -171,23 +195,26 @@ The determinant identity is recovered as
 &=\detf{\pv{U}}\dd s^2\notag\\
 &=\dd s^2.
 \end{align*}
-The proper-acceleration formulas are based on this normalization and orthogonality structure.
+The acceleration formulas below are based on this normalization and on the
+result that the displayed scalar part vanishes.
 \input{sections/kinematics_table_velocity.tex}
 
 \subsubsection{Four-Acceleration}
-The coordinate acceleration is defined by
+The rate of change of the three-velocity with respect to the chosen time
+coordinate is called the coordinate acceleration and is defined by
 \begin{equation*}
-\vct{a}:=\frac{\dd\vct{v}}{\dd t}=\{a_1,a_2,a_3\}\in\R^3.
+\vct{a}:=\frac{\dd\vct{v}}{\dd t}
+=\vcol{a_1,a_2,a_3}\in\R^3.
 \end{equation*}
 With \(\gamma=(1-\vct{v}^2)^{-1/2}\), the following relations hold:
 \begin{align*}
 \frac{\dd\gamma}{\dd t}&=\gamma^3(\vct{v}\cdot\vct{a}),\\
 \frac{\dd\gamma}{\dd s}&=\gamma^4(\vct{v}\cdot\vct{a}).
 \end{align*}
-The notation \(\delv:=\partial/\partial\vct{v}\) is used for the gradient
-with respect to velocity. The scalar velocity derivative needed below is
+The scalar derivative with respect to the three velocity components is
 \[
-\delv{}\!\left(-\frac{1}{\gamma}\right)=\gamma\vct{v}.
+\frac{\partial}{\partial\vct{v}}\!\left(-\frac{1}{\gamma}\right)
+=\gamma\vct{v}.
 \]
 The following derivatives are obtained by direct differentiation of the vector product \(\gamma\vct{v}\):
 \begin{align*}
@@ -199,13 +226,11 @@ The following derivatives are obtained by direct differentiation of the vector p
 &=\gamma^2\vct{a}+\gamma^4(\vct{v}\cdot\vct{a})\vct{v}.
 \end{align*}
 
-The four-velocity paravector is decomposed as
-\begin{align*}
-\pv{U}&=U_s+\vct{U}_{\vct{v}}\cdot\sigv,\\
-U_s&=\gamma,\qquad
-\vct{U}_{\vct{v}}=\gamma\vct{v}.
-\end{align*}
-Therefore the four-acceleration is
+The scalar and vector parts of four-velocity are
+\(\eqtext{scalar}(\pv{U})=\gamma\) and
+\(\eqtext{vector}(\pv{U})=\gamma\vct{v}\), as obtained above.
+The rate of change of four-velocity with respect to proper time is called
+four-acceleration. It is therefore
 \begin{align*}
 \pv{A}
 &=\frac{\dd\pv{U}}{\dd s}\notag\\
@@ -214,16 +239,15 @@ Therefore the four-acceleration is
 +\Bigl(\gamma^4(\vct{v}\cdot\vct{a})\vct{v}+\gamma^2\vct{a}\Bigr)\cdot\sigv.
 \end{align*}
 Equivalently,
-\begin{equation*}
-\pv{A}=A_s+\vct{A}_{\vct{v}}\cdot\sigv,
-\qquad
-A_s=\gamma^4(\vct{v}\cdot\vct{a}),
-\qquad
-\vct{A}_{\vct{v}}=\gamma^4(\vct{v}\cdot\vct{a})\vct{v}+\gamma^2\vct{a}.
-\end{equation*}
+\begin{align*}
+\eqtext{scalar}(\pv{A})
+&=\gamma^4(\vct{v}\cdot\vct{a}),\\
+\eqtext{vector}(\pv{A})
+&=\gamma^4(\vct{v}\cdot\vct{a})\vct{v}+\gamma^2\vct{a}.
+\end{align*}
 
 For \(\vct{v}\neq 0\), the unit direction is defined by
-\(\vct{u}=\vct{v}/\|\vct{v}\|\), with \(\vct{u}^2=1\). The following
+\(\vct{u}:=\vct{v}/\|\vct{v}\|\), with \(\vct{u}^2=1\). The following
 components are then obtained from the axis functions in
 Eqs.\ \eqref{eq:par-function} and \eqref{eq:prp-function}:
 \begin{align*}
@@ -241,16 +265,37 @@ so the proper-acceleration determinant is
 &=-\gamma^4\Bigl(\vct{a}^2+\gamma^2(\vct{v}\cdot\vct{a})^2\Bigr)\notag\\
 &=-\gamma^4\Bigl(\eqtext{prp}(\vct{a})^2+\gamma^2\eqtext{par}(\vct{a})^2\Bigr).
 \end{align*}
-This is strictly space-like unless the acceleration vanishes. Its invariant magnitude \(\sqrt{-\detf{\pv{A}}}\) is the proper acceleration measured in the instantaneous rest frame.
+The determinant is negative unless the acceleration vanishes, so the
+four-acceleration is spacelike. Its positive magnitude
+\(\sqrt{-\detf{\pv{A}}}\) is unchanged by a Lorentz transformation. It is
+called proper acceleration because it equals the acceleration measured at
+that event in the momentarily comoving frame, where the particle velocity is
+zero.
 
 The products with \(\pv{U}\) are
 \begin{align*}
 \pv{U}\pv{A}
-&=(U_sA_s+\vct{U}_{\vct{v}}\cdot\vct{A}_{\vct{v}})\notag\\
-&\quad+\bigl(U_s\vct{A}_{\vct{v}}+A_s\vct{U}_{\vct{v}}+i(\vct{U}_{\vct{v}}\times\vct{A}_{\vct{v}})\bigr)\cdot\sigv,\\
+&=\bigl(
+\eqtext{scalar}(\pv{U})\eqtext{scalar}(\pv{A})
++\eqtext{vector}(\pv{U})\cdot\eqtext{vector}(\pv{A})
+\bigr)\notag\\
+&\quad+\bigl(
+\eqtext{scalar}(\pv{U})\eqtext{vector}(\pv{A})
++\eqtext{scalar}(\pv{A})\eqtext{vector}(\pv{U})\notag\\
+&\qquad\qquad
++i\bigl(\eqtext{vector}(\pv{U})\times\eqtext{vector}(\pv{A})\bigr)
+\bigr)\cdot\sigv,\\
 \pv{U}^*\pv{A}
-&=(U_sA_s-\vct{U}_{\vct{v}}\cdot\vct{A}_{\vct{v}})\notag\\
-&\quad+\bigl(U_s\vct{A}_{\vct{v}}-A_s\vct{U}_{\vct{v}}-i(\vct{U}_{\vct{v}}\times\vct{A}_{\vct{v}})\bigr)\cdot\sigv.
+&=\bigl(
+\eqtext{scalar}(\pv{U})\eqtext{scalar}(\pv{A})
+-\eqtext{vector}(\pv{U})\cdot\eqtext{vector}(\pv{A})
+\bigr)\notag\\
+&\quad+\bigl(
+\eqtext{scalar}(\pv{U})\eqtext{vector}(\pv{A})
+-\eqtext{scalar}(\pv{A})\eqtext{vector}(\pv{U})\notag\\
+&\qquad\qquad
+-i\bigl(\eqtext{vector}(\pv{U})\times\eqtext{vector}(\pv{A})\bigr)
+\bigr)\cdot\sigv.
 \end{align*}
 Their component forms are
 \begin{align*}
@@ -263,9 +308,14 @@ Their component forms are
 \end{align*}
 In particular,
 \begin{equation*}
-\eqtext{scalar}(\pv{U}^*\pv{A})=0,
+\eqtext{scalar}(\pv{U}^*\pv{A})=0.
 \end{equation*}
-which is the orthogonality relation between four-velocity and four-acceleration. The scalar and vector parts of \(\pv{U}\) are recorded in Table \ref{tab:components-proper-velocity}, while the corresponding scalar and vector parts of \(\pv{U}\pv{A}\) and \(\pv{U}^{*}\pv{A}\) are compared in Tables \ref{tab:components-ua} and \ref{tab:components-ustara}.
+The vanishing scalar part is the precise meaning of orthogonality between
+four-velocity and four-acceleration in this notation. The scalar and vector
+parts of \(\pv{U}\) are recorded in Table
+\ref{tab:components-proper-velocity}, while the corresponding parts of
+\(\pv{U}\pv{A}\) and \(\pv{U}^{*}\pv{A}\) are compared in Tables
+\ref{tab:components-ua} and \ref{tab:components-ustara}.
 \input{sections/kinematics_tables.tex}
 
 \subsubsection{Four-Momentum}
@@ -294,7 +344,8 @@ Its vector part is the relativistic momentum,
 &=m\gamma\vct{v}.
 \end{align*}
 
-Because \(\detf{\pv{U}}=1\), the mass shell is obtained immediately:
+Because \(\detf{\pv{U}}=1\), the following restriction on the allowed energy
+and momentum is obtained immediately:
 \begin{align*}
 \detf{m\pv{U}}
 &=m^{2}\notag\\
@@ -305,21 +356,34 @@ Hence
 \begin{equation*}
 E^{2}=\vct{P}^{2}+m^{2}.
 \end{equation*}
-The null branch \(E^{2}=\vct{P}^{2}\), appropriate to massless motion, is also admitted by the mass-shell equation. That branch must be introduced directly as a null energy--momentum paravector: Eq.\ \(m\pv{U}=E+\vct{P}\cdot\sigv\) is applicable only to massive time-like motion because \(\dd s=0\) and \(\pv{U}=\dd\pv{X}/\dd s\) is undefined on a null worldline.
+The set of energy--momentum values satisfying this equation is
+conventionally called the mass shell \cite{dirac1928,greiner2000}. For
+massless motion it reduces to the null branch
+\(E^{2}=\vct{P}^{2}\). That branch must be introduced directly as a null
+energy--momentum paravector: the equation
+\(m\pv{U}=E+\vct{P}\cdot\sigv\) applies only to massive timelike motion
+because \(\dd s=0\) and \(\pv{U}=\dd\pv{X}/\dd s\) is undefined on a null
+worldline.
 
 \subsubsection{Flat Paravector Coordinate Map}
-The scalar and vector maps are taken to have the domains
+The same flat event paravector may be described by functions of another
+time label \(t\) and three position labels \(\vct{r}\). The scalar and
+vector functions are taken to have the domains
 \begin{align*}
 f&:\R\times\R^3\to\R,\\
 \vct{g}&:\R\times\R^3\to\R^3.
 \end{align*}
-A real paravector-valued map into the fixed flat space-time algebra is then
-defined by
+Their outputs are used as the scalar and vector components of a real
+paravector:
 \begin{equation}
 \pv{X}:=f(t,\vct{r})+\vct{g}(t,\vct{r})\cdot\sigv.
 \label{eq:flat-paravector-coordinate-map}
 \end{equation}
-The original coordinates are mapped into flat Minkowski paravector components; invariance of the Cartesian metric coefficients under an arbitrary coordinate change is not asserted. Its differential and conjugate are
+Thus \((t,\vct{r})\) supplies labels, while
+\((f,\vct{g})\) supplies the components inserted into the already defined
+flat interval. The numerical coefficients of that interval need not remain
+constant when nonlinear labels are used. The differential and its conjugate
+are
 \begin{equation*}
 \dd\pv{X}=\dd f+\dd\vct{g}\cdot\sigv,
 \qquad
@@ -332,12 +396,24 @@ Their product is
 &=(\dd f+\dd\vct{g}\cdot\sigv)(\dd f-\dd\vct{g}\cdot\sigv)\notag\\
 &=\dd f^2-\dd\vct{g}^2.
 \end{align*}
-Along a future-directed time-like path, the conditions \(\dd f>0\) and
+Along a future-directed timelike path, the conditions \(\dd f>0\) and
 \(\dd f^2>\dd\vct{g}^2\) are assumed. Then
 \begin{align*}
 \dd s
 &=\sqrt{\dd f^2-\dd\vct{g}^2}\notag\\
 &=\sqrt{1-\left(\frac{\dd\vct{g}}{\dd f}\right)^2}\,\dd f.
+\end{align*}
+Within this subsection, the bare symbols \(\vct{v}\), \(\gamma\), and
+\(\vct{a}\) are defined relative to the components \((f,\vct{g})\).
+They reduce to the earlier definitions when \(f=t\) and \(\vct{g}=\vct{r}\).
+The velocity and Lorentz factor are
+\begin{align*}
+\vct{v}
+&:=\frac{\dd\vct{g}}{\dd f},\\
+\gamma
+&:=\frac{\dd f}{\dd s}\notag\\
+&=\frac{\dd f}{\sqrt{\dd f^2-\dd\vct{g}^2}}\notag\\
+&=\frac{1}{\sqrt{1-\vct{v}^2}}.
 \end{align*}
 The corresponding four-velocity is
 \begin{align*}
@@ -348,18 +424,7 @@ The corresponding four-velocity is
 &=\frac{1+\vct{v}\cdot\sigv}{\sqrt{1-\vct{v}^2}}\notag\\
 &=\gamma(1+\vct{v}\cdot\sigv),
 \end{align*}
-where the velocity relative to the scalar component \(f\) and its Lorentz factor are
-\begin{align*}
-\vct{v}
-&:=\frac{\dd\vct{g}}{\dd f}\notag\\
-&=\frac{\dd\vct{g}/\dd t}{\dd f/\dd t}\notag\\
-&=\frac{\dd\vct{g}/\dd s}{\dd f/\dd s},\\
-\gamma
-&:=\frac{\dd f}{\dd s}\notag\\
-&=\frac{\dd f}{\sqrt{\dd f^2-\dd\vct{g}^2}}\notag\\
-&=\frac{\dd f/\dd t}{\dd s/\dd t}\notag\\
-&=\frac{1}{\sqrt{1-\vct{v}^2}}.
-\end{align*}
+where the division by \(\dd f\) is valid because \(\dd f>0\).
 Thus \(\vct{v}^2<1\). For a massive particle, the energy--momentum relation remains unchanged:
 \begin{equation*}
 m\pv{U}=E+\vct{P}\cdot\sigv.
@@ -384,7 +449,8 @@ The commutator of four-velocity and four-acceleration is
 &=\gamma\com{\pv{U}}{\dfrac{\dd\pv{U}}{\dd f}}\notag\\
 &=2\gamma^3(\vct{v}\times\vct{a})\cdot(i\sigv).
 \end{align*}
-For a massive free particle in these flat target components,
+For a massive particle on which no force acts, four-acceleration vanishes in
+the flat components \((f,\vct{g})\):
 \begin{equation*}
 m\frac{\dd\pv{U}}{\dd s}=0,
 \end{equation*}
@@ -403,56 +469,88 @@ For \(\vct{v}^2<1\), one has \(\gamma>0\). The relation
 \begin{equation*}
 \frac{\dd^2\vct{g}}{\dd f^2}=0,
 \end{equation*}
-and along an inertial worldline
+and along such a force-free worldline
 \begin{equation*}
 \vct{g}=\vct{c}f+\vct{c}',
 \qquad
-\vct{v}=\frac{\dd\vct{g}}{\dd f}=\vct{c},
+\vct{v}=\frac{\dd\vct{g}}{\dd f}=\vct{c}.
 \end{equation*}
-so inertial motion is linear in the flat target components \((f,\vct{g})\) with constant velocity. If the same straight worldline is described in arbitrary curvilinear coordinates, the corresponding connection terms are generally contained in its coordinate equation; no curved-space geodesic equation is asserted.
+Thus motion without force is linear in \((f,\vct{g})\), with constant
+velocity. If nonlinear coordinate labels are used for this same straight
+path, differentiating the coordinate map twice produces extra terms from
+the second derivatives of \(f\) and \(\vct{g}\). Such terms are
+conventionally called connection terms. They can be caused entirely by the
+coordinate labels and therefore do not by themselves describe curved
+space-time. Curvature would require a change in the interval geometry that
+cannot be removed by any coordinate relabeling throughout a region. A path
+whose force-free equation includes the required
+connection terms is conventionally called a geodesic
+\cite{doran2003}. Only a straight path in the fixed flat components has
+been derived here; no equation for a curved space-time has been assumed or
+proved.
 
 \subsubsection{Lagrangian Mechanics and Conserved Quantities}
 For a particle trajectory written in terms of time, position, and velocity,
-the action is taken to be
+one number is assigned to the complete path by the integral
 \begin{equation*}
-S=\int \mathcal L(t,\vct{r},\vct{v})\,\dd t.
+\int \mathcal L(t,\vct{r},\vct{v})\,\dd t.
 \end{equation*}
-The Euler--Lagrange equation is then
+This number is called the action, and its integrand \(\mathcal L\) is
+called the Lagrangian. Requiring the first-order change of the action to
+vanish for fixed endpoints gives the Euler--Lagrange equation
+\cite{doran2003}:
 \begin{align*}
-\left(\gradv-\frac{\dd}{\dd t}\delv{}\right)\mathcal L&=0,\\
-\frac{\dd}{\dd t}\delv{}\mathcal L&=\gradv\mathcal L.
+\gradv\mathcal L
+-\frac{\dd}{\dd t}
+\left(\frac{\partial\mathcal L}{\partial\vct{v}}\right)&=0,\\
+\frac{\dd}{\dd t}
+\left(\frac{\partial\mathcal L}{\partial\vct{v}}\right)
+&=\gradv\mathcal L.
 \end{align*}
-The standard conserved quantities are then obtained immediately. The canonical momentum is
+Two constant quantities follow directly when the Lagrangian lacks the
+corresponding dependence. The derivative with respect to velocity,
 \begin{equation*}
-\delv{}\mathcal L,
+\frac{\partial\mathcal L}{\partial\vct{v}},
 \end{equation*}
-so if \(\gradv\mathcal L=0\), then
+is called canonical momentum. If the Lagrangian has no position dependence,
+so that \(\gradv\mathcal L=0\), then
 \begin{equation*}
-\frac{\dd}{\dd t}\delv{}\mathcal L=0,
+\frac{\dd}{\dd t}
+\left(\frac{\partial\mathcal L}{\partial\vct{v}}\right)=0,
 \end{equation*}
-and the canonical momentum is constant.
+and the canonical momentum is constant along the path.
 
-The Hamiltonian is defined by
-\begin{align*}
+The scalar combination is defined by
+\begin{equation}
+\begin{aligned}
 \mathcal H
-&=\vct{v}\cdot(\delv{}\mathcal L)-\mathcal L\notag\\
-&=(\vct{v}\cdot\delv{}-1)\mathcal L.
-\end{align*}
-Its time derivative is
+&:=\vct{v}\cdot\frac{\partial\mathcal L}{\partial\vct{v}}
+-\mathcal L\\
+&=\left(\vct{v}\cdot\frac{\partial}{\partial\vct{v}}-1\right)
+\mathcal L
+\end{aligned}
+\label{eq:hamiltonian-definition}
+\end{equation}
+and is called the Hamiltonian. Its time derivative is
 \begin{align*}
 \frac{\dd\mathcal H}{\dd t}
-&=\frac{\dd}{\dd t}(\delv{}\mathcal L)\cdot\vct{v}
-+(\delv{}\mathcal L)\cdot\frac{\dd\vct{v}}{\dd t}
+&=\frac{\dd}{\dd t}
+\left(\frac{\partial\mathcal L}{\partial\vct{v}}\right)\cdot\vct{v}
++\frac{\partial\mathcal L}{\partial\vct{v}}\cdot
+\frac{\dd\vct{v}}{\dd t}
 -\frac{\dd\mathcal L}{\dd t}\notag\\
 &=(\gradv\mathcal L)\cdot\vct{v}
-+(\delv{}\mathcal L)\cdot\frac{\dd\vct{v}}{\dd t}
++\frac{\partial\mathcal L}{\partial\vct{v}}\cdot
+\frac{\dd\vct{v}}{\dd t}
 -\frac{\dd\mathcal L}{\dd t}\notag\\
 &=(\gradv\mathcal L)\cdot\vct{v}
-+(\delv{}\mathcal L)\cdot\frac{\dd\vct{v}}{\dd t}\notag\\
++\frac{\partial\mathcal L}{\partial\vct{v}}\cdot
+\frac{\dd\vct{v}}{\dd t}\notag\\
 &\qquad-\left(
 \partial_t\mathcal L
 +(\gradv\mathcal L)\cdot\vct{v}
-+(\delv{}\mathcal L)\cdot\frac{\dd\vct{v}}{\dd t}
++\frac{\partial\mathcal L}{\partial\vct{v}}\cdot
+\frac{\dd\vct{v}}{\dd t}
 \right)\notag\\
 &=-\partial_t\mathcal L.
 \end{align*}
@@ -460,14 +558,16 @@ Therefore, if \(\partial_t\mathcal L=0\), then
 \begin{equation*}
 \frac{\dd\mathcal H}{\dd t}=0,
 \end{equation*}
-so the Hamiltonian is constant. These identities are applied directly to the free-particle and minimally coupled electromagnetic examples.
+so the Hamiltonian is constant along the path. These identities are applied
+directly to the free-particle example and to the electromagnetic example in
+which the potential is added to the action.
 
 \subsubsection{Action of a Free Particle}
-The free-particle action is the mass-weighted proper time along the world line. With \(\tau=\int \dd s\), \(\pv{U}=\dd\pv{X}/\dd s\), and \(\gamma=\dd t/\dd s\),
+The free-particle action is negative mass times the accumulated proper time
+along the worldline. With \(\pv{U}=\dd\pv{X}/\dd s\) and
+\(\gamma=\dd t/\dd s\),
 \begin{align*}
-S
-=\int \mathcal L\,\dd t
-&=-m\tau\notag\\
+\int \mathcal L\,\dd t
 &=-m\int \sqrt{\detf{\dd\pv{X}}}\notag\\
 &=-m\int \dd s\notag\\
 &=-m\int \sqrt{\detf{\frac{\dd\pv{X}}{\dd t}}}\,\dd t\notag\\
@@ -482,16 +582,17 @@ Therefore
 \end{equation*}
 The canonical momentum is obtained by differentiation with respect to velocity:
 \begin{align*}
-\delv{} \mathcal L
+\frac{\partial\mathcal L}{\partial\vct{v}}
 &=m\gamma\vct{v}\notag\\
 &=\vct{P},\\
-(\delv{}\cdot\sigv)\mathcal L
+\left(\frac{\partial}{\partial\vct{v}}\cdot\sigv\right)\mathcal L
 &=\vct{P}\cdot\sigv.
 \end{align*}
 The Hamiltonian is
 \begin{align*}
 \mathcal H
-&=(\delv{}\mathcal L)\cdot\vct{v}-\mathcal L\notag\\
+&=\frac{\partial\mathcal L}{\partial\vct{v}}\cdot\vct{v}
+-\mathcal L\notag\\
 &=m\gamma\vct{v}^2+\frac{m}{\gamma}\notag\\
 &=m\gamma\left(\vct{v}^2+\frac{1}{\gamma^2}\right)\notag\\
 &=m\gamma\notag\\
@@ -505,9 +606,9 @@ Because the free Lagrangian has no explicit time or position dependence,
 \end{equation*}
 so the conserved quantities are the relativistic energy \(E=m\gamma\) and momentum \(\vct{P}=m\gamma\vct{v}\).
 
-\subsubsection{Non-Relativistic Approximation}
-For the non-relativistic approximation, the free Lagrangian is expanded
-directly:
+\subsubsection{Low-Velocity Approximation}
+When the speed is small compared with \(c=1\), the motion is conventionally
+called non-relativistic. The free Lagrangian is then expanded directly:
 \begin{align*}
 \mathcal L
 &=-\frac{m}{\gamma}\notag\\
@@ -515,7 +616,7 @@ directly:
 \end{align*}
 The canonical momentum is then reduced to
 \begin{align*}
-\delv{}\mathcal L
+\frac{\partial\mathcal L}{\partial\vct{v}}
 &=\frac{\partial}{\partial \vct{v}}\left(\frac12 m\vct{v}^2+O(\vct{v}^4)\right)\notag\\
 &=m\vct{v}+O(\vct{v}^3)\notag\\
 &\approx m\vct{v}.
@@ -534,68 +635,103 @@ Equivalently, the low-velocity series is
 \vct{P}&=m\vct{v}+O(\vct{v}^{3}),\notag \\
 \mathcal H&=m+\frac12 m\vct{v}^{2}+O(\vct{v}^{4}).
 \end{align*}
-The Newtonian kinetic term together with the additive rest-energy constant is thereby shown to be contained in the relativistic action. Classical mechanics is therefore obtained as the approximation, not used as the starting point.
+The Newtonian free-particle kinetic term together with the additive
+rest-energy constant is thereby obtained as the low-velocity approximation
+to the relativistic action.
 
-\subsubsection{Flat Pullback Metric and Diagonalization}
-A flat metric in the original coordinate tuple is induced by the map \(\pv{X}=f+\vct{g}\cdot\sigv\):
+\subsubsection{Flat Interval in General Coordinates}
+The map \(\pv{X}=f+\vct{g}\cdot\sigv\) permits the same flat interval to be
+written in terms of the original four coordinate labels
 \[
-\vct{x}=(t,r_1,r_2,r_3)^T,
+\vct{x}=\vcol{t,r_1,r_2,r_3},
 \qquad
-\dd\vct{x}=(\dd t,\dd r_1,\dd r_2,\dd r_3)^T.
+\dd\vct{x}=\vcol{\dd t,\dd r_1,\dd r_2,\dd r_3}.
 \]
 The transpose operation was defined in Eq.\ \eqref{eq:matrix-transpose}.
-The symmetric pullback matrix \(\Qmat(\vct{x})\) is the unique matrix defined
-by expansion of \(\dd f\) and \(\dd\vct{g}\) in \(\dd\vct{x}\):
+After \(\dd f\) and \(\dd\vct{g}\) are expanded in these four increments,
+their squared difference can be written using one real symmetric matrix.
+That matrix is defined by
 \begin{equation}
 \dd f^2-\dd\vct{g}^2
-=:\dd\vct{x}^T\Qmat(\vct{x})\,\dd\vct{x}.
+=:\mtrans{\dd\vct{x}}\Qmat(\vct{x})\,\dd\vct{x}.
 \label{eq:pullback-matrix-function}
 \end{equation}
-Consequently,
+It is conventionally called the pullback matrix because it expresses the
+interval from the \((f,\vct{g})\) components in terms of the original
+\((t,\vct{r})\) labels. In this section the name means exactly the displayed
+equality \cite{doran2003}. Consequently,
 \begin{equation*}
-\dd s^2=\dd\vct{x}^T\Qmat(\vct{x})\,\dd\vct{x}.
+\dd s^2=\mtrans{\dd\vct{x}}\Qmat(\vct{x})\,\dd\vct{x}.
 \end{equation*}
-If the map is locally invertible, the signature \((+,-,-,-)\) is preserved by Sylvester's law. Position-dependent entries of \(\Qmat\) can be produced by curvilinear coordinates even though the target geometry remains flat; curvature is not represented by these entries alone. If the map fails to be locally invertible, the pullback may instead be degenerate.
+The four-by-four matrix of first derivatives of
+\((f,\vct{g})\) with respect to \((t,\vct{r})\) is now considered. At a
+point where this derivative matrix has an inverse, the coordinate map is
+called locally invertible in the differential sense used here. The matrix
+\(\Qmat\) is obtained by placing this derivative matrix on both sides of the
+one-positive, three-negative interval matrix, with its transpose on the
+left. An invertible real change of coordinates therefore cannot change the
+count of one positive and three negative squared directions. That sign count
+is called the signature \((+,-,-,-)\). The entries of \(\Qmat\) may
+nevertheless depend on position when nonlinear, or curvilinear, coordinates
+are used. Such position dependence alone does not imply curvature because
+\((f,\vct{g})\) still supplies components in the fixed flat algebra. If the
+derivative matrix has no inverse, a nonzero coordinate direction is sent to
+zero. The same direction is then sent to zero by \(\Qmat\), so
+\(\Qmat\) necessarily has no inverse. This case is called degenerate.
 
-At every point where the map is locally invertible, the ordered eigenvalue
-function is defined by
+For a real symmetric matrix, four mutually perpendicular directions can be
+chosen so that multiplication by \(\Qmat\) only rescales each direction.
+The rescaling numbers are called eigenvalues, and the corresponding
+directions are called eigenvectors. At every locally invertible point, the
+ordered eigenvalue function is defined by
 \begin{equation}
 \lambda(n):=\eqtext{ordered eigenvalue }n\eqtext{ of }\Qmat,
 \qquad n\in\{1,2,3,4\}.
 \label{eq:metric-eigenvalue-function}
 \end{equation}
-An orthogonal decomposition is then obtained for the real symmetric matrix:
+The normalized eigenvectors are placed in the columns of \(\Nmat\), giving
 \[
-\Qmat=\Nmat\eqtext{diag}(\lambda(1),\lambda(2),\lambda(3),\lambda(4))\Nmat^T,
+\Qmat=\Nmat\eqtext{diag}(\lambda(1),\lambda(2),\lambda(3),\lambda(4))\mtrans{\Nmat},
 \qquad
-\Nmat^T\Nmat=\I.
+\mtrans{\Nmat}\Nmat=\I.
 \]
-The eigenvalues are ordered so that
+The second equality states that the columns have unit length and are
+mutually perpendicular. The eigenvalues are ordered numerically so that
 \[
-\lambda(1)>0,
-\qquad
-\lambda(2)<0,
-\qquad
-\lambda(3)<0,
-\qquad
-\lambda(4)<0.
+\lambda(1)>0>\lambda(2)\geq\lambda(3)\geq\lambda(4).
 \]
 The corresponding direction function is defined by
 \begin{equation}
 \vct{u}(n):=\eqtext{column }n\eqtext{ of }\Nmat.
 \label{eq:metric-direction-function}
 \end{equation}
+The defining eigenvalue relation is therefore
+\[
+\Qmat\vct{u}(n)=\lambda(n)\vct{u}(n).
+\]
+If two or more eigenvalues are equal, the individual eigenvectors within
+their shared directions are not unique. Any mutually perpendicular unit
+vectors spanning those same directions give the same matrix and interval.
 The local differential directions are defined by
 \begin{equation}
-\omega(n):=\sqrt{|\lambda(n)|}\,\vct{u}(n)^T\dd\vct{x}.
+w(n):=\sqrt{|\lambda(n)|}\,\mtrans{\vct{u}(n)}\dd\vct{x}.
 \label{eq:local-differential-directions}
 \end{equation}
-The interval is consequently
-\begin{equation*}
+Each \(w(n)\) is the coordinate increment along one eigenvector,
+rescaled by the square root of the corresponding eigenvalue magnitude.
+Substitution of the matrix decomposition gives
+\begin{align*}
 \dd s^2
-=\omega(1)^2-\omega(2)^2-\omega(3)^2-\omega(4)^2.
-\end{equation*}
-The three minus signs cannot be dropped: a Lorentzian interval is not
-turned into a Euclidean norm by diagonalization. When \(\Qmat\) varies with
-position, the local differential directions \(\omega(n)\) need not be
-derivatives of globally defined coordinates.
+&=\lambda(1)\bigl(\mtrans{\vct{u}(1)}\dd\vct{x}\bigr)^2
++\lambda(2)\bigl(\mtrans{\vct{u}(2)}\dd\vct{x}\bigr)^2\notag\\
+&\quad+\lambda(3)\bigl(\mtrans{\vct{u}(3)}\dd\vct{x}\bigr)^2
++\lambda(4)\bigl(\mtrans{\vct{u}(4)}\dd\vct{x}\bigr)^2\notag\\
+&=w(1)^2-w(2)^2-w(3)^2-w(4)^2.
+\end{align*}
+An interval with one positive and three negative squared directions is
+called Lorentzian. A Euclidean squared length would instead contain only
+plus signs. The three minus signs therefore cannot be dropped by changing
+matrix directions. When \(\Qmat\) varies with position, the four quantities
+\(w(n)\) describe the interval at one point; a single set of
+coordinates whose differentials equal all four \(w(n)\) need not exist
+throughout an extended region.

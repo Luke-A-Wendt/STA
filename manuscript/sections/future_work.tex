@@ -1,6 +1,7 @@
 \section{Future Work}\label{sec:future-work}
-The developed results constitute a flat-space reformulation of established
-physics. Extensions not yet constructed are separated from points requiring
+The developed results constitute a reformulation of established physics in
+space-time without gravitational curvature. Extensions not yet constructed
+are separated from points requiring
 greater mathematical precision. A proposed extension is marked
 \textbf{TODO}. A gap requiring resolution before physical claims can be
 supported is marked \textbf{FIXME}. No premise for the established results is
@@ -13,150 +14,198 @@ basis and a rule for comparing algebra elements defined at neighboring
 positions.  That comparison rule would have to distinguish an ordinary
 change of description from a physical gravitational field.  In particular,
 a basis written everywhere as a single transform of a fixed basis is locally
-only a change of description; curvature is not produced by it alone.
+only a change of description. A failure to return an algebra element
+unchanged after comparison around a sufficiently small closed path is called
+curvature \cite{doran2003}; it is not produced by that basis
+change alone.
 
-A complete construction would therefore require an independently specified
-connection, a definition of curvature as the failure of successive local
-transports to commute, and field equations by which that curvature is
-determined from physical sources. The interval, freely falling motion, Maxwell
-equation, Dirac system, and energy-momentum source map would then all have to
-be rebuilt with the same local transport rule.  Agreement with the flat
-formulas in the limit of a constant basis would be a required check, not an
-additional assumption.
+A TODO question is therefore whether one comparison rule can be defined and
+used consistently in every equation. Such a rule is conventionally called a
+connection \cite{doran2003}. Curvature would then have to be calculated by
+the closed-path comparison just defined, rather than by a change of basis
+alone. If two successive comparisons depend on their
+order, they are said not to commute. The interval, freely falling motion,
+Maxwell equation, Dirac system, and energy--momentum source rule would all
+have to be rebuilt with that same comparison rule. Agreement with the
+constant-basis formulas would be a required check.
 
-A moving-basis extension could be formed by combining translational motion
-with rotation-rate and boost-rate cross-position terms, interpreting the
-result as a velocity, multiplying it by mass to obtain energy and momentum,
-and constructing a transformed interval. Those physical identifications are
-not justified by the moving-basis generator derived in
-Sec.\ \ref{sec:transform-algebra} alone. In particular, a
-similarity-transported basis is not the event congruence used for a Lorentz
-transformation, and a complex velocity-like expression is generally produced
-by the proposed boost-rate term. For such a construction to be valid, a real
-event law, an observer and its measured time and distance, and a covariant
-derivative based on the local connection must first be defined. Real measured
-velocity, energy, momentum, and interval must then be derived from those
-definitions, and the inertial formulas must be recovered when the generator
-is constant or vanishes.
+It remains to be determined whether translational motion can be combined
+with rotation-rate and boost-rate cross-position terms and consistently
+interpreted as a velocity. Multiplication by mass and construction of a
+transformed interval would follow only if that interpretation were proved.
+Those physical identifications are not justified by the moving-basis generator derived in
+Sec.\ \ref{sec:transform-algebra} alone. In particular, surrounding each
+basis element by a transform and its inverse is not the same operation as the
+two-sided event transformation used for a Lorentz boost, and a complex
+velocity-like expression is generally produced by the proposed boost-rate
+term. It must therefore be determined whether a real event law and an
+observer's measured time and distance can be defined, whether an ordinary
+derivative can be corrected for the changing local basis so that the
+corrected derivative transforms with the field it acts on, and whether real
+measured velocity, energy, momentum, and interval can then be derived. The
+corrected derivative is conventionally called a covariant derivative
+\cite{doran2003}. Recovery of the inertial formulas when the
+basis-change rate is constant or zero would be required.
 
 Space-time curvature is also not yet supplied by a plane-curve analogy.
 A numerator obtained by differentiating a coordinate quotient is only one
-piece of a parameter-dependent curve formula.  Before it can be used here,
-the tangent normalization, parameter choice, transport rule, and
-multidirectional curvature test must all be specified.  Curvature cannot be
-inferred from that numerator alone.
+piece of a curve formula. The remaining TODO questions are whether the curve
+parameter has a fixed physical meaning, whether the vector pointing along
+the curve, conventionally called its tangent, has a fixed length, how
+directions are compared at neighboring positions, and whether the proposed
+result works for motion in more than one direction. Curvature
+cannot be inferred from that numerator alone.
 
-\subsection{TODO: Internal Gauge Symmetries}
+\subsection{TODO: Additional Field-Value Transformations}
 One phase freedom and one potential paravector are used in the electromagnetic
-coupling. Other interactions involve several coupled internal
-field components whose transformations need not commute.  It remains to be
-determined whether those transformations can be added while keeping the
-space-time product and the internal action conceptually separate.
+coupling. Here an internal field value means a label carried by the field
+that is changed without changing the space-time event at which the field is
+evaluated. Other established field theories use several coupled internal
+values and transformations for which applying the first and then the second
+can differ from applying them in the opposite order \cite{doran2003}. The
+TODO question is whether such transformations can be added while keeping the
+space-time product and the internal action separate.
 
 The allowed internal field values, their transformation rule, the
-corresponding potentials, and the conserved source quantities would need to
-be defined before any field equation is written. The products applied to
-space-time paravectors and those applied only to the internal field components
-would also have to be shown explicitly. Merely replacing the electromagnetic
-potential by a larger array would not establish a consistent theory.
+corresponding potentials, and the quantities preserved by the resulting
+equations would have to be defined before any field equation is written.
+The products applied to space-time paravectors and those applied only to the
+internal field values would also have to be shown explicitly. It must be
+determined whether the existing algebra can express both actions without
+ambiguity. Merely replacing the electromagnetic potential by a larger array
+would not answer that question.
 
-\subsection{TODO: Many-Particle and Quantized Fields}
-Classical fields or first-quantized single-particle wave mechanics are
-described by the wave equations in this manuscript. In particular, a
-negative-frequency solution is not by itself an antiparticle. Field
-operators, particle creation and removal, charge conjugation, and a
-vacuum state must be introduced in a fuller theory, and the particle and
-antiparticle interpretation must be derived from that structure.
+\subsection{TODO: Many-Particle and Particle-Number-Changing Fields}
+Classical fields and single-particle wave functions are described by the wave
+equations in this manuscript. The term ``first quantized'' refers to this use
+of an ordinary wave function while the number of particles remains fixed. In
+particular, a negative-frequency solution is not by itself an antiparticle
+\cite{greiner2000}. A future theory would require field operators whose
+action can change the number of particles, operations that add or remove one
+particle, a transformation that reverses charge, and a no-particle reference
+state called the vacuum. The TODO question is whether all of these objects
+can be represented without obscuring the present algebra, and whether the
+particle--antiparticle interpretation can then be derived rather than
+assumed \cite{peskin1995}.
 
-The combination of several one-particle carrier spaces, imposition of
-identical-particle exchange, representation of entangled and reduced states,
-and extraction of local observables must be specified in the same
-development.
+Further TODO questions concern how the state is changed when two identical
+particles are exchanged, how a state is represented when it cannot be
+written as one independent state for each particle, and how the remaining
+state is described after some particles are left unmeasured. The condition
+that the state cannot be separated is conventionally called entanglement,
+and the last partial
+description is conventionally called a reduced state. The rule for extracting
+quantities measured near one position would have to be specified in the same
+development \cite{peskin1995}.
 The fixed projected column space used for one Dirac field is a useful
 starting point, but these many-particle constructions are not supplied by it
 alone.
 
 The indefinite Klein--Gordon pairing and the absence of a positive local
 one-particle position density are also not repaired by a change of algebraic
-packaging. In a quantized-field treatment, the origin of its positive
-state-space norm, charge operator, particles, and antiparticles must be shown,
-and the one-particle formulas must be recovered in their proper regime.
+packaging. In a theory with particle-number-changing field operators, the
+origin of a positive squared state length, an operation that measures charge,
+and the distinction between particles and antiparticles must be shown. The
+one-particle formulas must then be recovered when particle-number changes can
+be neglected.
 
-\subsection{TODO: Media and Constitutive Maps}
-Vacuum fields and prescribed sources are treated in the electromagnetic section.
-A constitutive map is required for applications to material media: a locally
-defined rule by which the electromagnetic field is converted into the
-polarization, magnetization, current, or other response of the material. Anisotropy,
-dispersion, conductivity, and dissipation generally make that rule depend
-on direction, frequency, field history, or more than one input.
+\subsection{TODO: Electromagnetic Response of Materials}
+Empty-space fields and prescribed sources are treated in the electromagnetic section.
+A material requires an additional rule that converts the electromagnetic
+field into the response of that material \cite{jackson1998}. Such a rule is
+conventionally called a constitutive map. Its outputs can include electric
+dipole moment per unit volume, called polarization; magnetic dipole moment
+per unit volume, called magnetization; and electric current. An electric
+dipole moment records the amount and direction of separated positive and
+negative charge. A magnetic dipole moment records the strength and direction
+of a small magnet or current loop. Direction
+dependence is called anisotropy, frequency dependence is called dispersion,
+current produced by an electric field is described by conductivity, and
+conversion of field energy into heat or other unavailable forms is called
+dissipation.
 
-The notation-light approach should be tested first on simple linear media
-and then on direction-dependent and time-dependent responses. The distinction
-between a field paravector and an operator acting on that field must be
-preserved by each proposed map, and its energy balance must be derived rather than
-assumed. Material laws that fit naturally into one paravector product will
-thereby be distinguished from those requiring a separately defined linear
-map.
+The first TODO question is whether simple media whose response respects
+addition and multiplication by an ordinary number can be written clearly.
+Such a response rule is called linear. Direction-dependent and
+time-dependent responses can then be tested. The distinction between a field
+paravector and an operation acting on that field must be preserved, and the
+energy balance must be derived rather than assumed. It must then be
+determined which material laws fit into one paravector product and which
+require a separately defined map.
 
 \subsection{FIXME: Operator Foundations}
 Differential, inverse, and square-root operators are used in several
 factorizations in the wave-mechanics sections. Their algebraic
-forms are correct on the smooth test fields stated in the derivations, but
-the allowed fields, boundary conditions, and behavior at infinity must be
-specified in a complete analytic treatment. The conditions under which
-integration by parts adds no boundary term, an inverse exists, and an energy
+forms are correct on the stated test fields, for which all displayed
+derivatives exist, but the allowed set of fields must be specified
+completely. That allowed set is the operator's domain. Conditions imposed at
+the edge of the spatial region or at infinite distance are its boundary
+conditions \cite{greiner2000,sakurai2017}. The conditions under which
+integration by parts---moving a derivative from one factor in an integral to
+the other factor---adds no boundary term, an inverse exists, and an energy
 operator has real measured values are determined by those choices.
 
-A consistent modewise definition of the square-root frequency operator,
-including its branch and treatment of zero modes, is also required.
-Sufficient regularity for both orders of operation to exist is required by
-commutators containing derivatives. These conditions should eventually be stated
-once in a common operator-domain section and then cited wherever they are used
-in a factorization, commutator, or low-energy expansion.
+A consistent definition of the square-root frequency operator is also
+required for every plane-wave term. The nonnegative square root must be
+selected explicitly, and the spatially constant term with
+\(\vct{k}=\vct{0}\) must be treated separately when the inverse is used.
+Enough derivatives and integrals must exist for both written operation orders
+in every use of the commutator function. These conditions should eventually
+be stated once in a common operator-domain section and then cited wherever
+they are used in a factorization or low-energy expansion.
 
-Likewise, a formal expression such as the determinant of a block
-differential operator minus a spectral parameter is not defined merely
-because the paravector determinant is defined.  A characteristic determinant
-may be used only after a Fourier-mode, finite-volume, or other finite-matrix
-reduction has been specified.  At the operator level, the ordered
-factorization and minimal-polynomial identities used in the manuscript are
-the justified statements; additional analytic construction is required for a
-spectral determinant.
+Likewise, the determinant of a block differential operator minus a proposed
+measured value is not defined merely because the paravector determinant is
+defined. An ordinary matrix determinant whose zeros select possible values
+may be used only after the equation has been reduced to a finite matrix, for
+example one plane wave at a time, a finite set of basis functions, or a
+finite numerical grid. Merely restricting the spatial region does not make
+the operator finite-dimensional. At the operator level, only the ordered
+factorizations and explicitly proved
+polynomial identities are presently justified. It remains to be determined
+under what stated conditions an infinite-dimensional determinant can be
+defined, if one is needed at all.
 
 For scalar relativistic waves, the positive-energy solution space for each
-permitted stationary background must be constructed by a rigorous treatment,
-and the measurement operators under which it is preserved must be determined.
-General time-dependent
-backgrounds can mix the frequency sectors, and relativistic localization
-cannot be settled by declaring the local Klein--Gordon density to be a
-probability. For Dirac and Pauli carriers, the same treatment must specify
-the common domains on which the displayed \(H\)-adjoints, block operators,
-spectral projectors, and expectation values are genuinely Hermitian.
+permitted background that does not change with time must be constructed, and
+the measurement operators that preserve it must be determined. General
+time-dependent backgrounds can mix the positive- and negative-frequency
+parts, and a position probability cannot be obtained merely by declaring the
+local Klein--Gordon density to be a position-probability density. For Dirac
+and Pauli wave-function
+spaces, the shared operator domains must be specified. It must then be proved
+that moving an operator from one side of the bracket to the other gives the
+displayed \(H\) operation, that the energy-selecting operators preserve their
+selected states, and that the calculated measurement averages are real.
 
-\subsection{FIXME: Uncertainty Relations}
-A spin uncertainty bound cannot be inferred directly from the axis
-commutator and a determinant inequality. Such a calculation is not a
-state-dependent variance inequality and is therefore not established as a
-result. The normalized projected-wave bracket in
-Eq.\ \eqref{eq:adjoint-paravector-braket} must be used as the starting point,
-centered Hermitian operators and their variances must be defined, and a common
-domain on which both operator orders and their adjoints exist must be
-required. The usual commutator bound,
-and the stronger form that also retains the centered anticommutator, should
-then be proved in the manuscript's \(\eqtext{com}()\) and
-\(\eqtext{acom}()\) notation.  Axis observables should be checked as a worked
-special case rather than treated as the proof.
+\subsection{FIXME: Bounds on Measurement Spread}
+A spin-measurement uncertainty bound cannot be inferred directly from the
+axis commutator function and a determinant inequality. For a measured
+quantity, its centered operator is obtained by subtracting its average from
+the operator. Its variance is the average square of that difference, and its
+uncertainty is the nonnegative square root of the variance
+\cite{robertson1929,sakurai2017}. The normalized projected-wave bracket in
+Eq.\ \eqref{eq:adjoint-paravector-braket} must be used to define those
+averages. A shared set of fields on which both operator orders and their
+\(H\) operations exist must also be required. The standard lower bound built
+from the commutator function, and the stronger bound that also retains the
+anticommutator function, should then be proved in the manuscript's notation.
+Spin-axis measurement operators should be checked as a worked example rather
+than treated as the proof.
 
 \subsection{TODO: Higher-Order Pauli Reduction}
 The leading kinetic and magnetic spin terms are proved by the present Dirac
-reduction. In a controlled next-order expansion, the electric spin-orbit
-term, the contact term from spatially varying electric fields, and the
-corrections required for time-dependent potentials should be derived with the
-same sign and charge conventions. The transformed density and current must be
-expanded to the same order as the Hamiltonian; retaining higher-order energy
-terms while leaving the measurement map at leading order would be
-inconsistent.  These terms are established consequences of the Dirac
-equation, but their derivation in this notation remains future work.
+reduction. The next TODO question is whether the next-order terms can be
+derived with the same sign and charge conventions. These include the coupling
+between spin and motion in an electric field, called the spin--orbit term,
+and the local correction produced by spatial variation of the electric
+field, often called the contact or Darwin term
+\cite{greiner2000,sakurai2017}. Corrections required for time-dependent
+potentials must also be derived. The density and current must be expanded to
+the same order as the energy operator; retaining higher-order energy terms
+while leaving the measurement rule at leading order would be inconsistent.
+These terms are established consequences of the Dirac equation, but their
+derivation in this notation remains future work.
 
 \subsection{TODO: Classify Companion Components}
 Paired real and imaginary components and paired scalar and vector components
@@ -167,13 +216,18 @@ imaginary part of the force product, are valid algebraic companions without
 a separate physical interpretation established here.
 
 Two cases are already identified with established physics: a projected
-block's opposite-order product is the familiar rank-one two-state density
-matrix, and the \(\pv{F}\) and \(\conj{\pv{F}}\) residuals in the ordered
-products are the familiar two Dirac spin couplings. For the remaining
-nonscalar channels of a generic
-\(\herm{\pv{\psi}}\pv{\mathcal{O}}\pv{\psi}\) sandwich, a separate current,
-polarization, or measurement derivation is still required before physical
-meaning is assigned.
+block's opposite-order product is the standard density matrix for one fully
+specified two-entry state \cite{sakurai2017}. Its rank is one, meaning that
+every column is a multiple of the one selected state column. The remaining
+\(\pv{F}\) and \(\conj{\pv{F}}\) terms in the two ordered products are the
+standard two Dirac spin couplings \cite{greiner2000}. For the remaining
+nonscalar channels of unrestricted or differently ordered products, a
+separate derivation as a current, spin-axis quantity, or measurement result
+is still required before physical meaning is assigned. For a fixed-column
+state and a left-acting operator that preserves that column, the product
+\(\herm{\pv{\psi}}\pv{\mathcal{O}}\pv{\psi}\) is already fixed by its one
+complex row--column matrix element and contains no additional independent
+channels.
 
 The following exact identity may also be studied:
 \begin{equation*}
@@ -183,26 +237,30 @@ The following exact identity may also be studied:
 Because \(\pv{F}^{\,2}\) is a complex scalar, this equality is an exact use
 of the defined wave operator, but it is not an independent field equation.
 Any useful source expansion must be derived from Maxwell's equation with the
-ordered product rule of Eq.\ \eqref{eq:paravector-leibniz}.  Future work may
-classify the resulting scalar identity as an invariant balance or a
-redundant differential consequence; it must not be presented as new
-dynamics without such a derivation.
+ordered product rule of Eq.\ \eqref{eq:paravector-leibniz}. A TODO question
+is whether the resulting scalar identity describes a balance unchanged by
+the stated transformations or merely repeats information already contained
+in Maxwell's equation. It must not be presented as an independent law of
+field evolution without such a derivation.
 
 Each companion formula should be placed by a systematic classification into
 one of three categories: an alternate form of an established law, redundant
 information implied by another displayed equation, or an algebraic channel
-whose physical meaning is presently unassigned. The involutions, order
-functions, projectors, and field bilinears should all be included in that
-classification.  No unassigned component should be advertised as a new
+whose physical meaning is presently unassigned. The operations that return
+the original input when applied twice, the order functions,
+\(\pv{\Pi}(\pm)\) selection functions, and field products should all be
+included in that classification. No unassigned
+component should be advertised as a new
 interaction merely because it is made available by the algebra.
-Automorphisms and projector, factorization, exponential, and logarithmic
-constructions that are intrinsic to the algebra should be distinguished from
-those dependent on the chosen matrix realization.
+Maps that preserve the defined addition and multiplication, together with
+the selection, factorization, exponential, and logarithmic constructions,
+should be separated into those proved directly from the algebra and those
+that depend on the chosen matrix realization.
 
 \subsection{TODO: Complex Space-Time and Imaginary Coordinates}
-A complex paravector is already permitted by the generic algebra:
-\(\pv{Z}=\pv{X}+i\pv{Y}\), with \(\pv{X}\) and \(\pv{Y}\) real
-paravectors. Treating such an element as a physical event, rather than as an
+A complex paravector \(\pv{Z}\in\Pspace(\C)\) is already permitted by the
+generic algebra: \(\pv{Z}=\pv{X}+i\pv{Y}\), with
+\(\pv{X},\pv{Y}\in\Pspace(\R)\). Treating such an element as a physical event, rather than as an
 algebraic field value, would be a new hypothesis. The following self-contained
 consistency identity is obtained from the existing determinant and adjugate
 definitions:
@@ -222,79 +280,89 @@ preserved by the allowed transformations.
 
 The scalar part of \(\pv{Y}\) could be described as an imaginary-time
 coordinate, and its vector part could be described as imaginary space.
-Those descriptions alone carry no physical content. A complex space-time
-metric would require a specified real measurement map, a nondegenerate
-interval, and a transformation law that preserves that interval. Taking the
-real part, magnitude, or positive norm of a complex determinant would produce
-different geometries and therefore cannot be selected by terminology alone.
-The ordinary real interval would have to be recovered when the imaginary
-part vanishes.
+Those descriptions alone carry no physical content. A metric is a stated
+rule that assigns an interval to a coordinate difference
+\cite{minkowski1908}. The TODO question is whether a real interval rule can
+be selected for a complex paravector and preserved by the allowed
+transformations. Taking the real part, absolute magnitude, or squared
+absolute magnitude of a complex determinant would give different interval
+rules, so none can be selected by terminology alone. The ordinary real
+interval would have to be recovered when the imaginary part vanishes.
 
-Only after that choice is justified could proper time, causal order,
-velocity, momentum, or force be defined for a complex event. It would also
-have to be explained why real events and the usual light cone are recovered
-by ordinary experiments to their observed accuracy. Complex mass, hidden
-trajectories, or new force channels should not be introduced before these
-more basic questions are resolved.
+Only after that choice is justified could the time measured along an
+observer's path, the possible time order of events connected by a signal,
+velocity, momentum, or force be defined for a complex event. For real
+space-time, the zero-interval directions form the light cone and separate
+event differences that can be joined by a signal no faster than light from
+those that cannot \cite{einstein1905,minkowski1908}. A TODO question is
+whether that same measured boundary is recovered to experimental accuracy.
+Complex mass, unobserved paths, or new force channels should not be introduced
+before these more basic questions are resolved.
 
 Faster-than-light propagation is not implied by complex coordinates. A
 propagation speed can be assigned only after field equations, the surfaces
 along which disturbances propagate, observers, and measured time and distance
 have been defined. If
 the measured projection remains the real paravector \(\pv{X}\), the ordinary
-light cone may remain unchanged. If \(\pv{Y}\) changes the propagation
-characteristics, the resulting causal cone and the possibility of
-controllable signaling would have to be derived explicitly.
+light cone may remain unchanged. If \(\pv{Y}\) changes how disturbances
+propagate, the new boundary between permitted and forbidden signal directions
+and the possibility of controllable faster-than-light signaling would have
+to be derived explicitly.
 
-Mixed terms in \(\detf{\pv{Z}}\) show an algebraic relationship between the
-real and imaginary parts, but they do not establish a weak physical
-interaction. Such an interaction would require a dynamical equation and a
-source law. Only then could empirical parameters be identified. Possible
-parameters could include a real--imaginary mixing strength, a mass or length
-scale suppressing the imaginary sector, and a relative propagation or decay
-scale. None of these constants is predicted by the algebra alone; each would
-have to be connected to a definite observable and constrained
-experimentally.
+An algebraic relationship between the real and imaginary parts is shown by
+the mixed terms in \(\detf{\pv{Z}}\), but a weak physical interaction is not
+established. Such an interaction would require an equation of evolution and
+a source law. Only then could constants to be measured experimentally be
+identified. TODO questions could then be asked about a real--imaginary mixing
+strength, a mass or length scale that reduces the imaginary part, or a
+relative propagation or decay scale. None of these constants is predicted by
+the algebra alone; each would have to be connected to a definite measured
+quantity and constrained by experiment.
 
-The algebraic complexification cannot by itself be falsified because it is a
-mathematical extension. A proposed physical interpretation could be rejected
-if measured intervals or energies became unavoidably complex, probabilities
-failed to remain real and nonnegative, time evolution failed to preserve
-normalization, source-free solutions grew without bound, or predicted departures
-from the observed light cone and ordinary Lorentz behavior exceeded
-experimental limits. It remains to be determined whether a nontrivial
-complex-event dynamics can pass these basic tests or whether every
-consistent observable sector reduces to the real-paravector theory already
-developed.
+Allowing complex coefficients in the algebra cannot by itself be tested
+experimentally because it is a mathematical extension. A proposed physical
+interpretation could be rejected if measured intervals or energies became
+unavoidably complex, probabilities failed to remain real and nonnegative,
+time evolution failed to preserve normalization, source-free solutions grew
+without bound, or predicted departures from the observed light cone and
+ordinary Lorentz behavior exceeded experimental limits. The final TODO
+question is whether any nontrivial complex-event evolution law can pass these
+tests or whether every consistently measured result reduces to the
+real-paravector theory already developed.
 
-\subsection{FIXME: Dark-Sector and Cosmological Interpretations}
-No derivation of vacuum energy, accelerated cosmic expansion, missing
-gravitational mass, or any other dark-sector phenomenon is established in
-this manuscript. A gravitational, clustering, or observable-energy role is
-not implied by the existence of imaginary algebra components. Such
-interpretations remain contingent on tests that would have to be passed by a
-future model.
+\subsection{FIXME: Proposed Connections to Large-Scale Observations}
+No derivation is established here for energy assigned to otherwise empty
+space, for the observed speeding-up of large-scale expansion, or for the
+additional gravitational effects commonly attributed to unseen matter
+\cite{weinberg2008}. These topics are collectively described here as
+dark-sector questions. A contribution to gravity, a tendency to gather with
+matter, or a measured energy is not implied by the existence of imaginary
+algebra components.
 
 A consistent local gravitational equation and a conserved physical source
 must first be supplied by any such model. Ordinary local gravity must then be
-recovered while quantitative predictions are made for cosmic expansion,
-gravitational lensing, structure growth, and the motion of matter. A nearly
-constant large-scale contribution and a clustering matter-like contribution
-are physically different requirements and should not be inferred from the
-same algebraic term without separate derivations.
+recovered. The TODO question is whether quantitative predictions can be made
+for the changing distance between far-separated galaxies, the bending of
+light by gravity, the formation of large matter concentrations, and the
+motion of matter \cite{weinberg2008}. A nearly constant contribution spread
+over large distances and a contribution that gathers into dense regions are
+physically different requirements and must not be inferred from the same
+algebraic term without separate derivations.
 
 \subsection{TODO: Limits of the Notation-Light Form}
 The compact notation is most effective when the relevant scalar and vector
 data are carried by one algebra element. In some extensions, maps with several
 independent inputs, information that is valid only on overlapping local
-regions, or global conditions that cannot be recovered from one local formula
+regions, or conditions on the whole spatial region that cannot be recovered
+from one local formula
 are instead required. That mathematical structure is not removed by avoidance of indices;
 only its recorded form is changed.
 
-The conditions under which a paravector is sufficient, a linear map on
-paravectors is required, or several-input or global data must be introduced
-should be stated explicitly. Any new notation should be justified by a construction
-that cannot be expressed clearly with the existing functions and operators.
+The conditions under which a paravector is sufficient, a map that preserves
+addition and multiplication by ordinary numbers is required, or
+several-input or whole-region data must be introduced should be stated
+explicitly. Any new notation should be justified by a construction that
+cannot be expressed clearly with the existing functions and operators.
 The raw-text character of the framework is thereby preserved while
 notational economy is prevented from being mistaken for a reduction in
 physical content.
