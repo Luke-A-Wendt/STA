@@ -1,117 +1,64 @@
-\subsubsection{Quaternion Basis Under Star and H}
-Hamilton's quaternion units are also reproduced by the same sigma-number-two
-basis used in Eq.\ \eqref{eq:exp-bivector}, so the rotation algebra can be
-written in quaternion form without changing any multiplication rule
-\cite{hamilton1844}:
-\begin{equation}
-\begin{aligned}
-\pv{q}_1&=-\pv{\sigma}_2\pv{\sigma}_3,\qquad
-\pv{q}_2=-\pv{\sigma}_3\pv{\sigma}_1,\\
-\pv{q}_3&=-\pv{\sigma}_1\pv{\sigma}_2,\qquad
-\vct{q}:=\vcol{\pv{q}_1,\pv{q}_2,\pv{q}_3}=-i\sigv.
-\end{aligned}
-\label{eq:quaternion-basis}
-\end{equation}
-The standard quaternion identities are satisfied by these basis elements:
-\begin{equation*}
-\pv{q}_1^2=\pv{q}_2^2=\pv{q}_3^2=\pv{q}_1\pv{q}_2\pv{q}_3=-1.
-\end{equation*}
-Thus the quaternion units are not new generators; the existing
-sigma-number-two basis is only relabeled.
-
-If \(\vct{B}=\vcol{B_1,B_2,B_3}\in\R^3\), then
-\(\vct{B}\cdot\vct{q}=-i\,\vct{B}\cdot\sigv\). Since
-\(\pv{q}_k=-i\pv{\sigma}_k\), the following relations are obtained
-immediately from the previously defined star and \(H\) rules:
-\begin{equation*}
-\vct{q}^*=\vct{q},
-\qquad
-\vct{q}^{\mathsf H}=-\vct{q}.
-\end{equation*}
-Thus the quaternion basis is fixed by the conjugate operator, while its
-sign is changed by the Hermitian operation.
-
 \subsubsection{Quaternion Products}
-For \(a\in\R\) and \(\vct{B}\in\R^3\), the quaternion is defined by
+For \(a\in\R\) and \(\vct{B}\in\R^3\), a quaternion is the complex
+paravector
 \begin{equation}
 \pv{Q}:=a+\vct{B}\cdot\vct{q}
 =a-i\,\vct{B}\cdot\sigv.
 \label{eq:quaternion-paravector}
 \end{equation}
-A real scalar coefficient and a purely imaginary vector coefficient are
-carried, so \(\pv{Q}\in\Pspace(\C)\).
-In complex-paravector notation, the same quaternion may be written as
-\begin{equation*}
-\pv{Q}=\pv{X}-i\pv{Y},
-\qquad
-\pv{X}=a+\vct{A}\cdot\sigv,
-\qquad
-\pv{Y}=b+\vct{B}\cdot\sigv,
-\end{equation*}
-with the quaternion specialization
-\begin{equation*}
-\vct{A}=0,
-\qquad
-b=0.
-\end{equation*}
-Under this specialization, \(\pv{X}=a\) is purely scalar and
-\(\pv{Y}=\vct{B}\cdot\sigv\) is purely vector. Because
-\(\vct{q}^*=\vct{q}\),
-\begin{equation*}
-\pv{Q}^*=\pv{Q}.
-\end{equation*}
-Therefore
+The quaternion basis is fixed by star, so
+\(\conj{\pv{Q}}=\pv{Q}\). The ordinary algebra square is therefore
 \begin{align}
-\pv{Q}\pv{Q}^*&=\pv{Q}^2\notag\\
-&=(a-i\,\vct{B}\cdot\sigv)^2\notag\\
-&=a^2-2ia\,\vct{B}\cdot\sigv+(-i)^2(\vct{B}\cdot\sigv)^2\notag\\
-&=a^2-\vct{B}^2-2ia\,\vct{B}\cdot\sigv.
+\pv{Q}\conj{\pv{Q}}
+&=\pv{Q}^{2}\notag\\
+&=(a+\vct{B}\cdot\vct{q})^{2}\notag\\
+&=a^{2}-\vct{B}^{2}+2a\,\vct{B}\cdot\vct{q}\notag\\
+&=a^{2}-\vct{B}^{2}-2ia\,\vct{B}\cdot\sigv.
 \label{eq:quaternion-square}
 \end{align}
-The factor \(a\) must be carried by the linear term. This is just the
-sigma-number-two multiplication law written in quaternion language.
-
-Since \(\vct{q}^{\mathsf H}=-\vct{q}\), the Hermitian counterpart of \(\pv{Q}\) is
+Thus star is not the operation conventionally called quaternion
+conjugation. In the present notation that operation is \(\Hop\):
 \begin{equation*}
-\pv{Q}^{\mathsf H}=a-\vct{B}\cdot\vct{q}
+\herm{\pv{Q}}
+=\adjf{\pv{Q}}
+=a-\vct{B}\cdot\vct{q}
 =a+i\,\vct{B}\cdot\sigv.
 \end{equation*}
-The result of multiplication by the Hermitian counterpart is
+The determinant and the positive quaternion norm square consequently agree:
 \begin{equation}
-\pv{Q}\pv{Q}^{\mathsf H}=a^2+\vct{B}^2.
+\detf{\pv{Q}}
+=\pv{Q}\herm{\pv{Q}}
+=\herm{\pv{Q}}\pv{Q}
+=a^{2}+\vct{B}^{2}.
 \label{eq:quaternion-norm}
 \end{equation}
-Thus the standard positive quaternion norm square is recovered by the
-Hermitian product. Here ``norm square'' means the nonnegative real number
-that measures the coefficient magnitude. The ordinary algebra square is
-instead recorded by
-Eq.\ \eqref{eq:quaternion-square}.
+Here the norm square is the nonnegative real sum of the squared coefficients,
+whereas Eq.\ \eqref{eq:quaternion-square} is generally another quaternion.
+A quaternion satisfying \(\detf{\pv{Q}}=1\) is called a unit quaternion.
 
 \subsubsection{Quaternion Form of the Rotor Law}
-A quaternion satisfying \(\pv{Q}\pv{Q}^{\mathsf H}=1\) is called a unit
-quaternion. For such a quaternion and a real vector
-\(\vct{r}\in\R^3\), the rotation law is
+For the rotor \(\pv{R}(\theta,\vct{u})\) used in the preceding Rotation
+subsection, the corresponding unit quaternion is
+\begin{equation*}
+\pv{Q}:=\herm{\pv{R}}
+=\cos\!\left(\frac{\theta}{2}\right)
++\sin\!\left(\frac{\theta}{2}\right)\vct{u}\cdot\vct{q}.
+\end{equation*}
+Its Hermitian counterpart is \(\herm{\pv{Q}}=\pv{R}\). Multiplication of the
+sigma-vector rotor law by the central scalar \(-i\) gives
+\begin{align*}
+\herm{\pv{R}}\,(\vct{r}\cdot\vct{q})\,\pv{R}
+&=-i\,\herm{\pv{R}}\,(\vct{r}\cdot\sigv)\,\pv{R}\\
+&=-i\,\vct{r}'\cdot\sigv
+=\vct{r}'\cdot\vct{q}.
+\end{align*}
+The quaternion rotation law is therefore
 \begin{equation}
 \vct{r}'\cdot\vct{q}
-=\pv{Q}(\vct{r}\cdot\vct{q})\pv{Q}^{\mathsf H}.
+=\pv{Q}\,(\vct{r}\cdot\vct{q})\,\herm{\pv{Q}}.
 \label{eq:quaternion-rotation}
 \end{equation}
-This is the quaternion version of the rotor action
-\(\vct{r}'\cdot\sigv=\herm{\pv{R}}(\vct{r}\cdot\sigv)\pv{R}\). With the
-choice
-\begin{equation*}
-\pv{Q}=\cos\!\left(\frac{\theta}{2}\right)
- +\sin\!\left(\frac{\theta}{2}\right)\vct{u}\cdot\vct{q}
-\end{equation*}
-the relation \(\pv{Q}=\pv{R}^{\mathsf H}\) is obtained because
-\(\vct{q}=-i\sigv\). Consequently
-\[
-\pv{Q}(\vct{r}\cdot\vct{q})\pv{Q}^{\mathsf H}
-=\pv{R}^{\mathsf H}(\vct{r}\cdot\vct{q})\pv{R},
-\]
-which has exactly the same orientation as the sigma-vector rotor law. The
-equivalent two-sided quaternion product
-\(\pv{Q}^{\mathsf H}(\vct{r}\cdot\vct{q})\pv{Q}\) is required under the
-alternative choice \(\pv{Q}=\pv{R}\). Thus quaternion rotations are
-the same circular half-angle algebra, with the order fixed by the selected
-choice of positive rotation direction.
+This has the same positive rotation direction as the Rodrigues formula above.
+If the alternative identification \(\pv{Q}=\pv{R}\) is made, the two
+quaternion factors must instead be written in the opposite order. No second
+rotation algebra is introduced by either convention.

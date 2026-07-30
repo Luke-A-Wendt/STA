@@ -1,0 +1,405 @@
+\subsubsection{Matrix Packaging of the Dirac Pair}
+\label{sec:matrix-dirac-packaging}
+The intrinsic ordered-pair equations in the wave-mechanics section can be
+packaged by an auxiliary matrix function. This packaging translates those
+equations without introducing a new physical assumption.
+
+\paragraph{Auxiliary block map.}
+The block identity needed below is defined by
+\begin{equation}
+\I:=
+\begin{bmatrix}
+1&0\\
+0&1
+\end{bmatrix}.
+\label{eq:W-block-identity}
+\end{equation}
+The two-input block-diagonal function needed below is defined by
+\begin{equation}
+\eqfunc{diag}(\pv{A},\pv{B}):=
+\begin{bmatrix}
+\pv{A}&0\\
+0&\pv{B}
+\end{bmatrix}.
+\label{eq:W-block-diag}
+\end{equation}
+A paravector \(\pv{Z}\in\CPspace\), including any member of
+\(\RPspace\), is packaged into the two-by-two block map
+\begin{equation}
+\Wmat(\pv{Z}):=
+\begin{bmatrix}
+0&\pv{Z}\\
+\adjf{\pv{Z}}&0
+\end{bmatrix}.
+\label{eq:W-map}
+\end{equation}
+For \(a,b\in\R\), its complex linearity is
+\begin{equation}
+\Wmat\bigl((a+ib)\pv{Z}\bigr)
+=(a+ib)\,\Wmat(\pv{Z}).
+\label{eq:W-linearity}
+\end{equation}
+Its square is
+\begin{equation}
+\Wmat(\pv{Z})^2
+=\eqfunc{diag}(\detf{\pv{Z}},\detf{\pv{Z}})
+=\detf{\pv{Z}}\,\I.
+\label{eq:W-square}
+\end{equation}
+The block map \(\Wmat(\pv{Z})\) is a two-by-two matrix over the paravector
+algebra. After each block is replaced by its Pauli matrix, it is a
+four-by-four complex matrix. Addition and multiplication by ordinary
+scalars are preserved, so the packaging map is linear. General products are
+not preserved, so it is not an additional representation of the algebra.
+Equation \eqref{eq:W-square} is obtained because its
+diagonal block products are reduced to the determinant in
+Eq.\ \eqref{eq:minkowski-form}; the off-diagonal blocks are zero
+\cite{hestenes1966,doran2003}.
+
+If \(\detf{\pv{Z}}\neq0\), Eq.\ \eqref{eq:W-square} shows that the powers of
+the block matrix are governed by the scalar equation
+\(x^2-\detf{\pv{Z}}=0\). Its two roots are distinct; selecting one square
+root fixes their labels. An invertible change of basis
+can then put the block matrix into diagonal form; this property is called
+diagonalizability. If
+\(\detf{\pv{Z}}=0\) and \(\pv{Z}\neq0\), then
+\(\Wmat(\pv{Z})^2=0\) while \(\Wmat(\pv{Z})\neq0\). A nonzero matrix whose
+positive power is zero is called nilpotent; such a matrix cannot be put
+into diagonal form. For blocks containing differential operations or other
+quantities whose order cannot be exchanged, the unreduced statement is
+\[
+\Wmat(\pv{Z})^2
+=\eqfunc{diag}(\pv{Z}\cherm{\pv{Z}},\cherm{\pv{Z}}\pv{Z}).
+\]
+A separate operator calculation is required before either ordered product can
+be called a determinant or both can be reduced to one scalar multiple of the
+identity.
+
+For a real normalized paravector \(\pv{U}\) with
+\(\detf{\pv{U}}=1\), Eq.\ \eqref{eq:W-square} gives
+\(\Wmat(\pv{U})^2=\I\). The two auxiliary projector matrices are therefore
+\begin{equation}
+\frac12\bigl(\I\pm\Wmat(\pv{U})\bigr).
+\label{eq:W-projectors}
+\end{equation}
+No additional projector function is introduced by this optional block
+construction. Direct multiplication gives the complete algebraic properties:
+\begin{equation}
+\begin{aligned}
+\left(\frac12\bigl(\I\pm\Wmat(\pv{U})\bigr)\right)^2
+&=\frac12\bigl(\I\pm\Wmat(\pv{U})\bigr),\\
+\frac12\bigl(\I+\Wmat(\pv{U})\bigr)
+\frac12\bigl(\I-\Wmat(\pv{U})\bigr)&=0,\\
+\frac12\bigl(\I+\Wmat(\pv{U})\bigr)
++\frac12\bigl(\I-\Wmat(\pv{U})\bigr)&=\I,\\
+\Wmat(\pv{U})\frac12\bigl(\I\pm\Wmat(\pv{U})\bigr)
+&=\pm\frac12\bigl(\I\pm\Wmat(\pv{U})\bigr).
+\end{aligned}
+\label{eq:W-projector-properties}
+\end{equation}
+For any conformable two-entry column
+\(\bPsi_{\eqtext{auxiliary}}\) with paravector entries, the normalized
+auxiliary condition is equivalently written as
+\begin{align}
+\bigl(\Wmat(\pv{U})-\I\bigr)\bPsi_{\eqtext{auxiliary}}
+&=0,\notag\\
+\bPsi_{\eqtext{auxiliary}}
+&=\frac12\bigl(\I+\Wmat(\pv{U})\bigr)
+\bPsi_{\eqtext{auxiliary}}.
+\label{eq:W-normalized-condition}
+\end{align}
+This is only the \(+1\) eigenvalue restriction of the auxiliary map.
+No particle-versus-antiparticle meaning follows from the two signs without
+additional physical structure.
+
+\paragraph{Full-matrix and entrywise Hermitian operations.}
+Two different levels of operation must be distinguished for a matrix whose
+entries are themselves paravectors. By separate application of the intrinsic
+Hermitian operation to each entry of \(\Wmat(\pv{Z})\), the following matrix
+is obtained:
+\begin{equation*}
+\begin{aligned}
+&\eqtext{entrywise }\Hop:\qquad
+\begin{bmatrix}
+0&\pv{Z}\\
+\adjf{\pv{Z}}&0
+\end{bmatrix}\\
+&\qquad\longmapsto\qquad
+\begin{bmatrix}
+0&\herm{\pv{Z}}\\
+\conj{\pv{Z}}&0
+\end{bmatrix}
+=\Wmat(\herm{\pv{Z}}).
+\end{aligned}
+\end{equation*}
+The Hermitian operation on the complete matrix also exchanges the two
+off-diagonal positions. The following result is therefore obtained:
+\begin{equation*}
+\herm{\Wmat(\pv{Z})}
+=
+\begin{bmatrix}
+0&\conj{\pv{Z}}\\
+\herm{\pv{Z}}&0
+\end{bmatrix}
+=\Wmat(\conj{\pv{Z}}).
+\end{equation*}
+Thus entrywise application of \(\Hop\) is not the Hermitian operation of the
+complete block matrix. The same final matrix as the full-matrix Hermitian
+operation is obtained by entrywise intrinsic star:
+\begin{equation*}
+\conj{\Wmat(\pv{Z})}=\Wmat(\conj{\pv{Z}}).
+\end{equation*}
+In the entrywise operation, however, the block positions are not exchanged.
+
+\paragraph{Free Dirac packaging.}
+The following relations are obtained from complex linearity of the auxiliary
+function:
+\begin{align*}
+\Wmat(i\pv{\partial})
+&=i\,
+\begin{bmatrix}
+0&\pv{\partial}\\
+\conj{\pv{\partial}}&0
+\end{bmatrix}
+=i\,\Wmat(\pv{\partial}),\\
+\Wmat(i\pv{\partial})^2
+&=-\eqfunc{diag}\bigl(
+\pv{\partial}\conj{\pv{\partial}},
+\conj{\pv{\partial}}\pv{\partial}
+\bigr)\notag\\
+&=-\Box\I.
+\end{align*}
+The two mass-sign factors consequently satisfy
+\begin{align*}
+(\Wmat(i\pv{\partial})+m\I)
+(\Wmat(i\pv{\partial})-m\I)
+&=-(\Box+m^2)\I,\\
+(\Wmat(i\pv{\partial})-m\I)
+(\Wmat(i\pv{\partial})+m\I)
+&=-(\Box+m^2)\I.
+\end{align*}
+The free pair
+\(\bPsi_{\eqtext{Dirac}}
+:=(\bPsi_{\eqtext{Dirac},1},\bPsi_{\eqtext{Dirac},2})\)
+can therefore be packaged as
+\begin{equation*}
+(\Wmat(i\pv{\partial})-m\I)
+\begin{bmatrix}
+\bPsi_{\eqtext{Dirac},1}\\
+\bPsi_{\eqtext{Dirac},2}
+\end{bmatrix}
+=0.
+\end{equation*}
+Expansion of the two matrix rows recovers the intrinsic equations
+\begin{align*}
+i\pv{\partial}\bPsi_{\eqtext{Dirac},2}
+&=m\bPsi_{\eqtext{Dirac},1},\\
+i\conj{\pv{\partial}}\bPsi_{\eqtext{Dirac},1}
+&=m\bPsi_{\eqtext{Dirac},2}.
+\end{align*}
+
+For the fixed projector used in the intrinsic derivation, the two
+paravectors are represented by the columns
+\begin{equation*}
+\begin{aligned}
+\bPsi_{\eqtext{Dirac},1}&\quad\eqtext{is represented by}\quad
+\begin{bmatrix}a\\b\end{bmatrix},\\
+\bPsi_{\eqtext{Dirac},2}&\quad\eqtext{is represented by}\quad
+\begin{bmatrix}c\\d\end{bmatrix}.
+\end{aligned}
+\end{equation*}
+For a free plane wave, the coupled matrix equations are
+\begin{equation*}
+(E-\vct{p}\cdot\sigv)
+\begin{bmatrix}c\\d\end{bmatrix}
+=m\begin{bmatrix}a\\b\end{bmatrix},
+\qquad
+(E+\vct{p}\cdot\sigv)
+\begin{bmatrix}a\\b\end{bmatrix}
+=m\begin{bmatrix}c\\d\end{bmatrix}.
+\end{equation*}
+Their four scalar entries are exactly the component equations displayed in
+the intrinsic derivation. If both columns of each unrestricted Pauli matrix
+are retained, two independent copies of this Dirac system are obtained.
+
+\paragraph{Matrix form of the Klein--Gordon lift.}
+The intrinsic lift in Eq.\ \eqref{eq:dirac-klein-gordon-lift} is packaged by
+\begin{equation*}
+\begin{bmatrix}
+\bPsi_{\eqtext{Dirac},1}\\
+\bPsi_{\eqtext{Dirac},2}
+\end{bmatrix}
+=\frac1m
+\bigl(\Wmat(i\pv{\partial})+m\I\bigr)
+\begin{bmatrix}
+\psi_{\eqtext{KG}}\pv{a}\\
+\psi_{\eqtext{KG}}\pv{b}
+\end{bmatrix}.
+\end{equation*}
+The following result is then obtained from the free factorization:
+\begin{equation*}
+\bigl(\Wmat(i\pv{\partial})-m\I\bigr)
+\begin{bmatrix}
+\bPsi_{\eqtext{Dirac},1}\\
+\bPsi_{\eqtext{Dirac},2}
+\end{bmatrix}
+=-\frac1m(\Box+m^2)\psi_{\eqtext{KG}}
+\begin{bmatrix}
+\pv{a}\\
+\pv{b}
+\end{bmatrix}
+=0.
+\end{equation*}
+For \(\pv{a}=\pv{\Pi}(+)\) and \(\pv{b}=0\), the result is
+\begin{equation*}
+\begin{bmatrix}
+\bPsi_{\eqtext{Dirac},1}\\
+\bPsi_{\eqtext{Dirac},2}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\psi_{\eqtext{KG}}\pv{\Pi}(+)\\
+\dfrac{i}{m}(\conj{\pv{\partial}}\psi_{\eqtext{KG}})
+\pv{\Pi}(+)
+\end{bmatrix}.
+\end{equation*}
+
+\paragraph{Potential-coupled packaging.}
+The potential-coupled pair is denoted by
+\begin{equation*}
+\bPsi_{\eqtext{Dirac\_with\_potential}}
+:=\bigl(
+\bPsi_{\eqtext{Dirac\_with\_potential},1},
+\bPsi_{\eqtext{Dirac\_with\_potential},2}
+\bigr).
+\end{equation*}
+Its field equation is represented by the block operator
+\begin{equation}
+\Dmat:=
+\Wmat(i\pv{\partial}-q\conj{\pv{\Phi}})-m\I
+=i\,\Wmat(\pv{\partial})
+-q\,\Wmat(\conj{\pv{\Phi}})-m\I.
+\label{eq:matrix-dirac-pair-operator}
+\end{equation}
+The following elementary block products are obtained:
+\begin{align*}
+\Wmat(\pv{\partial})^2&=\Box\I,\\
+\Wmat(\pv{\partial})\Wmat(\conj{\pv{\Phi}})
+&=
+\begin{bmatrix}
+0&\pv{\partial}\\
+\conj{\pv{\partial}}&0
+\end{bmatrix}
+\begin{bmatrix}
+0&\conj{\pv{\Phi}}\\
+\pv{\Phi}&0
+\end{bmatrix}\notag\\
+&=\eqfunc{diag}\bigl(
+\pv{\partial}\pv{\Phi},
+\conj{\pv{\partial}}\conj{\pv{\Phi}}
+\bigr),\\
+\Wmat(\conj{\pv{\Phi}})\Wmat(\pv{\partial})
+&=
+\begin{bmatrix}
+0&\conj{\pv{\Phi}}\\
+\pv{\Phi}&0
+\end{bmatrix}
+\begin{bmatrix}
+0&\pv{\partial}\\
+\conj{\pv{\partial}}&0
+\end{bmatrix}\notag\\
+&=\eqfunc{diag}\bigl(
+\conj{\pv{\Phi}}\conj{\pv{\partial}},
+\pv{\Phi}\pv{\partial}
+\bigr),\\
+\Wmat(\conj{\pv{\Phi}})^2
+&=
+\begin{bmatrix}
+0&\conj{\pv{\Phi}}\\
+\pv{\Phi}&0
+\end{bmatrix}^{2}\notag\\
+&=\eqfunc{diag}\bigl(
+\conj{\pv{\Phi}}\pv{\Phi},
+\pv{\Phi}\conj{\pv{\Phi}}
+\bigr)\notag\\
+&=\detf{\pv{\Phi}}\I.
+\end{align*}
+The complete square is expanded as
+\begin{align*}
+\Wmat(i\pv{\partial}-q\conj{\pv{\Phi}})^2
+&=-\Wmat(\pv{\partial})^2\notag\\
+&\quad-iq\bigl(
+\Wmat(\pv{\partial})\Wmat(\conj{\pv{\Phi}})
++\Wmat(\conj{\pv{\Phi}})\Wmat(\pv{\partial})
+\bigr)\notag\\
+&\quad+q^2\,\Wmat(\conj{\pv{\Phi}})^2\notag\\
+&=-\eqfunc{diag}\!\Bigl(
+(\pv{\partial}+iq\conj{\pv{\Phi}})
+(\conj{\pv{\partial}}+iq\pv{\Phi}),\notag\\
+&\qquad\qquad
+(\conj{\pv{\partial}}+iq\pv{\Phi})
+(\pv{\partial}+iq\conj{\pv{\Phi}})
+\Bigr).
+\end{align*}
+The coupled field equation is therefore packaged as
+\begin{equation*}
+\Dmat
+\begin{bmatrix}
+\bPsi_{\eqtext{Dirac\_with\_potential},1}\\
+\bPsi_{\eqtext{Dirac\_with\_potential},2}
+\end{bmatrix}
+=0.
+\end{equation*}
+
+The reversed-mass partner is
+\begin{equation}
+\Dmat':=
+\Wmat(i\pv{\partial}-q\conj{\pv{\Phi}})+m\I.
+\label{eq:matrix-dirac-pair-operator-partner}
+\end{equation}
+Its product with \(\Dmat\) is
+\begin{align*}
+\Dmat'\Dmat
+&=\Wmat(i\pv{\partial}-q\conj{\pv{\Phi}})^2-m^2\I\notag\\
+&=-\eqfunc{diag}\!\Bigl(
+(\pv{\partial}+iq\conj{\pv{\Phi}})
+(\conj{\pv{\partial}}+iq\pv{\Phi})+m^2,\notag\\
+&\qquad\qquad
+(\conj{\pv{\partial}}+iq\pv{\Phi})
+(\pv{\partial}+iq\conj{\pv{\Phi}})+m^2
+\Bigr).
+\end{align*}
+The two diagonal entries are precisely the two ordered second-order
+paravector equations obtained from
+\begin{equation*}
+\mathcal D'\bigl(
+\pv{\Phi},
+\mathcal D(\pv{\Phi},\bPsi_{\eqtext{Dirac\_with\_potential}})
+\bigr).
+\end{equation*}
+
+\paragraph{Gauge transform in the matrix packaging.}
+With
+\begin{align*}
+\bPsi_{\eqtext{Dirac\_with\_potential}}
+&=\exp(iq\lambda)\bPsi_{\eqtext{Dirac\_with\_potential}}',\\
+\pv{\Phi}'&=\pv{\Phi}+\conj{\pv{\partial}}\lambda,
+\end{align*}
+the packaged gauge calculation is
+\begin{align*}
+0
+&=(\Wmat(i\pv{\partial}-q\conj{\pv{\Phi}})-m\I)
+\bPsi_{\eqtext{Dirac\_with\_potential}}\notag\\
+&=(\Wmat(i\pv{\partial}-q\conj{\pv{\Phi}})-m\I)
+\exp(iq\lambda)\bPsi_{\eqtext{Dirac\_with\_potential}}'\notag\\
+&=\exp(iq\lambda)
+\bigl(
+\Wmat(i\pv{\partial}-q\conj{\pv{\Phi}'})-m\I
+\bigr)\bPsi_{\eqtext{Dirac\_with\_potential}}'.
+\end{align*}
+The transformed matrix equation is therefore
+\begin{equation*}
+\bigl(
+\Wmat(i\pv{\partial}-q\conj{\pv{\Phi}'})-m\I
+\bigr)\bPsi_{\eqtext{Dirac\_with\_potential}}'=0.
+\end{equation*}

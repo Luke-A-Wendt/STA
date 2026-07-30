@@ -97,9 +97,14 @@ and the last partial
 description is conventionally called a reduced state. The rule for extracting
 quantities measured near one position would have to be specified in the same
 development \cite{peskin1995}.
-The fixed projected column space used for one Dirac field is a useful
+The fixed projected two-amplitude space used for one Dirac field is a useful
 starting point, but these many-particle constructions are not supplied by it
 alone.
+Likewise, the two auxiliary projectors in
+Eq.\ \eqref{eq:W-projectors} only select the two eigenvalues of the block map
+defined in Section \ref{sec:matrix-dirac-packaging}. Their algebraic signs cannot be
+identified with particle and antiparticle sectors until charge reversal,
+particle-number change, and the physical field space have been constructed.
 
 The indefinite Klein--Gordon pairing and the absence of a positive local
 one-particle position density are also not repaired by a change of algebraic
@@ -154,10 +159,10 @@ in every use of the commutator function. These conditions should eventually
 be stated once in a common operator-domain section and then cited wherever
 they are used in a factorization or low-energy expansion.
 
-Likewise, the determinant of a block differential operator minus a proposed
+Likewise, the determinant of a differential operator minus a proposed
 measured value is not defined merely because the paravector determinant is
-defined. An ordinary matrix determinant whose zeros select possible values
-may be used only after the equation has been reduced to a finite matrix, for
+defined. A finite determinant whose zeros select possible values may be used
+only after the equation has been reduced to finitely many components, for
 example one plane wave at a time, a finite set of basis functions, or a
 finite numerical grid. Merely restricting the spatial region does not make
 the operator finite-dimensional. At the operator level, only the ordered
@@ -175,7 +180,7 @@ local Klein--Gordon density to be a position-probability density. For Dirac
 and Pauli wave-function
 spaces, the shared operator domains must be specified. It must then be proved
 that moving an operator from one side of the bracket to the other gives the
-displayed \(H\) operation, that the energy-selecting operators preserve their
+displayed \(\Hop\) operation, that the energy-selecting operators preserve their
 selected states, and that the calculated measurement averages are real.
 
 \subsection{FIXME: Bounds on Measurement Spread}
@@ -187,7 +192,7 @@ uncertainty is the nonnegative square root of the variance
 \cite{robertson1929,sakurai2017}. The normalized projected-wave bracket in
 Eq.\ \eqref{eq:adjoint-paravector-braket} must be used to define those
 averages. A shared set of fields on which both operator orders and their
-\(H\) operations exist must also be required. The standard lower bound built
+\(\Hop\) operations exist must also be required. The standard lower bound built
 from the commutator function, and the stronger bound that also retains the
 anticommutator function, should then be proved in the manuscript's notation.
 Spin-axis measurement operators should be checked as a worked example rather
@@ -215,19 +220,20 @@ encoded by the imaginary parts of the Maxwell equation. Other components, such a
 imaginary part of the force product, are valid algebraic companions without
 a separate physical interpretation established here.
 
-Two cases are already identified with established physics: a projected
-block's opposite-order product is the standard density matrix for one fully
-specified two-entry state \cite{sakurai2017}. Its rank is one, meaning that
-every column is a multiple of the one selected state column. The remaining
+Two cases are already identified with established physics. A projected
+block's normalized opposite-order product is Hermitian and unchanged when
+squared, so it represents one fully specified two-amplitude state
+\cite{sakurai2017}. The remaining
 \(\pv{F}\) and \(\conj{\pv{F}}\) terms in the two ordered products are the
 standard two Dirac spin couplings \cite{greiner2000}. For the remaining
 nonscalar channels of unrestricted or differently ordered products, a
 separate derivation as a current, spin-axis quantity, or measurement result
-is still required before physical meaning is assigned. For a fixed-column
-state and a left-acting operator that preserves that column, the product
-\(\herm{\pv{\psi}}\pv{\mathcal{O}}\pv{\psi}\) is already fixed by its one
-complex row--column matrix element and contains no additional independent
-channels.
+is still required before physical meaning is assigned. For a
+fixed-projector state and a left-acting operator that preserves that space,
+the product
+\(\herm{\pv{\psi}_{\eqtext{block}}}
+\pv{\mathcal{O}}\pv{\psi}_{\eqtext{block}}\) is already fixed by its one
+complex scalar coefficient and contains no additional independent channels.
 
 The following exact identity may also be studied:
 \begin{equation*}
@@ -248,19 +254,20 @@ one of three categories: an alternate form of an established law, redundant
 information implied by another displayed equation, or an algebraic channel
 whose physical meaning is presently unassigned. The operations that return
 the original input when applied twice, the order functions,
-\(\pv{\Pi}(\pm)\) selection functions, and field products should all be
+\(\pv{\Pi}(\pm)\) selection functions for a stated unit direction
+\(\vct{u}\), and field products should all be
 included in that classification. No unassigned
 component should be advertised as a new
 interaction merely because it is made available by the algebra.
 Maps that preserve the defined addition and multiplication, together with
 the selection, factorization, exponential, and logarithmic constructions,
 should be separated into those proved directly from the algebra and those
-that depend on the chosen matrix realization.
+that depend on an optional translation collected in an appendix.
 
 \subsection{TODO: Complex Space-Time and Imaginary Coordinates}
-A complex paravector \(\pv{Z}\in\Pspace(\C)\) is already permitted by the
+A complex paravector \(\pv{Z}\in\CPspace\) is already permitted by the
 generic algebra: \(\pv{Z}=\pv{X}+i\pv{Y}\), with
-\(\pv{X},\pv{Y}\in\Pspace(\R)\). Treating such an element as a physical event, rather than as an
+\(\pv{X},\pv{Y}\in\RPspace\). Treating such an element as a physical event, rather than as an
 algebraic field value, would be a new hypothesis. The following self-contained
 consistency identity is obtained from the existing determinant and adjugate
 definitions:

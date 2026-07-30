@@ -1,0 +1,111 @@
+\subsubsection{Matrix Form of the Flat Interval in General Coordinates}
+\label{sec:matrix-coordinate-application}
+As an optional translation into ordinary matrix coordinates, the map
+\(\pv{X}=f+\vct{g}\cdot\sigv\) permits the same flat interval to be
+written in terms of the original four coordinate labels
+\[
+\vct{x}=\mcol{t,r_1,r_2,r_3},
+\qquad
+\dd\vct{x}=\mcol{\dd t,\dd r_1,\dd r_2,\dd r_3}.
+\]
+The transpose operation was defined in Eq.\ \eqref{eq:matrix-transpose}.
+After \(\dd f\) and \(\dd\vct{g}\) are expanded in these four increments,
+their squared difference can be written using one real symmetric matrix.
+That matrix is defined by
+\begin{equation}
+\dd f^2-\dd\vct{g}^2
+=:\mtrans{\dd\vct{x}}\Qmat(\vct{x})\,\dd\vct{x}.
+\label{eq:pullback-matrix-function}
+\end{equation}
+It is conventionally called the pullback matrix because it expresses the
+interval from the \((f,\vct{g})\) components in terms of the original
+\((t,\vct{r})\) labels. In this section the name means exactly the displayed
+equality \cite{doran2003}. Consequently,
+\begin{equation*}
+\dd s^2=\mtrans{\dd\vct{x}}\Qmat(\vct{x})\,\dd\vct{x}.
+\end{equation*}
+The four-by-four matrix of first derivatives of
+\((f,\vct{g})\) with respect to \((t,\vct{r})\) is now considered. At a
+point where this derivative matrix has an inverse, the coordinate map is
+called locally invertible in the differential sense used here. The matrix
+\(\Qmat\) is obtained by placing this derivative matrix on both sides of the
+one-positive, three-negative interval matrix, with its transpose on the
+left. An invertible real change of coordinates therefore cannot change the
+count of one positive and three negative squared directions. That sign count
+is called the signature \((+,-,-,-)\). The entries of \(\Qmat\) may
+nevertheless depend on position when nonlinear, or curvilinear, coordinates
+are used. Such position dependence alone does not imply curvature because
+\((f,\vct{g})\) still supplies components in the fixed flat algebra. If the
+derivative matrix has no inverse, a nonzero coordinate direction is sent to
+zero. The same direction is then sent to zero by \(\Qmat\), so
+\(\Qmat\) necessarily has no inverse. This case is called degenerate.
+
+For a real symmetric matrix, four mutually perpendicular directions can be
+chosen so that multiplication by \(\Qmat\) only rescales each direction.
+The rescaling numbers are called eigenvalues, and the corresponding
+directions are called eigenvectors. At every locally invertible point, the
+ordered eigenvalue function is defined by
+\begin{equation}
+\lambda(n):=\eqtext{ordered eigenvalue }n\eqtext{ of }\Qmat,
+\qquad n\in\{1,2,3,4\}.
+\label{eq:metric-eigenvalue-function}
+\end{equation}
+For the four-entry use required here, the diagonal matrix function is
+defined by
+\begin{equation}
+\eqfunc{diag}(A,B,C,D):=
+\begin{bmatrix}
+A&0&0&0\\
+0&B&0&0\\
+0&0&C&0\\
+0&0&0&D
+\end{bmatrix}.
+\label{eq:matrix-diag-four}
+\end{equation}
+The normalized eigenvectors are placed in the columns of \(\Nmat\), giving
+\[
+\Qmat=\Nmat\eqfunc{diag}(\lambda(1),\lambda(2),\lambda(3),\lambda(4))\,\mtrans{\Nmat},
+\qquad
+\mtrans{\Nmat}\Nmat=\I.
+\]
+The second equality states that the columns have unit length and are
+mutually perpendicular; \(\I\) is the identity matrix of the required
+four-by-four size. The eigenvalues are ordered numerically so that
+\[
+\lambda(1)>0>\lambda(2)\geq\lambda(3)\geq\lambda(4).
+\]
+The corresponding direction function is defined by
+\begin{equation}
+\vct{u}(n):=\eqtext{column }n\eqtext{ of }\Nmat.
+\label{eq:metric-direction-function}
+\end{equation}
+The defining eigenvalue relation is therefore
+\[
+\Qmat\vct{u}(n)=\lambda(n)\vct{u}(n).
+\]
+If two or more eigenvalues are equal, the individual eigenvectors within
+their shared directions are not unique. Any mutually perpendicular unit
+vectors spanning those same directions give the same matrix and interval.
+The local differential directions are defined by
+\begin{equation}
+w(n):=\sqrt{|\lambda(n)|}\,\mtrans{\vct{u}(n)}\dd\vct{x}.
+\label{eq:local-differential-directions}
+\end{equation}
+Each \(w(n)\) is the coordinate increment along one eigenvector,
+rescaled by the square root of the corresponding eigenvalue magnitude.
+Substitution of the matrix decomposition gives
+\begin{align*}
+\dd s^2
+&=\lambda(1)\bigl(\mtrans{\vct{u}(1)}\dd\vct{x}\bigr)^2
++\lambda(2)\bigl(\mtrans{\vct{u}(2)}\dd\vct{x}\bigr)^2\notag\\
+&\quad+\lambda(3)\bigl(\mtrans{\vct{u}(3)}\dd\vct{x}\bigr)^2
++\lambda(4)\bigl(\mtrans{\vct{u}(4)}\dd\vct{x}\bigr)^2\notag\\
+&=w(1)^2-w(2)^2-w(3)^2-w(4)^2.
+\end{align*}
+An interval with one positive and three negative squared directions is
+called Lorentzian. A Euclidean squared length would instead contain only
+plus signs. The three minus signs therefore cannot be dropped by changing
+matrix directions. When \(\Qmat\) varies with position, the four quantities
+\(w(n)\) describe the interval at one point; a single set of
+coordinates whose differentials equal all four \(w(n)\) need not exist
+throughout an extended region.

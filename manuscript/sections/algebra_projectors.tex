@@ -1,4 +1,8 @@
 \subsubsection{Functions of \texorpdfstring{\(\vct{u}\cdot\sigv\)}{u.sigma}}
+For this subsection, a new algebraic unit direction \(\vct{u}\), satisfying
+\(\vct{u}^2=1\), is chosen. For a nonzero real vector
+\(\vct{A}\), it is supplied by
+\(\vct{u}:=\vct{A}/\|\vct{A}\|\) in Eq.\ \eqref{eq:real-unit-axis}.
 Multiplication by \(\vct{u}\cdot\sigv\) gives \(+1\) on one projector
 part and \(-1\) on the other, as shown in Eq.\ \eqref{eq:projectors}.
 Consequently, a scalar function is applied by assigning its value at \(+1\)
@@ -6,22 +10,18 @@ to the first part and its value at \(-1\) to the second. This is the
 projector-based function rule defined in Eq.\ \eqref{eq:functional-calculus}:
 \begin{align*}
 f(\vct{u}\cdot\sigv)
-&= f(+)\pv{\Pi}(+) + f(-)\pv{\Pi}(-)\notag \\
-&= \tfrac{1}{2}\bigl(f(+)+f(-)\bigr)
-+ \tfrac{1}{2}\bigl(f(+)-f(-)\bigr)\,\vct{u}\cdot\sigv.
+&= f(+1)\pv{\Pi}(+) + f(-1)\pv{\Pi}(-)\notag \\
+&= \tfrac{1}{2}\bigl(f(+1)+f(-1)\bigr)
++ \tfrac{1}{2}\bigl(f(+1)-f(-1)\bigr)\,\vct{u}\cdot\sigv.
 \end{align*}
 These are the basic projector formulas for a unit-direction element.
 Square roots and logarithms can have more than one value. A consistent
-choice of one such value is called a branch. The independent square-root
-choices on the two projector parts are recorded by the sign function
-\begin{equation}
-\epsilon(\pm):=\eqtext{an independently chosen member of }\{+1,-1\}.
-\label{eq:branch-sign-function}
-\end{equation}
-The resulting identities are
+choice of one such value is called a branch. With the conventional scalar
+choices \(\sqrt{+1}=1\) and \(\sqrt{-1}=i\), the resulting identities are
 \begin{align*}
 \sqrt{\vct{u}\cdot\sigv}
-&= \epsilon(+)\pv{\Pi}(+) + \epsilon(-) i\,\pv{\Pi}(-), \\
+&= \sqrt{+1}\,\pv{\Pi}(+)+\sqrt{-1}\,\pv{\Pi}(-)\notag\\
+&= \pv{\Pi}(+) + i\,\pv{\Pi}(-), \\
 \log(\vct{u}\cdot\sigv)
 &= 2 i \pi\bigl(n\,\pv{\Pi}(+) + (\tfrac12+m)\,\pv{\Pi}(-)\bigr), \\
 (z+\vct{u}\cdot\sigv)^{-1}
@@ -35,11 +35,16 @@ The resulting identities are
 &= \cos(\theta)+i\sin(\theta)\,\vct{u}\cdot\sigv,
 \end{align*}
 where \(m\) and \(n\) are integers selecting the independent logarithm
-values, and the inverse formula requires \(z\neq\pm1\). The two values from
-Eq.\ \eqref{eq:branch-sign-function} are independent; the
-conventional choices \(\sqrt{+1}=1\) and \(\sqrt{-1}=i\) are obtained
-when \(\epsilon(+)=\epsilon(-)=+1\). These identities are obtained by applying
-the chosen scalar value separately on the two projector-selected parts.
+values, and the inverse formula requires \(z\neq\pm1\). Other square roots
+are obtained by independently changing the sign of either coefficient in
+the displayed square-root formula. The selected square root is verified by
+\begin{align*}
+\bigl(\pv{\Pi}(+)+i\,\pv{\Pi}(-)\bigr)^2
+&=\pv{\Pi}(+)-\pv{\Pi}(-)\notag\\
+&=\vct{u}\cdot\sigv.
+\end{align*}
+These identities are obtained by applying the chosen scalar value separately
+on the two projector-selected parts.
 The corresponding domains for real and complex paravectors are stated with
 the exponential and logarithm formulas.
 
@@ -47,15 +52,15 @@ the exponential and logarithm formulas.
 The scalar, vector, and unit-direction data are specified by
 \begin{align*}
 \pv{X} &= t + \vct{r}\cdot\sigv, \\
-t &= \eqtext{scalar}(\pv{X})\in\R, \\
-\vct{r} &= \eqtext{vector}(\pv{X})\in\R^{3}, \\
+t &= \eqfunc{scalar}(\pv{X})\in\R, \\
+\vct{r} &= \eqfunc{vector}(\pv{X})\in\R^{3}, \\
 \vct{u} &:= \vct{r}/\lVert\vct{r}\rVert \qquad \text{when }\vct{r}\neq 0.
 \end{align*}
 If \(\vct{r}\neq 0\), its decomposition is
 \(\vct{r}=\lVert\vct{r}\rVert \vct{u}\), with \(\vct{u}^{2}=1\).
 The two scalar values associated with the two projector parts are defined by
 \begin{equation}
-\lambda(\pv{X},\pm):=t\pm\lVert\vct{r}\rVert.
+\lambda(\pm):=t\pm\lVert\vct{r}\rVert.
 \label{eq:real-paravector-eigenvalues}
 \end{equation}
 They are called eigenvalues because multiplication by \(\pv{X}\) gives each
@@ -63,9 +68,9 @@ projector back multiplied by the corresponding scalar, as verified below.
 For \(\vct{r}\neq\vct{0}\), the quadratic relation is
 \begin{align*}
 \pv{X}^{2} - 2 t \pv{X} + ( t^{2} - \vct{r}^{2} ) &= 0,\notag \\
-0 &= (\pv{X}-\lambda(\pv{X},-))(\pv{X}-\lambda(\pv{X},+))\notag \\
-&= \pv{X}^{2} - \lambda(\pv{X},-)\pv{X}\notag \\
-&\quad - \pv{X}\lambda(\pv{X},+) + \lambda(\pv{X},-)\lambda(\pv{X},+).
+0 &= (\pv{X}-\lambda(-))(\pv{X}-\lambda(+))\notag \\
+&= \pv{X}^{2} - \lambda(-)\pv{X}\notag \\
+&\quad - \pv{X}\lambda(+) + \lambda(-)\lambda(+).
 \end{align*}
 No degree-one polynomial with scalar coefficients can vanish on this
 non-scalar \(\pv{X}\). The displayed quadratic is therefore the
@@ -76,107 +81,122 @@ to \(f(\pv{X})=f(t)\). Here \(x\) is only the placeholder input of the
 polynomial. The projector formulas below apply to
 \(\vct{r}\neq\vct{0}\).
 The projector function from Eq.\ \eqref{eq:projectors} gives the
-corresponding decomposition directly:
+corresponding decomposition directly. Its local direction is restated
+immediately before the projector:
 \begin{align*}
+\vct{u} &:= \vct{r}/\lVert\vct{r}\rVert,\\
 \pv{\Pi}(\pm) &= \tfrac12(1\pm \vct{u}\cdot\sigv), \\
-\pv{X} &= \lambda(\pv{X},+)\pv{\Pi}(+)
-+\lambda(\pv{X},-)\pv{\Pi}(-), \\
-\pv{\Pi}(\pm)\pv{X} &= \lambda(\pv{X},\pm)\pv{\Pi}(\pm).
+\pv{X} &= \lambda(+)\pv{\Pi}(+)
++\lambda(-)\pv{\Pi}(-), \\
+\pv{\Pi}(\pm)\pv{X} &= \lambda(\pm)\pv{\Pi}(\pm).
 \end{align*}
 If \(f\) is defined at the two eigenvalues, then
 \begin{align*}
 f(\pv{X})
-&=f\bigl(\lambda(\pv{X},+)\bigr)\pv{\Pi}(+)
-+f\bigl(\lambda(\pv{X},-)\bigr)\pv{\Pi}(-)\notag\\
+&=f\bigl(\lambda(+)\bigr)\pv{\Pi}(+)
++f\bigl(\lambda(-)\bigr)\pv{\Pi}(-)\notag\\
 &=\tfrac12\left(
-f\bigl(\lambda(\pv{X},+)\bigr)+f\bigl(\lambda(\pv{X},-)\bigr)\right)\notag\\
+f\bigl(\lambda(+)\bigr)+f\bigl(\lambda(-)\bigr)\right)\notag\\
 &\quad+\tfrac12\left(
-f\bigl(\lambda(\pv{X},+)\bigr)-f\bigl(\lambda(\pv{X},-)\bigr)\right)
+f\bigl(\lambda(+)\bigr)-f\bigl(\lambda(-)\bigr)\right)
 \vct{u}\cdot\sigv.
 \end{align*}
 Its scalar and vector parts are therefore
 \begin{align*}
-\eqtext{scalar}(f(\pv{X}))
+\eqfunc{scalar}(f(\pv{X}))
 &=\tfrac12\left(
-f\bigl(\lambda(\pv{X},+)\bigr)+f\bigl(\lambda(\pv{X},-)\bigr)\right),\\
-\eqtext{vector}(f(\pv{X}))
+f\bigl(\lambda(+)\bigr)+f\bigl(\lambda(-)\bigr)\right),\\
+\eqfunc{vector}(f(\pv{X}))
 &=\tfrac12\left(
-f\bigl(\lambda(\pv{X},+)\bigr)-f\bigl(\lambda(\pv{X},-)\bigr)\right)\vct{u}.
+f\bigl(\lambda(+)\bigr)-f\bigl(\lambda(-)\bigr)\right)\vct{u}.
 \end{align*}
 For complex-valued \(f\), both parts may be complex.
 The projector summary obtained from
 Eqs.\ \eqref{eq:real-paravector-eigenvalues} and \eqref{eq:projectors} may
 therefore be recorded as
 \begin{align*}
-\lambda(\pv{X},\pm)&=t\pm\lVert\vct{r}\rVert,\notag\\
+\lambda(\pm)&=t\pm\lVert\vct{r}\rVert,\notag\\
 \vct{u}&=\vct{r}/\lVert\vct{r}\rVert,\notag\\
 \pv{\Pi}(\pm)&=\tfrac12(1\pm\vct{u}\cdot\sigv),\notag\\
-\pv{\Pi}(\pm)\pv{X}&=\lambda(\pv{X},\pm)\pv{\Pi}(\pm),\notag\\
-\pv{X}&=\lambda(\pv{X},+)\pv{\Pi}(+)+\lambda(\pv{X},-)\pv{\Pi}(-),\notag\\
-f(\pv{X})&=f\bigl(\lambda(\pv{X},+)\bigr)\pv{\Pi}(+)+f\bigl(\lambda(\pv{X},-)\bigr)\pv{\Pi}(-).
+\pv{\Pi}(\pm)\pv{X}&=\lambda(\pm)\pv{\Pi}(\pm),\notag\\
+\pv{X}&=\lambda(+)\pv{\Pi}(+)+\lambda(-)\pv{\Pi}(-),\notag\\
+f(\pv{X})&=f\bigl(\lambda(+)\bigr)\pv{\Pi}(+)+f\bigl(\lambda(-)\bigr)\pv{\Pi}(-).
 \end{align*}
 The standard examples are
 \begin{align*}
 \exp(\pv{X})
 &= \exp(t)\Bigl(\cosh(\lVert\vct{r}\rVert)+\sinh(\lVert\vct{r}\rVert)\,\vct{u}\cdot\sigv\Bigr), \\
 \sqrt{\pv{X}}
-&= \epsilon(+)\sqrt{\lambda(\pv{X},+)}\,\pv{\Pi}(+)\notag\\
-&\quad+\epsilon(-)\sqrt{\lambda(\pv{X},-)}\,\pv{\Pi}(-),\notag\\
-&\qquad \epsilon(+),\epsilon(-)\in\{+1,-1\}, \\
+&= \sqrt{\lambda(+)}\,\pv{\Pi}(+)
++\sqrt{\lambda(-)}\,\pv{\Pi}(-), \\
 \log(\pv{X})
-&= \log(\lambda(\pv{X},+))\,\pv{\Pi}(+)
-+\log(\lambda(\pv{X},-))\,\pv{\Pi}(-), \\
+&= \log(\lambda(+))\,\pv{\Pi}(+)
++\log(\lambda(-))\,\pv{\Pi}(-), \\
 \pv{X}^{-1}
-&= \frac{\pv{\Pi}(+)}{\lambda(\pv{X},+)}
-+ \frac{\pv{\Pi}(-)}{\lambda(\pv{X},-)}\notag \\
+&= \frac{\pv{\Pi}(+)}{\lambda(+)}
++ \frac{\pv{\Pi}(-)}{\lambda(-)}\notag \\
 &= \frac{\adjf{\pv{X}}}{\detf{\pv{X}}}
 = \frac{\conj{\pv{X}}}{t^{2}-\vct{r}^{2}}, \\
 \pv{X}^{n}
-&= \lambda(\pv{X},+)^{n}\pv{\Pi}(+)
-+\lambda(\pv{X},-)^{n}\pv{\Pi}(-)\notag \\
-&= \tfrac12\bigl(\lambda(\pv{X},+)^{n}+\lambda(\pv{X},-)^{n}\bigr)\notag\\
-&\quad+\tfrac12\bigl(\lambda(\pv{X},+)^{n}-\lambda(\pv{X},-)^{n}\bigr)
+&= \lambda(+)^{n}\pv{\Pi}(+)
++\lambda(-)^{n}\pv{\Pi}(-)\notag \\
+&= \tfrac12\bigl(\lambda(+)^{n}+\lambda(-)^{n}\bigr)\notag\\
+&\quad+\tfrac12\bigl(\lambda(+)^{n}-\lambda(-)^{n}\bigr)
 \,\vct{u}\cdot\sigv.
 \end{align*}
-The scalar square roots and logarithms must be taken with specified choices
-of their possible values. A square root that is itself a real paravector exists when
-\(\lambda(\pv{X},\pm)\geq0\), equivalently
+One scalar square root of each \(\lambda(\pm)\) is selected in the displayed
+square-root formula. The other square roots are obtained by independently
+changing the sign of either selected scalar root. The scalar logarithms must
+likewise be taken with specified choices of their possible values. A square
+root that is itself a real paravector exists when
+\(\lambda(\pm)\geq0\), equivalently
 \(t\geq\lVert\vct{r}\rVert\); otherwise the
 displayed roots are complex. The displayed logarithm is defined only when
-\(\lambda(\pv{X},\pm)\neq0\). When both values are positive, the ordinary
+\(\lambda(\pm)\neq0\). When both values are positive, the ordinary
 single-valued real logarithm is
 used; this choice is conventionally called the real principal logarithm.
 The condition
-\(\lambda(\pv{X},+)\lambda(\pv{X},-)\neq0\) is required for the inverse.
+\(\lambda(+)\lambda(-)\neq0\) is required for the inverse.
 The power formula is valid for
 \(n\geq0\), and also for negative integers when
-\(\lambda(\pv{X},+)\lambda(\pv{X},-)\neq0\).
+\(\lambda(+)\lambda(-)\neq0\).
 For two paravectors written with projector pairs along possibly different
-axes, the unit axis of \(\pv{X}'\) is denoted by \(\vct{u}'\). The second projector pair is
+axes, the second real paravector and its local eigenvalues are defined by
+\begin{equation}
+\pv{X}'=t'+\vct{r}'\cdot\sigv,
+\qquad
+\lambda'(\pm):=t'\pm\lVert\vct{r}'\rVert.
+\label{eq:second-real-paravector-eigenvalues}
+\end{equation}
+When \(\vct{r}'\neq\vct{0}\), its unit axis is
+\(\vct{u}':=\vct{r}'/\lVert\vct{r}'\rVert\), with
+\((\vct{u}')^2=1\). The second projector pair is
 the full specialization of Eq.\ \eqref{eq:projectors},
 \begin{equation}
 \pv{\Pi}'(\pm):=\tfrac12(1\pm\vct{u}'\cdot\sigv).
 \label{eq:second-axis-projectors}
 \end{equation}
-Here \((\vct{u}')^2=1\). Applying the eigenvalue function separately to the
-two paravectors gives
+Thus \(\lambda(\pm)\) belongs to \(\pv{X}\), while
+the prime on \(\lambda'(\pm)\) identifies the corresponding distinct values
+for \(\pv{X}'\), in accordance with Eq.\ \eqref{eq:prime-convention}.
+Applying the function rule separately to the two paravectors gives
 \begin{align*}
 f(\pv{X})g(\pv{X}')
-&=\Bigl(f(\lambda(\pv{X},+))\pv{\Pi}(+)
-+f(\lambda(\pv{X},-))\pv{\Pi}(-)\Bigr)\notag\\
-&\quad\times\Bigl(g(\lambda(\pv{X}',+))\pv{\Pi}'(+)
-+g(\lambda(\pv{X}',-))\pv{\Pi}'(-)\Bigr),
+&=\Bigl(f(\lambda(+))\pv{\Pi}(+)
++f(\lambda(-))\pv{\Pi}(-)\Bigr)\notag\\
+&\quad\times\Bigl(g(\lambda'(+))\pv{\Pi}'(+)
++g(\lambda'(-))\pv{\Pi}'(-)\Bigr),
 \end{align*}
 so
 \begin{align*}
 f(\pv{X})g(\pv{X}')
-&=f(\lambda(\pv{X},+))g(\lambda(\pv{X}',+))
+&=f(\lambda(+))g(\lambda'(+))
 \,\pv{\Pi}(+)\pv{\Pi}'(+)\notag\\
-&\quad+f(\lambda(\pv{X},+))g(\lambda(\pv{X}',-))
+&\quad+f(\lambda(+))g(\lambda'(-))
 \,\pv{\Pi}(+)\pv{\Pi}'(-)\notag\\
-&\quad+f(\lambda(\pv{X},-))g(\lambda(\pv{X}',+))
+&\quad+f(\lambda(-))g(\lambda'(+))
 \,\pv{\Pi}(-)\pv{\Pi}'(+)\notag\\
-&\quad+f(\lambda(\pv{X},-))g(\lambda(\pv{X}',-))
+&\quad+f(\lambda(-))g(\lambda'(-))
 \,\pv{\Pi}(-)\pv{\Pi}'(-).
 \end{align*}
 The mixed projector products are
@@ -218,32 +238,47 @@ are determined by the following quadratic relation for a complex
 paravector, as shown by Eqs.\ \eqref{eq:paravector-product} and
 \eqref{eq:functional-calculus}:
 \begin{align*}
-\pv{Z} &= S + \vct{V} \cdot \sigv \in \Pspace(\C), \\
+\pv{Z} &= S + \vct{V} \cdot \sigv \in \CPspace, \\
 \pv{Z}^{2} - 2 S \pv{Z} + ( S^{2} - \vct{V}^{2} ) &= 0.
 \end{align*}
-When \(\vct{V}^{2}\neq0\), a value \(z\) with \(z^2=\vct{V}^2\) is chosen. The two
+When \(\vct{V}^{2}\neq0\), a value \(z\) with \(z^2=\vct{V}^2\) is chosen.
+The local algebraic unit direction is then defined by
+\begin{equation}
+\vct{u}:=\frac{\vct{V}}{z},
+\qquad
+\vct{u}^2=1.
+\label{eq:complex-paravector-axis}
+\end{equation}
+For a real \(\vct{V}\), the choice
+\(z=\|\vct{V}\|\) reduces this definition to
+\(\vct{u}=\vct{V}/\|\vct{V}\|\). For a general complex vector, \(z\) is
+required because the positive norm
+\(\|\vct{V}\|^2=\vct{V}\cdot\vct{V}^*\) need not equal
+\(\vct{V}^2\). The two
 scalar values associated with the two projector parts are defined by
 \begin{equation}
-\lambda(\pv{Z},\pm):=S\pm z.
+\lambda(\pm):=S\pm z.
 \label{eq:complex-paravector-eigenvalues}
 \end{equation}
-The corresponding projector function is defined by
-\begin{equation}
-\pv{\Pi}(\pv{Z},\pm):=\frac12\left(1\pm
-\frac{\vct{V}\cdot\sigv}{z}\right).
+The projector function from Eq.\ \eqref{eq:projectors} is thereby
+specialized without adding the paravector as an input. The local direction
+is restated immediately before the projector:
+\begin{align}
+\vct{u}&:=\frac{\vct{V}}{z},\notag\\
+\pv{\Pi}(\pm)&:=\frac12\left(1\pm\vct{u}\cdot\sigv\right).
 \label{eq:complex-paravector-projectors}
-\end{equation}
+\end{align}
 Then
 \begin{align*}
-( \pv{Z} - \lambda(\pv{Z},-) )
-( \pv{Z} - \lambda(\pv{Z},+) ) &= 0,\\
-\pv{\Pi}(\pv{Z},\pm)\pv{Z}
-&=\lambda(\pv{Z},\pm)\pv{\Pi}(\pv{Z},\pm),\\
-\pv{Z}&=\lambda(\pv{Z},+)\pv{\Pi}(\pv{Z},+)\notag\\
-&\quad+\lambda(\pv{Z},-)\pv{\Pi}(\pv{Z},-),\\
-f(\pv{Z})&=f\bigl(\lambda(\pv{Z},+)\bigr)\pv{\Pi}(\pv{Z},+)
+( \pv{Z} - \lambda(-) )
+( \pv{Z} - \lambda(+) ) &= 0,\\
+\pv{\Pi}(\pm)\pv{Z}
+&=\lambda(\pm)\pv{\Pi}(\pm),\\
+\pv{Z}&=\lambda(+)\pv{\Pi}(+)\notag\\
+&\quad+\lambda(-)\pv{\Pi}(-),\\
+f(\pv{Z})&=f\bigl(\lambda(+)\bigr)\pv{\Pi}(+)
  \notag\\
-&\quad+f\bigl(\lambda(\pv{Z},-)\bigr)\pv{\Pi}(\pv{Z},-)
+&\quad+f\bigl(\lambda(-)\bigr)\pv{\Pi}(-)
 \end{align*}
 for any scalar function defined on the two values. Because multiplication
 by \(\pv{Z}\) gives each projector back multiplied by its associated scalar,
@@ -259,11 +294,12 @@ is \(x-S\), and \(f(\pv{Z})=f(S)\). If
 \(\pv{N}:=\vct{V}\cdot\sigv\). Then \(\pv{N}^2=0\). A nonzero element whose
 positive power is zero is called nilpotent. In this case
 \((\pv{Z}-S)^2=0\), so the minimal polynomial is \((x-S)^2\).
-\(\pv{Z}=S+\pv{N}\) cannot be changed to a diagonal matrix by an invertible
-change of basis, so it is not diagonalizable. For a function with a
+The two distinct projector parts have then merged into one repeated value,
+so the two-projector formula cannot be used. For a function with a
 convergent power series about \(S\),
 \begin{equation*}
-f(\pv{Z})=f(S)+f'(S)\pv{N}.
+f(\pv{Z})
+=f(S)+\left.\frac{\dd f(x)}{\dd x}\right|_{x=S}\pv{N}.
 \end{equation*}
 Every term containing \(\pv{N}^2\) or a higher power vanishes, which proves
 the formula directly. It is the exact replacement for the two-projector

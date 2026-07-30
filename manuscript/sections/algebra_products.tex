@@ -23,7 +23,7 @@ Eq.\ \eqref{eq:dot-cross} gives
 \pv{Y}\pv{X}
 &= (ab+\vct{A}\cdot\vct{B})
 + \bigl(a\vct{B}+b\vct{A}-i(\vct{A}\times\vct{B})\bigr)\cdot\sigv \notag\\
-&= (\pv{X}\pv{Y})^{\mathsf H}.
+&= (\pv{X}\pv{Y})^{\Hop}.
 \end{align*}
 The same product is given in component form in
 Table \ref{tab:components-real-paravector-product}. The scalar part is
@@ -33,7 +33,7 @@ order.
 Two immediate consequences are
 \begin{align*}
 \com{\pv{X}}{\pv{Y}} &= 2i(\vct{A}\times\vct{B})\cdot\sigv,\\
-\pv{X}\pv{Y}\in\Pspace(\R)
+\pv{X}\pv{Y}\in\RPspace
 &\quad\eqtext{if and only if}\quad \vct{A}\times\vct{B}=0.
 \end{align*}
 Thus exact commutation of two real paravectors is obtained precisely when
@@ -84,31 +84,31 @@ scalars with this property are called central. The full components of
 \(\pv{Z}\pv{Z}'\) are given in
 Table \ref{tab:components-paravector-product}, those of \(\pv{Z}^2\) are
 given in Table \ref{tab:components-paravector-square}, and the
-order-sensitive products built from star and \(H\) are recorded in
+order-sensitive products built from star and \(\Hop\) are recorded in
 Tables \ref{tab:components-zzstar}--\ref{tab:components-zcrevz}.
 
 For products with ordinary scalar coefficients, exchanging the order of two
 factors does not change the extracted scalar:
 \begin{equation*}
-\eqtext{scalar}(\pv{Z}\pv{Z}')=\eqtext{scalar}(\pv{Z}'\pv{Z}).
+\eqfunc{scalar}(\pv{Z}\pv{Z}')=\eqfunc{scalar}(\pv{Z}'\pv{Z}).
 \end{equation*}
 This order-independence of the scalar part is conventionally called
 cyclicity.
 In particular, if
-\(\pv{Z}'=\pv{\mathcal{O}}\pv{Z}^{*\mathsf H}\), then
+\(\pv{Z}'=\pv{\mathcal{O}}\pv{Z}^{*\Hop}\), then
 \begin{align*}
-\eqtext{scalar}(\pv{Z}\pv{\mathcal{O}}\pv{Z}^{*\mathsf H})
-&=\eqtext{scalar}(\pv{\mathcal{O}}\pv{Z}^{*\mathsf H}\pv{Z})\notag\\
-&=\eqtext{scalar}(\pv{\mathcal{O}})\,
-  (\pv{Z}^{*\mathsf H}\pv{Z}),
+\eqfunc{scalar}(\pv{Z}\pv{\mathcal{O}}\pv{Z}^{*\Hop})
+&=\eqfunc{scalar}(\pv{\mathcal{O}}\pv{Z}^{*\Hop}\pv{Z})\notag\\
+&=\eqfunc{scalar}(\pv{\mathcal{O}})\,
+  (\pv{Z}^{*\Hop}\pv{Z}),
 \end{align*}
-because \(\pv{Z}^{*\mathsf H}\pv{Z}\) is scalar.
+because \(\pv{Z}^{*\Hop}\pv{Z}\) is scalar.
 
 The order-sensitive variants are divided into three algebraic types:
 \begin{align*}
-\pv{Z}\pv{Z}^* &\eqtext{ is a real scalar plus a complex vector in }\Pspace(\C),\\
-\pv{Z}\pv{Z}^{\mathsf H} &\eqtext{ is a real scalar plus a real vector in }\Pspace(\R),\\
-\pv{Z}\pv{Z}^{*\mathsf H} &\eqtext{ is a complex scalar in }\Pspace(\C).
+\pv{Z}\pv{Z}^* &\eqtext{ is a real scalar plus a complex vector in }\CPspace,\\
+\pv{Z}\pv{Z}^{\Hop} &\eqtext{ is a real scalar plus a real vector in }\RPspace,\\
+\pv{Z}\pv{Z}^{*\Hop} &\eqtext{ is a complex scalar in }\CPspace.
 \end{align*}
 The positive norms, determinant forms, inverses, and transformation formulas
 are supplied by those three cases.
@@ -128,7 +128,7 @@ into the central-coefficient formulas.
 \subsubsection{Order dependence and commutators}
 The order-dependent part of a product is represented by the commutator
 function defined in Eq.\ \eqref{eq:com-function}. For generic complex paravectors
-\(\pv{Z},\pv{Z}'\in\Pspace(\C)\),
+\(\pv{Z},\pv{Z}'\in\CPspace\),
 \begin{equation}
 \com{\pv{Z}}{\pv{Z}'}
 = 2i(\vct{V}\times\vct{V}')\cdot\sigv
@@ -174,7 +174,7 @@ Thus the symmetric dot-product part is isolated by
 cross-product part is isolated by \(\com{\mathord\cdot}{\mathord\cdot}\).
 
 More generally, for generic complex paravectors
-\(\pv{Z},\pv{Z}'\in\Pspace(\C)\), Eq.\ \eqref{eq:acom-function} gives
+\(\pv{Z},\pv{Z}'\in\CPspace\), Eq.\ \eqref{eq:acom-function} gives
 \begin{equation}
 \acom{\pv{Z}}{\pv{Z}'}=\pv{Z}\pv{Z}'+\pv{Z}'\pv{Z}.
 \label{eq:paravector-anticommutator-expansion}
@@ -194,9 +194,9 @@ Commutation of the pseudoscalar with the generators is expressed by
 \begin{align*}
 \com{i}{\pv{\sigma}_n} &= 0,\\
 i\sigv &= \sigv i
-=\vcol{\pv{\sigma}_2\pv{\sigma}_3,
-\pv{\sigma}_3\pv{\sigma}_1,
-\pv{\sigma}_1\pv{\sigma}_2},
+=\vthree{\pv{\sigma}_2\pv{\sigma}_3}
+{\pv{\sigma}_3\pv{\sigma}_1}
+{\pv{\sigma}_1\pv{\sigma}_2},
 \end{align*}
 while the following relation is satisfied by distinct sigma generators:
 \begin{equation*}

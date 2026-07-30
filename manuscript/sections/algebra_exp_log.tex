@@ -3,14 +3,14 @@ The sigma-number-one exponential is evaluated by applying the scalar
 exponential separately to the two projector parts defined in
 Eq.\ \eqref{eq:functional-calculus}. For the real paravector
 \[
-\pv{X}=a+\vct{A}\cdot\sigv\in\Pspace(\R),
+\pv{X}=a+\vct{A}\cdot\sigv\in\RPspace,
 \]
 the vector part is decomposed as
 \begin{equation*}
 \begin{aligned}
 \vct{A}&=\theta \vct{u},\qquad \theta=\lVert \vct{A}\rVert,\\
 \vct{u}&=\frac{\vct{A}}{\lVert \vct{A}\rVert}\ \ (\vct{A}\neq 0),\qquad
-\vct{u}=\vcol{u_1,u_2,u_3},\\
+\vct{u}=\vthree{u_1}{u_2}{u_3},\\
 \vct{u}^2&=1.
 \end{aligned}
 \end{equation*}
@@ -62,7 +62,7 @@ The corresponding half-angle element is
 \end{equation}
 Its conjugation properties are
 \[
-\pv{L}^{\mathsf H}=\pv{L},
+\pv{L}^{\Hop}=\pv{L},
 \qquad
 \conj{\pv{L}}=\pv{L}^{-1}.
 \]
@@ -86,25 +86,38 @@ real paravector \(\pv{Y}\) from Eq.\ \eqref{eq:real-paravector-y} is assumed
 to satisfy \(b>\lVert\vct{B}\rVert\), so that the two real values in
 Eq.\ \eqref{eq:real-paravector-eigenvalues} are positive. The unique ordinary
 real logarithm of each positive value is used; this choice is called the
-principal logarithm. For \(\vct{B}\neq0\), the
-decomposition \(\vct{B}=\lVert\vct{B}\rVert \vct{u}\) is used. The
-eigenvalue function from
-Eq.\ \eqref{eq:real-paravector-eigenvalues} and the projector function from
-Eq.\ \eqref{eq:projectors} are then specialized to \(\pv{Y}\):
-\begin{align*}
-\lambda(\pv{Y},\pm) &= b \pm \lVert\vct{B}\rVert,\notag \\
-\pv{Y} &= \lambda(\pv{Y},+)\pv{\Pi}(+) + \lambda(\pv{Y},-)\pv{\Pi}(-),
-\end{align*}
-with the same projector pair
-\(\pv{\Pi}(\pm)=\tfrac12(1\pm \vct{u}\cdot\sigv)\). The logarithm is
-therefore applied separately to the two eigenvalues:
+principal logarithm. For \(\vct{B}\neq\vct{0}\), the local direction is
+defined by
+\begin{equation}
+\vct{u}:=\frac{\vct{B}}{\lVert\vct{B}\rVert},
+\qquad
+\vct{u}^2=1.
+\label{eq:log-paravector-axis}
+\end{equation}
+Thus \(\vct{B}=\lVert\vct{B}\rVert \vct{u}\). The
+projector function from Eq.\ \eqref{eq:projectors} is then specialized
+immediately after its direction:
+\begin{equation}
+\pv{\Pi}(\pm):=\tfrac12(1\pm \vct{u}\cdot\sigv).
+\label{eq:log-paravector-projectors}
+\end{equation}
+The eigenvalue construction from
+Eq.\ \eqref{eq:real-paravector-eigenvalues} is then specialized to
+\(\pv{Y}\). Within this subsection, the two eigenvalues of \(\pv{Y}\) are
+denoted locally by \(\lambda(\pm)\):
+\begin{align}
+\lambda(\pm) &:= b \pm \lVert\vct{B}\rVert,
+\label{eq:log-paravector-eigenvalues}\\
+\pv{Y} &= \lambda(+)\pv{\Pi}(+) + \lambda(-)\pv{\Pi}(-).\notag
+\end{align}
+The logarithm is therefore applied separately to the two eigenvalues:
 \begin{align}
 \log(\pv{Y})
-&= \log\!\bigl(\lambda(\pv{Y},+)\bigr)\pv{\Pi}(+)\notag\\
-&\quad+\log\!\bigl(\lambda(\pv{Y},-)\bigr)\pv{\Pi}(-)\notag \\
-&= \tfrac12 \log\!\bigl(\lambda(\pv{Y},+)\lambda(\pv{Y},-)\bigr)
+&= \log\!\bigl(\lambda(+)\bigr)\pv{\Pi}(+)\notag\\
+&\quad+\log\!\bigl(\lambda(-)\bigr)\pv{\Pi}(-)\notag \\
+&= \tfrac12 \log\!\bigl(\lambda(+)\lambda(-)\bigr)
 \notag\\
-&\quad+ \tfrac12 \log\!\bigl(\lambda(\pv{Y},+)/\lambda(\pv{Y},-)\bigr)
+&\quad+ \tfrac12 \log\!\bigl(\lambda(+)/\lambda(-)\bigr)
 \,\vct{u}\cdot\sigv.
 \label{eq:log-paravector}
 \end{align}
@@ -112,7 +125,7 @@ When \(\vct{B}=\vct{0}\), the axis is unnecessary and this formula is
 reduced directly to \(\log(\pv{Y})=\log(b)\).
 For \(\vct{B}\neq0\), if \(\pv{Y}=\exp(\pv{X})\) with \(\pv{X}\) from
 Eq.\ \eqref{eq:real-paravector-x} and \(\vct{A}=\theta\vct{u}\), then
-\(\lambda(\pv{Y},\pm)=\exp(a\pm\theta)\). The relation is expanded as
+\(\lambda(\pm)=\exp(a\pm\theta)\). The relation is expanded as
 \begin{align*}
 \pv{Y}
 &=\exp(\pv{X})\notag \\
@@ -139,6 +152,17 @@ Thus its principal logarithm is again a real paravector,
 \end{equation*}
 
 \subsubsection{Circular Exponentials and Half-Angle Elements}
+For this subsection, a nonzero real vector \(\vct{A}\) is written with the
+local values
+\[
+\theta:=\|\vct{A}\|,
+\qquad
+\vct{u}:=\frac{\vct{A}}{\|\vct{A}\|},
+\qquad
+\vct{A}=\theta\vct{u},
+\qquad
+\vct{u}^2=1.
+\]
 Replacing \(\theta\) with \(i\theta\) changes the hyperbolic functions into
 the ordinary sine and cosine functions. The resulting sigma-number-two
 exponential is therefore called circular:
@@ -149,12 +173,39 @@ exponential is therefore called circular:
 &= \cos(\theta) \pm i\sin(\theta)\,\vct{u}\cdot\sigv.
 \label{eq:exp-bivector}
 \end{align}
-In particular, the negative-sign form may be written as
+Hamilton's quaternion units are obtained by relabeling the same
+sigma-number-two basis, without introducing new generators or a new product
+\cite{hamilton1844}:
+\begin{equation}
+\begin{aligned}
+\pv{q}_1&:=-\pv{\sigma}_2\pv{\sigma}_3=-i\pv{\sigma}_1,\qquad
+\pv{q}_2:=-\pv{\sigma}_3\pv{\sigma}_1=-i\pv{\sigma}_2,\\
+\pv{q}_3&:=-\pv{\sigma}_1\pv{\sigma}_2=-i\pv{\sigma}_3,\qquad
+\vct{q}:=\vthree{\pv{q}_1}{\pv{q}_2}{\pv{q}_3}=-i\sigv.
+\end{aligned}
+\label{eq:quaternion-basis}
+\end{equation}
+The multiplication and intrinsic-operation rules are inherited directly from
+Eqs.\ \eqref{eq:sigma-product} and \eqref{eq:bivector-operator-signs}:
+\begin{equation}
+\begin{aligned}
+\pv{q}_n\pv{q}_m
+&=-\delta_{nm}+\sum_{k=1}^{3}\epsilon_{nmk}\pv{q}_k,\\
+\conj{\pv{q}_n}&=\pv{q}_n,\qquad
+\herm{\pv{q}_n}=-\pv{q}_n.
+\end{aligned}
+\label{eq:quaternion-basis-properties}
+\end{equation}
+In particular,
+\(\pv{q}_1^2=\pv{q}_2^2=\pv{q}_3^2
+=\pv{q}_1\pv{q}_2\pv{q}_3=-1\).
+The negative-sign exponential may therefore be written as
 \begin{equation*}
 \exp(-i\vct{A}\cdot\sigv)
 =\cos(\theta)+\sin(\theta)\,\vct{u}\cdot(-i\sigv).
 \end{equation*}
-In the quaternion basis \(\vct{q}=-i\sigv\), the same formula is written as
+In the quaternion basis from Eq.\ \eqref{eq:quaternion-basis}, the same
+formula is written as
 \begin{equation*}
 \exp(-i\vct{A}\cdot\sigv)
 =\cos(\theta)+\sin(\theta)\,\vct{u}\cdot\vct{q}.
@@ -165,7 +216,7 @@ For a real angle \(\theta\in\R\) and a unit real vector \(\vct{u}\in\R^3\), the 
 \label{eq:rotor-element}
 \end{equation}
 A real scalar coefficient and a purely imaginary vector coefficient are
-carried, so \(\pv{R}\in\Pspace(\C)\).
+carried, so \(\pv{R}\in\CPspace\).
 Its conjugation properties are
 \[
 \herm{\pv{R}}\pv{R}=1,
@@ -184,9 +235,9 @@ algebra.
 \subsubsection{Exponentials of Complex Paravectors}
 The real paravectors are written as
 \begin{align*}
-\pv{X} &= a + \vct{A} \cdot \sigv \in \Pspace(\R),\notag \\
-\pv{Y} &= b + \vct{B} \cdot \sigv \in \Pspace(\R),\notag \\
-\pv{Z} &= S + \vct{V} \cdot \sigv \in \Pspace(\C),\notag \\
+\pv{X} &= a + \vct{A} \cdot \sigv \in \RPspace,\notag \\
+\pv{Y} &= b + \vct{B} \cdot \sigv \in \RPspace,\notag \\
+\pv{Z} &= S + \vct{V} \cdot \sigv \in \CPspace,\notag \\
 &= \pv{X} + i \pv{Y},
 \end{align*}
 where
@@ -201,6 +252,7 @@ exponential is separated into scalar and directional factors:
 \exp(\pv{Z}) &= \exp( S + \vct{V} \cdot \sigv ),\notag \\
 &= \exp(S) \exp( \vct{V} \cdot \sigv ).
 \end{align*}
+The associated star and inverse identities are
 \begin{align*}
 \exp(\pv{Z}^{*}) &= \exp(S^{*}) \exp( -\vct{V}^{*} \cdot \sigv ),\notag \\
 \exp(\pv{Z})^{-1} &= \exp(-S) \exp( -\vct{V} \cdot \sigv ),\notag \\

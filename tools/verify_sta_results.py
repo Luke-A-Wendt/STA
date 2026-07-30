@@ -184,10 +184,11 @@ def write_report(results):
         r"\subsubsection*{Automated Checks of Main Algebraic and Operator Identities}",
         (
             r"The identities below were subjected to automated algebraic consistency checks "
-            r"in Python using SymPy and the standard Pauli-matrix translation of the sigma basis. Algebraic identities "
-            r"were reduced directly in matrix form, while differential identities were evaluated "
-            r"on generic test functions $\psi(t,x,y,z)$ with symbolic potentials and field "
-            r"components. The verification script is "
+            r"in Python using SymPy. The sigma-basis product was implemented directly, and "
+            r"differential identities were evaluated "
+            r"on generic test functions $\psi_{\eqtext{KG}}(t,\vct{r})$ with symbolic potentials and field "
+            r"components. The optional matrix bridge was checked separately against the "
+            r"definitions in Appendix~\ref{sec:matrix-appendix}. The verification script is "
             r"\texttt{tools/verify\_sta\_results.py}."
         ),
         "",
@@ -338,7 +339,7 @@ def main():
                 r"Correct reduction is obtained for the complex paravector product, the adjugate identity "
                 r"$\pv{Z}\adjf{\pv{Z}}=\detf{\pv{Z}}=S^2-\vct{V}^2$, "
                 r"and the Euclidean scalar part "
-                r"$\eqtext{scalar}(\pv{Z}\herm{\pv{Z}})=|S|^2+\|\vct{V}\|^2$."
+                r"$\eqfunc{scalar}(\pv{Z}\herm{\pv{Z}})=|S|^2+\|\vct{V}\|^2$."
             ),
         )
     )
@@ -354,8 +355,13 @@ def main():
     expected_adj = s.Matrix([[kd, -kb], [-kc, ka]])
     star_of_adj = simplify_matrix(T2 * Madj.conjugate() * T2.inv())
     adj_of_star = simplify_matrix(T2 * Mstar.T * T2.inv())
+    mat_inverse_translation = mat_paravector(
+        (ka + kd) / 2,
+        ((kb + kc) / 2, (kc - kb) / (2 * s.I), (ka - kd) / 2),
+    )
     matrix_dictionary_ok = (
-        matrix_is_zero(Madj - expected_adj)
+        matrix_is_zero(mat_inverse_translation - M)
+        and matrix_is_zero(Madj - expected_adj)
         and matrix_is_zero(M * Madj - M.det() * I2)
         and matrix_is_zero(Madj * M - M.det() * I2)
         and matrix_is_zero(star_of_adj - MH)
@@ -367,13 +373,11 @@ def main():
             r"\eqref{eq:matrix-operation-dictionary}",
             "Verified" if matrix_dictionary_ok else r"\flag{Failed}",
             (
-                r"For an arbitrary complex two-by-two matrix, intrinsic $H$ is represented "
-                r"by the matrix conjugate transpose, intrinsic star by "
-                r"$\Tmat\mconj{\mat{M}}\Tmat^{-1}$, and star--$H$ by "
-                r"$\adjf{\mat{M}}=\Tmat\mtrans{\mat{M}}\Tmat^{-1}$. The result "
-                r"$\detf{\mat{M}}\I$ is obtained from both adjugate products, and both "
-                r"$\conj{\adjf{\mat{M}}}$ and $\adjf{\conj{\mat{M}}}$ are reduced to "
-                r"$\herm{\mat{M}}=\mherm{\mat{M}}$."
+                r"Every bridge identity defined in "
+                r"Appendix~\ref{sec:matrix-appendix} is verified entry by entry. "
+                r"The two-way $\eqfunc{mat}(\cdot)$ translation, Hermitian operation, "
+                r"star operation, adjugate, determinant, and their stated distinctions "
+                r"all agree."
             ),
         )
     )
@@ -388,10 +392,10 @@ def main():
             r"Eqs.\ \eqref{eq:W-map} and \eqref{eq:W-square}",
             "Verified" if W_square_ok else r"\flag{Failed}",
             (
-                r"For an arbitrary two-by-two complex realization $\mat{M}$, the auxiliary "
-                r"block arrangement $\smat{0&\mat{M}\\\adjf{\mat{M}}&0}$ squares to "
-                r"$\detf{\mat{M}}\I$. This check is restricted to ordinary scalar-valued "
-                r"matrix entries, exactly as required by the stated qualification."
+                r"The auxiliary construction in "
+                r"Section~\ref{sec:matrix-dirac-packaging} squares to the determinant times "
+                r"its identity element. The check has the same scalar-entry restriction "
+                r"stated there."
             ),
         )
     )
@@ -500,11 +504,11 @@ def main():
             (
                 r"For a boost along the first axis, standard time/longitudinal mixing is "
                 r"produced by the event congruence "
-                r"$\pv{X}'=\pv{L}^{-1}\pv{X}(\pv{L}^{-1})^{\mathsf H}"
+                r"$\pv{X}'=\pv{L}^{-1}\pv{X}(\pv{L}^{-1})^{\Hop}"
                 r"=\conj{\pv{L}}\pv{X}\conj{\pv{L}}$; the transverse coordinates are left "
                 r"real and unchanged, and $\detf{\pv{X}}$ is preserved. "
                 r"The event intertwiner "
-                r"$\pv{L}\pv{X}'\pv{L}^{\mathsf H}=\pv{X}$, equivalently "
+                r"$\pv{L}\pv{X}'\pv{L}^{\Hop}=\pv{X}$, equivalently "
                 r"$\pv{L}\pv{X}'=\pv{X}\conj{\pv{L}}$, is also satisfied. "
                 r"That event boost is not produced by either similarity ordering. "
                 r"Standard electric--magnetic mixing is produced by "
@@ -533,7 +537,9 @@ def main():
             (
                 r"For a positive right-angle rotation about the third axis, "
                 r"$\herm{\pv{R}}\pv{X}\pv{R}$ sends "
-                r"$(r_1,r_2,r_3)$ to $(-r_2,r_1,r_3)$. This fixes the displayed "
+                r"$\vthree{r_1}{r_2}{r_3}$ to "
+                r"$\vthree{-r_2}{r_1}{r_3}$. "
+                r"This fixes the displayed "
                 r"positive Rodrigues sign and preserves the event determinant."
             ),
         )
@@ -590,7 +596,7 @@ def main():
             (
                 r"The projector identities are satisfied by the idempotents $\pv{\Pi}(\pm)$, "
                 r"the normalization $\detf{\pv{U}}=1$ is obtained, and "
-                r"$\eqtext{scalar}(\conj{\pv{U}}\pv{A})=0$ follows for symbolic "
+                r"$\eqfunc{scalar}(\conj{\pv{U}}\pv{A})=0$ follows for symbolic "
                 r"three-velocity and three-acceleration components. "
                 r"$E^2-\vct{P}^2 = m^2$ is implied by "
                 r"$m\pv{U} = E + \vct{P}\cdot\sigv$."
@@ -993,7 +999,8 @@ def main():
                 r"$\com{P_m}{P_n}=iq(\partial_mA_n-\partial_nA_m)$ "
                 r"are reproduced on a generic test function. The simultaneous potential "
                 r"change and field phase give "
-                r"$E(\lambda)\psi(\lambda)=\exp(-iq\lambda)E\psi$ and the corresponding "
+                r"$E'\psi_{\eqtext{KG\_with\_potential}}'"
+                r"=\exp(-iq\lambda)E\psi_{\eqtext{KG\_with\_potential}}$ and the corresponding "
                 r"three momentum relations. The mixed-current divergence "
                 r"is reduced to the difference of the two Klein--Gordon equations, and the ordered factorization "
                 r"$(E+\sigv\cdot\vct{P})(E-\sigv\cdot\vct{P})"
@@ -1184,10 +1191,12 @@ def main():
             r"\eqref{eq:energy-spin-reconstruction}",
             "Verified" if free_split_ok else r"\flag{Failed}",
             (
-                r"The free block Hamiltonian squares to "
-                r"$E(\vct{p})^2\I$. Its two displayed energy functions are complementary, "
+                r"The free pair-valued Hamiltonian satisfies "
+                r"$\mathcal H(\mathcal H(\bPsi_{\eqtext{Dirac}}))"
+                r"=E(\vct{p})^2\bPsi_{\eqtext{Dirac}}$. Its two displayed "
+                r"energy functions are complementary, "
                 r"mutually annihilating projectors with multipliers $\pm E(\vct{p})$. "
-                r"The blockwise momentum-axis action commutes with this Hamiltonian, "
+                r"The componentwise momentum-axis action commutes with this Hamiltonian, "
                 r"which justifies the simultaneous free energy and momentum-axis split."
             ),
         )
@@ -1269,21 +1278,12 @@ def main():
             r"Eqs.\ \eqref{eq:fixed-column-carrier}, \eqref{eq:dirac-four-components}, and \eqref{eq:dirac-current}",
             "Verified" if carrier_ok else r"\flag{Failed}",
             (
-                r"Exactly one two-entry column is retained by the fixed right projector. "
+                r"Exactly two complex amplitudes are retained by the fixed right projector. "
                 r"All four displayed Dirac component equations are reproduced by direct "
-                r"Pauli-matrix multiplication. The expressions "
-                r"$\rho(\bPsi)="
-                r"\begin{bmatrix}a^*&b^*\end{bmatrix}"
-                r"\begin{bmatrix}a\\b\end{bmatrix}"
-                r"+\begin{bmatrix}c^*&d^*\end{bmatrix}"
-                r"\begin{bmatrix}c\\d\end{bmatrix}$ and "
-                r"$\vct{j}(\bPsi)="
-                r"\begin{bmatrix}c^*&d^*\end{bmatrix}\sigv"
-                r"\begin{bmatrix}c\\d\end{bmatrix}"
-                r"-\begin{bmatrix}a^*&b^*\end{bmatrix}\sigv"
-                r"\begin{bmatrix}a\\b\end{bmatrix}$ are obtained from the displayed "
-                r"opposite-order products. The normalized one-block matrix is unchanged by "
-                r"$H$ and has only one independent column."
+                r"sigma-basis multiplication. The intrinsic products give "
+                r"$\rho(\bPsi_{\eqtext{Dirac\_with\_potential}})=|a|^2+|b|^2+|c|^2+|d|^2$ and the three displayed "
+                r"components of $\vct{j}(\bPsi_{\eqtext{Dirac\_with\_potential}})$, including every relative sign. The "
+                r"projected norm and one-sided carrier restriction are also verified."
             ),
         )
     )

@@ -1,14 +1,18 @@
 \subsubsection{Intertwining and the General Similarity Transform}
 Compatibility between two descriptions of the same algebraic action is
 expressed by the starting relation \eqref{eq:transform-intertwining}.
-An arbitrary element \(\pv{\psi}'\) in the primed description is represented
-by \(\pv{T}\pv{\psi}'\) in the unprimed description. Acting first with
+An arbitrary algebra input
+\(\pv{\psi}_{\eqtext{algebra\_input}}'\) in the primed description is
+represented by \(\pv{T}\pv{\psi}_{\eqtext{algebra\_input}}'\) in the
+unprimed description. Acting first with
 \(\pv{Z}'\) and then changing description must give the same result as
 changing description first and then acting with \(\pv{Z}\):
 \begin{equation*}
-\pv{T}(\pv{Z}'\pv{\psi}')=\pv{Z}(\pv{T}\pv{\psi}')
-\qquad\text{for every }\pv{\psi}'.
+\pv{T}(\pv{Z}'\pv{\psi}_{\eqtext{algebra\_input}}')
+=\pv{Z}(\pv{T}\pv{\psi}_{\eqtext{algebra\_input}}').
 \end{equation*}
+This equality holds for every
+\(\pv{\psi}_{\eqtext{algebra\_input}}'\).
 Setting the arbitrary right factor to \(1\) gives
 \(\pv{T}\pv{Z}'=\pv{Z}\pv{T}\). This compatibility equation is conventionally
 called an intertwining relation. Because \(\pv{T}\) is invertible, its
@@ -28,7 +32,7 @@ by the positive exponent in Eq.\ \eqref{eq:rotor-element}
 \cite{doran2003}.
 
 The fully general complex paravectors
-\(\pv{Z},\pv{T}\in\Pspace(\C)\) are written as
+\(\pv{Z},\pv{T}\in\CPspace\) are written as
 \begin{align*}
 \pv{Z}&=S+\vct{V}\cdot\sigv,
 &S&\in\C,
@@ -67,7 +71,7 @@ remaining vector terms are
 \vct{V}'
 &=\frac{(f^2+\vct{g}^2)\vct{V}
 -2(\vct{g}\cdot\vct{V})\vct{g}
--2if(\vct{g}\times\vct{V})}{f^2-\vct{g}^2}.
+-2i\,f(\vct{g}\times\vct{V})}{f^2-\vct{g}^2}.
 \label{eq:similarity-components}
 \end{align}
 This is the similarity law for every complex paravector \(\pv{Z}\) and every
@@ -116,61 +120,77 @@ similarity equations and need not be preserved.
 Algebra elements whose action is represented by multiplication are transported
 by the similarity law; this law is not automatically the Lorentz law for every
 physical use of the algebra. A real event paravector is characterized by
-\(\pv{X}^{\mathsf H}=\pv{X}\). Every product
-\(\pv{\psi}\pv{\psi}^{\mathsf H}\) has this property. In the Pauli matrix
-translation, every Hermitian two-by-two matrix can be written as a real
-linear combination of products of this form. It is therefore sufficient to
-transform these products. The element identification is
-\(\pv{\psi}'=\pv{T}^{-1}\pv{\psi}\), and therefore
-\begin{equation*}
-\pv{\psi}'\pv{\psi}'^{\mathsf H}
-=\pv{T}^{-1}(\pv{\psi}\pv{\psi}^{\mathsf H})(\pv{T}^{-1})^{\mathsf H}.
-\end{equation*}
-The same law follows for every real linear combination. For an element that
-satisfies the determinant-one condition
+\(\pv{X}^{\Hop}=\pv{X}\). Pairing the chosen left factor
+\(\pv{T}^{-1}\) with its Hermitian image on the right preserves that defining
+property for every real event and reduces to the identity map when
+\(\pv{T}=1\). Direct application of \(\Hop\) gives
+\[
+\left(
+\pv{T}^{-1}\pv{X}(\pv{T}^{-1})^{\Hop}
+\right)^{\Hop}
+=\pv{T}^{-1}\pv{X}(\pv{T}^{-1})^{\Hop}.
+\]
+The same law is exposed by any product
+\(\pv{\psi}_{\eqtext{algebra\_input}}
+\pv{\psi}_{\eqtext{algebra\_input}}^{\Hop}\), which is self-Hermitian. If
+\(\pv{\psi}_{\eqtext{algebra\_input}}'
+=\pv{T}^{-1}\pv{\psi}_{\eqtext{algebra\_input}}\), then
+\begin{align*}
+\pv{\psi}_{\eqtext{algebra\_input}}'
+\pv{\psi}_{\eqtext{algebra\_input}}'^{\Hop}
+&=\pv{T}^{-1}\notag\\
+&\quad{}
+\bigl(\pv{\psi}_{\eqtext{algebra\_input}}
+\pv{\psi}_{\eqtext{algebra\_input}}^{\Hop}\bigr)
+(\pv{T}^{-1})^{\Hop}.
+\end{align*}
+For an element that satisfies the determinant-one condition
 \(\pv{T}\cherm{\pv{T}}=1\), as required for the rotations and boosts
 considered here, it is
 \begin{align}
 \pv{X}'
-&=\pv{T}^{-1}\pv{X}(\pv{T}^{-1})^{\mathsf H}\notag\\
-&=\pv{T}^{*\mathsf H}\pv{X}\pv{T}^*.
+&=\pv{T}^{-1}\pv{X}(\pv{T}^{-1})^{\Hop}\notag\\
+&=\pv{T}^{*\Hop}\pv{X}\pv{T}^*.
 \label{eq:general-event-congruence}
 \end{align}
 The right factor is the Hermitian image of the left factor. A two-sided
 transformation with this relation between its factors is called a Hermitian
 congruence \cite{baylis1999,doran2003}. It is not a similarity, whose two
 factors are an inverse pair. The second factor occurs because an event can
-be built from products \(\pv{\psi}\pv{\psi}^{\mathsf H}\). The complex
+be built from products
+\(\pv{\psi}_{\eqtext{algebra\_input}}
+\pv{\psi}_{\eqtext{algebra\_input}}^{\Hop}\). The complex
 scalar part of every paravector is
 preserved by a similarity according to Eq.\ \eqref{eq:similarity-components};
 the time coordinate therefore cannot be mixed with a spatial coordinate by
 that law.
-Distinct roles are assigned to star and \(H\). In the Pauli matrix
-translation, \({}^{\mathsf H}\) is entrywise conjugation followed by
-transpose, whereas
-\({}^{*\mathsf H}\) is the adjugate. The latter equals \(\pv{T}^{-1}\) only
-after the determinant-one normalization \(\pv{T}\cherm{\pv{T}}=1\) has been imposed.
-The set \(\Pspace(\R)\) is preserved because
-\((\pv{X}')^{\mathsf H}=\pv{X}'\), and the event determinant is preserved because
+Distinct roles are assigned to star and \(\Hop\). Their combination
+\({}^{*\Hop}\) is the adjugate, which equals \(\pv{T}^{-1}\) only after the
+determinant-one normalization
+\(\pv{T}\cherm{\pv{T}}=1\) has been imposed. Appendix
+\ref{sec:matrix-appendix} gives the optional translation of these
+operations.
+The set \(\RPspace\) is preserved because
+\((\pv{X}')^{\Hop}=\pv{X}'\), and the event determinant is preserved because
 \(\pv{T}^{-1}\) has unit determinant. When \(\pv{X}\) is invertible, the
 transformed inverse is obtained without a new definition:
 \begin{equation}
-(\pv{X}')^{-1}=\pv{T}^{\mathsf H}\pv{X}^{-1}\pv{T},
+(\pv{X}')^{-1}=\pv{T}^{\Hop}\pv{X}^{-1}\pv{T},
 \label{eq:event-inverse-transform}
 \end{equation}
 because the identity is obtained by direct multiplication with
-\(\pv{X}'=\pv{T}^{-1}\pv{X}(\pv{T}^{-1})^{\mathsf H}\). The same inverse
+\(\pv{X}'=\pv{T}^{-1}\pv{X}(\pv{T}^{-1})^{\Hop}\). The same inverse
 pattern is used later when the derivative paravector is transformed. An
 equivalent event compatibility equation is obtained by
 multiplication of Eq.\ \eqref{eq:general-event-congruence} on the left by
-\(\pv{T}\) and on the right by \(\pv{T}^{\mathsf H}\):
+\(\pv{T}\) and on the right by \(\pv{T}^{\Hop}\):
 \begin{align}
-\pv{T}\pv{X}'\pv{T}^{\mathsf H}&=\pv{X},\notag\\
+\pv{T}\pv{X}'\pv{T}^{\Hop}&=\pv{X},\notag\\
 \pv{T}\pv{X}'&=\pv{X}\pv{T}^*.
 \label{eq:event-intertwining}
 \end{align}
 The determinant-one identity
-\((\pv{T}^{-1})^{\mathsf H}=\pv{T}^*\) is used in the second line.
+\((\pv{T}^{-1})^{\Hop}=\pv{T}^*\) is used in the second line.
 The form \(\pv{T}\pv{X}'=\pv{X}\pv{T}\) is obtained for a circular rotor because
 \(\pv{R}^*=\pv{R}\), but not for a boost. The similarity and event
 compatibility equations are therefore identical for circular rotors but
@@ -187,7 +207,7 @@ compatibility argument:
 \label{eq:general-field-similarity}
 \end{equation}
 For a circular rotor, \(\pv{R}^*=\pv{R}\) and
-\(\pv{R}^{-1}=\pv{R}^{\mathsf H}\), so Eq.\ \eqref{eq:general-event-congruence}
+\(\pv{R}^{-1}=\pv{R}^{\Hop}\), so Eq.\ \eqref{eq:general-event-congruence}
 rotates the represented spatial vector while the coordinate axes are held
 fixed. This description is called active, and the event law is reduced to
 \begin{equation}
@@ -195,38 +215,40 @@ fixed. This description is called active, and the event law is reduced to
 \label{eq:rotor}
 \end{equation}
 For the hyperbolic element in Eq.\ \eqref{eq:boost-element},
-\(\pv{L}^{\mathsf H}=\pv{L}\) and
-\(\pv{L}^{-1}=\pv{L}^*=\pv{L}^{*\mathsf H}\). In this case the coordinates
+\(\pv{L}^{\Hop}=\pv{L}\) and
+\(\pv{L}^{-1}=\pv{L}^*=\pv{L}^{*\Hop}\). In this case the coordinates
 assigned to the same event are changed to those of the boosted frame. This
 description is called passive
 \cite{lorentz1904,einstein1905,minkowski1908}, and the same general event law
 is reduced to
 \begin{align}
 \pv{X}'
-&=\pv{L}^{-1}\pv{X}(\pv{L}^{-1})^{\mathsf H}\notag\\
+&=\pv{L}^{-1}\pv{X}(\pv{L}^{-1})^{\Hop}\notag\\
 &=\conj{\pv{L}}\pv{X}\conj{\pv{L}}.
 \label{eq:boost}
 \end{align}
 The equal factors in the final line are obtained from
-\((\pv{L}^{-1})^{\mathsf H}=\pv{L}^{-1}\). They are not an inverse pair.
+\((\pv{L}^{-1})^{\Hop}=\pv{L}^{-1}\). They are not an inverse pair.
 For comparison, the following results are obtained from the two possible
 similarity orderings:
 \begin{align}
 \pv{L}^{-1}\pv{X}\pv{L}
 &=t+\Bigl(
-\eqtext{par}(\vct{r})
-+\cosh(\theta)\eqtext{prp}(\vct{r})
+\eqfunc{par}(\vct{r})
++\cosh(\theta)\eqfunc{prp}(\vct{r})\notag\\
+&\qquad
 -i\sinh(\theta)\vct{u}\times\vct{r}
 \Bigr)\!\cdot\sigv,\notag\\
 \pv{L}\pv{X}\pv{L}^{-1}
 &=t+\Bigl(
-\eqtext{par}(\vct{r})
-+\cosh(\theta)\eqtext{prp}(\vct{r})
+\eqfunc{par}(\vct{r})
++\cosh(\theta)\eqfunc{prp}(\vct{r})\notag\\
+&\qquad
 +i\sinh(\theta)\vct{u}\times\vct{r}
 \Bigr)\!\cdot\sigv.
 \label{eq:event-boost-similarity-test}
 \end{align}
-Under both similarities, \(t\) and \(\eqtext{par}(\vct{r})\) are left
+Under both similarities, \(t\) and \(\eqfunc{par}(\vct{r})\) are left
 unchanged and a generic real perpendicular component is made complex. A
 Lorentz boost of the real event \(\pv{X}\) is therefore not obtained. In the
 simple case \(\vct{r}=a\vct{u}\), where the position vector is parallel to
@@ -240,7 +262,7 @@ Eq.\ \eqref{eq:general-field-similarity} is reduced to
 The unequal right factors are therefore consequences of the event and field
 having different algebraic actions, not of an inconsistent choice of
 inverse. Under the definition of \(\pv{L}(\theta,\vct{u})\), the two-sided
-product \(\pv{L}^{\mathsf H}\pv{X}\pv{L}
+product \(\pv{L}^{\Hop}\pv{X}\pv{L}
 =\pv{L}\pv{X}\pv{L}\) is the inverse-direction event boost, obtained by
 replacing \(\theta\) with \(-\theta\). It is physically legitimate, but it
 is not the passive \(+\theta\) convention used in Eq.\ \eqref{eq:boost}.
@@ -293,13 +315,13 @@ similarity and event actions of this local factor are
 +\com{\pv{Z}(\lambda)}{\pv{\Omega}}\,\dd\lambda,\\
 \pv{X}(\lambda+\dd\lambda)
 &=\pv{X}(\lambda)-\pv{\Omega}\pv{X}(\lambda)\,\dd\lambda
--\pv{X}(\lambda)\pv{\Omega}^{\mathsf H}\,\dd\lambda.
+-\pv{X}(\lambda)\pv{\Omega}^{\Hop}\,\dd\lambda.
 \end{align*}
 The two Hermitian cases reduce the added event term to
 \begin{align*}
-\pv{\Omega}^{\mathsf H}=-\pv{\Omega}
+\pv{\Omega}^{\Hop}=-\pv{\Omega}
 &:\quad \com{\pv{X}(\lambda)}{\pv{\Omega}}\,\dd\lambda,\\
-\pv{\Omega}^{\mathsf H}=\pv{\Omega}
+\pv{\Omega}^{\Hop}=\pv{\Omega}
 &:\quad -\acom{\pv{\Omega}}{\pv{X}(\lambda)}\,\dd\lambda.
 \end{align*}
 The first term generates a rotation. The second mixes the scalar time
@@ -348,7 +370,7 @@ immediately by similarity:
 Thus the same sigma multiplication table is satisfied by the transformed
 generators for every invertible \(\pv{T}\).
 
-The separate actions of star and \(H\) on the transformed
+The separate actions of star and \(\Hop\) on the transformed
 generators are represented by
 \begin{align*}
 \conj{\pv{\sigma}_n'}
@@ -359,8 +381,8 @@ generators are represented by
 =\herm{\pv{T}}\pv{\sigma}_n(\herm{\pv{T}})^{-1}.
 \end{align*}
 The scalar part is also preserved by similarity, so
-\(\eqtext{scalar}(\pv{\sigma}_n')=\eqtext{scalar}(\pv{\sigma}_n)=0\).
-The individual star and \(H\) actions are recorded separately by these
+\(\eqfunc{scalar}(\pv{\sigma}_n')=\eqfunc{scalar}(\pv{\sigma}_n)=0\).
+The individual star and \(\Hop\) actions are recorded separately by these
 formulas and are combined by the adjugate relation.
 
 For every invertible \(\pv{T}\), applying the adjugate before the similarity
@@ -368,7 +390,7 @@ gives the same result as applying it afterward. This follows from
 \(\cherm{\pv{T}}=(f^2-\vct{g}^2)\pv{T}^{-1}\) and
 \(\cherm{(\pv{T}^{-1})}=\pv{T}/(f^2-\vct{g}^2)\):
 \begin{align*}
-(\pv{\sigma}_n')^{*\mathsf H}
+(\pv{\sigma}_n')^{*\Hop}
 &=(f^2-\vct{g}^2)\pv{T}^{-1}(-\pv{\sigma}_n)
   \frac{\pv{T}}{f^2-\vct{g}^2}\\
 &=-\pv{T}^{-1}\pv{\sigma}_n\pv{T}=-\pv{\sigma}_n'.
@@ -382,7 +404,7 @@ Here \(S\) and \(\vct{V}\) denote the coefficients in the displayed primed
 basis; no fixed-basis vector extraction is being applied. The same
 determinant expression is then assigned:
 \[
-\pv{Z}\pv{Z}^{*\mathsf H}
+\pv{Z}\pv{Z}^{*\Hop}
 =S^2-\vct{V}^2.
 \]
 
@@ -409,7 +431,7 @@ The coefficient form is obtained directly from
 Relative to the primed basis, its vector coefficient is written uniquely as
 \[
 \pv{\Omega}
-=\eqtext{scalar}(\pv{\Omega})
+=\eqfunc{scalar}(\pv{\Omega})
  +\tfrac12(\vct{k}+i\vct{\boldsymbol\omega})\cdot\sigv',
 \qquad \vct{k},\vct{\boldsymbol\omega}\in\R^3.
 \]
@@ -427,8 +449,8 @@ For \(n\in\{1,2,3\}\), the coefficients are given by cyclicity of the
 algebraic scalar part:
 \[
 k_n+i\omega_n
-=2\,\eqtext{scalar}(\pv{\Omega}\pv{\sigma}_n')
-=2\,\eqtext{scalar}(\pv{\Omega}'\pv{\sigma}_n).
+=2\,\eqfunc{scalar}(\pv{\Omega}\pv{\sigma}_n')
+=2\,\eqfunc{scalar}(\pv{\Omega}'\pv{\sigma}_n).
 \]
 The scalar part is central with respect to the basis, while
 \begin{align*}
@@ -457,6 +479,7 @@ Eq.\ \eqref{eq:rotor-element} has the expanded form
 \pv{R}(\theta ,\vct{u}) &= \exp( \tfrac{1}{2} \theta (\vct{u} \cdot i \sigv ) ),\notag \\
 &= \cos( \tfrac{1}{2} \theta ) + \sin( \tfrac{1}{2} \theta ) (\vct{u} \cdot i \sigv ).
 \end{align*}
+The inverse is obtained as
 \begin{equation*}
 \pv{R}^{-1} = \exp( -\tfrac{1}{2} \theta (\vct{u} \cdot i \sigv ) ).
 \end{equation*}
@@ -464,7 +487,7 @@ Eq.\ \eqref{eq:rotor-element} has the expanded form
 \(\pv{R}\) is generated by the sigma-number-two element
 \(\vct{u}\cdot i\sigv\). The
 inverse relation is
-\(\pv{R}^{-1}=\pv{R}^{\mathsf H}=\pv{R}^{*\mathsf H}\).
+\(\pv{R}^{-1}=\pv{R}^{\Hop}=\pv{R}^{*\Hop}\).
 The sign of the \(\vct{u}\times\vct{r}\) term, and therefore the positive
 rotation direction, is fixed by the substitution
 \begin{equation*}
@@ -478,14 +501,15 @@ f^2-\vct{g}^2&=1,\\
 f^2+\vct{g}^2&=\cos(\theta),\\
 -2(\vct{g}\cdot\vct{r})\vct{g}
 &=(1-\cos(\theta))(\vct{u}\cdot\vct{r})\vct{u},\\
--2if(\vct{g}\times\vct{r})
+-2i\,f(\vct{g}\times\vct{r})
 &=\sin(\theta)(\vct{u}\times\vct{r}).
 \end{align*}
 Therefore the transformed paravector is
 \begin{align*}
-\pv{X}' &= \pv{R}^{\mathsf H} \pv{X} \pv{R},\notag \\
+\pv{X}' &= \pv{R}^{\Hop} \pv{X} \pv{R},\notag \\
 &= t' + \vct{r}' \cdot \sigv.
 \end{align*}
+The scalar and vector parts are therefore obtained as
 \begin{align*}
 t' &= t,\notag \\
 \vct{r}' &= \vct{r} \cos(\theta ) + (\vct{u} \times \vct{r}) \sin(\theta ),\notag \\
@@ -494,28 +518,30 @@ t' &= t,\notag \\
 The vector formula is the standard axis--angle expression conventionally
 called Rodrigues's formula \cite{doran2003}.
 For a parameter-dependent rotor, the specialization of the general generator
-is \(\pv{R}^{\mathsf H}(\dd\pv{R}/\dd\lambda)\). Its form carried to the
+is \(\pv{R}^{\Hop}(\dd\pv{R}/\dd\lambda)\). Its form carried to the
 other side is
-\((\dd\pv{R}/\dd\lambda)\pv{R}^{\mathsf H}\).
+\((\dd\pv{R}/\dd\lambda)\pv{R}^{\Hop}\).
 The following identities are obtained by differentiating
-\(\pv{R}^{\mathsf H}\pv{R}=1\):
+\(\pv{R}^{\Hop}\pv{R}=1\):
 \[
-\left(\pv{R}^{\mathsf H}\frac{\dd\pv{R}}{\dd\lambda}\right)^{\mathsf H}
-=-\pv{R}^{\mathsf H}\frac{\dd\pv{R}}{\dd\lambda},
+\left(\pv{R}^{\Hop}\frac{\dd\pv{R}}{\dd\lambda}\right)^{\Hop}
+=-\pv{R}^{\Hop}\frac{\dd\pv{R}}{\dd\lambda},
 \qquad
-\left(\frac{\dd\pv{R}}{\dd\lambda}\pv{R}^{\mathsf H}\right)^{\mathsf H}
-=-\frac{\dd\pv{R}}{\dd\lambda}\pv{R}^{\mathsf H}.
+\left(\frac{\dd\pv{R}}{\dd\lambda}\pv{R}^{\Hop}\right)^{\Hop}
+=-\frac{\dd\pv{R}}{\dd\lambda}\pv{R}^{\Hop}.
 \]
 The rotation transport law is the specialization of the general
 one-parameter similarity formula:
 \begin{align*}
 \frac{\dd\pv{X}'}{\dd\lambda}
-&=\pv{R}^{\mathsf H}\frac{\dd\pv{X}}{\dd\lambda}\pv{R}
-+\com{\pv{X}'}{\pv{R}^{\mathsf H}\dfrac{\dd\pv{R}}{\dd\lambda}}\\
-&=\pv{R}^{\mathsf H}
+&=\pv{R}^{\Hop}\frac{\dd\pv{X}}{\dd\lambda}\pv{R}
++\com{\pv{X}'}{\pv{R}^{\Hop}\dfrac{\dd\pv{R}}{\dd\lambda}}\\
+&=\pv{R}^{\Hop}
 \left(\frac{\dd\pv{X}}{\dd\lambda}
-+\com{\pv{X}}{\dfrac{\dd\pv{R}}{\dd\lambda}\pv{R}^{\mathsf H}}\right)\pv{R}.
++\com{\pv{X}}{\dfrac{\dd\pv{R}}{\dd\lambda}\pv{R}^{\Hop}}\right)\pv{R}.
 \end{align*}
+
+\input{sections/algebra_quaternions.tex}
 
 \subsubsection{Spin Rotors}
 Each oriented product of two different sigma generators is identified by
@@ -537,12 +563,12 @@ Eq.\ \eqref{eq:rotor-element} is evaluated as
 \end{align*}
 Then
 \[
-\pv{R}^{-1}=\pv{R}^{\mathsf H}=\pv{R}^{*\mathsf H},\qquad
-\pv{R}^{\mathsf H}\pv{R}=1,
+\pv{R}^{-1}=\pv{R}^{\Hop}=\pv{R}^{*\Hop},\qquad
+\pv{R}^{\Hop}\pv{R}=1,
 \]
 and
 \[
-\pv{R}^{\mathsf H}(\vct{u}\cdot\sigv)\pv{R}
+\pv{R}^{\Hop}(\vct{u}\cdot\sigv)\pv{R}
 =\vct{u}'\cdot\sigv
 \]
 with \(\vct{u}'\) defined by Rodrigues's formula. The rotor itself is
@@ -554,21 +580,20 @@ single-valued and \(4\pi\)-periodic:
 The induced spatial rotation is two-to-one because the same conjugation is
 produced by \(\pv{R}\) and \(-\pv{R}\).
 
-In the Pauli matrix realization, the two-by-two representation is transposed
-and complex-conjugated by \(H\). A general
-\(\pv{\psi}\in\Pspace(\C)\) is therefore a full two-by-two matrix, not one
-selected two-entry column: its two columns are rotated independently by
-left multiplication. One column is selected by a fixed projector on the
-right when a single two-entry Pauli wave function is intended
-\cite{pauli1927,sakurai2017}.
-Under the active convention associated with this vector action,
-\[
-\pv{\psi}'=\pv{R}^{\mathsf H}\pv{\psi},\qquad
-\pv{\psi}'\pv{\psi}'^{\mathsf H}
-=\pv{R}^{\mathsf H}(\pv{\psi}\pv{\psi}^{\mathsf H})\pv{R}.
-\]
+Under the active convention associated with this vector action, an algebra
+input and its opposite-order product transform as
+\begin{align*}
+\pv{\psi}_{\eqtext{algebra\_input}}'
+&=\pv{R}^{\Hop}\pv{\psi}_{\eqtext{algebra\_input}},\\
+\pv{\psi}_{\eqtext{algebra\_input}}'
+\pv{\psi}_{\eqtext{algebra\_input}}'^{\Hop}
+&=\pv{R}^{\Hop}\notag\\
+&\quad{}
+\bigl(\pv{\psi}_{\eqtext{algebra\_input}}
+\pv{\psi}_{\eqtext{algebra\_input}}^{\Hop}\bigr)\pv{R}.
+\end{align*}
 A physical spin state additionally requires a scalar rule for pairing two
-states, a normalization, one selected right-projector column, a Hermitian
+states, a normalization, one fixed right-projector restriction, a Hermitian
 element representing the measurement, and a rule for its predicted average.
 Those choices are defined in
 Eqs.\ \eqref{eq:adjoint-paravector-braket} and
