@@ -44,6 +44,7 @@
 \newcommand{\bb}{\bm{b}}
 \newcommand{\bq}{\bm{q}}
 \newcommand{\bT}{\bm{T}}
+\newcommand{\bS}{\bm{S}}
 \newcommand{\bF}{\bm{F}}
 \newcommand{\bE}{\bm{E}}
 \newcommand{\bBf}{\bm{B}}
@@ -840,32 +841,61 @@ Taking the real paravector part removes the two imaginary components.
 
 \subsection{Energy balance}
 
-Let
+Recall
 \begin{equation}
- T:=\tfrac12FF^{\mathsf H}
- =T_s+\bT_v\cdot\bsig,\qquad
- T_s=\tfrac12(\bE^2+\bBf^2),\quad
- \bT_v=\bE\times\bBf.
+ F=(\bE+\ii\bBf)\cdot\bsig.
 \end{equation}
-Then the scalar part of $\partial T$ is
-$\partial_tT_s+\pdr\cdot\bT_v$.  The source products needed for local
-balance have components
+The standard electromagnetic energy density $u$ and Poynting vector $\bS$
+are precisely the scalar and vector coefficients
+of $\tfrac12FF^{\mathsf H}$:
 \begin{align}
- FD^* &: -\bE\cdot\bJ-\ii\bBf\cdot\bJ
- +(\rho\bE+\bBf\times\bJ)\cdot\bsig
- +\ii(\rho\bBf-\bE\times\bJ)\cdot\bsig,\\
- D^* F &: -\bE\cdot\bJ-\ii\bBf\cdot\bJ
- +(\rho\bE-\bBf\times\bJ)\cdot\bsig
- +\ii(\rho\bBf+\bE\times\bJ)\cdot\bsig.
+ u
+ &:=\tfrac12(\bE^2+\bBf^2)
+ =\tfrac12\scpart{FF^{\mathsf H}},\\
+ \bS
+ &:=\bE\times\bBf
+ =\tfrac12\vecpart{FF^{\mathsf H}}.
 \end{align}
-Since the derivative is not an ordinary scalar derivation,
+This product order gives the conventional sign of the Poynting vector
+directly.  For comparison, reversing the order preserves the scalar
+coefficient and changes the sign of the vector coefficient:
 \begin{equation}
- \partial(F^2)=D^* F+FD^*+[\bsig,F]\cdot\pdr F.
+ \scpart{F^{\mathsf H}F}=\scpart{FF^{\mathsf H}},
+ \qquad
+ \vecpart{F^{\mathsf H}F}=-\vecpart{FF^{\mathsf H}}.
 \end{equation}
-Writing $F=\bF\cdot\bsig$, its last term is
+Starting only from the paravector field equation $\partial F=D^*$, its
+real-vector and imaginary-vector components give
 \begin{equation}
- -2\ii\bF\cdot(\pdr\times\bF)
- -2\left((\pdr\cdot\bF)\bF-\tfrac12\pdr(\bF^2)\right)\cdot\bsig.
+ \partial_t\bE=\pdr\times\bBf-\bJ,
+ \qquad
+ \partial_t\bBf=-\pdr\times\bE.
+\end{equation}
+Taking their dot products with $\bE$ and $\bBf$, respectively, yields
+\begin{align}
+ \partial_tu
+ &=\bE\cdot\partial_t\bE+\bBf\cdot\partial_t\bBf\\
+ &=\bE\cdot(\pdr\times\bBf)-\bE\cdot\bJ
+   -\bBf\cdot(\pdr\times\bE)\\
+ &=-\pdr\cdot\bS-\bJ\cdot\bE,
+\end{align}
+where
+$\pdr\cdot(\bE\times\bBf)
+=\bBf\cdot(\pdr\times\bE)-\bE\cdot(\pdr\times\bBf)$.
+Substitution into $\partial_tu$ therefore derives Poynting's theorem, the
+local electromagnetic energy-balance law:
+\begin{equation}
+ \boxed{\partial_tu
+ +\pdr\cdot\bS=-\bJ\cdot\bE.}
+ \label{eq:poynting}
+\end{equation}
+Here $\bJ\cdot\bE$ is the power density transferred from the field to
+matter; the minus sign is the corresponding loss of field energy.
+Equivalently, in paravector coefficients,
+\begin{equation}
+ \tfrac12\partial_t\scpart{FF^{\mathsf H}}
+ +\tfrac12\pdr\cdot\vecpart{FF^{\mathsf H}}
+ =-\bJ\cdot\bE.
 \end{equation}
 
 \section{Relativistic wave equations}
