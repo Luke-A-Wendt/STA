@@ -266,12 +266,6 @@ Finally, define real and imaginary paravector extraction by
  \impart Z&:=\frac{Z-Z^{\mathsf H}}{2\ii}=Y.
  \label{eq:algebra-re-im}
 \end{align}
-These definitions are intrinsic to the algebra.  Appendix~\ref{sec:matrix}
-later reproduces them through the faithful Pauli-matrix representation.
-
-
-\subsection{Component extraction}
-
 The functions $\operatorname{re}$ and $\operatorname{im}$ also act
 componentwise on complex scalars and vectors.  The scalar and vector parts
 are recovered by
@@ -287,13 +281,8 @@ The four real coefficients then follow by composition:
  \bA&=\repart{\bV}=\vecpart X=\vecpart{\repart Z},&
  \bB&=\impart{\bV}=\vecpart Y=\vecpart{\impart Z}.
 \end{align}
-Equivalently, they may be recovered directly from these operators:
-\begin{align}
- a&=\tfrac14(Z+Z^*+Z^{\mathsf H}+Z^{*\mathsf H}),\\
- b&=\tfrac1{4\ii}(Z-Z^*-Z^{\mathsf H}+Z^{*\mathsf H}),\\
- \bA\cdot\bsig&=\tfrac14(Z-Z^*+Z^{\mathsf H}-Z^{*\mathsf H}),\\
- \bB\cdot\bsig&=\tfrac1{4\ii}(Z+Z^*-Z^{\mathsf H}-Z^{*\mathsf H}).
-\end{align}
+These definitions are intrinsic to the algebra.  Appendix~\ref{sec:matrix}
+later reproduces them through the faithful Pauli-matrix representation.
 
 \subsection{Products and quadratic forms}
 
@@ -346,14 +335,15 @@ Equivalently, if $Z=X+\ii Y$ and $Z'=X'+\ii Y'$, then
   ZZ'=(XX'-YY')+\ii(XY'+YX').
 \]
 
-Define the scalar, vector, and paravector coefficient norms by
+For $S=a+\ii b$ and $\bV=\bA+\ii\bB$, define the coefficient norms by
 \begin{align}
- \lVert S\rVert^2&:=SS^*=S^*S,\\
- \lVert\bV\rVert^2&:=\bV\cdot\bV^*=\bV^*\cdot\bV,\\
- \lVert Z\rVert^2&=\lVert S\rVert^2+\lVert\bV\rVert^2.
+ \lVert S\rVert^2&:=SS^*=S^*S=a^2+b^2,\\
+ \lVert\bV\rVert^2&:=\bV\cdot\bV^*=\bV^*\cdot\bV
+ =\bA^2+\bB^2,\\
+ \lVert Z\rVert^2&:=\lVert S\rVert^2+\lVert\bV\rVert^2.
  \label{eq:coefficient-norm}
 \end{align}
-Equivalently,
+The paravector norm may equivalently be written
 \begin{equation}
  \lVert Z\rVert^2=\scpart{Z^{\mathsf H}Z}
  =\scpart{ZZ^{\mathsf H}}
@@ -362,36 +352,44 @@ Equivalently,
  \label{eq:paravector-norm}
 \end{equation}
 Thus $\det(Z)$ may be complex, whereas $\lVert Z\rVert^2$ is real and
-nonnegative.  For $S=a+\ii b$ and $\bV=\bA+\ii\bB$,
-\begin{equation}
- \lVert S\rVert^2=a^2+b^2,
- \qquad
- \lVert\bV\rVert^2=\bA^2+\bB^2.
-\end{equation}
-In general,
+nonnegative.  In general,
 \begin{equation}
  S^2\ne\lVert S\rVert^2,
  \qquad
  \bV^2\ne\lVert\bV\rVert^2.
 \end{equation}
-For any complex scalar $c$,
+For any complex scalar $c$, $\adj{cZ}=c\adj Z$, so
 \begin{equation}
  \det(cZ)=c^2\det(Z).
  \label{eq:det-scalar-scaling}
 \end{equation}
-Indeed, $\operatorname{mat}(cZ)=c\operatorname{mat}(Z)$, and the determinant
-of a $2\times2$ matrix is quadratic in a scalar multiplier.  Thus, for real
-$r$ and real phase $\theta$,
+Thus, for real $r$ and $\theta$,
 \begin{align}
  \det(re^{\ii\theta}Z)&=r^2e^{2\ii\theta}\det(Z),\\
  \lVert re^{-\ii\theta}Z\rVert^2&=r^2\lVert Z\rVert^2.
 \end{align}
-Every paravector satisfies the quadratic identity
+Since $Z-S=\bV\cdot\bsig$ and
+$(\bV\cdot\bsig)^2=\bV^2$,
+\begin{align}
+ (Z-S)^2&=\bV^2,\\
+ Z^2-2SZ+(S^2-\bV^2)&=0.
+\end{align}
+Using $\operatorname{tr}(Z)=2S$ and
+$\det(Z)=S^2-\bV^2$ gives the equivalent trace--determinant identity
 \begin{equation}
-  Z^2-2S Z+(S^2-\bV^2)=0.
+ Z^2-\operatorname{tr}(Z)Z+\det(Z)=0.
   \label{eq:minimal}
 \end{equation}
-Its two algebraic eigenvalues are $\lambda_\pm=S\pm\sqrt{\bV^2}$.
+Replacing $Z$ by a scalar eigenvalue $\lambda$ and solving this quadratic
+gives
+\begin{equation}
+ \lambda_\pm
+ =\frac{\operatorname{tr}(Z)
+ \pm\sqrt{\operatorname{tr}(Z)^2-4\det(Z)}}{2}
+ =S\pm\sqrt{\bV^2}.
+\end{equation}
+Because $\bV$ is generally complex, $\bV^2=\bV\cdot\bV$ and its square
+root may also be complex.
 
 \subsection{Real products and functions}
 
