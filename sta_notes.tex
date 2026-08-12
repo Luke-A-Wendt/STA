@@ -111,7 +111,7 @@ complex element developed below.
  &\ii^2&=-1,\\
  \bsig&=\{\sigma_1,\sigma_2,\sigma_3\},
  &\ii\bsig&=\{\sigma_2\sigma_3,\sigma_3\sigma_1,\sigma_1\sigma_2\},\\
- Z&=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig,
+ Z&=(a+b\ii)+(\bA+\bB\ii)\cdot\bsig,
  &a,b&\in\R,\quad \bA,\bB\in\R^3.
 \end{align*}
 \end{minipage}}
@@ -219,11 +219,11 @@ in the Pauli-matrix representation.
 Collect a general complex paravector as
 \begin{equation}
  \begin{aligned}
-  Z&=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig\\
+  Z&=(a+b\ii)+(\bA+\bB\ii)\cdot\bsig\\
    &=X+\ii Y\\
    &=S+\bV\cdot\bsig,\\
   X&:=a+\bA\cdot\bsig,&Y&:=b+\bB\cdot\bsig,\\
-  S&:=a+b\ii,& \bV&:=\bA+\ii\bB,
+  S&:=a+b\ii,& \bV&:=\bA+\bB\ii,
  \end{aligned}
  \label{eq:paravector}
 \end{equation}
@@ -238,8 +238,8 @@ Sigma conjugation changes the sign of every sigma generator without changing
 multiplied order; the Hermitian operator changes multiplied sigma order.
 For a paravector, define them directly by
 \begin{align}
- Z^*&:=(a-b\ii)+(-\bA+\ii\bB)\cdot\bsig,\\
- Z^{\mathsf H}&:=(a-b\ii)+(\bA-\ii\bB)\cdot\bsig.
+ Z^*&:=(a-b\ii)+(-\bA+\bB\ii)\cdot\bsig,\\
+ Z^{\mathsf H}&:=(a-b\ii)+(\bA-\bB\ii)\cdot\bsig.
  \label{eq:algebra-star-H}
 \end{align}
 Their composition is the adjugate:
@@ -335,7 +335,7 @@ Equivalently, if $Z=X+\ii Y$ and $Z'=X'+\ii Y'$, then
   ZZ'=(XX'-YY')+\ii(XY'+YX').
 \]
 
-For $S=a+\ii b$ and $\bV=\bA+\ii\bB$, define the coefficient norms by
+For $S=a+b\ii$ and $\bV=\bA+\bB\ii$, define the coefficient norms by
 \begin{align}
  \lVert S\rVert^2&:=SS^*=S^*S=a^2+b^2,\\
  \lVert\bV\rVert^2&:=\bV\cdot\bV^*=\bV^*\cdot\bV
@@ -435,7 +435,7 @@ $\det(XY)=\det(Y)\det(X)$.
 
 Let
 \begin{equation}
- Z=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig,
+ Z=(a+b\ii)+(\bA+\bB\ii)\cdot\bsig,
  \qquad
  a,b\in\R,\quad \bA,\bB\in\R^3,
 \end{equation}
@@ -670,7 +670,7 @@ For products of fields,
  \partial(ZZ')=(\partial Z)Z'+Z(\partial Z')
  +[\bsig,Z]\cdot\pdr Z'.
 \end{equation}
-Let $F=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig$ depend on $(t,\br)$.  Then
+Let $F=(a+b\ii)+(\bA+\bB\ii)\cdot\bsig$ depend on $(t,\br)$.  Then
 \begin{align}
  \partial F={}&(\partial_ta+\pdr\cdot\bA)
  +\ii(\partial_tb+\pdr\cdot\bB)\\
@@ -852,7 +852,7 @@ Introduce the paravector differential operator, electromagnetic field, and
 source
 \begin{equation}
  \partial=\partial_t+\bsig\cdot\pdr,\qquad
- F=(\bE+\ii\bBf)\cdot\bsig,\qquad
+ F=(\bE+\bBf\ii)\cdot\bsig,\qquad
  D=\rho+\bJ\cdot\bsig.
 \end{equation}
 All four Maxwell equations are the single equation
@@ -964,29 +964,72 @@ Thus $F$ is unchanged.  In the Lorenz gauge $S=0$, equation
  \qquad \bJ=\Box\bA.
 \end{equation}
 
-\subsection{Invariants, energy, and force}
+\subsection{Field invariants}
 
-For $F=(\bE+\ii\bBf)\cdot\bsig$, two simple products contain the standard electromagnetic invariants and
-energy flow:
+Electric and magnetic fields mix under Lorentz transformations, so their
+individual magnitudes depend on the observer.  Two combinations remain the
+same for every inertial observer and therefore classify the electromagnetic
+field itself.
+
+For
+\begin{equation}
+ F=(\bE+\bBf\ii)\cdot\bsig,
+\end{equation}
+the scalar part vanishes, and therefore $\adj F=-F$.  Hence
 \begin{align}
- \tfrac12F^2&=\tfrac12(\bE^2-\bBf^2)+\ii\bE\cdot\bBf,\\
- \tfrac12F\rev F&=\tfrac12(\bE^2+\bBf^2)
-                      +(\bE\times\bBf)\cdot\bsig.
+ \Det F
+ &=-F^2\\
+ &=-(\bE+\bBf\ii)\cdot(\bE+\bBf\ii)\\
+ &=-\bE^2+\bBf^2-2\ii\bE\cdot\bBf.
 \end{align}
-Thus the scalar and vector parts of the second expression are the field energy
-density and Poynting vector.  The covariant Lorentz force is
+The Lorentz action induced on a bivector is the similarity transformation
+\begin{equation}
+ F'=LFL^{-1}=LFL^*,
+\end{equation}
+where $L^{-1}=L^*$.  Determinant multiplicativity, equivalently its cyclic
+property, then gives
+\begin{align}
+ \Det{F'}
+ &=\Det{LFL^{-1}}\\
+ &=\Det L\Det F\Det{L^{-1}}\\
+ &=\Det{FL^{-1}L}=\Det F.
+\end{align}
+Hence every inertial observer agrees on
+\begin{align}
+ a&:=\bE^2-\bBf^2=-\repart{\Det F},\\
+ b&:=\bE\cdot\bBf=-\tfrac12\impart{\Det F}.
+ \label{eq:field-invariants}
+\end{align}
+For nonzero fields, these invariants give the standard classification:
+\begin{align}
+ b=0, a>0&:\quad\text{electric-like; some frame has }\bBf'=0,\\
+ b=0, a<0&:\quad\text{magnetic-like; some frame has }\bE'=0,\\
+ a=b=0&:\quad\text{null or radiation-like; }
+ \bE\perp\bBf\text{ and }\lVert\bE\rVert=\lVert\bBf\rVert,\\
+ b\ne0&:\quad\text{no frame can eliminate either field.}
+\end{align}
+Thus the invariants reveal physical properties that cannot be inferred from
+one observer's values of $\bE$ and $\bBf$ alone.  Unlike the energy density
+and flux below, they do not change with the observer.
+
+\subsection{Lorentz force from the field and action}
+
+The Lorentz proper-force equation is
 \begin{equation}
  m\frac{\dd U}{\dd s}=q\repart{FU}
- =\frac q2\bigl(FU+U\rev F\bigr),
+ =\frac q2\bigl(FU+U\rev F\bigr).
  \label{eq:lorentz}
 \end{equation}
-which reproduces
-$\dd(m\gamma)/\dd t=q\bv\cdot\bE$ and
-$\dd\bP/\dd t=q(\bE+\bv\times\bBf)$.
+The Hermitian extraction removes the imaginary magnetic-dual components.
+The remaining scalar and vector components are, respectively,
+\begin{equation}
+ \frac{\dd(m\gamma)}{\dd t}=q\bv\cdot\bE,
+ \qquad
+ \frac{\dd\bP}{\dd t}=q(\bE+\bv\times\bBf).
+\end{equation}
 
-\subsection{Derivation of force from the potential and action}
-
-The interacting particle action is
+The same result follows from the potential through the interacting-particle
+action
 \begin{align}
  \int L\dd t
  &=-m\int\dd s-q\int\scpart{\Phi^* U}\dd s\\
@@ -1017,7 +1060,7 @@ $(\bv\cdot\pdr)\bA=\pdr(\bv\cdot\bA)
    +q\bigl(\pdr(\bv\cdot\bA)-(\bv\cdot\pdr)\bA\bigr)\\
  &=q\bigl(-\pdr V-\partial_t\bA
           +\bv\times(\pdr\times\bA)\bigr)\\
- &=q(\bE+\bv\times\bBf),
+ &=q(\bE+\bv\times\bBf).
 \end{align}
 The Hamiltonian follows with the gauge-dependent terms cancelling:
 \begin{align}
@@ -1047,13 +1090,20 @@ Taking the real paravector part removes the two imaginary components.
 
 \subsection{Energy balance}
 
-Recall
+Since
 \begin{equation}
- F=(\bE+\ii\bBf)\cdot\bsig.
+ F=(\bE+\bBf\ii)\cdot\bsig,
+ \qquad
+ F^{\mathsf H}=(\bE-\bBf\ii)\cdot\bsig,
 \end{equation}
-The standard electromagnetic energy density $u$ and Poynting vector $\bS$
-are precisely the scalar and vector coefficients
-of $\tfrac12FF^{\mathsf H}$:
+their ordered product is
+\begin{equation}
+ FF^{\mathsf H}
+ =\bE^2+\bBf^2+2(\bE\times\bBf)\cdot\bsig.
+\end{equation}
+Therefore the standard electromagnetic energy density $u$ and Poynting
+vector $\bS$ are the scalar and vector coefficients of
+$\tfrac12FF^{\mathsf H}$:
 \begin{align}
  u
  &:=\tfrac12(\bE^2+\bBf^2)
@@ -1062,6 +1112,11 @@ of $\tfrac12FF^{\mathsf H}$:
  &:=\bE\times\bBf
  =\tfrac12\vecpart{FF^{\mathsf H}}.
 \end{align}
+These quantities describe energy measured in the chosen frame; they are not
+the two Lorentz invariants contained in $F^2$.  The product
+$\tfrac12FF^{\mathsf H}$ packages energy density and energy flux into a
+paravector, but is not by itself the full electromagnetic stress--energy
+tensor.
 This product order gives the conventional sign of the Poynting vector
 directly.  For comparison, reversing the order preserves the scalar
 coefficient and changes the sign of the vector coefficient:
@@ -1614,7 +1669,7 @@ $\br'_{\perp}=\br'-\br'_{\parallel}$:
  \br'_{\perp}&=\br_{\perp}.
 \end{align}
 It preserves $\Det X=t^2-\br^2$.  The electromagnetic field instead obeys
-$F'=LFL^*$ for $F=(\bE+\ii\bBf)\cdot\bsig$.  Define
+$F'=LFL^*$ for $F=(\bE+\bBf\ii)\cdot\bsig$.  Define
 $\bE_{\parallel}=(\bE\cdot\bu)\bu$,
 $\bE_{\perp}=\bE-\bE_{\parallel}$ and likewise
 $\bE'_{\parallel}=(\bE'\cdot\bu)\bu$,
@@ -1785,7 +1840,7 @@ full statements and derivations.
 \end{align*}
 
 \paragraph{\hyperref[sec:paravectors]{Paravectors, extraction, and products}.}
-For $Z=S+\bV\cdot\bsig=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig$,
+For $Z=S+\bV\cdot\bsig=(a+b\ii)+(\bA+\bB\ii)\cdot\bsig$,
 \begin{align*}
  S&=\scpart Z=\tfrac12(Z+Z^{*\mathsf H}),
  &\bV\cdot\bsig&=\tfrac12(Z-Z^{*\mathsf H}),\\
@@ -1840,7 +1895,7 @@ quadratic identity~\eqref{eq:minimal}.
 \paragraph{\hyperref[sec:electromagnetism]{Electromagnetism}.}
 \begin{align*}
  \partial&=\partial_t+\bsig\cdot\pdr,
- &F&=(\bE+\ii\bBf)\cdot\bsig,
+ &F&=(\bE+\bBf\ii)\cdot\bsig,
  &D&=\rho+\bJ\cdot\bsig,\\
  \partial F&=D^*=\rho-\bJ\cdot\bsig,
  &\Box&=\partial^*\partial
