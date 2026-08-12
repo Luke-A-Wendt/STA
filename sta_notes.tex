@@ -110,8 +110,6 @@ complex element developed below.
  &\ii^2&=-1,\\
  \bsig&=\{\sigma_1,\sigma_2,\sigma_3\},
  &\ii\bsig&=\{\sigma_2\sigma_3,\sigma_3\sigma_1,\sigma_1\sigma_2\},\\
- (\bA\cdot\bsig)(\bB\cdot\bsig)
-   &=\bA\cdot\bB+\ii(\bA\times\bB)\cdot\bsig,\\
  Z&=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig,
  &a,b&\in\R,\quad \bA,\bB\in\R^3.
 \end{align*}
@@ -126,23 +124,29 @@ Ordinary three-vector operations use
  \bA^2&:=\bA\cdot\bA.
 \end{align}
 Thus the square of a vector always denotes its self dot product.
-The commutator is
-\begin{equation}
- [X,Y]:=XY-YX,
- \qquad [Y,X]=-[X,Y].
-\end{equation}
-Hence $[X,Y]=0$ exactly when $X$ and $Y$ commute.
 
-The defining relations give the graded basis
+The set $\{1,\bsig,\ii\bsig,\ii\}$ is a complete basis, displayed by type as
 \[
   \underbrace{1}_{\text{scalar}},\qquad
   \underbrace{\sigma_1,\sigma_2,\sigma_3}_{\text{vectors}},\qquad
   \underbrace{\ii\sigma_1,\ii\sigma_2,\ii\sigma_3}_{\text{bivectors}},\qquad
   \underbrace{\ii}_{\text{pseudoscalar}}.
 \]
-The pseudoscalar $\ii$ commutes with every $\sigma_n$, and anticommutation
-gives $\ii^2=-\sigma_1^2\sigma_2^2\sigma_3^2=-1$.
+Anticommutation gives
+$\ii^2=-\sigma_1^2\sigma_2^2\sigma_3^2=-1$.  The pseudoscalar is central:
+moving $\sigma_n$ through the other two generators produces two sign
+changes, so
+\begin{equation}
+ \ii\sigma_n=\sigma_n\ii.
+\end{equation}
+Thus its order of multiplication does not matter.
 
+The commutator is
+\begin{equation}
+ [X,Y]:=XY-YX,
+ \qquad [Y,X]=-[X,Y].
+\end{equation}
+Thus $[X,Y]=0$ exactly when $X$ and $Y$ commute.
 With the Kronecker delta $\delta_{nm}$ and Levi--Civita symbol
 $\epsilon_{nmk}$,
 \begin{equation}
@@ -151,310 +155,25 @@ $\epsilon_{nmk}$,
   [\sigma_n,\sigma_m]=2\epsilon_{nmk}\,\ii\sigma_k.
   \label{eq:sigma-product}
 \end{equation}
-Repeated spatial indices are summed.  The vector-product identity in the
-opening panel gives
-\begin{align}
- [\bA\cdot\bsig,\bB\cdot\bsig]
-   &=2\ii(\bA\times\bB)\cdot\bsig,\\
- \bA\cdot\bB
-   &=\tfrac12\bigl((\bA\cdot\bsig)(\bB\cdot\bsig)
-                   +(\bB\cdot\bsig)(\bA\cdot\bsig)\bigr).
-\end{align}
-The next section realizes these ordered products as ordinary $2\times2$
-matrix products.  This concrete model will define and distinguish the matrix
-and algebra operations used throughout the document.
+Repeated spatial indices are summed.
+\section{Hermitian and sigma-conjugate operators}
+\label{sec:conjugate-operators}
 
-\section{Pauli-matrix representation}
-\label{sec:matrix}
-
-\subsection{Faithful representation}
-
-Every complex element of the displayed algebra basis can be collected as
-\begin{equation}
- \begin{aligned}
-  Z&=S+\bV\cdot\bsig,\\
-  S&\in\C,& \bV&\in\C^3.
- \end{aligned}
-\end{equation}
-Such an element is called a complex paravector.  Its faithful $2\times2$
-complex representation begins with
-\[
- \operatorname{mat}(\sigma_1)=\begin{pmatrix}0&1\\1&0\end{pmatrix},\quad
- \operatorname{mat}(\sigma_2)=\begin{pmatrix}0&-\ii\\\ii&0\end{pmatrix},\quad
- \operatorname{mat}(\sigma_3)=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
-\]
-Thus
-\begin{equation}
- \operatorname{mat}(S+\bV\cdot\bsig)=
- \begin{pmatrix}
-  S+V_3&V_1-\ii V_2\\
-  V_1+\ii V_2&S-V_3
- \end{pmatrix}.
- \label{eq:matrix}
-\end{equation}
-It preserves identity, addition, and multiplied order:
-\begin{equation}
- \operatorname{mat}(1)=\bI_2,
- \qquad
- \operatorname{mat}(Z'Z)
- =\operatorname{mat}(Z')\operatorname{mat}(Z).
- \label{eq:matrix-product}
-\end{equation}
-
-\subsection{Matrix operations and induced algebra operations}
-
-Let $\bM=\operatorname{mat}(Z)$ with entries
-$m_{jk}=a_{jk}+b_{jk}\ii$, where $a_{jk},b_{jk}\in\R$.  Define transpose by
-\begin{equation}
- (\bM^{\mathsf T})_{jk}:=m_{kj}.
-\end{equation}
-Define entrywise complex conjugation independently by
-\begin{equation}
- m_{jk}^{\mathsf C}:=a_{jk}-b_{jk}\ii,
- \qquad
- \bM^{\mathsf C}:=
- \begin{pmatrix}
-  m_{11}^{\mathsf C}&m_{12}^{\mathsf C}\\
-  m_{21}^{\mathsf C}&m_{22}^{\mathsf C}
- \end{pmatrix}.
-\end{equation}
-The Hermitian transpose is then
-\begin{equation}
- \bM^{\mathsf H}:=(\bM^{\mathsf C})^{\mathsf T}
- = (\bM^{\mathsf T})^{\mathsf C}.
- \label{eq:matrix-operations}
-\end{equation}
-Define the algebra operation $^{\mathsf H}$ through the faithful
-representation by
-\begin{equation}
- \operatorname{mat}(Z^{\mathsf H}):=\bM^{\mathsf H}.
-\end{equation}
-Its action on every grade is
+The Hermitian operator $^{\mathsf H}$ reverses the order of multiplied sigmas.
+The sigma-conjugate operator $^*$ flips the sign of every sigma without
+changing their order.
+Thus, for two generators,
 \begin{align}
- \operatorname{mat}(1)^{\mathsf H}&=\bI_2,\\
- (\ii\bI_2)^{\mathsf H}&=-\ii\bI_2,\\
- \operatorname{mat}(\sigma_n)^{\mathsf H}
- &=\operatorname{mat}(\sigma_n),\qquad n=1,2,3,\\
- \operatorname{mat}(\ii\sigma_n)^{\mathsf H}
- &=-\operatorname{mat}(\ii\sigma_n),\qquad n=1,2,3.
+ (\sigma_m\sigma_n)^{\mathsf H}&=\sigma_n\sigma_m,\\
+ (\sigma_m\sigma_n)^*&=(-\sigma_m)(-\sigma_n).
+ \label{eq:two-sigma-operators}
 \end{align}
-Hence $1^{\mathsf H}=1$, $\ii^{\mathsf H}=-\ii$,
-$\sigma_n^{\mathsf H}=\sigma_n$, and
-$(\ii\sigma_n)^{\mathsf H}=-\ii\sigma_n$.
-Hermitian conjugation reverses matrix-product order.  Therefore faithfulness
-gives
-\begin{align}
- \operatorname{mat}((\sigma_n\sigma_m)^{\mathsf H})
- &=\left(\operatorname{mat}(\sigma_n)
-          \operatorname{mat}(\sigma_m)\right)^{\mathsf H}\\
- &=\operatorname{mat}(\sigma_m)^{\mathsf H}
-   \operatorname{mat}(\sigma_n)^{\mathsf H}
- =\operatorname{mat}(\sigma_m\sigma_n),
-\end{align}
-and hence
-\begin{equation}
- (\sigma_n\sigma_m)^{\mathsf H}
- =\sigma_m^{\mathsf H}\sigma_n^{\mathsf H}
- =\sigma_m\sigma_n.
- \label{eq:hermitian-reversal}
-\end{equation}
-Thus $^{\mathsf H}$ is precisely reversion of multiplied sigma order.
-To define the distinct sigma conjugation, let
-$\bm{J}:=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ and
-$\bm{J}^2=-\bI_2$, and set
-\begin{equation}
- \bM^*:=-\bm{J}\bM^{\mathsf C}\bm{J},
- \qquad
- \operatorname{mat}(Z^*):=\bM^*.
- \label{eq:matrix-sigma-conjugation}
-\end{equation}
-This gives the required action on every grade:
-\begin{align}
- \operatorname{mat}(1)^*
- &=-\bm J\bI_2^{\mathsf C}\bm J=\bI_2,\\
- (\ii\bI_2)^*
- &=-\bm J(\ii\bI_2)^{\mathsf C}\bm J=-\ii\bI_2,\\
- \operatorname{mat}(\sigma_n)^*
- &=-\bm J\operatorname{mat}(\sigma_n)^{\mathsf C}\bm J
- =-\operatorname{mat}(\sigma_n),\qquad n=1,2,3,\\
- \operatorname{mat}(\ii\sigma_n)^*
- &=-\bm J\operatorname{mat}(\ii\sigma_n)^{\mathsf C}\bm J
- =\operatorname{mat}(\ii\sigma_n),\qquad n=1,2,3.
-\end{align}
-The operation also preserves multiplied order.  Since entrywise conjugation
-preserves order and $\bm J^2=-\bI_2$,
-\begin{align}
- (\bM\bN)^*
- &:=-\bm J(\bM\bN)^{\mathsf C}\bm J
- =-\bm J\bM^{\mathsf C}\bN^{\mathsf C}\bm J,\\
- \bM^*\bN^*
- &=(-\bm J\bM^{\mathsf C}\bm J)
-   (-\bm J\bN^{\mathsf C}\bm J)
- =-\bm J\bM^{\mathsf C}\bN^{\mathsf C}\bm J.
-\end{align}
-Therefore
-\begin{equation}
- (\bM\bN)^*=\bM^*\bN^*.
- \label{eq:matrix-star-product}
-\end{equation}
-The four operations must remain distinct:
-\begin{center}
-\begin{tabular}{c l l}
- \toprule
- symbol & matrix operation & relation to the algebra \\
- \midrule
- $\bM^{\mathsf T}$ & transpose & reverses matrix-product order \\
- $\bM^{\mathsf C}$ & entrywise complex conjugation & sends $\ii$ to $-\ii$ \\
- $\bM^{\mathsf H}$ & Hermitian transpose
-   & $\operatorname{mat}(Z^{\mathsf H})$ \\
- $\bM^*$ & sigma conjugation
-   & $\operatorname{mat}(Z^*)$ \\
- \bottomrule
-\end{tabular}
-\end{center}
-Their product-order rules are
-\begin{align}
- (\bM\bN)^{\mathsf T}&=\bN^{\mathsf T}\bM^{\mathsf T},&
- (\bM\bN)^{\mathsf C}&=\bM^{\mathsf C}\bN^{\mathsf C},\\
- (\bM\bN)^{\mathsf H}&=\bN^{\mathsf H}\bM^{\mathsf H}.
-\end{align}
-Sigma conjugation preserves order by equation~\eqref{eq:matrix-star-product}.
-Thus the induced algebra operations satisfy
-\begin{align}
- (Z^{\mathsf H})^{\mathsf H}&=Z,&
- (ZZ')^{\mathsf H}&=Z'^{\mathsf H}Z^{\mathsf H},\\
- (Z^*)^*&=Z,&
- (ZZ')^*&=Z^*Z'^*,\\
- Z^{*\mathsf H}&=Z^{\mathsf H*}.
- \label{eq:algebra-involution-laws}
-\end{align}
-
-\paragraph{Trace, determinant, and adjugate.}
-For $\bM=\operatorname{mat}(Z)$, define the matrix trace and determinant by
-\begin{equation}
- \operatorname{tr}(\bM):=m_{11}+m_{22},
- \qquad
- \det(\bM):=m_{11}m_{22}-m_{12}m_{21}.
-\end{equation}
-The corresponding paravector operations are
-\begin{equation}
- \operatorname{tr}(Z):=\operatorname{tr}(\bM)=2S,
- \qquad
- \det(Z):=\det(\bM).
- \label{eq:paravector-tr-det}
-\end{equation}
-Faithfulness transfers the matrix identities to the algebra:
-\begin{align}
- \operatorname{tr}(Z+Z')&=\operatorname{tr}(Z)+\operatorname{tr}(Z'),&
- \operatorname{tr}(cZ)&=c\operatorname{tr}(Z),\\
- \operatorname{tr}(ZZ')&=\operatorname{tr}(Z'Z),\\
- \det(ZZ')&=\det(Z)\det(Z'),&
- \det(cZ)&=c^2\det(Z)
- \quad(c\in\C).
- \label{eq:trace-det-properties}
-\end{align}
-For a $2\times2$ matrix and its paravector preimage, define
-\begin{align}
- \adj{\bM}&:=\operatorname{tr}(\bM)\bI_2-\bM,\\
- \operatorname{mat}(\adj Z)&:=\adj{\bM}.
-\end{align}
-Direct comparison with the induced involutions gives
-\begin{equation}
- \adj Z=Z^{*\mathsf H},
- \qquad
- \operatorname{mat}(\adj Z)=\adj{\bM}=(\bM^*)^{\mathsf H}.
- \label{eq:adjugate}
-\end{equation}
-Equivalently,
-\begin{equation}
- \adj Z=\operatorname{tr}(Z)-Z,
- \qquad
- \operatorname{tr}(Z)=Z+\adj Z=2S.
-\end{equation}
-The adjugate reverses product order and obeys
-\begin{align}
- \adj{ZZ'}&=\adj{Z'}\adj Z,&
- \adj{\adj Z}&=Z,\\
- \adj Z\,Z&=Z\adj Z=\det(Z),&
- \operatorname{mat}(\adj Z\,Z)&=\det(\bM)\bI_2.
- \label{eq:matrix-adj-det}
-\end{align}
-Consequently, when $\det(Z)\ne0$,
-\begin{equation}
- Z^{-1}=\frac{\adj Z}{\det(Z)}.
-\end{equation}
-Finally, Cayley--Hamilton gives
-\begin{align}
- \bM^2-\operatorname{tr}(\bM)\bM+\det(\bM)\bI_2&=0,\\
- Z^2-\operatorname{tr}(Z)Z+\det(Z)&=0.
- \label{eq:cayley-hamilton}
-\end{align}
-
-\subsection{Algebra--matrix crosswalk}
-
-For $Z=S+\bV\cdot\bsig$, define
-\begin{equation}
- \scpart Z:=S,
- \qquad
- \vecpart Z:=\bV.
-\end{equation}
-Thus $\vecpart Z$ is the coefficient vector, while its algebra element is
-$\bV\cdot\bsig$.
-
-For $\bM=\operatorname{mat}(Z)$, the extraction formulas are
-\begin{align}
- \scpart Z&=S=\tfrac12\operatorname{tr}(\bM),
- &\operatorname{mat}(\scpart Z)&=S\bI_2,\\
- (\vecpart Z)_n&=V_n=\tfrac12\operatorname{tr}(\bm{\sigma}_n\bM),
- &\operatorname{mat}(\vecpart Z\cdot\bsig)
- &=\bM-\tfrac12\operatorname{tr}(\bM)\bI_2.
- \label{eq:matrix-sc-vec}
-\end{align}
-
-Define real and imaginary paravector extraction through Hermitian splitting:
-\begin{align}
- \operatorname{mat}(\repart Z)&:=\tfrac12(\bM+\bM^{\mathsf H}),\\
- \operatorname{mat}(\impart Z)&:=\frac{\bM-\bM^{\mathsf H}}{2\ii}.
- \label{eq:matrix-re-im}
-\end{align}
-By construction, the algebra and matrix involutions agree through
-\begin{equation}
- \operatorname{mat}(Z^{\mathsf H})=\bM^{\mathsf H},
- \qquad
- \operatorname{mat}(Z^*)=\bM^*,
- \qquad
- \operatorname{mat}(Z^{*\mathsf H})=(\bM^*)^{\mathsf H}.
-\end{equation}
-The matrix-only operations $^{\mathsf C}$ and $^{\mathsf T}$ are related to
-the algebra operations by
-\begin{equation}
- \bM^{\mathsf C}=-\bm J\bM^*\bm J,
- \qquad
- \bM^{\mathsf T}=-\bm J\operatorname{mat}(Z^{*\mathsf H})\bm J.
- \label{eq:matrix-c-t-crosswalk}
-\end{equation}
-
-Finally, scalar extraction of a product and the paravector coefficient norm
-are
-\begin{align}
- \scpart{Z'Z}&=\tfrac12\operatorname{tr}(\bM_{Z'}\bM_Z),\\
- \lVert Z\rVert^2&:=\tfrac12\operatorname{tr}(\bM^{\mathsf H}\bM)
- =\tfrac12\operatorname{tr}(\bM\bM^{\mathsf H}).
- \label{eq:matrix-norm}
-\end{align}
-
-\section{Involutions and sign conventions}
-\label{sec:involutions}
-
-The matrix construction now has a direct algebraic interpretation.  Sigma
-conjugation $(\cdot)^*$ changes the sign of every generator without reversing
-order.  Reversion $(\cdot)^{\mathsf H}$ reverses multiplied sigma order and,
-as shown in Section~\ref{sec:matrix}, becomes Hermitian conjugation.  Their
-action by grade is
+Both operations act term by term on sums.  Their actions on the four basis
+types are
 \begin{center}
 \begin{tabular}{c c c c c}
   \toprule
-  grade & $0$ & $1$ & $2$ & $3$\\
+  type & scalar & vector & bivector & pseudoscalar\\
   representative & $1$ & $\sigma_n$ & $\ii\sigma_n$ & $\ii$\\
   \midrule
   $(\cdot)^*$ & $+$ & $-$ & $+$ & $-$\\
@@ -468,27 +187,18 @@ In particular,
  \sigma_n^*&=-\sigma_n,&
  \sigma_n^{\mathsf H}&=\sigma_n,&
  \ii^*&=-\ii,&
- \ii^{\mathsf H}&=-\ii,\\
- (\ii\sigma_n)^*
- &=\ii^*\sigma_n^*=\ii\sigma_n,&
- (\ii\sigma_n)^{\mathsf H}
- &=\sigma_n^{\mathsf H}\ii^{\mathsf H}=-\ii\sigma_n.
+ \ii^{\mathsf H}&=-\ii.
 \end{align}
-The pseudoscalar is central: moving $\sigma_n$ through the other two
-generators produces two sign changes, so
+For the bivectors, these actions combine to give
 \begin{equation}
- \ii\sigma_n=\sigma_n\ii.
+ (\ii\sigma_n)^*=\ii^*\sigma_n^*=\ii\sigma_n,
+ \qquad
+ (\ii\sigma_n)^{\mathsf H}
+ =\sigma_n^{\mathsf H}\ii^{\mathsf H}=-\ii\sigma_n.
 \end{equation}
-Sigma conjugation preserves order, whereas reversion reverses it.  Hence
-\begin{align}
- (\sigma_m\sigma_n)^*
- &=\sigma_m^*\sigma_n^*
- =(-\sigma_m)(-\sigma_n)=\sigma_m\sigma_n,\\
- (\sigma_m\sigma_n)^{\mathsf H}
- &=\sigma_n^{\mathsf H}\sigma_m^{\mathsf H}
- =\sigma_n\sigma_m.
-\end{align}
-They obey
+Thus sigma conjugation preserves the original order of the factors, whereas
+the Hermitian operator changes their order.
+For arbitrary algebra elements $Z,Z'$, these definitions give
 \[
   (ZZ')^{\mathsf H}=Z'^{\mathsf H}Z^{\mathsf H},
   \qquad
@@ -496,53 +206,87 @@ They obey
   \qquad
   Z^{*\mathsf H}=Z^{\mathsf H*}.
 \]
-Thus the adjugate $\adj Z=Z^{*\mathsf H}$ introduced in
-Section~\ref{sec:matrix} changes the sign of the vector part of a paravector.
+Appendix~\ref{sec:matrix} reproduces this as Hermitian conjugation
+in the Pauli-matrix representation.
 
 \section{Paravectors}
 \label{sec:paravectors}
 
-\subsection{Decompositions}
+\subsection{Core operations}
+\label{sec:algebra-operations}
 
-Resolve the general complex paravector into real coefficients:
+Collect a general complex paravector as
 \begin{equation}
-  Z=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig
-   =X+\ii Y=S+\bV\cdot\bsig,
-  \label{eq:paravector}
+ \begin{aligned}
+  Z&=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig\\
+   &=X+\ii Y\\
+   &=S+\bV\cdot\bsig,\\
+  X&:=a+\bA\cdot\bsig,&Y&:=b+\bB\cdot\bsig,\\
+  S&:=a+b\ii,& \bV&:=\bA+\ii\bB,
+ \end{aligned}
+ \label{eq:paravector}
 \end{equation}
-where $a,b\in\R$, $\bA,\bB\in\R^3$, $X=a+\bA\cdot\bsig$,
-$Y=b+\bB\cdot\bsig$, $S=a+b\ii$, and $\bV=\bA+\ii\bB$.  The involutions
-give
+where $a,b\in\R$ and $\bA,\bB\in\R^3$.
+Define its scalar and vector coefficients by
+\begin{equation}
+ \scpart Z:=S,
+ \qquad
+ \vecpart Z:=\bV.
+\end{equation}
+Sigma conjugation changes the sign of every sigma generator without changing
+multiplied order; the Hermitian operator changes multiplied sigma order.
+For a paravector, define them directly by
 \begin{align}
-  \sconj Z&=(a-b\ii)+(-\bA+\ii\bB)\cdot\bsig,\\
-  \rev Z&=(a-b\ii)+(\bA-\ii\bB)\cdot\bsig,\\
-  Z^{*\mathsf H}&=(a+b\ii)-(\bA+\ii\bB)\cdot\bsig.
+ Z^*&:=(a-b\ii)+(-\bA+\ii\bB)\cdot\bsig,\\
+ Z^{\mathsf H}&:=(a-b\ii)+(\bA-\ii\bB)\cdot\bsig.
+ \label{eq:algebra-star-H}
 \end{align}
-The extraction functions defined in Section~\ref{sec:matrix} give
+Their composition is the adjugate:
+\begin{equation}
+ \adj Z:=Z^{*\mathsf H}=S-\bV\cdot\bsig.
+ \label{eq:adjugate}
+\end{equation}
+Define the paravector trace and determinant by
 \begin{align}
- \scpart Z&=S &&\text{(scalar part)},&
- \vecpart Z&=\bV &&\text{(vector coefficient)},\\
- \repart Z&=X &&\text{(real paravector part)},&
- \impart Z&=Y &&\text{(imaginary paravector part)}.
+ \operatorname{tr}(Z)&:=Z+\adj Z=2S,\\
+ \det(Z)&:=\adj Z\,Z=Z\adj Z
+ =S^2-\bV\cdot\bV.
+ \label{eq:det}
 \end{align}
+Whenever $\det(Z)\ne0$, define
+\begin{equation}
+ Z^{-1}:=\frac{\adj Z}{\det(Z)},
+ \qquad
+ Z^{-1}Z=ZZ^{-1}=1.
+\end{equation}
+Finally, define real and imaginary paravector extraction by
+\begin{align}
+ \repart Z&:=\tfrac12(Z+Z^{\mathsf H})=X,\\
+ \impart Z&:=\frac{Z-Z^{\mathsf H}}{2\ii}=Y.
+ \label{eq:algebra-re-im}
+\end{align}
+These definitions are intrinsic to the algebra.  Appendix~\ref{sec:matrix}
+later reproduces them through the faithful Pauli-matrix representation.
+
+
+\subsection{Component extraction}
+
 The functions $\operatorname{re}$ and $\operatorname{im}$ also act
-componentwise on complex scalars and vectors.  Thus the components are
-recovered by
+componentwise on complex scalars and vectors.  The scalar and vector parts
+are recovered by
 \begin{align}
   S&=\scpart Z=\tfrac12(Z+Z^{*\mathsf H}),&
   \bV&=\vecpart Z,&
-  \bV\cdot\bsig&=\tfrac12(Z-Z^{*\mathsf H}),\\
-  X&=\repart Z=\tfrac12(Z+\rev Z),&
-  Y&=\impart Z=\frac{Z-\rev Z}{2\ii}.
+  \bV\cdot\bsig&=\tfrac12(Z-Z^{*\mathsf H}).
 \end{align}
-The four real coefficient groups then follow by composition:
+The four real coefficients then follow by composition:
 \begin{align}
  a&=\repart S=\scpart X=\scpart{\repart Z},&
  b&=\impart S=\scpart Y=\scpart{\impart Z},\\
  \bA&=\repart{\bV}=\vecpart X=\vecpart{\repart Z},&
  \bB&=\impart{\bV}=\vecpart Y=\vecpart{\impart Z}.
 \end{align}
-Equivalently, they may be recovered directly from the involutions:
+Equivalently, they may be recovered directly from these operators:
 \begin{align}
  a&=\tfrac14(Z+Z^*+Z^{\mathsf H}+Z^{*\mathsf H}),\\
  b&=\tfrac1{4\ii}(Z-Z^*-Z^{\mathsf H}+Z^{*\mathsf H}),\\
@@ -550,7 +294,40 @@ Equivalently, they may be recovered directly from the involutions:
  \bB\cdot\bsig&=\tfrac1{4\ii}(Z+Z^*-Z^{\mathsf H}-Z^{*\mathsf H}).
 \end{align}
 
-\subsection{Products, quadratic forms, and inverse}
+\subsection{Products and quadratic forms}
+
+From the ordered sigma multiplication rule,
+\begin{align}
+ (\bA\cdot\bsig)(\bB\cdot\bsig)
+ &=\sum_{n,m}A_nB_m\sigma_n\sigma_m\\
+ &=\sum_{n,m}A_nB_m
+   (\delta_{nm}+\epsilon_{nmk}\ii\sigma_k)\\
+ &=\bA\cdot\bB+\ii(\bA\times\bB)\cdot\bsig\\
+ &=2\bA\cdot\bB-(\bB\cdot\bsig)(\bA\cdot\bsig).
+ \label{eq:vector-product-derivation}
+\end{align}
+Consequently,
+\begin{align}
+ (\bA\cdot\bsig)^2&=\bA^2,&
+ (\bA\cdot\bsig)^{2n}&=(\bA^2)^n,&
+ (\bA\cdot\bsig)^{2n+1}&=(\bA^2)^n\bA\cdot\bsig.
+\end{align}
+Also,
+\begin{equation}
+ (\bA\cdot\bsig)\bsig=\bA+\ii\bA\times\bsig.
+\end{equation}
+The corresponding commutator is
+\begin{equation}
+ [\bA\cdot\bsig,\bB\cdot\bsig]
+ =2\ii(\bA\times\bB)\cdot\bsig.
+\end{equation}
+Hence
+\begin{align}
+ [\bA\cdot\bsig,\bsig]&=-2\ii\bA\times\bsig,\\
+ [\bA\cdot\ii\bsig,\bsig]&=2\bA\times\bsig,\\
+ [\bA\cdot\bsig,\bsig]\cdot\bB
+ &=2\ii(\bA\times\bB)\cdot\bsig.
+\end{align}
 
 For $Z=S+\bV\cdot\bsig$ and $Z'=S'+\bV'\cdot\bsig$,
 \begin{equation}
@@ -568,11 +345,6 @@ Equivalently, if $Z=X+\ii Y$ and $Z'=X'+\ii Y'$, then
   ZZ'=(XX'-YY')+\ii(XY'+YX').
 \]
 
-The determinant is
-\begin{equation}
- \det(Z)=\adj Z\,Z=Z\adj Z=S^2-\bV\cdot\bV.
-  \label{eq:det}
-\end{equation}
 Define the scalar, vector, and paravector coefficient norms by
 \begin{align}
  \lVert S\rVert^2&:=SS^*=S^*S,\\
@@ -601,10 +373,6 @@ In general,
  \qquad
  \bV^2\ne\lVert\bV\rVert^2.
 \end{equation}
-Whenever $\det(Z)\ne0$,
-\begin{equation}
-  Z^{-1}=\frac{\adj Z}{\det(Z)}.
-\end{equation}
 For any complex scalar $c$,
 \begin{equation}
  \det(cZ)=c^2\det(Z).
@@ -623,27 +391,6 @@ Every paravector satisfies the quadratic identity
   \label{eq:minimal}
 \end{equation}
 Its two algebraic eigenvalues are $\lambda_\pm=S\pm\sqrt{\bV^2}$.
-
-\paragraph{Vector-product derivation.}
-Using $\sigma_n\sigma_m=\delta_{nm}+\epsilon_{nmk}\ii\sigma_k$,
-\begin{align}
- (\bA\cdot\bsig)(\bB\cdot\bsig)
- &=\sum_{n,m}A_nB_m\sigma_n\sigma_m\\
- &=\sum_{n,m}A_nB_m
-   (\delta_{nm}+\epsilon_{nmk}\ii\sigma_k)\\
- &=\bA\cdot\bB+\ii(\bA\times\bB)\cdot\bsig.
-\end{align}
-Hence
-\begin{align}
- (\bA\cdot\bsig)^2&=\bA^2,&
- (\bA\cdot\bsig)^{2n}&=(\bA^2)^n,&
- (\bA\cdot\bsig)^{2n+1}&=(\bA^2)^n\bA\cdot\bsig,\\
- (\bA\cdot\bsig)\bsig&=\bA+\ii\bA\times\bsig,&
- [\bA\cdot\bsig,\bsig]&=-2\ii\bA\times\bsig,\\
- [\bA\cdot\ii\bsig,\bsig]&=2\bA\times\bsig,&
- [\bA\cdot\bsig,\bsig]\cdot\bB
- &=2\ii(\bA\times\bB)\cdot\bsig.
-\end{align}
 
 \subsection{Real products and functions}
 
@@ -717,12 +464,9 @@ For the important quadratic products:
  Z\adj Z &: a^2-b^2-\bA^2+\bB^2
  +2\ii(ab-\bA\cdot\bB).
 \end{align}
-The scalar part is cyclic, $\scpart{ZZ'}=\scpart{Z'Z}$, and
-\begin{align}
- (ZZ')^*&=Z^* Z'^*,&
- (ZZ')^{\mathsf H}&=Z'^{\mathsf H}Z^{\mathsf H},&
- (ZZ')^{*\mathsf H}&=Z'^{*\mathsf H}Z^{*\mathsf H}.
-\end{align}
+The scalar part is cyclic, $\scpart{ZZ'}=\scpart{Z'Z}$.  The operator laws
+already established also give
+$(ZZ')^{*\mathsf H}=Z'^{*\mathsf H}Z^{*\mathsf H}$.
 The paired signs follow the displayed product order.  Thus
 $ZZ^*=Z^*Z$ and $ZZ^{\mathsf H}=Z^{\mathsf H}Z$ precisely when
 $\bA\times\bB=0$.
@@ -1733,7 +1477,7 @@ Collinear boosts add rapidities and therefore obey
  \beta' =\frac{\beta_1+\beta_2}{1+\beta_1\beta_2},
  \qquad \gamma'=\gamma_1\gamma_2(1+\beta_1\beta_2).
 \end{equation}
-Products reverse under inversion:
+Inversion changes product order:
 \begin{equation}
  (LR)^{-1}=R^{\mathsf H}L^*,\quad
  (RL)^{-1}=L^* R^{\mathsf H},
@@ -1741,7 +1485,7 @@ Products reverse under inversion:
  \quad(L_1L_2)^{-1}=L_2^* L_1^*.
 \end{equation}
 
-\section{Spectral functions and quaternions}
+\section{Spectral functions}
 \label{sec:spectral}
 
 \subsection{Functions of a unit vector}
@@ -1793,18 +1537,6 @@ One useful projector evaluation is
  =e^{-2\operatorname{atanh}(\lVert\br\rVert)}\Pi_+
  +e^{2\operatorname{atanh}(\lVert\br\rVert)}\Pi_-.
 \end{equation}
-
-\subsection{Quaternion subalgebra}
-
-Define
-\begin{equation}
- q_1=-\sigma_2\sigma_3,\qquad q_2=-\sigma_3\sigma_1,\qquad
- q_3=-\sigma_1\sigma_2,\qquad \bq=-\ii\bsig.
-\end{equation}
-Then $q_1^2=q_2^2=q_3^2=q_1q_2q_3=-1$.  A quaternion
-$Q=a+\bb\cdot\bq$ satisfies $Q^{\mathsf H}=a-\bb\cdot\bq$ and
-$QQ^{\mathsf H}=a^2+\bb^2$; the rotation action is
-$\br'\cdot\bq=Q(\br\cdot\bq)Q^{\mathsf H}$.
 
 \section{Generalized spacetime and metric form}
 \label{sec:generalized}
@@ -1872,7 +1604,7 @@ full statements and derivations.
    &&\text{\eqref{eq:coefficient-norm}}.
 \end{align*}
 
-\paragraph{\hyperref[sec:involutions]{Involutions and adjugation}.}
+\paragraph{\hyperref[sec:conjugate-operators]{Hermitian and sigma-conjugate operators}.}
 \begin{align*}
  (ZZ')^*&=Z^*Z'^*,
  &(ZZ')^{\mathsf H}&=Z'^{\mathsf H}Z^{\mathsf H},\\
@@ -1998,11 +1730,15 @@ probability~\eqref{eq:spin-probability}.
 See the bilinear rule~\eqref{eq:bilinear-congruence} and congruence
 derivative~\eqref{eq:congruence-derivative}.
 
-\paragraph{\hyperref[sec:spectral]{Spectral functions and quaternions}.}
+\paragraph{\hyperref[sec:spectral]{Spectral functions}.}
 \begin{align*}
  f(\bu\cdot\bsig)&=f(1)\Pi_++f(-1)\Pi_-,\\
  X&=\lambda_+\Pi_++\lambda_-\Pi_-,
- &f(X)&=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-,\\
+ &f(X)&=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-.
+\end{align*}
+
+\paragraph{\hyperref[sec:quaternions]{Quaternion appendix}.}
+\begin{align*}
  \bq&=-\ii\bsig,
  &Q^{\mathsf H}&=a-\bb\cdot\bq,
  &QQ^{\mathsf H}&=a^2+\bb^2.
@@ -2018,15 +1754,310 @@ derivative~\eqref{eq:congruence-derivative}.
  &\bQm&=\bNm\bDm\bNm^{\mathsf T}.
 \end{align*}
 
+\appendix
+
+\section{Pauli-matrix representation}
+\label{sec:matrix}
+
+\subsection{Faithful representation}
+
+Every complex element of the displayed algebra basis can be collected as
+\begin{equation}
+ \begin{aligned}
+  Z&=S+\bV\cdot\bsig,\\
+  S&\in\C,& \bV&\in\C^3.
+ \end{aligned}
+\end{equation}
+Such an element is called a complex paravector.  Its faithful $2\times2$
+complex representation begins with
+\[
+ \operatorname{mat}(\sigma_1)=\begin{pmatrix}0&1\\1&0\end{pmatrix},\quad
+ \operatorname{mat}(\sigma_2)=\begin{pmatrix}0&-\ii\\\ii&0\end{pmatrix},\quad
+ \operatorname{mat}(\sigma_3)=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+\]
+Thus
+\begin{equation}
+ \operatorname{mat}(S+\bV\cdot\bsig)=
+ \begin{pmatrix}
+  S+V_3&V_1-\ii V_2\\
+  V_1+\ii V_2&S-V_3
+ \end{pmatrix}.
+ \label{eq:matrix}
+\end{equation}
+It preserves identity, addition, and multiplied order:
+\begin{equation}
+ \operatorname{mat}(1)=\bI_2,
+ \qquad
+ \operatorname{mat}(Z'Z)
+ =\operatorname{mat}(Z')\operatorname{mat}(Z).
+ \label{eq:matrix-product}
+\end{equation}
+
+\subsection{Matrix operations and induced algebra operations}
+
+Let $\bM=\operatorname{mat}(Z)$ with entries
+$m_{jk}=a_{jk}+b_{jk}\ii$, where $a_{jk},b_{jk}\in\R$.  Define transpose by
+\begin{equation}
+ (\bM^{\mathsf T})_{jk}:=m_{kj}.
+\end{equation}
+Define entrywise complex conjugation independently by
+\begin{equation}
+ m_{jk}^{\mathsf C}:=a_{jk}-b_{jk}\ii,
+ \qquad
+ \bM^{\mathsf C}:=
+ \begin{pmatrix}
+  m_{11}^{\mathsf C}&m_{12}^{\mathsf C}\\
+  m_{21}^{\mathsf C}&m_{22}^{\mathsf C}
+ \end{pmatrix}.
+\end{equation}
+The Hermitian transpose is then
+\begin{equation}
+ \bM^{\mathsf H}:=(\bM^{\mathsf C})^{\mathsf T}
+ = (\bM^{\mathsf T})^{\mathsf C}.
+ \label{eq:matrix-operations}
+\end{equation}
+Define the algebra operation $^{\mathsf H}$ through the faithful
+representation by
+\begin{equation}
+ \operatorname{mat}(Z^{\mathsf H}):=\bM^{\mathsf H}.
+\end{equation}
+Its action on every basis type is
+\begin{align}
+ \operatorname{mat}(1)^{\mathsf H}&=\bI_2,\\
+ (\ii\bI_2)^{\mathsf H}&=-\ii\bI_2,\\
+ \operatorname{mat}(\sigma_n)^{\mathsf H}
+ &=\operatorname{mat}(\sigma_n),\qquad n=1,2,3,\\
+ \operatorname{mat}(\ii\sigma_n)^{\mathsf H}
+ &=-\operatorname{mat}(\ii\sigma_n),\qquad n=1,2,3.
+\end{align}
+Hence $1^{\mathsf H}=1$, $\ii^{\mathsf H}=-\ii$,
+$\sigma_n^{\mathsf H}=\sigma_n$, and
+$(\ii\sigma_n)^{\mathsf H}=-\ii\sigma_n$.
+Hermitian conjugation changes matrix-product order.  Therefore faithfulness
+gives
+\begin{align}
+ \operatorname{mat}((\sigma_n\sigma_m)^{\mathsf H})
+ &=\left(\operatorname{mat}(\sigma_n)
+          \operatorname{mat}(\sigma_m)\right)^{\mathsf H}\\
+ &=\operatorname{mat}(\sigma_m)^{\mathsf H}
+   \operatorname{mat}(\sigma_n)^{\mathsf H}
+ =\operatorname{mat}(\sigma_m\sigma_n),
+\end{align}
+and hence
+\begin{equation}
+ (\sigma_n\sigma_m)^{\mathsf H}
+ =\sigma_m^{\mathsf H}\sigma_n^{\mathsf H}
+ =\sigma_m\sigma_n.
+ \label{eq:hermitian-product-order}
+\end{equation}
+Thus $^{\mathsf H}$ is precisely the Hermitian operator defined in
+Section~\ref{sec:conjugate-operators}.
+To define the distinct sigma conjugation, let
+$\bm{J}:=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ and
+$\bm{J}^2=-\bI_2$, and set
+\begin{equation}
+ \bM^*:=-\bm{J}\bM^{\mathsf C}\bm{J},
+ \qquad
+ \operatorname{mat}(Z^*):=\bM^*.
+ \label{eq:matrix-sigma-conjugation}
+\end{equation}
+This gives the required action on every basis type:
+\begin{align}
+ \operatorname{mat}(1)^*
+ &=-\bm J\bI_2^{\mathsf C}\bm J=\bI_2,\\
+ (\ii\bI_2)^*
+ &=-\bm J(\ii\bI_2)^{\mathsf C}\bm J=-\ii\bI_2,\\
+ \operatorname{mat}(\sigma_n)^*
+ &=-\bm J\operatorname{mat}(\sigma_n)^{\mathsf C}\bm J
+ =-\operatorname{mat}(\sigma_n),\qquad n=1,2,3,\\
+ \operatorname{mat}(\ii\sigma_n)^*
+ &=-\bm J\operatorname{mat}(\ii\sigma_n)^{\mathsf C}\bm J
+ =\operatorname{mat}(\ii\sigma_n),\qquad n=1,2,3.
+\end{align}
+The operation also preserves multiplied order.  Since entrywise conjugation
+preserves order and $\bm J^2=-\bI_2$,
+\begin{align}
+ (\bM\bN)^*
+ &:=-\bm J(\bM\bN)^{\mathsf C}\bm J
+ =-\bm J\bM^{\mathsf C}\bN^{\mathsf C}\bm J,\\
+ \bM^*\bN^*
+ &=(-\bm J\bM^{\mathsf C}\bm J)
+   (-\bm J\bN^{\mathsf C}\bm J)
+ =-\bm J\bM^{\mathsf C}\bN^{\mathsf C}\bm J.
+\end{align}
+Therefore
+\begin{equation}
+ (\bM\bN)^*=\bM^*\bN^*.
+ \label{eq:matrix-star-product}
+\end{equation}
+The four operations must remain distinct:
+\begin{center}
+\begin{tabular}{c l l}
+ \toprule
+ symbol & matrix operation & relation to the algebra \\
+ \midrule
+ $\bM^{\mathsf T}$ & transpose & changes matrix-product order \\
+ $\bM^{\mathsf C}$ & entrywise complex conjugation & sends $\ii$ to $-\ii$ \\
+ $\bM^{\mathsf H}$ & Hermitian transpose
+   & $\operatorname{mat}(Z^{\mathsf H})$ \\
+ $\bM^*$ & sigma conjugation
+   & $\operatorname{mat}(Z^*)$ \\
+ \bottomrule
+\end{tabular}
+\end{center}
+Their product-order rules are
+\begin{align}
+ (\bM\bN)^{\mathsf T}&=\bN^{\mathsf T}\bM^{\mathsf T},&
+ (\bM\bN)^{\mathsf C}&=\bM^{\mathsf C}\bN^{\mathsf C},\\
+ (\bM\bN)^{\mathsf H}&=\bN^{\mathsf H}\bM^{\mathsf H}.
+\end{align}
+Sigma conjugation preserves order by equation~\eqref{eq:matrix-star-product}.
+Thus the induced algebra operations satisfy
+\begin{align}
+ (Z^{\mathsf H})^{\mathsf H}&=Z,&
+ (ZZ')^{\mathsf H}&=Z'^{\mathsf H}Z^{\mathsf H},\\
+ (Z^*)^*&=Z,&
+ (ZZ')^*&=Z^*Z'^*,\\
+ Z^{*\mathsf H}&=Z^{\mathsf H*}.
+ \label{eq:algebra-operator-laws}
+\end{align}
+
+\paragraph{Trace, determinant, and adjugate.}
+For $\bM=\operatorname{mat}(Z)$, define the matrix trace and determinant by
+\begin{equation}
+ \operatorname{tr}(\bM):=m_{11}+m_{22},
+ \qquad
+ \det(\bM):=m_{11}m_{22}-m_{12}m_{21}.
+\end{equation}
+The corresponding paravector operations are
+\begin{equation}
+ \operatorname{tr}(Z):=\operatorname{tr}(\bM)=2S,
+ \qquad
+ \det(Z):=\det(\bM).
+ \label{eq:paravector-tr-det}
+\end{equation}
+Faithfulness transfers the matrix identities to the algebra:
+\begin{align}
+ \operatorname{tr}(Z+Z')&=\operatorname{tr}(Z)+\operatorname{tr}(Z'),&
+ \operatorname{tr}(cZ)&=c\operatorname{tr}(Z),\\
+ \operatorname{tr}(ZZ')&=\operatorname{tr}(Z'Z),\\
+ \det(ZZ')&=\det(Z)\det(Z'),&
+ \det(cZ)&=c^2\det(Z)
+ \quad(c\in\C).
+ \label{eq:trace-det-properties}
+\end{align}
+For a $2\times2$ matrix and its paravector preimage, define
+\begin{align}
+ \adj{\bM}&:=\operatorname{tr}(\bM)\bI_2-\bM,\\
+ \operatorname{mat}(\adj Z)&:=\adj{\bM}.
+\end{align}
+Direct comparison with the induced algebra operators gives
+\begin{equation}
+ \adj Z=Z^{*\mathsf H},
+ \qquad
+ \operatorname{mat}(\adj Z)=\adj{\bM}=(\bM^*)^{\mathsf H}.
+ \label{eq:matrix-adjugate}
+\end{equation}
+Equivalently,
+\begin{equation}
+ \adj Z=\operatorname{tr}(Z)-Z,
+ \qquad
+ \operatorname{tr}(Z)=Z+\adj Z=2S.
+\end{equation}
+The adjugate changes product order and obeys
+\begin{align}
+ \adj{ZZ'}&=\adj{Z'}\adj Z,&
+ \adj{\adj Z}&=Z,\\
+ \adj Z\,Z&=Z\adj Z=\det(Z),&
+ \operatorname{mat}(\adj Z\,Z)&=\det(\bM)\bI_2.
+ \label{eq:matrix-adj-det}
+\end{align}
+Consequently, when $\det(Z)\ne0$,
+\begin{equation}
+ Z^{-1}=\frac{\adj Z}{\det(Z)}.
+\end{equation}
+Finally, Cayley--Hamilton gives
+\begin{align}
+ \bM^2-\operatorname{tr}(\bM)\bM+\det(\bM)\bI_2&=0,\\
+ Z^2-\operatorname{tr}(Z)Z+\det(Z)&=0.
+ \label{eq:cayley-hamilton}
+\end{align}
+
+\subsection{Algebra--matrix crosswalk}
+
+For $Z=S+\bV\cdot\bsig$, define
+\begin{equation}
+ \scpart Z:=S,
+ \qquad
+ \vecpart Z:=\bV.
+\end{equation}
+Thus $\vecpart Z$ is the coefficient vector, while its algebra element is
+$\bV\cdot\bsig$.
+
+For $\bM=\operatorname{mat}(Z)$, the extraction formulas are
+\begin{align}
+ \scpart Z&=S=\tfrac12\operatorname{tr}(\bM),
+ &\operatorname{mat}(\scpart Z)&=S\bI_2,\\
+ (\vecpart Z)_n&=V_n=\tfrac12\operatorname{tr}(\bm{\sigma}_n\bM),
+ &\operatorname{mat}(\vecpart Z\cdot\bsig)
+ &=\bM-\tfrac12\operatorname{tr}(\bM)\bI_2.
+ \label{eq:matrix-sc-vec}
+\end{align}
+
+Define real and imaginary paravector extraction through Hermitian splitting:
+\begin{align}
+ \operatorname{mat}(\repart Z)&:=\tfrac12(\bM+\bM^{\mathsf H}),\\
+ \operatorname{mat}(\impart Z)&:=\frac{\bM-\bM^{\mathsf H}}{2\ii}.
+ \label{eq:matrix-re-im}
+\end{align}
+By construction, the algebra and matrix operators agree through
+\begin{equation}
+ \operatorname{mat}(Z^{\mathsf H})=\bM^{\mathsf H},
+ \qquad
+ \operatorname{mat}(Z^*)=\bM^*,
+ \qquad
+ \operatorname{mat}(Z^{*\mathsf H})=(\bM^*)^{\mathsf H}.
+\end{equation}
+The matrix-only operations $^{\mathsf C}$ and $^{\mathsf T}$ are related to
+the algebra operations by
+\begin{equation}
+ \bM^{\mathsf C}=-\bm J\bM^*\bm J,
+ \qquad
+ \bM^{\mathsf T}=-\bm J\operatorname{mat}(Z^{*\mathsf H})\bm J.
+ \label{eq:matrix-c-t-crosswalk}
+\end{equation}
+
+Finally, scalar extraction of a product and the paravector coefficient norm
+are
+\begin{align}
+ \scpart{Z'Z}&=\tfrac12\operatorname{tr}(\bM_{Z'}\bM_Z),\\
+ \lVert Z\rVert^2&:=\tfrac12\operatorname{tr}(\bM^{\mathsf H}\bM)
+ =\tfrac12\operatorname{tr}(\bM\bM^{\mathsf H}).
+ \label{eq:matrix-norm}
+\end{align}
+
+\section{Quaternion subalgebra}
+\label{sec:quaternions}
+
+Define
+\begin{equation}
+ q_1=-\sigma_2\sigma_3,\qquad q_2=-\sigma_3\sigma_1,\qquad
+ q_3=-\sigma_1\sigma_2,\qquad \bq=-\ii\bsig.
+\end{equation}
+Then $q_1^2=q_2^2=q_3^2=q_1q_2q_3=-1$.  A quaternion
+$Q=a+\bb\cdot\bq$ satisfies $Q^{\mathsf H}=a-\bb\cdot\bq$ and
+$QQ^{\mathsf H}=a^2+\bb^2$; the rotation action is
+$\br'\cdot\bq=Q(\br\cdot\bq)Q^{\mathsf H}$.
+
 \section*{Conventions and cautions}
 \addcontentsline{toc}{section}{Conventions and cautions}
 
 \begin{itemize}
  \item The same symbol $\ii=\sigma_1\sigma_2\sigma_3$ is both the algebra's
  pseudoscalar and, in the Pauli representation, the ordinary complex unit.
- \item Sigma conjugation $(\cdot)^*$, reversion $(\cdot)^{\mathsf H}$,
+ \item Sigma conjugation $(\cdot)^*$, the Hermitian operator $(\cdot)^{\mathsf H}$,
  and their composition are distinct.  In the Pauli representation,
- reversion corresponds to Hermitian adjunction.
+ the Hermitian operator corresponds to Hermitian adjunction.
  \item $\det(Z)$ is an indefinite quadratic form and may be
  complex for complex $Z$.
  \item Differential operators act on everything to their right unless
@@ -2058,15 +2089,15 @@ $\det(Z)$.  Double bars are reserved for squared scalar, vector, and
 coefficient norms, with $\lVert Z\rVert^2=\lVert S\rVert^2+
 \lVert\bV\rVert^2$; absolute-value bars are not used.  Entrywise
 complex-conjugation notation is confined to the matrix section.
-Sigma conjugation retains the splat $^*$; reversal, originally
-$^R$ and elsewhere a dagger, is written $^{\mathsf H}$, because it reverses
+Sigma conjugation retains the splat $^*$; the operator originally written
+$^R$ and elsewhere as a dagger is written $^{\mathsf H}$ because it changes
 the multiplied sigma order and becomes Hermitian adjunction in the matrix
 representation.  The abbreviation $\operatorname{adj}(Z):=Z^{*\mathsf H}$
 is defined early and used where it shortens formulas.  The matrix section
 uses matching upright sans-serif capitals $^{\mathsf T}$,
 $^{\mathsf C}$, and $^{\mathsf H}$ for transpose, entrywise complex
 conjugation, and Hermitian transpose, and distinguishes these from sigma
-conjugation, including which operations reverse product
+conjugation, including which operations change product
 order.  Plus/minus labels are
 subscripts (${}_\pm$, ${}_+$, ${}_-$), not superscripts or parenthesized
 labels.  Parallel and perpendicular components use ${}_{\parallel}$ and
