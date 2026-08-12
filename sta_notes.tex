@@ -14,7 +14,7 @@
   linkcolor=MidnightBlue,
   urlcolor=MidnightBlue,
   pdftitle={Space--Time Algebra},
-  pdfauthor={}
+  pdfauthor={Dr. Luke A. Wendt}
 }
 
 \setlength{\parindent}{0pt}
@@ -76,14 +76,14 @@
 
 \title{\textbf{Space--Time Algebra}\\[0.35em]
   \large A compact development of paravectors and their physical applications}
-\author{}
+\author{Dr. Luke A. Wendt}
 \date{}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-This document develops a three-generator Clifford algebra and its complex
+This document develops a three-generator sigma algebra and its complex
 paravectors, then applies them to relativity, electromagnetism, and quantum
 mechanics.  Natural units $\hbar=c=1$ and signature $(+,-,-,-)$ are used.
 \end{abstract}
@@ -358,16 +358,24 @@ nonnegative.  In general,
  \qquad
  \bV^2\ne\lVert\bV\rVert^2.
 \end{equation}
-For any complex scalar $c$, $\adj{cZ}=c\adj Z$, so
+For any complex scalar $c$,
+\begin{equation}
+ \adj{cZ}=c\adj Z.
+\end{equation}
+Therefore
 \begin{equation}
  \det(cZ)=c^2\det(Z).
  \label{eq:det-scalar-scaling}
 \end{equation}
-Thus, for real $r$ and $\theta$,
-\begin{align}
- \det(re^{\ii\theta}Z)&=r^2e^{2\ii\theta}\det(Z),\\
- \lVert re^{-\ii\theta}Z\rVert^2&=r^2\lVert Z\rVert^2.
-\end{align}
+For real $r$ and $\theta$,
+\begin{equation}
+ \det(r\exp(\ii\theta)Z)=r^2\det(Z)\exp(2\ii\theta),
+ \qquad\text{while}\qquad
+ \lVert r\exp(\ii\theta)Z\rVert^2=r^2\lVert Z\rVert^2.
+\end{equation}
+
+\subsection{Quadratic identity and eigenvalues}
+
 Since $Z-S=\bV\cdot\bsig$ and
 $(\bV\cdot\bsig)^2=\bV^2$,
 \begin{align}
@@ -390,10 +398,22 @@ gives
 \end{equation}
 Because $\bV$ is generally complex, $\bV^2=\bV\cdot\bV$ and its square
 root may also be complex.
+The quadratic identity therefore factors as
+\begin{equation}
+ (Z-\lambda_-)(Z-\lambda_+)=0.
+\end{equation}
 
-\subsection{Real products and functions}
+\subsection{Real products}
 
-For $X=a+\bA\cdot\bsig$ and $Y=b+\bB\cdot\bsig$,
+Let
+\begin{equation}
+ X=a+\bA\cdot\bsig,
+ \qquad
+ Y=b+\bB\cdot\bsig,
+ \qquad
+ a,b\in\R,\quad \bA,\bB\in\R^3.
+\end{equation}
+Then
 \begin{align}
  XY&=(ab+\bA\cdot\bB)
  +(a\bB+b\bA+\ii\bA\times\bB)\cdot\bsig,\\
@@ -410,37 +430,17 @@ For $X=a+\bA\cdot\bsig$ and $Y=b+\bB\cdot\bsig$,
 The condition $\bA\times\bB=0$ implies
 $XY=YX$, $X^{-1}Y=YX^{-1}$, and
 $\det(XY)=\det(Y)\det(X)$.
-If $X^2=Y=b+\bB\cdot\bsig$, then
-\[
- a^2=\frac12\left(b\pm\sqrt{b^2-\bB^2}\right),
- \qquad \bA^2=b-a^2,
-\]
-with signs and vector direction chosen consistently.  Conversely, in the
-real domain where $b^2>\bB^2$, $b>0$, and $\bB\ne0$,
+
+\subsection{Complex products}
+
+Let
 \begin{equation}
- \log Y=\frac12\log(b^2-\bB^2)
- +\operatorname{atanh}\!\left(\frac{\lVert\bB\rVert}{b}\right)
-   \frac{\bB}{\lVert\bB\rVert}\cdot\bsig.
+ Z=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig,
+ \qquad
+ a,b\in\R,\quad \bA,\bB\in\R^3,
 \end{equation}
-
-\paragraph{Exponentials.}
-For $X=a+\bA\cdot\bsig$ and $\bu=\bA/\lVert\bA\rVert$,
-\begin{align}
- e^X&=e^a\left(\cosh\lVert\bA\rVert
-   +\sinh\lVert\bA\rVert\,\bu\cdot\bsig\right),\\
- e^{-\ii\bA\cdot\bsig}
-   &=\cos\lVert\bA\rVert-\ii\sin\lVert\bA\rVert\,\bu\cdot\bsig.
-\end{align}
-For $Z=S+\bV\cdot\bsig$ and $z=\sqrt{\bV^2}$,
-\begin{equation}
- e^Z=e^S\left(\cosh z+\frac{\sinh z}{z}\,\bV\cdot\bsig\right),
-\end{equation}
-with the quotient defined by continuity at $z=0$.
-
-\subsection{Complex product components}
-
-Write $Z=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig$ and use primes for a second
-paravector.  The four real components of $ZZ'$ are
+and use primes for a second paravector with real primed components.  The four
+real components of $ZZ'$ are
 \begin{align}
  \text{real scalar: }&aa'-bb'+\bA\cdot\bA'-\bB\cdot\bB',\\
  \text{imaginary scalar: }&ab'+ba'+\bA\cdot\bB'+\bB\cdot\bA',\\
@@ -469,6 +469,199 @@ $(ZZ')^{*\mathsf H}=Z'^{*\mathsf H}Z^{*\mathsf H}$.
 The paired signs follow the displayed product order.  Thus
 $ZZ^*=Z^*Z$ and $ZZ^{\mathsf H}=Z^{\mathsf H}Z$ precisely when
 $\bA\times\bB=0$.
+
+\subsection{Projection operators}
+\label{sec:algebra-projectors}
+
+For a real unit vector $\bu$, define
+\begin{equation}
+ \Pi_\pm:=\tfrac12(1\pm\bu\cdot\bsig).
+\end{equation}
+Since $(\bu\cdot\bsig)^2=1$,
+\begin{align}
+ \Pi_\pm^2&=\Pi_\pm,&
+ \Pi_+\Pi_-&=0,&
+ \Pi_++\Pi_-&=1,\\
+ \Pi_\pm^{\mathsf H}&=\Pi_\pm,&
+ \Pi_\pm^*&=\Pi_\mp,&
+ (\bu\cdot\bsig)\Pi_\pm&=\pm\Pi_\pm.
+\end{align}
+Thus $\bu\cdot\bsig=\Pi_+-\Pi_-$.  For two unit directions,
+\begin{align}
+ (\bu\cdot\bsig)(\bu'\cdot\bsig)
+ &=\bu\cdot\bu'+\ii(\bu\times\bu')\cdot\bsig,\\
+ [\bu\cdot\bsig,\bu'\cdot\bsig]
+ &=2\ii(\bu\times\bu')\cdot\bsig,\\
+ (\bu\cdot\bsig)(\bu'\cdot\bsig)(\bu\cdot\bsig)
+ &=\left(2(\bu\cdot\bu')\bu-\bu'\right)\cdot\bsig.
+\end{align}
+Define $\bu'_{\parallel}=(\bu'\cdot\bu)\bu$ and
+$\bu'_{\perp}=\bu'-\bu'_{\parallel}$.  Then
+\begin{align}
+ \Pi_\pm(\bu'\cdot\bsig)\Pi_\pm
+ &=\pm(\bu\cdot\bu')\Pi_\pm,\\
+ \Pi_\pm(\bu'\cdot\bsig)\Pi_\mp
+ &=\tfrac12(\bu'_{\perp}\pm\ii(\bu\times\bu'))\cdot\bsig\,
+ \Pi_\mp.
+\end{align}
+For comparison, define
+$\Pi_\pm':=\tfrac12(1\pm\bu'\cdot\bsig)$.  Their products are
+\begin{align}
+ \Pi_+\Pi_+'&=\tfrac14(1+\bu\cdot\bu')
+ +\tfrac14(+\bu+\bu'+\ii\bu\times\bu')\cdot\bsig,\\
+ \Pi_+\Pi_-'&=\tfrac14(1-\bu\cdot\bu')
+ +\tfrac14(+\bu-\bu'-\ii\bu\times\bu')\cdot\bsig,\\
+ \Pi_-\Pi_+'&=\tfrac14(1-\bu\cdot\bu')
+ +\tfrac14(-\bu+\bu'-\ii\bu\times\bu')\cdot\bsig,\\
+ \Pi_-\Pi_-'&=\tfrac14(1+\bu\cdot\bu')
+ +\tfrac14(-\bu-\bu'+\ii\bu\times\bu')\cdot\bsig.
+\end{align}
+
+\subsection{Functions of paravectors}
+\label{sec:spectral}
+
+\paragraph{General projector rule.}
+Let
+\begin{equation}
+ \lambda_+,\lambda_-\in\C.
+\end{equation}
+Suppose $\Pi_\pm^2=\Pi_\pm$, $\Pi_++\Pi_-=1$,
+$\Pi_+\Pi_-=\Pi_-\Pi_+=0$, and
+\begin{equation}
+ Z=\lambda_+\Pi_++\lambda_-\Pi_-.
+\end{equation}
+Then orthogonality gives
+\begin{equation}
+ Z^n=\lambda_+^n\Pi_++\lambda_-^n\Pi_-.
+\end{equation}
+Thus, for a convergent power series $f(w)=\sum_{n=0}^\infty c_nw^n$,
+\begin{align}
+ f(Z)&=\sum_{n=0}^\infty c_nZ^n\\
+ &=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-.
+\end{align}
+
+\paragraph{Functions of a unit vector.}
+For $X=\bu\cdot\bsig=\Pi_+-\Pi_-$, the eigenvalues are $\pm1$.
+The general rule and $\Pi_\pm=\tfrac12(1\pm\bu\cdot\bsig)$ give
+\begin{equation}
+ f(\bu\cdot\bsig)=f(1)\Pi_++f(-1)\Pi_-
+ =\tfrac12(f(1)+f(-1))+\tfrac12(f(1)-f(-1))\bu\cdot\bsig.
+\end{equation}
+Consequently,
+\begin{align}
+ \sqrt{\bu\cdot\bsig}&=\pm\Pi_+\pm\ii\Pi_-,\\
+ \log(\bu\cdot\bsig)&=2\ii\pi(n\Pi_++(\tfrac12+m)\Pi_-),\\
+ (z+\bu\cdot\bsig)^{-1}&=\frac{z-\bu\cdot\bsig}{z^2-1},
+ \qquad z^2\ne1,\\
+ \exp(\theta\bu\cdot\bsig)&=\cosh\theta+\sinh\theta\,\bu\cdot\bsig,\\
+ \exp(\ii\theta\bu\cdot\bsig)&=\cos\theta+\ii\sin\theta\,\bu\cdot\bsig.
+\end{align}
+For $0<\lVert\br\rVert<1$, take $\bu=\br/\lVert\br\rVert$.  Then
+\begin{equation}
+ \frac{1-\br\cdot\bsig}{1+\br\cdot\bsig}
+ =\exp(-2\tanh^{-1}(\lVert\br\rVert))\Pi_+
+ +\exp(2\tanh^{-1}(\lVert\br\rVert))\Pi_-.
+\end{equation}
+
+\paragraph{Real paravectors.}
+Let $X=a+\bA\cdot\bsig$ and $Y=b+\bB\cdot\bsig$, where
+$a,b\in\R$ and $\bA,\bB\in\R^3$.  For $\bA\ne0$, put
+$\bu=\bA/\lVert\bA\rVert$ and define
+\begin{equation}
+ \lambda_\pm:=a\pm\lVert\bA\rVert.
+\end{equation}
+Using
+$1=\Pi_++\Pi_-$ and $\bu\cdot\bsig=\Pi_+-\Pi_-$ gives
+\begin{align}
+ X&=a(\Pi_++\Pi_-)
+ +\lVert\bA\rVert(\Pi_+-\Pi_-)\\
+ &=\lambda_+\Pi_++\lambda_-\Pi_-.
+\end{align}
+The general rule therefore gives
+\begin{equation}
+ f(X)=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-.
+\end{equation}
+With nonzero eigenvalues where required and chosen function branches, this
+includes
+\begin{align}
+ X^n&=\tfrac12(\lambda_+^n+\lambda_-^n)
+ +\tfrac12(\lambda_+^n-\lambda_-^n)\bu\cdot\bsig,\\
+ X^{-1}&=\lambda_+^{-1}\Pi_++\lambda_-^{-1}\Pi_-,\\
+ \sqrt X&=\pm\sqrt{\lambda_+}\Pi_+\pm\sqrt{\lambda_-}\Pi_-,\\
+ \log X&=\log(\lambda_+)\Pi_++\log(\lambda_-)\Pi_-,\\
+ \exp(X)&=\exp(a)\left(\cosh\lVert\bA\rVert
+ +\sinh\lVert\bA\rVert\,\bu\cdot\bsig\right),\\
+ \exp(\ii\bA\cdot\bsig)
+ &=\cos\lVert\bA\rVert+\ii\sin\lVert\bA\rVert\,\bu\cdot\bsig.
+\end{align}
+The formulas extend continuously to $\bA=0$.
+
+For direct component formulas, if $X^2=Y$, then
+\begin{equation}
+ a^2=\tfrac12\left(b\pm\sqrt{b^2-\bB^2}\right),
+ \qquad \bA^2=b-a^2,
+\end{equation}
+with signs and vector direction chosen consistently.  Conversely, where
+$b^2>\bB^2$, $b>0$, and $\bB\ne0$,
+\begin{equation}
+ \log Y=\tfrac12\log(b^2-\bB^2)
+ +\tanh^{-1}\!\left(\frac{\lVert\bB\rVert}{b}\right)
+ \frac{\bB}{\lVert\bB\rVert}\cdot\bsig.
+\end{equation}
+
+\paragraph{Complex paravectors.}
+For $Z=S+\bV\cdot\bsig$, with $S\in\C$ and $\bV\in\C^3$, let
+$z:=\sqrt{\bV^2}\in\C$ and define
+\begin{equation}
+ \lambda_\pm:=S\pm z.
+\end{equation}
+When $z\ne0$, define
+\begin{equation}
+ \Pi_\pm:=\tfrac12\left(1\pm\frac{\bV\cdot\bsig}{z}\right).
+\end{equation}
+Because $(\bV\cdot\bsig)^2=\bV^2=z^2$,
+\begin{align}
+ \Pi_\pm^2
+ &=\tfrac14\left(1\pm2\frac{\bV\cdot\bsig}{z}
+ +\frac{(\bV\cdot\bsig)^2}{z^2}\right)=\Pi_\pm,\\
+ \Pi_+\Pi_-
+ &=\tfrac14\left(1-\frac{(\bV\cdot\bsig)^2}{z^2}\right)=0.
+\end{align}
+Also, $1=\Pi_++\Pi_-$ and
+$\bV\cdot\bsig=z(\Pi_+-\Pi_-)$, so
+\begin{align}
+ Z&=S(\Pi_++\Pi_-)+z(\Pi_+-\Pi_-)\\
+ &=\lambda_+\Pi_++\lambda_-\Pi_-.
+\end{align}
+The general rule gives
+\begin{equation}
+ f(Z)=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-.
+ \label{eq:complex-function-projectors}
+\end{equation}
+Choosing square-root branches gives
+\begin{align}
+ \sqrt Z
+ &=\sqrt{\lambda_+}\Pi_++\sqrt{\lambda_-}\Pi_-\\
+ &=\tfrac12(\sqrt{\lambda_+}+\sqrt{\lambda_-})
+ +\frac{\sqrt{\lambda_+}-\sqrt{\lambda_-}}{2z}\,
+ \bV\cdot\bsig,
+\end{align}
+and, when $\lambda_\pm\ne0$, choosing logarithm branches gives
+\begin{align}
+ \log Z
+ &=\log(\lambda_+)\Pi_++\log(\lambda_-)\Pi_-\\
+ &=\tfrac12(\log(\lambda_+)+\log(\lambda_-))
+ +\frac{\log(\lambda_+)-\log(\lambda_-)}{2z}\,
+ \bV\cdot\bsig.
+\end{align}
+Also,
+\begin{align}
+ \exp(Z)&=\exp(S)\left(\cosh z+\frac{\sinh z}{z}\,\bV\cdot\bsig\right),\\
+ \exp(Z^*)&=\exp(Z)^*,&
+ \exp(-Z)&=\exp(Z)^{-1}.
+\end{align}
+At $z=0$, these formulas are understood by analytic limits whenever the
+chosen function branch is analytic near $S$.
 
 \subsection{Differentiated fields}
 
@@ -667,6 +860,10 @@ All four Maxwell equations are the single equation
  \boxed{\partial F=\sconj D=\rho-\bJ\cdot\bsig.}
  \label{eq:maxwell}
 \end{equation}
+Sigma conjugation gives the equivalent equation
+\begin{equation}
+ \partial^*F^*=D.
+\end{equation}
 Expanding the left side by component gives
 \begin{align}
  \partial F={}&\underbrace{\pdr\cdot\bE}_{\text{real scalar}}
@@ -684,12 +881,17 @@ $\rho-\bJ\cdot\bsig$ gives, respectively,
  \text{real vector:}\quad&\pdr\times\bBf=\bJ+\partial_t\bE,\\
  \text{imaginary vector:}\quad&\pdr\times\bE=-\partial_t\bBf.
 \end{align}
-Because
+The conjugate operator products give
 \begin{equation}
  \partial\sconj\partial=\sconj\partial\,\partial
  =\partial_t^2-\pdr^2=:\Box,
 \end{equation}
-applying $\sconj\partial$ to~\eqref{eq:maxwell} gives
+whereas
+\begin{equation}
+ \partial^2=\partial_t^2+\pdr^2+2\partial_t\pdr\cdot\bsig
+ \ne\Box.
+\end{equation}
+Applying $\sconj\partial$ to~\eqref{eq:maxwell} gives
 \begin{align}
  \Box F
  &=\sconj\partial\sconj D\\
@@ -703,6 +905,12 @@ imaginary-vector components are the electric and magnetic wave equations:
  \text{real vector:}\quad&\Box\bE=-\partial_t\bJ-\pdr\rho,\\
  \text{imaginary vector:}\quad&\Box\bBf=\pdr\times\bJ.
 \end{align}
+In vacuum, $\rho=0$ and $\bJ=0$, so
+\begin{equation}
+ \Box\bE=0,
+ \qquad
+ \Box\bBf=0.
+\end{equation}
 
 For the potential $\Phi=V+\bA\cdot\bsig$,
 \begin{align}
@@ -951,13 +1159,14 @@ current on a spacelike hypersurface.
 \label{sec:physical-spinors}
 
 A physical two-component Pauli spinor occupies a minimal left ideal.  For any
-unit direction $\bu$, define the algebra and matrix projectors
+unit direction $\bu$, represent the algebra projectors from
+Section~\ref{sec:algebra-projectors} by the matrices
 \begin{equation}
- \Pi_\pm(\bu):=\tfrac12(1\pm\bu\cdot\bsig),
- \qquad
- \bPi_\pm(\bu):=\tfrac12(\bI_2\pm\bu\cdot\bsig).
+ \bPi_\pm(\bu):=\operatorname{mat}\!\left(
+ \tfrac12(1\pm\bu\cdot\bsig)\right)
+ =\tfrac12(\bI_2\pm\bu\cdot\bsig).
 \end{equation}
-They satisfy
+They inherit
 \begin{align}
  \bPi_\pm(\bu)^2&=\bPi_\pm(\bu),&
  \bPi_+(\bu)\bPi_-(\bu)&=0,&
@@ -968,9 +1177,10 @@ They satisfy
  \end{align}
 and hence $\bu\cdot\bsig=\bPi_+(\bu)-\bPi_-(\bu)$.
 
-Choose a fixed reference direction $\bu_0$ and project on the right:
+Choose a fixed reference direction $\bu_0$, set
+$\Pi_+:=\tfrac12(1+\bu_0\cdot\bsig)$, and project on the right:
 \begin{equation}
- \psi':=\psi\Pi_+(\bu_0),
+ \psi':=\psi\Pi_+,
  \qquad
  \bM_{\psi'}:=\operatorname{mat}(\psi')=\bM_\psi\bPi_+(\bu_0).
 \end{equation}
@@ -1071,6 +1281,14 @@ $\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$ it reads
  \qquad
  \ii\sconj\partial\,\Psi_1-m\Psi_2=0.
 \end{equation}
+Conversely, for $m\ne0$, any scalar solution $\Psi'$ of
+$(\Box+m^2)\Psi'=0$ gives a Dirac solution
+\begin{equation}
+ \bPsi=
+ \left\{\Psi',\frac{\ii}{m}\sconj\partial\Psi'\right\}^{\mathsf T}.
+\end{equation}
+Indeed, the second component equation holds by definition, and the first
+reduces to $-(\Box+m^2)\Psi'/m=0$.
 The characteristic equation is $(s+m)^2+\Box=0$, hence
 $s=-m\pm\ii\sqrt\Box$.
 With a potential, the gauge-covariant form is
@@ -1080,7 +1298,7 @@ With a potential, the gauge-covariant form is
 \end{equation}
 It is invariant under
 $\Phi'=\Phi+\sconj\partial\lambda$ and
-$\bPsi=e^{\ii q\lambda}\bPsi'$.
+$\bPsi=\exp(\ii q\lambda)\bPsi'$.
 
 \subsection{Schr\"odinger--Pauli limit}
 
@@ -1180,7 +1398,7 @@ Writing $F=\bF\cdot\bsig$,
 
 \subsection{Low-energy derivation}
 
-For spin zero, write $\Psi'=e^{-\ii mt}\Psi$.  The exact equation becomes
+For spin zero, write $\Psi'=\exp(-\ii mt)\Psi$.  The exact equation becomes
 \begin{equation}
  (-E^2-2mE+\bP^2)\Psi=0,
  \qquad E=\frac{\bP^2-E^2}{2m}
@@ -1241,28 +1459,6 @@ The probabilities for spin along and against $\bu$ are
  \label{eq:spin-probability}
 \end{equation}
 
-For two unit directions $\bu,\bu'$, the product and commutator are
-\begin{align}
- (\bu\cdot\bsig)(\bu'\cdot\bsig)
- &=\bu\cdot\bu'+\ii(\bu\times\bu')\cdot\bsig,\\
- [\bu\cdot\bsig,\bu'\cdot\bsig]
- &=2\ii(\bu\times\bu')\cdot\bsig.
-\end{align}
-Moreover,
-\begin{equation}
- (\bu\cdot\bsig)(\bu'\cdot\bsig)(\bu\cdot\bsig)
- =\left(2(\bu\cdot\bu')\bu-\bu'\right)\cdot\bsig.
-\end{equation}
-Define $\bu'_{\parallel}=(\bu'\cdot\bu)\bu$ and
-$\bu'_{\perp}=\bu'-\bu'_{\parallel}$.
-The same-side and cross-side projector identities are
-\begin{align}
- \bPi_\pm(\bu)(\bu'\cdot\bsig)\bPi_\pm(\bu)
-   &=\pm(\bu\cdot\bu')\bPi_\pm(\bu),\\
- \bPi_\pm(\bu)(\bu'\cdot\bsig)\bPi_\mp(\bu)
-   &=\tfrac12(\bu'_{\perp}\pm\ii(\bu\times\bu'))\cdot\bsig\,
-     \bPi_\mp(\bu).
-\end{align}
 For a state aligned with $\bu$ and $\bu\cdot\bu'=\cos\theta$, the measurement
 probabilities along $\bu'$ are
 \begin{equation}
@@ -1513,59 +1709,6 @@ Inversion changes product order:
  \quad(L_1L_2)^{-1}=L_2^* L_1^*.
 \end{equation}
 
-\section{Spectral functions}
-\label{sec:spectral}
-
-\subsection{Functions of a unit vector}
-
-With the algebra projectors $\Pi_\pm:=\tfrac12(1\pm\bu\cdot\bsig)$, any
-function defined by a power series satisfies
-\begin{equation}
- f(\bu\cdot\bsig)=f(1)\Pi_++f(-1)\Pi_-
- =\tfrac12(f(1)+f(-1))+\tfrac12(f(1)-f(-1))\bu\cdot\bsig.
-\end{equation}
-Consequently,
-\begin{align}
- \sqrt{\bu\cdot\bsig}&=\pm\Pi_+\pm\ii\Pi_-,\\
- \log(\bu\cdot\bsig)&=2\ii\pi(n\Pi_++(\tfrac12+m)\Pi_-),\\
- (z+\bu\cdot\bsig)^{-1}&=\frac{z-\bu\cdot\bsig}{z^2-1},\\
- e^{\theta\bu\cdot\bsig}&=\cosh\theta+\sinh\theta\,\bu\cdot\bsig,\\
- e^{\ii\theta\bu\cdot\bsig}&=\cos\theta+\ii\sin\theta\,\bu\cdot\bsig.
-\end{align}
-
-For $X=t+\br\cdot\bsig$, put
-$\lambda_\pm=t\pm\lVert\br\rVert$ and
-$\bu=\br/\lVert\br\rVert$.  Then
-\begin{equation}
- X=\lambda_+\Pi_++\lambda_-\Pi_-,
- \qquad f(X)=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-.
-\end{equation}
-This includes
-\begin{align}
- X^n&=\tfrac12(\lambda_+^n+\lambda_-^n)
- +\tfrac12(\lambda_+^n-\lambda_-^n)\bu\cdot\bsig,\\
- X^{-1}&=\lambda_+^{-1}\Pi_++\lambda_-^{-1}\Pi_-,\\
- \sqrt X&=\pm\sqrt{\lambda_+}\Pi_+\pm\sqrt{\lambda_-}\Pi_-,\\
- \log X&=\log\lambda_+\Pi_++\log\lambda_-\Pi_-.
-\end{align}
-For two directions,
-\begin{align}
- \Pi_+\Pi_+'&=\tfrac14(1+\bu\cdot\bu')
- +\tfrac14(\bu+\bu'+\ii\bu\times\bu')\cdot\bsig,\\
- \Pi_+\Pi_-'&=\tfrac14(1-\bu\cdot\bu')
- +\tfrac14(\bu-\bu'-\ii\bu\times\bu')\cdot\bsig,\\
- \Pi_-\Pi_+'&=\tfrac14(1-\bu\cdot\bu')
- +\tfrac14(-\bu+\bu'-\ii\bu\times\bu')\cdot\bsig,\\
- \Pi_-\Pi_-'&=\tfrac14(1+\bu\cdot\bu')
- +\tfrac14(-\bu-\bu'+\ii\bu\times\bu')\cdot\bsig.
-\end{align}
-One useful projector evaluation is
-\begin{equation}
- \frac{1-\br\cdot\bsig}{1+\br\cdot\bsig}
- =e^{-2\operatorname{atanh}(\lVert\br\rVert)}\Pi_+
- +e^{2\operatorname{atanh}(\lVert\br\rVert)}\Pi_-.
-\end{equation}
-
 \section{Generalized spacetime and metric form}
 \label{sec:generalized}
 
@@ -1652,11 +1795,20 @@ For $Z=S+\bV\cdot\bsig=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig$,
  +(S\bV'+S'\bV+\ii\bV\times\bV')\cdot\bsig,\\
  \det(Z)&=\adj Z\,Z=Z\adj Z=S^2-\bV^2,
  &Z^{-1}&=\frac{\adj Z}{\det(Z)},\\
- Z^2-2SZ+(S^2-\bV^2)&=0,
- &\lambda_\pm&=S\pm\sqrt{\bV^2}.
+ Z^2-2SZ+(S^2-\bV^2)&=0,\\
+ \lambda_\pm&=S\pm\sqrt{\bV^2}.
 \end{align*}
 See the product~\eqref{eq:para-product}, determinant~\eqref{eq:det}, and
 quadratic identity~\eqref{eq:minimal}.
+
+\paragraph{\hyperref[sec:algebra-projectors]{Projection operators and functions}.}
+\begin{align*}
+ \Pi_\pm&=\tfrac12(1\pm\bu\cdot\bsig),
+ &\Pi_\pm^2&=\Pi_\pm,&\Pi_+\Pi_-&=0,\\
+ f(\bu\cdot\bsig)&=f(1)\Pi_++f(-1)\Pi_-,\\
+ X&=\lambda_+\Pi_++\lambda_-\Pi_-,
+ &f(X)&=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-.
+\end{align*}
 
 \paragraph{\hyperref[sec:matrix]{Pauli-matrix representation}.}
 \begin{align*}
@@ -1740,10 +1892,10 @@ probability~\eqref{eq:spin-probability}.
 
 \paragraph{\hyperref[sec:transformations]{Rotations, boosts, and transformed bases}.}
 \begin{align*}
- R&=e^{\phi\bu\cdot\ii\bsig/2},
+ R&=\exp(\phi\bu\cdot\ii\bsig/2),
  \qquad R^{\mathsf H}=R^{-1},
  \qquad Z'=R^{\mathsf H}ZR,\\
- L&=e^{-\theta\bu\cdot\bsig/2},
+ L&=\exp(-\theta\bu\cdot\bsig/2),
  \qquad L^{\mathsf H}=L,
  \qquad X'=LXL,\\
  \langle Z\rangle_{\psi_T}
@@ -1757,13 +1909,6 @@ probability~\eqref{eq:spin-probability}.
 \end{align*}
 See the bilinear rule~\eqref{eq:bilinear-congruence} and congruence
 derivative~\eqref{eq:congruence-derivative}.
-
-\paragraph{\hyperref[sec:spectral]{Spectral functions}.}
-\begin{align*}
- f(\bu\cdot\bsig)&=f(1)\Pi_++f(-1)\Pi_-,\\
- X&=\lambda_+\Pi_++\lambda_-\Pi_-,
- &f(X)&=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-.
-\end{align*}
 
 \paragraph{\hyperref[sec:quaternions]{Quaternion appendix}.}
 \begin{align*}
