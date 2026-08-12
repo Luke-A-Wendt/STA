@@ -1,0 +1,1718 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{booktabs,array}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=MidnightBlue,
+  urlcolor=MidnightBlue,
+  pdftitle={Space--Time Algebra},
+  pdfauthor={}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4em}
+\setlength{\abovedisplayskip}{0.55em}
+\setlength{\belowdisplayskip}{0.55em}
+\setlength{\abovedisplayshortskip}{0.35em}
+\setlength{\belowdisplayshortskip}{0.35em}
+\setlist{nosep,leftmargin=2em}
+\numberwithin{equation}{section}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\bsig}{\bm{\sigma}}
+\newcommand{\bA}{\bm{A}}
+\newcommand{\bB}{\bm{B}}
+\newcommand{\bC}{\bm{C}}
+\newcommand{\bV}{\bm{V}}
+\newcommand{\br}{\bm{r}}
+\newcommand{\bv}{\bm{v}}
+\newcommand{\bu}{\bm{u}}
+\newcommand{\bn}{\bm{n}}
+\newcommand{\ba}{\bm{a}}
+\newcommand{\bk}{\bm{k}}
+\newcommand{\bg}{\bm{g}}
+\newcommand{\bb}{\bm{b}}
+\newcommand{\bq}{\bm{q}}
+\newcommand{\bT}{\bm{T}}
+\newcommand{\bF}{\bm{F}}
+\newcommand{\bE}{\bm{E}}
+\newcommand{\bBf}{\bm{B}}
+\newcommand{\bJ}{\bm{J}}
+\newcommand{\bP}{\bm{P}}
+\newcommand{\bM}{\bm{M}}
+\newcommand{\bN}{\bm{N}}
+\newcommand{\bI}{\bm{I}}
+\newcommand{\bPsi}{\bm{\Psi}}
+\newcommand{\bpsi}{\bm{\psi}}
+\newcommand{\bLambda}{\bm{\Lambda}}
+\newcommand{\bPi}{\bm{\Pi}}
+\newcommand{\baop}{\bm{a}}
+\newcommand{\bQm}{\bm{Q}}
+\newcommand{\bNm}{\bm{N}}
+\newcommand{\bDm}{\bm{D}}
+\newcommand{\pdr}{\partial_{\br}}
+\newcommand{\rev}[1]{#1^{\mathsf H}}
+\newcommand{\sconj}[1]{#1^{*}}
+\newcommand{\sr}[1]{#1^{*\mathsf H}}
+\newcommand{\adj}[1]{\operatorname{adj}(#1)}
+\newcommand{\scpart}[1]{\operatorname{sc}(#1)}
+\newcommand{\vecpart}[1]{\operatorname{vec}(#1)}
+\newcommand{\repart}[1]{\operatorname{re}(#1)}
+\newcommand{\impart}[1]{\operatorname{im}(#1)}
+\newcommand{\Det}[1]{\det\left(#1\right)}
+\newcommand{\Wop}{\bm{W}}
+\newcommand{\dd}{\,\mathrm d}
+
+\title{\textbf{Space--Time Algebra}\\[0.35em]
+  \large A compact development of paravectors and their physical applications}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This document develops a three-generator Clifford algebra and its complex
+paravectors, then applies them to relativity, electromagnetism, and quantum
+mechanics.  Natural units $\hbar=c=1$ and signature $(+,-,-,-)$ are used.
+\end{abstract}
+
+\tableofcontents
+\clearpage
+
+\section{The algebra at a glance}
+\label{sec:algebra}
+
+\begin{center}
+\setlength{\fboxsep}{1.2em}
+\fcolorbox{MidnightBlue}{MidnightBlue!4}{%
+\begin{minipage}{0.88\textwidth}
+\begin{align*}
+ \sigma_n^2&=1,
+ &\sigma_n\sigma_m&=-\sigma_m\sigma_n\quad(n\ne m),\\
+ \ii&=\sigma_1\sigma_2\sigma_3,
+ &\ii^2&=-1,\\
+ \bsig&=\{\sigma_1,\sigma_2,\sigma_3\},
+ &\ii\bsig&=\{\sigma_2\sigma_3,\sigma_3\sigma_1,\sigma_1\sigma_2\},\\
+ (\bA\cdot\bsig)(\bB\cdot\bsig)
+   &=\bA\cdot\bB+\ii(\bA\times\bB)\cdot\bsig,\\
+ Z&=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig,
+ &a,b&\in\R,\quad \bA,\bB\in\R^3.
+\end{align*}
+\end{minipage}}
+\end{center}
+
+Ordinary three-vector operations use
+\begin{align}
+ \bA\cdot\bB&=A_1B_1+A_2B_2+A_3B_3,\\
+ \bA\times\bB&=\{A_2B_3-A_3B_2,
+ A_3B_1-A_1B_3,A_1B_2-A_2B_1\},\\
+ \bA^2&:=\bA\cdot\bA,\\
+ \lVert\bA\rVert&=\sqrt{\bA^2}.
+\end{align}
+Thus the square of a vector always denotes its self dot product, not an
+algebra product.  For $Z=S+\bV\cdot\bsig$, define
+\begin{equation}
+ \lVert Z\rVert^2:=\lVert S\rVert^2+\lVert\bV\rVert^2,
+ \label{eq:coefficient-norm}
+\end{equation}
+where
+\begin{align}
+ \lVert S\rVert^2
+   &:=SS^*=S^*S,\\
+ \lVert\bV\rVert^2
+   &:=\bV\cdot\bV^*=\bV^*\cdot\bV.
+\end{align}
+On scalar and vector coefficients, $^*$ supplies the required complex
+conjugation; on a full algebra element, $^*$ remains sigma conjugation.
+Thus, for $\bV=\bA+\ii\bB$,
+\begin{equation}
+ \lVert\bV\rVert^2=\bA^2+\bB^2,
+ \qquad \bV^2\ne\lVert\bV\rVert^2\ \text{in general}.
+\end{equation}
+The commutator is
+\begin{equation}
+ [X,Y]:=XY-YX,
+ \qquad [Y,X]=-[X,Y].
+\end{equation}
+Hence $[X,Y]=0$ exactly when $X$ and $Y$ commute.
+
+The defining relations in the panel give a graded basis
+\[
+  \underbrace{1}_{\text{scalar}},\qquad
+  \underbrace{\sigma_1,\sigma_2,\sigma_3}_{\text{vectors}},\qquad
+  \underbrace{\ii\sigma_1,\ii\sigma_2,\ii\sigma_3}_{\text{bivectors}},\qquad
+  \underbrace{\ii}_{\text{pseudoscalar}}.
+\]
+The pseudoscalar $\ii=\sigma_1\sigma_2\sigma_3$ commutes with every
+$\sigma_n$, and anticommutation gives
+$\ii^2=-\sigma_1^2\sigma_2^2\sigma_3^2=-1$.
+
+With the Kronecker delta $\delta_{nm}$ and Levi--Civita symbol
+$\epsilon_{nmk}$,
+\begin{equation}
+  \sigma_n\sigma_m=\delta_{nm}+\epsilon_{nmk}\,\ii\sigma_k,
+  \qquad
+  [\sigma_n,\sigma_m]=2\epsilon_{nmk}\,\ii\sigma_k.
+  \label{eq:sigma-product}
+\end{equation}
+Repeated spatial indices are summed.  The vector-product identity in the
+opening panel gives
+\begin{align}
+ [\bA\cdot\bsig,\bB\cdot\bsig]
+   &=2\ii(\bA\times\bB)\cdot\bsig,\\
+ \bA\cdot\bB
+   &=\tfrac12\bigl((\bA\cdot\bsig)(\bB\cdot\bsig)
+                   +(\bB\cdot\bsig)(\bA\cdot\bsig)\bigr).
+\end{align}
+
+\section{Involutions and sign conventions}
+\label{sec:involutions}
+
+Two involutions are used.  Sigma conjugation $(\cdot)^*$ changes the sign
+of every generator without reversing order.  Reversion $(\cdot)^{\mathsf H}$
+reverses the multiplied order of the sigma generators.  In the matrix
+representation developed in Section~4, this operation is the Hermitian
+operation; hence the superscript $\mathsf H$.  Their action by grade is
+\begin{center}
+\begin{tabular}{c c c c c}
+  \toprule
+  grade & $0$ & $1$ & $2$ & $3$\\
+  representative & $1$ & $\sigma_n$ & $\ii\sigma_n$ & $\ii$\\
+  \midrule
+  $(\cdot)^*$ & $+$ & $-$ & $+$ & $-$\\
+  $(\cdot)^{\mathsf H}$ & $+$ & $+$ & $-$ & $-$\\
+  $(\cdot)^{*\mathsf H}$ & $+$ & $-$ & $-$ & $+$\\
+  \bottomrule
+\end{tabular}
+\end{center}
+In particular,
+\[
+  \sconj{\sigma_n}=-\sigma_n,
+  \quad \rev{\sigma_n}=\sigma_n,
+  \quad \sconj{\ii}=-\ii,
+  \quad \rev{\ii}=-\ii.
+\]
+They obey
+\[
+  (ZZ')^{\mathsf H}=Z'^{\mathsf H}Z^{\mathsf H},
+  \qquad
+  (ZZ')^*=Z^* Z'^*,
+  \qquad
+  Z^{*\mathsf H}=Z^{\mathsf H*}.
+\]
+For a paravector, define the adjugate early for later use:
+\begin{equation}
+ \adj Z:=Z^{*\mathsf H}.
+ \label{eq:adjugate}
+\end{equation}
+
+\section{Paravectors}
+\label{sec:paravectors}
+
+\subsection{Decompositions}
+
+A general complex paravector is
+\begin{equation}
+  Z=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig
+   =X+\ii Y=S+\bV\cdot\bsig,
+  \label{eq:paravector}
+\end{equation}
+where $a,b\in\R$, $\bA,\bB\in\R^3$, $X=a+\bA\cdot\bsig$,
+$Y=b+\bB\cdot\bsig$, $S=a+b\ii$, and $\bV=\bA+\ii\bB$.  The involutions
+give
+\begin{align}
+  \sconj Z&=(a-b\ii)+(-\bA+\ii\bB)\cdot\bsig,\\
+  \rev Z&=(a-b\ii)+(\bA-\ii\bB)\cdot\bsig,\\
+  Z^{*\mathsf H}&=(a+b\ii)-(\bA+\ii\bB)\cdot\bsig.
+\end{align}
+Define the four extraction functions by
+\begin{equation}
+ \scpart Z:=S\quad\text{(scalar part)},\qquad
+ \vecpart Z:=\bV\quad\text{(vector coefficient)},
+\end{equation}
+\begin{equation}
+ \repart Z:=X\quad\text{(real paravector part)},\qquad
+ \impart Z:=Y\quad\text{(imaginary paravector part)}.
+\end{equation}
+The functions $\operatorname{re}$ and $\operatorname{im}$ also act
+componentwise on complex scalars and vectors.  Thus the components are
+recovered by
+\begin{align}
+  S&=\scpart Z=\tfrac12(Z+Z^{*\mathsf H}),&
+  \bV&=\vecpart Z,&
+  \bV\cdot\bsig&=\tfrac12(Z-Z^{*\mathsf H}),\\
+  X&=\repart Z=\tfrac12(Z+\rev Z),&
+  Y&=\impart Z=\frac{Z-\rev Z}{2\ii}.
+\end{align}
+The four real coefficient groups then follow by composition:
+\begin{align}
+ a&=\repart S=\scpart X=\scpart{\repart Z},&
+ b&=\impart S=\scpart Y=\scpart{\impart Z},\\
+ \bA&=\repart{\bV}=\vecpart X=\vecpart{\repart Z},&
+ \bB&=\impart{\bV}=\vecpart Y=\vecpart{\impart Z}.
+\end{align}
+Equivalently, they may be recovered directly from the involutions:
+\begin{align}
+ a&=\tfrac14(Z+Z^*+Z^{\mathsf H}+Z^{*\mathsf H}),\\
+ b&=\tfrac1{4\ii}(Z-Z^*-Z^{\mathsf H}+Z^{*\mathsf H}),\\
+ \bA\cdot\bsig&=\tfrac14(Z-Z^*+Z^{\mathsf H}-Z^{*\mathsf H}),\\
+ \bB\cdot\bsig&=\tfrac1{4\ii}(Z+Z^*-Z^{\mathsf H}-Z^{*\mathsf H}).
+\end{align}
+
+\subsection{Products, quadratic forms, and inverse}
+
+For $Z=S+\bV\cdot\bsig$ and $Z'=S'+\bV'\cdot\bsig$,
+\begin{equation}
+ ZZ'=(SS'+\bV\cdot\bV')+
+ \bigl(S\bV'+S'\bV+\ii\bV\times\bV'\bigr)\cdot\bsig.
+ \label{eq:para-product}
+\end{equation}
+Thus
+\begin{align}
+ \scpart{ZZ'}&=SS'+\bV\cdot\bV',\\
+ \vecpart{ZZ'}&=S\bV'+S'\bV+\ii\bV\times\bV'.
+\end{align}
+Equivalently, if $Z=X+\ii Y$ and $Z'=X'+\ii Y'$, then
+\[
+  ZZ'=(XX'-YY')+\ii(XY'+YX').
+\]
+
+The determinant is
+\begin{equation}
+ \det(Z)=\adj Z\,Z=Z\adj Z=S^2-\bV\cdot\bV.
+  \label{eq:det}
+\end{equation}
+It may be complex and is not a norm.  Whenever $\det(Z)\ne0$,
+\begin{equation}
+  Z^{-1}=\frac{\adj Z}{\det(Z)}.
+\end{equation}
+For real $r$ and real phase $\theta$, complex scaling gives
+\begin{align}
+ \det(re^{\ii\theta}Z)&=r^2e^{2\ii\theta}\det(Z),\\
+ \lVert re^{-\ii\theta}Z\rVert^2&=r^2\lVert Z\rVert^2.
+\end{align}
+Every paravector satisfies the quadratic identity
+\begin{equation}
+  Z^2-2S Z+(S^2-\bV^2)=0.
+  \label{eq:minimal}
+\end{equation}
+Its two algebraic eigenvalues are $\lambda_\pm=S\pm\sqrt{\bV^2}$.
+
+\paragraph{Vector-product derivation.}
+Using $\sigma_n\sigma_m=\delta_{nm}+\epsilon_{nmk}\ii\sigma_k$,
+\begin{align}
+ (\bA\cdot\bsig)(\bB\cdot\bsig)
+ &=\sum_{n,m}A_nB_m\sigma_n\sigma_m\\
+ &=\sum_{n,m}A_nB_m
+   (\delta_{nm}+\epsilon_{nmk}\ii\sigma_k)\\
+ &=\bA\cdot\bB+\ii(\bA\times\bB)\cdot\bsig.
+\end{align}
+Hence
+\begin{align}
+ (\bA\cdot\bsig)^2&=\bA^2,&
+ (\bA\cdot\bsig)^{2n}&=(\bA^2)^n,&
+ (\bA\cdot\bsig)^{2n+1}&=(\bA^2)^n\bA\cdot\bsig,\\
+ (\bA\cdot\bsig)\bsig&=\bA+\ii\bA\times\bsig,&
+ [\bA\cdot\bsig,\bsig]&=-2\ii\bA\times\bsig,\\
+ [\bA\cdot\ii\bsig,\bsig]&=2\bA\times\bsig,&
+ [\bA\cdot\bsig,\bsig]\cdot\bB
+ &=2\ii(\bA\times\bB)\cdot\bsig.
+\end{align}
+
+\subsection{Real products and functions}
+
+For $X=a+\bA\cdot\bsig$ and $Y=b+\bB\cdot\bsig$,
+\begin{align}
+ XY&=(ab+\bA\cdot\bB)
+ +(a\bB+b\bA+\ii\bA\times\bB)\cdot\bsig,\\
+ \scpart{XY}&=ab+\bA\cdot\bB,\\
+ \vecpart{XY}&=a\bB+b\bA+\ii\bA\times\bB,\\
+ [X,Y]&=2\ii(\bA\times\bB)\cdot\bsig,\\
+ X^2&=(a^2+\bA^2)+2a\bA\cdot\bsig,\\
+ \scpart{X^2}&=a^2+\bA^2,\\
+ \vecpart{X^2}&=2a\bA,\\
+ X^2-2aX+(a^2-\bA^2)&=0,\\
+ X^{-1}&=\frac{a-\bA\cdot\bsig}{a^2-\bA^2},\\
+ \dd(X^{-1})&=-X^{-1}(\dd X)X^{-1}.
+\end{align}
+The condition $\bA\times\bB=0$ implies
+$XY=YX$, $X^{-1}Y=YX^{-1}$, and
+$\det(XY)=\det(Y)\det(X)$.
+If $X^2=Y=b+\bB\cdot\bsig$, then
+\[
+ a^2=\frac12\left(b\pm\sqrt{b^2-\bB^2}\right),
+ \qquad \bA^2=b-a^2,
+\]
+with signs and vector direction chosen consistently.  Conversely, in the
+real domain where $b^2>\bB^2$, $b>0$, and $\bB\ne0$,
+\begin{equation}
+ \log Y=\frac12\log(b^2-\bB^2)
+ +\operatorname{atanh}\!\left(\frac{\lVert\bB\rVert}{b}\right)
+   \frac{\bB}{\lVert\bB\rVert}\cdot\bsig.
+\end{equation}
+
+\paragraph{Exponentials.}
+For $X=a+\bA\cdot\bsig$ and $\bu=\bA/\lVert\bA\rVert$,
+\begin{align}
+ e^X&=e^a\left(\cosh\lVert\bA\rVert
+   +\sinh\lVert\bA\rVert\,\bu\cdot\bsig\right),\\
+ e^{-\ii\bA\cdot\bsig}
+   &=\cos\lVert\bA\rVert-\ii\sin\lVert\bA\rVert\,\bu\cdot\bsig.
+\end{align}
+For $Z=S+\bV\cdot\bsig$ and $z=\sqrt{\bV^2}$,
+\begin{equation}
+ e^Z=e^S\left(\cosh z+\frac{\sinh z}{z}\,\bV\cdot\bsig\right),
+\end{equation}
+with the quotient defined by continuity at $z=0$.
+
+\subsection{Complex product components}
+
+Write $Z=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig$ and use primes for a second
+paravector.  The four real components of $ZZ'$ are
+\begin{align}
+ \text{real scalar: }&aa'-bb'+\bA\cdot\bA'-\bB\cdot\bB',\\
+ \text{imaginary scalar: }&ab'+ba'+\bA\cdot\bB'+\bB\cdot\bA',\\
+ \text{real vector: }&a\bA'-b\bB'+a'\bA-b'\bB
+                    -\bA\times\bB'-\bB\times\bA',\\
+ \text{imaginary vector: }&a\bB'+b\bA'+a'\bB+b'\bA
+                    +\bA\times\bA'-\bB\times\bB'.
+\end{align}
+For the important quadratic products:
+\begin{align}
+ Z^2 &: (a^2-b^2+\bA^2-\bB^2)
+ +2\ii(ab+\bA\cdot\bB)
+ +2(a\bA-b\bB)\cdot\bsig
+ +2\ii(a\bB+b\bA)\cdot\bsig,\\
+ ZZ^*,\ Z^*Z &: (a^2+b^2-\bA^2-\bB^2)
+ \mp2(\bA\times\bB)\cdot\bsig
+ +2\ii(a\bB-b\bA)\cdot\bsig,\\
+ ZZ^{\mathsf H},\ Z^{\mathsf H}Z &: a^2+b^2+\bA^2+\bB^2
+ +2(a\bA+b\bB\pm\bA\times\bB)\cdot\bsig,\\
+ Z\adj Z &: a^2-b^2-\bA^2+\bB^2
+ +2\ii(ab-\bA\cdot\bB).
+\end{align}
+The scalar part is cyclic, $\scpart{ZZ'}=\scpart{Z'Z}$, and
+\begin{align}
+ (ZZ')^*&=Z^* Z'^*,&
+ (ZZ')^{\mathsf H}&=Z'^{\mathsf H}Z^{\mathsf H},&
+ (ZZ')^{*\mathsf H}&=Z'^{*\mathsf H}Z^{*\mathsf H}.
+\end{align}
+The paired signs follow the displayed product order.  Thus
+$ZZ^*=Z^*Z$ and $ZZ^{\mathsf H}=Z^{\mathsf H}Z$ precisely when
+$\bA\times\bB=0$.
+
+\subsection{Differentiated fields}
+
+For products of fields,
+\begin{equation}
+ \partial(ZZ')=(\partial Z)Z'+Z(\partial Z')
+ +[\bsig,Z]\cdot\pdr Z'.
+\end{equation}
+Let $F=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig$ depend on $(t,\br)$.  Then
+\begin{align}
+ \partial F={}&(\partial_ta+\pdr\cdot\bA)
+ +\ii(\partial_tb+\pdr\cdot\bB)\\
+ &+(\pdr a+\partial_t\bA-\pdr\times\bB)\cdot\bsig\\
+ &+\ii(\pdr b+\pdr\times\bA+\partial_t\bB)\cdot\bsig.
+\end{align}
+Multiplication by $\ii$ rotates these four components: the real scalar becomes
+$-\partial_tb-\pdr\cdot\bB$, the imaginary scalar becomes
+$\partial_ta+\pdr\cdot\bA$, the real vector becomes the negative of the
+imaginary vector above, and the imaginary vector becomes the real vector.
+
+\section{Pauli-matrix representation}
+\label{sec:matrix}
+
+The faithful $2\times2$ complex representation is
+\[
+ \operatorname{mat}(\sigma_1)=\begin{pmatrix}0&1\\1&0\end{pmatrix},\quad
+ \operatorname{mat}(\sigma_2)=\begin{pmatrix}0&-\ii\\\ii&0\end{pmatrix},\quad
+ \operatorname{mat}(\sigma_3)=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+\]
+Thus
+\begin{equation}
+ \operatorname{mat}(S+\bV\cdot\bsig)=
+ \begin{pmatrix}
+  S+V_3&V_1-\ii V_2\\
+  V_1+\ii V_2&S-V_3
+ \end{pmatrix}.
+ \label{eq:matrix}
+\end{equation}
+The representation preserves identity, addition, and multiplied order.  In
+particular,
+\begin{equation}
+ \operatorname{mat}(1)=\bI_2,
+ \qquad
+ \operatorname{mat}(Z'Z)
+ =\operatorname{mat}(Z')\operatorname{mat}(Z).
+ \label{eq:matrix-product}
+\end{equation}
+Let $\bM=\operatorname{mat}(Z)$.  Four distinct operations occur in the
+matrix description:
+\begin{center}
+\begin{tabular}{c l l}
+ \toprule
+ symbol & matrix operation & relation to the algebra \\
+ \midrule
+ $\bM^{\mathsf T}$ & transpose & reverses matrix-product order \\
+ $\bM^{\mathsf C}$ & entrywise complex conjugation & sends $\ii$ to $-\ii$ \\
+ $\bM^{\mathsf H}$ & Hermitian transpose
+   & $\operatorname{mat}(Z^{\mathsf H})$ \\
+ $\bM^*$ & sigma conjugation
+   & $\operatorname{mat}(Z^*)$ \\
+ \bottomrule
+\end{tabular}
+\end{center}
+Thus
+\begin{equation}
+ \bM^{\mathsf H}=(\bM^{\mathsf C})^{\mathsf T}
+ =(\bM^{\mathsf T})^{\mathsf C}.
+\end{equation}
+Transpose and Hermitian transpose reverse product order, whereas entrywise
+complex conjugation and sigma conjugation preserve it:
+\begin{align}
+ (\bM\bN)^{\mathsf T}&=\bN^{\mathsf T}\bM^{\mathsf T},&
+ (\bM\bN)^{\mathsf C}&=\bM^{\mathsf C}\bN^{\mathsf C},\\
+ (\bM\bN)^{\mathsf H}&=\bN^{\mathsf H}\bM^{\mathsf H},&
+ (\bM\bN)^*&=\bM^*\bN^*.
+\end{align}
+In particular,
+\begin{align}
+ \operatorname{tr}(Z)&=2S,&
+ \det(Z)&=S^2-\bV^2,&
+ \operatorname{mat}(\adj Z)&=\operatorname{adj}(\bM).
+\end{align}
+The coefficients and adjugate are
+\begin{equation}
+ S=\tfrac12\operatorname{tr}(\bM),
+ \qquad V_n=\tfrac12\operatorname{tr}(\sigma_n\bM),
+ \qquad \adj{\bM}=\operatorname{tr}(\bM)\bI_2-\bM.
+\end{equation}
+Sigma conjugation is not entrywise complex conjugation.  With
+$\bm{J}=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ and $\bm{J}^2=-\bI_2$, it is
+the symplectic conjugation
+\begin{equation}
+ \bM^*=-\bm{J}\bM^{\mathsf C}\bm{J}.
+\end{equation}
+Consequently
+$\operatorname{mat}(\adj Z)=(\bM^*)^{\mathsf H}
+=\operatorname{adj}(\bM)$.
+Equation~\eqref{eq:minimal} is precisely the Cayley--Hamilton theorem for
+$\bM=\operatorname{mat}(Z)$.
+
+\section{Space--time kinematics}
+\label{sec:kinematics}
+
+\subsection{Intervals, velocity, and momentum}
+
+Represent a differential event by the real paravector
+\begin{equation}
+  \dd X=\dd t+\dd\br\cdot\bsig,
+  \qquad
+  \dd X^*=\dd t-\dd\br\cdot\bsig.
+\end{equation}
+The Minkowski interval is
+\begin{equation}
+ \dd s^2=\Det{\dd X}=\dd X\,\dd X^*
+ =\dd t^2-\dd\br^2.
+ \label{eq:interval}
+\end{equation}
+It is time-like, null, or space-like according as this expression is positive,
+zero, or negative.  For two intervals,
+\begin{equation}
+ \Det{\dd X+\dd X'}-\Det{\dd X}-\Det{\dd X'}
+ =2(\dd t\,\dd t'-\dd\br\cdot\dd\br'),
+ \qquad
+ [\dd X,\dd X']=2\ii(\dd\br\times\dd\br')\cdot\bsig.
+\end{equation}
+When $\dd s^2\ne0$,
+\begin{equation}
+ \dd X^{-1}=\frac{\dd X^*}{\dd s^2}.
+\end{equation}
+A null interval has $\dd t^2=\dd\br^2$ and no inverse.  Along a time-like
+worldline, $s$ is proper time and
+\begin{equation}
+ \bv=\frac{\dd\br}{\dd t},\qquad
+ \gamma=\frac{\dd t}{\dd s}=\frac1{\sqrt{1-\bv^2}},\qquad
+ U:=\frac{\dd X}{\dd s}=\gamma(1+\bv\cdot\bsig),
+ \quad \Det U=1.
+\end{equation}
+Thus $U^{-1}=U^*$.  Proper time obeys
+$\tau=\int\sqrt{1-\bv^2}\,\dd t=\int\dd t/\gamma$.
+The four-momentum is the paravector
+\begin{equation}
+ mU=E+\bP\cdot\bsig,\qquad E=m\gamma,\qquad
+ \bP=m\gamma\bv,\qquad E^2-\bP^2=m^2.
+ \label{eq:momentum}
+\end{equation}
+
+For coordinate acceleration $\ba=\dd\bv/\dd t$,
+\begin{equation}
+ \frac{\dd U}{\dd s}
+ =\gamma^4(\bv\cdot\ba)
+ +\left(\gamma^4(\bv\cdot\ba)\bv+\gamma^2\ba\right)\cdot\bsig,
+\end{equation}
+and the normalization of $U$ implies
+$\scpart{U^*\dd U/\dd s}=0$.
+If $A=\dd U/\dd s$, then
+\begin{equation}
+ \Det A=-\gamma^4(\ba^2+\gamma^2(\bv\cdot\ba)^2).
+\end{equation}
+For $\bu=\bv/\lVert\bv\rVert$, define
+$\ba_{\parallel}=(\ba\cdot\bu)\bu$ and
+$\ba_{\perp}=\ba-\ba_{\parallel}$.  Then
+\begin{equation}
+ \Det A=-\gamma^4(\ba_{\perp}^2+\gamma^2\ba_{\parallel}^2).
+\end{equation}
+The product $U^* A$ has zero scalar part, real vector
+$\gamma^3\ba$, and imaginary vector $-\gamma^3\bv\times\ba$; while $UA$
+has real scalar $2\gamma^5\bv\cdot\ba$, real vector
+$\gamma^3\ba+2\gamma^5(\bv\cdot\ba)\bv$, and imaginary vector
+$\gamma^3\bv\times\ba$.
+
+\subsection{Free-particle action}
+
+The free-particle action and Lagrangian are
+\begin{equation}
+ S=-m\int\dd s=\int L\dd t,
+ \qquad L=-m\sqrt{1-\bv^2}=-\frac m\gamma.
+\end{equation}
+For a general Lagrangian $L(t,\br,\bv)$,
+\begin{equation}
+ \frac{\dd}{\dd t}\partial_{\bv}L=\pdr L,
+ \qquad
+ H=\bv\cdot\partial_{\bv}L-L,
+ \qquad
+ \frac{\dd H}{\dd t}=-\partial_tL.
+\end{equation}
+Thus spatial translation invariance conserves canonical momentum and time
+translation invariance conserves the Hamiltonian.
+They yield canonical momentum $\partial_{\bv}L=m\gamma\bv$ and
+Hamiltonian $H=m\gamma$.  At low velocity,
+\[
+ L=-m+\tfrac12m\bv^2+O(v^4),
+ \qquad H=m+\tfrac12m\bv^2+O(v^4).
+\]
+
+\section{Electromagnetism}
+\label{sec:electromagnetism}
+
+\subsection{Field equation and potentials}
+
+Introduce the paravector differential operator, electromagnetic field, and
+source
+\begin{equation}
+ \partial=\partial_t+\bsig\cdot\pdr,\qquad
+ F=(\bE+\ii\bBf)\cdot\bsig,\qquad
+ D=\rho+\bJ\cdot\bsig.
+\end{equation}
+All four Maxwell equations are the single equation
+\begin{equation}
+ \boxed{\partial F=\sconj D=\rho-\bJ\cdot\bsig.}
+ \label{eq:maxwell}
+\end{equation}
+Its four components are
+\begin{align}
+ \pdr\cdot\bE&=\rho,& \pdr\cdot\bBf&=0,\\
+ \pdr\times\bBf&=\bJ+\partial_t\bE,&
+ \pdr\times\bE&=-\partial_t\bBf.
+\end{align}
+Because
+\begin{equation}
+ \partial\sconj\partial=\sconj\partial\,\partial
+ =\partial_t^2-\pdr^2=:\Box,
+\end{equation}
+applying $\sconj\partial$ to~\eqref{eq:maxwell} gives the wave equations and
+charge conservation:
+\begin{align}
+ \Box\bE&=-\partial_t\bJ-\pdr\rho,&
+ \Box\bBf&=\pdr\times\bJ,&
+ \partial_t\rho+\pdr\cdot\bJ&=0.
+\end{align}
+
+For the potential $\Phi=V+\bA\cdot\bsig$, define
+\begin{equation}
+ S:=\scpart{\partial\Phi}=\partial_tV+\pdr\cdot\bA,\qquad
+ \partial\Phi=S+\sconj F.
+\end{equation}
+Hence $\bE=-\partial_t\bA-\pdr V$ and
+$\bBf=\pdr\times\bA$.  Under the gauge transformation
+\begin{equation}
+ \Phi' = \Phi+\sconj\partial\lambda,
+\end{equation}
+the field is unchanged and $S'=S+\Box\lambda$.  The Lorenz gauge is $S=0$,
+in which $\rho=\Box V$ and $\bJ=\Box\bA$.
+Equivalently,
+$\scpart{\partial\Phi'}=S+\Box\lambda$ while
+$\vecpart{\partial\Phi'}=\vecpart{\partial\Phi}$.
+
+\subsection{Invariants, energy, and force}
+
+Two simple products contain the standard electromagnetic invariants and
+energy flow:
+\begin{align}
+ \tfrac12F^2&=\tfrac12(\bE^2-\bBf^2)+\ii\bE\cdot\bBf,\\
+ \tfrac12F\rev F&=\tfrac12(\bE^2+\bBf^2)
+                      +(\bE\times\bBf)\cdot\bsig.
+\end{align}
+Thus the scalar and vector parts of the second expression are the field energy
+density and Poynting vector.  The covariant Lorentz force is
+\begin{equation}
+ m\frac{\dd U}{\dd s}=q\repart{FU}
+ =\frac q2\bigl(FU+U\rev F\bigr),
+ \label{eq:lorentz}
+\end{equation}
+which reproduces
+$\dd(m\gamma)/\dd t=q\bv\cdot\bE$ and
+$\dd\bP/\dd t=q(\bE+\bv\times\bBf)$.
+
+\subsection{Derivation from the potential and action}
+
+The potential gradient follows directly from the vector-product identity:
+\begin{align}
+ \partial\Phi
+ &=\partial_tV+\pdr\cdot\bA
+ +(\partial_t\bA+\pdr V)\cdot\bsig
+ +\ii(\pdr\times\bA)\cdot\bsig\\
+ &=S+F^*.
+\end{align}
+Consequently
+\begin{equation}
+ F^*=\partial\Phi-S,\qquad
+ F=\partial^*\Phi^*-S,\qquad
+ \rho=\Box V-\partial_tS,\qquad
+ \bJ=\Box\bA+\pdr S.
+\end{equation}
+The interacting particle action is
+\begin{align}
+ S
+ &=-m\int\dd s-q\int\scpart{\Phi^* U}\dd s\\
+ &=\int\left(-\frac m\gamma
+ -q\scpart{\Phi^* U/\gamma}\right)\dd t\\
+ &=\int\left(-\frac m\gamma-qV+q\bv\cdot\bA\right)\dd t.
+\end{align}
+Thus
+\begin{equation}
+ L=-\frac m\gamma-q(V-\bv\cdot\bA),
+ \quad \partial_{\bv}L=\bP+q\bA,
+ \quad H=m\gamma+qV.
+\end{equation}
+Using
+$(\bv\cdot\pdr)\bA=\pdr(\bv\cdot\bA)
+-\bv\times(\pdr\times\bA)$ in the Euler--Lagrange equation gives
+\begin{align}
+ \frac{\dd\bP}{\dd t}
+ &=-q\pdr V-q\partial_t\bA
+   +q\bigl(\pdr(\bv\cdot\bA)-(\bv\cdot\pdr)\bA\bigr)\\
+ &=q(\bE+\bv\times\bBf),
+\end{align}
+while $\dd H/\dd t=-\partial_tL$ gives
+$\dd(m\gamma)/\dd t=q\bv\cdot\bE$.
+
+To see equation~\eqref{eq:lorentz} componentwise, expand
+\begin{equation}
+ \frac{FU}{\gamma}=
+ \bv\cdot\bE+\ii\bv\cdot\bBf
+ +(\bE+\bv\times\bBf)\cdot\bsig
+ +\ii(\bBf+\bE\times\bv)\cdot\bsig.
+\end{equation}
+Taking the real paravector part removes the two imaginary components.
+
+\subsection{Energy balance}
+
+Let
+\begin{equation}
+ T:=\tfrac12FF^{\mathsf H}
+ =T_s+\bT_v\cdot\bsig,\qquad
+ T_s=\tfrac12(\bE^2+\bBf^2),\quad
+ \bT_v=\bE\times\bBf.
+\end{equation}
+Then the scalar part of $\partial T$ is
+$\partial_tT_s+\pdr\cdot\bT_v$.  The source products needed for local
+balance have components
+\begin{align}
+ FD^* &: -\bE\cdot\bJ-\ii\bBf\cdot\bJ
+ +(\rho\bE+\bBf\times\bJ)\cdot\bsig
+ +\ii(\rho\bBf-\bE\times\bJ)\cdot\bsig,\\
+ D^* F &: -\bE\cdot\bJ-\ii\bBf\cdot\bJ
+ +(\rho\bE-\bBf\times\bJ)\cdot\bsig
+ +\ii(\rho\bBf+\bE\times\bJ)\cdot\bsig.
+\end{align}
+Since the derivative is not an ordinary scalar derivation,
+\begin{equation}
+ \partial(F^2)=D^* F+FD^*+[\bsig,F]\cdot\pdr F.
+\end{equation}
+Writing $F=\bF\cdot\bsig$, its last term is
+\begin{equation}
+ -2\ii\bF\cdot(\pdr\times\bF)
+ -2\left((\pdr\cdot\bF)\bF-\tfrac12\pdr(\bF^2)\right)\cdot\bsig.
+\end{equation}
+
+\section{Relativistic wave equations}
+\label{sec:waves}
+
+\subsection{Paravector amplitudes and physical spinors}
+
+A paravector amplitude $\psi$ maps to the complex matrix
+$\bM_\psi=\operatorname{mat}(\psi)$.  Therefore
+$\operatorname{mat}(\psi^{\mathsf H}\psi)=\bM_\psi^{\mathsf H}\bM_\psi$,
+which is generally a Hermitian matrix rather than a scalar.  Adjugation does
+not fix this normalization issue: $\adj\psi\,\psi=\det(\psi)$ measures the
+determinant instead.
+
+The scalar inner product on the full paravector coefficient space is the
+Hilbert--Schmidt product
+\begin{equation}
+ \langle\phi\mid\psi\rangle
+ :=\scpart{\phi^{\mathsf H}\psi}
+ =\tfrac12\operatorname{tr}(\bM_\phi^{\mathsf H}\bM_\psi),
+ \qquad
+ \langle\psi\mid\psi\rangle=\lVert\psi\rVert^2.
+ \label{eq:paravector-inner-product}
+\end{equation}
+Thus a full paravector is normalized by
+$\scpart{\psi^{\mathsf H}\psi}=1$, not by
+$\psi^{\mathsf H}\psi=1$.  For an observable $Z^{\mathsf H}=Z$ acting from
+the left, its scalar expectation is
+\begin{equation}
+ \langle Z\rangle_\psi
+ :=\frac{\scpart{\psi^{\mathsf H}Z\psi}}
+ {\scpart{\psi^{\mathsf H}\psi}}.
+ \label{eq:paravector-expectation}
+\end{equation}
+
+A physical two-component Pauli spinor occupies a minimal left ideal rather
+than the full matrix algebra.  Choose any fixed unit reference direction
+$\bu_0$.  In the algebra, define
+\begin{equation}
+ \Pi_+(\bu_0):=\tfrac12(1+\bu_0\cdot\bsig),
+ \qquad
+ \psi':=\psi\Pi_+(\bu_0).
+\end{equation}
+In matrix form this is
+\begin{equation}
+ \bPi_+(\bu_0):=\tfrac12(\bI_2+\bu_0\cdot\bsig),
+ \qquad
+ \bM_{\psi'}:=\operatorname{mat}(\psi')=\bM_\psi\bPi_+(\bu_0).
+\end{equation}
+Let $\bm e_+(\bu_0)$ be a normalized positive eigenvector,
+\begin{equation}
+ (\bu_0\cdot\bsig)\bm e_+(\bu_0)=\bm e_+(\bu_0),
+ \qquad
+ \bm e_+(\bu_0)^{\mathsf H}\bm e_+(\bu_0)=1.
+\end{equation}
+A convenient phase choice, valid for $u_{0,3}\ne-1$, is
+\begin{equation}
+ \bm e_+(\bu_0)
+ =\frac{\{1+u_{0,3},\ u_{0,1}+\ii u_{0,2}\}^{\mathsf T}}
+ {\sqrt{2(1+u_{0,3})}};
+ \qquad
+ \bm e_+(-\bm e_3)=\{0,1\}^{\mathsf T}.
+\end{equation}
+Define the conventional column spinor $\bm\chi\in\C^2$ by
+\begin{equation}
+ \bPi_+(\bu_0)=\bm e_+(\bu_0)\bm e_+(\bu_0)^{\mathsf H},
+ \qquad
+ \bm\chi:=\bM_\psi\bm e_+(\bu_0).
+\end{equation}
+The algebra, rank-one matrix, and column forms of the state are related by
+\begin{equation}
+ \bm\chi=\bM_{\psi'}\bm e_+(\bu_0),
+ \qquad
+ \bM_{\psi'}=\bm\chi\bm e_+(\bu_0)^{\mathsf H}.
+ \label{eq:ideal-column-map}
+\end{equation}
+Thus $\psi'$ and $\bm\chi$ contain the same two complex components.  The
+matrix $\bM_{\psi'}$ has rank one; it has $\bm\chi$ as its first column only
+in a basis whose first vector is $\bm e_+(\bu_0)$.  Conversely,
+$\bm\chi\bm e_+(\bu_0)^{\mathsf H}$ uniquely determines $\psi'$ through the
+faithful matrix representation.  Thus $\bm\chi$ is a $2\times1$ vector, not a matrix, and
+$\bm\chi^{\mathsf H}\bm\chi$ is a scalar.  The matrix and paravector forms
+agree:
+\begin{align}
+ \bm\chi^{\mathsf H}\bm\chi
+ &=\operatorname{tr}(\bM_{\psi'}^{\mathsf H}\bM_{\psi'})
+ =2\scpart{\psi'^{\mathsf H}\psi'},
+ \label{eq:minimal-ideal-spinor}\\
+ \bm\chi^{\mathsf H}\operatorname{mat}(Z)\bm\chi
+ &=\operatorname{tr}(\bM_{\psi'}^{\mathsf H}
+   \operatorname{mat}(Z)\bM_{\psi'})
+ =2\scpart{\psi'^{\mathsf H}Z\psi'}.
+\end{align}
+The factor two cancels in normalized expectations.  Accordingly, an
+unrestricted paravector matrix represents two Pauli-spinor columns; matrix
+right projection by $\bPi_+$, equivalently algebra right projection by
+$\Pi_+$, selects one physical spinor.  For the Dirac block
+wavefunction below, applying the same right projection to both components
+selects one conventional four-component Dirac column.
+
+For a separate transformation $\psi_T:=T\psi$, the normalized expectation is
+\begin{equation}
+ \langle Z\rangle_{\psi_T}
+ =\frac{\scpart{\psi^{\mathsf H}T^{\mathsf H}ZT\psi}}
+ {\scpart{\psi^{\mathsf H}T^{\mathsf H}T\psi}}.
+ \label{eq:bilinear-congruence}
+\end{equation}
+For a unitary rotation the denominator is unchanged.  A finite boost is not
+unitary, so this positive equal-time norm is not itself Lorentz invariant;
+the covariant Dirac normalization is instead constructed from the conserved
+Dirac current on a spacelike hypersurface.
+
+\subsection{Klein--Gordon equation}
+
+With $E=\ii\partial_t$ and $\bP=-\ii\pdr$, the mass-shell relation becomes
+the scalar wave equation
+\begin{equation}
+ (\Box+m^2)\Psi=0.
+ \label{eq:kg}
+\end{equation}
+Writing $\Omega=\sqrt{m^2-\pdr^2}$ gives the frequency decomposition
+\begin{equation}
+ (\partial_t\pm\ii\Omega)\Psi_\pm=0,
+ \qquad \Psi=\Psi_++\Psi_-.
+\end{equation}
+The square-root operator is understood spectrally: on a plane wave with wave
+vector $\bk$, $\Omega$ multiplies by $\sqrt{m^2+\bk^2}$.
+
+Minimal electromagnetic coupling replaces the operators by
+\begin{equation}
+ E=\ii\partial_t-qV,\qquad
+ \bP=-\ii\pdr-q\bA,
+\end{equation}
+so that $(-E^2+\bP^2+m^2)\Psi=0$.
+
+\subsection{Dirac equation in block form}
+
+For a paravector $Z$, define
+\begin{equation}
+ \Wop(Z):=
+ \begin{pmatrix}0&Z\\ \adj Z&0\end{pmatrix}.
+\end{equation}
+It satisfies
+\begin{equation}
+ \Wop(Z)^2=\operatorname{diag}(Z\adj Z,\adj Z\,Z),
+ \qquad \Wop(Z)^*=\Wop(Z^*),
+ \qquad \Wop(Z)^{\mathsf H}=\Wop(Z^{\mathsf H}).
+\end{equation}
+Since $\Wop(\ii\partial)^2=-\Box\bI$, the first-order equation
+\begin{equation}
+ \boxed{\bigl(\Wop(\ii\partial)-m\bI\bigr)\bPsi=0}
+ \label{eq:dirac}
+\end{equation}
+squares to the Klein--Gordon equation.  For
+$\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$ it reads
+\begin{equation}
+ \ii\partial\Psi_2-m\Psi_1=0,
+ \qquad
+ \ii\sconj\partial\,\Psi_1-m\Psi_2=0.
+\end{equation}
+The characteristic equation is $(s+m)^2+\Box=0$, hence
+$s=-m\pm\ii\sqrt\Box$.
+With a potential, the gauge-covariant form is
+\begin{equation}
+ \bigl(\Wop(\ii\partial-q\sconj\Phi)-m\bI\bigr)\bPsi=0.
+ \label{eq:dirac-field}
+\end{equation}
+It is invariant under
+$\Phi'=\Phi+\sconj\partial\lambda$ and
+$\bPsi=e^{\ii q\lambda}\bPsi'$.
+
+\subsection{Schr\"odinger--Pauli limit}
+
+Removing the rest-energy oscillation and expanding at low momentum gives the
+Pauli equation
+\begin{equation}
+ \ii\partial_t\bPsi=\left(
+  \frac{(-\ii\pdr-q\bA)^2}{2m}+qV
+  -\frac{q}{2m}\bBf\cdot\bsig\right)\bPsi.
+ \label{eq:pauli}
+\end{equation}
+For a unit direction $\bu$, the spin projectors
+\begin{equation}
+ \bPi_\pm(\bu)=\tfrac12(\bI_2\pm\bu\cdot\bsig)
+\end{equation}
+satisfy $\bPi_\pm^2=\bPi_\pm$, $\bPi_+\bPi_-=0$, and
+$(\bu\cdot\bsig)\bPi_\pm=\pm\bPi_\pm$.  Thus
+$\bPsi=\bPsi_++\bPsi_-$ with $\bPsi_\pm=\bPi_\pm(\bu)\bPsi$.  For a uniform static
+magnetic field, $\bu=\bBf/\lVert\bBf\rVert$, the sectors decouple:
+\begin{equation}
+ \ii\partial_t\bPsi_\pm=\left(
+ \frac{\bP^2\mp q\lVert\bBf\rVert}{2m}+qV\right)\bPsi_\pm.
+\end{equation}
+For a varying field direction the sectors are coupled.  With $H$ denoting the
+Pauli Hamiltonian, direct differentiation gives
+\begin{align}
+ \ii\partial_t\bPsi_\pm
+ &=\ii(\partial_t\bPi_\pm)\bPsi+\bPi_\pm H\bPsi\\
+ &=H\bPsi_\pm+\left(\ii\partial_t\bPi_\pm
+   +[\bPi_\pm,H]\right)\bPsi.
+\end{align}
+Because the field term commutes with its own instantaneous projectors, this is
+\begin{equation}
+ \ii\partial_t\bPsi_\pm=H\bPsi_\pm+\bm{S}_\pm,
+ \qquad
+ \bm{S}_\pm=\left(\ii\partial_t\bPi_\pm
+ +\frac{[\bP^2,\bPi_\pm]}{2m}\right)\bPsi.
+\end{equation}
+
+\subsection{Interacting operators and factorization}
+
+The covariant energy and momentum operators do not commute.  Direct
+application to a test wavefunction gives
+\begin{equation}
+ [E,P_m]=\ii qE_m,\qquad
+ [P_m,P_n]=\ii q(\partial_mA_n-\partial_nA_m),\qquad
+ \bP\times\bP=\ii q\bBf.
+\end{equation}
+Therefore
+\begin{align}
+ (E+\bsig\cdot\bP)(E-\bsig\cdot\bP)&=E^2-\bP^2-\ii qF,\\
+ (E-\bsig\cdot\bP)(E+\bsig\cdot\bP)&=E^2-\bP^2-\ii qF^*,\\
+ E+\bsig\cdot\bP&=\ii\partial^*-q\Phi,\\
+ E-\bsig\cdot\bP&=\ii\partial-q\Phi^*.
+\end{align}
+Expanding the minimally coupled Klein--Gordon operator gives the fully explicit
+result
+\begin{equation}
+ \left(\Box+\ii qS-q^2\Det\Phi+m^2
+ +2\ii q(V\partial_t+\bA\cdot\pdr)\right)\Psi=0.
+\end{equation}
+The two orderings satisfy
+\begin{align}
+ 0&=\left((\partial+\ii q\Phi^*)
+          (\partial^*+\ii q\Phi)+m^2\right)\Psi_1
+   =(-E^2+\bP^2+m^2+\ii qF^*)\Psi_1,\\
+ 0&=\left((\partial^*+\ii q\Phi)
+          (\partial+\ii q\Phi^*)+m^2\right)\Psi_2
+   =(-E^2+\bP^2+m^2+\ii qF)\Psi_2.
+\end{align}
+These follow by multiplying the Dirac operator by its mass conjugate.  In
+detail, if $\bDm=\Wop(\ii\partial-q\Phi^*)-m\bI$ and
+$\bDm'=\Wop(\ii\partial-q\Phi^*)+m\bI$, then
+\begin{equation}
+ \bDm'\bDm=-\operatorname{diag}\!\left(
+ (\partial+\ii q\Phi^*)(\partial^*+\ii q\Phi)+m^2,
+ (\partial^*+\ii q\Phi)(\partial+\ii q\Phi^*)+m^2
+ \right).
+\end{equation}
+
+For a paravector wavefunction $\psi=\psi_s+\bm\psi_v\cdot\bsig$,
+\begin{align}
+ \partial\psi&=(\partial_t\psi_s+\pdr\cdot\bm\psi_v)
+ +(\partial_t\bm\psi_v+\pdr\psi_s
+      +\ii\pdr\times\bm\psi_v)\cdot\bsig,\\
+ \partial^*\psi&=(\partial_t\psi_s-\pdr\cdot\bm\psi_v)
+ +(\partial_t\bm\psi_v-\pdr\psi_s
+      -\ii\pdr\times\bm\psi_v)\cdot\bsig,\\
+ \Phi\psi&=(V\psi_s+\bA\cdot\bm\psi_v)
+ +(V\bm\psi_v+\psi_s\bA+\ii\bA\times\bm\psi_v)\cdot\bsig,\\
+ \Phi^*\psi&=(V\psi_s-\bA\cdot\bm\psi_v)
+ +(V\bm\psi_v-\psi_s\bA-\ii\bA\times\bm\psi_v)\cdot\bsig.
+\end{align}
+Writing $F=\bF\cdot\bsig$,
+\begin{align}
+ \scpart{\ii qF\psi}&=\ii q\bF\cdot\bm\psi_v,&
+ \vecpart{\ii qF\psi}&=\ii q\psi_s\bF-q\bF\times\bm\psi_v,\\
+ \scpart{\ii qF^*\psi}&=-\ii q\bF^*\cdot\bm\psi_v,&
+ \vecpart{\ii qF^*\psi}&=-\ii q\psi_s\bF^*
+ +q\bF^*\times\bm\psi_v.
+\end{align}
+
+\subsection{Low-energy derivation}
+
+For spin zero, write $\Psi'=e^{-\ii mt}\Psi$.  The exact equation becomes
+\begin{equation}
+ (-E^2-2mE+\bP^2)\Psi=0,
+ \qquad E=\frac{\bP^2-E^2}{2m}
+ =\frac{\bP^2}{2m}-\frac{\bP^4}{8m^3}+\cdots.
+\end{equation}
+The leading term is the Schr\"odinger equation
+\begin{equation}
+ \ii\partial_t\Psi=\left(\frac{(-\ii\pdr-q\bA)^2}{2m}+qV\right)\Psi.
+\end{equation}
+For spin one-half, the two rest-mass-stripped Dirac equations are
+\begin{align}
+ (E+m-\bP\cdot\bsig)\Psi_2-m\Psi_1&=0,\\
+ (E+m+\bP\cdot\bsig)\Psi_1-m\Psi_2&=0.
+\end{align}
+Eliminating $\Psi_1$ gives
+\begin{equation}
+ (E^2+2mE-\bP^2+q\bBf\cdot\bsig
+       -\ii q\bE\cdot\bsig)\Psi_2=0,
+\end{equation}
+and iteration yields
+$E=(\bP^2-q\bBf\cdot\bsig)/(2m)+O(m^{-2})$, which is
+equation~\eqref{eq:pauli}.
+
+\subsection{Spin, ladder operators, and energy sectors}
+
+The matrix spin projectors and their algebra counterparts are
+\begin{equation}
+ \bPi_\pm(\bu):=\tfrac12(\bI_2\pm\bu\cdot\bsig),
+ \qquad
+ \Pi_\pm(\bu):=\tfrac12(1\pm\bu\cdot\bsig).
+\end{equation}
+They satisfy
+\begin{align}
+ \bPi_\pm(\bu)^2&=\bPi_\pm(\bu),&
+ \bPi_+(\bu)\bPi_-(\bu)&=0,&
+ \bPi_+(\bu)+\bPi_-(\bu)&=\bI_2,\\
+ \bPi_\pm(\bu)^{\mathsf H}&=\bPi_\pm(\bu),&
+ \bPi_\pm(\bu)^*&=\bPi_\mp(\bu),&
+ (\bu\cdot\bsig)\bPi_\pm(\bu)&=\pm\bPi_\pm(\bu).
+\end{align}
+Consequently
+\begin{equation}
+ \bu\cdot\bsig=\bPi_+(\bu)-\bPi_-(\bu).
+\end{equation}
+
+This left measurement projection along $\bu$ is distinct from the fixed right
+ideal projection along the freely chosen reference $\bu_0$ in Section~7.1.
+For the ideal matrix $\bM_{\psi'}$ and its
+nonzero column $\bm\chi$, define
+\begin{equation}
+ \bM_{\psi',\pm}:=\bPi_\pm(\bu)\bM_{\psi'},
+ \qquad
+ \bm\chi_\pm:=\bPi_\pm(\bu)\bm\chi.
+\end{equation}
+The components are orthogonal and complete:
+\begin{equation}
+ \bm\chi=\bm\chi_++\bm\chi_-,
+ \qquad
+ \bm\chi_+^{\mathsf H}\bm\chi_-=0,
+ \qquad
+ \bm\chi_-^{\mathsf H}\bm\chi_+=0.
+\end{equation}
+For a normalized state, define its real Bloch vector by
+\begin{equation}
+ s_n:=\frac{\bm\chi^{\mathsf H}\bm{\sigma}_n\bm\chi}
+ {\bm\chi^{\mathsf H}\bm\chi},
+ \qquad \bm{s}:=\{s_1,s_2,s_3\},
+ \qquad \lVert\bm{s}\rVert^2=1.
+\end{equation}
+The probabilities for spin along and against $\bu$ are
+\begin{equation}
+ p_\pm(\bu)
+ :=\frac{\bm\chi_\pm^{\mathsf H}\bm\chi_\pm}
+ {\bm\chi^{\mathsf H}\bm\chi}
+ =\frac{\bm\chi^{\mathsf H}\bPi_\pm(\bu)\bm\chi}
+ {\bm\chi^{\mathsf H}\bm\chi}
+ =\tfrac12(1\pm\bu\cdot\bm{s}).
+ \label{eq:spin-probability}
+\end{equation}
+
+For two unit directions $\bu,\bu'$, the product and commutator are
+\begin{align}
+ (\bu\cdot\bsig)(\bu'\cdot\bsig)
+ &=\bu\cdot\bu'+\ii(\bu\times\bu')\cdot\bsig,\\
+ [\bu\cdot\bsig,\bu'\cdot\bsig]
+ &=2\ii(\bu\times\bu')\cdot\bsig.
+\end{align}
+Moreover,
+\begin{equation}
+ (\bu\cdot\bsig)(\bu'\cdot\bsig)(\bu\cdot\bsig)
+ =\left(2(\bu\cdot\bu')\bu-\bu'\right)\cdot\bsig.
+\end{equation}
+Define $\bu'_{\parallel}=(\bu'\cdot\bu)\bu$ and
+$\bu'_{\perp}=\bu'-\bu'_{\parallel}$.
+The same-side and cross-side projector identities are
+\begin{align}
+ \bPi_\pm(\bu)(\bu'\cdot\bsig)\bPi_\pm(\bu)
+   &=\pm(\bu\cdot\bu')\bPi_\pm(\bu),\\
+ \bPi_\pm(\bu)(\bu'\cdot\bsig)\bPi_\mp(\bu)
+   &=\tfrac12(\bu'_{\perp}\pm\ii(\bu\times\bu'))\cdot\bsig\,
+     \bPi_\mp(\bu).
+\end{align}
+For a state aligned with $\bu$ and $\bu\cdot\bu'=\cos\theta$, the measurement
+probabilities along $\bu'$ are
+\begin{equation}
+ p_+(\bu')=\tfrac12(1+\bu\cdot\bu')=\cos^2(\theta/2),
+ \qquad
+ p_-(\bu')=\tfrac12(1-\bu\cdot\bu')=\sin^2(\theta/2).
+\end{equation}
+If $\bu'$ is obtained by rotating $\bu$ through $\phi$ about $\bn$, then
+\begin{equation}
+ \bu\cdot\bu'=(\bn\cdot\bu)^2
+ +\left(1-(\bn\cdot\bu)^2\right)\cos\phi.
+\end{equation}
+Thus $\theta=\phi$ when $\bn\cdot\bu=0$.
+
+For fluctuations $\dd\bu$ and $\dd\bu'$, the squared determinant identity is
+\begin{equation}
+ \Det{(\dd\bu\cdot\bsig)(\dd\bu'\cdot\bsig)}
+ =(\dd\bu\cdot\dd\bu')^2
+ +\frac14\left\lVert
+ [\dd\bu\cdot\bsig,\dd\bu'\cdot\bsig]\right\rVert^2.
+\end{equation}
+For orthogonal fluctuations this reduces to
+\begin{equation}
+ \Det{(\dd\bu\cdot\bsig)(\dd\bu'\cdot\bsig)}
+ =\frac14\left\lVert
+ [\dd\bu\cdot\bsig,\dd\bu'\cdot\bsig]\right\rVert^2.
+\end{equation}
+
+About the third axis, define
+\begin{equation}
+ \baop_\pm:=\tfrac12(\bm{\sigma}_1\pm\ii\bm{\sigma}_2),
+ \qquad \bPi_\pm:=\tfrac12(\bI_2\pm\bm{\sigma}_3).
+\end{equation}
+Then
+\begin{align}
+ [\bm{\sigma}_3,\baop_\pm]&=\pm2\baop_\pm,&
+ \baop_\pm^2&=0,&
+ \baop_\pm\baop_\mp&=\bPi_\pm,\\
+ \bm{\sigma}_1&=\baop_++\baop_-,&
+ \bm{\sigma}_2&=(\baop_+-\baop_-)/\ii,&
+ \bm{\sigma}_3&=\bPi_+-\bPi_-.
+\end{align}
+Their projector action is
+\begin{align}
+ \baop_+\bPi_+&=0,&\baop_+\bPi_-&=\baop_+,&
+ \bPi_+\baop_+&=\baop_+,&\bPi_-\baop_+&=0,\\
+ \baop_-\bPi_-&=0,&\baop_-\bPi_+&=\baop_-,&
+ \bPi_-\baop_-&=\baop_-,&\bPi_+\baop_-&=0.
+\end{align}
+
+Finally, on the mass shell let
+\begin{equation}
+ U=\frac{E+\bP\cdot\bsig}{m},\qquad
+ \bLambda_\pm=\tfrac12(\bI\pm\Wop(U)).
+\end{equation}
+Since $\Det U=1$ and $\Wop(U)^2=\bI$, the positive- and negative-energy
+projectors satisfy
+\begin{equation}
+ \bLambda_\pm^2=\bLambda_\pm,
+ \qquad \bLambda_+\bLambda_-=0,
+ \qquad \bLambda_++\bLambda_-=\bI.
+\end{equation}
+Lift the spin projectors to the Dirac block space by
+\begin{equation}
+ \bPi_{j,4}:=\operatorname{diag}(\bPi_j,\bPi_j),
+ \qquad j=\pm.
+\end{equation}
+When $[\bLambda_i,\bPi_{j,4}]=0$, as for a compatible spin quantization
+axis, their products are joint energy--spin projectors and resolve the
+physical Dirac column selected in Section~7.1 into four sectors:
+\begin{equation}
+ \bPsi=\sum_{i=\pm}\sum_{j=\pm}\bPsi_{ij},
+ \qquad \bPsi_{ij}=\bLambda_i\bPi_{j,4}\bPsi.
+\end{equation}
+Without this commutation condition the displayed sum remains a sequential
+decomposition, but the factors are not joint orthogonal projectors.
+
+\section{Rotations and Lorentz boosts}
+\label{sec:transformations}
+
+\subsection{Rotors}
+
+A rotation through angle $\phi$ about unit axis $\bu$ is generated by
+\begin{equation}
+ R=\exp\!\left(\frac\phi2\,\bu\cdot\ii\bsig\right)
+  =\cos\frac\phi2+\bu\cdot\ii\bsig\,\sin\frac\phi2,
+ \qquad R^{-1}=\rev R.
+\end{equation}
+The sandwich action $X'=\rev R X R$ fixes the scalar component and rotates
+the spatial vector according to Rodrigues' formula,
+\begin{equation}
+ \br'=\br\cos\phi+(\bu\times\br)\sin\phi
+       +(\bu\cdot\br)(1-\cos\phi)\bu.
+\end{equation}
+The half-angle explains the spinorial sign change $R(\phi+2\pi)=-R(\phi)$.
+In the physical column representation, let
+$\bm R:=\operatorname{mat}(R)$ and define the pure-state density matrix
+\begin{equation}
+ \bm\rho_\chi
+ :=\frac{\bm\chi\bm\chi^{\mathsf H}}
+ {\bm\chi^{\mathsf H}\bm\chi}
+ =\tfrac12(\bI_2+\bm{s}\cdot\bsig).
+\end{equation}
+For $\bm\chi'=\bm R\bm\chi$,
+\begin{equation}
+ \bm\rho_{\chi'}=\bm R\bm\rho_\chi\bm R^{\mathsf H},
+ \qquad
+ \operatorname{tr}(\bm\rho_{\chi'}\operatorname{mat}(Z))
+ =\operatorname{tr}(\bm\rho_\chi\bm R^{\mathsf H}
+   \operatorname{mat}(Z)\bm R).
+\end{equation}
+Thus rotating the state is dual to conjugating the observable.
+For a spinor $\psi_R:=R\psi$, expectation values transform as
+\begin{equation}
+ \psi_R^{\mathsf H}=\psi^{\mathsf H}R^{\mathsf H},
+ \qquad
+ \langle Z\rangle_{\psi_R}
+ =\frac{\scpart{\psi^{\mathsf H}R^{\mathsf H}ZR\psi}}
+ {\scpart{\psi^{\mathsf H}\psi}},
+ \qquad R^{\mathsf H}=R^{-1}.
+\end{equation}
+For $Z=\bu\cdot\bsig$, this gives
+$Z'=R^{\mathsf H}ZR=\bu'\cdot\bsig$.
+
+\subsection{Boosts}
+
+Let rapidity $\theta$ satisfy $\beta=\tanh\theta$ and
+$\gamma=\cosh\theta$.  A boost along $\bu$ is
+\begin{equation}
+ L=\exp\!\left(-\frac\theta2\,\bu\cdot\bsig\right),
+ \qquad L^{\mathsf H}=L,\qquad L^{-1}=L^*.
+\end{equation}
+For $\psi_L:=L\psi$, the boost generator is Hermitian, so
+\begin{equation}
+ \psi_L^{\mathsf H}=\psi^{\mathsf H}L,
+ \qquad
+ \langle Z\rangle_{\psi_L}
+ =\frac{\scpart{\psi^{\mathsf H}LZL\psi}}
+ {\scpart{\psi^{\mathsf H}L^2\psi}}.
+\end{equation}
+The similarity $L^{-1}ZL$ is a different operation: it preserves
+$\scpart Z$ and is not the spacetime or spinor-bilinear boost used here.
+The spacetime paravector therefore transforms by the Hermitian congruence
+$X'=LXL$, which yields
+the components
+$\br_{\parallel}=(\br\cdot\bu)\bu$, $\br_{\perp}=\br-\br_{\parallel}$,
+$\br'_{\parallel}=(\br'\cdot\bu)\bu$, and
+$\br'_{\perp}=\br'-\br'_{\parallel}$:
+\begin{align}
+ t'&=\gamma(t-\beta\bu\cdot\br),\\
+ \br'_{\parallel}&=\gamma(\br_{\parallel}-\beta t\bu),&
+ \br'_{\perp}&=\br_{\perp}.
+\end{align}
+It preserves $\Det X=t^2-\br^2$.  The electromagnetic field instead obeys
+$F'=LFL^*$ for $F=(\bE+\ii\bBf)\cdot\bsig$.  Define
+$\bE_{\parallel}=(\bE\cdot\bu)\bu$,
+$\bE_{\perp}=\bE-\bE_{\parallel}$ and likewise
+$\bE'_{\parallel}=(\bE'\cdot\bu)\bu$,
+$\bE'_{\perp}=\bE'-\bE'_{\parallel}$; define the four corresponding
+components of $\bBf$ and $\bBf'$ by the same formulas.  Then
+\begin{align}
+ \bE'_{\parallel}&=\bE_{\parallel},&
+ \bE'_{\perp}&=\gamma(\bE_{\perp}+\beta\bu\times\bBf),\\
+ \bBf'_{\parallel}&=\bBf_{\parallel},&
+ \bBf'_{\perp}&=\gamma(\bBf_{\perp}-\beta\bu\times\bE).
+\end{align}
+
+\subsection{Congruences, transformed bases, and non-inertial terms}
+
+Spinor bilinears use the Hermitian congruence
+$Y=T^{\mathsf H}XT$.  With $\dd\Theta=T^{-1}\dd T$, direct differentiation
+gives the ancillary identity
+\begin{equation}
+ \dd Y=T^{\mathsf H}(\dd X)T
+ +(\dd\Theta)^{\mathsf H}Y+Y\dd\Theta.
+ \label{eq:congruence-derivative}
+\end{equation}
+For a rotation, $T^{\mathsf H}=T^{-1}$ and
+$(\dd\Theta)^{\mathsf H}=-\dd\Theta$, so this reduces to a commutator.
+For a Hermitian boost it does not: the two connection terms form the
+congruence appropriate to the spinor bilinear.
+
+Transformed algebra bases use the distinct similarity transformation.  For
+any invertible $T$, let $X'=T^{-1}XT$ and
+$\dd\Theta=T^{-1}\dd T$.  Differentiation gives the useful connection terms
+\begin{align}
+ \dd X'&=T^{-1}(\dd X)T+[X',\dd\Theta],\\
+ \dd^2X'&=T^{-1}(\dd^2X)T+2[\dd X',\dd\Theta]
+ +[X',\dd^2\Theta]+[\dd\Theta,[X',\dd\Theta]].
+\end{align}
+In time-parametrized form, $\Omega=T^{-1}\dd T/\dd t$ gives
+\begin{equation}
+ \frac{\dd X'}{\dd t}=T^{-1}\frac{\dd X}{\dd t}T+[X',\Omega],
+\end{equation}
+\begin{equation}
+ \frac{\dd^2X'}{\dd t^2}=T^{-1}\frac{\dd^2X}{\dd t^2}T
+ +2\left[\frac{\dd X'}{\dd t},\Omega\right]
+ +\left[X',\frac{\dd\Omega}{\dd t}\right]+[\Omega,[X',\Omega]].
+\end{equation}
+The transformed generators $\sigma_n'=T^{-1}\sigma_nT$ obey the same algebra,
+including $(\sigma_n')^2=1$ and
+$\sigma_1'\sigma_2'\sigma_3'=\ii$, and
+\begin{equation}
+ \dd\sigma_n'=[\sigma_n',T^{-1}\dd T].
+\end{equation}
+
+If $T=f+\bg\cdot\bsig$, then
+\begin{equation}
+ T^{-1}=\frac{f-\bg\cdot\bsig}{f^2-\bg^2},
+\end{equation}
+\begin{equation}
+ T^{-1}\dd T=\frac{f\dd f-\bg\cdot\dd\bg}{f^2-\bg^2}
+ +\frac{f\dd\bg-\dd f\,\bg-\ii\bg\times\dd\bg}{f^2-\bg^2}\cdot\bsig.
+\end{equation}
+Write the vector part of $\Omega$ in the primed basis as
+\begin{equation}
+ \vecpart\Omega=\tfrac12(\bk+\ii\bm\omega),
+ \qquad
+ k_n+\ii\omega_n=\scpart{2(\dd T/\dd t)T^{-1}\sigma_n}.
+\end{equation}
+Then
+\begin{equation}
+ \frac{\dd\bsig'}{\dd t}=(-\bm\omega+\ii\bk)\times\bsig',
+\end{equation}
+and, for $Z=S+\bV\cdot\bsig'$,
+\begin{equation}
+ \frac{\dd Z}{\dd t}=\frac{\dd S}{\dd t}+
+ \left(\frac{\dd\bV}{\dd t}-\bV\times\bm\omega
+ +\ii\bV\times\bk\right)\cdot\bsig'.
+\end{equation}
+For $X=t+\br\cdot\bsig'$ these are the rotational and boost-like inertial
+terms in the measured velocity.
+When $T^{-1}=\adj T$, the transformed basis satisfies
+$\adj{\sigma_n'}=-\sigma_n'$ and
+$\Det Z=S^2-\bV^2$ for $Z=S+\bV\cdot\bsig'$.
+
+Collinear boosts add rapidities and therefore obey
+\begin{equation}
+ \beta' =\frac{\beta_1+\beta_2}{1+\beta_1\beta_2},
+ \qquad \gamma'=\gamma_1\gamma_2(1+\beta_1\beta_2).
+\end{equation}
+Products reverse under inversion:
+\begin{equation}
+ (LR)^{-1}=R^{\mathsf H}L^*,\quad
+ (RL)^{-1}=L^* R^{\mathsf H},
+ \quad(R_1R_2)^{-1}=R_2^{\mathsf H}R_1^{\mathsf H},
+ \quad(L_1L_2)^{-1}=L_2^* L_1^*.
+\end{equation}
+
+\section{Spectral functions and quaternions}
+\label{sec:spectral}
+
+\subsection{Functions of a unit vector}
+
+With the algebra projectors $\Pi_\pm:=\tfrac12(1\pm\bu\cdot\bsig)$, any
+function defined by a power series satisfies
+\begin{equation}
+ f(\bu\cdot\bsig)=f(1)\Pi_++f(-1)\Pi_-
+ =\tfrac12(f(1)+f(-1))+\tfrac12(f(1)-f(-1))\bu\cdot\bsig.
+\end{equation}
+Consequently,
+\begin{align}
+ \sqrt{\bu\cdot\bsig}&=\pm\Pi_+\pm\ii\Pi_-,\\
+ \log(\bu\cdot\bsig)&=2\ii\pi(n\Pi_++(\tfrac12+m)\Pi_-),\\
+ (z+\bu\cdot\bsig)^{-1}&=\frac{z-\bu\cdot\bsig}{z^2-1},\\
+ e^{\theta\bu\cdot\bsig}&=\cosh\theta+\sinh\theta\,\bu\cdot\bsig,\\
+ e^{\ii\theta\bu\cdot\bsig}&=\cos\theta+\ii\sin\theta\,\bu\cdot\bsig.
+\end{align}
+
+For $X=t+\br\cdot\bsig$, put
+$\lambda_\pm=t\pm\lVert\br\rVert$ and
+$\bu=\br/\lVert\br\rVert$.  Then
+\begin{equation}
+ X=\lambda_+\Pi_++\lambda_-\Pi_-,
+ \qquad f(X)=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-.
+\end{equation}
+This includes
+\begin{align}
+ X^n&=\tfrac12(\lambda_+^n+\lambda_-^n)
+ +\tfrac12(\lambda_+^n-\lambda_-^n)\bu\cdot\bsig,\\
+ X^{-1}&=\lambda_+^{-1}\Pi_++\lambda_-^{-1}\Pi_-,\\
+ \sqrt X&=\pm\sqrt{\lambda_+}\Pi_+\pm\sqrt{\lambda_-}\Pi_-,\\
+ \log X&=\log\lambda_+\Pi_++\log\lambda_-\Pi_-.
+\end{align}
+For two directions,
+\begin{align}
+ \Pi_+\Pi_+'&=\tfrac14(1+\bu\cdot\bu')
+ +\tfrac14(\bu+\bu'+\ii\bu\times\bu')\cdot\bsig,\\
+ \Pi_+\Pi_-'&=\tfrac14(1-\bu\cdot\bu')
+ +\tfrac14(\bu-\bu'-\ii\bu\times\bu')\cdot\bsig,\\
+ \Pi_-\Pi_+'&=\tfrac14(1-\bu\cdot\bu')
+ +\tfrac14(-\bu+\bu'-\ii\bu\times\bu')\cdot\bsig,\\
+ \Pi_-\Pi_-'&=\tfrac14(1+\bu\cdot\bu')
+ +\tfrac14(-\bu-\bu'+\ii\bu\times\bu')\cdot\bsig.
+\end{align}
+One useful projector evaluation is
+\begin{equation}
+ \frac{1-\br\cdot\bsig}{1+\br\cdot\bsig}
+ =e^{-2\operatorname{atanh}(\lVert\br\rVert)}\Pi_+
+ +e^{2\operatorname{atanh}(\lVert\br\rVert)}\Pi_-.
+\end{equation}
+
+\subsection{Quaternion subalgebra}
+
+Define
+\begin{equation}
+ q_1=-\sigma_2\sigma_3,\qquad q_2=-\sigma_3\sigma_1,\qquad
+ q_3=-\sigma_1\sigma_2,\qquad \bq=-\ii\bsig.
+\end{equation}
+Then $q_1^2=q_2^2=q_3^2=q_1q_2q_3=-1$.  A quaternion
+$Q=a+\bb\cdot\bq$ satisfies $Q^{\mathsf H}=a-\bb\cdot\bq$ and
+$QQ^{\mathsf H}=a^2+\bb^2$; the rotation action is
+$\br'\cdot\bq=Q(\br\cdot\bq)Q^{\mathsf H}$.
+
+\section{Generalized spacetime and metric form}
+\label{sec:generalized}
+
+Let
+\begin{equation}
+ X=f(t,\br)+\bg(t,\br)\cdot\bsig,
+ \qquad \dd X=\dd f+\dd\bg\cdot\bsig.
+\end{equation}
+Writing $\dd X=A\dd t+\bB\cdot\dd\br$ gives
+\begin{equation}
+ A=\partial_tf+\partial_t\bg\cdot\bsig,\qquad
+ \bB=\pdr f+\pdr(\bg\cdot\bsig),
+\end{equation}
+and the interval remains
+\begin{equation}
+ \dd s^2=\dd X\,\dd X^*=\dd f^2-\dd\bg^2.
+\end{equation}
+Define the geometric velocity and Lorentz factor by
+\begin{equation}
+ \bv=\frac{\dd\bg}{\dd f},\qquad
+ \gamma=\frac{\dd f}{\dd s}=\frac1{\sqrt{1-\bv^2}},\qquad
+ U=\gamma(1+\bv\cdot\bsig).
+\end{equation}
+With geometric acceleration $\ba=\dd\bv/\dd s=\gamma\dd^2\bg/\dd f^2$,
+the proper-acceleration formula is unchanged.  Inertial motion
+$\dd U/\dd s=0$ implies $\ba=0$, hence
+$\bg=c_1f+c_2$ and constant geometric velocity.
+If $f'=\dd f/\dd t$ and $\bg'=\dd\bg/\dd t$, then
+\begin{equation}
+ \frac{\dd\bv}{\dd t}
+ =\frac{\bg''f'-\bg'f''}{(f')^2},
+ \qquad
+ [U,\dd U/\dd s]=2\gamma^3(\bv\times\ba)\cdot\ii\bsig.
+\end{equation}
+
+In coordinates $\bm{x}=\{t,r_1,r_2,r_3\}^{\mathsf T}$, write
+\begin{equation}
+ \dd s^2=\dd\bm{x}^{\mathsf T}\bQm(\bm{x})\dd\bm{x}.
+\end{equation}
+For real symmetric $\bQm=\bNm\bDm\bNm^{\mathsf T}$ with eigenvalues $\lambda_n$ and
+orthonormal eigenvectors $\bu_n$,
+\begin{equation}
+ \dd s^2=\sum_n\lambda_n(\bu_n\cdot\dd\bm{x})^2,
+ \qquad \dd x_n'=\sqrt{\lambda_n}\,\bu_n\cdot\dd\bm{x},
+ \qquad \bQm^{-1}=\bNm\bDm^{-1}\bNm^{\mathsf T}.
+\end{equation}
+
+\section{Reference summary}
+
+This index collects the principal definitions and results in natural units,
+with signature $(+,-,-,-)$.  Topic titles and equation numbers link to their
+full statements and derivations.
+
+\paragraph{\hyperref[sec:algebra]{Algebra and vector operations}.}
+\begin{align*}
+ \sigma_n\sigma_m&=\delta_{nm}+\epsilon_{nmk}\ii\sigma_k,
+ & [\sigma_n,\sigma_m]&=2\epsilon_{nmk}\ii\sigma_k
+   &&\text{\eqref{eq:sigma-product}},\\
+ (\bA\cdot\bsig)(\bB\cdot\bsig)
+   &=\bA\cdot\bB+\ii(\bA\times\bB)\cdot\bsig,
+ & \bA^2&=\bA\cdot\bA,\\
+ \lVert Z\rVert^2&=\lVert S\rVert^2+\lVert\bV\rVert^2,
+ & \lVert\bV\rVert^2&=\bV\cdot\bV^*=\bV^*\cdot\bV
+   &&\text{\eqref{eq:coefficient-norm}}.
+\end{align*}
+
+\paragraph{\hyperref[sec:involutions]{Involutions and adjugation}.}
+\begin{align*}
+ (ZZ')^*&=Z^*Z'^*,
+ &(ZZ')^{\mathsf H}&=Z'^{\mathsf H}Z^{\mathsf H},\\
+ \adj Z&=Z^{*\mathsf H},
+ &\adj{ZZ'}&=Z'^{*\mathsf H}Z^{*\mathsf H}
+   &&\text{\eqref{eq:adjugate}}.
+\end{align*}
+
+\paragraph{\hyperref[sec:paravectors]{Paravectors, extraction, and products}.}
+For $Z=S+\bV\cdot\bsig=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig$,
+\begin{align*}
+ S&=\scpart Z=\tfrac12(Z+Z^{*\mathsf H}),
+ &\bV\cdot\bsig&=\tfrac12(Z-Z^{*\mathsf H}),\\
+ a&=\scpart{\repart Z},&b&=\scpart{\impart Z},\\
+ \bA&=\vecpart{\repart Z},&\bB&=\vecpart{\impart Z},\\
+ ZZ'&=(SS'+\bV\cdot\bV')
+ +(S\bV'+S'\bV+\ii\bV\times\bV')\cdot\bsig,\\
+ \det(Z)&=\adj Z\,Z=Z\adj Z=S^2-\bV^2,
+ &Z^{-1}&=\frac{\adj Z}{\det(Z)},\\
+ Z^2-2SZ+(S^2-\bV^2)&=0,
+ &\lambda_\pm&=S\pm\sqrt{\bV^2}.
+\end{align*}
+See the product~\eqref{eq:para-product}, determinant~\eqref{eq:det}, and
+quadratic identity~\eqref{eq:minimal}.
+
+\paragraph{\hyperref[sec:matrix]{Pauli-matrix representation}.}
+\begin{align*}
+ \operatorname{mat}(Z)&=
+ \begin{pmatrix}S+V_3&V_1-\ii V_2\\V_1+\ii V_2&S-V_3\end{pmatrix},
+ &\operatorname{tr}(Z)&=2S
+ &&\text{\eqref{eq:matrix}},\\
+ \bM^{\mathsf H}&=(\bM^{\mathsf C})^{\mathsf T}
+ = (\bM^{\mathsf T})^{\mathsf C},
+ &\bM^*&=-\bm J\bM^{\mathsf C}\bm J,\\
+ \operatorname{mat}(\adj Z)&=\operatorname{adj}(\bM),
+ &\adj{\bM}&=\operatorname{tr}(\bM)\bI_2-\bM.
+\end{align*}
+
+\paragraph{\hyperref[sec:kinematics]{Space--time kinematics and action}.}
+\begin{align*}
+ \dd X&=\dd t+\dd\br\cdot\bsig,
+ &\dd s^2&=\dd X\,\dd X^*=\dd t^2-\dd\br^2
+   &&\text{\eqref{eq:interval}},\\
+ U&=\gamma(1+\bv\cdot\bsig),
+ &\gamma&=(1-\bv^2)^{-1/2},\\
+ mU&=E+\bP\cdot\bsig,
+ &E^2-\bP^2&=m^2
+   &&\text{\eqref{eq:momentum}},\\
+ S&=-m\int\dd s=\int L\dd t,
+ &L&=-m/\gamma,\qquad H=m\gamma.
+\end{align*}
+
+\paragraph{\hyperref[sec:electromagnetism]{Electromagnetism}.}
+\begin{align*}
+ \partial&=\partial_t+\bsig\cdot\pdr,
+ &F&=(\bE+\ii\bBf)\cdot\bsig,
+ &D&=\rho+\bJ\cdot\bsig,\\
+ \partial F&=D^*=\rho-\bJ\cdot\bsig,
+ &\Box&=\partial^*\partial
+   &&\text{\eqref{eq:maxwell}},\\
+ \partial\Phi&=S+F^*,
+ &\bE&=-\partial_t\bA-\pdr V,
+ &\bBf&=\pdr\times\bA,\\
+ \tfrac12F^2&=\tfrac12(\bE^2-\bBf^2)+\ii\bE\cdot\bBf,
+ &\tfrac12FF^{\mathsf H}&=\tfrac12(\bE^2+\bBf^2)
+ +(\bE\times\bBf)\cdot\bsig,\\
+ m\frac{\dd U}{\dd s}&=q\repart{FU},
+ &\frac{\dd\bP}{\dd t}&=q(\bE+\bv\times\bBf)
+   &&\text{\eqref{eq:lorentz}}.
+\end{align*}
+
+\paragraph{\hyperref[sec:waves]{Wave equations, spin, and energy sectors}.}
+\begin{align*}
+ \langle\phi\mid\psi\rangle
+ &=\scpart{\phi^{\mathsf H}\psi}
+ =\tfrac12\operatorname{tr}(\bM_\phi^{\mathsf H}\bM_\psi),\\
+ \langle Z\rangle_\psi
+ &=\frac{\scpart{\psi^{\mathsf H}Z\psi}}
+ {\scpart{\psi^{\mathsf H}\psi}},\\
+ (\Box+m^2)\Psi&=0,\\
+ \Wop(Z)&=\begin{pmatrix}0&Z\\\adj Z&0\end{pmatrix},\\
+ \bigl(\Wop(\ii\partial)-m\bI\bigr)\bPsi&=0,\\
+ \bigl(\Wop(\ii\partial-q\Phi^*)-m\bI\bigr)\bPsi&=0,\\
+ \ii\partial_t\bPsi&=\left(
+ \frac{(-\ii\pdr-q\bA)^2}{2m}+qV
+ -\frac q{2m}\bBf\cdot\bsig\right)\bPsi,\\
+ \bPi_\pm(\bu)&=\tfrac12(\bI_2\pm\bu\cdot\bsig),\\
+ p_\pm(\bu)&=\tfrac12(1\pm\bu\cdot\bm{s}),\\
+ \bLambda_\pm&=\tfrac12(\bI\pm\Wop(U)),
+ \qquad \bPi_{j,4}=\operatorname{diag}(\bPi_j,\bPi_j),\\
+ \bPsi&=\sum_{i=\pm}\sum_{j=\pm}\bPsi_{ij},
+ \qquad \bPsi_{ij}=\bLambda_i\bPi_{j,4}\bPsi.
+\end{align*}
+See the paravector inner product~\eqref{eq:paravector-inner-product},
+minimal-ideal spinor~\eqref{eq:minimal-ideal-spinor}, Klein--Gordon
+equation~\eqref{eq:kg}, Dirac equations~\eqref{eq:dirac} and
+\eqref{eq:dirac-field}, Pauli equation~\eqref{eq:pauli}, and spin
+probability~\eqref{eq:spin-probability}.
+
+\paragraph{\hyperref[sec:transformations]{Rotations, boosts, and transformed bases}.}
+\begin{align*}
+ R&=e^{\phi\bu\cdot\ii\bsig/2},
+ \qquad R^{\mathsf H}=R^{-1},
+ \qquad Z'=R^{\mathsf H}ZR,\\
+ L&=e^{-\theta\bu\cdot\bsig/2},
+ \qquad L^{\mathsf H}=L,
+ \qquad X'=LXL,\\
+ \langle Z\rangle_{\psi_T}
+ &=\frac{\scpart{\psi^{\mathsf H}T^{\mathsf H}ZT\psi}}
+ {\scpart{\psi^{\mathsf H}T^{\mathsf H}T\psi}},\\
+ \dd(T^{\mathsf H}XT)
+ &=T^{\mathsf H}(\dd X)T+(\dd\Theta)^{\mathsf H}T^{\mathsf H}XT
+ +T^{\mathsf H}XT\dd\Theta,\\
+ X'&=T^{-1}XT,\\
+ \dd X'&=T^{-1}(\dd X)T+[X',T^{-1}\dd T].
+\end{align*}
+See the bilinear rule~\eqref{eq:bilinear-congruence} and congruence
+derivative~\eqref{eq:congruence-derivative}.
+
+\paragraph{\hyperref[sec:spectral]{Spectral functions and quaternions}.}
+\begin{align*}
+ f(\bu\cdot\bsig)&=f(1)\Pi_++f(-1)\Pi_-,\\
+ X&=\lambda_+\Pi_++\lambda_-\Pi_-,
+ &f(X)&=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-,\\
+ \bq&=-\ii\bsig,
+ &Q^{\mathsf H}&=a-\bb\cdot\bq,
+ &QQ^{\mathsf H}&=a^2+\bb^2.
+\end{align*}
+
+\paragraph{\hyperref[sec:generalized]{Generalized spacetime and metric form}.}
+\begin{align*}
+ X&=f+\bg\cdot\bsig,
+ &\dd s^2&=\dd f^2-\dd\bg^2,\\
+ \bv&=\dd\bg/\dd f,
+ &U&=\gamma(1+\bv\cdot\bsig),\\
+ \dd s^2&=\dd\bm{x}^{\mathsf T}\bQm(\bm{x})\dd\bm{x},
+ &\bQm&=\bNm\bDm\bNm^{\mathsf T}.
+\end{align*}
+
+\section*{Conventions and cautions}
+\addcontentsline{toc}{section}{Conventions and cautions}
+
+\begin{itemize}
+ \item The same symbol $\ii=\sigma_1\sigma_2\sigma_3$ is both the algebra's
+ pseudoscalar and, in the Pauli representation, the ordinary complex unit.
+ \item Sigma conjugation $(\cdot)^*$, reversion $(\cdot)^{\mathsf H}$,
+ and their composition are distinct.  In the Pauli representation,
+ reversion corresponds to Hermitian adjunction.
+ \item $\det(Z)$ is an indefinite quadratic form and may be
+ complex for complex $Z$.
+ \item Differential operators act on everything to their right unless
+ parentheses state otherwise.  This matters in products involving fields.
+\end{itemize}
+
+\emph{Editorial notation record.}\footnote{Compared with \texttt{tmp.txt},
+the following presentation and style changes were made.  Vectors and matrices
+are bold, and only vectors and matrices are bold; in particular, the
+electromagnetic fields formerly written as calligraphic or italic
+$E$ and $B$ are the upright bold vectors $\bE$ and $\bBf$, while the scalar
+energy remains the unbold symbol $E$.  Ordinary capital scalar quantities,
+including the action $S$, Lagrangian $L$, and Hamiltonian $H$, use the regular
+math font rather than calligraphic or other decorative alphabets.  Blackboard
+bold is retained only for the number sets $\R$ and $\C$.  The Dirac block function is the upright
+bold $\Wop(\cdot)$.  A vector square is explicitly defined by
+$\bA^2:=\bA\cdot\bA$.  Curly braces are reserved for explicit vector-entry
+lists, and commutators alone use square brackets.  Parentheses delimit
+matrices, functions, algebraic grouping, and order-sensitive operator products; redundant grouping
+parentheses were removed.  The extraction functions
+$\operatorname{sc}(\cdot)$, $\operatorname{vec}(\cdot)$,
+$\operatorname{re}(\cdot)$, and $\operatorname{im}(\cdot)$ replace
+\texttt{scalar}, \texttt{vector}, and capitalized variants and are defined
+before use; the unused expectation abbreviation \texttt{Exp} was removed.
+The original metric notation $\langle\!\langle Z\rangle\!\rangle^2$ and every
+determinant bar were replaced by the unambiguous function notation
+$\det(Z)$.  Double bars are reserved for squared scalar, vector, and
+coefficient norms, with $\lVert Z\rVert^2=\lVert S\rVert^2+
+\lVert\bV\rVert^2$; absolute-value bars are not used.  Entrywise
+complex-conjugation notation is confined to the matrix section.
+Sigma conjugation retains the splat $^*$; reversal, originally
+$^R$ and elsewhere a dagger, is written $^{\mathsf H}$, because it reverses
+the multiplied sigma order and becomes Hermitian adjunction in the matrix
+representation.  The abbreviation $\operatorname{adj}(Z):=Z^{*\mathsf H}$
+is defined early and used where it shortens formulas.  The matrix section
+uses matching upright sans-serif capitals $^{\mathsf T}$,
+$^{\mathsf C}$, and $^{\mathsf H}$ for transpose, entrywise complex
+conjugation, and Hermitian transpose, and distinguishes these from sigma
+conjugation, including which operations reverse product
+order.  Plus/minus labels are
+subscripts (${}_\pm$, ${}_+$, ${}_-$), not superscripts or parenthesized
+labels.  Parallel and perpendicular components use ${}_{\parallel}$ and
+${}_{\perp}$ rather than \texttt{par} and \texttt{prp}, with their projection
+formulas restated locally at each use.  Spatial derivatives use
+$\partial_{\br}$ rather than $\nabla$, and no overbars are used.  Literal or
+malformed source spacing and fraction commands such as \texttt{quad} and
+\texttt{frac} were converted to properly formatted \LaTeX.  Long product
+expansions were consolidated while retaining their distinct components and
+results, and expressions otherwise preserve the compact ordering of the
+source, for example $\operatorname{sc}(\Phi^*U)$ rather than adding an extra
+pair of parentheses.}
+
+\end{document}

@@ -1,0 +1,47 @@
+\contentsline {section}{\numberline {1}The algebra at a glance}{3}{section.1}%
+\contentsline {section}{\numberline {2}Involutions and sign conventions}{4}{section.2}%
+\contentsline {section}{\numberline {3}Paravectors}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Decompositions}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Products, quadratic forms, and inverse}{5}{subsection.3.2}%
+\contentsline {paragraph}{Vector-product derivation.}{6}{section*.2}%
+\contentsline {subsection}{\numberline {3.3}Real products and functions}{6}{subsection.3.3}%
+\contentsline {paragraph}{Exponentials.}{6}{section*.3}%
+\contentsline {subsection}{\numberline {3.4}Complex product components}{7}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Differentiated fields}{7}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Pauli-matrix representation}{8}{section.4}%
+\contentsline {section}{\numberline {5}Space--time kinematics}{9}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Intervals, velocity, and momentum}{9}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Free-particle action}{9}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Electromagnetism}{10}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Field equation and potentials}{10}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Invariants, energy, and force}{10}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Derivation from the potential and action}{11}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Energy balance}{11}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Relativistic wave equations}{12}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Paravector amplitudes and physical spinors}{12}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Klein--Gordon equation}{13}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Dirac equation in block form}{13}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Schr\"odinger--Pauli limit}{14}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Interacting operators and factorization}{14}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Low-energy derivation}{15}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Spin, ladder operators, and energy sectors}{15}{subsection.7.7}%
+\contentsline {section}{\numberline {8}Rotations and Lorentz boosts}{17}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Rotors}{17}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Boosts}{18}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Congruences, transformed bases, and non-inertial terms}{18}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Spectral functions and quaternions}{20}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Functions of a unit vector}{20}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Quaternion subalgebra}{20}{subsection.9.2}%
+\contentsline {section}{\numberline {10}Generalized spacetime and metric form}{21}{section.10}%
+\contentsline {section}{\numberline {11}Reference summary}{21}{section.11}%
+\contentsline {paragraph}{\hyperref [sec:algebra]{Algebra and vector operations}.}{21}{section*.4}%
+\contentsline {paragraph}{\hyperref [sec:involutions]{Involutions and adjugation}.}{21}{section*.5}%
+\contentsline {paragraph}{\hyperref [sec:paravectors]{Paravectors, extraction, and products}.}{22}{section*.6}%
+\contentsline {paragraph}{\hyperref [sec:matrix]{Pauli-matrix representation}.}{22}{section*.7}%
+\contentsline {paragraph}{\hyperref [sec:kinematics]{Space--time kinematics and action}.}{22}{section*.8}%
+\contentsline {paragraph}{\hyperref [sec:electromagnetism]{Electromagnetism}.}{22}{section*.9}%
+\contentsline {paragraph}{\hyperref [sec:waves]{Wave equations, spin, and energy sectors}.}{23}{section*.10}%
+\contentsline {paragraph}{\hyperref [sec:transformations]{Rotations, boosts, and transformed bases}.}{23}{section*.11}%
+\contentsline {paragraph}{\hyperref [sec:spectral]{Spectral functions and quaternions}.}{23}{section*.12}%
+\contentsline {paragraph}{\hyperref [sec:generalized]{Generalized spacetime and metric form}.}{23}{section*.13}%
+\contentsline {section}{Conventions and cautions}{24}{section*.14}%
