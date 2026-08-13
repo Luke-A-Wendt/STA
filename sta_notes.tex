@@ -266,16 +266,6 @@ Consequently,
  &=\det(Z)\det(Z').
  \label{eq:det-product}
 \end{align}
-Since determinants are scalars,
-\begin{equation}
- \det(ZZ')=\det(Z'Z).
- \label{eq:det-cyclic}
-\end{equation}
-Repeated application gives the cyclic property for any finite product; for
-example,
-\begin{equation}
- \det(ZZ'Z'')=\det(Z'Z''Z)=\det(Z''ZZ').
-\end{equation}
 For any complex scalar $c$,
 \begin{equation}
  \adj{cZ}=c\adj Z.
@@ -297,17 +287,41 @@ Differentiating $Z^{-1}Z=1$ gives the general inverse rule
  \dd(Z^{-1})=-Z^{-1}\,\dd Z\,Z^{-1}.
  \label{eq:inverse-differential}
 \end{equation}
-For any complex paravector $Z$ and any invertible complex paravector $T$,
-the determinant is invariant under either similarity transformation:
-\begin{equation}
- \det(Z)=\det(T^{-1}ZT)=\det(TZT^{-1}).
- \label{eq:det-similarity}
-\end{equation}
-Indeed, the cyclic property gives
+Both trace and determinant are cyclic:
 \begin{align}
- \det(T^{-1}ZT)&=\det(ZTT^{-1})=\det(Z),\\
- \det(TZT^{-1})&=\det(ZT^{-1}T)=\det(Z).
+ \operatorname{tr}(ZZ')&=\operatorname{tr}(Z'Z),\\
+ \det(ZZ')&=\det(Z'Z).
+ \label{eq:det-cyclic}
 \end{align}
+For three factors,
+\begin{align}
+ \operatorname{tr}(ZZ'Z'')
+ &=\operatorname{tr}(Z'Z''Z)
+ =\operatorname{tr}(Z''ZZ'),
+ \label{eq:trace-cyclic}\\
+ \det(ZZ'Z'')
+ &=\det(Z'Z''Z)
+ =\det(Z''ZZ').
+\end{align}
+For any complex paravector $Z$ and invertible complex paravector $T$, let
+\begin{equation}
+ Z':=T^{-1}ZT.
+\end{equation}
+Cyclicity then gives
+\begin{align}
+ \operatorname{tr}(Z')
+ &=\operatorname{tr}(T^{-1}ZT)
+ =\operatorname{tr}(ZTT^{-1})
+ =\operatorname{tr}(Z),
+ \label{eq:trace-similarity}\\
+ \det(Z')
+ &=\det(T^{-1}ZT)
+ =\det(ZTT^{-1})
+ =\det(Z).
+ \label{eq:det-similarity}
+\end{align}
+Replacing $T$ by $T^{-1}$ gives the same two invariances for
+$Z'=TZT^{-1}$.
 Finally, define real and imaginary paravector extraction by
 \begin{align}
  \repart Z&:=\tfrac12(Z+Z^{\mathsf H})=X,\\
@@ -495,11 +509,26 @@ $a,b,\bA,\bB$, define
 Equivalently,
 \begin{equation}
  \lVert Z\rVert^2=\scpart{Z^{\mathsf H}Z}
+ =\tfrac12\operatorname{tr}(Z^{\mathsf H}Z)
  =\scpart{ZZ^{\mathsf H}}
  =\scpart{Z^*Z^{*\mathsf H}}
  =\scpart{Z^{*\mathsf H}Z^*}.
  \label{eq:paravector-norm}
 \end{equation}
+For a unitary paravector $T$, so that
+$T^{\mathsf H}T=TT^{\mathsf H}=1$, let
+\begin{equation}
+ Z'=T^{\mathsf H}ZT.
+\end{equation}
+Then Hermitian product order and trace cyclicity give
+\begin{align}
+ \lVert Z'\rVert^2
+ &=\tfrac12\operatorname{tr}(Z'^{\mathsf H}Z')\\
+ &=\tfrac12\operatorname{tr}
+   (T^{\mathsf H}Z^{\mathsf H}TT^{\mathsf H}ZT)\\
+ &=\tfrac12\operatorname{tr}(T^{\mathsf H}Z^{\mathsf H}ZT)
+ =\lVert Z\rVert^2.
+\end{align}
 These norms are not algebraic squares; in general,
 \begin{equation}
  S^2\ne\lVert S\rVert^2,
