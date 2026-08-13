@@ -287,9 +287,15 @@ Therefore
 \end{equation}
 Whenever $\det(Z)\ne0$, define
 \begin{equation}
- Z^{-1}:=\frac{\adj Z}{\det(Z)},
+ Z^{-1}:=\frac{\adj Z}{\det(Z)}
+ =\frac{S-\bV\cdot\bsig}{S^2-\bV^2},
  \qquad
  Z^{-1}Z=ZZ^{-1}=1.
+\end{equation}
+Differentiating $Z^{-1}Z=1$ gives the general inverse rule
+\begin{equation}
+ \dd(Z^{-1})=-Z^{-1}\,\dd Z\,Z^{-1}.
+ \label{eq:inverse-differential}
 \end{equation}
 For any complex paravector $Z$ and any invertible complex paravector $T$,
 the determinant is invariant under either similarity transformation:
@@ -415,13 +421,10 @@ Then
  X^2&=(a^2+\bA^2)+2a\bA\cdot\bsig,\\
  \scpart{X^2}&=a^2+\bA^2,\\
  \vecpart{X^2}&=2a\bA,\\
- X^2-2aX+(a^2-\bA^2)&=0,\\
- X^{-1}&=\frac{a-\bA\cdot\bsig}{a^2-\bA^2},\\
- \dd(X^{-1})&=-X^{-1}(\dd X)X^{-1}.
+ X^2-2aX+(a^2-\bA^2)&=0.
 \end{align}
 The condition $\bA\times\bB=0$ implies
-$XY=YX$, $X^{-1}Y=YX^{-1}$, and
-$\det(XY)=\det(Y)\det(X)$.
+$XY=YX$ and $X^{-1}Y=YX^{-1}$.
 
 \subsection{Complex products}
 
@@ -603,6 +606,8 @@ Consequently,
  \log(\bu\cdot\bsig)&=2\ii\pi(n\Pi_++(\tfrac12+m)\Pi_-),\\
  (z+\bu\cdot\bsig)^{-1}&=\frac{z-\bu\cdot\bsig}{z^2-1},
  \qquad z^2\ne1,\\
+ \frac{\ii-\bu\cdot\bsig}{\ii+\bu\cdot\bsig}
+ &=\ii\bu\cdot\bsig,\\
  \exp(\theta\bu\cdot\bsig)&=\cosh\theta+\sinh\theta\,\bu\cdot\bsig,\\
  \exp(\ii\theta\bu\cdot\bsig)&=\cos\theta+\ii\sin\theta\,\bu\cdot\bsig.
 \end{align}
@@ -707,7 +712,8 @@ and, when $\lambda_\pm\ne0$, choosing logarithm branches gives
 Also,
 \begin{align}
  \exp(Z)&=\exp(S)\left(\cosh z+\frac{\sinh z}{z}\,\bV\cdot\bsig\right),\\
- \exp(Z^*)&=\exp(Z)^*,&
+ \exp(Z^*)&=\exp(Z)^*,\\
+ \exp(Z^{\mathsf H})&=\exp(Z)^{\mathsf H},\\
  \exp(-Z)&=\exp(Z)^{-1}.
 \end{align}
 At $z=0$, these formulas are understood by analytic limits whenever the
@@ -1603,6 +1609,12 @@ For fluctuations $\dd\bu$ and $\dd\bu'$, the squared determinant identity is
  +\frac14\left\lVert
  [\dd\bu\cdot\bsig,\dd\bu'\cdot\bsig]\right\rVert^2.
 \end{equation}
+Since the first term is nonnegative,
+\begin{equation}
+ \sqrt{\Det{(\dd\bu\cdot\bsig)(\dd\bu'\cdot\bsig)}}
+ \geq\frac12\left\lVert
+ [\dd\bu\cdot\bsig,\dd\bu'\cdot\bsig]\right\rVert.
+\end{equation}
 For orthogonal fluctuations this reduces to
 \begin{equation}
  \Det{(\dd\bu\cdot\bsig)(\dd\bu'\cdot\bsig)}
@@ -1749,6 +1761,15 @@ components of $\bBf$ and $\bBf'$ by the same formulas.  Then
  \bBf'_{\parallel}&=\bBf_{\parallel},&
  \bBf'_{\perp}&=\gamma(\bBf_{\perp}-\beta\bu\times\bE).
 \end{align}
+With the same convention,
+\begin{equation}
+ \partial'=L\partial L^*,
+ \qquad D'^*=LD^*L^*.
+\end{equation}
+Since $L$ is constant and $L^*L=1$, the field equation is covariant:
+\begin{equation}
+ \partial'F'=L(\partial F)L^*=LD^*L^*=D'^*.
+\end{equation}
 
 \subsection{Similarity transformations and non-inertial terms}
 \label{sec:similarity-noninertial}
@@ -1782,6 +1803,12 @@ $\sigma_1'\sigma_2'\sigma_3'=\ii$, and
 \begin{equation}
  \dd\sigma_n'=[\sigma_n',T^{-1}\dd T].
 \end{equation}
+Their operators follow directly from the product laws:
+\begin{align}
+ (\sigma_n')^*&=-(T^*)^{-1}\sigma_nT^*,\\
+ (\sigma_n')^{\mathsf H}
+ &=T^{\mathsf H}\sigma_n(T^{\mathsf H})^{-1}.
+\end{align}
 
 If $T=f+\bg\cdot\bsig$, then
 \begin{equation}
@@ -1801,7 +1828,11 @@ Then
 \begin{equation}
  \frac{\dd\bsig'}{\dd t}=(-\bm\omega+\ii\bk)\times\bsig',
 \end{equation}
-and, for $Z=S+\bV\cdot\bsig'$,
+For $Z=S+\bV\cdot\bsig'$, differentiation first gives
+\begin{equation}
+ \dd Z=\dd S+\dd\bV\cdot\bsig'+\bV\cdot\dd\bsig'.
+\end{equation}
+Consequently,
 \begin{equation}
  \frac{\dd Z}{\dd t}=\frac{\dd S}{\dd t}+
  \left(\frac{\dd\bV}{\dd t}-\bV\times\bm\omega
@@ -1843,16 +1874,28 @@ and the interval remains
 \begin{equation}
  \dd s^2=\dd X\,\dd X^*=\dd f^2-\dd\bg^2.
 \end{equation}
+For a future-directed time-like curve with $\dd f>0$,
+\begin{equation}
+ \dd s=\sqrt{1-\bv^2}\,\dd f,
+ \qquad \bv^2<1.
+\end{equation}
 Define the geometric velocity and Lorentz factor by
 \begin{equation}
  \bv=\frac{\dd\bg}{\dd f},\qquad
  \gamma=\frac{\dd f}{\dd s}=\frac1{\sqrt{1-\bv^2}},\qquad
  U=\gamma(1+\bv\cdot\bsig).
 \end{equation}
-With geometric acceleration $\ba=\dd\bv/\dd s=\gamma\dd^2\bg/\dd f^2$,
-the proper-acceleration formula is unchanged.  Inertial motion
-$\dd U/\dd s=0$ implies $\ba=0$, hence
-$\bg=c_1f+c_2$ and constant geometric velocity.
+With geometric acceleration
+$\ba=\dd\bv/\dd s=\gamma\dd^2\bg/\dd f^2$,
+\begin{equation}
+ \frac{\dd U}{\dd s}
+ =\gamma^3(\bv\cdot\ba)
+ +\left(\gamma\ba+\gamma^3(\bv\cdot\ba)\bv\right)\cdot\bsig.
+\end{equation}
+For inertial motion, $\dd U/\dd s=0$.  Its scalar component gives
+$\bv\cdot\ba=0$, and its vector component then gives $\ba=0$.  Hence
+$\dd^2\bg/\dd f^2=0$, so $\bg=c_1f+c_2$ and the geometric velocity is
+constant.
 If $f'=\dd f/\dd t$ and $\bg'=\dd\bg/\dd t$, then
 \begin{equation}
  \frac{\dd\bv}{\dd t}

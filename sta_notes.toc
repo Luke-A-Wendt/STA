@@ -40,19 +40,19 @@
 \contentsline {section}{\numberline {9}Reference summary}{27}{section.9}%
 \contentsline {paragraph}{\hyperref [sec:algebra]{Algebra and vector operations}.}{27}{section*.8}%
 \contentsline {paragraph}{\hyperref [sec:conjugate-operators]{Hermitian and sigma-conjugate operators}.}{27}{section*.9}%
-\contentsline {paragraph}{\hyperref [sec:paravectors]{Paravectors, extraction, and products}.}{27}{section*.10}%
-\contentsline {paragraph}{\hyperref [sec:algebra-projectors]{Projection operators and functions}.}{27}{section*.11}%
+\contentsline {paragraph}{\hyperref [sec:paravectors]{Paravectors, extraction, and products}.}{28}{section*.10}%
+\contentsline {paragraph}{\hyperref [sec:algebra-projectors]{Projection operators and functions}.}{28}{section*.11}%
 \contentsline {paragraph}{\hyperref [sec:matrix]{Pauli-matrix representation}.}{28}{section*.12}%
 \contentsline {paragraph}{\hyperref [sec:kinematics]{Space--time kinematics and action}.}{28}{section*.13}%
 \contentsline {paragraph}{\hyperref [sec:electromagnetism]{Electromagnetism}.}{28}{section*.14}%
-\contentsline {paragraph}{\hyperref [sec:waves]{Wave equations, spin, and energy sectors}.}{28}{section*.15}%
+\contentsline {paragraph}{\hyperref [sec:waves]{Wave equations, spin, and energy sectors}.}{29}{section*.15}%
 \contentsline {paragraph}{\hyperref [sec:transformations]{Rotations, boosts, and transformed bases}.}{29}{section*.16}%
 \contentsline {paragraph}{\hyperref [sec:quaternions]{Quaternion appendix}.}{29}{section*.17}%
 \contentsline {paragraph}{\hyperref [sec:generalized]{Generalized spacetime and metric form}.}{29}{section*.18}%
-\contentsline {section}{\numberline {A}Pauli-matrix representation}{29}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Faithful representation}{29}{subsection.A.1}%
+\contentsline {section}{\numberline {A}Pauli-matrix representation}{30}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Faithful representation}{30}{subsection.A.1}%
 \contentsline {subsection}{\numberline {A.2}Matrix operations and induced algebra operations}{30}{subsection.A.2}%
-\contentsline {paragraph}{Trace, determinant, and adjugate.}{31}{section*.19}%
+\contentsline {paragraph}{Trace, determinant, and adjugate.}{32}{section*.19}%
 \contentsline {subsection}{\numberline {A.3}Algebra--matrix crosswalk}{32}{subsection.A.3}%
-\contentsline {section}{\numberline {B}Quaternion subalgebra}{32}{appendix.B}%
+\contentsline {section}{\numberline {B}Quaternion subalgebra}{33}{appendix.B}%
 \contentsline {section}{Conventions and cautions}{33}{section*.20}%
