@@ -276,6 +276,15 @@ example,
 \begin{equation}
  \det(ZZ'Z'')=\det(Z'Z''Z)=\det(Z''ZZ').
 \end{equation}
+For any complex scalar $c$,
+\begin{equation}
+ \adj{cZ}=c\adj Z.
+\end{equation}
+Therefore
+\begin{equation}
+ \det(cZ)=c^2\det(Z).
+ \label{eq:det-scalar-scaling}
+\end{equation}
 Whenever $\det(Z)\ne0$, define
 \begin{equation}
  Z^{-1}:=\frac{\adj Z}{\det(Z)},
@@ -325,10 +334,15 @@ From the ordered sigma multiplication rule,
  &=\sum_{n,m}A_nB_m\sigma_n\sigma_m\\
  &=\sum_{n,m}A_nB_m
    (\delta_{nm}+\epsilon_{nmk}\ii\sigma_k)\\
- &=\bA\cdot\bB+\ii(\bA\times\bB)\cdot\bsig\\
- &=2\bA\cdot\bB-(\bB\cdot\bsig)(\bA\cdot\bsig).
+ &=\bA\cdot\bB+\ii(\bA\times\bB)\cdot\bsig.
  \label{eq:vector-product-derivation}
 \end{align}
+Adding the product with $\bA$ and $\bB$ interchanged gives
+\begin{equation}
+ 2(\bA\cdot\bB)
+ =(\bA\cdot\bsig)(\bB\cdot\bsig)
+ +(\bB\cdot\bsig)(\bA\cdot\bsig).
+\end{equation}
 Consequently,
 \begin{align}
  (\bA\cdot\bsig)^2&=\bA^2,&
@@ -351,61 +365,6 @@ Hence
  [\bA\cdot\bsig,\bsig]\cdot\bB
  &=2\ii(\bA\times\bB)\cdot\bsig.
 \end{align}
-
-For $Z=S+\bV\cdot\bsig$ and $Z'=S'+\bV'\cdot\bsig$,
-\begin{equation}
- ZZ'=(SS'+\bV\cdot\bV')+
- \bigl(S\bV'+S'\bV+\ii\bV\times\bV'\bigr)\cdot\bsig.
- \label{eq:para-product}
-\end{equation}
-Thus
-\begin{align}
- \scpart{ZZ'}&=SS'+\bV\cdot\bV',\\
- \vecpart{ZZ'}&=S\bV'+S'\bV+\ii\bV\times\bV'.
-\end{align}
-Equivalently, if $Z=X+\ii Y$ and $Z'=X'+\ii Y'$, then
-\[
-  ZZ'=(XX'-YY')+\ii(XY'+YX').
-\]
-
-For $S=a+b\ii$ and $\bV=\bA+\bB\ii$, define the coefficient norms by
-\begin{align}
- \lVert S\rVert^2&:=SS^*=S^*S=a^2+b^2,\\
- \lVert\bV\rVert^2&:=\bV\cdot\bV^*=\bV^*\cdot\bV
- =\bA^2+\bB^2,\\
- \lVert Z\rVert^2&:=\lVert S\rVert^2+\lVert\bV\rVert^2.
- \label{eq:coefficient-norm}
-\end{align}
-The paravector norm may equivalently be written
-\begin{equation}
- \lVert Z\rVert^2=\scpart{Z^{\mathsf H}Z}
- =\scpart{ZZ^{\mathsf H}}
- =\scpart{Z^*Z^{*\mathsf H}}
- =\scpart{Z^{*\mathsf H}Z^*}.
- \label{eq:paravector-norm}
-\end{equation}
-Thus $\det(Z)$ may be complex, whereas $\lVert Z\rVert^2$ is real and
-nonnegative.  In general,
-\begin{equation}
- S^2\ne\lVert S\rVert^2,
- \qquad
- \bV^2\ne\lVert\bV\rVert^2.
-\end{equation}
-For any complex scalar $c$,
-\begin{equation}
- \adj{cZ}=c\adj Z.
-\end{equation}
-Therefore
-\begin{equation}
- \det(cZ)=c^2\det(Z).
- \label{eq:det-scalar-scaling}
-\end{equation}
-For real $r$ and $\theta$,
-\begin{equation}
- \det(r\exp(\ii\theta)Z)=r^2\det(Z)\exp(2\ii\theta),
- \qquad\text{while}\qquad
- \lVert r\exp(\ii\theta)Z\rVert^2=r^2\lVert Z\rVert^2.
-\end{equation}
 
 \subsection{Quadratic identity and eigenvalues}
 
@@ -466,6 +425,22 @@ $\det(XY)=\det(Y)\det(X)$.
 
 \subsection{Complex products}
 
+For $Z=S+\bV\cdot\bsig$ and $Z'=S'+\bV'\cdot\bsig$,
+\begin{equation}
+ ZZ'=(SS'+\bV\cdot\bV')+
+ \bigl(S\bV'+S'\bV+\ii\bV\times\bV'\bigr)\cdot\bsig.
+ \label{eq:para-product}
+\end{equation}
+Thus
+\begin{align}
+ \scpart{ZZ'}&=SS'+\bV\cdot\bV',\\
+ \vecpart{ZZ'}&=S\bV'+S'\bV+\ii\bV\times\bV'.
+\end{align}
+Equivalently, if $Z=X+\ii Y$ and $Z'=X'+\ii Y'$, then
+\begin{equation}
+ ZZ'=(XX'-YY')+\ii(XY'+YX').
+\end{equation}
+
 Let
 \begin{equation}
  Z=(a+b\ii)+(\bA+\bB\ii)\cdot\bsig,
@@ -502,6 +477,48 @@ $(ZZ')^{*\mathsf H}=Z'^{*\mathsf H}Z^{*\mathsf H}$.
 The paired signs follow the displayed product order.  Thus
 $ZZ^*=Z^*Z$ and $ZZ^{\mathsf H}=Z^{\mathsf H}Z$ precisely when
 $\bA\times\bB=0$.
+
+\begin{samepage}
+\paragraph{Norms.}
+For $S=a+b\ii$ and $\bV=\bA+\bB\ii$, with real components
+$a,b,\bA,\bB$, define
+\begin{align}
+ \lVert S\rVert^2&:=SS^*=S^*S=a^2+b^2,\\
+ \lVert\bV\rVert^2&:=\bV\cdot\bV^*=\bV^*\cdot\bV
+ =\bA^2+\bB^2,\\
+ \lVert Z\rVert^2&:=\lVert S\rVert^2+\lVert\bV\rVert^2.
+ \label{eq:coefficient-norm}
+\end{align}
+Equivalently,
+\begin{equation}
+ \lVert Z\rVert^2=\scpart{Z^{\mathsf H}Z}
+ =\scpart{ZZ^{\mathsf H}}
+ =\scpart{Z^*Z^{*\mathsf H}}
+ =\scpart{Z^{*\mathsf H}Z^*}.
+ \label{eq:paravector-norm}
+\end{equation}
+These norms are not algebraic squares; in general,
+\begin{equation}
+ S^2\ne\lVert S\rVert^2,
+ \qquad
+ \bV^2\ne\lVert\bV\rVert^2.
+\end{equation}
+For any complex scalar $c$,
+\begin{equation}
+ \lVert cZ\rVert^2=\lVert c\rVert^2\lVert Z\rVert^2.
+\end{equation}
+
+\paragraph{Comparison with the determinant.}
+The norm is real and nonnegative, whereas $\det(Z)$ may be
+complex.  For $c=r e^{\ii\theta}$ with real $r$ and $\theta$, the
+determinant retains the phase while the norm does not:
+\begin{align}
+ \det(r e^{\ii\theta}Z)
+ &=r^2\det(Z)e^{2\ii\theta},\\
+ \lVert r e^{\ii\theta}Z\rVert^2
+ &=r^2\lVert Z\rVert^2.
+\end{align}
+\end{samepage}
 
 \subsection{Projection operators}
 \label{sec:algebra-projectors}
@@ -732,18 +749,33 @@ The Minkowski interval is
  =\dd t^2-\dd\br^2.
  \label{eq:interval}
 \end{equation}
-It is time-like, null, or space-like according as this expression is positive,
-zero, or negative.  For a future-directed time-like interval, choose the
-positive scalar root
+For any invertible complex paravector $T$, define
+\begin{equation}
+ \dd X':=T^{-1}\,\dd X\,T.
+\end{equation}
+The cyclic determinant property gives
+\begin{equation}
+ \Det{\dd X'}
+ =\Det{T^{-1}\,\dd X\,T}
+ =\Det{\dd X\,T\,T^{-1}}
+ =\Det{\dd X}
+ =\dd s^2.
+\end{equation}
+Thus similarity by any such $T$ leaves the interval unchanged.  This includes
+$T=R$ and $T=L$; the alternative ordering $T\,\dd X\,T^{-1}$ has the same
+property.
+\begin{align}
+ \dd s^2>0&:\quad\text{time-like},\\
+ \dd s^2=0&:\quad\text{null},\\
+ \dd s^2<0&:\quad\text{space-like}.
+\end{align}
+For a future-directed time-like interval, choose the positive scalar root
 \begin{equation}
  \dd s:=\sqrt{\det(\dd X)}.
 \end{equation}
 Thus the following kinematics explores the determinant of $\dd X$ and its
 normalization by this scalar.  For two intervals,
 \begin{equation}
- \Det{\dd X+\dd X'}-\Det{\dd X}-\Det{\dd X'}
- =2(\dd t\,\dd t'-\dd\br\cdot\dd\br'),
- \qquad
  [\dd X,\dd X']=2\ii(\dd\br\times\dd\br')\cdot\bsig.
 \end{equation}
 When $\dd s^2\ne0$,
@@ -1032,8 +1064,8 @@ Rotations and boosts are the physical special cases
 because $R^{-1}=R^{\mathsf H}$ and $L^{-1}=L^*$.
 Hence every inertial observer agrees on
 \begin{align}
- a&:=\bE^2-\bBf^2=-\repart{\Det F},\\
- b&:=\bE\cdot\bBf=-\tfrac12\impart{\Det F}.
+ a&=\bE^2-\bBf^2=-\repart{\Det F},\\
+ b&=\bE\cdot\bBf=-\tfrac12\impart{\Det F}.
  \label{eq:field-invariants}
 \end{align}
 For nonzero fields, these invariants give the standard classification:
@@ -1718,27 +1750,21 @@ components of $\bBf$ and $\bBf'$ by the same formulas.  Then
  \bBf'_{\perp}&=\gamma(\bBf_{\perp}-\beta\bu\times\bE).
 \end{align}
 
-\subsection{Congruences, transformed bases, and non-inertial terms}
+\subsection{Similarity transformations and non-inertial terms}
+\label{sec:similarity-noninertial}
 
-Spinor bilinears use the Hermitian congruence
-$Y=T^{\mathsf H}XT$.  With $\dd\Theta=T^{-1}\dd T$, direct differentiation
-gives the ancillary identity
+Apply the similarity transformation introduced for intervals to a
+position-dependent paravector $X$:
 \begin{equation}
- \dd Y=T^{\mathsf H}(\dd X)T
- +(\dd\Theta)^{\mathsf H}Y+Y\dd\Theta.
- \label{eq:congruence-derivative}
+ X'=T^{-1}XT.
 \end{equation}
-For a rotation, $T^{\mathsf H}=T^{-1}$ and
-$(\dd\Theta)^{\mathsf H}=-\dd\Theta$, so this reduces to a commutator.
-For a Hermitian boost it does not: the two connection terms form the
-congruence appropriate to the spinor bilinear.
-
-Transformed algebra bases use the distinct similarity transformation.  For
-any invertible $T$, let $X'=T^{-1}XT$ and
-$\dd\Theta=T^{-1}\dd T$.  Differentiation gives the useful connection terms
+For constant $T$, differentiation gives
+$\dd X'=T^{-1}\,\dd X\,T$, the interval transformation used above.  If $T$
+varies with position, define $\dd\Theta=T^{-1}\dd T$.  Direct
+differentiation then gives the connection terms
 \begin{align}
- \dd X'&=T^{-1}(\dd X)T+[X',\dd\Theta],\\
- \dd^2X'&=T^{-1}(\dd^2X)T+2[\dd X',\dd\Theta]
+ \dd X'&=T^{-1}\,\dd X\,T+[X',\dd\Theta],\\
+ \dd^2X'&=T^{-1}\,\dd^2X\,T+2[\dd X',\dd\Theta]
  +[X',\dd^2\Theta]+[\dd\Theta,[X',\dd\Theta]].
 \end{align}
 In time-parametrized form, $\Omega=T^{-1}\dd T/\dd t$ gives
@@ -1992,14 +2018,11 @@ probability~\eqref{eq:spin-probability}.
  \langle Z\rangle_{\psi_T}
  &=\frac{\scpart{\psi^{\mathsf H}T^{\mathsf H}ZT\psi}}
  {\scpart{\psi^{\mathsf H}T^{\mathsf H}T\psi}},\\
- \dd(T^{\mathsf H}XT)
- &=T^{\mathsf H}(\dd X)T+(\dd\Theta)^{\mathsf H}T^{\mathsf H}XT
- +T^{\mathsf H}XT\dd\Theta,\\
  X'&=T^{-1}XT,\\
- \dd X'&=T^{-1}(\dd X)T+[X',T^{-1}\dd T].
+ \dd X'&=T^{-1}\,\dd X\,T+[X',T^{-1}\dd T].
 \end{align*}
-See the bilinear rule~\eqref{eq:bilinear-congruence} and congruence
-derivative~\eqref{eq:congruence-derivative}.
+See the bilinear rule~\eqref{eq:bilinear-congruence} and
+Section~\ref{sec:similarity-noninertial}.
 
 \paragraph{\hyperref[sec:quaternions]{Quaternion appendix}.}
 \begin{align*}
@@ -2291,7 +2314,7 @@ the algebra operations by
  \label{eq:matrix-c-t-crosswalk}
 \end{equation}
 
-Finally, scalar extraction of a product and the paravector coefficient norm
+Finally, scalar extraction of a product and the paravector norm
 are
 \begin{align}
  \scpart{Z'Z}&=\tfrac12\operatorname{tr}(\bM_{Z'}\bM_Z),\\
@@ -2349,8 +2372,8 @@ $\operatorname{re}(\cdot)$, and $\operatorname{im}(\cdot)$ replace
 before use; the unused expectation abbreviation \texttt{Exp} was removed.
 The original metric notation $\langle\!\langle Z\rangle\!\rangle^2$ and every
 determinant bar were replaced by the unambiguous function notation
-$\det(Z)$.  Double bars are reserved for squared scalar, vector, and
-coefficient norms, with $\lVert Z\rVert^2=\lVert S\rVert^2+
+$\det(Z)$.  Double bars are reserved for squared norms, with
+$\lVert Z\rVert^2=\lVert S\rVert^2+
 \lVert\bV\rVert^2$; absolute-value bars are not used.  Entrywise
 complex-conjugation notation is confined to the matrix section.
 Sigma conjugation retains the splat $^*$; the operator originally written
