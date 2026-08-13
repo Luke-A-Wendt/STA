@@ -55,7 +55,6 @@
 \newcommand{\bI}{\bm{I}}
 \newcommand{\bPsi}{\bm{\Psi}}
 \newcommand{\bpsi}{\bm{\psi}}
-\newcommand{\baop}{\bm{a}}
 \newcommand{\bQm}{\bm{Q}}
 \newcommand{\bNm}{\bm{N}}
 \newcommand{\bDm}{\bm{D}}
@@ -541,18 +540,18 @@ determinant retains the phase while the norm does not:
 
 For a real unit vector $\bu$, define
 \begin{equation}
- P_\pm:=\tfrac12(1\pm\bu\cdot\bsig).
+ \Pi_\pm:=\tfrac12(1\pm\bu\cdot\bsig).
 \end{equation}
 Since $(\bu\cdot\bsig)^2=1$,
 \begin{align}
- P_\pm^2&=P_\pm,&
- P_+P_-&=0,&
- P_++P_-&=1,\\
- P_\pm^{\mathsf H}&=P_\pm,&
- P_\pm^*&=P_\mp,&
- (\bu\cdot\bsig)P_\pm&=\pm P_\pm.
+ \Pi_\pm^2&=\Pi_\pm,&
+ \Pi_+\Pi_-&=0,&
+ \Pi_++\Pi_-&=1,\\
+ \Pi_\pm^{\mathsf H}&=\Pi_\pm,&
+ \Pi_\pm^*&=\Pi_\mp,&
+ (\bu\cdot\bsig)\Pi_\pm&=\pm \Pi_\pm.
 \end{align}
-Thus $\bu\cdot\bsig=P_+-P_-$.  For two unit directions,
+Thus $\bu\cdot\bsig=\Pi_+-\Pi_-$.  For two unit directions,
 \begin{align}
  (\bu\cdot\bsig)(\bu'\cdot\bsig)
  &=\bu\cdot\bu'+\ii(\bu\times\bu')\cdot\bsig,\\
@@ -564,23 +563,48 @@ Thus $\bu\cdot\bsig=P_+-P_-$.  For two unit directions,
 Define $\bu'_{\parallel}=(\bu'\cdot\bu)\bu$ and
 $\bu'_{\perp}=\bu'-\bu'_{\parallel}$.  Then
 \begin{align}
- P_\pm(\bu'\cdot\bsig)P_\pm
- &=\pm(\bu\cdot\bu')P_\pm,\\
- P_\pm(\bu'\cdot\bsig)P_\mp
+ \Pi_\pm(\bu'\cdot\bsig)\Pi_\pm
+ &=\pm(\bu\cdot\bu')\Pi_\pm,\\
+ \Pi_\pm(\bu'\cdot\bsig)\Pi_\mp
  &=\tfrac12(\bu'_{\perp}\pm\ii(\bu\times\bu'))\cdot\bsig\,
- P_\mp.
+ \Pi_\mp.
 \end{align}
 For comparison, define
-$P_\pm':=\tfrac12(1\pm\bu'\cdot\bsig)$.  Their products are
+$\Pi_\pm':=\tfrac12(1\pm\bu'\cdot\bsig)$.  Their products are
 \begin{align}
- P_+P_+'&=\tfrac14(1+\bu\cdot\bu')
+ \Pi_+\Pi_+'&=\tfrac14(1+\bu\cdot\bu')
  +\tfrac14(+\bu+\bu'+\ii\bu\times\bu')\cdot\bsig,\\
- P_+P_-'&=\tfrac14(1-\bu\cdot\bu')
+ \Pi_+\Pi_-'&=\tfrac14(1-\bu\cdot\bu')
  +\tfrac14(+\bu-\bu'-\ii\bu\times\bu')\cdot\bsig,\\
- P_-P_+'&=\tfrac14(1-\bu\cdot\bu')
+ \Pi_-\Pi_+'&=\tfrac14(1-\bu\cdot\bu')
  +\tfrac14(-\bu+\bu'-\ii\bu\times\bu')\cdot\bsig,\\
- P_-P_-'&=\tfrac14(1+\bu\cdot\bu')
+ \Pi_-\Pi_-'&=\tfrac14(1+\bu\cdot\bu')
  +\tfrac14(-\bu-\bu'+\ii\bu\times\bu')\cdot\bsig.
+\end{align}
+
+\subsection{Ladder operators}
+\label{sec:ladder-operators}
+
+For projections along the third axis, define
+\begin{equation}
+ Z_\pm=\tfrac12(\sigma_1\pm\ii\sigma_2),
+ \qquad \Pi_\pm=\tfrac12(1\pm\sigma_3).
+\end{equation}
+Then
+\begin{align}
+ [\sigma_3,Z_\pm]&=\pm2Z_\pm,&
+ Z_\pm^2&=0,&
+ Z_\pm Z_\mp&=\Pi_\pm,\\
+ \sigma_1&=Z_++Z_-,&
+ \sigma_2&=(Z_+-Z_-)/\ii,&
+ \sigma_3&=\Pi_+-\Pi_-.
+\end{align}
+The ladder operators map between the two projected sectors according to
+\begin{align}
+ Z_+\Pi_+&=0,&Z_+\Pi_-&=Z_+,&
+ \Pi_+Z_+&=Z_+,&\Pi_-Z_+&=0,\\
+ Z_-\Pi_-&=0,&Z_-\Pi_+&=Z_-,&
+ \Pi_-Z_-&=Z_-,&\Pi_+Z_-&=0.
 \end{align}
 
 \subsection{Functions of paravectors}
@@ -591,32 +615,32 @@ Let
 \begin{equation}
  \lambda_+,\lambda_-\in\C.
 \end{equation}
-Suppose $P_\pm^2=P_\pm$, $P_++P_-=1$,
-$P_+P_-=P_-P_+=0$, and
+Suppose $\Pi_\pm^2=\Pi_\pm$, $\Pi_++\Pi_-=1$,
+$\Pi_+\Pi_-=\Pi_-\Pi_+=0$, and
 \begin{equation}
- Z=\lambda_+P_++\lambda_-P_-.
+ Z=\lambda_+\Pi_++\lambda_-\Pi_-.
 \end{equation}
 Then orthogonality gives
 \begin{equation}
- Z^n=\lambda_+^nP_++\lambda_-^nP_-.
+ Z^n=\lambda_+^n\Pi_++\lambda_-^n\Pi_-.
 \end{equation}
 Thus, for a convergent power series $f(w)=\sum_{n=0}^\infty c_nw^n$,
 \begin{align}
  f(Z)&=\sum_{n=0}^\infty c_nZ^n\\
- &=f(\lambda_+)P_++f(\lambda_-)P_-.
+ &=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-.
 \end{align}
 
 \paragraph{Functions of a unit vector.}
-For $X=\bu\cdot\bsig=P_+-P_-$, the eigenvalues are $\pm1$.
-The general rule and $P_\pm=\tfrac12(1\pm\bu\cdot\bsig)$ give
+For $X=\bu\cdot\bsig=\Pi_+-\Pi_-$, the eigenvalues are $\pm1$.
+The general rule and $\Pi_\pm=\tfrac12(1\pm\bu\cdot\bsig)$ give
 \begin{equation}
- f(\bu\cdot\bsig)=f(1)P_++f(-1)P_-
+ f(\bu\cdot\bsig)=f(1)\Pi_++f(-1)\Pi_-
  =\tfrac12(f(1)+f(-1))+\tfrac12(f(1)-f(-1))\bu\cdot\bsig.
 \end{equation}
 Consequently,
 \begin{align}
- \sqrt{\bu\cdot\bsig}&=\pm P_+\pm\ii P_-,\\
- \log(\bu\cdot\bsig)&=2\ii\pi(nP_++(\tfrac12+m)P_-),\\
+ \sqrt{\bu\cdot\bsig}&=\pm \Pi_+\pm\ii \Pi_-,\\
+ \log(\bu\cdot\bsig)&=2\ii\pi(n\Pi_++(\tfrac12+m)\Pi_-),\\
  (z+\bu\cdot\bsig)^{-1}&=\frac{z-\bu\cdot\bsig}{z^2-1},
  \qquad z^2\ne1,\\
  \frac{\ii-\bu\cdot\bsig}{\ii+\bu\cdot\bsig}
@@ -627,8 +651,8 @@ Consequently,
 For $0<\lVert\br\rVert<1$, take $\bu=\br/\lVert\br\rVert$.  Then
 \begin{equation}
  \frac{1-\br\cdot\bsig}{1+\br\cdot\bsig}
- =\exp(-2\tanh^{-1}(\lVert\br\rVert))P_+
- +\exp(2\tanh^{-1}(\lVert\br\rVert))P_-.
+ =\exp(-2\tanh^{-1}(\lVert\br\rVert))\Pi_+
+ +\exp(2\tanh^{-1}(\lVert\br\rVert))\Pi_-.
 \end{equation}
 
 \paragraph{Real paravectors.}
@@ -639,24 +663,24 @@ $\bu=\bA/\lVert\bA\rVert$ and define
  \lambda_\pm:=a\pm\lVert\bA\rVert.
 \end{equation}
 Using
-$1=P_++P_-$ and $\bu\cdot\bsig=P_+-P_-$ gives
+$1=\Pi_++\Pi_-$ and $\bu\cdot\bsig=\Pi_+-\Pi_-$ gives
 \begin{align}
- X&=a(P_++P_-)
- +\lVert\bA\rVert(P_+-P_-)\\
- &=\lambda_+P_++\lambda_-P_-.
+ X&=a(\Pi_++\Pi_-)
+ +\lVert\bA\rVert(\Pi_+-\Pi_-)\\
+ &=\lambda_+\Pi_++\lambda_-\Pi_-.
 \end{align}
 The general rule therefore gives
 \begin{equation}
- f(X)=f(\lambda_+)P_++f(\lambda_-)P_-.
+ f(X)=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-.
 \end{equation}
 With nonzero eigenvalues where required and chosen function branches, this
 includes
 \begin{align}
  X^n&=\tfrac12(\lambda_+^n+\lambda_-^n)
  +\tfrac12(\lambda_+^n-\lambda_-^n)\bu\cdot\bsig,\\
- X^{-1}&=\lambda_+^{-1}P_++\lambda_-^{-1}P_-,\\
- \sqrt X&=\pm\sqrt{\lambda_+}P_+\pm\sqrt{\lambda_-}P_-,\\
- \log X&=\log(\lambda_+)P_++\log(\lambda_-)P_-,\\
+ X^{-1}&=\lambda_+^{-1}\Pi_++\lambda_-^{-1}\Pi_-,\\
+ \sqrt X&=\pm\sqrt{\lambda_+}\Pi_+\pm\sqrt{\lambda_-}\Pi_-,\\
+ \log X&=\log(\lambda_+)\Pi_++\log(\lambda_-)\Pi_-,\\
  \exp(X)&=\exp(a)\left(\cosh\lVert\bA\rVert
  +\sinh\lVert\bA\rVert\,\bu\cdot\bsig\right),\\
  \exp(\ii\bA\cdot\bsig)
@@ -685,31 +709,31 @@ $z:=\sqrt{\bV^2}\in\C$ and define
 \end{equation}
 When $z\ne0$, define
 \begin{equation}
- P_\pm:=\tfrac12\left(1\pm\frac{\bV\cdot\bsig}{z}\right).
+ \Pi_\pm:=\tfrac12\left(1\pm\frac{\bV\cdot\bsig}{z}\right).
 \end{equation}
 Because $(\bV\cdot\bsig)^2=\bV^2=z^2$,
 \begin{align}
- P_\pm^2
+ \Pi_\pm^2
  &=\tfrac14\left(1\pm2\frac{\bV\cdot\bsig}{z}
- +\frac{(\bV\cdot\bsig)^2}{z^2}\right)=P_\pm,\\
- P_+P_-
+ +\frac{(\bV\cdot\bsig)^2}{z^2}\right)=\Pi_\pm,\\
+ \Pi_+\Pi_-
  &=\tfrac14\left(1-\frac{(\bV\cdot\bsig)^2}{z^2}\right)=0.
 \end{align}
-Also, $1=P_++P_-$ and
-$\bV\cdot\bsig=z(P_+-P_-)$, so
+Also, $1=\Pi_++\Pi_-$ and
+$\bV\cdot\bsig=z(\Pi_+-\Pi_-)$, so
 \begin{align}
- Z&=S(P_++P_-)+z(P_+-P_-)\\
- &=\lambda_+P_++\lambda_-P_-.
+ Z&=S(\Pi_++\Pi_-)+z(\Pi_+-\Pi_-)\\
+ &=\lambda_+\Pi_++\lambda_-\Pi_-.
 \end{align}
 The general rule gives
 \begin{equation}
- f(Z)=f(\lambda_+)P_++f(\lambda_-)P_-.
+ f(Z)=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-.
  \label{eq:complex-function-projectors}
 \end{equation}
 Choosing square-root branches gives
 \begin{align}
  \sqrt Z
- &=\sqrt{\lambda_+}P_++\sqrt{\lambda_-}P_-\\
+ &=\sqrt{\lambda_+}\Pi_++\sqrt{\lambda_-}\Pi_-\\
  &=\tfrac12(\sqrt{\lambda_+}+\sqrt{\lambda_-})
  +\frac{\sqrt{\lambda_+}-\sqrt{\lambda_-}}{2z}\,
  \bV\cdot\bsig,
@@ -717,7 +741,7 @@ Choosing square-root branches gives
 and, when $\lambda_\pm\ne0$, choosing logarithm branches gives
 \begin{align}
  \log Z
- &=\log(\lambda_+)P_++\log(\lambda_-)P_-\\
+ &=\log(\lambda_+)\Pi_++\log(\lambda_-)\Pi_-\\
  &=\tfrac12(\log(\lambda_+)+\log(\lambda_-))
  +\frac{\log(\lambda_+)-\log(\lambda_-)}{2z}\,
  \bV\cdot\bsig.
@@ -888,15 +912,20 @@ The cyclic determinant property gives
 Thus similarity by any such $T$ leaves the interval unchanged.  This includes
 $T=R$ and $T=L$; the alternative ordering $T\,\dd X\,T^{-1}$ has the same
 property.
-\begin{align}
- \dd s^2>0&:\quad\text{time-like},\\
- \dd s^2=0&:\quad\text{null},\\
- \dd s^2<0&:\quad\text{space-like}.
-\end{align}
 For a future-directed time-like interval, choose the positive scalar root
 \begin{equation}
  \dd s:=\sqrt{\det(\dd X)}.
 \end{equation}
+The sign of the invariant squared interval classifies the causal relation
+between the two neighboring events:
+\begin{align}
+ \dd s^2>0&:\quad\text{time-like; a massive particle can follow the interval},\\
+ \dd s^2=0&:\quad\text{null; light can follow the interval},\\
+ \dd s^2<0&:\quad\text{space-like; no causal signal can follow the interval}.
+\end{align}
+Only in the time-like case is \(\dd s\) real and nonzero under the chosen
+positive-root convention; along a time-like worldline it is the proper-time
+differential.
 Thus the following kinematics explores the determinant of $\dd X$ and its
 normalization by this scalar.  For two intervals,
 \begin{equation}
@@ -1399,22 +1428,14 @@ Equivalently, in paravector coefficients,
 \subsection{Paravector inner products and expectations}
 \label{sec:paravector-inner-products}
 
-A paravector amplitude $\psi$ maps to the complex matrix
-$\bM_\psi=\operatorname{mat}(\psi)$.  Therefore
-$\operatorname{mat}(\psi^{\mathsf H}\psi)=\bM_\psi^{\mathsf H}\bM_\psi$,
-which is generally a Hermitian matrix rather than a scalar.
-
-For paravector amplitudes $\psi,\psi'$ and a paravector $Z$, use the
-Hilbert--Schmidt pairing to define
+For paravector amplitudes $\psi,\psi'$ and a paravector $Z$, define the
+inner product and matrix element intrinsically by scalar extraction:
 \begin{align}
  \langle\psi'\mid\psi\rangle
- &:=\scpart{\psi'^{\mathsf H}\psi}
- =\tfrac12\operatorname{tr}(\bM_{\psi'}^{\mathsf H}\bM_\psi),
+ &:=\scpart{\psi'^{\mathsf H}\psi},
  \label{eq:paravector-inner-product}\\
  \langle\psi'\mid Z\mid\psi\rangle
- &:=\scpart{\psi'^{\mathsf H}Z\psi}
- =\tfrac12\operatorname{tr}
- (\bM_{\psi'}^{\mathsf H}\operatorname{mat}(Z)\bM_\psi).
+ &:=\scpart{\psi'^{\mathsf H}Z\psi}.
  \label{eq:paravector-matrix-element}
 \end{align}
 The first is the $Z=1$ case of the second, and
@@ -1431,6 +1452,9 @@ For an observable $Z^{\mathsf H}=Z$ acting from the left,
 \end{equation}
 For normalized $\psi$, this reduces to
 $\langle Z\rangle_\psi=\langle\psi\mid Z\mid\psi\rangle$.
+Appendix~\ref{sec:matrix-spinors} shows that these intrinsic definitions
+become the usual trace pairing and, after minimal-ideal projection, the
+standard two-component column-spinor formulas.
 
 For a paravector $T$ with $\psi'=T\psi$,
 \begin{equation}
@@ -1439,7 +1463,13 @@ For a paravector $T$ with $\psi'=T\psi$,
  {\scpart{\psi^{\mathsf H}T^{\mathsf H}T\psi}}.
  \label{eq:bilinear-congruence}
 \end{equation}
-For a unitary rotation the denominator is unchanged.  A finite boost is not
+If $T=U$, $U^{\mathsf H}U=1$, and
+$\langle\psi\mid\psi\rangle=1$, then the denominator is unity and
+\begin{equation}
+ \langle Z\rangle_{\psi'}
+ =\scpart{\psi^{\mathsf H}U^{\mathsf H}ZU\psi}.
+\end{equation}
+Thus a unitary rotation preserves the normalization.  A finite boost is not
 unitary, so this positive equal-time norm is not itself Lorentz invariant;
 the covariant Dirac normalization instead comes from the conserved Dirac
 current on a spacelike hypersurface.
@@ -1447,80 +1477,43 @@ current on a spacelike hypersurface.
 \subsection{Physical spinors and minimal ideals}
 \label{sec:physical-spinors}
 
-A physical two-component Pauli spinor occupies a minimal left ideal.  For any
-unit direction $\bu$, represent the algebra projectors from
-Section~\ref{sec:algebra-projectors} by the matrices
+A physical two-component Pauli spinor is represented intrinsically by a
+minimal ideal obtained by left projection in the paravector algebra.  Choose a fixed unit direction
+$\bu$ and use the projectors from Section~\ref{sec:algebra-projectors},
 \begin{equation}
- P_\pm(\bu):=\operatorname{mat}\!\left(
- \tfrac12(1\pm\bu\cdot\bsig)\right)
- =\tfrac12(\bI_2\pm\bu\cdot\bsig).
+ \Pi_\pm:=\tfrac12(1\pm\bu\cdot\bsig).
 \end{equation}
-They inherit
+They satisfy
 \begin{align}
- P_\pm(\bu)^2&=P_\pm(\bu),&
- P_+(\bu)P_-(\bu)&=0,&
- P_+(\bu)+P_-(\bu)&=\bI_2,\\
- P_\pm(\bu)^{\mathsf H}&=P_\pm(\bu),&
- P_\pm(\bu)^*&=P_\mp(\bu),&
- (\bu\cdot\bsig)P_\pm(\bu)&=\pm P_\pm(\bu),
+ \Pi_\pm^2&=\Pi_\pm,&
+ \Pi_+\Pi_-&=0,&
+ \Pi_++\Pi_-&=1,\\
+ \Pi_\pm^{\mathsf H}&=\Pi_\pm,&
+ \Pi_\pm^*&=\Pi_\mp,&
+ (\bu\cdot\bsig)\Pi_\pm&=\pm \Pi_\pm,
  \end{align}
-and hence $\bu\cdot\bsig=P_+(\bu)-P_-(\bu)$.
+and hence $\bu\cdot\bsig=\Pi_+-\Pi_-$.
 
-Choose a fixed reference direction $\bu_0$, set
-$P_+:=\tfrac12(1+\bu_0\cdot\bsig)$, and project on the right:
+Project an unrestricted paravector amplitude from the left into either
+sector:
 \begin{equation}
- \psi':=\psi P_+,
- \qquad
- \bM_{\psi'}:=\operatorname{mat}(\psi')=\bM_\psi P_+(\bu_0).
+ \psi'_\pm:=\Pi_\pm\psi.
 \end{equation}
-Let $\bm e_+(\bu_0)$ be a normalized positive eigenvector,
-\begin{equation}
- (\bu_0\cdot\bsig)\bm e_+(\bu_0)=\bm e_+(\bu_0),
- \qquad
- \bm e_+(\bu_0)^{\mathsf H}\bm e_+(\bu_0)=1.
-\end{equation}
-A convenient phase choice, valid for $u_{0,3}\ne-1$, is
-\begin{equation}
- \bm e_+(\bu_0)
- =\frac{\{1+u_{0,3},\ u_{0,1}+\ii u_{0,2}\}^{\mathsf T}}
- {\sqrt{2(1+u_{0,3})}};
- \qquad
- \bm e_+(-\bm e_3)=\{0,1\}^{\mathsf T}.
-\end{equation}
-Define the conventional column spinor $\bm\chi\in\C^2$ by
-\begin{equation}
- P_+(\bu_0)=\bm e_+(\bu_0)\bm e_+(\bu_0)^{\mathsf H},
- \qquad
- \bm\chi:=\bM_\psi\bm e_+(\bu_0).
-\end{equation}
-The algebra, rank-one matrix, and column forms of the state are related by
-\begin{equation}
- \bm\chi=\bM_{\psi'}\bm e_+(\bu_0),
- \qquad
- \bM_{\psi'}=\bm\chi\bm e_+(\bu_0)^{\mathsf H}.
- \label{eq:ideal-column-map}
-\end{equation}
-Thus $\psi'$ and $\bm\chi$ contain the same two complex components.
-$\bM_{\psi'}$ has rank one and has $\bm\chi$ as its first column precisely
-when the basis begins with $\bm e_+(\bu_0)$.  Conversely,
-$\bm\chi\bm e_+(\bu_0)^{\mathsf H}$ uniquely determines $\psi'$.  The column
-$\bm\chi$ is a $2\times1$ vector, so $\bm\chi^{\mathsf H}\bm\chi$ is scalar,
-and
+Then $\Pi_\pm\psi'_\pm=\psi'_\pm$ and
+$\Pi_\mp\psi'_\pm=0$.  Hermitian conjugation reverses the multiplied order,
+so the projected norm and observable matrix element are
 \begin{align}
- \bm\chi^{\mathsf H}\bm\chi
- &=\operatorname{tr}(\bM_{\psi'}^{\mathsf H}\bM_{\psi'})
- =2\scpart{\psi'^{\mathsf H}\psi'},
- \label{eq:minimal-ideal-spinor}\\
- \bm\chi^{\mathsf H}\operatorname{mat}(Z)\bm\chi
- &=\operatorname{tr}(\bM_{\psi'}^{\mathsf H}
-   \operatorname{mat}(Z)\bM_{\psi'})
- =2\scpart{\psi'^{\mathsf H}Z\psi'}.
+ \langle\psi'_\pm\mid\psi'_\pm\rangle
+ &=\scpart{\psi^{\mathsf H}\Pi_\pm^{\mathsf H}\Pi_\pm\psi}
+ =\langle\psi\mid\Pi_\pm\mid\psi\rangle,\\
+ \langle\psi'_\pm\mid Z\mid\psi'_\pm\rangle
+ &=\scpart{\psi^{\mathsf H}\Pi_\pm^{\mathsf H}Z\Pi_\pm\psi}
+ =\langle\psi\mid\Pi_\pm Z\Pi_\pm\mid\psi\rangle.
 \end{align}
-The factor two cancels in normalized expectations.  An unrestricted
-paravector matrix contains two Pauli-spinor columns; right projection by
-$P_+$, or by $P_+$ in matrix form, selects one.  Applied to both
-components of the Dirac block below, it selects one conventional
-four-component Dirac column.
+Appendix~\ref{sec:matrix-spinors} develops the faithful matrix image of this
+ideal and shows how it becomes one conventional two-component Pauli column.
+Applied to both paravector components of the Dirac block below, the same
+left projections select the conventional four-component Dirac sectors.
 
 \subsection{Klein--Gordon equation}
 
@@ -1600,7 +1593,7 @@ Pauli equation
  \label{eq:pauli}
 \end{equation}
 Using these projectors,
-$\bPsi=\bPsi_++\bPsi_-$ with $\bPsi_\pm=P_\pm(\bu)\bPsi$.  For a uniform static
+$\bPsi=\bPsi_++\bPsi_-$ with $\bPsi_\pm=\Pi_\pm\bPsi$.  For a uniform static
 magnetic field, $\bu=\bBf/\lVert\bBf\rVert$, the sectors decouple:
 \begin{equation}
  \ii\partial_t\bPsi_\pm=\left(
@@ -1610,16 +1603,16 @@ For a varying field direction the sectors are coupled.  With $H$ denoting the
 Pauli Hamiltonian, direct differentiation gives
 \begin{align}
  \ii\partial_t\bPsi_\pm
- &=\ii(\partial_tP_\pm)\bPsi+P_\pm H\bPsi\\
- &=H\bPsi_\pm+\left(\ii\partial_tP_\pm
-   +[P_\pm,H]\right)\bPsi.
+ &=\ii(\partial_t\Pi_\pm)\bPsi+\Pi_\pm H\bPsi\\
+ &=H\bPsi_\pm+\left(\ii\partial_t\Pi_\pm
+   +[\Pi_\pm,H]\right)\bPsi.
 \end{align}
 Because the field term commutes with its own instantaneous projectors, this is
 \begin{equation}
  \ii\partial_t\bPsi_\pm=H\bPsi_\pm+\bm{S}_\pm,
  \qquad
- \bm{S}_\pm=\left(\ii\partial_tP_\pm
- +\frac{[\bP^2,P_\pm]}{2m}\right)\bPsi.
+ \bm{S}_\pm=\left(\ii\partial_t\Pi_\pm
+ +\frac{[\bP^2,\Pi_\pm]}{2m}\right)\bPsi.
 \end{equation}
 
 \subsection{Interacting operators and factorization}
@@ -1654,8 +1647,12 @@ The two orderings satisfy
    =(-E^2+\bP^2+m^2+\ii qF)\Psi_2.
 \end{align}
 These follow by multiplying the Dirac operator by its mass conjugate.  In
-detail, if $\bDm=\Wop(\ii\partial-q\Phi^*)-m\bI$ and
-$\bDm'=\Wop(\ii\partial-q\Phi^*)+m\bI$, then
+detail, define
+\begin{align}
+ \bDm&:=\Wop(\ii\partial-q\Phi^*)-m\bI,\\
+ \bDm'&:=\Wop(\ii\partial-q\Phi^*)+m\bI.
+\end{align}
+Then
 \begin{equation}
  \bDm'\bDm=-\operatorname{diag}\!\left(
  (\partial+\ii q\Phi^*)(\partial^*+\ii q\Phi)+m^2,
@@ -1711,42 +1708,40 @@ and iteration yields
 $E=(\bP^2-q\bBf\cdot\bsig)/(2m)+O(m^{-2})$, which is
 equation~\eqref{eq:pauli}.
 
-\subsection{Spin, ladder operators, and energy sectors}
+\subsection{Spin probabilities and energy sectors}
 
-The left measurement projection along $\bu$ is distinct from the fixed right
-ideal projection along $\bu_0$ defined above.
-For the ideal matrix $\bM_{\psi'}$ and its
-nonzero column $\bm\chi$, define
+The measurement projectors act from the left, so the projected amplitudes are
+$\psi'_\pm=\Pi_\pm\psi$ as defined above.  They are orthogonal and complete:
 \begin{equation}
- \bM_{\psi',\pm}:=P_\pm(\bu)\bM_{\psi'},
+ \psi=\psi'_++\psi'_-,
  \qquad
- \bm\chi_\pm:=P_\pm(\bu)\bm\chi.
+ \langle\psi'_+\mid\psi'_-\rangle=0,
+ \qquad
+ \langle\psi'_-\mid\psi'_+\rangle=0.
 \end{equation}
-The components are orthogonal and complete:
+Define the real Bloch vector of a nonzero amplitude by its intrinsic
+expectation values,
 \begin{equation}
- \bm\chi=\bm\chi_++\bm\chi_-,
- \qquad
- \bm\chi_+^{\mathsf H}\bm\chi_-=0,
- \qquad
- \bm\chi_-^{\mathsf H}\bm\chi_+=0.
-\end{equation}
-For a normalized state, define its real Bloch vector by
-\begin{equation}
- s_n:=\frac{\bm\chi^{\mathsf H}\bm{\sigma}_n\bm\chi}
- {\bm\chi^{\mathsf H}\bm\chi},
+ s_n:=\frac{\scpart{\psi^{\mathsf H}\sigma_n\psi}}
+ {\scpart{\psi^{\mathsf H}\psi}},
  \qquad \bm{s}:=\{s_1,s_2,s_3\},
- \qquad \lVert\bm{s}\rVert^2=1.
+ \qquad \lVert\bm{s}\rVert^2\leq1.
 \end{equation}
+Equality holds for a pure two-component spin state.
 The probabilities for spin along and against $\bu$ are
 \begin{equation}
  p_\pm(\bu)
- :=\frac{\bm\chi_\pm^{\mathsf H}\bm\chi_\pm}
- {\bm\chi^{\mathsf H}\bm\chi}
- =\frac{\bm\chi^{\mathsf H}P_\pm(\bu)\bm\chi}
- {\bm\chi^{\mathsf H}\bm\chi}
+ :=\frac{\langle\psi'_\pm\mid\psi'_\pm\rangle}
+ {\langle\psi\mid\psi\rangle}
+ =\frac{\scpart{\psi^{\mathsf H}\Pi_\pm^{\mathsf H}\Pi_\pm\psi}}
+ {\scpart{\psi^{\mathsf H}\psi}}
+ =\frac{\scpart{\psi^{\mathsf H}\Pi_\pm\psi}}
+ {\scpart{\psi^{\mathsf H}\psi}}
  =\tfrac12(1\pm\bu\cdot\bm{s}).
  \label{eq:spin-probability}
 \end{equation}
+Their conventional column-spinor and density-matrix forms are derived in
+Appendix~\ref{sec:matrix-spinors}.
 
 For a state aligned with $\bu$ and $\bu\cdot\bu'=\cos\theta$, the measurement
 probabilities along $\bu'$ are
@@ -1775,60 +1770,34 @@ Since the first term is nonnegative,
  \geq\frac12\left\lVert
  [\dd\bu\cdot\bsig,\dd\bu'\cdot\bsig]\right\rVert.
 \end{equation}
-For orthogonal fluctuations this reduces to
-\begin{equation}
- \Det{(\dd\bu\cdot\bsig)(\dd\bu'\cdot\bsig)}
- =\frac14\left\lVert
- [\dd\bu\cdot\bsig,\dd\bu'\cdot\bsig]\right\rVert^2.
-\end{equation}
-
-About the third axis, define
-\begin{equation}
- \baop_\pm:=\tfrac12(\bm{\sigma}_1\pm\ii\bm{\sigma}_2),
- \qquad P_\pm:=\tfrac12(\bI_2\pm\bm{\sigma}_3).
-\end{equation}
-Then
-\begin{align}
- [\bm{\sigma}_3,\baop_\pm]&=\pm2\baop_\pm,&
- \baop_\pm^2&=0,&
- \baop_\pm\baop_\mp&=P_\pm,\\
- \bm{\sigma}_1&=\baop_++\baop_-,&
- \bm{\sigma}_2&=(\baop_+-\baop_-)/\ii,&
- \bm{\sigma}_3&=P_+-P_-.
-\end{align}
-Their projector action is
-\begin{align}
- \baop_+P_+&=0,&\baop_+P_-&=\baop_+,&
- P_+\baop_+&=\baop_+,&P_-\baop_+&=0,\\
- \baop_-P_-&=0,&\baop_-P_+&=\baop_-,&
- P_-\baop_-&=\baop_-,&P_+\baop_-&=0.
-\end{align}
-
 Finally, on the mass shell let
 \begin{equation}
- U=\frac{E+\bP\cdot\bsig}{m},\qquad
- P_{E,\pm}=\tfrac12(\bI\pm\Wop(U)).
+ U=\frac{E+\bP\cdot\bsig}{m}.
 \end{equation}
 Since $\Det U=1$ and $\Wop(U)^2=\bI$, the positive- and negative-energy
-projectors satisfy
+projectors are
 \begin{equation}
- P_{E,\pm}^2=P_{E,\pm},
- \qquad P_{E,+}P_{E,-}=0,
- \qquad P_{E,+}+P_{E,-}=\bI.
+ \tfrac12(\bI+\Wop(U)),
+ \qquad
+ \tfrac12(\bI-\Wop(U)).
 \end{equation}
-Lift the spin projectors to the Dirac block space by
-\begin{equation}
- P_{j,4}:=\operatorname{diag}(P_j,P_j),
- \qquad j=\pm.
-\end{equation}
-When $[P_{E,i},P_{j,4}]=0$, as for a compatible spin quantization
-axis, their products are joint energy--spin projectors and resolve the
-physical Dirac column selected in Section~\ref{sec:physical-spinors} into
-four sectors:
-\begin{equation}
- \bPsi=\sum_{i=\pm}\sum_{j=\pm}\bPsi_{ij},
- \qquad \bPsi_{ij}=P_{E,i}P_{j,4}\bPsi.
-\end{equation}
+Each squares to itself, their product is zero, and their sum is $\bI$.
+The spin projectors act with the same sign on both components of $\bPsi$, so
+no additional block notation is needed: their actions are simply
+$\Pi_+\bPsi$ and $\Pi_-\bPsi$.  When $\Wop(U)$ commutes with $\Pi_\pm$, as
+for a compatible spin quantization axis, the four pairwise products are
+joint energy--spin projectors.  They resolve the physical Dirac column selected in
+Section~\ref{sec:physical-spinors} as
+\begin{align}
+ \bPsi={}&\tfrac12(\bI+\Wop(U))
+  \Pi_+\bPsi
+ +\tfrac12(\bI+\Wop(U))
+  \Pi_-\bPsi\\
+ &+\tfrac12(\bI-\Wop(U))
+  \Pi_+\bPsi
+ +\tfrac12(\bI-\Wop(U))
+  \Pi_-\bPsi.
+\end{align}
 Without this commutation condition the displayed sum remains a sequential
 decomposition, but the factors are not joint orthogonal projectors.
 
@@ -1850,23 +1819,8 @@ the spatial vector according to Rodrigues' formula,
        +(\bu\cdot\br)(1-\cos\phi)\bu.
 \end{equation}
 The half-angle explains the spinorial sign change $R(\phi+2\pi)=-R(\phi)$.
-In the physical column representation, let
-$\bm R:=\operatorname{mat}(R)$ and define the pure-state density matrix
-\begin{equation}
- \bm\rho_\chi
- :=\frac{\bm\chi\bm\chi^{\mathsf H}}
- {\bm\chi^{\mathsf H}\bm\chi}
- =\tfrac12(\bI_2+\bm{s}\cdot\bsig).
-\end{equation}
-For $\bm\chi'=\bm R\bm\chi$,
-\begin{equation}
- \bm\rho_{\chi'}=\bm R\bm\rho_\chi\bm R^{\mathsf H},
- \qquad
- \operatorname{tr}(\bm\rho_{\chi'}\operatorname{mat}(Z))
- =\operatorname{tr}(\bm\rho_\chi\bm R^{\mathsf H}
-   \operatorname{mat}(Z)\bm R).
-\end{equation}
-Thus rotating the state is dual to conjugating the observable.
+The corresponding column-spinor and density-matrix transformations are
+collected in Appendix~\ref{sec:matrix-spinors}.
 For a spinor $\psi_R:=R\psi$, expectation values transform as
 \begin{equation}
  \psi_R^{\mathsf H}=\psi^{\mathsf H}R^{\mathsf H},
@@ -2050,24 +2004,11 @@ quadratic identity~\eqref{eq:minimal}.
 
 \paragraph{\hyperref[sec:algebra-projectors]{Projection operators and functions}.}
 \begin{align*}
- P_\pm&=\tfrac12(1\pm\bu\cdot\bsig),
- &P_\pm^2&=P_\pm,&P_+P_-&=0,\\
- f(\bu\cdot\bsig)&=f(1)P_++f(-1)P_-,\\
- X&=\lambda_+P_++\lambda_-P_-,
- &f(X)&=f(\lambda_+)P_++f(\lambda_-)P_-.
-\end{align*}
-
-\paragraph{\hyperref[sec:matrix]{Pauli-matrix representation}.}
-\begin{align*}
- \operatorname{mat}(Z)&=
- \begin{pmatrix}S+V_3&V_1-\ii V_2\\V_1+\ii V_2&S-V_3\end{pmatrix},
- &\operatorname{tr}(\bM)&=2S
- &&\text{\eqref{eq:matrix}},\\
- \bM^{\mathsf H}&=(\bM^{\mathsf C})^{\mathsf T}
- = (\bM^{\mathsf T})^{\mathsf C},
- &\bM^*&=-\bm J\bM^{\mathsf C}\bm J,\\
- \operatorname{mat}(\adj Z)&=\operatorname{adj}(\bM),
- &\adj{\bM}&=\operatorname{tr}(\bM)\bI_2-\bM.
+ \Pi_\pm&=\tfrac12(1\pm\bu\cdot\bsig),
+ &\Pi_\pm^2&=\Pi_\pm,&\Pi_+\Pi_-&=0,\\
+ f(\bu\cdot\bsig)&=f(1)\Pi_++f(-1)\Pi_-,\\
+ X&=\lambda_+\Pi_++\lambda_-\Pi_-,
+ &f(X)&=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-.
 \end{align*}
 
 \paragraph{\hyperref[sec:kinematics]{Space--time kinematics and action}.}
@@ -2106,12 +2047,9 @@ quadratic identity~\eqref{eq:minimal}.
 \paragraph{\hyperref[sec:waves]{Wave equations, spin, and energy sectors}.}
 \begin{align*}
  \langle\psi'\mid\psi\rangle
- &=\scpart{\psi'^{\mathsf H}\psi}
- =\tfrac12\operatorname{tr}(\bM_{\psi'}^{\mathsf H}\bM_\psi),\\
+ &=\scpart{\psi'^{\mathsf H}\psi},\\
  \langle\psi'\mid Z\mid\psi\rangle
- &=\scpart{\psi'^{\mathsf H}Z\psi}
- =\tfrac12\operatorname{tr}
- (\bM_{\psi'}^{\mathsf H}\operatorname{mat}(Z)\bM_\psi),\\
+ &=\scpart{\psi'^{\mathsf H}Z\psi},\\
  \langle Z\rangle_\psi
  &=\frac{\langle\psi\mid Z\mid\psi\rangle}
  {\langle\psi\mid\psi\rangle}
@@ -2124,16 +2062,16 @@ quadratic identity~\eqref{eq:minimal}.
  \ii\partial_t\bPsi&=\left(
  \frac{(-\ii\pdr-q\bA)^2}{2m}+qV
  -\frac q{2m}\bBf\cdot\bsig\right)\bPsi,\\
- P_\pm(\bu)&=\tfrac12(\bI_2\pm\bu\cdot\bsig),\\
+ \Pi_\pm&=\tfrac12(1\pm\bu\cdot\bsig),\\
  p_\pm(\bu)&=\tfrac12(1\pm\bu\cdot\bm{s}),\\
- P_{E,\pm}&=\tfrac12(\bI\pm\Wop(U)),
- \qquad P_{j,4}=\operatorname{diag}(P_j,P_j),\\
- \bPsi&=\sum_{i=\pm}\sum_{j=\pm}\bPsi_{ij},
- \qquad \bPsi_{ij}=P_{E,i}P_{j,4}\bPsi.
+ \text{energy projectors: }&\quad
+ \tfrac12(\bI+\Wop(U)),\quad\tfrac12(\bI-\Wop(U)),\\
+ \text{spin projections: }&\quad
+ \Pi_+\bPsi,\quad\Pi_-\bPsi.
 \end{align*}
 See the paravector inner product~\eqref{eq:paravector-inner-product},
-minimal-ideal spinor~\eqref{eq:minimal-ideal-spinor}, Klein--Gordon
-equation~\eqref{eq:kg}, Dirac equations~\eqref{eq:dirac} and
+minimal-ideal development in Section~\ref{sec:physical-spinors},
+Klein--Gordon equation~\eqref{eq:kg}, Dirac equations~\eqref{eq:dirac} and
 \eqref{eq:dirac-field}, Pauli equation~\eqref{eq:pauli}, and spin
 probability~\eqref{eq:spin-probability}.
 
@@ -2450,6 +2388,113 @@ are
  =\tfrac12\operatorname{tr}(\bM\bM^{\mathsf H}).
  \label{eq:matrix-norm}
 \end{align}
+
+\subsection{Matrix amplitudes and column spinors}
+\label{sec:matrix-spinors}
+
+This subsection translates the intrinsic paravector spinor development of
+Section~\ref{sec:physical-spinors} into the familiar matrix and column
+languages.  For a paravector amplitude $\psi$, write
+\begin{equation}
+ \bM_\psi:=\operatorname{mat}(\psi).
+\end{equation}
+Faithfulness and Hermitian compatibility give
+\begin{equation}
+ \operatorname{mat}(\psi'^{\mathsf H}Z\psi)
+ =\bM_{\psi'}^{\mathsf H}\operatorname{mat}(Z)\bM_\psi.
+\end{equation}
+Scalar extraction is half the matrix trace, so the intrinsic definitions
+\eqref{eq:paravector-inner-product} and
+\eqref{eq:paravector-matrix-element} become
+\begin{align}
+ \langle\psi'\mid\psi\rangle
+ &=\tfrac12\operatorname{tr}
+   (\bM_{\psi'}^{\mathsf H}\bM_\psi),\\
+ \langle\psi'\mid Z\mid\psi\rangle
+ &=\tfrac12\operatorname{tr}
+   (\bM_{\psi'}^{\mathsf H}\operatorname{mat}(Z)\bM_\psi).
+\end{align}
+Thus $\operatorname{mat}(\psi^{\mathsf H}\psi)
+=\bM_\psi^{\mathsf H}\bM_\psi$ is generally Hermitian rather than scalar;
+the scalar inner product is obtained by taking half its trace.
+
+For the fixed unit direction $\bu$, the paravector projectors have matrix
+images
+\begin{equation}
+ \operatorname{mat}(\Pi_\pm)
+ =\tfrac12(\bI_2\pm\bu\cdot\bsig).
+\end{equation}
+Let $\bm v_+$ be a normalized positive eigenvector,
+\begin{equation}
+ (\bu\cdot\bsig)\bm v_+=\bm v_+,
+ \qquad
+ \bm v_+^{\mathsf H}\bm v_+=1.
+\end{equation}
+A convenient phase choice, valid for $u_3\ne-1$, is
+\begin{equation}
+ \bm v_+
+ =\frac{\{1+u_3,\ u_1+\ii u_2\}^{\mathsf T}}
+ {\sqrt{2(1+u_3)}};
+ \qquad
+ \bm v_+=\{0,1\}^{\mathsf T}\quad\text{when }\bu=-\bm e_3.
+\end{equation}
+Then
+\begin{equation}
+ \operatorname{mat}(\Pi_+)
+ =\bm v_+\bm v_+^{\mathsf H}.
+\end{equation}
+
+For the projected amplitude $\psi'=\Pi_+\psi$, define
+\begin{equation}
+ \bM_{\psi'}:=\operatorname{mat}(\psi')
+ =\operatorname{mat}(\Pi_+)\bM_\psi,
+ \qquad
+ \bm\chi:=\bM_\psi^{\mathsf H}\bm v_+.
+\end{equation}
+The algebra, rank-one matrix, and two-component column are related by
+\begin{equation}
+ \bm\chi=\bM_{\psi'}^{\mathsf H}\bm v_+,
+ \qquad
+ \bM_{\psi'}=\bm v_+\bm\chi^{\mathsf H}.
+ \label{eq:ideal-column-map}
+\end{equation}
+Thus $\psi'$ and $\bm\chi\in\C^2$ contain the same two complex
+components.  The matrix $\bM_{\psi'}$ has rank one and has
+$\bm\chi^{\mathsf H}$ as its nonzero row precisely when the basis begins
+with $\bm v_+$.  Conversely, $\bm v_+\bm\chi^{\mathsf H}$ uniquely
+determines $\psi'$.  Moreover,
+\begin{equation}
+ \bm\chi^{\mathsf H}\bm\chi
+ =\operatorname{tr}(\bM_{\psi'}^{\mathsf H}\bM_{\psi'})
+ =2\scpart{\psi'^{\mathsf H}\psi'},
+ \label{eq:minimal-ideal-spinor}
+\end{equation}
+For an observable acting from the left, the intrinsic matrix element is
+\begin{equation}
+ 2\scpart{\psi'^{\mathsf H}Z\psi'}
+ =\operatorname{tr}(\bM_{\psi'}^{\mathsf H}
+   \operatorname{mat}(Z)\bM_{\psi'})
+ =(\bm\chi^{\mathsf H}\bm\chi)
+  (\bm v_+^{\mathsf H}\operatorname{mat}(Z)\bm v_+).
+\end{equation}
+
+The two left-projected matrix amplitudes are
+\begin{equation}
+ \bM_{\psi',\pm}
+ :=\operatorname{mat}(\Pi_\pm)\bM_\psi.
+\end{equation}
+Consequently, the intrinsic probabilities in
+\eqref{eq:spin-probability} have the matrix form
+\begin{equation}
+ p_\pm(\bu)
+ =\frac{\operatorname{tr}
+   (\bM_\psi^{\mathsf H}\operatorname{mat}(\Pi_\pm)^{\mathsf H}
+    \operatorname{mat}(\Pi_\pm)\bM_\psi)}
+  {\operatorname{tr}(\bM_\psi^{\mathsf H}\bM_\psi)}
+ =\frac{\operatorname{tr}
+   (\bM_\psi^{\mathsf H}\operatorname{mat}(\Pi_\pm)\bM_\psi)}
+  {\operatorname{tr}(\bM_\psi^{\mathsf H}\bM_\psi)}.
+\end{equation}
 
 \section{Quaternion subalgebra}
 \label{sec:quaternions}
