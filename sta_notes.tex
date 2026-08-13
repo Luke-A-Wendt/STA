@@ -254,12 +254,45 @@ Define the paravector trace and determinant by
  =S^2-\bV\cdot\bV.
  \label{eq:det}
 \end{align}
+For any paravectors $Z$ and $Z'$, the adjugate reverses product order:
+\begin{equation}
+ \adj{ZZ'}=\adj{Z'}\adj Z.
+\end{equation}
+Consequently,
+\begin{align}
+ \det(ZZ')
+ &=\adj{ZZ'}ZZ'\\
+ &=\adj{Z'}(\adj Z\,Z)Z'\\
+ &=\det(Z)\det(Z').
+ \label{eq:det-product}
+\end{align}
+Since determinants are scalars,
+\begin{equation}
+ \det(ZZ')=\det(Z'Z).
+ \label{eq:det-cyclic}
+\end{equation}
+Repeated application gives the cyclic property for any finite product; for
+example,
+\begin{equation}
+ \det(ZZ'Z'')=\det(Z'Z''Z)=\det(Z''ZZ').
+\end{equation}
 Whenever $\det(Z)\ne0$, define
 \begin{equation}
  Z^{-1}:=\frac{\adj Z}{\det(Z)},
  \qquad
  Z^{-1}Z=ZZ^{-1}=1.
 \end{equation}
+For any complex paravector $Z$ and any invertible complex paravector $T$,
+the determinant is invariant under either similarity transformation:
+\begin{equation}
+ \det(Z)=\det(T^{-1}ZT)=\det(TZT^{-1}).
+ \label{eq:det-similarity}
+\end{equation}
+Indeed, the cyclic property gives
+\begin{align}
+ \det(T^{-1}ZT)&=\det(ZTT^{-1})=\det(Z),\\
+ \det(TZT^{-1})&=\det(ZT^{-1}T)=\det(Z).
+\end{align}
 Finally, define real and imaginary paravector extraction by
 \begin{align}
  \repart Z&:=\tfrac12(Z+Z^{\mathsf H})=X,\\
@@ -857,7 +890,7 @@ source
 \end{equation}
 All four Maxwell equations are the single equation
 \begin{equation}
- \boxed{\partial F=\sconj D=\rho-\bJ\cdot\bsig.}
+ \partial F=\sconj D=\rho-\bJ\cdot\bsig.
  \label{eq:maxwell}
 \end{equation}
 Sigma conjugation gives the equivalent equation
@@ -982,18 +1015,21 @@ the scalar part vanishes, and therefore $\adj F=-F$.  Hence
  &=-(\bE+\bBf\ii)\cdot(\bE+\bBf\ii)\\
  &=-\bE^2+\bBf^2-2\ii\bE\cdot\bBf.
 \end{align}
-The Lorentz action induced on a bivector is the similarity transformation
+For any invertible real or complex paravector $T$, let
 \begin{equation}
+ F'=TFT^{-1}.
+\end{equation}
+The general similarity identity~\eqref{eq:det-similarity} gives
+\begin{equation}
+ \Det{F'}=\Det{TFT^{-1}}=\Det F.
+\end{equation}
+Rotations and boosts are the physical special cases
+\begin{equation}
+ F'=RFR^{-1}=RFR^{\mathsf H},
+ \qquad
  F'=LFL^{-1}=LFL^*,
 \end{equation}
-where $L^{-1}=L^*$.  Determinant multiplicativity, equivalently its cyclic
-property, then gives
-\begin{align}
- \Det{F'}
- &=\Det{LFL^{-1}}\\
- &=\Det L\Det F\Det{L^{-1}}\\
- &=\Det{FL^{-1}L}=\Det F.
-\end{align}
+because $R^{-1}=R^{\mathsf H}$ and $L^{-1}=L^*$.
 Hence every inertial observer agrees on
 \begin{align}
  a&:=\bE^2-\bBf^2=-\repart{\Det F},\\
@@ -1146,8 +1182,8 @@ $\pdr\cdot(\bE\times\bBf)
 Substitution into $\partial_tu$ therefore derives Poynting's theorem, the
 local electromagnetic energy-balance law:
 \begin{equation}
- \boxed{\partial_tu
- +\pdr\cdot\bS=-\bJ\cdot\bE.}
+ \partial_tu
+ +\pdr\cdot\bS=-\bJ\cdot\bE.
  \label{eq:poynting}
 \end{equation}
 Here $\bJ\cdot\bE$ is the power density transferred from the field to
@@ -1326,7 +1362,7 @@ It satisfies
 \end{equation}
 Since $\Wop(\ii\partial)^2=-\Box\bI$, the first-order equation
 \begin{equation}
- \boxed{\bigl(\Wop(\ii\partial)-m\bI\bigr)\bPsi=0}
+ \bigl(\Wop(\ii\partial)-m\bI\bigr)\bPsi=0
  \label{eq:dirac}
 \end{equation}
 squares to the Klein--Gordon equation.  For
