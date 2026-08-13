@@ -55,8 +55,6 @@
 \newcommand{\bI}{\bm{I}}
 \newcommand{\bPsi}{\bm{\Psi}}
 \newcommand{\bpsi}{\bm{\psi}}
-\newcommand{\bLambda}{\bm{\Lambda}}
-\newcommand{\bPi}{\bm{\Pi}}
 \newcommand{\baop}{\bm{a}}
 \newcommand{\bQm}{\bm{Q}}
 \newcommand{\bNm}{\bm{N}}
@@ -543,18 +541,18 @@ determinant retains the phase while the norm does not:
 
 For a real unit vector $\bu$, define
 \begin{equation}
- \Pi_\pm:=\tfrac12(1\pm\bu\cdot\bsig).
+ P_\pm:=\tfrac12(1\pm\bu\cdot\bsig).
 \end{equation}
 Since $(\bu\cdot\bsig)^2=1$,
 \begin{align}
- \Pi_\pm^2&=\Pi_\pm,&
- \Pi_+\Pi_-&=0,&
- \Pi_++\Pi_-&=1,\\
- \Pi_\pm^{\mathsf H}&=\Pi_\pm,&
- \Pi_\pm^*&=\Pi_\mp,&
- (\bu\cdot\bsig)\Pi_\pm&=\pm\Pi_\pm.
+ P_\pm^2&=P_\pm,&
+ P_+P_-&=0,&
+ P_++P_-&=1,\\
+ P_\pm^{\mathsf H}&=P_\pm,&
+ P_\pm^*&=P_\mp,&
+ (\bu\cdot\bsig)P_\pm&=\pm P_\pm.
 \end{align}
-Thus $\bu\cdot\bsig=\Pi_+-\Pi_-$.  For two unit directions,
+Thus $\bu\cdot\bsig=P_+-P_-$.  For two unit directions,
 \begin{align}
  (\bu\cdot\bsig)(\bu'\cdot\bsig)
  &=\bu\cdot\bu'+\ii(\bu\times\bu')\cdot\bsig,\\
@@ -566,22 +564,22 @@ Thus $\bu\cdot\bsig=\Pi_+-\Pi_-$.  For two unit directions,
 Define $\bu'_{\parallel}=(\bu'\cdot\bu)\bu$ and
 $\bu'_{\perp}=\bu'-\bu'_{\parallel}$.  Then
 \begin{align}
- \Pi_\pm(\bu'\cdot\bsig)\Pi_\pm
- &=\pm(\bu\cdot\bu')\Pi_\pm,\\
- \Pi_\pm(\bu'\cdot\bsig)\Pi_\mp
+ P_\pm(\bu'\cdot\bsig)P_\pm
+ &=\pm(\bu\cdot\bu')P_\pm,\\
+ P_\pm(\bu'\cdot\bsig)P_\mp
  &=\tfrac12(\bu'_{\perp}\pm\ii(\bu\times\bu'))\cdot\bsig\,
- \Pi_\mp.
+ P_\mp.
 \end{align}
 For comparison, define
-$\Pi_\pm':=\tfrac12(1\pm\bu'\cdot\bsig)$.  Their products are
+$P_\pm':=\tfrac12(1\pm\bu'\cdot\bsig)$.  Their products are
 \begin{align}
- \Pi_+\Pi_+'&=\tfrac14(1+\bu\cdot\bu')
+ P_+P_+'&=\tfrac14(1+\bu\cdot\bu')
  +\tfrac14(+\bu+\bu'+\ii\bu\times\bu')\cdot\bsig,\\
- \Pi_+\Pi_-'&=\tfrac14(1-\bu\cdot\bu')
+ P_+P_-'&=\tfrac14(1-\bu\cdot\bu')
  +\tfrac14(+\bu-\bu'-\ii\bu\times\bu')\cdot\bsig,\\
- \Pi_-\Pi_+'&=\tfrac14(1-\bu\cdot\bu')
+ P_-P_+'&=\tfrac14(1-\bu\cdot\bu')
  +\tfrac14(-\bu+\bu'-\ii\bu\times\bu')\cdot\bsig,\\
- \Pi_-\Pi_-'&=\tfrac14(1+\bu\cdot\bu')
+ P_-P_-'&=\tfrac14(1+\bu\cdot\bu')
  +\tfrac14(-\bu-\bu'+\ii\bu\times\bu')\cdot\bsig.
 \end{align}
 
@@ -593,32 +591,32 @@ Let
 \begin{equation}
  \lambda_+,\lambda_-\in\C.
 \end{equation}
-Suppose $\Pi_\pm^2=\Pi_\pm$, $\Pi_++\Pi_-=1$,
-$\Pi_+\Pi_-=\Pi_-\Pi_+=0$, and
+Suppose $P_\pm^2=P_\pm$, $P_++P_-=1$,
+$P_+P_-=P_-P_+=0$, and
 \begin{equation}
- Z=\lambda_+\Pi_++\lambda_-\Pi_-.
+ Z=\lambda_+P_++\lambda_-P_-.
 \end{equation}
 Then orthogonality gives
 \begin{equation}
- Z^n=\lambda_+^n\Pi_++\lambda_-^n\Pi_-.
+ Z^n=\lambda_+^nP_++\lambda_-^nP_-.
 \end{equation}
 Thus, for a convergent power series $f(w)=\sum_{n=0}^\infty c_nw^n$,
 \begin{align}
  f(Z)&=\sum_{n=0}^\infty c_nZ^n\\
- &=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-.
+ &=f(\lambda_+)P_++f(\lambda_-)P_-.
 \end{align}
 
 \paragraph{Functions of a unit vector.}
-For $X=\bu\cdot\bsig=\Pi_+-\Pi_-$, the eigenvalues are $\pm1$.
-The general rule and $\Pi_\pm=\tfrac12(1\pm\bu\cdot\bsig)$ give
+For $X=\bu\cdot\bsig=P_+-P_-$, the eigenvalues are $\pm1$.
+The general rule and $P_\pm=\tfrac12(1\pm\bu\cdot\bsig)$ give
 \begin{equation}
- f(\bu\cdot\bsig)=f(1)\Pi_++f(-1)\Pi_-
+ f(\bu\cdot\bsig)=f(1)P_++f(-1)P_-
  =\tfrac12(f(1)+f(-1))+\tfrac12(f(1)-f(-1))\bu\cdot\bsig.
 \end{equation}
 Consequently,
 \begin{align}
- \sqrt{\bu\cdot\bsig}&=\pm\Pi_+\pm\ii\Pi_-,\\
- \log(\bu\cdot\bsig)&=2\ii\pi(n\Pi_++(\tfrac12+m)\Pi_-),\\
+ \sqrt{\bu\cdot\bsig}&=\pm P_+\pm\ii P_-,\\
+ \log(\bu\cdot\bsig)&=2\ii\pi(nP_++(\tfrac12+m)P_-),\\
  (z+\bu\cdot\bsig)^{-1}&=\frac{z-\bu\cdot\bsig}{z^2-1},
  \qquad z^2\ne1,\\
  \frac{\ii-\bu\cdot\bsig}{\ii+\bu\cdot\bsig}
@@ -629,8 +627,8 @@ Consequently,
 For $0<\lVert\br\rVert<1$, take $\bu=\br/\lVert\br\rVert$.  Then
 \begin{equation}
  \frac{1-\br\cdot\bsig}{1+\br\cdot\bsig}
- =\exp(-2\tanh^{-1}(\lVert\br\rVert))\Pi_+
- +\exp(2\tanh^{-1}(\lVert\br\rVert))\Pi_-.
+ =\exp(-2\tanh^{-1}(\lVert\br\rVert))P_+
+ +\exp(2\tanh^{-1}(\lVert\br\rVert))P_-.
 \end{equation}
 
 \paragraph{Real paravectors.}
@@ -641,24 +639,24 @@ $\bu=\bA/\lVert\bA\rVert$ and define
  \lambda_\pm:=a\pm\lVert\bA\rVert.
 \end{equation}
 Using
-$1=\Pi_++\Pi_-$ and $\bu\cdot\bsig=\Pi_+-\Pi_-$ gives
+$1=P_++P_-$ and $\bu\cdot\bsig=P_+-P_-$ gives
 \begin{align}
- X&=a(\Pi_++\Pi_-)
- +\lVert\bA\rVert(\Pi_+-\Pi_-)\\
- &=\lambda_+\Pi_++\lambda_-\Pi_-.
+ X&=a(P_++P_-)
+ +\lVert\bA\rVert(P_+-P_-)\\
+ &=\lambda_+P_++\lambda_-P_-.
 \end{align}
 The general rule therefore gives
 \begin{equation}
- f(X)=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-.
+ f(X)=f(\lambda_+)P_++f(\lambda_-)P_-.
 \end{equation}
 With nonzero eigenvalues where required and chosen function branches, this
 includes
 \begin{align}
  X^n&=\tfrac12(\lambda_+^n+\lambda_-^n)
  +\tfrac12(\lambda_+^n-\lambda_-^n)\bu\cdot\bsig,\\
- X^{-1}&=\lambda_+^{-1}\Pi_++\lambda_-^{-1}\Pi_-,\\
- \sqrt X&=\pm\sqrt{\lambda_+}\Pi_+\pm\sqrt{\lambda_-}\Pi_-,\\
- \log X&=\log(\lambda_+)\Pi_++\log(\lambda_-)\Pi_-,\\
+ X^{-1}&=\lambda_+^{-1}P_++\lambda_-^{-1}P_-,\\
+ \sqrt X&=\pm\sqrt{\lambda_+}P_+\pm\sqrt{\lambda_-}P_-,\\
+ \log X&=\log(\lambda_+)P_++\log(\lambda_-)P_-,\\
  \exp(X)&=\exp(a)\left(\cosh\lVert\bA\rVert
  +\sinh\lVert\bA\rVert\,\bu\cdot\bsig\right),\\
  \exp(\ii\bA\cdot\bsig)
@@ -687,31 +685,31 @@ $z:=\sqrt{\bV^2}\in\C$ and define
 \end{equation}
 When $z\ne0$, define
 \begin{equation}
- \Pi_\pm:=\tfrac12\left(1\pm\frac{\bV\cdot\bsig}{z}\right).
+ P_\pm:=\tfrac12\left(1\pm\frac{\bV\cdot\bsig}{z}\right).
 \end{equation}
 Because $(\bV\cdot\bsig)^2=\bV^2=z^2$,
 \begin{align}
- \Pi_\pm^2
+ P_\pm^2
  &=\tfrac14\left(1\pm2\frac{\bV\cdot\bsig}{z}
- +\frac{(\bV\cdot\bsig)^2}{z^2}\right)=\Pi_\pm,\\
- \Pi_+\Pi_-
+ +\frac{(\bV\cdot\bsig)^2}{z^2}\right)=P_\pm,\\
+ P_+P_-
  &=\tfrac14\left(1-\frac{(\bV\cdot\bsig)^2}{z^2}\right)=0.
 \end{align}
-Also, $1=\Pi_++\Pi_-$ and
-$\bV\cdot\bsig=z(\Pi_+-\Pi_-)$, so
+Also, $1=P_++P_-$ and
+$\bV\cdot\bsig=z(P_+-P_-)$, so
 \begin{align}
- Z&=S(\Pi_++\Pi_-)+z(\Pi_+-\Pi_-)\\
- &=\lambda_+\Pi_++\lambda_-\Pi_-.
+ Z&=S(P_++P_-)+z(P_+-P_-)\\
+ &=\lambda_+P_++\lambda_-P_-.
 \end{align}
 The general rule gives
 \begin{equation}
- f(Z)=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-.
+ f(Z)=f(\lambda_+)P_++f(\lambda_-)P_-.
  \label{eq:complex-function-projectors}
 \end{equation}
 Choosing square-root branches gives
 \begin{align}
  \sqrt Z
- &=\sqrt{\lambda_+}\Pi_++\sqrt{\lambda_-}\Pi_-\\
+ &=\sqrt{\lambda_+}P_++\sqrt{\lambda_-}P_-\\
  &=\tfrac12(\sqrt{\lambda_+}+\sqrt{\lambda_-})
  +\frac{\sqrt{\lambda_+}-\sqrt{\lambda_-}}{2z}\,
  \bV\cdot\bsig,
@@ -719,7 +717,7 @@ Choosing square-root branches gives
 and, when $\lambda_\pm\ne0$, choosing logarithm branches gives
 \begin{align}
  \log Z
- &=\log(\lambda_+)\Pi_++\log(\lambda_-)\Pi_-\\
+ &=\log(\lambda_+)P_++\log(\lambda_-)P_-\\
  &=\tfrac12(\log(\lambda_+)+\log(\lambda_-))
  +\frac{\log(\lambda_+)-\log(\lambda_-)}{2z}\,
  \bV\cdot\bsig.
@@ -992,6 +990,54 @@ $\gamma^3\ba$, and imaginary vector $-\gamma^3\bv\times\ba$; while $UA$
 has real scalar $2\gamma^5\bv\cdot\ba$, real vector
 $\gamma^3\ba+2\gamma^5(\bv\cdot\ba)\bv$, and imaginary vector
 $\gamma^3\bv\times\ba$.
+
+\subsection{Varying transformations and second differentials}
+\label{sec:varying-transformations}
+
+Along a path, let $\dd$ denote successive differentiation with respect to
+its parameter and define
+\begin{equation}
+ \dd X'=T^{-1}\,\dd X\,T.
+\end{equation}
+Although $\det(\dd X')=\det(\dd X)$ at each point, a varying $T$ adds a
+term to the second differential.  Define
+\begin{equation}
+ \dd\Theta:=T^{-1}\dd T,
+ \qquad
+ \dd T^{-1}=-\dd\Theta\,T^{-1}.
+\end{equation}
+Direct differentiation gives
+\begin{align}
+ \dd^2X'
+ &=\dd(T^{-1}\,\dd X\,T)\\
+ &=T^{-1}\,\dd^2X\,T-\dd\Theta\,\dd X'+\dd X'\,\dd\Theta\\
+ &=T^{-1}\,\dd^2X\,T+[\dd X',\dd\Theta].
+\end{align}
+Dividing by the corresponding powers of $\dd s$ gives
+\begin{equation}
+ \frac{\dd X'}{\dd s}
+ =T^{-1}\,\frac{\dd X}{\dd s}\,T,
+\end{equation}
+\begin{equation}
+ \Omega:=\frac{\dd\Theta}{\dd s}
+ =T^{-1}\,\frac{\dd T}{\dd s},
+\end{equation}
+and
+\begin{equation}
+ \frac{\dd^2X'}{\dd s^2}
+ =T^{-1}\,\frac{\dd^2X}{\dd s^2}\,T
+ +\left[\frac{\dd X'}{\dd s},\Omega\right].
+\end{equation}
+Thus a constant transformation gives $\dd^2X'=T^{-1}\,\dd^2X\,T$, while a
+varying transformation contributes the commutator term.  This is the
+algebraic source of the additional terms in rotating and accelerating
+frames.
+
+Here $\dd X'$ is defined by the pointwise transformation of the tangent.
+When $T$ varies, it is not generally $\dd(T^{-1}XT)$, which also contains
+the transformation of $X$ itself.  Moreover, a general complex $T$ can
+make $\dd X'$ complex even when $\dd X$ is real, so a physical space--time
+transformation requires an additional reality-preserving condition.
 
 \subsection{Free-particle action}
 
@@ -1411,27 +1457,27 @@ A physical two-component Pauli spinor occupies a minimal left ideal.  For any
 unit direction $\bu$, represent the algebra projectors from
 Section~\ref{sec:algebra-projectors} by the matrices
 \begin{equation}
- \bPi_\pm(\bu):=\operatorname{mat}\!\left(
+ P_\pm(\bu):=\operatorname{mat}\!\left(
  \tfrac12(1\pm\bu\cdot\bsig)\right)
  =\tfrac12(\bI_2\pm\bu\cdot\bsig).
 \end{equation}
 They inherit
 \begin{align}
- \bPi_\pm(\bu)^2&=\bPi_\pm(\bu),&
- \bPi_+(\bu)\bPi_-(\bu)&=0,&
- \bPi_+(\bu)+\bPi_-(\bu)&=\bI_2,\\
- \bPi_\pm(\bu)^{\mathsf H}&=\bPi_\pm(\bu),&
- \bPi_\pm(\bu)^*&=\bPi_\mp(\bu),&
- (\bu\cdot\bsig)\bPi_\pm(\bu)&=\pm\bPi_\pm(\bu),
+ P_\pm(\bu)^2&=P_\pm(\bu),&
+ P_+(\bu)P_-(\bu)&=0,&
+ P_+(\bu)+P_-(\bu)&=\bI_2,\\
+ P_\pm(\bu)^{\mathsf H}&=P_\pm(\bu),&
+ P_\pm(\bu)^*&=P_\mp(\bu),&
+ (\bu\cdot\bsig)P_\pm(\bu)&=\pm P_\pm(\bu),
  \end{align}
-and hence $\bu\cdot\bsig=\bPi_+(\bu)-\bPi_-(\bu)$.
+and hence $\bu\cdot\bsig=P_+(\bu)-P_-(\bu)$.
 
 Choose a fixed reference direction $\bu_0$, set
-$\Pi_+:=\tfrac12(1+\bu_0\cdot\bsig)$, and project on the right:
+$P_+:=\tfrac12(1+\bu_0\cdot\bsig)$, and project on the right:
 \begin{equation}
- \psi':=\psi\Pi_+,
+ \psi':=\psi P_+,
  \qquad
- \bM_{\psi'}:=\operatorname{mat}(\psi')=\bM_\psi\bPi_+(\bu_0).
+ \bM_{\psi'}:=\operatorname{mat}(\psi')=\bM_\psi P_+(\bu_0).
 \end{equation}
 Let $\bm e_+(\bu_0)$ be a normalized positive eigenvector,
 \begin{equation}
@@ -1449,7 +1495,7 @@ A convenient phase choice, valid for $u_{0,3}\ne-1$, is
 \end{equation}
 Define the conventional column spinor $\bm\chi\in\C^2$ by
 \begin{equation}
- \bPi_+(\bu_0)=\bm e_+(\bu_0)\bm e_+(\bu_0)^{\mathsf H},
+ P_+(\bu_0)=\bm e_+(\bu_0)\bm e_+(\bu_0)^{\mathsf H},
  \qquad
  \bm\chi:=\bM_\psi\bm e_+(\bu_0).
 \end{equation}
@@ -1478,7 +1524,7 @@ and
 \end{align}
 The factor two cancels in normalized expectations.  An unrestricted
 paravector matrix contains two Pauli-spinor columns; right projection by
-$\Pi_+$, or by $\bPi_+$ in matrix form, selects one.  Applied to both
+$P_+$, or by $P_+$ in matrix form, selects one.  Applied to both
 components of the Dirac block below, it selects one conventional
 four-component Dirac column.
 
@@ -1560,7 +1606,7 @@ Pauli equation
  \label{eq:pauli}
 \end{equation}
 Using these projectors,
-$\bPsi=\bPsi_++\bPsi_-$ with $\bPsi_\pm=\bPi_\pm(\bu)\bPsi$.  For a uniform static
+$\bPsi=\bPsi_++\bPsi_-$ with $\bPsi_\pm=P_\pm(\bu)\bPsi$.  For a uniform static
 magnetic field, $\bu=\bBf/\lVert\bBf\rVert$, the sectors decouple:
 \begin{equation}
  \ii\partial_t\bPsi_\pm=\left(
@@ -1570,16 +1616,16 @@ For a varying field direction the sectors are coupled.  With $H$ denoting the
 Pauli Hamiltonian, direct differentiation gives
 \begin{align}
  \ii\partial_t\bPsi_\pm
- &=\ii(\partial_t\bPi_\pm)\bPsi+\bPi_\pm H\bPsi\\
- &=H\bPsi_\pm+\left(\ii\partial_t\bPi_\pm
-   +[\bPi_\pm,H]\right)\bPsi.
+ &=\ii(\partial_tP_\pm)\bPsi+P_\pm H\bPsi\\
+ &=H\bPsi_\pm+\left(\ii\partial_tP_\pm
+   +[P_\pm,H]\right)\bPsi.
 \end{align}
 Because the field term commutes with its own instantaneous projectors, this is
 \begin{equation}
  \ii\partial_t\bPsi_\pm=H\bPsi_\pm+\bm{S}_\pm,
  \qquad
- \bm{S}_\pm=\left(\ii\partial_t\bPi_\pm
- +\frac{[\bP^2,\bPi_\pm]}{2m}\right)\bPsi.
+ \bm{S}_\pm=\left(\ii\partial_tP_\pm
+ +\frac{[\bP^2,P_\pm]}{2m}\right)\bPsi.
 \end{equation}
 
 \subsection{Interacting operators and factorization}
@@ -1678,9 +1724,9 @@ ideal projection along $\bu_0$ defined above.
 For the ideal matrix $\bM_{\psi'}$ and its
 nonzero column $\bm\chi$, define
 \begin{equation}
- \bM_{\psi',\pm}:=\bPi_\pm(\bu)\bM_{\psi'},
+ \bM_{\psi',\pm}:=P_\pm(\bu)\bM_{\psi'},
  \qquad
- \bm\chi_\pm:=\bPi_\pm(\bu)\bm\chi.
+ \bm\chi_\pm:=P_\pm(\bu)\bm\chi.
 \end{equation}
 The components are orthogonal and complete:
 \begin{equation}
@@ -1702,7 +1748,7 @@ The probabilities for spin along and against $\bu$ are
  p_\pm(\bu)
  :=\frac{\bm\chi_\pm^{\mathsf H}\bm\chi_\pm}
  {\bm\chi^{\mathsf H}\bm\chi}
- =\frac{\bm\chi^{\mathsf H}\bPi_\pm(\bu)\bm\chi}
+ =\frac{\bm\chi^{\mathsf H}P_\pm(\bu)\bm\chi}
  {\bm\chi^{\mathsf H}\bm\chi}
  =\tfrac12(1\pm\bu\cdot\bm{s}).
  \label{eq:spin-probability}
@@ -1745,49 +1791,49 @@ For orthogonal fluctuations this reduces to
 About the third axis, define
 \begin{equation}
  \baop_\pm:=\tfrac12(\bm{\sigma}_1\pm\ii\bm{\sigma}_2),
- \qquad \bPi_\pm:=\tfrac12(\bI_2\pm\bm{\sigma}_3).
+ \qquad P_\pm:=\tfrac12(\bI_2\pm\bm{\sigma}_3).
 \end{equation}
 Then
 \begin{align}
  [\bm{\sigma}_3,\baop_\pm]&=\pm2\baop_\pm,&
  \baop_\pm^2&=0,&
- \baop_\pm\baop_\mp&=\bPi_\pm,\\
+ \baop_\pm\baop_\mp&=P_\pm,\\
  \bm{\sigma}_1&=\baop_++\baop_-,&
  \bm{\sigma}_2&=(\baop_+-\baop_-)/\ii,&
- \bm{\sigma}_3&=\bPi_+-\bPi_-.
+ \bm{\sigma}_3&=P_+-P_-.
 \end{align}
 Their projector action is
 \begin{align}
- \baop_+\bPi_+&=0,&\baop_+\bPi_-&=\baop_+,&
- \bPi_+\baop_+&=\baop_+,&\bPi_-\baop_+&=0,\\
- \baop_-\bPi_-&=0,&\baop_-\bPi_+&=\baop_-,&
- \bPi_-\baop_-&=\baop_-,&\bPi_+\baop_-&=0.
+ \baop_+P_+&=0,&\baop_+P_-&=\baop_+,&
+ P_+\baop_+&=\baop_+,&P_-\baop_+&=0,\\
+ \baop_-P_-&=0,&\baop_-P_+&=\baop_-,&
+ P_-\baop_-&=\baop_-,&P_+\baop_-&=0.
 \end{align}
 
 Finally, on the mass shell let
 \begin{equation}
  U=\frac{E+\bP\cdot\bsig}{m},\qquad
- \bLambda_\pm=\tfrac12(\bI\pm\Wop(U)).
+ P_{E,\pm}=\tfrac12(\bI\pm\Wop(U)).
 \end{equation}
 Since $\Det U=1$ and $\Wop(U)^2=\bI$, the positive- and negative-energy
 projectors satisfy
 \begin{equation}
- \bLambda_\pm^2=\bLambda_\pm,
- \qquad \bLambda_+\bLambda_-=0,
- \qquad \bLambda_++\bLambda_-=\bI.
+ P_{E,\pm}^2=P_{E,\pm},
+ \qquad P_{E,+}P_{E,-}=0,
+ \qquad P_{E,+}+P_{E,-}=\bI.
 \end{equation}
 Lift the spin projectors to the Dirac block space by
 \begin{equation}
- \bPi_{j,4}:=\operatorname{diag}(\bPi_j,\bPi_j),
+ P_{j,4}:=\operatorname{diag}(P_j,P_j),
  \qquad j=\pm.
 \end{equation}
-When $[\bLambda_i,\bPi_{j,4}]=0$, as for a compatible spin quantization
+When $[P_{E,i},P_{j,4}]=0$, as for a compatible spin quantization
 axis, their products are joint energy--spin projectors and resolve the
 physical Dirac column selected in Section~\ref{sec:physical-spinors} into
 four sectors:
 \begin{equation}
  \bPsi=\sum_{i=\pm}\sum_{j=\pm}\bPsi_{ij},
- \qquad \bPsi_{ij}=\bLambda_i\bPi_{j,4}\bPsi.
+ \qquad \bPsi_{ij}=P_{E,i}P_{j,4}\bPsi.
 \end{equation}
 Without this commutation condition the displayed sum remains a sequential
 decomposition, but the factors are not joint orthogonal projectors.
@@ -1890,79 +1936,6 @@ Since $L$ is constant and $L^*L=1$, the field equation is covariant:
 \begin{equation}
  \partial'F'=L(\partial F)L^*=LD^*L^*=D'^*.
 \end{equation}
-
-\subsection{Similarity transformations and non-inertial terms}
-\label{sec:similarity-noninertial}
-
-Apply the similarity transformation introduced for intervals to a
-position-dependent paravector $X$:
-\begin{equation}
- X'=T^{-1}XT.
-\end{equation}
-For constant $T$, differentiation gives
-$\dd X'=T^{-1}\,\dd X\,T$, the interval transformation used above.  If $T$
-varies with position, define $\dd\Theta=T^{-1}\dd T$.  Direct
-differentiation then gives the connection terms
-\begin{align}
- \dd X'&=T^{-1}\,\dd X\,T+[X',\dd\Theta],\\
- \dd^2X'&=T^{-1}\,\dd^2X\,T+2[\dd X',\dd\Theta]
- +[X',\dd^2\Theta]+[\dd\Theta,[X',\dd\Theta]].
-\end{align}
-In time-parametrized form, $\Omega=T^{-1}\dd T/\dd t$ gives
-\begin{equation}
- \frac{\dd X'}{\dd t}=T^{-1}\frac{\dd X}{\dd t}T+[X',\Omega],
-\end{equation}
-\begin{equation}
- \frac{\dd^2X'}{\dd t^2}=T^{-1}\frac{\dd^2X}{\dd t^2}T
- +2\left[\frac{\dd X'}{\dd t},\Omega\right]
- +\left[X',\frac{\dd\Omega}{\dd t}\right]+[\Omega,[X',\Omega]].
-\end{equation}
-The transformed generators $\sigma_n'=T^{-1}\sigma_nT$ obey the same algebra,
-including $(\sigma_n')^2=1$ and
-$\sigma_1'\sigma_2'\sigma_3'=\ii$, and
-\begin{equation}
- \dd\sigma_n'=[\sigma_n',T^{-1}\dd T].
-\end{equation}
-Their operators follow directly from the product laws:
-\begin{align}
- (\sigma_n')^*&=-(T^*)^{-1}\sigma_nT^*,\\
- (\sigma_n')^{\mathsf H}
- &=T^{\mathsf H}\sigma_n(T^{\mathsf H})^{-1}.
-\end{align}
-
-If $T=f+\bg\cdot\bsig$, then
-\begin{equation}
- T^{-1}=\frac{f-\bg\cdot\bsig}{f^2-\bg^2},
-\end{equation}
-\begin{equation}
- T^{-1}\dd T=\frac{f\dd f-\bg\cdot\dd\bg}{f^2-\bg^2}
- +\frac{f\dd\bg-\dd f\,\bg-\ii\bg\times\dd\bg}{f^2-\bg^2}\cdot\bsig.
-\end{equation}
-Write the vector part of $\Omega$ in the primed basis as
-\begin{equation}
- \vecpart\Omega=\tfrac12(\bk+\ii\bm\omega),
- \qquad
- k_n+\ii\omega_n=\scpart{2(\dd T/\dd t)T^{-1}\sigma_n}.
-\end{equation}
-Then
-\begin{equation}
- \frac{\dd\bsig'}{\dd t}=(-\bm\omega+\ii\bk)\times\bsig',
-\end{equation}
-For $Z=S+\bV\cdot\bsig'$, differentiation first gives
-\begin{equation}
- \dd Z=\dd S+\dd\bV\cdot\bsig'+\bV\cdot\dd\bsig'.
-\end{equation}
-Consequently,
-\begin{equation}
- \frac{\dd Z}{\dd t}=\frac{\dd S}{\dd t}+
- \left(\frac{\dd\bV}{\dd t}-\bV\times\bm\omega
- +\ii\bV\times\bk\right)\cdot\bsig'.
-\end{equation}
-For $X=t+\br\cdot\bsig'$ these are the rotational and boost-like inertial
-terms in the measured velocity.
-When $T^{-1}=\adj T$, the transformed basis satisfies
-$\adj{\sigma_n'}=-\sigma_n'$ and
-$\Det Z=S^2-\bV^2$ for $Z=S+\bV\cdot\bsig'$.
 
 Collinear boosts add rapidities and therefore obey
 \begin{equation}
@@ -2083,11 +2056,11 @@ quadratic identity~\eqref{eq:minimal}.
 
 \paragraph{\hyperref[sec:algebra-projectors]{Projection operators and functions}.}
 \begin{align*}
- \Pi_\pm&=\tfrac12(1\pm\bu\cdot\bsig),
- &\Pi_\pm^2&=\Pi_\pm,&\Pi_+\Pi_-&=0,\\
- f(\bu\cdot\bsig)&=f(1)\Pi_++f(-1)\Pi_-,\\
- X&=\lambda_+\Pi_++\lambda_-\Pi_-,
- &f(X)&=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-.
+ P_\pm&=\tfrac12(1\pm\bu\cdot\bsig),
+ &P_\pm^2&=P_\pm,&P_+P_-&=0,\\
+ f(\bu\cdot\bsig)&=f(1)P_++f(-1)P_-,\\
+ X&=\lambda_+P_++\lambda_-P_-,
+ &f(X)&=f(\lambda_+)P_++f(\lambda_-)P_-.
 \end{align*}
 
 \paragraph{\hyperref[sec:matrix]{Pauli-matrix representation}.}
@@ -2157,12 +2130,12 @@ quadratic identity~\eqref{eq:minimal}.
  \ii\partial_t\bPsi&=\left(
  \frac{(-\ii\pdr-q\bA)^2}{2m}+qV
  -\frac q{2m}\bBf\cdot\bsig\right)\bPsi,\\
- \bPi_\pm(\bu)&=\tfrac12(\bI_2\pm\bu\cdot\bsig),\\
+ P_\pm(\bu)&=\tfrac12(\bI_2\pm\bu\cdot\bsig),\\
  p_\pm(\bu)&=\tfrac12(1\pm\bu\cdot\bm{s}),\\
- \bLambda_\pm&=\tfrac12(\bI\pm\Wop(U)),
- \qquad \bPi_{j,4}=\operatorname{diag}(\bPi_j,\bPi_j),\\
+ P_{E,\pm}&=\tfrac12(\bI\pm\Wop(U)),
+ \qquad P_{j,4}=\operatorname{diag}(P_j,P_j),\\
  \bPsi&=\sum_{i=\pm}\sum_{j=\pm}\bPsi_{ij},
- \qquad \bPsi_{ij}=\bLambda_i\bPi_{j,4}\bPsi.
+ \qquad \bPsi_{ij}=P_{E,i}P_{j,4}\bPsi.
 \end{align*}
 See the paravector inner product~\eqref{eq:paravector-inner-product},
 minimal-ideal spinor~\eqref{eq:minimal-ideal-spinor}, Klein--Gordon
@@ -2170,7 +2143,7 @@ equation~\eqref{eq:kg}, Dirac equations~\eqref{eq:dirac} and
 \eqref{eq:dirac-field}, Pauli equation~\eqref{eq:pauli}, and spin
 probability~\eqref{eq:spin-probability}.
 
-\paragraph{\hyperref[sec:transformations]{Rotations, boosts, and transformed bases}.}
+\paragraph{\hyperref[sec:transformations]{Rotations and boosts}.}
 \begin{align*}
  R&=\exp(\phi\bu\cdot\ii\bsig/2),
  \qquad R^{\mathsf H}=R^{-1},
@@ -2180,12 +2153,10 @@ probability~\eqref{eq:spin-probability}.
  \qquad X'=LXL,\\
  \langle Z\rangle_{\psi_T}
  &=\frac{\scpart{\psi^{\mathsf H}T^{\mathsf H}ZT\psi}}
- {\scpart{\psi^{\mathsf H}T^{\mathsf H}T\psi}},\\
- X'&=T^{-1}XT,\\
- \dd X'&=T^{-1}\,\dd X\,T+[X',T^{-1}\dd T].
+ {\scpart{\psi^{\mathsf H}T^{\mathsf H}T\psi}}.
 \end{align*}
-See the bilinear rule~\eqref{eq:bilinear-congruence} and
-Section~\ref{sec:similarity-noninertial}.
+See the bilinear rule~\eqref{eq:bilinear-congruence}; varying-frame
+derivatives are developed in Section~\ref{sec:varying-transformations}.
 
 \paragraph{\hyperref[sec:quaternions]{Quaternion appendix}.}
 \begin{align*}
