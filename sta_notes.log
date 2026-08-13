@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.3.6)  12 AUG 2026 22:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.3.6)  12 AUG 2026 23:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -568,11 +568,11 @@ Package rerunfilecheck Info: File `sta_notes.out' has not changed.
 (rerunfilecheck)             Checksum: 21D0427BF333AA78DA3CFFB2AADCBAD3;7718.
  ) 
 Here is how much of TeX's memory you used:
- 14532 strings out of 480247
- 225356 string characters out of 5896152
- 585172 words of memory out of 5000000
- 31582 multiletter control sequences out of 15000+600000
- 494651 words of font info for 192 fonts, out of 8000000 for 9000
+ 14531 strings out of 480247
+ 225376 string characters out of 5896152
+ 585231 words of memory out of 5000000
+ 31583 multiletter control sequences out of 15000+600000
+ 494549 words of font info for 190 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,15n,63p,1006b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
  </tmp/texfonts/pk/ljfour/jknappen/ec/tcrm1095.600pk></usr/share/texlive/texm
@@ -600,10 +600,10 @@ y9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on sta_notes.pdf (35 pages, 434842 bytes).
+Output written on sta_notes.pdf (35 pages, 435185 bytes).
 PDF statistics:
- 1137 PDF objects out of 1200 (max. 8388607)
- 981 compressed objects within 10 object streams
- 506 named destinations out of 1000 (max. 500000)
+ 1141 PDF objects out of 1200 (max. 8388607)
+ 985 compressed objects within 10 object streams
+ 508 named destinations out of 1000 (max. 500000)
  56137 words of extra memory for PDF output out of 61914 (max. 10000000)
 

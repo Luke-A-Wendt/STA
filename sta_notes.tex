@@ -756,7 +756,8 @@ imaginary vector above, and the imaginary vector becomes the real vector.
 \section{Transformations and invariants}
 \label{sec:preserved-quantities}
 
-Three quantities organize the transformations used below:
+The transformations used below are organized by the quantities they leave
+unchanged:
 \begin{equation}
  \operatorname{tr}(Z)=2\scpart Z,
  \qquad
@@ -765,15 +766,20 @@ Three quantities organize the transformations used below:
  \lVert Z\rVert^2
  =\tfrac12\operatorname{tr}(Z^{\mathsf H}Z).
 \end{equation}
-The trace is linear, while the determinant and norm are quadratic.  The
-transformations are most clearly classified by the invariant they preserve.
+The trace is linear; the determinant and norm are quadratic.  Here $T$ and
+$T'$ denote general complex paravectors, with $T'$ a second transformation
+factor rather than a derivative.  The symbol $U$ denotes a complex unitary
+vector:
+\begin{equation}
+ U^{\mathsf H}U=UU^{\mathsf H}=1,
+ \qquad U^{\mathsf H}=U^{-1}.
+ \label{eq:unitary-transform}
+\end{equation}
+Here $U$ is a transformation; Section~\ref{sec:kinematics} later reuses the
+symbol for four-velocity.
 
 \paragraph{Trace invariance.}
-For any invertible complex paravector $T$,
-\begin{equation}
- \operatorname{tr}(Z')=\operatorname{tr}(Z)
-\end{equation}
-is guaranteed by either similarity transformation
+For invertible $T$, consider either similarity:
 \begin{equation}
  Z'=T^{-1}ZT,
  \qquad\text{or}\qquad
@@ -785,57 +791,72 @@ For example, cyclicity gives
  =\operatorname{tr}(ZTT^{-1})
  =\operatorname{tr}(Z).
 \end{equation}
-If $T$ is unitary, $T^{\mathsf H}=T^{-1}$, so these may equivalently be
-written $Z'=T^{\mathsf H}ZT$ and $Z'=TZT^{\mathsf H}$.
+Thus $\operatorname{tr}(Z')=\operatorname{tr}(Z)$.  For unitary $U$, the
+same similarities are
+\begin{equation}
+ Z'=U^{\mathsf H}ZU,
+ \qquad\text{or}\qquad
+ Z'=UZU^{\mathsf H}.
+\end{equation}
 
 \paragraph{Determinant invariance.}
-For a general two-sided transformation $Z'=T'ZT$,
+For the general two-sided transformation $Z'=T'ZT$,
 \begin{equation}
  \det(Z')=\det(T')\det(T)\det(Z).
 \end{equation}
-Therefore
+Hence $\det(T')\det(T)=1$ guarantees
+$\det(Z')=\det(Z)$, and is required if this equality is to hold for arbitrary
+$Z$.  Equivalently, when $\det(T)\ne0$, any $T'$ satisfying
 \begin{equation}
- \det(Z')=\det(Z)
+ \det(T')=\frac{1}{\det(T)}
 \end{equation}
-whenever $\det(T')\det(T)=1$.  In particular,
-\begin{align}
- T'&=T^{-1}
- &&\Longrightarrow&
- Z'&=T^{-1}ZT,\\
- T'&=T^{\mathsf H},\quad
- \det(T^{\mathsf H})\det(T)=1
- &&\Longrightarrow&
- Z'&=T^{\mathsf H}ZT.
-\end{align}
-Replacing $T$ by $T^{-1}$ gives $Z'=TZT^{-1}$ in the first case, while
-interchanging $T'$ and $T$ gives $Z'=TZT^{\mathsf H}$ in the second.
+preserves the determinant of every $Z$.  The automatic choice
+$T'=T^{-1}$ gives the similarity
+\begin{equation}
+ Z'=T^{-1}ZT.
+\end{equation}
+The opposite ordering $Z'=TZT^{-1}$ preserves the determinant as well.
+For unitary $U$,
+\begin{equation}
+ \det(U^{\mathsf H})\det(U)
+ =\det(U^{-1})\det(U)=1,
+\end{equation}
+so both unitary sandwiches preserve the determinant.
 
 \paragraph{Norm invariance.}
-Let $T$ be a unitary complex paravector:
-\begin{equation}
- T^{\mathsf H}T=TT^{\mathsf H}=1.
-\end{equation}
-For $Z'=T^{\mathsf H}ZT$, Hermitian product order and trace cyclicity give
+Norm invariance requires the unitary condition
+\eqref{eq:unitary-transform}.  For example, if $Z'=U^{\mathsf H}ZU$, then
 \begin{align}
  \lVert Z'\rVert^2
  &=\tfrac12\operatorname{tr}
-   (T^{\mathsf H}Z^{\mathsf H}TT^{\mathsf H}ZT)\\
+   (U^{\mathsf H}Z^{\mathsf H}UU^{\mathsf H}ZU)\\
  &=\tfrac12\operatorname{tr}(Z^{\mathsf H}Z)
  =\lVert Z\rVert^2.
 \end{align}
-Thus
+The same equality $\lVert Z'\rVert^2=\lVert Z\rVert^2$ holds for
 \begin{equation}
- \lVert Z'\rVert^2=\lVert Z\rVert^2
+ Z'=UZ,
+ \qquad Z'=ZU,
+ \qquad Z'=U^{\mathsf H}ZU,
+ \qquad Z'=UZU^{\mathsf H}.
 \end{equation}
-for the one-sided transformations $Z'=TZ$ and $Z'=ZT$, and for the
-two-sided transformations $Z'=T^{\mathsf H}ZT$ and $Z'=TZT^{\mathsf H}$,
-provided $T$ is unitary.
+It does not hold in general when $T$ is nonunitary.
 
-Rotations and boosts preserve different combinations of these invariants.  A rotation satisfies
-$R^{\mathsf H}=R^{-1}$, so its sandwich action is unitary similarity and
-preserves all three quantities.  A boost satisfies $L^{\mathsf H}=L$ and
-$\det(L)=1$, so $Z'=LZL$ is a determinant-preserving Hermitian congruence;
-it does not generally preserve the trace or norm.
+Rotations and boosts preserve different combinations of these invariants.
+A rotation satisfies
+\begin{equation}
+ R^{\mathsf H}=R^{-1},
+ \qquad R^{\mathsf H}R=RR^{\mathsf H}=1,
+\end{equation}
+so $R$ is unitary; $Z'=R^{\mathsf H}ZR$ preserves trace, determinant, and
+norm.  A nonzero boost satisfies
+\begin{equation}
+ L^{\mathsf H}=L,
+ \qquad \det(L)=1,
+ \qquad L^{\mathsf H}L=L^2\ne1,
+\end{equation}
+so $L$ is not unitary.  The transformation $Z'=LZL$ preserves the
+determinant but does not generally preserve the trace or norm.
 
 \section{Space--time kinematics}
 \label{sec:kinematics}
