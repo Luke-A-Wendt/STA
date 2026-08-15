@@ -686,6 +686,19 @@ includes
  \exp(\ii\bA\cdot\bsig)
  &=\cos\lVert\bA\rVert+\ii\sin\lVert\bA\rVert\,\bu\cdot\bsig.
 \end{align}
+The spectral inverse agrees with the adjugate--determinant formula developed
+earlier.  Indeed,
+\begin{equation}
+ \adj{X}=\lambda_-\Pi_++\lambda_+\Pi_-,
+ \qquad
+ \det(X)=\lambda_+\lambda_-,
+\end{equation}
+and therefore, when $\lambda_+\lambda_-\ne0$,
+\begin{equation}
+ \frac{\adj{X}}{\det(X)}
+ =\lambda_+^{-1}\Pi_++\lambda_-^{-1}\Pi_-
+ =X^{-1}.
+\end{equation}
 The formulas extend continuously to $\bA=0$.
 
 For direct component formulas, if $X^2=Y$, then
@@ -729,6 +742,18 @@ The general rule gives
 \begin{equation}
  f(Z)=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-.
  \label{eq:complex-function-projectors}
+\end{equation}
+The adjugate and determinant have the corresponding spectral forms
+\begin{equation}
+ \adj{Z}=\lambda_-\Pi_++\lambda_+\Pi_-,
+ \qquad
+ \det(Z)=\lambda_+\lambda_-.
+\end{equation}
+Consequently, when $\lambda_+\lambda_-\ne0$,
+\begin{equation}
+ \frac{\adj{Z}}{\det(Z)}
+ =\lambda_+^{-1}\Pi_++\lambda_-^{-1}\Pi_-
+ =Z^{-1}.
 \end{equation}
 Choosing square-root branches gives
 \begin{align}
