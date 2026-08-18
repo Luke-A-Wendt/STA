@@ -1594,26 +1594,26 @@ left projections select the conventional four-component Dirac sectors.
 The classical energy and momentum satisfy the mass-shell relation
 $E^2-\bP^2=m^2$.  The operator substitutions are fixed by a plane wave:
 $\ii\partial_t$ returns its energy and $-\ii\pdr$ returns its momentum.
-Let these differential operators act on a scalar amplitude $\Psi$.  With
+Let these differential operators act on a scalar amplitude $\psi$.  With
 $E=\ii\partial_t$ and $\bP=-\ii\pdr$, their squares act as
 \begin{align*}
- E^2\Psi&=-\partial_t^2\Psi,\\
- \bP^2\Psi&=-\pdr^2\Psi.
+ E^2\psi&=-\partial_t^2\psi,\\
+ \bP^2\psi&=-\pdr^2\psi.
 \end{align*}
-Applying the mass-shell relation to $\Psi$ therefore gives
+Applying the mass-shell relation to $\psi$ therefore gives
 \[
- \left(-\partial_t^2+\pdr^2-m^2\right)\Psi=0.
+ \left(-\partial_t^2+\pdr^2-m^2\right)\psi=0.
 \]
 Multiplication by $-1$, together with
 $\Box=\partial_t^2-\pdr^2$, yields the scalar wave equation
 \begin{equation}
- (\Box+m^2)\Psi=0.
+ (\Box+m^2)\psi=0.
  \label{eq:kg}
 \end{equation}
 Writing $\Omega=\sqrt{m^2-\pdr^2}$ gives the frequency decomposition
 \begin{gather}
- (\partial_t\pm\ii\Omega)\Psi_\pm=0\\
- \Psi=\Psi_++\Psi_-.
+ (\partial_t\pm\ii\Omega)\psi_\pm=0\\
+ \psi=\psi_++\psi_-.
 \end{gather}
 The square-root operator is understood spectrally: on a plane wave with wave
 vector $\bk$, $\Omega$ multiplies by $\sqrt{m^2+\bk^2}$.
@@ -1623,7 +1623,7 @@ Minimal electromagnetic coupling replaces the operators by
  E=\ii\partial_t-qV\\
  \bP=-\ii\pdr-q\bA,
 \end{gather}
-so that $(-E^2+\bP^2+m^2)\Psi=0$.
+so that $(-E^2+\bP^2+m^2)\psi=0$.
 
 \subsection{Dirac equation in block form}
 
@@ -1653,14 +1653,14 @@ $\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$ it reads
  \ii\partial\Psi_2-m\Psi_1=0\\
  \ii\sconj\partial\,\Psi_1-m\Psi_2=0.
 \end{gather}
-Conversely, for $m\ne0$, any scalar solution $\Psi'$ of
-$(\Box+m^2)\Psi'=0$ gives a Dirac solution
+Conversely, for $m\ne0$, any scalar solution $\psi'$ of
+$(\Box+m^2)\psi'=0$ gives a Dirac solution
 \begin{equation}
  \bPsi=
- \left\{\Psi',\frac{\ii}{m}\sconj\partial\Psi'\right\}^{\mathsf T}.
+ \left\{\psi',\frac{\ii}{m}\sconj\partial\psi'\right\}^{\mathsf T}.
 \end{equation}
 Indeed, the second component equation holds by definition, and the first
-reduces to $-(\Box+m^2)\Psi'/m=0$.
+reduces to $-(\Box+m^2)\psi'/m=0$.
 More generally, for constant complex scalars $a$ and $b$, the same scalar
 solution gives
 \begin{equation}
@@ -1669,11 +1669,11 @@ solution gives
  \begin{Bmatrix}
   ma+\ii b\partial\\
   \ii a\sconj\partial+mb
- \end{Bmatrix}\Psi'.
+ \end{Bmatrix}\psi'.
  \label{eq:kg-dirac-general-lift}
 \end{equation}
 Substitution into the two component equations leaves respectively
-$-a(\Box+m^2)\Psi'/m$ and $-b(\Box+m^2)\Psi'/m$, so both vanish.  This is a
+$-a(\Box+m^2)\psi'/m$ and $-b(\Box+m^2)\psi'/m$, so both vanish.  This is a
 two-constant family generated from one Klein--Gordon solution, not a claim
 that one scalar solution parametrizes every Dirac solution.
 The characteristic equation is $(s+m)^2+\Box=0$, hence
@@ -1689,8 +1689,34 @@ $\bPsi=\exp(\ii q\lambda)\bPsi'$.
 
 \subsection{Schr\"odinger--Pauli limit}
 
-Removing the rest-energy oscillation and expanding at low momentum gives the
-Pauli equation
+The relativistic amplitude contains the rapid phase associated with the rest
+energy.  Separate it from the slowly varying amplitude by
+\begin{equation}
+ \bPsi'=\exp(-\ii mt)\bPsi.
+\end{equation}
+For the covariant operators $E=\ii\partial_t-qV$ and
+$\bP=-\ii\pdr-q\bA$, the exponential is spatially constant and therefore
+\begin{align}
+ E\bPsi'&=\exp(-\ii mt)(E+m)\bPsi,\\
+ \bP\bPsi'&=\exp(-\ii mt)\bP\bPsi.
+\end{align}
+Using the second ordering of the exact Dirac factorization and cancelling the
+common exponential gives
+\begin{align}
+ 0&=\left((E+m+\bP\cdot\bsig)
+          (E+m-\bP\cdot\bsig)-m^2\right)\bPsi\\
+ &=\left(E^2+2mE-\bP^2
+    +q\bBf\cdot\bsig+[\bP\cdot\bsig,E]\right)\bPsi.
+\end{align}
+The first term is quadratic in the residual energy.  The commutator contains
+the electric-field correction and also enters beyond the leading
+nonrelativistic order.  Keeping the terms through order $1/m$ leaves
+\begin{equation}
+ 2mE\bPsi=
+ \left(\bP^2-q\bBf\cdot\bsig\right)\bPsi.
+\end{equation}
+Substituting the covariant energy and momentum operators now gives the Pauli
+equation
 \begin{equation}
  \ii\partial_t\bPsi=\left(
   \frac{(-\ii\pdr-q\bA)^2}{2m}+qV
@@ -1739,7 +1765,7 @@ Expanding the minimally coupled Klein--Gordon operator gives the fully explicit
 result
 \begin{equation}
  \left(\Box+\ii qS-q^2\Det\Phi+m^2
- +2\ii q(V\partial_t+\bA\cdot\pdr)\right)\Psi=0.
+ +2\ii q(V\partial_t+\bA\cdot\pdr)\right)\psi=0.
 \end{equation}
 The two orderings satisfy
 \begin{align}
@@ -1788,15 +1814,15 @@ Writing $F=\bF\cdot\bsig$,
 
 \subsection{Low-energy derivation}
 
-For spin zero, write $\Psi'=\exp(-\ii mt)\Psi$.  The exact equation becomes
+For spin zero, write $\psi'=\exp(-\ii mt)\psi$.  The exact equation becomes
 \begin{gather}
- (-E^2-2mE+\bP^2)\Psi=0\\
+ (-E^2-2mE+\bP^2)\psi=0\\
  E=\frac{\bP^2-E^2}{2m}
  =\frac{\bP^2}{2m}-\frac{\bP^4}{8m^3}+\cdots.
 \end{gather}
 The leading term is the Schr\"odinger equation
 \begin{equation}
- \ii\partial_t\Psi=\left(\frac{(-\ii\pdr-q\bA)^2}{2m}+qV\right)\Psi.
+ \ii\partial_t\psi=\left(\frac{(-\ii\pdr-q\bA)^2}{2m}+qV\right)\psi.
 \end{equation}
 For spin one-half, the two rest-mass-stripped Dirac equations are
 \begin{align}
@@ -2161,7 +2187,7 @@ balance~\eqref{eq:poynting}.
  {\langle\psi\mid\psi\rangle}
  =\frac{\scpart{\psi^{\mathsf H}Z\psi}}
  {\scpart{\psi^{\mathsf H}\psi}},\\
- (\Box+m^2)\Psi&=0,\\
+ (\Box+m^2)\psi&=0,\\
  \Wop(Z)&=\begin{Bmatrix}0&Z\\\adj Z&0\end{Bmatrix},\\
  \bigl(\Wop(\ii\partial)-m\bI\bigr)\bPsi&=0,\\
  \bigl(\Wop(\ii\partial-q\Phi^*)-m\bI\bigr)\bPsi&=0,\\
