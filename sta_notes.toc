@@ -56,7 +56,7 @@
 \contentsline {section}{\numberline {A}Pauli-matrix representation}{31}{appendix.A}%
 \contentsline {subsection}{\numberline {A.1}Faithful representation}{31}{subsection.A.1}%
 \contentsline {subsection}{\numberline {A.2}Matrix operations and induced algebra operations}{31}{subsection.A.2}%
-\contentsline {paragraph}{Trace, determinant, and adjugate.}{33}{section*.21}%
+\contentsline {paragraph}{Trace, determinant, and adjugate.}{32}{section*.21}%
 \contentsline {subsection}{\numberline {A.3}Algebra--matrix crosswalk}{33}{subsection.A.3}%
 \contentsline {subsection}{\numberline {A.4}Matrix amplitudes and column spinors}{34}{subsection.A.4}%
 \contentsline {section}{\numberline {B}Quaternion subalgebra}{35}{appendix.B}%

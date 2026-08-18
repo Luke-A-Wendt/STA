@@ -2231,10 +2231,10 @@ and hence
 Thus $^{\mathsf H}$ is precisely the Hermitian operator defined in
 Section~\ref{sec:conjugate-operators}.
 To define the distinct sigma conjugation, let
-$\bm{J}:=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ and
-$\bm{J}^2=-\bI_2$, and set
+$\bm{S}:=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ and
+$\bm{S}^2=-\bI_2$, so that $\bm S^{-1}=-\bm S$, and set
 \begin{equation}
- \bM^*:=-\bm{J}\bM^{\mathsf C}\bm{J},
+ \bM^*:=\bm{S}^{-1}\bM^{\mathsf C}\bm{S},
  \qquad
  \operatorname{mat}(Z^*):=\bM^*.
  \label{eq:matrix-sigma-conjugation}
@@ -2242,26 +2242,24 @@ $\bm{J}^2=-\bI_2$, and set
 This gives the required action on every basis type:
 \begin{align}
  \operatorname{mat}(1)^*
- &=-\bm J\bI_2^{\mathsf C}\bm J=\bI_2,\\
+ &=\bm S^{-1}\bI_2^{\mathsf C}\bm S=\bI_2,\\
  (\ii\bI_2)^*
- &=-\bm J(\ii\bI_2)^{\mathsf C}\bm J=-\ii\bI_2,\\
+ &=\bm S^{-1}(\ii\bI_2)^{\mathsf C}\bm S=-\ii\bI_2,\\
  \operatorname{mat}(\sigma_n)^*
- &=-\bm J\operatorname{mat}(\sigma_n)^{\mathsf C}\bm J
+ &=\bm S^{-1}\operatorname{mat}(\sigma_n)^{\mathsf C}\bm S
  =-\operatorname{mat}(\sigma_n),\qquad n=1,2,3,\\
  \operatorname{mat}(\ii\sigma_n)^*
- &=-\bm J\operatorname{mat}(\ii\sigma_n)^{\mathsf C}\bm J
+ &=\bm S^{-1}\operatorname{mat}(\ii\sigma_n)^{\mathsf C}\bm S
  =\operatorname{mat}(\ii\sigma_n),\qquad n=1,2,3.
 \end{align}
 The operation also preserves multiplied order.  Since entrywise conjugation
-preserves order and $\bm J^2=-\bI_2$,
+preserves order,
 \begin{align}
  (\bM\bN)^*
- &:=-\bm J(\bM\bN)^{\mathsf C}\bm J
- =-\bm J\bM^{\mathsf C}\bN^{\mathsf C}\bm J,\\
- \bM^*\bN^*
- &=(-\bm J\bM^{\mathsf C}\bm J)
-   (-\bm J\bN^{\mathsf C}\bm J)
- =-\bm J\bM^{\mathsf C}\bN^{\mathsf C}\bm J.
+ &=\bm S^{-1}\bM^{\mathsf C}\bN^{\mathsf C}\bm S\\
+ &=(\bm S^{-1}\bM^{\mathsf C}\bm S)
+   (\bm S^{-1}\bN^{\mathsf C}\bm S)
+ =\bM^*\bN^*.
 \end{align}
 Therefore
 \begin{equation}
@@ -2399,9 +2397,9 @@ By construction, the algebra and matrix operators agree through
 The matrix-only operations $^{\mathsf C}$ and $^{\mathsf T}$ are related to
 the algebra operations by
 \begin{equation}
- \bM^{\mathsf C}=-\bm J\bM^*\bm J,
+ \bM^{\mathsf C}=\bm S\bM^*\bm S^{-1},
  \qquad
- \bM^{\mathsf T}=-\bm J\operatorname{mat}(Z^{*\mathsf H})\bm J.
+ \bM^{\mathsf T}=\bm S\operatorname{mat}(Z^{*\mathsf H})\bm S^{-1}.
  \label{eq:matrix-c-t-crosswalk}
 \end{equation}
 
