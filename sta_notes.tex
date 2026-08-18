@@ -145,21 +145,43 @@ The commutator is
  \qquad [Y,X]=-[X,Y].
 \end{equation}
 Thus $[X,Y]=0$ exactly when $X$ and $Y$ commute.
-With the Kronecker delta $\delta_{nm}$ and Levi--Civita symbol
-$\epsilon_{nmk}$,
+For $n,m,k\in\{1,2,3\}$, define the Kronecker delta by
 \begin{equation}
-  \sigma_n\sigma_m=\delta_{nm}+\epsilon_{nmk}\,\ii\sigma_k,
-  \qquad
-  [\sigma_n,\sigma_m]=2\epsilon_{nmk}\,\ii\sigma_k.
-  \label{eq:sigma-product}
+ \delta_{nm}:=
+ \begin{cases}
+  1,&n=m,\\
+  0,&n\ne m,
+ \end{cases}
 \end{equation}
-Repeated spatial indices are summed.
+and the Levi--Civita symbol by
+\begin{equation}
+ \epsilon_{nmk}:=
+ \begin{cases}
+  +1,&(n,m,k)\text{ is an even permutation of }(1,2,3),\\
+  -1,&(n,m,k)\text{ is an odd permutation of }(1,2,3),\\
+  0,&\text{two or more indices are equal}.
+ \end{cases}
+\end{equation}
+The ordered sigma multiplication rule is then
+\begin{equation}
+  \sigma_n\sigma_m=\delta_{nm}
+  +\sum_{k=1}^{3}\epsilon_{nmk}\,\ii\sigma_k,
+  \qquad
+  [\sigma_n,\sigma_m]
+  =2\sum_{k=1}^{3}\epsilon_{nmk}\,\ii\sigma_k,
+  \qquad n,m\in\{1,2,3\}.
+ \label{eq:sigma-product}
+\end{equation}
 \section{Hermitian and sigma-conjugate operators}
 \label{sec:conjugate-operators}
 
-The Hermitian operator $^{\mathsf H}$ reverses the order of multiplied sigmas.
-The sigma-conjugate operator $^*$ flips the sign of every sigma without
-changing their order.
+Define the two operations by
+\begin{align}
+ (\,\cdot\,)^{\mathsf H}
+ &:=\text{reverse the order of every product of sigma generators},\\
+ (\,\cdot\,)^*
+ &:=\text{replace every $\sigma_n$ by $-\sigma_n$ without changing product order}.
+\end{align}
 Thus, for two generators,
 \begin{align}
  (\sigma_m\sigma_n)^{\mathsf H}&=\sigma_n\sigma_m,\\
@@ -233,10 +255,18 @@ Define its scalar and vector coefficients by
 \end{equation}
 Sigma conjugation changes the sign of every sigma generator without changing
 multiplied order; the Hermitian operator changes multiplied sigma order.
-For a paravector, define them directly by
+For the complex coefficients, write
+\begin{equation}
+ S^{\mathsf H}=S^*:=a-b\ii,
+ \qquad
+ \bV^{\mathsf H}=\bV^*:=\bA-\bB\ii.
+\end{equation}
+For a paravector, the two operations are then
 \begin{align}
- Z^*&:=(a-b\ii)+(-\bA+\bB\ii)\cdot\bsig,\\
- Z^{\mathsf H}&:=(a-b\ii)+(\bA-\bB\ii)\cdot\bsig.
+ Z^*&:=S^*-\bV^*\cdot\bsig
+ =(a-b\ii)+(-\bA+\bB\ii)\cdot\bsig,\\
+ Z^{\mathsf H}&:=S^*+\bV^*\cdot\bsig
+ =(a-b\ii)+(\bA-\bB\ii)\cdot\bsig.
  \label{eq:algebra-star-H}
 \end{align}
 Their composition is the adjugate:
@@ -348,9 +378,11 @@ later reproduces them through the faithful Pauli-matrix representation.
 From the ordered sigma multiplication rule,
 \begin{align}
  (\bA\cdot\bsig)(\bB\cdot\bsig)
- &=\sum_{n,m}A_nB_m\sigma_n\sigma_m\\
- &=\sum_{n,m}A_nB_m
-   (\delta_{nm}+\epsilon_{nmk}\ii\sigma_k)\\
+ &=\sum_{n=1}^{3}\sum_{m=1}^{3}
+   A_nB_m\sigma_n\sigma_m\\
+ &=\sum_{n=1}^{3}\sum_{m=1}^{3}A_nB_m\delta_{nm}
+   +\sum_{n=1}^{3}\sum_{m=1}^{3}\sum_{k=1}^{3}
+   A_nB_m\epsilon_{nmk}\ii\sigma_k\\
  &=\bA\cdot\bB+\ii(\bA\times\bB)\cdot\bsig.
  \label{eq:vector-product-derivation}
 \end{align}
@@ -1977,7 +2009,7 @@ In coordinates $\bm{x}=\{t,r_1,r_2,r_3\}^{\mathsf T}$, write
 For real symmetric $\bQm=\bNm\bDm\bNm^{\mathsf T}$ with eigenvalues $\lambda_n$ and
 orthonormal eigenvectors $\bu_n$,
 \begin{equation}
- \dd s^2=\sum_n\lambda_n(\bu_n\cdot\dd\bm{x})^2,
+ \dd s^2=\sum_{n=1}^{4}\lambda_n(\bu_n\cdot\dd\bm{x})^2,
  \qquad \dd x_n'=\sqrt{\lambda_n}\,\bu_n\cdot\dd\bm{x},
  \qquad \bQm^{-1}=\bNm\bDm^{-1}\bNm^{\mathsf T}.
 \end{equation}
@@ -1990,8 +2022,10 @@ full statements and derivations.
 
 \paragraph{\hyperref[sec:algebra]{Algebra and vector operations}.}
 \begin{align*}
- \sigma_n\sigma_m&=\delta_{nm}+\epsilon_{nmk}\ii\sigma_k,
- & [\sigma_n,\sigma_m]&=2\epsilon_{nmk}\ii\sigma_k
+ \sigma_n\sigma_m&=\delta_{nm}
+ +\sum_{k=1}^{3}\epsilon_{nmk}\ii\sigma_k,
+ & [\sigma_n,\sigma_m]&=2\sum_{k=1}^{3}
+ \epsilon_{nmk}\ii\sigma_k
    &&\text{\eqref{eq:sigma-product}},\\
  (\bA\cdot\bsig)(\bB\cdot\bsig)
    &=\bA\cdot\bB+\ii(\bA\times\bB)\cdot\bsig,
@@ -2115,7 +2149,7 @@ probability~\eqref{eq:spin-probability}.
 See the bilinear rule~\eqref{eq:bilinear-congruence}; varying-frame
 derivatives are developed in Section~\ref{sec:varying-transformations}.
 
-\paragraph{\hyperref[sec:quaternions]{Quaternion appendix}.}
+\paragraph{\hyperref[sec:quaternions]{Quaternion subalgebra in Appendix A}.}
 \begin{align*}
  \bq&=-\ii\bsig,
  &Q^{\mathsf H}&=a-\bb\cdot\bq,
@@ -2519,18 +2553,109 @@ Consequently, the intrinsic probabilities in
   {\operatorname{tr}(\bM_\psi^{\mathsf H}\bM_\psi)}.
 \end{equation}
 
-\section{Quaternion subalgebra}
+\subsection{Quaternion subalgebra}
 \label{sec:quaternions}
 
-Define
+The real span of the scalar and bivector basis elements is a quaternion
+subalgebra of the complex paravectors.  Define its three imaginary units by
 \begin{equation}
- q_1=-\sigma_2\sigma_3,\qquad q_2=-\sigma_3\sigma_1,\qquad
- q_3=-\sigma_1\sigma_2,\qquad \bq=-\ii\bsig.
+ q_1=-\sigma_2\sigma_3=-\ii\sigma_1,\qquad
+ q_2=-\sigma_3\sigma_1=-\ii\sigma_2,\qquad
+ q_3=-\sigma_1\sigma_2=-\ii\sigma_3,
 \end{equation}
-Then $q_1^2=q_2^2=q_3^2=q_1q_2q_3=-1$.  A quaternion
-$Q=a+\bb\cdot\bq$ satisfies $Q^{\mathsf H}=a-\bb\cdot\bq$ and
-$QQ^{\mathsf H}=a^2+\bb^2$; the rotation action is
-$\br'\cdot\bq=Q(\br\cdot\bq)Q^{\mathsf H}$.
+or, collectively, $\bq=-\ii\bsig$.  The sigma multiplication rule gives
+\begin{equation}
+ q_nq_m=-\delta_{nm}+\sum_{k=1}^{3}\epsilon_{nmk}q_k,
+ \qquad n,m\in\{1,2,3\}.
+ \label{eq:quaternion-product}
+\end{equation}
+Consequently,
+\begin{equation}
+ q_1^2=q_2^2=q_3^2=-1,
+ \qquad
+ q_1q_2=q_3,
+ \qquad
+ q_1q_2q_3=-1,
+\end{equation}
+with the remaining products fixed by anticommutation.  Thus the real
+paravectors
+\begin{equation}
+ Q=a+\bb\cdot\bq
+ =a-\ii\bb\cdot\bsig,
+ \qquad a\in\R,\quad\bb\in\R^3,
+ \label{eq:quaternion-paravector}
+\end{equation}
+are precisely the quaternions embedded in the paravector algebra.  For a
+second quaternion $Q'=a'+\bb'\cdot\bq$, equation
+\eqref{eq:quaternion-product} gives the familiar product
+\begin{equation}
+ QQ'=(aa'-\bb\cdot\bb')
+ +(a\bb'+a'\bb+\bb\times\bb')\cdot\bq.
+\end{equation}
+
+Hermitian conjugation reverses every bivector, while sigma conjugation fixes
+it:
+\begin{equation}
+ q_n^{\mathsf H}=-q_n,
+ \qquad
+ q_n^*=q_n.
+\end{equation}
+Quaternion conjugation is therefore already the Hermitian operation,
+\begin{equation}
+ Q^{\mathsf H}=a-\bb\cdot\bq,
+ \qquad
+ Q^*=Q,
+ \qquad
+ \adj{Q}=Q^{\mathsf H}.
+\end{equation}
+It follows that
+\begin{equation}
+ QQ^{\mathsf H}=Q^{\mathsf H}Q=a^2+\bb^2=\det(Q),
+ \qquad
+ Q^{-1}=\frac{Q^{\mathsf H}}{a^2+\bb^2}
+\end{equation}
+for nonzero $Q$.
+
+The faithful matrix representation sends the quaternion units to
+\begin{equation}
+ \operatorname{mat}(q_1)=
+ \begin{pmatrix}0&-\ii\\-\ii&0\end{pmatrix},\qquad
+ \operatorname{mat}(q_2)=
+ \begin{pmatrix}0&-1\\1&0\end{pmatrix},\qquad
+ \operatorname{mat}(q_3)=
+ \begin{pmatrix}-\ii&0\\0&\ii\end{pmatrix}.
+\end{equation}
+Hence equation~\eqref{eq:quaternion-paravector} becomes
+\begin{equation}
+ \operatorname{mat}(Q)
+ =a\bI_2-\ii\bb\cdot\bsig
+ =\begin{pmatrix}
+   a-\ii b_3&-b_2-\ii b_1\\
+   b_2-\ii b_1&a+\ii b_3
+  \end{pmatrix}.
+ \label{eq:quaternion-matrix}
+\end{equation}
+The algebraic conjugation and norm become the usual matrix identities
+\begin{align}
+ \operatorname{mat}(Q^{\mathsf H})
+ &=\operatorname{mat}(Q)^{\mathsf H},\\
+ \operatorname{mat}(Q)^{\mathsf H}\operatorname{mat}(Q)
+ &=\operatorname{mat}(Q)\operatorname{mat}(Q)^{\mathsf H}
+ =(a^2+\bb^2)\bI_2,\\
+ \det(\operatorname{mat}(Q))&=a^2+\bb^2.
+\end{align}
+Thus a unit quaternion is represented by a unitary matrix of determinant one.
+
+Finally, for a unit axis $\bu$, let
+\begin{equation}
+ Q=\cos\frac\theta2+\bu\cdot\bq\,\sin\frac\theta2.
+\end{equation}
+Since $\bq=-\ii\bsig$, this quaternion is $R^{\mathsf H}$ for the rotor $R$
+defined in Section~\ref{sec:transformations}.  The quaternion sandwich
+\begin{equation}
+ \br'\cdot\bq=Q(\br\cdot\bq)Q^{\mathsf H}
+\end{equation}
+therefore reproduces the same Rodrigues rotation.
 
 \section*{Conventions and cautions}
 \addcontentsline{toc}{section}{Conventions and cautions}
