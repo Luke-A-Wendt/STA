@@ -2198,8 +2198,8 @@ The minimal-ideal column map is equation~\eqref{eq:ideal-column-map}.
 \paragraph{\hyperref[sec:quaternions]{Quaternion subalgebra in Appendix A}.}
 \begin{align*}
  \bq&=-\ii\bsig,\\
- Q^{\mathsf H}&=a-\bb\cdot\bq,\\
- QQ^{\mathsf H}&=a^2+\bb^2.
+ Q^{\mathsf H}&=a-\bA\cdot\bq,\\
+ QQ^{\mathsf H}&=a^2+\bA^2.
 \end{align*}
 See the quaternion product~\eqref{eq:quaternion-product}, its paravector
 embedding~\eqref{eq:quaternion-paravector}, and its faithful matrix
@@ -2602,8 +2602,8 @@ subalgebra of the complex paravectors.  Define its three imaginary units by
  q_2=-\sigma_3\sigma_1=-\ii\sigma_2\\
  q_3=-\sigma_1\sigma_2=-\ii\sigma_3,
 \end{gather}
-or, collectively, $\bq=-\ii\bsig$.  The sigma multiplication rule gives
-For $n,m\in\{1,2,3\}$,
+or, collectively, $\bq=-\ii\bsig$.  For $n,m\in\{1,2,3\}$, the sigma
+multiplication rule gives
 \begin{equation}
  q_nq_m=-\delta_{nm}+\sum_{k=1}^{3}\epsilon_{nmk}q_k,
  \label{eq:quaternion-product}
@@ -2614,20 +2614,19 @@ Consequently,
  q_1q_2=q_3\\
  q_1q_2q_3=-1,
 \end{gather}
-with the remaining products fixed by anticommutation.  Thus the real
-paravectors
-For $a\in\R$ and $\bb\in\R^3$, define
+with the remaining products fixed by anticommutation.  For $a\in\R$ and
+$\bA\in\R^3$, define the real paravector
 \begin{equation}
- Q=a+\bb\cdot\bq
- =a-\ii\bb\cdot\bsig.
+ Q=a+\bA\cdot\bq
+ =a-\ii\bA\cdot\bsig.
  \label{eq:quaternion-paravector}
 \end{equation}
-are precisely the quaternions embedded in the paravector algebra.  For a
-second quaternion $Q'=a'+\bb'\cdot\bq$, equation
+These are precisely the quaternions embedded in the paravector algebra.  For a
+second quaternion $Q'=a'+\bA'\cdot\bq$, equation
 \eqref{eq:quaternion-product} gives the familiar product
 \begin{equation}
- QQ'=(aa'-\bb\cdot\bb')
- +(a\bb'+a'\bb+\bb\times\bb')\cdot\bq.
+ QQ'=(aa'-\bA\cdot\bA')
+ +(a\bA'+a'\bA+\bA\times\bA')\cdot\bq.
 \end{equation}
 
 Hermitian conjugation reverses every bivector, while sigma conjugation fixes
@@ -2638,14 +2637,14 @@ it:
 \end{gather}
 Quaternion conjugation is therefore already the Hermitian operation,
 \begin{gather}
- Q^{\mathsf H}=a-\bb\cdot\bq\\
+ Q^{\mathsf H}=a-\bA\cdot\bq\\
  Q^*=Q\\
  \adj{Q}=Q^{\mathsf H}.
 \end{gather}
 It follows that
 \begin{gather}
- QQ^{\mathsf H}=Q^{\mathsf H}Q=a^2+\bb^2=\det(Q)\\
- Q^{-1}=\frac{Q^{\mathsf H}}{a^2+\bb^2}
+ QQ^{\mathsf H}=Q^{\mathsf H}Q=a^2+\bA^2=\det(Q)\\
+ Q^{-1}=\frac{Q^{\mathsf H}}{a^2+\bA^2}
 \end{gather}
 for nonzero $Q$.
 
@@ -2661,10 +2660,10 @@ The faithful matrix representation sends the quaternion units to
 Hence equation~\eqref{eq:quaternion-paravector} becomes
 \begin{equation}
  \operatorname{mat}(Q)
- =a\bI_2-\ii\bb\cdot\bsig
+ =a\bI_2-\ii\bA\cdot\bsig
  =\begin{pmatrix}
-   a-\ii b_3&-b_2-\ii b_1\\
-   b_2-\ii b_1&a+\ii b_3
+   a-\ii A_3&-A_2-\ii A_1\\
+   A_2-\ii A_1&a+\ii A_3
   \end{pmatrix}.
  \label{eq:quaternion-matrix}
 \end{equation}
@@ -2674,8 +2673,8 @@ The algebraic conjugation and norm become the usual matrix identities
  &=\operatorname{mat}(Q)^{\mathsf H},\\
  \operatorname{mat}(Q)^{\mathsf H}\operatorname{mat}(Q)
  &=\operatorname{mat}(Q)\operatorname{mat}(Q)^{\mathsf H}
- =(a^2+\bb^2)\bI_2,\\
- \det(\operatorname{mat}(Q))&=a^2+\bb^2.
+ =(a^2+\bA^2)\bI_2,\\
+ \det(\operatorname{mat}(Q))&=a^2+\bA^2.
 \end{align}
 Thus a unit quaternion is represented by a unitary matrix of determinant one.
 
