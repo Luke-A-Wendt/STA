@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.3.6)  18 AUG 2026 00:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.3.6)  18 AUG 2026 00:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -567,16 +567,16 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
  [45] (./sta_notes.aux)
 Package rerunfilecheck Info: File `sta_notes.out' has not changed.
-(rerunfilecheck)             Checksum: 7B03397526FD297C25E326C317D78765;8090.
+(rerunfilecheck)             Checksum: C05CDB562EFC2192BA115D84CC1E1128;8118.
  ) 
 Here is how much of TeX's memory you used:
- 14694 strings out of 480247
- 227720 string characters out of 5896152
- 577440 words of memory out of 5000000
+ 14692 strings out of 480247
+ 227704 string characters out of 5896152
+ 578440 words of memory out of 5000000
  31573 multiletter control sequences out of 15000+600000
- 490858 words of font info for 171 fonts, out of 8000000 for 9000
+ 490807 words of font info for 170 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,15n,63p,1006b,471s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,15n,63p,1006b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
  </tmp/texfonts/pk/ljfour/jknappen/ec/tcrm1095.600pk></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts
@@ -595,10 +595,10 @@ fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/symbols/msbm10.pfb>
-Output written on sta_notes.pdf (45 pages, 373299 bytes).
+Output written on sta_notes.pdf (45 pages, 373922 bytes).
 PDF statistics:
- 1451 PDF objects out of 1728 (max. 8388607)
- 1256 compressed objects within 13 object streams
+ 1450 PDF objects out of 1728 (max. 8388607)
+ 1255 compressed objects within 13 object streams
  706 named destinations out of 1000 (max. 500000)
  47961 words of extra memory for PDF output out of 51595 (max. 10000000)
 

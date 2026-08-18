@@ -24,9 +24,9 @@
 \contentsline {subsection}{\numberline {5.1}Intervals, velocity, and momentum}{16}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Varying transformations and second differentials}{18}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Free-particle action}{19}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Electromagnetism}{19}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Field equation and potentials}{19}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Field invariants}{21}{subsection.6.2}%
+\contentsline {section}{\numberline {6}Electromagnetism}{20}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Field equation and potentials}{20}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Field invariants}{22}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Lorentz force from the field and action}{22}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}Energy balance}{24}{subsection.6.4}%
 \contentsline {section}{\numberline {7}Relativistic wave equations}{25}{section.7}%
@@ -36,7 +36,7 @@
 \contentsline {subsection}{\numberline {7.4}Dirac equation in block form}{27}{subsection.7.4}%
 \contentsline {subsection}{\numberline {7.5}Schr\"odinger--Pauli limit}{27}{subsection.7.5}%
 \contentsline {subsection}{\numberline {7.6}Interacting operators and factorization}{28}{subsection.7.6}%
-\contentsline {subsection}{\numberline {7.7}Low-energy derivation}{29}{subsection.7.7}%
+\contentsline {subsection}{\numberline {7.7}Spin-zero low-energy limit}{29}{subsection.7.7}%
 \contentsline {subsection}{\numberline {7.8}Spin probabilities and energy sectors}{30}{subsection.7.8}%
 \contentsline {section}{\numberline {8}Rotations and Lorentz boosts}{31}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Rotors}{31}{subsection.8.1}%
@@ -55,10 +55,10 @@
 \contentsline {paragraph}{\hyperref [sec:paravectors]{Paravectors, extraction, and products}.}{41}{section*.14}%
 \contentsline {paragraph}{\hyperref [sec:algebra-projectors]{Projection operators and functions}.}{42}{section*.15}%
 \contentsline {paragraph}{\hyperref [sec:kinematics]{Space--time kinematics and action}.}{42}{section*.16}%
-\contentsline {paragraph}{\hyperref [sec:electromagnetism]{Electromagnetism}.}{42}{section*.17}%
+\contentsline {paragraph}{\hyperref [sec:electromagnetism]{Electromagnetism}.}{43}{section*.17}%
 \contentsline {paragraph}{\hyperref [sec:waves]{Wave equations, spin, and energy sectors}.}{43}{section*.18}%
-\contentsline {paragraph}{\hyperref [sec:transformations]{Rotations and boosts}.}{43}{section*.19}%
+\contentsline {paragraph}{\hyperref [sec:transformations]{Rotations and boosts}.}{44}{section*.19}%
 \contentsline {paragraph}{\hyperref [sec:matrix]{Matrix representation in Appendix A}.}{44}{section*.20}%
 \contentsline {paragraph}{\hyperref [sec:quaternions]{Quaternion subalgebra in Appendix A}.}{44}{section*.21}%
 \contentsline {paragraph}{\hyperref [sec:generalized]{Generalized spacetime and metric form}.}{44}{section*.22}%
-\contentsline {section}{\numberline {C}Conventions and cautions}{44}{appendix.C}%
+\contentsline {section}{\numberline {C}Conventions and cautions}{45}{appendix.C}%

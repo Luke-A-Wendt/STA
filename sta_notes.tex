@@ -999,19 +999,31 @@ When $\dd s^2\ne0$,
  =\frac{\adj{\dd X}}{\det(\dd X)}
  =\frac{\dd X^*}{\dd s^2}.
 \end{equation}
-A null interval has $\dd t^2=\dd\br^2$ and no inverse.  Along a time-like
-worldline, $s$ is proper time.  Since $\dd\br=\bv\dd t$,
+A null interval has $\dd t^2=\dd\br^2$ and no inverse.  Along a
+future-directed time-like worldline, $s$ is proper time.  Define the
+coordinate velocity by
+\begin{equation}
+ \bv:=\frac{\dd\br}{\dd t}.
+\end{equation}
+Then $\dd\br=\bv\dd t$, and the positive proper-time increment satisfies
 \begin{gather}
  \dd s^2=(1-\bv^2)\dd t^2\\
+ \dd s=\sqrt{1-\bv^2}\,\dd t\\
+ \gamma:=\frac1{\sqrt{1-\bv^2}}\\
  \dd s=\frac{\dd t}{\gamma}\\
- \gamma:=\frac1{\sqrt{1-\bv^2}}.
+ \gamma=\frac{\dd t}{\dd s}.
 \end{gather}
-Hence
-\begin{gather}
- \bv=\frac{\dd\br}{\dd t}\\
- \gamma=\frac{\dd t}{\dd s}\\
+For any quantity evaluated along the worldline, the one-variable chain rule
+therefore gives
+\begin{equation}
+ \frac{\dd}{\dd s}
+ =\frac{\dd t}{\dd s}\frac{\dd}{\dd t}
+ =\gamma\frac{\dd}{\dd t}.
+\end{equation}
+In particular, the proper velocity is
+\begin{equation}
  U:=\frac{\dd X}{\dd s}=\gamma(1+\bv\cdot\bsig).
-\end{gather}
+\end{equation}
 Using the scalar-scaling rule~\eqref{eq:det-scalar-scaling}, its determinant is
 \begin{equation}
  \det(U)
@@ -1048,10 +1060,9 @@ Taking its determinant gives the mass-shell relation
 or $E^2=\bP^2+m^2$; for $m=0$, $E^2=\bP^2$.
 
 For coordinate acceleration $\ba=\dd\bv/\dd t$,
-\begin{gather}
- \frac{\dd\gamma}{\dd t}=\gamma^3\bv\cdot\ba\\
- \frac{\dd}{\dd s}=\gamma\frac{\dd}{\dd t},
-\end{gather}
+\begin{equation}
+ \frac{\dd\gamma}{\dd t}=\gamma^3\bv\cdot\ba,
+\end{equation}
 so
 \begin{equation}
  \frac{\dd U}{\dd s}
@@ -1647,7 +1658,8 @@ Since $\Wop(\ii\partial)^2=-\Box\bI$, the first-order equation
  \bigl(\Wop(\ii\partial)-m\bI\bigr)\bPsi=0
  \label{eq:dirac}
 \end{equation}
-squares to the Klein--Gordon equation.  For
+yields the Klein--Gordon equation after multiplication by
+$\Wop(\ii\partial)+m\bI$.  For
 $\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$ it reads
 \begin{gather}
  \ii\partial\Psi_2-m\Psi_1=0\\
@@ -1676,8 +1688,6 @@ Substitution into the two component equations leaves respectively
 $-a(\Box+m^2)\psi'/m$ and $-b(\Box+m^2)\psi'/m$, so both vanish.  This is a
 two-constant family generated from one Klein--Gordon solution, not a claim
 that one scalar solution parametrizes every Dirac solution.
-The characteristic equation is $(s+m)^2+\Box=0$, hence
-$s=-m\pm\ii\sqrt\Box$.
 With a potential, the gauge-covariant form is
 \begin{equation}
  \bigl(\Wop(\ii\partial-q\sconj\Phi)-m\bI\bigr)\bPsi=0.
@@ -1689,41 +1699,45 @@ $\bPsi=\exp(\ii q\lambda)\bPsi'$.
 
 \subsection{Schr\"odinger--Pauli limit}
 
-The relativistic amplitude contains the rapid phase associated with the rest
-energy.  Separate it from the slowly varying amplitude by
+Each relativistic Dirac component contains the rapid phase associated with
+the rest energy.  For $n=1,2$, separate it from the slowly varying component
+by
 \begin{equation}
- \bPsi'=\exp(-\ii mt)\bPsi.
+ \Psi_n'=\exp(-\ii mt)\Psi_n.
 \end{equation}
 For the covariant operators $E=\ii\partial_t-qV$ and
 $\bP=-\ii\pdr-q\bA$, the exponential is spatially constant and therefore
 \begin{align}
- E\bPsi'&=\exp(-\ii mt)(E+m)\bPsi,\\
- \bP\bPsi'&=\exp(-\ii mt)\bP\bPsi.
+ E\Psi_n'&=\exp(-\ii mt)(E+m)\Psi_n,\\
+ \bP\Psi_n'&=\exp(-\ii mt)\bP\Psi_n.
 \end{align}
-Using the second ordering of the exact Dirac factorization and cancelling the
-common exponential gives
+After cancelling the common exponential, the two Dirac equations become
 \begin{align}
- 0&=\left((E+m+\bP\cdot\bsig)
-          (E+m-\bP\cdot\bsig)-m^2\right)\bPsi\\
- &=\left(E^2+2mE-\bP^2
-    +q\bBf\cdot\bsig+[\bP\cdot\bsig,E]\right)\bPsi.
+ (E+m-\bP\cdot\bsig)\Psi_2-m\Psi_1&=0,\\
+ (E+m+\bP\cdot\bsig)\Psi_1-m\Psi_2&=0.
 \end{align}
-The first term is quadratic in the residual energy.  The commutator contains
-the electric-field correction and also enters beyond the leading
-nonrelativistic order.  Keeping the terms through order $1/m$ leaves
+Eliminating $\Psi_1$ gives the exact second-order equation
 \begin{equation}
- 2mE\bPsi=
- \left(\bP^2-q\bBf\cdot\bsig\right)\bPsi.
+ \left(E^2+2mE-\bP^2+q\bBf\cdot\bsig
+ -\ii q\bE\cdot\bsig\right)\Psi_2=0.
 \end{equation}
-Substituting the covariant energy and momentum operators now gives the Pauli
-equation
+Under the usual low-energy, slowly varying-field power counting, the $E^2$
+term and the electric-field term contribute beyond the leading
+nonrelativistic approximation.  Retaining the leading terms gives
+\begin{equation}
+ E\Psi_2=
+ \frac{\bP^2-q\bBf\cdot\bsig}{2m}\Psi_2.
+\end{equation}
+At this order $\Psi_1$ and $\Psi_2$ have the same leading rest-frame
+amplitude.  Writing its faithful two-component column as $\bPsi$ and
+substituting the covariant operators gives the Pauli equation
 \begin{equation}
  \ii\partial_t\bPsi=\left(
   \frac{(-\ii\pdr-q\bA)^2}{2m}+qV
   -\frac{q}{2m}\bBf\cdot\bsig\right)\bPsi.
  \label{eq:pauli}
 \end{equation}
-Using these projectors,
+Using the spin projectors,
 $\bPsi=\bPsi_++\bPsi_-$ with $\bPsi_\pm=\Pi_\pm\bPsi$.  For a uniform static
 magnetic field, $\bu=\bBf/\lVert\bBf\rVert$, the sectors decouple:
 \begin{equation}
@@ -1784,10 +1798,11 @@ detail, define
 \end{align}
 Then
 \begin{equation}
- \bDm'\bDm=-\operatorname{diag}\!\left(
- (\partial+\ii q\Phi^*)(\partial^*+\ii q\Phi)+m^2,
- (\partial^*+\ii q\Phi)(\partial+\ii q\Phi^*)+m^2
- \right).
+ \bDm'\bDm=
+ -\begin{Bmatrix}
+  (\partial+\ii q\Phi^*)(\partial^*+\ii q\Phi)+m^2&0\\
+  0&(\partial^*+\ii q\Phi)(\partial+\ii q\Phi^*)+m^2
+ \end{Bmatrix}.
 \end{equation}
 
 For a paravector wavefunction $\psi=\psi_s+\bm\psi_v\cdot\bsig$,
@@ -1812,31 +1827,21 @@ Writing $F=\bF\cdot\bsig$,
  +q\bF^*\times\bm\psi_v.
 \end{align}
 
-\subsection{Low-energy derivation}
+\subsection{Spin-zero low-energy limit}
 
 For spin zero, write $\psi'=\exp(-\ii mt)\psi$.  The exact equation becomes
 \begin{gather}
  (-E^2-2mE+\bP^2)\psi=0\\
- E=\frac{\bP^2-E^2}{2m}
- =\frac{\bP^2}{2m}-\frac{\bP^4}{8m^3}+\cdots.
+ E=\frac{\bP^2-E^2}{2m}.
 \end{gather}
+For a free particle the operators commute, and iteration gives
+\begin{equation}
+ E=\frac{\bP^2}{2m}-\frac{\bP^4}{8m^3}+\cdots.
+\end{equation}
 The leading term is the Schr\"odinger equation
 \begin{equation}
  \ii\partial_t\psi=\left(\frac{(-\ii\pdr-q\bA)^2}{2m}+qV\right)\psi.
 \end{equation}
-For spin one-half, the two rest-mass-stripped Dirac equations are
-\begin{align}
- (E+m-\bP\cdot\bsig)\Psi_2-m\Psi_1&=0,\\
- (E+m+\bP\cdot\bsig)\Psi_1-m\Psi_2&=0.
-\end{align}
-Eliminating $\Psi_1$ gives
-\begin{equation}
- (E^2+2mE-\bP^2+q\bBf\cdot\bsig
-       -\ii q\bE\cdot\bsig)\Psi_2=0,
-\end{equation}
-and iteration yields
-$E=(\bP^2-q\bBf\cdot\bsig)/(2m)+O(m^{-2})$, which is
-equation~\eqref{eq:pauli}.
 
 \subsection{Spin probabilities and energy sectors}
 
@@ -2140,8 +2145,10 @@ and ladder operators in Section~\ref{sec:ladder-operators}.
  \dd X&=\dd t+\dd\br\cdot\bsig,\\
  \dd s^2&=\dd X\,\dd X^*=\dd t^2-\dd\br^2
    &&\text{\eqref{eq:interval}},\\
- U&=\gamma(1+\bv\cdot\bsig),\\
  \gamma&=(1-\bv^2)^{-1/2},\\
+ \dd s&=\dd t/\gamma,\\
+ \frac{\dd}{\dd s}&=\gamma\frac{\dd}{\dd t},\\
+ U&=\gamma(1+\bv\cdot\bsig),\\
  mU&=E+\bP\cdot\bsig,\\
  E^2-\bP^2&=m^2
    &&\text{\eqref{eq:momentum}},\\
