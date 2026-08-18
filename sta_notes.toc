@@ -32,33 +32,34 @@
 \contentsline {section}{\numberline {7}Relativistic wave equations}{25}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Paravector inner products and expectations}{25}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Physical spinors and minimal ideals}{25}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Klein--Gordon equation}{26}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Dirac equation in block form}{27}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Schr\"odinger--Pauli limit}{27}{subsection.7.5}%
-\contentsline {subsection}{\numberline {7.6}Interacting operators and factorization}{28}{subsection.7.6}%
-\contentsline {subsection}{\numberline {7.7}Spin-zero low-energy limit}{29}{subsection.7.7}%
-\contentsline {subsection}{\numberline {7.8}Spin probabilities and energy sectors}{30}{subsection.7.8}%
-\contentsline {section}{\numberline {8}Rotations and Lorentz boosts}{31}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Rotors}{31}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Boosts}{31}{subsection.8.2}%
-\contentsline {section}{\numberline {9}Generalized spacetime and metric form}{32}{section.9}%
-\contentsline {section}{\numberline {A}Pauli-matrix representation}{33}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Faithful representation}{33}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Matrix operations and induced algebra operations}{34}{subsection.A.2}%
-\contentsline {paragraph}{Trace, determinant, and adjugate.}{35}{section*.11}%
-\contentsline {subsection}{\numberline {A.3}Algebra--matrix crosswalk}{36}{subsection.A.3}%
-\contentsline {subsection}{\numberline {A.4}Matrix amplitudes and column spinors}{37}{subsection.A.4}%
-\contentsline {subsection}{\numberline {A.5}Quaternion subalgebra}{38}{subsection.A.5}%
-\contentsline {section}{\numberline {B}Reference summary}{41}{appendix.B}%
-\contentsline {paragraph}{\hyperref [sec:algebra]{Algebra and vector operations}.}{41}{section*.12}%
-\contentsline {paragraph}{\hyperref [sec:conjugate-operators]{Hermitian and sigma-conjugate operators}.}{41}{section*.13}%
-\contentsline {paragraph}{\hyperref [sec:paravectors]{Paravectors, extraction, and products}.}{41}{section*.14}%
-\contentsline {paragraph}{\hyperref [sec:algebra-projectors]{Projection operators and functions}.}{42}{section*.15}%
-\contentsline {paragraph}{\hyperref [sec:kinematics]{Space--time kinematics and action}.}{42}{section*.16}%
-\contentsline {paragraph}{\hyperref [sec:electromagnetism]{Electromagnetism}.}{43}{section*.17}%
-\contentsline {paragraph}{\hyperref [sec:waves]{Wave equations, spin, and energy sectors}.}{43}{section*.18}%
-\contentsline {paragraph}{\hyperref [sec:transformations]{Rotations and boosts}.}{44}{section*.19}%
-\contentsline {paragraph}{\hyperref [sec:matrix]{Matrix representation in Appendix A}.}{44}{section*.20}%
-\contentsline {paragraph}{\hyperref [sec:quaternions]{Quaternion subalgebra in Appendix A}.}{44}{section*.21}%
-\contentsline {paragraph}{\hyperref [sec:generalized]{Generalized spacetime and metric form}.}{44}{section*.22}%
-\contentsline {section}{\numberline {C}Conventions and cautions}{45}{appendix.C}%
+\contentsline {subsection}{\numberline {7.3}Spin carried by paravector components}{26}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Klein--Gordon equation}{27}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Spin-zero low-energy limit}{27}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Dirac equation in block form}{28}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Schr\"odinger--Pauli limit}{29}{subsection.7.7}%
+\contentsline {subsection}{\numberline {7.8}Interacting operators and factorization}{30}{subsection.7.8}%
+\contentsline {subsection}{\numberline {7.9}Spin probabilities and energy sectors}{30}{subsection.7.9}%
+\contentsline {section}{\numberline {8}Rotations and Lorentz boosts}{32}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Rotors}{32}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Boosts}{32}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Generalized spacetime and metric form}{33}{section.9}%
+\contentsline {section}{\numberline {A}Pauli-matrix representation}{34}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Faithful representation}{34}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Matrix operations and induced algebra operations}{35}{subsection.A.2}%
+\contentsline {paragraph}{Trace, determinant, and adjugate.}{36}{section*.11}%
+\contentsline {subsection}{\numberline {A.3}Algebra--matrix crosswalk}{37}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}Matrix amplitudes and column spinors}{38}{subsection.A.4}%
+\contentsline {subsection}{\numberline {A.5}Quaternion subalgebra}{39}{subsection.A.5}%
+\contentsline {section}{\numberline {B}Reference summary}{42}{appendix.B}%
+\contentsline {paragraph}{\hyperref [sec:algebra]{Algebra and vector operations}.}{42}{section*.12}%
+\contentsline {paragraph}{\hyperref [sec:conjugate-operators]{Hermitian and sigma-conjugate operators}.}{42}{section*.13}%
+\contentsline {paragraph}{\hyperref [sec:paravectors]{Paravectors, extraction, and products}.}{42}{section*.14}%
+\contentsline {paragraph}{\hyperref [sec:algebra-projectors]{Projection operators and functions}.}{43}{section*.15}%
+\contentsline {paragraph}{\hyperref [sec:kinematics]{Space--time kinematics and action}.}{43}{section*.16}%
+\contentsline {paragraph}{\hyperref [sec:electromagnetism]{Electromagnetism}.}{44}{section*.17}%
+\contentsline {paragraph}{\hyperref [sec:waves]{Wave equations, spin, and energy sectors}.}{44}{section*.18}%
+\contentsline {paragraph}{\hyperref [sec:transformations]{Rotations and boosts}.}{45}{section*.19}%
+\contentsline {paragraph}{\hyperref [sec:matrix]{Matrix representation in Appendix A}.}{45}{section*.20}%
+\contentsline {paragraph}{\hyperref [sec:quaternions]{Quaternion subalgebra in Appendix A}.}{45}{section*.21}%
+\contentsline {paragraph}{\hyperref [sec:generalized]{Generalized spacetime and metric form}.}{45}{section*.22}%
+\contentsline {section}{\numberline {C}Conventions and cautions}{46}{appendix.C}%

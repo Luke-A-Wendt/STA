@@ -1600,41 +1600,108 @@ ideal and shows how it becomes one conventional two-component Pauli column.
 Applied to both paravector components of the Dirac block below, the same
 left projections select the conventional four-component Dirac sectors.
 
+\subsection{Spin carried by paravector components}
+\label{sec:paravector-spin-content}
+
+Spin is determined by how an amplitude transforms under rotations, not merely
+by how many coefficients are used to write it.  Let $R$ be the rotation rotor
+defined in Section~\ref{sec:transformations}.  The scalar, minimal-ideal, and
+vector carriers transform differently.
+
+A complex scalar amplitude has no spatial direction and is unchanged by the
+rotor:
+\begin{equation}
+ \psi_0'= \psi_0.
+\end{equation}
+It therefore carries spin zero.  The Klein--Gordon field below is of this
+type; its single complex coefficient is proportional to the algebra identity.
+
+A projected minimal-ideal amplitude contains two complex coefficients.  Its
+associated Pauli column transforms by one-sided rotor multiplication, which
+is represented intrinsically by
+\begin{equation}
+ \psi_{1/2}'=R\psi_{1/2}.
+\end{equation}
+Because $R$ contains the half-angle, a full $2\pi$ rotation gives
+\begin{equation}
+ \psi_{1/2}'=-\psi_{1/2}.
+\end{equation}
+This is the spin-one-half carrier.  A Dirac amplitude consists of two such
+carriers coupled by the mass term; the pair still describes spin one-half,
+not spin zero plus spin one.
+
+A pure vector amplitude $\bV\cdot\bsig$ transforms by the two-sided sandwich
+\begin{equation}
+ \bV'\cdot\bsig
+ =R^{\mathsf H}(\bV\cdot\bsig)R.
+\end{equation}
+The two rotor signs cancel under a $2\pi$ rotation, so this three-component
+carrier returns to itself and carries spin one.  The electromagnetic field
+$F=(\bE+\ii\bBf)\cdot\bsig$ is a complex pure vector of this type.  Maxwell's
+equations and transversality reduce a free massless electromagnetic wave to
+its two physical helicities; the three algebraic vector coefficients should
+not be confused with three independent photon polarizations.
+
+Consequently, an unrestricted paravector
+$Z=S+\bV\cdot\bsig$ is reducible under rotations: its scalar component carries
+spin zero and its vector component carries spin one.  Spin one-half does not
+arise by selecting some of those four paravector coefficients.  It arises
+from the minimal-ideal projection and its one-sided transformation law.
+
 \subsection{Klein--Gordon equation}
 
-The classical energy and momentum satisfy the mass-shell relation
-$E^2-\bP^2=m^2$.  The operator substitutions are fixed by a plane wave:
-$\ii\partial_t$ returns its energy and $-\ii\pdr$ returns its momentum.
-Let these differential operators act on a scalar amplitude $\psi$.  With
-$E=\ii\partial_t$ and $\bP=-\ii\pdr$, their squares act as
+For a free particle, the mass-shell relation is
+$E^2-\bP^2=m^2$.  On a plane wave with phase
+$\exp(-\ii Et+\ii\bP\cdot\br)$, the operators $\ii\partial_t$ and
+$-\ii\pdr$ return the energy and momentum.  The corresponding substitutions
+for a scalar amplitude $\psi$ are therefore
+\begin{gather}
+ E=\ii\partial_t\\
+ \bP=-\ii\pdr.
+\end{gather}
+Applying the mass-shell polynomial to $\psi$ gives
 \begin{align*}
- E^2\psi&=-\partial_t^2\psi,\\
- \bP^2\psi&=-\pdr^2\psi.
+ 0&=(E^2-\bP^2-m^2)\psi\\
+  &=\left((\ii\partial_t)^2-(-\ii\pdr)^2-m^2\right)\psi\\
+  &=\left(-\partial_t^2+\pdr^2-m^2\right)\psi.
 \end{align*}
-Applying the mass-shell relation to $\psi$ therefore gives
-\[
- \left(-\partial_t^2+\pdr^2-m^2\right)\psi=0.
-\]
-Multiplication by $-1$, together with
-$\Box=\partial_t^2-\pdr^2$, yields the scalar wave equation
+Multiplying by $-1$ and defining
+$\Box:=\partial_t^2-\pdr^2$ gives the Klein--Gordon equation
 \begin{equation}
  (\Box+m^2)\psi=0.
  \label{eq:kg}
 \end{equation}
-Writing $\Omega=\sqrt{m^2-\pdr^2}$ gives the frequency decomposition
-\begin{gather}
- (\partial_t\pm\ii\Omega)\psi_\pm=0\\
- \psi=\psi_++\psi_-.
-\end{gather}
-The square-root operator is understood spectrally: on a plane wave with wave
-vector $\bk$, $\Omega$ multiplies by $\sqrt{m^2+\bk^2}$.
 
-Minimal electromagnetic coupling replaces the operators by
+In an electromagnetic potential, minimal coupling replaces the free
+operators by
 \begin{gather}
  E=\ii\partial_t-qV\\
  \bP=-\ii\pdr-q\bA,
 \end{gather}
-so that $(-E^2+\bP^2+m^2)\psi=0$.
+and the Klein--Gordon equation takes the covariant form
+\begin{equation}
+ (-E^2+\bP^2+m^2)\psi=0.
+\end{equation}
+
+\subsection{Spin-zero low-energy limit}
+
+Denote the relativistic solution of the preceding equation by $\psi'$ and
+separate its rest-energy phase by
+$\psi'=\exp(-\ii mt)\psi$.  The exact equation for the slowly varying
+amplitude becomes
+\begin{gather}
+ (-E^2-2mE+\bP^2)\psi=0\\
+ E=\frac{\bP^2-E^2}{2m}.
+\end{gather}
+For a free particle the operators commute, and iteration gives
+\begin{equation}
+ E=\frac{\bP^2}{2m}-\frac{\bP^4}{8m^3}+\cdots.
+\end{equation}
+More generally, neglecting $E^2$ at leading nonrelativistic order in the
+covariant equation gives the Schr\"odinger equation
+\begin{equation}
+ \ii\partial_t\psi=\left(\frac{(-\ii\pdr-q\bA)^2}{2m}+qV\right)\psi.
+\end{equation}
 
 \subsection{Dirac equation in block form}
 
@@ -1653,13 +1720,27 @@ It satisfies
  =\det(Z)\bI\\
  \Wop(Z)^*=\Wop(Z^*).
 \end{gather}
-Since $\Wop(\ii\partial)^2=-\Box\bI$, the first-order equation
+For the free field, define the Dirac operator and its mass conjugate:
+\begin{gather}
+ \bDm:=\Wop(\ii\partial)-m\bI\\
+ \bDm':=\Wop(\ii\partial)+m\bI.
+\end{gather}
+The Dirac equation is
 \begin{equation}
- \bigl(\Wop(\ii\partial)-m\bI\bigr)\bPsi=0
+ \bDm\bPsi=0.
  \label{eq:dirac}
 \end{equation}
-yields the Klein--Gordon equation after multiplication by
-$\Wop(\ii\partial)+m\bI$.  For
+Since $\Wop(\ii\partial)^2=-\Box\bI$, multiplication by the mass conjugate
+gives
+\begin{equation}
+ \bDm'\bDm
+ =\Wop(\ii\partial)^2-m^2\bI
+ =-(\Box+m^2)\bI.
+\end{equation}
+Consequently, $\bDm\bPsi=0$ implies
+$(\Box+m^2)\bPsi=0$, so every component of the Dirac block satisfies the
+Klein--Gordon equation.  This factorization is the direct connection between
+the first-order Dirac equation and the relativistic mass-shell equation.  For
 $\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$ it reads
 \begin{gather}
  \ii\partial\Psi_2-m\Psi_1=0\\
@@ -1790,8 +1871,8 @@ The two orderings satisfy
           (\partial+\ii q\Phi^*)+m^2\right)\Psi_2
    =(-E^2+\bP^2+m^2+\ii qF)\Psi_2.
 \end{align}
-These follow by multiplying the Dirac operator by its mass conjugate.  In
-detail, define
+These follow from the same mass-conjugate factorization used for the free
+Dirac equation.  With the potential included, the two block operators become
 \begin{align}
  \bDm&:=\Wop(\ii\partial-q\Phi^*)-m\bI,\\
  \bDm'&:=\Wop(\ii\partial-q\Phi^*)+m\bI.
@@ -1800,48 +1881,19 @@ Then
 \begin{equation}
  \bDm'\bDm=
  -\begin{Bmatrix}
-  (\partial+\ii q\Phi^*)(\partial^*+\ii q\Phi)+m^2&0\\
-  0&(\partial^*+\ii q\Phi)(\partial+\ii q\Phi^*)+m^2
+  -E^2+\bP^2+m^2+\ii qF^*&0\\
+  0&-E^2+\bP^2+m^2+\ii qF
  \end{Bmatrix}.
 \end{equation}
-
-For a paravector wavefunction $\psi=\psi_s+\bm\psi_v\cdot\bsig$,
-\begin{align}
- \partial\psi&=(\partial_t\psi_s+\pdr\cdot\bm\psi_v)
- +(\partial_t\bm\psi_v+\pdr\psi_s
-      +\ii\pdr\times\bm\psi_v)\cdot\bsig,\\
- \partial^*\psi&=(\partial_t\psi_s-\pdr\cdot\bm\psi_v)
- +(\partial_t\bm\psi_v-\pdr\psi_s
-      -\ii\pdr\times\bm\psi_v)\cdot\bsig,\\
- \Phi\psi&=(V\psi_s+\bA\cdot\bm\psi_v)
- +(V\bm\psi_v+\psi_s\bA+\ii\bA\times\bm\psi_v)\cdot\bsig,\\
- \Phi^*\psi&=(V\psi_s-\bA\cdot\bm\psi_v)
- +(V\bm\psi_v-\psi_s\bA-\ii\bA\times\bm\psi_v)\cdot\bsig.
-\end{align}
-Writing $F=\bF\cdot\bsig$,
-\begin{align}
- \scpart{\ii qF\psi}&=\ii q\bF\cdot\bm\psi_v,\\
- \vecpart{\ii qF\psi}&=\ii q\psi_s\bF-q\bF\times\bm\psi_v,\\
- \scpart{\ii qF^*\psi}&=-\ii q\bF^*\cdot\bm\psi_v,\\
- \vecpart{\ii qF^*\psi}&=-\ii q\psi_s\bF^*
- +q\bF^*\times\bm\psi_v.
-\end{align}
-
-\subsection{Spin-zero low-energy limit}
-
-For spin zero, write $\psi'=\exp(-\ii mt)\psi$.  The exact equation becomes
-\begin{gather}
- (-E^2-2mE+\bP^2)\psi=0\\
- E=\frac{\bP^2-E^2}{2m}.
-\end{gather}
-For a free particle the operators commute, and iteration gives
+The electromagnetic field therefore prevents the interacting product from
+being proportional to the block identity: its two components acquire the
+distinct spin couplings $\ii qF^*$ and $\ii qF$.  In the free limit
+$q=0$, both couplings vanish and $-E^2+\bP^2=\Box$, so
 \begin{equation}
- E=\frac{\bP^2}{2m}-\frac{\bP^4}{8m^3}+\cdots.
+ \bDm'\bDm=-(\Box+m^2)\bI_2.
 \end{equation}
-The leading term is the Schr\"odinger equation
-\begin{equation}
- \ii\partial_t\psi=\left(\frac{(-\ii\pdr-q\bA)^2}{2m}+qV\right)\psi.
-\end{equation}
+Thus the free Dirac equation $\bDm\bPsi=0$ recovers the Klein--Gordon
+equation on both components of the Dirac block.
 
 \subsection{Spin probabilities and energy sectors}
 
@@ -2210,6 +2262,7 @@ balance~\eqref{eq:poynting}.
 \end{align*}
 See the paravector inner product~\eqref{eq:paravector-inner-product},
 minimal-ideal development in Section~\ref{sec:physical-spinors},
+spin-carrier comparison in Section~\ref{sec:paravector-spin-content},
 Klein--Gordon equation~\eqref{eq:kg}, Dirac equations~\eqref{eq:dirac} and
 \eqref{eq:dirac-field}, general Klein--Gordon lift
 \eqref{eq:kg-dirac-general-lift}, Pauli equation~\eqref{eq:pauli}, and spin
