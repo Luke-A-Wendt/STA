@@ -1591,8 +1591,21 @@ left projections select the conventional four-component Dirac sectors.
 
 \subsection{Klein--Gordon equation}
 
-With $E=\ii\partial_t$ and $\bP=-\ii\pdr$, the mass-shell relation becomes
-the scalar wave equation
+The classical energy and momentum satisfy the mass-shell relation
+$E^2-\bP^2=m^2$.  The operator substitutions are fixed by a plane wave:
+$\ii\partial_t$ returns its energy and $-\ii\pdr$ returns its momentum.
+Let these differential operators act on a scalar amplitude $\Psi$.  With
+$E=\ii\partial_t$ and $\bP=-\ii\pdr$, their squares act as
+\begin{align*}
+ E^2\Psi&=-\partial_t^2\Psi,\\
+ \bP^2\Psi&=-\pdr^2\Psi.
+\end{align*}
+Applying the mass-shell relation to $\Psi$ therefore gives
+\[
+ \left(-\partial_t^2+\pdr^2-m^2\right)\Psi=0.
+\]
+Multiplication by $-1$, together with
+$\Box=\partial_t^2-\pdr^2$, yields the scalar wave equation
 \begin{equation}
  (\Box+m^2)\Psi=0.
  \label{eq:kg}
@@ -1617,11 +1630,16 @@ so that $(-E^2+\bP^2+m^2)\Psi=0$.
 For a paravector $Z$, define
 \begin{equation}
  \Wop(Z):=
- \begin{pmatrix}0&Z\\ \adj Z&0\end{pmatrix}.
+ \begin{Bmatrix}0&Z\\ \adj Z&0\end{Bmatrix}.
 \end{equation}
 It satisfies
 \begin{gather}
- \Wop(Z)^2=\operatorname{diag}(Z\adj Z,\adj Z\,Z)\\
+ \Wop(Z)^2=
+ \begin{Bmatrix}
+  Z\adj Z&0\\
+  0&\adj Z\,Z
+ \end{Bmatrix}
+ =\det(Z)\bI\\
  \Wop(Z)^*=\Wop(Z^*).
 \end{gather}
 Since $\Wop(\ii\partial)^2=-\Box\bI$, the first-order equation
@@ -1648,10 +1666,10 @@ solution gives
 \begin{equation}
  \bPsi=
  \frac1m
- \left\{
- (ma+\ii b\partial)\Psi',
- (\ii a\sconj\partial+mb)\Psi'
- \right\}^{\mathsf T}.
+ \begin{Bmatrix}
+  ma+\ii b\partial\\
+  \ii a\sconj\partial+mb
+ \end{Bmatrix}\Psi'.
  \label{eq:kg-dirac-general-lift}
 \end{equation}
 Substitution into the two component equations leaves respectively
@@ -2144,7 +2162,7 @@ balance~\eqref{eq:poynting}.
  =\frac{\scpart{\psi^{\mathsf H}Z\psi}}
  {\scpart{\psi^{\mathsf H}\psi}},\\
  (\Box+m^2)\Psi&=0,\\
- \Wop(Z)&=\begin{pmatrix}0&Z\\\adj Z&0\end{pmatrix},\\
+ \Wop(Z)&=\begin{Bmatrix}0&Z\\\adj Z&0\end{Bmatrix},\\
  \bigl(\Wop(\ii\partial)-m\bI\bigr)\bPsi&=0,\\
  \bigl(\Wop(\ii\partial-q\Phi^*)-m\bI\bigr)\bPsi&=0,\\
  \ii\partial_t\bPsi&=\left(
@@ -2182,7 +2200,7 @@ derivatives are developed in Section~\ref{sec:varying-transformations}.
 \paragraph{\hyperref[sec:matrix]{Matrix representation in Appendix A}.}
 \begin{align*}
  \operatorname{mat}(Z)
- &=\begin{pmatrix}S+V_3&V_1-\ii V_2\\V_1+\ii V_2&S-V_3\end{pmatrix}
+ &=\begin{Bmatrix}S+V_3&V_1-\ii V_2\\V_1+\ii V_2&S-V_3\end{Bmatrix}
    &&\text{\eqref{eq:matrix}},\\
  \operatorname{mat}(ZZ')&=\operatorname{mat}(Z)\operatorname{mat}(Z')
    &&\text{\eqref{eq:matrix-product}},\\
@@ -2229,17 +2247,17 @@ Here $S\in\C$ and $\bV\in\C^3$.
 Such an element is called a complex paravector.  Its faithful $2\times2$
 complex representation begins with
 \[
- \operatorname{mat}(\sigma_1)=\begin{pmatrix}0&1\\1&0\end{pmatrix},\quad
- \operatorname{mat}(\sigma_2)=\begin{pmatrix}0&-\ii\\\ii&0\end{pmatrix},\quad
- \operatorname{mat}(\sigma_3)=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+ \operatorname{mat}(\sigma_1)=\begin{Bmatrix}0&1\\1&0\end{Bmatrix},\quad
+ \operatorname{mat}(\sigma_2)=\begin{Bmatrix}0&-\ii\\\ii&0\end{Bmatrix},\quad
+ \operatorname{mat}(\sigma_3)=\begin{Bmatrix}1&0\\0&-1\end{Bmatrix}.
 \]
 Thus
 \begin{equation}
  \operatorname{mat}(S+\bV\cdot\bsig)=
- \begin{pmatrix}
+ \begin{Bmatrix}
   S+V_3&V_1-\ii V_2\\
   V_1+\ii V_2&S-V_3
- \end{pmatrix}.
+ \end{Bmatrix}.
  \label{eq:matrix}
 \end{equation}
 It preserves identity, addition, and multiplied order:
@@ -2261,10 +2279,10 @@ Define entrywise complex conjugation independently by
 \begin{gather}
  m_{jk}^{\mathsf C}:=a_{jk}-b_{jk}\ii\\
  \bM^{\mathsf C}:=
- \begin{pmatrix}
+ \begin{Bmatrix}
   m_{11}^{\mathsf C}&m_{12}^{\mathsf C}\\
   m_{21}^{\mathsf C}&m_{22}^{\mathsf C}
- \end{pmatrix}.
+ \end{Bmatrix}.
 \end{gather}
 The Hermitian transpose is then
 \begin{equation}
@@ -2309,7 +2327,7 @@ and hence
 Thus $^{\mathsf H}$ is precisely the Hermitian operator defined in
 Section~\ref{sec:conjugate-operators}.
 To define the distinct sigma conjugation, let
-$\bm{S}:=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ and
+$\bm{S}:=\begin{Bmatrix}0&1\\-1&0\end{Bmatrix}$ and
 $\bm{S}^2=-\bI_2$, so that $\bm S^{-1}=-\bm S$, and set
 \begin{align}
  \bM^*&:=\bm{S}^{-1}\bM^{\mathsf C}\bm{S},\\
@@ -2651,20 +2669,20 @@ for nonzero $Q$.
 The faithful matrix representation sends the quaternion units to
 \begin{gather}
  \operatorname{mat}(q_1)=
- \begin{pmatrix}0&-\ii\\-\ii&0\end{pmatrix}\\
+ \begin{Bmatrix}0&-\ii\\-\ii&0\end{Bmatrix}\\
  \operatorname{mat}(q_2)=
- \begin{pmatrix}0&-1\\1&0\end{pmatrix}\\
+ \begin{Bmatrix}0&-1\\1&0\end{Bmatrix}\\
  \operatorname{mat}(q_3)=
- \begin{pmatrix}-\ii&0\\0&\ii\end{pmatrix}.
+ \begin{Bmatrix}-\ii&0\\0&\ii\end{Bmatrix}.
 \end{gather}
 Hence equation~\eqref{eq:quaternion-paravector} becomes
 \begin{equation}
  \operatorname{mat}(Q)
  =a\bI_2-\ii\bA\cdot\bsig
- =\begin{pmatrix}
+ =\begin{Bmatrix}
    a-\ii A_3&-A_2-\ii A_1\\
    A_2-\ii A_1&a+\ii A_3
-  \end{pmatrix}.
+  \end{Bmatrix}.
  \label{eq:quaternion-matrix}
 \end{equation}
 The algebraic conjugation and norm become the usual matrix identities
@@ -2717,9 +2735,9 @@ therefore reproduces the same Rodrigues rotation.
  a vector square is explicitly defined by
  \(\bA^2:=\bA\cdot\bA\).
 
- \item Curly braces are reserved for explicit vector-entry lists, and
- commutators alone use square brackets.  Parentheses delimit matrices,
- functions, algebraic grouping, and order-sensitive operator products.
+ \item Curly braces delimit explicit vector-entry lists and matrices, while
+ commutators alone use square brackets.  Parentheses delimit functions,
+ algebraic grouping, and order-sensitive operator products.
  Redundant grouping parentheses were removed.
 
  \item The extraction functions \(\operatorname{sc}(\cdot)\),

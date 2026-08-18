@@ -33,7 +33,7 @@
 \contentsline {subsection}{\numberline {7.1}Paravector inner products and expectations}{25}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Physical spinors and minimal ideals}{25}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Klein--Gordon equation}{26}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Dirac equation in block form}{26}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.4}Dirac equation in block form}{27}{subsection.7.4}%
 \contentsline {subsection}{\numberline {7.5}Schr\"odinger--Pauli limit}{27}{subsection.7.5}%
 \contentsline {subsection}{\numberline {7.6}Interacting operators and factorization}{28}{subsection.7.6}%
 \contentsline {subsection}{\numberline {7.7}Low-energy derivation}{29}{subsection.7.7}%
