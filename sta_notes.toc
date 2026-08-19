@@ -13,53 +13,54 @@
 \contentsline {subsection}{\numberline {3.8}Functions of paravectors}{11}{subsection.3.8}%
 \contentsline {paragraph}{General projector rule.}{11}{section*.4}%
 \contentsline {paragraph}{Functions of a unit vector.}{11}{section*.5}%
-\contentsline {paragraph}{Real paravectors.}{11}{section*.6}%
-\contentsline {paragraph}{Complex paravectors.}{12}{section*.7}%
-\contentsline {subsection}{\numberline {3.9}Differentiated fields}{14}{subsection.3.9}%
-\contentsline {section}{\numberline {4}Transformations and invariants}{14}{section.4}%
-\contentsline {paragraph}{Trace invariance.}{14}{section*.8}%
-\contentsline {paragraph}{Determinant invariance.}{15}{section*.9}%
-\contentsline {paragraph}{Norm invariance.}{15}{section*.10}%
-\contentsline {section}{\numberline {5}Space--time kinematics}{16}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Intervals, velocity, and momentum}{16}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Varying transformations and second differentials}{18}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Free-particle action}{19}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Electromagnetism}{20}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Field equation and potentials}{20}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Field invariants}{22}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Lorentz force from the field and action}{22}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Energy balance}{24}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Relativistic wave equations}{25}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Paravector inner products and expectations}{25}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Physical spinors and minimal ideals}{25}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Spin carried by paravector components}{26}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Klein--Gordon equation}{27}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Spin-zero low-energy limit}{27}{subsection.7.5}%
-\contentsline {subsection}{\numberline {7.6}Dirac equation in block form}{28}{subsection.7.6}%
-\contentsline {subsection}{\numberline {7.7}Schr\"odinger--Pauli limit}{29}{subsection.7.7}%
-\contentsline {subsection}{\numberline {7.8}Interacting operators and factorization}{30}{subsection.7.8}%
-\contentsline {subsection}{\numberline {7.9}Spin probabilities and energy sectors}{30}{subsection.7.9}%
-\contentsline {section}{\numberline {8}Rotations and Lorentz boosts}{32}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Rotors}{32}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Boosts}{32}{subsection.8.2}%
-\contentsline {section}{\numberline {9}Generalized spacetime and metric form}{33}{section.9}%
-\contentsline {section}{\numberline {A}Pauli-matrix representation}{34}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Faithful representation}{34}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Matrix operations and induced algebra operations}{35}{subsection.A.2}%
-\contentsline {paragraph}{Trace, determinant, and adjugate.}{36}{section*.11}%
-\contentsline {subsection}{\numberline {A.3}Algebra--matrix crosswalk}{37}{subsection.A.3}%
-\contentsline {subsection}{\numberline {A.4}Matrix amplitudes and column spinors}{38}{subsection.A.4}%
-\contentsline {subsection}{\numberline {A.5}Quaternion subalgebra}{39}{subsection.A.5}%
-\contentsline {section}{\numberline {B}Reference summary}{42}{appendix.B}%
-\contentsline {paragraph}{\hyperref [sec:algebra]{Algebra and vector operations}.}{42}{section*.12}%
-\contentsline {paragraph}{\hyperref [sec:conjugate-operators]{Hermitian and sigma-conjugate operators}.}{42}{section*.13}%
-\contentsline {paragraph}{\hyperref [sec:paravectors]{Paravectors, extraction, and products}.}{42}{section*.14}%
-\contentsline {paragraph}{\hyperref [sec:algebra-projectors]{Projection operators and functions}.}{43}{section*.15}%
-\contentsline {paragraph}{\hyperref [sec:kinematics]{Space--time kinematics and action}.}{43}{section*.16}%
-\contentsline {paragraph}{\hyperref [sec:electromagnetism]{Electromagnetism}.}{44}{section*.17}%
-\contentsline {paragraph}{\hyperref [sec:waves]{Wave equations, spin, and energy sectors}.}{44}{section*.18}%
-\contentsline {paragraph}{\hyperref [sec:transformations]{Rotations and boosts}.}{45}{section*.19}%
-\contentsline {paragraph}{\hyperref [sec:matrix]{Matrix representation in Appendix A}.}{45}{section*.20}%
-\contentsline {paragraph}{\hyperref [sec:quaternions]{Quaternion subalgebra in Appendix A}.}{45}{section*.21}%
-\contentsline {paragraph}{\hyperref [sec:generalized]{Generalized spacetime and metric form}.}{45}{section*.22}%
-\contentsline {section}{\numberline {C}Conventions and cautions}{46}{appendix.C}%
+\contentsline {paragraph}{Real paravectors.}{12}{section*.6}%
+\contentsline {paragraph}{Complex paravectors.}{13}{section*.7}%
+\contentsline {paragraph}{Exponential of a general complex paravector.}{14}{section*.8}%
+\contentsline {subsection}{\numberline {3.9}Differentiated fields}{15}{subsection.3.9}%
+\contentsline {section}{\numberline {4}Transformations and invariants}{15}{section.4}%
+\contentsline {paragraph}{Trace invariance.}{15}{section*.9}%
+\contentsline {paragraph}{Determinant invariance.}{16}{section*.10}%
+\contentsline {paragraph}{Norm invariance.}{16}{section*.11}%
+\contentsline {section}{\numberline {5}Space--time kinematics}{17}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Intervals, velocity, and momentum}{17}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Varying transformations and second differentials}{19}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Free-particle action}{20}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Electromagnetism}{21}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Field equation and potentials}{21}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Field invariants}{23}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Lorentz force from the field and action}{23}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Energy balance}{25}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Relativistic wave equations}{26}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Paravector inner products and expectations}{26}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Physical spinors and minimal ideals}{26}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Spin carried by paravector components}{27}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Klein--Gordon equation}{28}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Spin-zero low-energy limit}{28}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Dirac equation in block form}{29}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Schr\"odinger--Pauli limit}{30}{subsection.7.7}%
+\contentsline {subsection}{\numberline {7.8}Interacting operators and factorization}{31}{subsection.7.8}%
+\contentsline {subsection}{\numberline {7.9}Spin probabilities and energy sectors}{31}{subsection.7.9}%
+\contentsline {section}{\numberline {8}Rotations and Lorentz boosts}{33}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Rotors}{33}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Boosts}{33}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Generalized spacetime and metric form}{34}{section.9}%
+\contentsline {section}{\numberline {A}Pauli-matrix representation}{35}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Faithful representation}{35}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Matrix operations and induced algebra operations}{36}{subsection.A.2}%
+\contentsline {paragraph}{Trace, determinant, and adjugate.}{37}{section*.12}%
+\contentsline {subsection}{\numberline {A.3}Algebra--matrix crosswalk}{38}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}Matrix amplitudes and column spinors}{39}{subsection.A.4}%
+\contentsline {subsection}{\numberline {A.5}Quaternion subalgebra}{40}{subsection.A.5}%
+\contentsline {section}{\numberline {B}Reference summary}{43}{appendix.B}%
+\contentsline {paragraph}{\hyperref [sec:algebra]{Algebra and vector operations}.}{43}{section*.13}%
+\contentsline {paragraph}{\hyperref [sec:conjugate-operators]{Hermitian and sigma-conjugate operators}.}{43}{section*.14}%
+\contentsline {paragraph}{\hyperref [sec:paravectors]{Paravectors, extraction, and products}.}{43}{section*.15}%
+\contentsline {paragraph}{\hyperref [sec:algebra-projectors]{Projection operators and functions}.}{44}{section*.16}%
+\contentsline {paragraph}{\hyperref [sec:kinematics]{Space--time kinematics and action}.}{44}{section*.17}%
+\contentsline {paragraph}{\hyperref [sec:electromagnetism]{Electromagnetism}.}{45}{section*.18}%
+\contentsline {paragraph}{\hyperref [sec:waves]{Wave equations, spin, and energy sectors}.}{45}{section*.19}%
+\contentsline {paragraph}{\hyperref [sec:transformations]{Rotations and boosts}.}{46}{section*.20}%
+\contentsline {paragraph}{\hyperref [sec:matrix]{Matrix representation in Appendix A}.}{46}{section*.21}%
+\contentsline {paragraph}{\hyperref [sec:quaternions]{Quaternion subalgebra in Appendix A}.}{46}{section*.22}%
+\contentsline {paragraph}{\hyperref [sec:generalized]{Generalized spacetime and metric form}.}{46}{section*.23}%
+\contentsline {section}{\numberline {C}Conventions and cautions}{47}{appendix.C}%

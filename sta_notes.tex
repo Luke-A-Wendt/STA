@@ -503,22 +503,28 @@ real components of $ZZ'$ are
 \end{align}
 For the important quadratic products:
 \begin{align}
- Z^2 &: (a^2-b^2+\bA^2-\bB^2)
+ Z^2&=(a^2-b^2+\bA^2-\bB^2)
  +2\ii(ab+\bA\cdot\bB)
  +2(a\bA-b\bB)\cdot\bsig
  +2\ii(a\bB+b\bA)\cdot\bsig,\\
- ZZ^*,\ Z^*Z &: (a^2+b^2-\bA^2-\bB^2)
- \mp2(\bA\times\bB)\cdot\bsig
+ ZZ^*&=(a^2+b^2-\bA^2-\bB^2)
+ -2(\bA\times\bB)\cdot\bsig
  +2\ii(a\bB-b\bA)\cdot\bsig,\\
- ZZ^{\mathsf H},\ Z^{\mathsf H}Z &: a^2+b^2+\bA^2+\bB^2
- +2(a\bA+b\bB\pm\bA\times\bB)\cdot\bsig,\\
- Z\adj Z &: a^2-b^2-\bA^2+\bB^2
+ Z^*Z&=(a^2+b^2-\bA^2-\bB^2)
+ +2(\bA\times\bB)\cdot\bsig
+ +2\ii(a\bB-b\bA)\cdot\bsig,\\
+ ZZ^{\mathsf H}&=a^2+b^2+\bA^2+\bB^2
+ +2(a\bA+b\bB+\bA\times\bB)\cdot\bsig,\\
+ Z^{\mathsf H}Z&=a^2+b^2+\bA^2+\bB^2
+ +2(a\bA+b\bB-\bA\times\bB)\cdot\bsig,\\
+ ZZ^{*\mathsf H}&=\det(Z)
+ =a^2-b^2-\bA^2+\bB^2
  +2\ii(ab-\bA\cdot\bB).
 \end{align}
 The scalar part is cyclic, $\scpart{ZZ'}=\scpart{Z'Z}$.  The operator laws
 already established also give
 $(ZZ')^{*\mathsf H}=Z'^{*\mathsf H}Z^{*\mathsf H}$.
-The paired signs follow the displayed product order.  Thus
+The opposite cross-product signs follow the displayed product order.  Thus
 $ZZ^*=Z^*Z$ and $ZZ^{\mathsf H}=Z^{\mathsf H}Z$ precisely when
 $\bA\times\bB=0$.
 
@@ -672,23 +678,25 @@ Consequently,
  \log(\bu\cdot\bsig)&=2\ii\pi(n\Pi_++(\tfrac12+m)\Pi_-),\\
  (z+\bu\cdot\bsig)^{-1}&=\frac{z-\bu\cdot\bsig}{z^2-1},\\
  \frac{\ii-\bu\cdot\bsig}{\ii+\bu\cdot\bsig}
- &=\ii\bu\cdot\bsig,\\
- \exp(\theta\bu\cdot\bsig)&=\cosh\theta+\sinh\theta\,\bu\cdot\bsig,\\
- \exp(\ii\theta\bu\cdot\bsig)&=\cos\theta+\ii\sin\theta\,\bu\cdot\bsig.
+ &=\ii\bu\cdot\bsig.
 \end{align}
 For $0<\lVert\br\rVert<1$, take $\bu=\br/\lVert\br\rVert$.  Then
 \begin{equation}
  \frac{1-\br\cdot\bsig}{1+\br\cdot\bsig}
- =\exp(-2\tanh^{-1}(\lVert\br\rVert))\Pi_+
+ =\exp(2\tanh^{-1}(\lVert\br\rVert))^{-1}\Pi_+
  +\exp(2\tanh^{-1}(\lVert\br\rVert))\Pi_-.
 \end{equation}
 
 \paragraph{Real paravectors.}
 Let $X=a+\bA\cdot\bsig$ and $Y=b+\bB\cdot\bsig$, where
 $a,b\in\R$ and $\bA,\bB\in\R^3$.  For $\bA\ne0$, put
-$\bu=\bA/\lVert\bA\rVert$ and define
+\begin{gather}
+ \bu:=\frac{\bA}{\lVert\bA\rVert}\\
+ \theta:=\lVert\bA\rVert.
+\end{gather}
+Then define
 \begin{equation}
- \lambda_\pm:=a\pm\lVert\bA\rVert.
+ \lambda_\pm:=a\pm\theta.
 \end{equation}
 Using
 $1=\Pi_++\Pi_-$ and $\bu\cdot\bsig=\Pi_+-\Pi_-$ gives
@@ -709,13 +717,17 @@ includes
  X^{-1}&=\lambda_+^{-1}\Pi_++\lambda_-^{-1}\Pi_-,\\
  \sqrt X&=\pm\sqrt{\lambda_+}\Pi_+\pm\sqrt{\lambda_-}\Pi_-,\\
  \log X&=\log(\lambda_+)\Pi_++\log(\lambda_-)\Pi_-,\\
- \exp(X)&=\exp(a)\left(\cosh\lVert\bA\rVert
- +\sinh\lVert\bA\rVert\,\bu\cdot\bsig\right),\\
+ \exp(\bA\cdot\bsig)
+ &=\exp(\theta\bu\cdot\bsig)
+ =\cosh\theta+\sinh\theta\,\bu\cdot\bsig,\\
  \exp(\ii\bA\cdot\bsig)
- &=\cos\lVert\bA\rVert+\ii\sin\lVert\bA\rVert\,\bu\cdot\bsig.
+ &=\exp(\ii\theta\bu\cdot\bsig)
+ =\cos\theta+\ii\sin\theta\,\bu\cdot\bsig,\\
+ \exp(X)&=\exp(a)\exp(\bA\cdot\bsig)
+ =\exp(a)\left(\cosh\theta
+ +\sinh\theta\,\bu\cdot\bsig\right).
 \end{align}
-The real vector exponential has a direct kinematic interpretation.  With
-$\theta=\lVert\bA\rVert$, define
+The real vector exponential has a direct kinematic interpretation.  Define
 \begin{gather}
  \gamma:=\cosh\theta\\
  \bv:=\tanh\theta\,\bu.
@@ -811,15 +823,67 @@ and, when $\lambda_\pm\ne0$, choosing logarithm branches gives
  +\frac{\log(\lambda_+)-\log(\lambda_-)}{2z}\,
  \bV\cdot\bsig.
 \end{align}
-Also,
+\paragraph{Exponential of a general complex paravector.}
+Because the scalar $S$ commutes with $\bV\cdot\bsig$,
+\begin{equation}
+ \exp(Z)=\exp(S)\exp(\bV\cdot\bsig).
+\end{equation}
+For every nonnegative integer $n$, the identity
+$(\bV\cdot\bsig)^2=z^2$ gives
+\begin{gather}
+ (\bV\cdot\bsig)^{2n}=z^{2n}\\
+ (\bV\cdot\bsig)^{2n+1}=z^{2n}\bV\cdot\bsig.
+\end{gather}
+Separating the defining power series into even and odd powers therefore gives
 \begin{align}
- \exp(Z)&=\exp(S)\left(\cosh z+\frac{\sinh z}{z}\,\bV\cdot\bsig\right),\\
- \exp(Z^*)&=\exp(Z)^*,\\
- \exp(Z^{\mathsf H})&=\exp(Z)^{\mathsf H},\\
- \exp(-Z)&=\exp(Z)^{-1}.
+ \exp(\bV\cdot\bsig)
+ &=\sum_{n=0}^{\infty}\frac{z^{2n}}{(2n)!}
+ +\sum_{n=0}^{\infty}\frac{z^{2n}}{(2n+1)!}\,\bV\cdot\bsig\\
+ &=\cosh z+\frac{\sinh z}{z}\,\bV\cdot\bsig.
 \end{align}
-At $z=0$, these formulas are understood by analytic limits whenever the
-chosen function branch is analytic near $S$.
+Equivalently, the projector rule gives
+\begin{equation}
+ \exp(Z)
+ =\exp(\lambda_+)\Pi_++\exp(\lambda_-)\Pi_-
+ =\exp(S)\left(\cosh z+\frac{\sinh z}{z}\,\bV\cdot\bsig\right).
+\end{equation}
+
+For the fully general coefficients
+\begin{equation}
+ Z=(a+b\ii)+(\bA+\bB\ii)\cdot\bsig,
+\end{equation}
+the complex vector magnitude is fixed by
+\begin{equation}
+ z^2=\bV^2
+ =\bA^2-\bB^2+2\ii\bA\cdot\bB.
+\end{equation}
+Thus, after choosing either square-root branch,
+\begin{equation}
+ \begin{aligned}
+ \exp(Z)
+ ={}&\exp(a)(\cos b+\ii\sin b)\\
+ &{}\times\left[
+ \cosh\!\sqrt{\bA^2-\bB^2+2\ii\bA\cdot\bB}\right.\\
+ &\left.\qquad
+ +\frac{\sinh\!\sqrt{\bA^2-\bB^2+2\ii\bA\cdot\bB}}
+ {\sqrt{\bA^2-\bB^2+2\ii\bA\cdot\bB}}\,
+ (\bA+\bB\ii)\cdot\bsig
+ \right].
+ \end{aligned}
+\end{equation}
+Changing the square-root branch changes both $z$ and $\sinh(z)$ in sign, so
+the result is branch independent.  If $z=0$, including the case of a
+nonzero complex-null vector $\bV$, the analytic limit is
+\begin{equation}
+ \exp(Z)=\exp(S)(1+\bV\cdot\bsig).
+\end{equation}
+Finally, the power series respects both conjugation operations:
+\begin{gather}
+ \exp(Z^*)=\exp(Z)^*\\
+ \exp(Z^{\mathsf H})=\exp(Z)^{\mathsf H}.
+\end{gather}
+The square-root and logarithm formulas above are likewise understood by
+analytic continuation wherever their chosen branches are regular.
 
 \subsection{Differentiated fields}
 
@@ -938,7 +1002,7 @@ norm.  A nonzero boost satisfies
  \det(L)=1\\
  L^{\mathsf H}L=L^2\ne1,
 \end{gather}
-so $L$ is not unitary.  The transformation $Z'=LZL$ preserves the
+so $L$ is not unitary.  The transformation $Z'=L^{-1}ZL^{-1}$ preserves the
 determinant but does not generally preserve the trace or norm.
 
 \section{Space--time kinematics}
@@ -972,7 +1036,7 @@ The cyclic determinant property gives
 Thus similarity by any such $T$ leaves the determinant unchanged.  This is
 an algebraic change of basis; even when $T=L$, it is not the physical boost
 of a space--time paravector.  The latter is the congruence
-$\dd X'=L\dd X L$ developed in Section~\ref{sec:boosts}.  The alternative
+$\dd X'=L^{-1}\dd X L^{-1}$ developed in Section~\ref{sec:boosts}.  The alternative
 similarity ordering $T\,\dd X\,T^{-1}$ has the same determinant invariance.
 For a future-directed time-like interval, choose the positive scalar root
 \begin{equation}
@@ -1334,16 +1398,16 @@ the scalar part vanishes, and therefore $\adj F=-F$.  Hence
 \end{align}
 For any invertible real or complex paravector $T$, let
 \begin{equation}
- F'=TFT^{-1}.
+ F'=T^{-1}FT.
 \end{equation}
 The general similarity identity~\eqref{eq:det-similarity} gives
 \begin{equation}
- \Det{F'}=\Det{TFT^{-1}}=\Det F.
+ \Det{F'}=\Det{T^{-1}FT}=\Det F.
 \end{equation}
 Rotations and boosts are the physical special cases
 \begin{gather}
- F'=RFR^{-1}=RFR^{\mathsf H}\\
- F'=LFL^{-1}=LFL^*,
+ F'=R^{-1}FR=R^{\mathsf H}FR\\
+ F'=L^{-1}FL=L^*FL,
 \end{gather}
 because $R^{-1}=R^{\mathsf H}$ and $L^{-1}=L^*$.
 Hence every inertial observer agrees on
@@ -1987,13 +2051,19 @@ decomposition, but the factors are not joint orthogonal projectors.
 \section{Rotations and Lorentz boosts}
 \label{sec:transformations}
 
+Throughout this section, the transformation factor $T$ is defined from a
+positive generator.  Thus $T=R$ for rotations and $T=L$ for boosts.  The
+opposite action is written with $T^{-1}$; it is not introduced by redefining
+$T$ with a negative exponential.
+
 \subsection{Rotors}
 
 A rotation through angle $\phi$ about unit axis $\bu$ is generated by
 \begin{gather}
- R=\exp\!\left(\frac\phi2\,\bu\cdot\ii\bsig\right)
+ R:=\exp\!\left(\ii\frac\phi2\,\bu\cdot\bsig\right)
   =\cos\frac\phi2+\bu\cdot\ii\bsig\,\sin\frac\phi2\\
- R^{-1}=\rev R.
+ R^{-1}=\rev R
+ =\cos\frac\phi2-\bu\cdot\ii\bsig\,\sin\frac\phi2.
 \end{gather}
 The sandwich action $X'=\rev R X R$ fixes the scalar component and rotates
 the spatial vector according to Rodrigues' formula,
@@ -2021,21 +2091,23 @@ $Z'=R^{\mathsf H}ZR=\bu'\cdot\bsig$.
 Let rapidity $\theta$ satisfy $\beta=\tanh\theta$ and
 $\gamma=\cosh\theta$.  A boost along $\bu$ is
 \begin{gather}
- L=\exp\!\left(-\frac\theta2\,\bu\cdot\bsig\right)\\
+ L:=\exp\!\left(\frac\theta2\,\bu\cdot\bsig\right)
+ =\cosh\frac\theta2+\bu\cdot\bsig\,\sinh\frac\theta2\\
  L^{\mathsf H}=L\\
- L^{-1}=L^*.
+ L^{-1}=L^*
+ =\cosh\frac\theta2-\bu\cdot\bsig\,\sinh\frac\theta2.
 \end{gather}
-For $\psi_L:=L\psi$, the boost generator is Hermitian, so
+For $\psi_L:=L^{-1}\psi$, the inverse boost factor is Hermitian, so
 \begin{gather}
- \psi_L^{\mathsf H}=\psi^{\mathsf H}L\\
+ \psi_L^{\mathsf H}=\psi^{\mathsf H}L^{-1}\\
  \langle Z\rangle_{\psi_L}
- =\frac{\scpart{\psi^{\mathsf H}LZL\psi}}
- {\scpart{\psi^{\mathsf H}L^2\psi}}.
+ =\frac{\scpart{\psi^{\mathsf H}L^{-1}ZL^{-1}\psi}}
+ {\scpart{\psi^{\mathsf H}L^{-2}\psi}}.
 \end{gather}
 The similarity $L^{-1}ZL$ is a different operation: it preserves
 $\scpart Z$ and is not the spacetime or spinor-bilinear boost used here.
 The spacetime paravector therefore transforms by the Hermitian congruence
-$X'=LXL$, which yields
+$X'=L^{-1}XL^{-1}$, which yields
 the components
 $\br_{\parallel}=(\br\cdot\bu)\bu$, $\br_{\perp}=\br-\br_{\parallel}$,
 $\br'_{\parallel}=(\br'\cdot\bu)\bu$, and
@@ -2046,7 +2118,7 @@ $\br'_{\perp}=\br'-\br'_{\parallel}$:
  \br'_{\perp}&=\br_{\perp}.
 \end{align}
 It preserves $\Det X=t^2-\br^2$.  The electromagnetic field instead obeys
-$F'=LFL^*$ for $F=(\bE+\bBf\ii)\cdot\bsig$.  Define
+$F'=L^{-1}FL$ for $F=(\bE+\bBf\ii)\cdot\bsig$.  Define
 $\bE_{\parallel}=(\bE\cdot\bu)\bu$,
 $\bE_{\perp}=\bE-\bE_{\parallel}$ and likewise
 $\bE'_{\parallel}=(\bE'\cdot\bu)\bu$,
@@ -2060,12 +2132,12 @@ components of $\bBf$ and $\bBf'$ by the same formulas.  Then
 \end{align}
 With the same convention,
 \begin{gather}
- \partial'=L\partial L^*\\
- D'^*=LD^*L^*.
+ \partial'=L^{-1}\partial L\\
+ D'^*=L^{-1}D^*L.
 \end{gather}
-Since $L$ is constant and $L^*L=1$, the field equation is covariant:
+Since $L$ is constant and $LL^{-1}=1$, the field equation is covariant:
 \begin{equation}
- \partial'F'=L(\partial F)L^*=LD^*L^*=D'^*.
+ \partial'F'=L^{-1}(\partial F)L=L^{-1}D^*L=D'^*.
 \end{equation}
 
 Collinear boosts add rapidities and therefore obey
@@ -2270,12 +2342,12 @@ probability~\eqref{eq:spin-probability}.
 
 \paragraph{\hyperref[sec:transformations]{Rotations and boosts}.}
 \begin{align*}
- R&=\exp(\phi\bu\cdot\ii\bsig/2),\\
+ R&=\exp(\ii\phi\bu\cdot\bsig/2),\\
  R^{\mathsf H}&=R^{-1},\\
  Z'&=R^{\mathsf H}ZR,\\
- L&=\exp(-\theta\bu\cdot\bsig/2),\\
+ L&=\exp(\theta\bu\cdot\bsig/2),\\
  L^{\mathsf H}&=L,\\
- X'&=LXL,\\
+ X'&=L^{-1}XL^{-1},\\
  \langle Z\rangle_{\psi_T}
  &=\frac{\scpart{\psi^{\mathsf H}T^{\mathsf H}ZT\psi}}
  {\scpart{\psi^{\mathsf H}T^{\mathsf H}T\psi}}.
