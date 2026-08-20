@@ -310,6 +310,13 @@ Whenever $\det(Z)\ne0$, define
  =\frac{S-\bV\cdot\bsig}{S^2-\bV^2}\\
  Z^{-1}Z=ZZ^{-1}=1.
 \end{gather}
+For another paravector $Z'=S'+\bV'\cdot\bsig$, division by $Z$ is generally
+order-sensitive and must be written using an explicitly ordered inverse.  For
+invertible $Z$, the unambiguous quotient is defined when $Z'$ and $Z$ commute:
+\begin{equation}
+ \frac{Z'}{Z}:=Z'Z^{-1}=Z^{-1}Z'
+ \qquad\text{if}\qquad \bV\times\bV'=0.
+\end{equation}
 Differentiating $Z^{-1}Z=1$ gives the general inverse rule
 \begin{equation}
  \dd(Z^{-1})=-Z^{-1}\,\dd Z\,Z^{-1}.
@@ -529,7 +536,7 @@ $ZZ^*=Z^*Z$ and $ZZ^{\mathsf H}=Z^{\mathsf H}Z$ precisely when
 $\bA\times\bB=0$.
 
 \begin{samepage}
-\paragraph{Norms.}
+\subsubsection{Norms}
 For $S=a+b\ii$ and $\bV=\bA+\bB\ii$, with real components
 $a,b,\bA,\bB$, define
 \begin{align}
@@ -558,7 +565,7 @@ For any complex scalar $c$,
  \lVert cZ\rVert^2=\lVert c\rVert^2\lVert Z\rVert^2.
 \end{equation}
 
-\paragraph{Comparison with the determinant.}
+\subsubsection{Comparison with the determinant}
 The norm is real and nonnegative, whereas $\det(Z)$ may be
 complex.  For $c=r e^{\ii\theta}$ with real $r$ and $\theta$, the
 determinant retains the phase while the norm does not:
@@ -617,7 +624,7 @@ $\Pi_\pm':=\tfrac12(1\pm\bu'\cdot\bsig)$.  Their products are
  +\tfrac14(-\bu-\bu'+\ii\bu\times\bu')\cdot\bsig.
 \end{align}
 
-\subsection{Ladder operators}
+\subsubsection{Ladder operators}
 \label{sec:ladder-operators}
 
 For projections along the third axis, define
@@ -645,12 +652,9 @@ The ladder operators map between the two projected sectors according to
 \subsection{Functions of paravectors}
 \label{sec:spectral}
 
-\paragraph{General projector rule.}
-Let
-\begin{equation}
- \lambda_+,\lambda_-\in\C.
-\end{equation}
-Suppose $\Pi_\pm^2=\Pi_\pm$, $\Pi_++\Pi_-=1$,
+\subsubsection{General projector rule}
+Let $\lambda_+,\lambda_-\in\C$.  Suppose
+$\Pi_\pm^2=\Pi_\pm$, $\Pi_++\Pi_-=1$,
 $\Pi_+\Pi_-=\Pi_-\Pi_+=0$, and
 \begin{equation}
  Z=\lambda_+\Pi_++\lambda_-\Pi_-.
@@ -665,44 +669,35 @@ Thus, for a convergent power series $f(w)=\sum_{n=0}^\infty c_nw^n$,
  &=f(\lambda_+)\Pi_++f(\lambda_-)\Pi_-.
 \end{align}
 
-\paragraph{Functions of a unit vector.}
-For $X=\bu\cdot\bsig=\Pi_+-\Pi_-$, the eigenvalues are $\pm1$.
+\subsubsection{Functions of a real unit vector}
+For a real unit vector $\bu$, let
+$X=\bu\cdot\bsig=\Pi_+-\Pi_-$.  Its eigenvalues are $\pm1$.
 The general rule and $\Pi_\pm=\tfrac12(1\pm\bu\cdot\bsig)$ give
 \begin{equation}
  f(\bu\cdot\bsig)=f(1)\Pi_++f(-1)\Pi_-
  =\tfrac12(f(1)+f(-1))+\tfrac12(f(1)-f(-1))\bu\cdot\bsig.
 \end{equation}
-Consequently,
-\begin{align}
- \sqrt{\bu\cdot\bsig}&=\pm \Pi_+\pm\ii \Pi_-,\\
- \log(\bu\cdot\bsig)&=2\ii\pi(n\Pi_++(\tfrac12+m)\Pi_-),\\
- (z+\bu\cdot\bsig)^{-1}&=\frac{z-\bu\cdot\bsig}{z^2-1},\\
- \frac{\ii-\bu\cdot\bsig}{\ii+\bu\cdot\bsig}
- &=\ii\bu\cdot\bsig.
-\end{align}
-For $0<\lVert\br\rVert<1$, take $\bu=\br/\lVert\br\rVert$.  Then
+For the square root, the independent scalar choices
+$\sqrt{1}=\pm1$ and $\sqrt{-1}=\pm\ii$ give
 \begin{equation}
- \frac{1-\br\cdot\bsig}{1+\br\cdot\bsig}
- =\exp(2\tanh^{-1}(\lVert\br\rVert))^{-1}\Pi_+
- +\exp(2\tanh^{-1}(\lVert\br\rVert))\Pi_-.
+ \sqrt{\bu\cdot\bsig}=\pm\Pi_+\pm\ii\Pi_-.
 \end{equation}
-
-\paragraph{Real paravectors.}
-Let $X=a+\bA\cdot\bsig$ and $Y=b+\bB\cdot\bsig$, where
-$a,b\in\R$ and $\bA,\bB\in\R^3$.  For $\bA\ne0$, put
+\subsubsection{Real paravectors}
+Let $X=a+\bA\cdot\bsig$, where $a\in\R$ and $\bA\in\R^3$.
+For $\bA\ne0$, put
 \begin{gather}
  \bu:=\frac{\bA}{\lVert\bA\rVert}\\
- \theta:=\lVert\bA\rVert.
+ w:=\lVert\bA\rVert.
 \end{gather}
 Then define
 \begin{equation}
- \lambda_\pm:=a\pm\theta.
+ \lambda_\pm:=a\pm w.
 \end{equation}
 Using
 $1=\Pi_++\Pi_-$ and $\bu\cdot\bsig=\Pi_+-\Pi_-$ gives
 \begin{align}
  X&=a(\Pi_++\Pi_-)
- +\lVert\bA\rVert(\Pi_+-\Pi_-)\\
+ +w(\Pi_+-\Pi_-)\\
  &=\lambda_+\Pi_++\lambda_-\Pi_-.
 \end{align}
 The general rule therefore gives
@@ -715,31 +710,9 @@ includes
  X^n&=\tfrac12(\lambda_+^n+\lambda_-^n)
  +\tfrac12(\lambda_+^n-\lambda_-^n)\bu\cdot\bsig,\\
  X^{-1}&=\lambda_+^{-1}\Pi_++\lambda_-^{-1}\Pi_-,\\
- \sqrt X&=\pm\sqrt{\lambda_+}\Pi_+\pm\sqrt{\lambda_-}\Pi_-,\\
- \log X&=\log(\lambda_+)\Pi_++\log(\lambda_-)\Pi_-,\\
- \exp(\bA\cdot\bsig)
- &=\exp(\theta\bu\cdot\bsig)
- =\cosh\theta+\sinh\theta\,\bu\cdot\bsig,\\
- \exp(\ii\bA\cdot\bsig)
- &=\exp(\ii\theta\bu\cdot\bsig)
- =\cos\theta+\ii\sin\theta\,\bu\cdot\bsig,\\
- \exp(X)&=\exp(a)\exp(\bA\cdot\bsig)
- =\exp(a)\left(\cosh\theta
- +\sinh\theta\,\bu\cdot\bsig\right).
+ \sqrt X&=\pm\sqrt{\lambda_+}\Pi_+\pm\sqrt{\lambda_-}\Pi_-.
 \end{align}
-The real vector exponential has a direct kinematic interpretation.  Define
-\begin{gather}
- \gamma:=\cosh\theta\\
- \bv:=\tanh\theta\,\bu.
-\end{gather}
-Then $\gamma=(1-\bv^2)^{-1/2}$ and
-\begin{equation}
- \exp(\bA\cdot\bsig)
- =\gamma(1+\bv\cdot\bsig).
-\end{equation}
-Thus the magnitude of the exponent is the rapidity, while its direction is
-the direction of motion.  This is the normalized future-directed
-paravector used below for four-velocity.
+The exponential and logarithm are developed below.
 The spectral inverse agrees with the adjugate--determinant formula developed
 earlier.  Indeed,
 \begin{gather}
@@ -754,41 +727,57 @@ and therefore, when $\lambda_+\lambda_-\ne0$,
 \end{equation}
 The formulas extend continuously to $\bA=0$.
 
-For direct component formulas, if $X^2=Y$, then
+\subsubsection{Direct square-root components}
+Let $Y=b+\bB\cdot\bsig$, where $b\in\R$ and $\bB\in\R^3$.  If $X^2=Y$,
+then
 \begin{gather}
  a^2=\tfrac12\left(b\pm\sqrt{b^2-\bB^2}\right)\\
  \bA^2=b-a^2,
 \end{gather}
-with signs and vector direction chosen consistently.  Conversely, where
-$b^2>\bB^2$, $b>0$, and $\bB\ne0$,
-\begin{equation}
- \log Y=\tfrac12\log(b^2-\bB^2)
- +\tanh^{-1}\!\left(\frac{\lVert\bB\rVert}{b}\right)
- \frac{\bB}{\lVert\bB\rVert}\cdot\bsig.
-\end{equation}
+with signs and vector direction chosen consistently.
 
-\paragraph{Complex paravectors.}
-For $Z=S+\bV\cdot\bsig$, with $S\in\C$ and $\bV\in\C^3$, let
-$z:=\sqrt{\bV^2}\in\C$ and define
+\subsubsection{Complex spectral form}
+For $Z=S+\bV\cdot\bsig$, with $S\in\C$, $\bV\in\C^3$, and
+$\bV^2\ne0$, define
 \begin{equation}
- \lambda_\pm:=S\pm z.
+ w:=+\sqrt{\bV^2}.
 \end{equation}
-When $z\ne0$, define
+Here the square root is the principal scalar square root, so
+$w^2=\bV^2=\bV\cdot\bV$.  Define
 \begin{equation}
- \Pi_\pm:=\tfrac12\left(1\pm\frac{\bV\cdot\bsig}{z}\right).
+ \bu:=\frac{\bV}{w}.
 \end{equation}
-Because $(\bV\cdot\bsig)^2=\bV^2=z^2$,
+This normalization uses the complex bilinear dot product:
+\begin{equation}
+ \bu\cdot\bu=\frac{\bV\cdot\bV}{w^2}=1.
+\end{equation}
+It does not generally normalize the Hermitian norm, since
+\begin{equation}
+ \lVert\bu\rVert^2
+ =\bu^*\cdot\bu
+ =\frac{\lVert\bV\rVert^2}{\lVert w\rVert^2}.
+\end{equation}
+This quantity need not equal $1$.  Thus $\bu$ is a complex bilinear unit
+direction, not generally a unit vector in the norm defined above.  Define
+\begin{equation}
+ \lambda_\pm:=S\pm w.
+\end{equation}
+Define
+\begin{equation}
+ \Pi_\pm:=\tfrac12(1\pm\bu\cdot\bsig).
+\end{equation}
+Because $(\bu\cdot\bsig)^2=\bu\cdot\bu=1$,
 \begin{align}
  \Pi_\pm^2
- &=\tfrac14\left(1\pm2\frac{\bV\cdot\bsig}{z}
- +\frac{(\bV\cdot\bsig)^2}{z^2}\right)=\Pi_\pm,\\
+ &=\tfrac14\left(1\pm2\bu\cdot\bsig
+ +(\bu\cdot\bsig)^2\right)=\Pi_\pm,\\
  \Pi_+\Pi_-
- &=\tfrac14\left(1-\frac{(\bV\cdot\bsig)^2}{z^2}\right)=0.
+ &=\tfrac14\left(1-(\bu\cdot\bsig)^2\right)=0.
 \end{align}
 Also, $1=\Pi_++\Pi_-$ and
-$\bV\cdot\bsig=z(\Pi_+-\Pi_-)$, so
+$\bu\cdot\bsig=\Pi_+-\Pi_-$, so
 \begin{align}
- Z&=S(\Pi_++\Pi_-)+z(\Pi_+-\Pi_-)\\
+ Z&=S(\Pi_++\Pi_-)+w(\Pi_+-\Pi_-)\\
  &=\lambda_+\Pi_++\lambda_-\Pi_-.
 \end{align}
 The general rule gives
@@ -807,81 +796,310 @@ Consequently, when $\lambda_+\lambda_-\ne0$,
  =\lambda_+^{-1}\Pi_++\lambda_-^{-1}\Pi_-
  =Z^{-1}.
 \end{equation}
-Choosing square-root branches gives
-\begin{align}
+Let $\sqrt{\lambda_+}$ and $\sqrt{\lambda_-}$ denote the principal scalar
+roots.  The two signs below are chosen independently, giving the four square
+roots
+\begin{equation}
  \sqrt Z
- &=\sqrt{\lambda_+}\Pi_++\sqrt{\lambda_-}\Pi_-\\
- &=\tfrac12(\sqrt{\lambda_+}+\sqrt{\lambda_-})
- +\frac{\sqrt{\lambda_+}-\sqrt{\lambda_-}}{2z}\,
- \bV\cdot\bsig,
-\end{align}
-and, when $\lambda_\pm\ne0$, choosing logarithm branches gives
-\begin{align}
- \log Z
- &=\log(\lambda_+)\Pi_++\log(\lambda_-)\Pi_-\\
- &=\tfrac12(\log(\lambda_+)+\log(\lambda_-))
- +\frac{\log(\lambda_+)-\log(\lambda_-)}{2z}\,
- \bV\cdot\bsig.
-\end{align}
-\paragraph{Exponential of a general complex paravector.}
-Because the scalar $S$ commutes with $\bV\cdot\bsig$,
-\begin{equation}
- \exp(Z)=\exp(S)\exp(\bV\cdot\bsig).
-\end{equation}
-For every nonnegative integer $n$, the identity
-$(\bV\cdot\bsig)^2=z^2$ gives
-\begin{gather}
- (\bV\cdot\bsig)^{2n}=z^{2n}\\
- (\bV\cdot\bsig)^{2n+1}=z^{2n}\bV\cdot\bsig.
-\end{gather}
-Separating the defining power series into even and odd powers therefore gives
-\begin{align}
- \exp(\bV\cdot\bsig)
- &=\sum_{n=0}^{\infty}\frac{z^{2n}}{(2n)!}
- +\sum_{n=0}^{\infty}\frac{z^{2n}}{(2n+1)!}\,\bV\cdot\bsig\\
- &=\cosh z+\frac{\sinh z}{z}\,\bV\cdot\bsig.
-\end{align}
-Equivalently, the projector rule gives
-\begin{equation}
- \exp(Z)
- =\exp(\lambda_+)\Pi_++\exp(\lambda_-)\Pi_-
- =\exp(S)\left(\cosh z+\frac{\sinh z}{z}\,\bV\cdot\bsig\right).
+ =\pm\sqrt{\lambda_+}\Pi_+\pm\sqrt{\lambda_-}\Pi_-.
 \end{equation}
 
-For the fully general coefficients
+\subsubsection{Exponential of a general complex paravector}
+Let $Z=S+\bV\cdot\bsig$, with $w$ and $\bu=\bV/w$ as defined above.
+
+\subsubsection{Projection derivation}
+The projected function rule~\eqref{eq:complex-function-projectors}, with
+$\lambda_\pm=S\pm w$ and
+$\Pi_\pm=\tfrac12(1\pm\bu\cdot\bsig)$, gives
+\begin{equation}
+ \exp(Z)
+ =\frac{\exp(S+w)}{2}(1+\bu\cdot\bsig)
+ +\frac{\exp(S-w)}{2}(1-\bu\cdot\bsig).
+\end{equation}
+Factoring out $\exp(S)$ and collecting the scalar and vector parts gives
+\begin{equation}
+ \exp(Z)
+ =\exp(S)\left(
+ \frac{\exp(w)+\exp(-w)}{2}
+ +\frac{\exp(w)-\exp(-w)}{2}\,\bu\cdot\bsig
+ \right).
+\end{equation}
+
+\subsubsection{Direct series derivation}
+Because $S$ commutes with $\bV\cdot\bsig$,
+\begin{equation}
+ \exp(Z)=\exp(S)\sum_{n=0}^{\infty}
+ \frac{(w\bu\cdot\bsig)^n}{n!}.
+\end{equation}
+The identity $(\bu\cdot\bsig)^2=1$ gives, for every nonnegative
+integer $n$,
+\begin{gather}
+ (w\bu\cdot\bsig)^{2n}=w^{2n}\\
+ (w\bu\cdot\bsig)^{2n+1}=w^{2n+1}\bu\cdot\bsig.
+\end{gather}
+Separating the series into even and odd powers therefore gives
+\begin{equation}
+ \exp(Z)=\exp(S)\left(
+ \sum_{n=0}^{\infty}\frac{w^{2n}}{(2n)!}
+ +\left(\sum_{n=0}^{\infty}\frac{w^{2n+1}}{(2n+1)!}\right)
+ \bu\cdot\bsig
+ \right).
+\end{equation}
+The scalar definitions of $\cosh w$ and $\sinh w$ reduce both derivations to
+the same general result:
+\begin{equation}
+ \exp(Z)
+ =\exp(S)(\cosh w+\sinh w\,\bu\cdot\bsig).
+\end{equation}
+This result does not depend on which root is chosen.  Explicitly,
+\begin{gather}
+ \cosh(-w)=\cosh w\\
+ \sinh(-w)(-\bu)=\sinh w\,\bu.
+\end{gather}
+Replacing the principal root $w$ by the other algebraic root $-w$ also
+changes $\bu=\bV/w$ to $-\bu$.  Thus both terms in the general result are
+unchanged.
+
+\subsubsection{Component form and real/imaginary limits}
+For
 \begin{equation}
  Z=(a+b\ii)+(\bA+\bB\ii)\cdot\bsig,
 \end{equation}
-the complex vector magnitude is fixed by
+the principal root is
 \begin{equation}
- z^2=\bV^2
- =\bA^2-\bB^2+2\ii\bA\cdot\bB.
+ w=+\sqrt{\bA^2-\bB^2+2\ii\bA\cdot\bB}.
 \end{equation}
-Thus, after choosing either square-root branch,
+The corresponding complex bilinear unit direction is
+\begin{equation}
+ \bu=\frac{\bA+\bB\ii}{w}.
+\end{equation}
+The fully expanded formula is
+\begin{equation}
+ \exp(Z)
+ =\exp(a)(\cos b+\ii\sin b)
+ \left(\cosh w+\frac{\sinh w}{w}
+ (\bA+\bB\ii)\cdot\bsig\right).
+\end{equation}
+
+For a real vector, choose $w=\lVert\bA\rVert$.  Then
+\begin{equation}
+ \exp(\bA\cdot\bsig)
+ =\cosh\lVert\bA\rVert
+ +\sinh\lVert\bA\rVert
+ \frac{\bA}{\lVert\bA\rVert}\cdot\bsig.
+\end{equation}
+Because the real scalar $a$ commutes with the vector part, the strictly real
+paravector $X=a+\bA\cdot\bsig$ satisfies
+\begin{equation}
+ \exp(X)=\exp(a)\left(
+ \cosh\lVert\bA\rVert
+ +\sinh\lVert\bA\rVert
+ \frac{\bA}{\lVert\bA\rVert}\cdot\bsig\right).
+\end{equation}
+
+For an imaginary vector, choose $w=\ii\lVert\bB\rVert$.  Then
+\begin{equation}
+ \exp(\ii\bB\cdot\bsig)
+ =\cos\lVert\bB\rVert
+ +\ii\sin\lVert\bB\rVert
+ \frac{\bB}{\lVert\bB\rVert}\cdot\bsig.
+\end{equation}
+Because the imaginary scalar $\ii b$ also commutes with the vector part, the
+strictly imaginary paravector $Z=\ii(b+\bB\cdot\bsig)$ satisfies
+\begin{equation}
+ \exp(Z)=(\cos b+\ii\sin b)\left(
+ \cos\lVert\bB\rVert
+ +\ii\sin\lVert\bB\rVert
+ \frac{\bB}{\lVert\bB\rVert}\cdot\bsig\right).
+\end{equation}
+Each quotient in these formulas is understood by its analytic limit at a
+zero vector.
+
+\subsubsection{Kinematic form}
+The real-vector exponential has a direct kinematic interpretation.
+Define
+\begin{gather}
+ \gamma:=\cosh\lVert\bA\rVert\\
+ \bv:=\tanh\lVert\bA\rVert
+ \frac{\bA}{\lVert\bA\rVert}.
+\end{gather}
+Then $\gamma=(1-\bv^2)^{-1/2}$ and
+\begin{equation}
+ \exp(\bA\cdot\bsig)=\gamma(1+\bv\cdot\bsig).
+\end{equation}
+Thus $\lVert\bA\rVert$ is the rapidity and $\bA/\lVert\bA\rVert$ is the
+direction of motion.  This is the normalized future-directed paravector
+used below for four-velocity.
+
+\subsubsection{Cayley transform}
+For the real paravector $Y=b+\bB\cdot\bsig$, assume
+$0<\lVert\bB\rVert<b$ and put
+\begin{equation}
+ \bu:=\frac{\bB}{\lVert\bB\rVert}.
+\end{equation}
+Because $Y$ is real,
+\begin{equation}
+ Y^*=\adj Y=b-\bB\cdot\bsig.
+\end{equation}
+Its determinant is
+\begin{equation}
+ \det(Y)=Y\adj Y=b^2-\lVert\bB\rVert^2.
+\end{equation}
+The assumed range makes $\adj Y$ invertible.  Its vector part is collinear
+with that of $Y$, so the unambiguous quotient notation introduced above
+applies.  Multiplication by $Y/Y$ gives
+\begin{equation}
+ \frac{Y}{\adj Y}
+ =\frac{Y}{\adj Y}\frac{Y}{Y}
+ =\frac{Y^2}{\det(Y)}.
+\end{equation}
+The numerator on the right expands as
+\begin{equation}
+ Y^2
+ =(b+\bB\cdot\bsig)^2
+ =b^2+\lVert\bB\rVert^2+2b\bB\cdot\bsig.
+\end{equation}
+Dividing this expression by $\det(Y)$ therefore gives
+\begin{equation}
+ \frac{b+\bB\cdot\bsig}{b-\bB\cdot\bsig}
+ =\frac{b^2+\lVert\bB\rVert^2}{b^2-\lVert\bB\rVert^2}
+ +\frac{2b\lVert\bB\rVert}{b^2-\lVert\bB\rVert^2}
+ \bu\cdot\bsig.
+\end{equation}
+Define
+\begin{equation}
+ \theta:=2\tanh^{-1}\!\left(\frac{\lVert\bB\rVert}{b}\right).
+\end{equation}
+The double-angle identities give
+\begin{gather}
+ \cosh\theta=\frac{b^2+\lVert\bB\rVert^2}
+ {b^2-\lVert\bB\rVert^2}\\
+ \sinh\theta=\frac{2b\lVert\bB\rVert}
+ {b^2-\lVert\bB\rVert^2}.
+\end{gather}
+Therefore
 \begin{equation}
  \begin{aligned}
- \exp(Z)
- ={}&\exp(a)(\cos b+\ii\sin b)\\
- &{}\times\left[
- \cosh\!\sqrt{\bA^2-\bB^2+2\ii\bA\cdot\bB}\right.\\
- &\left.\qquad
- +\frac{\sinh\!\sqrt{\bA^2-\bB^2+2\ii\bA\cdot\bB}}
- {\sqrt{\bA^2-\bB^2+2\ii\bA\cdot\bB}}\,
- (\bA+\bB\ii)\cdot\bsig
- \right].
+ \frac{b+\bB\cdot\bsig}{b-\bB\cdot\bsig}
+ &=\cosh\theta+\sinh\theta\,\bu\cdot\bsig\\
+ &=\exp(\theta\,\bu\cdot\bsig)\\
+ &=\exp(\theta)\Pi_++\exp(-\theta)\Pi_-.
  \end{aligned}
 \end{equation}
-Changing the square-root branch changes both $z$ and $\sinh(z)$ in sign, so
-the result is branch independent.  If $z=0$, including the case of a
-nonzero complex-null vector $\bV$, the analytic limit is
+Comparing this result with the kinematic form above identifies its
+boost-generator vector:
+\begin{gather}
+ \bA=\theta\bu\\
+ \theta=\lVert\bA\rVert.
+\end{gather}
+The definition of $\theta$ then gives the map from the boost-generator
+vector $\bA$ to the Cayley vector $\bB$:
+\begin{equation}
+ \bB=b\tanh\!\left(\frac{\lVert\bA\rVert}{2}\right)
+ \frac{\bA}{\lVert\bA\rVert}.
+\end{equation}
+Thus $\bA$ is the rapidity vector, whereas $\bB/b$ is the Cayley parameter;
+its magnitude is the hyperbolic tangent of half the rapidity.  The choice
+$b=1$ recovers the normalized Cayley form, and the case $\bB=0$ follows by
+continuity.
+
+Finally, the double-angle identities express the kinematic quantities
+directly in terms of the Cayley variables:
+\begin{gather}
+ \gamma=\frac{b^2+\lVert\bB\rVert^2}
+ {b^2-\lVert\bB\rVert^2}\\
+ \bv=\frac{2b\bB}{b^2+\lVert\bB\rVert^2}.
+\end{gather}
+Substitution makes the three equivalent forms explicit:
+\begin{equation}
+ \exp(\bA\cdot\bsig)
+ =\gamma(1+\bv\cdot\bsig)
+ =\frac{b+\bB\cdot\bsig}{b-\bB\cdot\bsig}.
+\end{equation}
+
+\subsubsection{Aligned boost and rotation}
+When $\bu$ is real, write $w$ in terms of real $\phi$ and $\theta$ as
+\begin{equation}
+ w:=\phi+\ii\theta.
+\end{equation}
+The parallel real and imaginary generators commute, so
+\begin{equation}
+ \exp(w\bu\cdot\bsig)
+ =\exp(\phi\bu\cdot\bsig)\exp(\ii\theta\bu\cdot\bsig).
+\end{equation}
+The factors are
+\begin{gather}
+ \exp(\phi\bu\cdot\bsig)
+ =\cosh\phi+\sinh\phi\,\bu\cdot\bsig\\
+ \exp(\ii\theta\bu\cdot\bsig)
+ =\cos\theta+\ii\sin\theta\,\bu\cdot\bsig.
+\end{gather}
+Thus $\phi$ is boost-like and $\theta$ is rotation-like.  Their product is
+\begin{equation}
+ \exp(w\bu\cdot\bsig)
+ =(\cosh\phi\cos\theta+\ii\sinh\phi\sin\theta)
+ +(\sinh\phi\cos\theta+\ii\cosh\phi\sin\theta)
+ \bu\cdot\bsig.
+\end{equation}
+With the conventional factor $1/2$ in the transformation generator,
+$2\phi$ is the rapidity and $2\theta$ is the rotation angle.  For complex
+$\bu$, the real and imaginary generator vectors need not be parallel, so
+this interpretation does not generally apply.
+
+If $\bV^2=0$, then $(\bV\cdot\bsig)^2=0$, even when $\bV$ is a nonzero
+complex-null vector, and the exponential terminates:
 \begin{equation}
  \exp(Z)=\exp(S)(1+\bV\cdot\bsig).
 \end{equation}
-Finally, the power series respects both conjugation operations:
+Finally, the defining power series respects both conjugation operations:
 \begin{gather}
  \exp(Z^*)=\exp(Z)^*\\
  \exp(Z^{\mathsf H})=\exp(Z)^{\mathsf H}.
 \end{gather}
+
+\subsubsection{Logarithm of a general complex paravector}
+For a nonzero complex scalar $\lambda$, each scalar logarithm has the form
+\begin{equation}
+ \log\lambda=\log\lVert\lambda\rVert+\ii(\arg\lambda+2n\pi),
+ \qquad n\in\mathbb Z.
+\end{equation}
+For the complex paravector and spectral quantities defined above, assume
+both eigenvalues are nonzero and choose one scalar logarithm of each.  The
+projected function rule gives
+\begin{equation}
+ \log Z=\log(\lambda_+)\Pi_++\log(\lambda_-)\Pi_-.
+\end{equation}
+Substitution of the projectors and collection of the scalar and vector parts
+gives
+\begin{equation}
+ \log Z
+ =\tfrac12\left(\log(\lambda_+)+\log(\lambda_-)\right)
+ +\tfrac12\left(\log(\lambda_+)-\log(\lambda_-)\right)
+ \bu\cdot\bsig.
+\end{equation}
+Changing $w$ to $-w$ changes $\bu$ to $-\bu$ and interchanges
+$\lambda_+$ with $\lambda_-$ and $\Pi_+$ with $\Pi_-$, leaving this result
+unchanged.  Independent branch
+choices for the two scalar logarithms give the different logarithms of $Z$.
+
+\subsubsection{Special cases}
+For a real unit vector $\bu$, the paravector
+$\bu\cdot\bsig$ has eigenvalues $1$ and $-1$.  Hence all projected branches
+are
+\begin{equation}
+ \log(\bu\cdot\bsig)
+ =2n\pi\ii\Pi_++(2m+1)\pi\ii\Pi_-,
+ \qquad n,m\in\mathbb Z.
+\end{equation}
+For the positive real paravector $Y=b+\bB\cdot\bsig$, with
+$b>\lVert\bB\rVert$, the real logarithm is
+\begin{equation}
+ \log Y=\tfrac12\log(b^2-\bB^2)
+ +\tanh^{-1}\!\left(\frac{\lVert\bB\rVert}{b}\right)
+ \frac{\bB}{\lVert\bB\rVert}\cdot\bsig.
+\end{equation}
+The vector quotient is understood by its limit when $\bB=0$.
+
 The square-root and logarithm formulas above are likewise understood by
 analytic continuation wherever their chosen branches are regular.
 
@@ -927,7 +1145,9 @@ vector:
 Here $U$ is a transformation; Section~\ref{sec:kinematics} later reuses the
 symbol for four-velocity.
 
-\paragraph{Trace invariance.}
+\subsection{Similarity invariants}
+
+\subsubsection{Trace invariance}
 For invertible $T$, consider either similarity:
 \begin{gather}
  Z'=T^{-1}ZT,\\
@@ -946,7 +1166,7 @@ same similarities are
  Z'=UZU^{\mathsf H}.
 \end{gather}
 
-\paragraph{Determinant invariance.}
+\subsubsection{Determinant invariance}
 For the general two-sided transformation $Z'=T'ZT$,
 \begin{equation}
  \det(Z')=\det(T')\det(T)\det(Z).
@@ -970,7 +1190,7 @@ For unitary $U$,
 \end{equation}
 so both unitary sandwiches preserve the determinant.
 
-\paragraph{Norm invariance.}
+\subsubsection{Norm invariance}
 Norm invariance requires the unitary condition
 \eqref{eq:unitary-transform}.  For example, if $Z'=U^{\mathsf H}ZU$, then
 \begin{align}
@@ -1992,18 +2212,18 @@ The probabilities for spin along and against $\bu$ are
 Their conventional column-spinor and density-matrix forms are derived in
 Appendix~\ref{sec:matrix-spinors}.
 
-For a state aligned with $\bu$ and $\bu\cdot\bu'=\cos\theta$, the measurement
+For a state aligned with $\bu$ and $\bu\cdot\bu'=\cos\alpha$, the measurement
 probabilities along $\bu'$ are
 \begin{gather}
- p_+(\bu')=\tfrac12(1+\bu\cdot\bu')=\cos^2(\theta/2)\\
- p_-(\bu')=\tfrac12(1-\bu\cdot\bu')=\sin^2(\theta/2).
+ p_+(\bu')=\tfrac12(1+\bu\cdot\bu')=\cos^2(\alpha/2)\\
+ p_-(\bu')=\tfrac12(1-\bu\cdot\bu')=\sin^2(\alpha/2).
 \end{gather}
-If $\bu'$ is obtained by rotating $\bu$ through $\phi$ about $\bn$, then
+If $\bu'$ is obtained by rotating $\bu$ through $\theta$ about $\bn$, then
 \begin{equation}
  \bu\cdot\bu'=(\bn\cdot\bu)^2
- +\left(1-(\bn\cdot\bu)^2\right)\cos\phi.
+ +\left(1-(\bn\cdot\bu)^2\right)\cos\theta.
 \end{equation}
-Thus $\theta=\phi$ when $\bn\cdot\bu=0$.
+Thus $\alpha=\theta$ when $\bn\cdot\bu=0$.
 
 For fluctuations $\dd\bu$ and $\dd\bu'$, the squared determinant identity is
 \begin{equation}
@@ -2058,20 +2278,21 @@ $T$ with a negative exponential.
 
 \subsection{Rotors}
 
-A rotation through angle $\phi$ about unit axis $\bu$ is generated by
+A rotation through angle $\theta$ about unit axis $\bu$ is generated by
 \begin{gather}
- R:=\exp\!\left(\ii\frac\phi2\,\bu\cdot\bsig\right)
-  =\cos\frac\phi2+\bu\cdot\ii\bsig\,\sin\frac\phi2\\
+ R:=\exp\!\left(\ii\frac\theta2\,\bu\cdot\bsig\right)
+  =\cos\frac\theta2+\bu\cdot\ii\bsig\,\sin\frac\theta2\\
  R^{-1}=\rev R
- =\cos\frac\phi2-\bu\cdot\ii\bsig\,\sin\frac\phi2.
+ =\cos\frac\theta2-\bu\cdot\ii\bsig\,\sin\frac\theta2.
 \end{gather}
 The sandwich action $X'=\rev R X R$ fixes the scalar component and rotates
 the spatial vector according to Rodrigues' formula,
 \begin{equation}
- \br'=\br\cos\phi+(\bu\times\br)\sin\phi
-       +(\bu\cdot\br)(1-\cos\phi)\bu.
+ \br'=\br\cos\theta+(\bu\times\br)\sin\theta
+       +(\bu\cdot\br)(1-\cos\theta)\bu.
 \end{equation}
-The half-angle explains the spinorial sign change $R(\phi+2\pi)=-R(\phi)$.
+The half-angle explains the spinorial sign change
+$R(\theta+2\pi)=-R(\theta)$.
 The corresponding column-spinor and density-matrix transformations are
 collected in Appendix~\ref{sec:matrix-spinors}.
 For a spinor $\psi_R:=R\psi$, expectation values transform as
@@ -2139,19 +2360,6 @@ Since $L$ is constant and $LL^{-1}=1$, the field equation is covariant:
 \begin{equation}
  \partial'F'=L^{-1}(\partial F)L=L^{-1}D^*L=D'^*.
 \end{equation}
-
-Collinear boosts add rapidities and therefore obey
-\begin{gather}
- \beta' =\frac{\beta_1+\beta_2}{1+\beta_1\beta_2}\\
- \gamma'=\gamma_1\gamma_2(1+\beta_1\beta_2).
-\end{gather}
-Inversion changes product order:
-\begin{gather}
- (LR)^{-1}=R^{\mathsf H}L^*\\
- (RL)^{-1}=L^* R^{\mathsf H}\\
- (R_1R_2)^{-1}=R_2^{\mathsf H}R_1^{\mathsf H}\\
- (L_1L_2)^{-1}=L_2^* L_1^*.
-\end{gather}
 
 \section{Generalized spacetime and metric form}
 \label{sec:generalized}
@@ -2342,7 +2550,7 @@ probability~\eqref{eq:spin-probability}.
 
 \paragraph{\hyperref[sec:transformations]{Rotations and boosts}.}
 \begin{align*}
- R&=\exp(\ii\phi\bu\cdot\bsig/2),\\
+ R&=\exp(\ii\theta\bu\cdot\bsig/2),\\
  R^{\mathsf H}&=R^{-1},\\
  Z'&=R^{\mathsf H}ZR,\\
  L&=\exp(\theta\bu\cdot\bsig/2),\\
@@ -2352,8 +2560,8 @@ probability~\eqref{eq:spin-probability}.
  &=\frac{\scpart{\psi^{\mathsf H}T^{\mathsf H}ZT\psi}}
  {\scpart{\psi^{\mathsf H}T^{\mathsf H}T\psi}}.
 \end{align*}
-See the bilinear rule~\eqref{eq:bilinear-congruence}; varying-frame
-derivatives are developed in Section~\ref{sec:varying-transformations}.
+See the bilinear rule~\eqref{eq:bilinear-congruence} and varying-frame
+derivatives in Section~\ref{sec:varying-transformations}.
 
 \paragraph{\hyperref[sec:matrix]{Matrix representation in Appendix A}.}
 \begin{align*}
@@ -2551,7 +2759,7 @@ Thus the induced algebra operations satisfy
  \label{eq:algebra-operator-laws}
 \end{align}
 
-\paragraph{Trace, determinant, and adjugate.}
+\subsubsection{Trace, determinant, and adjugate}
 For $\bM=\operatorname{mat}(Z)$, define the matrix trace and determinant by
 \begin{gather}
  \operatorname{tr}(\bM):=m_{11}+m_{22}\\
