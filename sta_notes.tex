@@ -1370,23 +1370,18 @@ Differentiating $\gamma=(1-\bv^2)^{-1/2}$ gives
  &=\gamma^3\bv\cdot\ba.
  \end{aligned}
 \end{equation}
-The second proper-time derivative derived above therefore becomes
+Hence the second proper-time derivative is
 \begin{equation}
  \frac{\dd^2}{\dd s^2}
  =\gamma^2\frac{\dd^2}{\dd t^2}
  +\gamma^4(\bv\cdot\ba)\frac{\dd}{\dd t}.
 \end{equation}
-
-The proper-acceleration paravector is
-\begin{equation}
- \frac{\dd U}{\dd s}=\frac{\dd^2X}{\dd s^2}.
-\end{equation}
-Using $U=\gamma(1+\bv\cdot\bsig)$ and
-$\dd/\dd s=\gamma\dd/\dd t$ gives the full component derivation
+Using $U=\gamma(1+\bv\cdot\bsig)$ gives the proper-acceleration paravector
 \begin{equation}
  \begin{aligned}
  \frac{\dd U}{\dd s}
- &=\gamma\frac{\dd}{\dd t}
+ &=\frac{\dd^2X}{\dd s^2}
+ =\gamma\frac{\dd}{\dd t}
    \left(\gamma(1+\bv\cdot\bsig)\right)\\
  &=\gamma\frac{\dd\gamma}{\dd t}(1+\bv\cdot\bsig)
    +\gamma^2\ba\cdot\bsig\\
@@ -1395,42 +1390,50 @@ $\dd/\dd s=\gamma\dd/\dd t$ gives the full component derivation
  \end{aligned}
 \end{equation}
 
-The unit condition $U^*U=1$ fixes the geometric relation between velocity
-and acceleration.  Differentiation commutes with sigma conjugation, so
+Differentiate the normalization $U^*U=1$:
 \begin{equation}
  0=\frac{\dd(U^*U)}{\dd s}
  =\left(\frac{\dd U}{\dd s}\right)^*U
  +U^*\frac{\dd U}{\dd s}.
 \end{equation}
-The scalar part is cyclic, and therefore
-\begin{equation}
- 0=\scpart{(\dd U/\dd s)^*U}
- +\scpart{U^*\dd U/\dd s}
- =2\scpart{U^*\dd U/\dd s}.
-\end{equation}
-Hence
+Sigma conjugation leaves the scalar part unchanged, and the scalar part is
+cyclic, so the two scalar terms are equal.  Therefore
 \begin{equation}
  \scpart{U^*\dd U/\dd s}=0.
 \end{equation}
 This is the paravector statement that four-velocity and four-acceleration are
-Minkowski-orthogonal.
-
-The determinant determines the invariant squared magnitude of the proper
-acceleration.  Substitution of its scalar and vector parts gives
+Minkowski-orthogonal.  Since $U^{-1}=U^*$, right multiplication of the
+differentiated normalization by $U^*$ gives
+\begin{equation}
+ \adj{\frac{\dd U}{\dd s}}
+ =\left(\frac{\dd U}{\dd s}\right)^*
+ =-U^*\frac{\dd U}{\dd s}U^*.
+\end{equation}
+Here adjugation equals sigma conjugation because $\dd U/\dd s$ is a real
+paravector.  Direct multiplication gives the scalar-free form
+\begin{equation}
+ U^*\frac{\dd U}{\dd s}
+ =\gamma^3\left(\ba-\ii\bv\times\ba\right)\cdot\bsig.
+ \label{eq:proper-acceleration-product}
+\end{equation}
+Its real vector contains the coordinate acceleration, while its imaginary
+vector records the turning of the velocity direction.  Since
+$\ba\cdot(\bv\times\ba)=0$, its square is scalar.  The adjugate identity
+therefore yields the determinant without a separate component expansion:
 \begin{equation}
  \begin{aligned}
  \det\left(\frac{\dd U}{\dd s}\right)
- &=(\gamma^4\bv\cdot\ba)^2
- -\left(\gamma^4(\bv\cdot\ba)\bv+\gamma^2\ba\right)^2\\
- &=\gamma^8(\bv\cdot\ba)^2
- -\gamma^8(\bv\cdot\ba)^2\bv^2
- -2\gamma^6(\bv\cdot\ba)^2-\gamma^4\ba^2\\
- &=-\gamma^4\left(\ba^2+\gamma^2(\bv\cdot\ba)^2\right),
-\end{aligned}
+ &=\adj{\frac{\dd U}{\dd s}}\frac{\dd U}{\dd s}\\
+ &=-\left(U^*\frac{\dd U}{\dd s}\right)^2\\
+ &=-\gamma^6\left(\ba^2-(\bv\times\ba)^2\right)\\
+ &=-\gamma^4\left(\ba^2+\gamma^2(\bv\cdot\ba)^2\right).
+ \end{aligned}
+ \label{eq:proper-acceleration-determinant}
 \end{equation}
-where $1-\bv^2=\gamma^{-2}$ was used in the last step.  Thus the
-proper-acceleration paravector is space-like unless the acceleration
-vanishes, and $-\det(\dd U/\dd s)$ is the squared proper acceleration.
+The last step uses
+$(\bv\times\ba)^2=\bv^2\ba^2-(\bv\cdot\ba)^2$ and
+$1-\bv^2=\gamma^{-2}$.  Thus the proper acceleration is space-like unless it
+vanishes, and $-\det(\dd U/\dd s)$ is its invariant squared magnitude.
 
 For $\bv\ne0$, resolve the coordinate acceleration parallel and perpendicular
 to the velocity by
@@ -1439,28 +1442,14 @@ to the velocity by
  \ba_{\parallel}:=(\ba\cdot\bu)\bu\\
  \ba_{\perp}:=\ba-\ba_{\parallel}.
 \end{gather}
-Then
-\begin{gather}
- (\bv\cdot\ba)^2=\bv^2\ba_{\parallel}^2\\
- 1+\gamma^2\bv^2=\gamma^2,
-\end{gather}
-so
+Since $(\bv\cdot\ba)^2=\bv^2\ba_{\parallel}^2$ and
+$1+\gamma^2\bv^2=\gamma^2$,
 \begin{equation}
  \det\left(\frac{\dd U}{\dd s}\right)=-\gamma^4
  \left(\ba_{\perp}^2+\gamma^2\ba_{\parallel}^2\right).
 \end{equation}
 At $\bv=0$, this reduces continuously to
 $\det(\dd U/\dd s)=-\ba^2$.
-
-Finally, direct multiplication by $U^*$ gives
-\begin{equation}
- U^*\frac{\dd U}{\dd s}
- =\gamma^3\ba\cdot\bsig
- -\ii\gamma^3(\bv\times\ba)\cdot\bsig.
-\end{equation}
-Its vanishing scalar part is the orthogonality derived above; its real vector
-contains the coordinate acceleration, while its imaginary vector records the
-turning of the velocity direction.
 
 \subsection{Varying transformations and second differentials}
 \label{sec:varying-transformations}
@@ -1810,6 +1799,64 @@ To see equation~\eqref{eq:lorentz} componentwise, expand
  +\ii(\bBf+\bE\times\bv)\cdot\bsig.
 \end{equation}
 Taking the real paravector part removes the two imaginary components.
+
+\subsection{Proper acceleration from the Lorentz force}
+\label{sec:lorentz-proper-acceleration}
+
+The Lorentz force is automatically compatible with the orthogonality of
+four-velocity and four-acceleration.  Since $U^*U=1$, cyclicity of the scalar
+part and $\scpart F=\scpart{F^{\mathsf H}}=0$ give
+\begin{equation}
+ \scpart{U^*\repart{FU}}
+ =\tfrac12\scpart{U^*FU+U^*UF^{\mathsf H}}
+ =\tfrac12\left(\scpart F+\scpart{F^{\mathsf H}}\right)
+ =0.
+\end{equation}
+Equation~\eqref{eq:lorentz} therefore implies
+\begin{equation}
+ \scpart{U^*\dd U/\dd s}=0,
+\end{equation}
+in agreement with the proper-acceleration development above.
+
+The coordinate acceleration follows from the scalar and vector components of
+the same equation.  Using
+$\dd\gamma/\dd t=\gamma^3\bv\cdot\ba$ in the energy equation gives
+\begin{equation}
+ m\gamma^3\bv\cdot\ba=q\bv\cdot\bE.
+\end{equation}
+Differentiating $\bP=m\gamma\bv$ in the momentum equation gives
+\begin{equation}
+ m\gamma\left(\ba+\gamma^2(\bv\cdot\ba)\bv\right)
+ =q(\bE+\bv\times\bBf).
+\end{equation}
+Eliminating $\bv\cdot\ba$ between these two equations yields
+\begin{equation}
+ \ba=\frac{q}{m\gamma}
+ \left(\bE+\bv\times\bBf-(\bv\cdot\bE)\bv\right).
+ \label{eq:lorentz-coordinate-acceleration}
+\end{equation}
+The magnetic term is perpendicular to $\bv$ and therefore changes momentum
+without contributing to the coordinate-time power
+$\dd(m\gamma)/\dd t=q\bv\cdot\bE$.
+
+Finally, substitute this acceleration into
+equation~\eqref{eq:proper-acceleration-determinant}.  Since
+\begin{equation}
+ \bv\cdot\ba=\frac{q}{m\gamma^3}\bv\cdot\bE,
+\end{equation}
+the invariant proper-acceleration magnitude becomes
+\begin{equation}
+ -\det\left(\frac{\dd U}{\dd s}\right)
+ =\frac{q^2}{m^2}\gamma^2
+ \left((\bE+\bv\times\bBf)^2-(\bv\cdot\bE)^2\right).
+ \label{eq:lorentz-proper-acceleration}
+\end{equation}
+The quantity on the right is the squared electric-field magnitude in the
+particle's instantaneous rest frame, multiplied by $q^2/m^2$.  Thus the
+Lorentz-force equation supplies exactly the space-like proper acceleration
+required by $U^*U=1$: the electric field accelerates the particle in its rest
+frame, while the magnetic field enters through the frame-dependent split into
+electric and magnetic components.
 
 \subsection{Energy balance}
 
@@ -2598,10 +2645,14 @@ and ladder operators in Section~\ref{sec:ladder-operators}.
  +(\bE\times\bBf)\cdot\bsig,\\
  m\frac{\dd U}{\dd s}&=q\repart{FU},\\
  \frac{\dd\bP}{\dd t}&=q(\bE+\bv\times\bBf)
-   &&\text{\eqref{eq:lorentz}}.
+   &&\text{\eqref{eq:lorentz}},\\
+ \ba&=\frac{q}{m\gamma}
+ \left(\bE+\bv\times\bBf-(\bv\cdot\bE)\bv\right)
+   &&\text{\eqref{eq:lorentz-coordinate-acceleration}}.
 \end{align*}
 See the field invariants~\eqref{eq:field-invariants} and Poynting
-balance~\eqref{eq:poynting}.
+balance~\eqref{eq:poynting}.  The connection to invariant proper acceleration
+is developed in Section~\ref{sec:lorentz-proper-acceleration}.
 
 \paragraph{\hyperref[sec:waves]{Wave equations, spin, and energy sectors}.}
 \begin{align*}
