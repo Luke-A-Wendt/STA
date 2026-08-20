@@ -1304,6 +1304,14 @@ therefore gives
  =\frac{\dd t}{\dd s}\frac{\dd}{\dd t}
  =\gamma\frac{\dd}{\dd t}.
 \end{equation}
+Applying this operator a second time gives
+\begin{equation}
+ \frac{\dd^2}{\dd s^2}
+ =\gamma\frac{\dd}{\dd t}
+  \left(\gamma\frac{\dd}{\dd t}\right)
+ =\gamma^2\frac{\dd^2}{\dd t^2}
+  +\gamma\frac{\dd\gamma}{\dd t}\frac{\dd}{\dd t}.
+\end{equation}
 In particular, the proper velocity is
 \begin{equation}
  U:=\frac{\dd X}{\dd s}=\gamma(1+\bv\cdot\bsig).
@@ -1343,36 +1351,116 @@ Taking its determinant gives the mass-shell relation
 \end{equation}
 or $E^2=\bP^2+m^2$; for $m=0$, $E^2=\bP^2$.
 
-For coordinate acceleration $\ba=\dd\bv/\dd t$,
+\subsubsection{Proper acceleration}
+
+The required worldline quantities are
+\begin{gather}
+ \bv:=\frac{\dd\br}{\dd t}\\
+ \ba:=\frac{\dd\bv}{\dd t}\\
+ \gamma:=\frac{\dd t}{\dd s}\\
+ U:=\frac{\dd X}{\dd s}.
+\end{gather}
+Differentiating $\gamma=(1-\bv^2)^{-1/2}$ gives
 \begin{equation}
- \frac{\dd\gamma}{\dd t}=\gamma^3\bv\cdot\ba,
+ \begin{aligned}
+ \frac{\dd\gamma}{\dd t}
+ &=-\tfrac12(1-\bv^2)^{-3/2}
+   \frac{\dd(1-\bv^2)}{\dd t}\\
+ &=-\tfrac12(1-\bv^2)^{-3/2}(-2\bv\cdot\ba)\\
+ &=\gamma^3\bv\cdot\ba.
+ \end{aligned}
 \end{equation}
+The second proper-time derivative derived above therefore becomes
+\begin{equation}
+ \frac{\dd^2}{\dd s^2}
+ =\gamma^2\frac{\dd^2}{\dd t^2}
+ +\gamma^4(\bv\cdot\ba)\frac{\dd}{\dd t}.
+\end{equation}
+
+The proper-acceleration paravector is
+\begin{equation}
+ \frac{\dd U}{\dd s}=\frac{\dd^2X}{\dd s^2}.
+\end{equation}
+Using $U=\gamma(1+\bv\cdot\bsig)$ and
+$\dd/\dd s=\gamma\dd/\dd t$ gives the full component derivation
+\begin{equation}
+ \begin{aligned}
+ \frac{\dd U}{\dd s}
+ &=\gamma\frac{\dd}{\dd t}
+   \left(\gamma(1+\bv\cdot\bsig)\right)\\
+ &=\gamma\frac{\dd\gamma}{\dd t}(1+\bv\cdot\bsig)
+   +\gamma^2\ba\cdot\bsig\\
+ &=\gamma^4(\bv\cdot\ba)
+   +\left(\gamma^4(\bv\cdot\ba)\bv+\gamma^2\ba\right)\cdot\bsig.
+ \end{aligned}
+\end{equation}
+
+The unit condition $U^*U=1$ fixes the geometric relation between velocity
+and acceleration.  Differentiation commutes with sigma conjugation, so
+\begin{equation}
+ 0=\frac{\dd(U^*U)}{\dd s}
+ =\left(\frac{\dd U}{\dd s}\right)^*U
+ +U^*\frac{\dd U}{\dd s}.
+\end{equation}
+The scalar part is cyclic, and therefore
+\begin{equation}
+ 0=\scpart{(\dd U/\dd s)^*U}
+ +\scpart{U^*\dd U/\dd s}
+ =2\scpart{U^*\dd U/\dd s}.
+\end{equation}
+Hence
+\begin{equation}
+ \scpart{U^*\dd U/\dd s}=0.
+\end{equation}
+This is the paravector statement that four-velocity and four-acceleration are
+Minkowski-orthogonal.
+
+The determinant determines the invariant squared magnitude of the proper
+acceleration.  Substitution of its scalar and vector parts gives
+\begin{equation}
+ \begin{aligned}
+ \det\left(\frac{\dd U}{\dd s}\right)
+ &=(\gamma^4\bv\cdot\ba)^2
+ -\left(\gamma^4(\bv\cdot\ba)\bv+\gamma^2\ba\right)^2\\
+ &=\gamma^8(\bv\cdot\ba)^2
+ -\gamma^8(\bv\cdot\ba)^2\bv^2
+ -2\gamma^6(\bv\cdot\ba)^2-\gamma^4\ba^2\\
+ &=-\gamma^4\left(\ba^2+\gamma^2(\bv\cdot\ba)^2\right),
+\end{aligned}
+\end{equation}
+where $1-\bv^2=\gamma^{-2}$ was used in the last step.  Thus the
+proper-acceleration paravector is space-like unless the acceleration
+vanishes, and $-\det(\dd U/\dd s)$ is the squared proper acceleration.
+
+For $\bv\ne0$, resolve the coordinate acceleration parallel and perpendicular
+to the velocity by
+\begin{gather}
+ \bu:=\frac{\bv}{\lVert\bv\rVert}\\
+ \ba_{\parallel}:=(\ba\cdot\bu)\bu\\
+ \ba_{\perp}:=\ba-\ba_{\parallel}.
+\end{gather}
+Then
+\begin{gather}
+ (\bv\cdot\ba)^2=\bv^2\ba_{\parallel}^2\\
+ 1+\gamma^2\bv^2=\gamma^2,
+\end{gather}
 so
 \begin{equation}
- \frac{\dd U}{\dd s}
- =\gamma^4(\bv\cdot\ba)
- +\left(\gamma^4(\bv\cdot\ba)\bv+\gamma^2\ba\right)\cdot\bsig,
+ \det\left(\frac{\dd U}{\dd s}\right)=-\gamma^4
+ \left(\ba_{\perp}^2+\gamma^2\ba_{\parallel}^2\right).
 \end{equation}
-Differentiating $U^*U=1$ gives
-\begin{gather}
- \frac{\dd U^*}{\dd s}U+U^*\frac{\dd U}{\dd s}=0\\
- \scpart{U^*\dd U/\dd s}=0.
-\end{gather}
-If $A=\dd U/\dd s$, then
+At $\bv=0$, this reduces continuously to
+$\det(\dd U/\dd s)=-\ba^2$.
+
+Finally, direct multiplication by $U^*$ gives
 \begin{equation}
- \Det A=-\gamma^4(\ba^2+\gamma^2(\bv\cdot\ba)^2).
+ U^*\frac{\dd U}{\dd s}
+ =\gamma^3\ba\cdot\bsig
+ -\ii\gamma^3(\bv\times\ba)\cdot\bsig.
 \end{equation}
-For $\bu=\bv/\lVert\bv\rVert$, define
-$\ba_{\parallel}=(\ba\cdot\bu)\bu$ and
-$\ba_{\perp}=\ba-\ba_{\parallel}$.  Then
-\begin{equation}
- \Det A=-\gamma^4(\ba_{\perp}^2+\gamma^2\ba_{\parallel}^2).
-\end{equation}
-The product $U^* A$ has zero scalar part, real vector
-$\gamma^3\ba$, and imaginary vector $-\gamma^3\bv\times\ba$; while $UA$
-has real scalar $2\gamma^5\bv\cdot\ba$, real vector
-$\gamma^3\ba+2\gamma^5(\bv\cdot\ba)\bv$, and imaginary vector
-$\gamma^3\bv\times\ba$.
+Its vanishing scalar part is the orthogonality derived above; its real vector
+contains the coordinate acceleration, while its imaginary vector records the
+turning of the velocity direction.
 
 \subsection{Varying transformations and second differentials}
 \label{sec:varying-transformations}
