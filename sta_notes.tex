@@ -62,7 +62,7 @@
 \newcommand{\rev}[1]{#1^{\mathsf H}}
 \newcommand{\sconj}[1]{#1^{*}}
 \newcommand{\sr}[1]{#1^{*\mathsf H}}
-\newcommand{\adj}[1]{\operatorname{adj}(#1)}
+\newcommand{\adj}[1]{\operatorname{adj}\!\left(#1\right)}
 \newcommand{\scpart}[1]{\operatorname{sc}(#1)}
 \newcommand{\vecpart}[1]{\operatorname{vec}(#1)}
 \newcommand{\repart}[1]{\operatorname{re}(#1)}
@@ -230,6 +230,10 @@ in the Pauli-matrix representation.
 \section{Paravectors}
 \label{sec:paravectors}
 
+Throughout this section, a general complex paravector is
+$Z=S+\bV\cdot\bsig=(a+b\ii)+(\bA+\bB\ii)\cdot\bsig$ unless a subsection
+states a real specialization.
+
 \subsection{Core operations}
 \label{sec:algebra-operations}
 
@@ -383,6 +387,7 @@ later reproduces them through the faithful Pauli-matrix representation.
 
 \subsection{Products and quadratic forms}
 
+Here $\bA,\bB\in\R^3$ are real coefficient vectors.
 From the ordered sigma multiplication rule,
 \begin{align}
  (\bA\cdot\bsig)(\bB\cdot\bsig)
@@ -425,6 +430,7 @@ Hence
 
 \subsection{Quadratic identity and eigenvalues}
 
+Recall $Z=S+\bV\cdot\bsig$, with $S\in\C$ and $\bV\in\C^3$.
 Since $Z-S=\bV\cdot\bsig$ and
 $(\bV\cdot\bsig)^2=\bV^2$,
 \begin{align}
@@ -477,7 +483,8 @@ $XY=YX$ and $X^{-1}Y=YX^{-1}$.
 
 \subsection{Complex products}
 
-For $Z=S+\bV\cdot\bsig$ and $Z'=S'+\bV'\cdot\bsig$,
+Let $Z=S+\bV\cdot\bsig$ and $Z'=S'+\bV'\cdot\bsig$, where
+$S,S'\in\C$ and $\bV,\bV'\in\C^3$.
 \begin{equation}
  ZZ'=(SS'+\bV\cdot\bV')+
  \bigl(S\bV'+S'\bV+\ii\bV\times\bV'\bigr)\cdot\bsig.
@@ -566,8 +573,9 @@ For any complex scalar $c$,
 \end{equation}
 
 \subsubsection{Comparison with the determinant}
-The norm is real and nonnegative, whereas $\det(Z)$ may be
-complex.  For $c=r e^{\ii\theta}$ with real $r$ and $\theta$, the
+Recall $Z=S+\bV\cdot\bsig$.  Its norm is real and nonnegative, whereas
+$\det(Z)$ may be complex.  For $c=r e^{\ii\theta}$ with real $r$ and
+$\theta$, the
 determinant retains the phase while the norm does not:
 \begin{align}
  \det(r e^{\ii\theta}Z)
@@ -652,6 +660,8 @@ The ladder operators map between the two projected sectors according to
 \subsection{Functions of paravectors}
 \label{sec:spectral}
 
+Here $Z$ denotes the paravector to which the following constructions apply.
+
 \subsubsection{General projector rule}
 Let $\lambda_+,\lambda_-\in\C$.  Suppose
 $\Pi_\pm^2=\Pi_\pm$, $\Pi_++\Pi_-=1$,
@@ -728,13 +738,50 @@ and therefore, when $\lambda_+\lambda_-\ne0$,
 The formulas extend continuously to $\bA=0$.
 
 \subsubsection{Direct square-root components}
-Let $Y=b+\bB\cdot\bsig$, where $b\in\R$ and $\bB\in\R^3$.  If $X^2=Y$,
-then
+Let
 \begin{gather}
- a^2=\tfrac12\left(b\pm\sqrt{b^2-\bB^2}\right)\\
- \bA^2=b-a^2,
+ X=a+\bA\cdot\bsig\\
+ Y=b+\bB\cdot\bsig,
 \end{gather}
-with signs and vector direction chosen consistently.
+where $a,b\in\R$ and $\bA,\bB\in\R^3$.  Direct multiplication gives
+\begin{equation}
+ X^2=a^2+\bA^2+2a\bA\cdot\bsig.
+\end{equation}
+Thus $X^2=Y$ requires separate equality of the scalar and vector parts:
+\begin{gather}
+ a^2+\bA^2=b\\
+ 2a\bA=\bB.
+\end{gather}
+For $\bB\ne0$, the second equation implies $a\ne0$ and fixes $\bA$ to be
+parallel to $\bB$:
+\begin{equation}
+ \bA=\frac{\bB}{2a}.
+\end{equation}
+Substitution into the scalar equation gives
+\begin{equation}
+ a^4-ba^2+\frac{\bB^2}{4}=0.
+\end{equation}
+Solving this quadratic in $a^2$ yields
+\begin{equation}
+ a^2=\tfrac12\left(b\pm\sqrt{b^2-\bB^2}\right).
+\end{equation}
+For either inner sign, choose either square root of $a^2$ and then set
+\begin{gather}
+ a=\pm\sqrt{a^2}\\
+ \bA=\frac{\bB}{2a}\\
+ \bA^2=b-a^2.
+\end{gather}
+When $b>\lVert\bB\rVert$ and $\bB\ne0$, the two choices of $a^2$ and the
+two overall signs give four real roots, in agreement with the independent
+projector signs above.  At $b=\lVert\bB\rVert>0$, the two values of $a^2$
+coincide and give two distinct real roots.  No real root exists when
+$b<\lVert\bB\rVert$.
+
+If $\bB=0$, the division by $a$ used above does not cover every possibility.
+For $b>0$, the scalar roots $X=\pm\sqrt b$ coexist with the pure-vector roots
+$X=\bA\cdot\bsig$ for any $\bA^2=b$.  For $b=0$, the only real root is
+$X=0$, and for $b<0$ there is no real paravector root.  Complex roots are
+covered by the spectral construction below.
 
 \subsubsection{Complex spectral form}
 For $Z=S+\bV\cdot\bsig$, with $S\in\C$, $\bV\in\C^3$, and
@@ -751,14 +798,8 @@ This normalization uses the complex bilinear dot product:
 \begin{equation}
  \bu\cdot\bu=\frac{\bV\cdot\bV}{w^2}=1.
 \end{equation}
-It does not generally normalize the Hermitian norm, since
-\begin{equation}
- \lVert\bu\rVert^2
- =\bu^*\cdot\bu
- =\frac{\lVert\bV\rVert^2}{\lVert w\rVert^2}.
-\end{equation}
-This quantity need not equal $1$.  Thus $\bu$ is a complex bilinear unit
-direction, not generally a unit vector in the norm defined above.  Define
+Because $\bu$ is complex, its Hermitian norm $\lVert\bu\rVert^2$ need not
+equal $1$.  Define
 \begin{equation}
  \lambda_\pm:=S\pm w.
 \end{equation}
@@ -805,12 +846,13 @@ roots
 \end{equation}
 
 \subsubsection{Exponential of a general complex paravector}
-Let $Z=S+\bV\cdot\bsig$, with $w$ and $\bu=\bV/w$ as defined above.
+Let $Z=S+\bV\cdot\bsig$, $w=+\sqrt{\bV^2}$, and $\bu=\bV/w$.
 
 \subsubsection{Projection derivation}
-The projected function rule~\eqref{eq:complex-function-projectors}, with
-$\lambda_\pm=S\pm w$ and
-$\Pi_\pm=\tfrac12(1\pm\bu\cdot\bsig)$, gives
+Recall $Z=S+\bV\cdot\bsig$, $w=+\sqrt{\bV^2}$,
+$\bu=\bV/w$, $\lambda_\pm=S\pm w$, and
+$\Pi_\pm=\tfrac12(1\pm\bu\cdot\bsig)$.  The projected function
+rule~\eqref{eq:complex-function-projectors} gives
 \begin{equation}
  \exp(Z)
  =\frac{\exp(S+w)}{2}(1+\bu\cdot\bsig)
@@ -826,6 +868,7 @@ Factoring out $\exp(S)$ and collecting the scalar and vector parts gives
 \end{equation}
 
 \subsubsection{Direct series derivation}
+Recall $Z=S+\bV\cdot\bsig$, $w=+\sqrt{\bV^2}$, and $\bu=\bV/w$.
 Because $S$ commutes with $\bV\cdot\bsig$,
 \begin{equation}
  \exp(Z)=\exp(S)\sum_{n=0}^{\infty}
@@ -916,7 +959,8 @@ Each quotient in these formulas is understood by its analytic limit at a
 zero vector.
 
 \subsubsection{Kinematic form}
-The real-vector exponential has a direct kinematic interpretation.
+Let $\bA\in\R^3$ be nonzero.  Its real-vector exponential has a direct
+kinematic interpretation.
 Define
 \begin{gather}
  \gamma:=\cosh\lVert\bA\rVert\\
@@ -1014,11 +1058,13 @@ Substitution makes the three equivalent forms explicit:
 \begin{equation}
  \exp(\bA\cdot\bsig)
  =\gamma(1+\bv\cdot\bsig)
- =\frac{b+\bB\cdot\bsig}{b-\bB\cdot\bsig}.
+ =\frac{b+\bB\cdot\bsig}{b-\bB\cdot\bsig}
+ =\frac{Y}{Y^*}.
 \end{equation}
 
 \subsubsection{Aligned boost and rotation}
-When $\bu$ is real, write $w$ in terms of real $\phi$ and $\theta$ as
+Let $\bu\in\R^3$ satisfy $\bu^2=1$, and let $\phi,\theta\in\R$.  Write
+$w$ as
 \begin{equation}
  w:=\phi+\ii\theta.
 \end{equation}
@@ -1058,12 +1104,15 @@ Finally, the defining power series respects both conjugation operations:
 \end{gather}
 
 \subsubsection{Logarithm of a general complex paravector}
-For a nonzero complex scalar $\lambda$, each scalar logarithm has the form
+Recall $Z=S+\bV\cdot\bsig$, $w=+\sqrt{\bV^2}$,
+$\bu=\bV/w$, and $\lambda_\pm=S\pm w$.  For a nonzero complex scalar
+$\lambda$, each scalar logarithm has the form
 \begin{equation}
  \log\lambda=\log\lVert\lambda\rVert+\ii(\arg\lambda+2n\pi),
  \qquad n\in\mathbb Z.
 \end{equation}
-For the complex paravector and spectral quantities defined above, assume
+For $Z=S+\bV\cdot\bsig$, $w=+\sqrt{\bV^2}$,
+$\bu=\bV/w$, and $\lambda_\pm=S\pm w$, assume
 both eigenvalues are nonzero and choose one scalar logarithm of each.  The
 projected function rule gives
 \begin{equation}
@@ -1083,7 +1132,8 @@ unchanged.  Independent branch
 choices for the two scalar logarithms give the different logarithms of $Z$.
 
 \subsubsection{Special cases}
-For a real unit vector $\bu$, the paravector
+Let $\bu\in\R^3$ satisfy $\bu^2=1$, and recall
+$\Pi_\pm=\tfrac12(1\pm\bu\cdot\bsig)$.  The paravector
 $\bu\cdot\bsig$ has eigenvalues $1$ and $-1$.  Hence all projected branches
 are
 \begin{equation}
@@ -1105,7 +1155,7 @@ analytic continuation wherever their chosen branches are regular.
 
 \subsection{Differentiated fields}
 
-For products of fields,
+Let $Z(t,\br)$ and $Z'(t,\br)$ be paravector fields.  For their product,
 \begin{equation}
  \partial(ZZ')=(\partial Z)Z'+Z(\partial Z')
  +[\bsig,Z]\cdot\pdr Z'.
@@ -1125,6 +1175,8 @@ imaginary vector above, and the imaginary vector becomes the real vector.
 \section{Transformations and invariants}
 \label{sec:preserved-quantities}
 
+Here $Z$ is a complex paravector, $T$ and $T'$ are general complex
+transformation paravectors, and $U$ is a unitary transformation paravector.
 The transformations used below are organized by the quantities they leave
 unchanged:
 \begin{gather}
@@ -1133,10 +1185,9 @@ unchanged:
  \lVert Z\rVert^2
  =\tfrac12\operatorname{tr}(Z^{\mathsf H}Z).
 \end{gather}
-The trace is linear; the determinant and norm are quadratic.  Here $T$ and
-$T'$ denote general complex paravectors, with $T'$ a second transformation
-factor rather than a derivative.  The symbol $U$ denotes a complex unitary
-vector:
+The trace is linear; the determinant and norm are quadratic.  The prime on
+$T'$ marks a second transformation factor rather than a derivative.  The
+unitary factor satisfies
 \begin{align}
  U^{\mathsf H}U=UU^{\mathsf H}&=1
  \label{eq:unitary-transform}\\
@@ -1147,8 +1198,12 @@ symbol for four-velocity.
 
 \subsection{Similarity invariants}
 
+Throughout this subsection, $Z$ is a complex paravector and the displayed
+transformation factors act by ordered multiplication.
+
 \subsubsection{Trace invariance}
-For invertible $T$, consider either similarity:
+Let $Z$ be a complex paravector and $T$ an invertible complex paravector.
+Consider either similarity:
 \begin{gather}
  Z'=T^{-1}ZT,\\
  Z'=TZT^{-1}.
@@ -1167,7 +1222,7 @@ same similarities are
 \end{gather}
 
 \subsubsection{Determinant invariance}
-For the general two-sided transformation $Z'=T'ZT$,
+Let $Z,T,T'$ be complex paravectors and set $Z'=T'ZT$.  Then
 \begin{equation}
  \det(Z')=\det(T')\det(T)\det(Z).
 \end{equation}
@@ -1191,8 +1246,9 @@ For unitary $U$,
 so both unitary sandwiches preserve the determinant.
 
 \subsubsection{Norm invariance}
-Norm invariance requires the unitary condition
-\eqref{eq:unitary-transform}.  For example, if $Z'=U^{\mathsf H}ZU$, then
+Let $Z$ be a complex paravector and $U$ a unitary paravector satisfying
+$U^{\mathsf H}U=UU^{\mathsf H}=1$.  For example, if
+$Z'=U^{\mathsf H}ZU$, then
 \begin{align}
  \lVert Z'\rVert^2
  &=\tfrac12\operatorname{tr}
@@ -1227,6 +1283,9 @@ determinant but does not generally preserve the trace or norm.
 
 \section{Space--time kinematics}
 \label{sec:kinematics}
+
+In this section, $X=t+\br\cdot\bsig$ is a real spacetime paravector and
+$s$ is proper time along a time-like worldline.
 
 \subsection{Intervals, velocity, and momentum}
 
@@ -1430,10 +1489,14 @@ therefore yields the determinant without a separate component expansion:
  \end{aligned}
  \label{eq:proper-acceleration-determinant}
 \end{equation}
-The last step uses
-$(\bv\times\ba)^2=\bv^2\ba^2-(\bv\cdot\ba)^2$ and
-$1-\bv^2=\gamma^{-2}$.  Thus the proper acceleration is space-like unless it
-vanishes, and $-\det(\dd U/\dd s)$ is its invariant squared magnitude.
+The last step uses Lagrange's cross-product identity
+$(\bv\times\ba)^2=\bv^2\ba^2-(\bv\cdot\ba)^2$, where each vector square
+denotes its Euclidean dot product with itself.  Geometrically, this follows
+from $\lVert\bv\times\ba\rVert=\lVert\bv\rVert\lVert\ba\rVert\sin\theta$
+and $\bv\cdot\ba=\lVert\bv\rVert\lVert\ba\rVert\cos\theta$.  Together with
+$1-\bv^2=\gamma^{-2}$, it shows that the proper acceleration is space-like
+unless it vanishes and that $-\det(\dd U/\dd s)$ is its invariant squared
+magnitude.
 
 For $\bv\ne0$, resolve the coordinate acceleration parallel and perpendicular
 to the velocity by
@@ -1454,8 +1517,9 @@ $\det(\dd U/\dd s)=-\ba^2$.
 \subsection{Varying transformations and second differentials}
 \label{sec:varying-transformations}
 
-Along a path, let $\dd$ denote successive differentiation with respect to
-its parameter and define
+Let $X$ be a paravector along a path and $T$ an invertible transformation
+paravector that may vary along it.  Let $\dd$ denote successive
+differentiation with respect to the path parameter and define
 \begin{equation}
  \dd X'=T^{-1}\,\dd X\,T.
 \end{equation}
@@ -1512,7 +1576,9 @@ components of a real physical velocity.
 
 \subsection{Free-particle action}
 
-The free-particle action and Lagrangian are
+Let $m$ be the particle mass, $\bv=\dd\br/\dd t$,
+$\gamma=(1-\bv^2)^{-1/2}$, and $\dd s=\dd t/\gamma$.  The free-particle
+action and Lagrangian are
 \begin{gather}
  \int L\dd t=-m\int\dd s\\
  L=-m\sqrt{1-\bv^2}=-\frac m\gamma.
@@ -1555,6 +1621,11 @@ nonrelativistic kinetic energy $\tfrac12m\bv^2$.
 
 \section{Electromagnetism}
 \label{sec:electromagnetism}
+
+Throughout this section,
+$F=(\bE+\ii\bBf)\cdot\bsig$ is the field,
+$\Phi=V+\bA\cdot\bsig$ is the potential, and
+$D=\rho+\bJ\cdot\bsig$ is the source.
 
 \subsection{Field equation and potentials}
 
@@ -1677,16 +1748,13 @@ Thus $F$ is unchanged.  In the Lorenz gauge $S=0$, equation
 
 \subsection{Field invariants}
 
+Recall $F=(\bE+\ii\bBf)\cdot\bsig$.
 Electric and magnetic fields mix under Lorentz transformations, so their
 individual magnitudes depend on the observer.  Two combinations remain the
 same for every inertial observer and therefore classify the electromagnetic
 field itself.
 
-For
-\begin{equation}
- F=(\bE+\bBf\ii)\cdot\bsig,
-\end{equation}
-the scalar part vanishes, and therefore $\adj F=-F$.  Hence
+The scalar part of $F$ vanishes, and therefore $\adj F=-F$.  Hence
 \begin{align}
  \Det F
  &=-F^2\\
@@ -1727,6 +1795,10 @@ and flux below, they do not change with the observer.
 
 \subsection{Lorentz force from the field and action}
 
+Recall $F=(\bE+\ii\bBf)\cdot\bsig$,
+$\Phi=V+\bA\cdot\bsig$, $U=\gamma(1+\bv\cdot\bsig)$, and
+$\bP=m\gamma\bv$, where $s$ is proper time and $m$ and $q$ are the particle
+mass and charge.
 The Lorentz proper-force equation is
 \begin{equation}
  m\frac{\dd U}{\dd s}=q\repart{FU}
@@ -1803,6 +1875,10 @@ Taking the real paravector part removes the two imaginary components.
 \subsection{Proper acceleration from the Lorentz force}
 \label{sec:lorentz-proper-acceleration}
 
+Recall $F=(\bE+\ii\bBf)\cdot\bsig$,
+$U=\gamma(1+\bv\cdot\bsig)$, $\ba=\dd\bv/\dd t$, and
+$\bP=m\gamma\bv$ for a particle of mass $m$ and charge $q$, with $s$ its
+proper time.
 The Lorentz force is automatically compatible with the orthogonality of
 four-velocity and four-acceleration.  Since $U^*U=1$, cyclicity of the scalar
 part and $\scpart F=\scpart{F^{\mathsf H}}=0$ give
@@ -1929,6 +2005,10 @@ Equivalently, in paravector coefficients,
 \section{Relativistic wave equations}
 \label{sec:waves}
 
+In this section, $\psi$ denotes a scalar or paravector amplitude as stated
+locally, $\bPsi$ denotes a two-paravector Dirac block, $m$ is the mass, and
+$q$ is the charge.
+
 \subsection{Paravector inner products and expectations}
 \label{sec:paravector-inner-products}
 
@@ -1981,6 +2061,8 @@ current on a spacelike hypersurface.
 \subsection{Physical spinors and minimal ideals}
 \label{sec:physical-spinors}
 
+Let $\psi$ be a paravector amplitude, $Z$ a paravector observable, and
+$\bu\in\R^3$ a fixed unit direction.
 A physical two-component Pauli spinor is represented intrinsically by a
 minimal ideal obtained by left projection in the paravector algebra.  Choose a fixed unit direction
 $\bu$ and use the projectors from Section~\ref{sec:algebra-projectors},
@@ -2022,6 +2104,9 @@ left projections select the conventional four-component Dirac sectors.
 \subsection{Spin carried by paravector components}
 \label{sec:paravector-spin-content}
 
+Here $R$ is a rotation rotor, $\psi_0$ a scalar amplitude,
+$\psi_{1/2}$ a minimal-ideal amplitude, and
+$Z=S+\bV\cdot\bsig$ an unrestricted paravector amplitude.
 Spin is determined by how an amplitude transforms under rotations, not merely
 by how many coefficients are used to write it.  Let $R$ be the rotation rotor
 defined in Section~\ref{sec:transformations}.  The scalar, minimal-ideal, and
@@ -2069,7 +2154,8 @@ from the minimal-ideal projection and its one-sided transformation law.
 
 \subsection{Klein--Gordon equation}
 
-For a free particle, the mass-shell relation is
+Let $E$ be the particle energy, $\bP$ its momentum, $m$ its mass, and
+$\psi$ a scalar amplitude.  For a free particle, the mass-shell relation is
 $E^2-\bP^2=m^2$.  On a plane wave with phase
 $\exp(-\ii Et+\ii\bP\cdot\br)$, the operators $\ii\partial_t$ and
 $-\ii\pdr$ return the energy and momentum.  The corresponding substitutions
@@ -2104,8 +2190,9 @@ and the Klein--Gordon equation takes the covariant form
 
 \subsection{Spin-zero low-energy limit}
 
-Denote the relativistic solution of the preceding equation by $\psi'$ and
-separate its rest-energy phase by
+Let $E=\ii\partial_t-qV$ and $\bP=-\ii\pdr-q\bA$, with
+$\Phi=V+\bA\cdot\bsig$, and denote the relativistic scalar solution by
+$\psi'$.  Separate its rest-energy phase by
 $\psi'=\exp(-\ii mt)\psi$.  The exact equation for the slowly varying
 amplitude becomes
 \begin{gather}
@@ -2124,7 +2211,9 @@ covariant equation gives the Schr\"odinger equation
 
 \subsection{Dirac equation in block form}
 
-For a paravector $Z$, define
+Let $Z$ be a paravector, $\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$ a
+two-paravector block, $\partial=\partial_t+\bsig\cdot\pdr$, and
+$\Phi=V+\bA\cdot\bsig$ when a field is present.  Define
 \begin{equation}
  \Wop(Z):=
  \begin{Bmatrix}0&Z\\ \adj Z&0\end{Bmatrix}.
@@ -2199,6 +2288,9 @@ $\bPsi=\exp(\ii q\lambda)\bPsi'$.
 
 \subsection{Schr\"odinger--Pauli limit}
 
+Recall $\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$,
+$E=\ii\partial_t-qV$, $\bP=-\ii\pdr-q\bA$, and
+$F=(\bE+\ii\bBf)\cdot\bsig$.
 Each relativistic Dirac component contains the rapid phase associated with
 the rest energy.  For $n=1,2$, separate it from the slowly varying component
 by
@@ -2261,7 +2353,11 @@ Because the field term commutes with its own instantaneous projectors, this is
 
 \subsection{Interacting operators and factorization}
 
-The covariant energy and momentum operators do not commute.  Direct
+Recall $E=\ii\partial_t-qV$, $\bP=-\ii\pdr-q\bA$,
+$\Phi=V+\bA\cdot\bsig$, $F=(\bE+\ii\bBf)\cdot\bsig$, and
+$S=\partial_tV+\pdr\cdot\bA$, with
+$\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$.  The covariant energy and momentum
+operators do not commute.  Direct
 application to a test wavefunction gives
 \begin{gather}
  [E,P_m]=\ii qE_m\\
@@ -2316,8 +2412,10 @@ equation on both components of the Dirac block.
 
 \subsection{Spin probabilities and energy sectors}
 
-The measurement projectors act from the left, so the projected amplitudes are
-$\psi'_\pm=\Pi_\pm\psi$ as defined above.  They are orthogonal and complete:
+Let $\psi$ be a paravector amplitude, let $\bu\in\R^3$ be a unit direction,
+and recall $\Pi_\pm=\tfrac12(1\pm\bu\cdot\bsig)$ and
+$\psi'_\pm=\Pi_\pm\psi$.  The measurement projectors act from the left, and
+the projected amplitudes are orthogonal and complete:
 \begin{gather}
  \psi=\psi'_++\psi'_-\\
  \langle\psi'_+\mid\psi'_-\rangle=0\\
@@ -2413,7 +2511,9 @@ $T$ with a negative exponential.
 
 \subsection{Rotors}
 
-A rotation through angle $\theta$ about unit axis $\bu$ is generated by
+Let $\theta\in\R$ be the rotation angle, $\bu\in\R^3$ a unit axis,
+$X=t+\br\cdot\bsig$ a spacetime paravector, and $\psi,Z$ paravector
+amplitudes.  The rotation is generated by
 \begin{gather}
  R:=\exp\!\left(\ii\frac\theta2\,\bu\cdot\bsig\right)
   =\cos\frac\theta2+\bu\cdot\ii\bsig\,\sin\frac\theta2\\
@@ -2444,8 +2544,11 @@ $Z'=R^{\mathsf H}ZR=\bu'\cdot\bsig$.
 \subsection{Boosts}
 \label{sec:boosts}
 
-Let rapidity $\theta$ satisfy $\beta=\tanh\theta$ and
-$\gamma=\cosh\theta$.  A boost along $\bu$ is
+Let $\bu\in\R^3$ be a unit boost direction,
+$X=t+\br\cdot\bsig$ a spacetime paravector,
+$F=(\bE+\ii\bBf)\cdot\bsig$ an electromagnetic field, and $\psi,Z$
+paravector amplitudes.  Let rapidity $\theta$ satisfy
+$\beta=\tanh\theta$ and $\gamma=\cosh\theta$.  The boost is
 \begin{gather}
  L:=\exp\!\left(\frac\theta2\,\bu\cdot\bsig\right)
  =\cosh\frac\theta2+\bu\cdot\bsig\,\sinh\frac\theta2\\
@@ -2742,6 +2845,9 @@ form~\eqref{eq:quaternion-matrix}.
 \section{Pauli-matrix representation}
 \label{sec:matrix}
 
+Throughout this appendix, $Z=S+\bV\cdot\bsig$ is a complex paravector and
+$\bM=\operatorname{mat}(Z)$ is its faithful $2\times2$ matrix image.
+
 \subsection{Faithful representation}
 
 Every complex element of the displayed algebra basis can be collected as
@@ -2899,7 +3005,8 @@ Thus the induced algebra operations satisfy
 \end{align}
 
 \subsubsection{Trace, determinant, and adjugate}
-For $\bM=\operatorname{mat}(Z)$, define the matrix trace and determinant by
+Recall $Z=S+\bV\cdot\bsig$ and $\bM=\operatorname{mat}(Z)$.  Define the
+matrix trace and determinant by
 \begin{gather}
  \operatorname{tr}(\bM):=m_{11}+m_{22}\\
  \det(\bM):=m_{11}m_{22}-m_{12}m_{21}.
@@ -3010,12 +3117,15 @@ are
 \subsection{Matrix amplitudes and column spinors}
 \label{sec:matrix-spinors}
 
+Let $\psi$ and $\psi'$ be paravector amplitudes and $Z$ a paravector
+observable, and define
+\begin{gather}
+ \bM_\psi:=\operatorname{mat}(\psi)\\
+ \bM_{\psi'}:=\operatorname{mat}(\psi').
+\end{gather}
 This subsection translates the intrinsic paravector spinor development of
 Section~\ref{sec:physical-spinors} into the familiar matrix and column
-languages.  For a paravector amplitude $\psi$, write
-\begin{equation}
- \bM_\psi:=\operatorname{mat}(\psi).
-\end{equation}
+languages.
 Faithfulness and Hermitian compatibility give
 \begin{equation}
  \operatorname{mat}(\psi'^{\mathsf H}Z\psi)
