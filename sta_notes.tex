@@ -2475,31 +2475,107 @@ Finally, on the mass shell let
 \begin{equation}
  U=\frac{E+\bP\cdot\bsig}{m}.
 \end{equation}
-Since $\Det U=1$ and $\Wop(U)^2=\bI$, the positive- and negative-energy
+On the plane-wave convention used in the Dirac equation,
+$\ii\partial=E-\bP\cdot\bsig=m\adj U$.  Thus the dimensionless free Dirac
+operator is $\Wop(\adj U)$.  Since $\Det{\adj U}=1$ and
+$\Wop(\adj U)^2=\bI$, the positive- and negative-energy
 projectors are
 \begin{gather}
- \tfrac12(\bI+\Wop(U))\\
- \tfrac12(\bI-\Wop(U)).
+ \tfrac12(\bI+\Wop(\adj U))\\
+ \tfrac12(\bI-\Wop(\adj U)).
 \end{gather}
 Each squares to itself, their product is zero, and their sum is $\bI$.
 The spin projectors act with the same sign on both components of $\bPsi$, so
 no additional block notation is needed: their actions are simply
-$\Pi_+\bPsi$ and $\Pi_-\bPsi$.  When $\Wop(U)$ commutes with $\Pi_\pm$, as
+$\Pi_+\bPsi$ and $\Pi_-\bPsi$.  When $\Wop(\adj U)$ commutes with $\Pi_\pm$, as
 for a compatible spin quantization axis, the four pairwise products are
-joint energy--spin projectors.  They resolve the physical Dirac column selected in
-Section~\ref{sec:physical-spinors} as
+joint energy--spin projectors.  Relative to the chosen spin direction $\bu$,
+the four terms are positive-energy spin up, positive-energy spin down,
+negative-energy spin up, and negative-energy spin down, respectively.  They
+resolve $\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$, a two-component column whose
+entries $\Psi_1$ and $\Psi_2$ are complex paravectors.  After the physical
+ideal projection, each entry carries two complex coefficients, giving the
+usual four complex components of a Dirac spinor.  Write the four projected
+components with the first sign denoting energy and the second sign denoting
+spin:
 \begin{align}
- \bPsi={}&\tfrac12(\bI+\Wop(U))
-  \Pi_+\bPsi
- +\tfrac12(\bI+\Wop(U))
-  \Pi_-\bPsi\\
- &+\tfrac12(\bI-\Wop(U))
-  \Pi_+\bPsi
- +\tfrac12(\bI-\Wop(U))
-  \Pi_-\bPsi.
+ \bPsi_{++}&:=\tfrac12(\bI+\Wop(\adj U))\Pi_+\bPsi
+ &&\text{positive energy, spin up},\\
+ \bPsi_{+-}&:=\tfrac12(\bI+\Wop(\adj U))\Pi_-\bPsi
+ &&\text{positive energy, spin down},\\
+ \bPsi_{--}&:=\tfrac12(\bI-\Wop(\adj U))\Pi_-\bPsi
+ &&\text{negative energy, spin down},\\
+ \bPsi_{-+}&:=\tfrac12(\bI-\Wop(\adj U))\Pi_+\bPsi
+ &&\text{negative energy, spin up}.
 \end{align}
-Without this commutation condition the displayed sum remains a sequential
-decomposition, but the factors are not joint orthogonal projectors.
+The resulting physical Dirac column selected in
+Section~\ref{sec:physical-spinors} is therefore
+\begin{equation}
+ \bPsi=\bPsi_{++}+\bPsi_{+-}+\bPsi_{--}+\bPsi_{-+}.
+\end{equation}
+This is not an eight-component column.  Each term on the right is itself a
+two-entry block of the same form as $\bPsi$, and the four blocks are added
+entry by entry rather than concatenated.  Although writing all four blocks
+out displays eight paravector-valued entries, they are projector-constrained
+and are not independent.  After the physical ideal projection, each joint
+energy--spin sector contains one independent complex amplitude.  The four
+sectors together therefore reproduce the four complex components of the
+Dirac spinor.
+
+For two Dirac blocks
+$\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$ and
+$\bPsi'=\{\Psi'_1,\Psi'_2\}^{\mathsf T}$, extend the paravector inner
+product componentwise:
+\begin{equation}
+ \langle\bPsi'\mid\bPsi\rangle
+ :=\sum_{n=1}^{2}\scpart{\Psi_n'^{\mathsf H}\Psi_n}.
+\end{equation}
+Hence
+\begin{equation}
+ \lVert\bPsi\rVert^2
+ =\scpart{\Psi_1^{\mathsf H}\Psi_1}
+ +\scpart{\Psi_2^{\mathsf H}\Psi_2}.
+\end{equation}
+Because the four joint projectors are Hermitian and mutually orthogonal,
+\begin{equation}
+ \lVert\bPsi\rVert^2
+ =\lVert\bPsi_{++}\rVert^2
+ +\lVert\bPsi_{+-}\rVert^2
+ +\lVert\bPsi_{--}\rVert^2
+ +\lVert\bPsi_{-+}\rVert^2.
+\end{equation}
+For a normalized state, these four squared norms are the probabilities of
+the four joint outcomes.
+
+For a Hermitian observable $Z$ acting on the Dirac block, define
+\begin{equation}
+ \langle\bPsi'\mid Z\mid\bPsi\rangle
+ :=\sum_{n=1}^{2}\scpart{\Psi_n'^{\mathsf H}Z\Psi_n}.
+\end{equation}
+Its expectation value is
+\begin{equation}
+ \langle Z\rangle_{\bPsi}
+ :=\frac{\langle\bPsi\mid Z\mid\bPsi\rangle}
+ {\langle\bPsi\mid\bPsi\rangle}.
+\end{equation}
+If $Z$ commutes with both the energy and spin projectors, it preserves each
+sector and the numerator separates into four diagonal contributions:
+\begin{align}
+ \langle\bPsi\mid Z\mid\bPsi\rangle
+ ={}&\langle\bPsi_{++}\mid Z\mid\bPsi_{++}\rangle
+ +\langle\bPsi_{+-}\mid Z\mid\bPsi_{+-}\rangle\\
+ &+\langle\bPsi_{--}\mid Z\mid\bPsi_{--}\rangle
+ +\langle\bPsi_{-+}\mid Z\mid\bPsi_{-+}\rangle.
+\end{align}
+Thus its expectation is the probability-weighted average of its expectation
+within the four sectors.  If $Z$ does not commute with either projector,
+off-diagonal terms such as
+$\langle\bPsi_{++}\mid Z\mid\bPsi_{--}\rangle$ remain and
+describe transitions or interference between sectors.
+All four-sector norm and expectation decompositions above require the stated
+commutation condition.  Without it, the four terms still sum to $\bPsi$, but
+the products are sequential projections rather than joint orthogonal
+projectors.
 
 \section{Rotations and Lorentz boosts}
 \label{sec:transformations}
@@ -2777,10 +2853,13 @@ is developed in Section~\ref{sec:lorentz-proper-acceleration}.
  -\frac q{2m}\bBf\cdot\bsig\right)\bPsi,\\
  \Pi_\pm&=\tfrac12(1\pm\bu\cdot\bsig),\\
  p_\pm(\bu)&=\tfrac12(1\pm\bu\cdot\bm{s}),\\
- \text{positive-energy projector: }&\quad\tfrac12(\bI+\Wop(U)),\\
- \text{negative-energy projector: }&\quad\tfrac12(\bI-\Wop(U)),\\
- \text{positive-spin projection: }&\quad\Pi_+\bPsi,\\
- \text{negative-spin projection: }&\quad\Pi_-\bPsi.
+ U&=(E+\bP\cdot\bsig)/m,\\
+ \text{positive-energy projector: }&\quad
+ \tfrac12(\bI+\Wop(\adj U)),\\
+ \text{negative-energy projector: }&\quad
+ \tfrac12(\bI-\Wop(\adj U)),\\
+ \text{spin-up projection: }&\quad\Pi_+\bPsi,\\
+ \text{spin-down projection: }&\quad\Pi_-\bPsi.
 \end{align*}
 See the paravector inner product~\eqref{eq:paravector-inner-product},
 minimal-ideal development in Section~\ref{sec:physical-spinors},

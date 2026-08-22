@@ -52,27 +52,27 @@
 \contentsline {subsection}{\numberline {7.7}Schr\"odinger--Pauli limit}{38}{subsection.7.7}%
 \contentsline {subsection}{\numberline {7.8}Interacting operators and factorization}{39}{subsection.7.8}%
 \contentsline {subsection}{\numberline {7.9}Spin probabilities and energy sectors}{40}{subsection.7.9}%
-\contentsline {section}{\numberline {8}Rotations and Lorentz boosts}{41}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Rotors}{42}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Boosts}{42}{subsection.8.2}%
-\contentsline {section}{\numberline {9}Generalized spacetime and metric form}{43}{section.9}%
-\contentsline {section}{\numberline {A}Pauli-matrix representation}{44}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Faithful representation}{44}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Matrix operations and induced algebra operations}{44}{subsection.A.2}%
-\contentsline {subsubsection}{\numberline {A.2.1}Trace, determinant, and adjugate}{46}{subsubsection.A.2.1}%
-\contentsline {subsection}{\numberline {A.3}Algebra--matrix crosswalk}{47}{subsection.A.3}%
-\contentsline {subsection}{\numberline {A.4}Matrix amplitudes and column spinors}{48}{subsection.A.4}%
-\contentsline {subsection}{\numberline {A.5}Quaternion subalgebra}{49}{subsection.A.5}%
-\contentsline {section}{\numberline {B}Reference summary}{51}{appendix.B}%
-\contentsline {paragraph}{\hyperref [sec:algebra]{Algebra and vector operations}.}{51}{section*.2}%
-\contentsline {paragraph}{\hyperref [sec:conjugate-operators]{Hermitian and sigma-conjugate operators}.}{51}{section*.3}%
-\contentsline {paragraph}{\hyperref [sec:paravectors]{Paravectors, extraction, and products}.}{51}{section*.4}%
-\contentsline {paragraph}{\hyperref [sec:algebra-projectors]{Projection operators and functions}.}{52}{section*.5}%
-\contentsline {paragraph}{\hyperref [sec:kinematics]{Space--time kinematics and action}.}{52}{section*.6}%
-\contentsline {paragraph}{\hyperref [sec:electromagnetism]{Electromagnetism}.}{53}{section*.7}%
-\contentsline {paragraph}{\hyperref [sec:waves]{Wave equations, spin, and energy sectors}.}{53}{section*.8}%
-\contentsline {paragraph}{\hyperref [sec:transformations]{Rotations and boosts}.}{54}{section*.9}%
-\contentsline {paragraph}{\hyperref [sec:matrix]{Matrix representation in Appendix A}.}{54}{section*.10}%
-\contentsline {paragraph}{\hyperref [sec:quaternions]{Quaternion subalgebra in Appendix A}.}{54}{section*.11}%
-\contentsline {paragraph}{\hyperref [sec:generalized]{Generalized spacetime and metric form}.}{54}{section*.12}%
-\contentsline {section}{\numberline {C}Conventions and cautions}{55}{appendix.C}%
+\contentsline {section}{\numberline {8}Rotations and Lorentz boosts}{42}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Rotors}{43}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Boosts}{43}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Generalized spacetime and metric form}{44}{section.9}%
+\contentsline {section}{\numberline {A}Pauli-matrix representation}{45}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Faithful representation}{45}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Matrix operations and induced algebra operations}{45}{subsection.A.2}%
+\contentsline {subsubsection}{\numberline {A.2.1}Trace, determinant, and adjugate}{47}{subsubsection.A.2.1}%
+\contentsline {subsection}{\numberline {A.3}Algebra--matrix crosswalk}{48}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}Matrix amplitudes and column spinors}{49}{subsection.A.4}%
+\contentsline {subsection}{\numberline {A.5}Quaternion subalgebra}{50}{subsection.A.5}%
+\contentsline {section}{\numberline {B}Reference summary}{52}{appendix.B}%
+\contentsline {paragraph}{\hyperref [sec:algebra]{Algebra and vector operations}.}{52}{section*.2}%
+\contentsline {paragraph}{\hyperref [sec:conjugate-operators]{Hermitian and sigma-conjugate operators}.}{52}{section*.3}%
+\contentsline {paragraph}{\hyperref [sec:paravectors]{Paravectors, extraction, and products}.}{52}{section*.4}%
+\contentsline {paragraph}{\hyperref [sec:algebra-projectors]{Projection operators and functions}.}{53}{section*.5}%
+\contentsline {paragraph}{\hyperref [sec:kinematics]{Space--time kinematics and action}.}{53}{section*.6}%
+\contentsline {paragraph}{\hyperref [sec:electromagnetism]{Electromagnetism}.}{54}{section*.7}%
+\contentsline {paragraph}{\hyperref [sec:waves]{Wave equations, spin, and energy sectors}.}{55}{section*.8}%
+\contentsline {paragraph}{\hyperref [sec:transformations]{Rotations and boosts}.}{55}{section*.9}%
+\contentsline {paragraph}{\hyperref [sec:matrix]{Matrix representation in Appendix A}.}{56}{section*.10}%
+\contentsline {paragraph}{\hyperref [sec:quaternions]{Quaternion subalgebra in Appendix A}.}{56}{section*.11}%
+\contentsline {paragraph}{\hyperref [sec:generalized]{Generalized spacetime and metric form}.}{56}{section*.12}%
+\contentsline {section}{\numberline {C}Conventions and cautions}{56}{appendix.C}%
