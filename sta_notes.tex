@@ -162,8 +162,7 @@ and the Levi--Civita symbol by
   0,&\text{two or more indices are equal}.
  \end{cases}
 \end{equation}
-The ordered sigma multiplication rule is then
-For $n,m\in\{1,2,3\}$,
+For $n,m\in\{1,2,3\}$, the ordered sigma multiplication rule is
 \begin{align}
   \sigma_n\sigma_m=\delta_{nm}
   +\sum_{k=1}^{3}\epsilon_{nmk}\,\ii\sigma_k
@@ -291,7 +290,7 @@ For any paravectors $Z$ and $Z'$, the adjugate reverses product order:
 \begin{equation}
  \adj{ZZ'}=\adj{Z'}\adj Z.
 \end{equation}
-Consequently, for $z^2\ne1$ where the inverse occurs,
+Consequently,
 \begin{align}
  \det(ZZ')
  &=\adj{ZZ'}ZZ'\\
@@ -405,7 +404,7 @@ Adding the product with $\bA$ and $\bB$ interchanged gives
  =(\bA\cdot\bsig)(\bB\cdot\bsig)
  +(\bB\cdot\bsig)(\bA\cdot\bsig).
 \end{equation}
-Consequently, for $z^2\ne1$ where the inverse occurs,
+Consequently, for every nonnegative integer $n$,
 \begin{align}
  (\bA\cdot\bsig)^2&=\bA^2,\\
  (\bA\cdot\bsig)^{2n}&=(\bA^2)^n,\\
@@ -413,7 +412,7 @@ Consequently, for $z^2\ne1$ where the inverse occurs,
 \end{align}
 Also,
 \begin{equation}
- (\bA\cdot\bsig)\bsig=\bA+\ii\bA\times\bsig.
+ (\bA\cdot\bsig)\bsig=\bA-\ii\bA\times\bsig.
 \end{equation}
 The corresponding commutator is
 \begin{equation}
@@ -735,7 +734,9 @@ and therefore, when $\lambda_+\lambda_-\ne0$,
  =\lambda_+^{-1}\Pi_++\lambda_-^{-1}\Pi_-
  =X^{-1}.
 \end{equation}
-The formulas extend continuously to $\bA=0$.
+For a fixed analytic branch, the function formula reduces continuously to
+$f(a)$ when $\bA=0$.  The projectors themselves are then undefined, and the
+independent square roots require the separate treatment below.
 
 \subsubsection{Direct square-root components}
 Let
@@ -780,8 +781,9 @@ $b<\lVert\bB\rVert$.
 If $\bB=0$, the division by $a$ used above does not cover every possibility.
 For $b>0$, the scalar roots $X=\pm\sqrt b$ coexist with the pure-vector roots
 $X=\bA\cdot\bsig$ for any $\bA^2=b$.  For $b=0$, the only real root is
-$X=0$, and for $b<0$ there is no real paravector root.  Complex roots are
-covered by the spectral construction below.
+$X=0$, and for $b<0$ there is no real paravector root.  The nondegenerate
+complex case is covered by the spectral construction below; complex-null and
+scalar cases are stated separately there.
 
 \subsubsection{Complex spectral form}
 For $Z=S+\bV\cdot\bsig$, with $S\in\C$, $\bV\in\C^3$, and
@@ -838,12 +840,33 @@ Consequently, when $\lambda_+\lambda_-\ne0$,
  =Z^{-1}.
 \end{equation}
 Let $\sqrt{\lambda_+}$ and $\sqrt{\lambda_-}$ denote the principal scalar
-roots.  The two signs below are chosen independently, giving the four square
-roots
+roots.  The two signs below are chosen independently, giving up to four
+square roots
 \begin{equation}
  \sqrt Z
  =\pm\sqrt{\lambda_+}\Pi_+\pm\sqrt{\lambda_-}\Pi_-.
 \end{equation}
+They are four distinct roots when both eigenvalues are nonzero.  If one
+eigenvalue vanishes, its two sign choices coincide.
+
+For completeness, suppose instead that $\bV^2=0$ and put
+$N=\bV\cdot\bsig$, so $N^2=0$.  For any scalar function regular at $S$,
+the power series terminates in the nilpotent part:
+\begin{equation}
+ f(Z)=f(S)+f'(S)N.
+\end{equation}
+When $S\ne0$, this gives
+\begin{gather}
+ \sqrt Z=r+\frac{N}{2r},
+ \qquad r^2=S,\\
+ \log Z=\log S+\frac{N}{S},
+\end{gather}
+with a consistent scalar branch.  If $S=0$ and $N\ne0$, the nonzero
+nilpotent paravector has neither a square root nor a logarithm in this
+algebra.  When $N=0$, a fixed analytic branch gives the scalar value
+$f(S)$; additional non-scalar roots of a scalar matrix must be found by
+solving the square-root equation directly rather than by limiting the
+projectors.
 
 \subsubsection{Exponential of a general complex paravector}
 Let $Z=S+\bV\cdot\bsig$, $w=+\sqrt{\bV^2}$, and $\bu=\bV/w$.
@@ -1150,8 +1173,9 @@ $b>\lVert\bB\rVert$, the real logarithm is
 \end{equation}
 The vector quotient is understood by its limit when $\bB=0$.
 
-The square-root and logarithm formulas above are likewise understood by
-analytic continuation wherever their chosen branches are regular.
+The square-root and logarithm formulas above are understood with a fixed
+analytic branch wherever that branch is regular.  Independent branch choices
+need not have a finite limit when the two eigenvalues coalesce.
 
 \subsection{Differentiated fields}
 
@@ -2024,7 +2048,9 @@ inner product and matrix element intrinsically by scalar extraction:
 \end{align}
 The first is the $Z=1$ case of the second, and
 $\langle\psi\mid\psi\rangle=\lVert\psi\rVert^2$.  Thus normalization is
-$\scpart{\psi^{\mathsf H}\psi}=1$, not $\psi^{\mathsf H}\psi=1$.
+$\scpart{\psi^{\mathsf H}\psi}=1$, not $\psi^{\mathsf H}\psi=1$, for a
+finite spin amplitude.  For a spatial wavefunction the displayed expression
+is a density and the inner product includes its spatial integral.
 For an observable $Z^{\mathsf H}=Z$ acting from the left,
 \begin{equation}
  \langle Z\rangle_\psi
@@ -2036,9 +2062,11 @@ For an observable $Z^{\mathsf H}=Z$ acting from the left,
 \end{equation}
 For normalized $\psi$, this reduces to
 $\langle Z\rangle_\psi=\langle\psi\mid Z\mid\psi\rangle$.
-Appendix~\ref{sec:matrix-spinors} shows that these intrinsic definitions
-become the usual trace pairing and, after minimal-ideal projection, the
-standard two-component column-spinor formulas.
+For unrestricted paravectors this is the Hilbert--Schmidt pairing of their
+matrix images.  A single Pauli spinor is obtained only after restricting the
+amplitude to a minimal left ideal as described next.  Appendix~\ref{sec:matrix-spinors}
+then shows that these definitions become the standard two-component column
+formulas.
 
 For a paravector $T$ with $\psi'=T\psi$,
 \begin{equation}
@@ -2047,11 +2075,11 @@ For a paravector $T$ with $\psi'=T\psi$,
  {\scpart{\psi^{\mathsf H}T^{\mathsf H}T\psi}}.
  \label{eq:bilinear-congruence}
 \end{equation}
-If $T=U$, $U^{\mathsf H}U=1$, and
-$\langle\psi\mid\psi\rangle=1$, then the denominator is unity and
+If $T^{\mathsf H}T=1$ and $\langle\psi\mid\psi\rangle=1$, then the
+denominator is unity and
 \begin{equation}
  \langle Z\rangle_{\psi'}
- =\scpart{\psi^{\mathsf H}U^{\mathsf H}ZU\psi}.
+ =\scpart{\psi^{\mathsf H}T^{\mathsf H}ZT\psi}.
 \end{equation}
 Thus a unitary rotation preserves the normalization.  A finite boost is not
 unitary, so this positive equal-time norm is not itself Lorentz invariant;
@@ -2061,74 +2089,85 @@ current on a spacelike hypersurface.
 \subsection{Physical spinors and minimal ideals}
 \label{sec:physical-spinors}
 
-Let $\psi$ be a paravector amplitude, $Z$ a paravector observable, and
-$\bu\in\R^3$ a fixed unit direction.
-A physical two-component Pauli spinor is represented intrinsically by a
-minimal ideal obtained by left projection in the paravector algebra.  Choose a fixed unit direction
-$\bu$ and use the projectors from Section~\ref{sec:algebra-projectors},
+In this subsection, $P$ is the fixed idempotent
+\begin{equation}
+ P:=\tfrac12(1+\sigma_3).
+\end{equation}
+It satisfies $P^2=P=P^{\mathsf H}$ and is held fixed; it selects a column
+representation and is not a measured spin direction.  A physical
+two-component Pauli amplitude has the form
+\begin{equation}
+ \psi=AP,
+ \qquad \psi P=\psi,
+\end{equation}
+where $A$ is an unrestricted paravector amplitude.  These amplitudes form a
+minimal left ideal because every left action remains in the same set:
+\begin{equation}
+ (Z\psi)P=Z(\psi P)=Z\psi.
+\end{equation}
+Right multiplication by the fixed $P$ is therefore essential.  Left
+multiplication by $P$ would instead produce a right ideal, which is not
+preserved by general observables acting from the left.
+
+For a physical spin measurement, let $\bu\in\R^3$ be a unit direction and
+use the projectors from Section~\ref{sec:algebra-projectors},
 \begin{equation}
  \Pi_\pm:=\tfrac12(1\pm\bu\cdot\bsig).
 \end{equation}
-They satisfy
-\begin{align}
- \Pi_\pm^2&=\Pi_\pm,\\
- \Pi_+\Pi_-&=0,\\
- \Pi_++\Pi_-&=1,\\
- \Pi_\pm^{\mathsf H}&=\Pi_\pm,\\
- \Pi_\pm^*&=\Pi_\mp,\\
- (\bu\cdot\bsig)\Pi_\pm&=\pm \Pi_\pm,
- \end{align}
-and hence $\bu\cdot\bsig=\Pi_+-\Pi_-$.
-
-Project an unrestricted paravector amplitude from the left into either
-sector:
+They satisfy the identities listed there, including
+$\Pi_\pm^2=\Pi_\pm$, $\Pi_+\Pi_-=0$, and
+$\Pi_\pm^{\mathsf H}=\Pi_\pm$.  They act from the left and give
 \begin{equation}
- \psi'_\pm:=\Pi_\pm\psi.
+ \psi_\pm:=\Pi_\pm\psi.
 \end{equation}
-Then $\Pi_\pm\psi'_\pm=\psi'_\pm$ and
-$\Pi_\mp\psi'_\pm=0$.  Hermitian conjugation reverses the multiplied order,
-so the projected norm and observable matrix element are
+Because $\psi_\pm P=\psi_\pm$, both outcomes remain in the same fixed
+minimal left ideal.  Hermitian conjugation reverses the multiplied order, so
+their norms and observable matrix elements are
 \begin{align}
- \langle\psi'_\pm\mid\psi'_\pm\rangle
+ \langle\psi_\pm\mid\psi_\pm\rangle
  &=\scpart{\psi^{\mathsf H}\Pi_\pm^{\mathsf H}\Pi_\pm\psi}
  =\langle\psi\mid\Pi_\pm\mid\psi\rangle,\\
- \langle\psi'_\pm\mid Z\mid\psi'_\pm\rangle
+ \langle\psi_\pm\mid Z\mid\psi_\pm\rangle
  &=\scpart{\psi^{\mathsf H}\Pi_\pm^{\mathsf H}Z\Pi_\pm\psi}
  =\langle\psi\mid\Pi_\pm Z\Pi_\pm\mid\psi\rangle.
 \end{align}
-Appendix~\ref{sec:matrix-spinors} develops the faithful matrix image of this
-ideal and shows how it becomes one conventional two-component Pauli column.
-Applied to both paravector components of the Dirac block below, the same
-left projections select the conventional four-component Dirac sectors.
+Appendix~\ref{sec:matrix-spinors} shows that the fixed right projection gives
+one conventional two-component Pauli column, while the left projections give
+its ordinary spin-measurement components.  Applying the same fixed right
+projection to both entries of the Dirac block gives the conventional four
+complex components.
 
 \subsection{Spin carried by paravector components}
 \label{sec:paravector-spin-content}
 
-Here $R$ is a rotation rotor, $\psi_0$ a scalar amplitude,
-$\psi_{1/2}$ a minimal-ideal amplitude, and
-$Z=S+\bV\cdot\bsig$ an unrestricted paravector amplitude.
+Here $R$ is the rotation rotor defined in
+Section~\ref{sec:transformations}, $a$ is a complex scalar amplitude,
+$\psi=AP$ is a minimal-ideal amplitude, and
+$Z=S+\bV\cdot\bsig$ is an unrestricted paravector amplitude.
 Spin is determined by how an amplitude transforms under rotations, not merely
-by how many coefficients are used to write it.  Let $R$ be the rotation rotor
-defined in Section~\ref{sec:transformations}.  The scalar, minimal-ideal, and
-vector carriers transform differently.
+by how many coefficients are used to write it.  The scalar, minimal-ideal,
+and vector carriers transform differently.
 
 A complex scalar amplitude has no spatial direction and is unchanged by the
 rotor:
 \begin{equation}
- \psi_0'= \psi_0.
+ a'=a.
 \end{equation}
 It therefore carries spin zero.  The Klein--Gordon field below is of this
 type; its single complex coefficient is proportional to the algebra identity.
 
-A projected minimal-ideal amplitude contains two complex coefficients.  Its
+A minimal-ideal amplitude contains two complex coefficients.  Its
 associated Pauli column transforms by one-sided rotor multiplication, which
 is represented intrinsically by
 \begin{equation}
- \psi_{1/2}'=R\psi_{1/2}.
+ \psi'=R^{\mathsf H}\psi.
 \end{equation}
-Because $R$ contains the half-angle, a full $2\pi$ rotation gives
+This choice gives the same active rotation as the vector sandwich
+$R^{\mathsf H}ZR$ used below.  It also preserves the fixed ideal because
+$(R^{\mathsf H}\psi)P=R^{\mathsf H}\psi$.  Since $R$ contains the
+half-angle, a full $2\pi$ rotation gives
 \begin{equation}
- \psi_{1/2}'=-\psi_{1/2}.
+ \psi'=-\psi.
 \end{equation}
 This is the spin-one-half carrier.  A Dirac amplitude consists of two such
 carriers coupled by the mass term; the pair still describes spin one-half,
@@ -2146,11 +2185,13 @@ equations and transversality reduce a free massless electromagnetic wave to
 its two physical helicities; the three algebraic vector coefficients should
 not be confused with three independent photon polarizations.
 
-Consequently, an unrestricted paravector
-$Z=S+\bV\cdot\bsig$ is reducible under rotations: its scalar component carries
-spin zero and its vector component carries spin one.  Spin one-half does not
-arise by selecting some of those four paravector coefficients.  It arises
-from the minimal-ideal projection and its one-sided transformation law.
+Consequently, under the two-sided sandwich an unrestricted paravector
+$Z=S+\bV\cdot\bsig$ is reducible: its scalar component carries spin zero and
+its vector component carries spin one.  The transformation law is essential
+to this statement.  Under one-sided multiplication, the matrix image of an
+unrestricted paravector consists of two Pauli columns and carries two copies
+of the spin-one-half representation.  The fixed right projection selects one
+of those copies; it does not select scalar and vector coefficients.
 
 \subsection{Klein--Gordon equation}
 
@@ -2211,9 +2252,16 @@ covariant equation gives the Schr\"odinger equation
 
 \subsection{Dirac equation in block form}
 
-Let $Z$ be a paravector, $\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$ a
-two-paravector block, $\partial=\partial_t+\bsig\cdot\pdr$, and
-$\Phi=V+\bA\cdot\bsig$ when a field is present.  Define
+Let $Z$ be a paravector, $\partial=\partial_t+\bsig\cdot\pdr$, and
+$\Phi=V+\bA\cdot\bsig$ when a field is present.  Here
+$\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$ is a two-entry block whose entries
+belong to the same fixed minimal left ideal:
+\begin{equation}
+ \Psi_1P=\Psi_1,
+ \qquad
+ \Psi_2P=\Psi_2.
+\end{equation}
+Define
 \begin{equation}
  \Wop(Z):=
  \begin{Bmatrix}0&Z\\ \adj Z&0\end{Bmatrix}.
@@ -2258,7 +2306,7 @@ Conversely, for $m\ne0$, any scalar solution $\psi'$ of
 $(\Box+m^2)\psi'=0$ gives a Dirac solution
 \begin{equation}
  \bPsi=
- \left\{\psi',\frac{\ii}{m}\sconj\partial\psi'\right\}^{\mathsf T}.
+ \left\{\psi'P,\frac{\ii}{m}(\sconj\partial\psi')P\right\}^{\mathsf T}.
 \end{equation}
 Indeed, the second component equation holds by definition, and the first
 reduces to $-(\Box+m^2)\psi'/m=0$.
@@ -2270,7 +2318,7 @@ solution gives
  \begin{Bmatrix}
   ma+\ii b\partial\\
   \ii a\sconj\partial+mb
- \end{Bmatrix}\psi'.
+ \end{Bmatrix}\psi'P.
  \label{eq:kg-dirac-general-lift}
 \end{equation}
 Substitution into the two component equations leaves respectively
@@ -2285,6 +2333,33 @@ With a potential, the gauge-covariant form is
 It is invariant under
 $\Phi'=\Phi+\sconj\partial\lambda$ and
 $\bPsi=\exp(\ii q\lambda)\bPsi'$.
+
+In the rest of this subsection, $J$ denotes the Dirac probability-current
+paravector rather than the electromagnetic source.  It has the intrinsic
+form
+\begin{equation}
+ J:=\adj{\Psi_1\Psi_1^{\mathsf H}}
+    +\Psi_2\Psi_2^{\mathsf H}
+   =j+\bm j\cdot\bsig.
+ \label{eq:dirac-current}
+\end{equation}
+Its scalar component is the positive equal-time density,
+\begin{equation}
+ j=\scpart{\Psi_1^{\mathsf H}\Psi_1}
+  +\scpart{\Psi_2^{\mathsf H}\Psi_2},
+\end{equation}
+and the Dirac equation and its Hermitian form give
+\begin{equation}
+ \partial_tj+\pdr\cdot\bm j=0.
+\end{equation}
+Thus the spatial integral of $j$ is conserved.  The full paravector $J$, not
+the scalar component by itself, has a Lorentz-covariant transformation law.
+For a wavefunction normalized on a constant-time slice,
+\begin{equation}
+ \int j\,\dd^3\br=1.
+\end{equation}
+The corresponding conventional column formulas are given in
+Appendix~\ref{sec:matrix-spinors}.
 
 \subsection{Schr\"odinger--Pauli limit}
 
@@ -2315,40 +2390,44 @@ Eliminating $\Psi_1$ gives the exact second-order equation
 \end{equation}
 Under the usual low-energy, slowly varying-field power counting, the $E^2$
 term and the electric-field term contribute beyond the leading
-nonrelativistic approximation.  Retaining the leading terms gives
+nonrelativistic approximation.  The expansion is in energy and momentum
+relative to $m$; it is not an expansion in small $m$.  Retaining the leading
+terms gives
 \begin{equation}
  E\Psi_2=
  \frac{\bP^2-q\bBf\cdot\bsig}{2m}\Psi_2.
 \end{equation}
 At this order $\Psi_1$ and $\Psi_2$ have the same leading rest-frame
-amplitude.  Writing its faithful two-component column as $\bPsi$ and
-substituting the covariant operators gives the Pauli equation
+amplitude.  The conventionally normalized large component is their sum
+divided by $\sqrt2$; either common component obeys the same leading equation
+after a constant normalization.  Writing the faithful two-component column
+as $\bpsi$ and substituting the covariant operators gives the Pauli equation
 \begin{equation}
- \ii\partial_t\bPsi=\left(
+ \ii\partial_t\bpsi=\left(
   \frac{(-\ii\pdr-q\bA)^2}{2m}+qV
-  -\frac{q}{2m}\bBf\cdot\bsig\right)\bPsi.
+  -\frac{q}{2m}\bBf\cdot\bsig\right)\bpsi.
  \label{eq:pauli}
 \end{equation}
 Using the spin projectors,
-$\bPsi=\bPsi_++\bPsi_-$ with $\bPsi_\pm=\Pi_\pm\bPsi$.  For a uniform static
+$\bpsi=\bpsi_++\bpsi_-$ with $\bpsi_\pm=\Pi_\pm\bpsi$.  For a uniform static
 magnetic field, $\bu=\bBf/\lVert\bBf\rVert$, the sectors decouple:
 \begin{equation}
- \ii\partial_t\bPsi_\pm=\left(
- \frac{\bP^2\mp q\lVert\bBf\rVert}{2m}+qV\right)\bPsi_\pm.
+ \ii\partial_t\bpsi_\pm=\left(
+ \frac{\bP^2\mp q\lVert\bBf\rVert}{2m}+qV\right)\bpsi_\pm.
 \end{equation}
 For a varying field direction the sectors are coupled.  With $H$ denoting the
 Pauli Hamiltonian, direct differentiation gives
 \begin{align}
- \ii\partial_t\bPsi_\pm
- &=\ii(\partial_t\Pi_\pm)\bPsi+\Pi_\pm H\bPsi\\
- &=H\bPsi_\pm+\left(\ii\partial_t\Pi_\pm
-   +[\Pi_\pm,H]\right)\bPsi.
+ \ii\partial_t\bpsi_\pm
+ &=\ii(\partial_t\Pi_\pm)\bpsi+\Pi_\pm H\bpsi\\
+ &=H\bpsi_\pm+\left(\ii\partial_t\Pi_\pm
+   +[\Pi_\pm,H]\right)\bpsi.
 \end{align}
 Because the field term commutes with its own instantaneous projectors, this is
 \begin{gather}
- \ii\partial_t\bPsi_\pm=H\bPsi_\pm+\bm{S}_\pm\\
+ \ii\partial_t\bpsi_\pm=H\bpsi_\pm+\bm{S}_\pm\\
  \bm{S}_\pm=\left(\ii\partial_t\Pi_\pm
- +\frac{[\bP^2,\Pi_\pm]}{2m}\right)\bPsi.
+ +\frac{[\Pi_\pm,\bP^2]}{2m}\right)\bpsi.
 \end{gather}
 
 \subsection{Interacting operators and factorization}
@@ -2405,21 +2484,21 @@ being proportional to the block identity: its two components acquire the
 distinct spin couplings $\ii qF^*$ and $\ii qF$.  In the free limit
 $q=0$, both couplings vanish and $-E^2+\bP^2=\Box$, so
 \begin{equation}
- \bDm'\bDm=-(\Box+m^2)\bI_2.
+ \bDm'\bDm=-(\Box+m^2)\bI.
 \end{equation}
 Thus the free Dirac equation $\bDm\bPsi=0$ recovers the Klein--Gordon
 equation on both components of the Dirac block.
 
 \subsection{Spin probabilities and energy sectors}
 
-Let $\psi$ be a paravector amplitude, let $\bu\in\R^3$ be a unit direction,
-and recall $\Pi_\pm=\tfrac12(1\pm\bu\cdot\bsig)$ and
-$\psi'_\pm=\Pi_\pm\psi$.  The measurement projectors act from the left, and
+Let $\psi$ be a nonzero paravector amplitude, let $\bu\in\R^3$ be a unit
+direction, and recall $\Pi_\pm=\tfrac12(1\pm\bu\cdot\bsig)$ and
+$\psi_\pm=\Pi_\pm\psi$.  The measurement projectors act from the left, and
 the projected amplitudes are orthogonal and complete:
 \begin{gather}
- \psi=\psi'_++\psi'_-\\
- \langle\psi'_+\mid\psi'_-\rangle=0\\
- \langle\psi'_-\mid\psi'_+\rangle=0.
+ \psi=\psi_++\psi_-\\
+ \langle\psi_+\mid\psi_-\rangle=0\\
+ \langle\psi_-\mid\psi_+\rangle=0.
 \end{gather}
 Define the real Bloch vector of a nonzero amplitude by its intrinsic
 expectation values,
@@ -2429,11 +2508,15 @@ expectation values,
  \bm{s}:=\{s_1,s_2,s_3\}\\
  \lVert\bm{s}\rVert^2\leq1.
 \end{gather}
-Equality holds for a pure two-component spin state.
+For an unrestricted paravector, these are the Bloch components of the
+normalized positive matrix formed from its two columns.  A minimal-ideal
+amplitude $\psi P=\psi$ has only one independent column and satisfies
+$\lVert\bm{s}\rVert^2=1$.  More generally, equality holds precisely when the
+matrix amplitude has rank one.
 The probabilities for spin along and against $\bu$ are
 \begin{equation}
  p_\pm(\bu)
- :=\frac{\langle\psi'_\pm\mid\psi'_\pm\rangle}
+ :=\frac{\langle\psi_\pm\mid\psi_\pm\rangle}
  {\langle\psi\mid\psi\rangle}
  =\frac{\scpart{\psi^{\mathsf H}\Pi_\pm^{\mathsf H}\Pi_\pm\psi}}
  {\scpart{\psi^{\mathsf H}\psi}}
@@ -2471,56 +2554,80 @@ Since the first term is nonnegative,
  \geq\frac12\left\lVert
  [\dd\bu\cdot\bsig,\dd\bu'\cdot\bsig]\right\rVert.
 \end{equation}
-Finally, on the mass shell let
+Finally, consider a free particle at fixed momentum, with
 \begin{equation}
+ E=\sqrt{\bP^2+m^2}>0,
+ \qquad
  U=\frac{E+\bP\cdot\bsig}{m}.
 \end{equation}
 On the plane-wave convention used in the Dirac equation,
 $\ii\partial=E-\bP\cdot\bsig=m\adj U$.  Thus the dimensionless free Dirac
 operator is $\Wop(\adj U)$.  Since $\Det{\adj U}=1$ and
-$\Wop(\adj U)^2=\bI$, the positive- and negative-energy
-projectors are
+$\Wop(\adj U)^2=\bI$, the two operators
 \begin{gather}
  \tfrac12(\bI+\Wop(\adj U))\\
  \tfrac12(\bI-\Wop(\adj U)).
 \end{gather}
 Each squares to itself, their product is zero, and their sum is $\bI$.
-The spin projectors act with the same sign on both components of $\bPsi$, so
-no additional block notation is needed: their actions are simply
-$\Pi_+\bPsi$ and $\Pi_-\bPsi$.  When $\Wop(\adj U)$ commutes with $\Pi_\pm$, as
-for a compatible spin quantization axis, the four pairwise products are
-joint energy--spin projectors.  Relative to the chosen spin direction $\bu$,
-the four terms are positive-energy spin up, positive-energy spin down,
-negative-energy spin up, and negative-energy spin down, respectively.  They
-resolve $\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$, a two-component column whose
-entries $\Psi_1$ and $\Psi_2$ are complex paravectors.  After the physical
-ideal projection, each entry carries two complex coefficients, giving the
-usual four complex components of a Dirac spinor.  Write the four projected
-components with the first sign denoting energy and the second sign denoting
-spin:
+They are the covariant mass-shell idempotents.  They are not Hermitian under
+the positive componentwise inner product away from the rest frame, because
+\begin{equation}
+ \Wop(\adj U)^{\mathsf H}=\Wop(U)\ne\Wop(\adj U)
+ \qquad (\bP\ne0).
+\end{equation}
+They are therefore useful in covariant solution and completeness formulas,
+but their squared component norms are not probabilities.
+
+For positive-norm energy probabilities, let $H$ denote the free Dirac
+Hamiltonian in this subsection:
+\begin{equation}
+ H:=\begin{Bmatrix}
+  -\bP\cdot\bsig&m\\
+  m&\bP\cdot\bsig
+ \end{Bmatrix}.
+\end{equation}
+It satisfies
+\begin{equation}
+ H^{\mathsf H}=H,
+ \qquad
+ H^2=E^2\bI.
+\end{equation}
+The Hermitian positive- and negative-energy projectors are consequently
+\begin{equation}
+ \tfrac12\left(\bI+\frac{H}{E}\right),
+ \qquad
+ \tfrac12\left(\bI-\frac{H}{E}\right).
+ \label{eq:energy-projectors}
+\end{equation}
+They are mutually orthogonal and sum to $\bI$.
+
+The spin projectors act with the same sign on both entries of $\bPsi$:
+\begin{equation}
+ \Pi_\pm\bPsi
+ :=\{\Pi_\pm\Psi_1,\Pi_\pm\Psi_2\}^{\mathsf T}.
+\end{equation}
+They commute with $H$ when $\bu$ is parallel to $\bP$, or for any $\bu$ in
+the rest frame.  Only under this condition do the four pairwise products give
+joint orthogonal energy--spin projectors.  Write the corresponding components
+with the first sign denoting energy and the second sign denoting spin:
 \begin{align}
- \bPsi_{++}&:=\tfrac12(\bI+\Wop(\adj U))\Pi_+\bPsi
+ \bPsi_{++}&:=\tfrac12\left(\bI+\frac{H}{E}\right)\Pi_+\bPsi
  &&\text{positive energy, spin up},\\
- \bPsi_{+-}&:=\tfrac12(\bI+\Wop(\adj U))\Pi_-\bPsi
+ \bPsi_{+-}&:=\tfrac12\left(\bI+\frac{H}{E}\right)\Pi_-\bPsi
  &&\text{positive energy, spin down},\\
- \bPsi_{--}&:=\tfrac12(\bI-\Wop(\adj U))\Pi_-\bPsi
+ \bPsi_{--}&:=\tfrac12\left(\bI-\frac{H}{E}\right)\Pi_-\bPsi
  &&\text{negative energy, spin down},\\
- \bPsi_{-+}&:=\tfrac12(\bI-\Wop(\adj U))\Pi_+\bPsi
+ \bPsi_{-+}&:=\tfrac12\left(\bI-\frac{H}{E}\right)\Pi_+\bPsi
  &&\text{negative energy, spin up}.
 \end{align}
-The resulting physical Dirac column selected in
-Section~\ref{sec:physical-spinors} is therefore
+Under the stated commutation condition they resolve the Dirac block:
 \begin{equation}
  \bPsi=\bPsi_{++}+\bPsi_{+-}+\bPsi_{--}+\bPsi_{-+}.
 \end{equation}
-This is not an eight-component column.  Each term on the right is itself a
-two-entry block of the same form as $\bPsi$, and the four blocks are added
-entry by entry rather than concatenated.  Although writing all four blocks
-out displays eight paravector-valued entries, they are projector-constrained
-and are not independent.  After the physical ideal projection, each joint
-energy--spin sector contains one independent complex amplitude.  The four
-sectors together therefore reproduce the four complex components of the
-Dirac spinor.
+Each term is a two-entry block of the same form as $\bPsi$; the terms are
+added entry by entry rather than concatenated.  Because each entry remains in
+the fixed minimal left ideal, the complete block still has the usual four
+complex components.
 
 For two Dirac blocks
 $\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$ and
@@ -2536,7 +2643,10 @@ Hence
  =\scpart{\Psi_1^{\mathsf H}\Psi_1}
  +\scpart{\Psi_2^{\mathsf H}\Psi_2}.
 \end{equation}
-Because the four joint projectors are Hermitian and mutually orthogonal,
+This is the pointwise density $j$ in equation~\eqref{eq:dirac-current}; the
+wavefunction inner product is obtained by integrating it over space.  When
+the energy and spin projectors
+commute, the four joint projectors are Hermitian and mutually orthogonal, so
 \begin{equation}
  \lVert\bPsi\rVert^2
  =\lVert\bPsi_{++}\rVert^2
@@ -2544,10 +2654,12 @@ Because the four joint projectors are Hermitian and mutually orthogonal,
  +\lVert\bPsi_{--}\rVert^2
  +\lVert\bPsi_{-+}\rVert^2.
 \end{equation}
-For a normalized state, these four squared norms are the probabilities of
-the four joint outcomes.
+For a normalized finite spin state, these four squared norms are the
+probabilities of the four joint outcomes.  For a spatial wavefunction the
+same statement uses the spatially integrated norms.
 
-For a Hermitian observable $Z$ acting on the Dirac block, define
+For a Hermitian paravector $Z$ acting diagonally and identically on both
+entries of the Dirac block, define
 \begin{equation}
  \langle\bPsi'\mid Z\mid\bPsi\rangle
  :=\sum_{n=1}^{2}\scpart{\Psi_n'^{\mathsf H}Z\Psi_n}.
@@ -2573,9 +2685,9 @@ off-diagonal terms such as
 $\langle\bPsi_{++}\mid Z\mid\bPsi_{--}\rangle$ remain and
 describe transitions or interference between sectors.
 All four-sector norm and expectation decompositions above require the stated
-commutation condition.  Without it, the four terms still sum to $\bPsi$, but
-the products are sequential projections rather than joint orthogonal
-projectors.
+commutation condition.  Without it, the four sequentially projected terms
+still sum to $\bPsi$, but they are not joint orthogonal outcomes and their
+squared norms are not four probabilities.
 
 \section{Rotations and Lorentz boosts}
 \label{sec:transformations}
@@ -2588,8 +2700,8 @@ $T$ with a negative exponential.
 \subsection{Rotors}
 
 Let $\theta\in\R$ be the rotation angle, $\bu\in\R^3$ a unit axis,
-$X=t+\br\cdot\bsig$ a spacetime paravector, and $\psi,Z$ paravector
-amplitudes.  The rotation is generated by
+$X=t+\br\cdot\bsig$ a spacetime paravector, $Z$ a paravector, and
+$\psi P=\psi$ a minimal-ideal amplitude.  The rotation is generated by
 \begin{gather}
  R:=\exp\!\left(\ii\frac\theta2\,\bu\cdot\bsig\right)
   =\cos\frac\theta2+\bu\cdot\ii\bsig\,\sin\frac\theta2\\
@@ -2606,24 +2718,42 @@ The half-angle explains the spinorial sign change
 $R(\theta+2\pi)=-R(\theta)$.
 The corresponding column-spinor and density-matrix transformations are
 collected in Appendix~\ref{sec:matrix-spinors}.
-For a spinor $\psi_R:=R\psi$, expectation values transform as
+For a spinor undergoing the same rotation, let
+$\psi_R:=R^{\mathsf H}\psi$.  Then
 \begin{gather}
- \psi_R^{\mathsf H}=\psi^{\mathsf H}R^{\mathsf H}\\
+ \psi_R^{\mathsf H}=\psi^{\mathsf H}R\\
  \langle Z\rangle_{\psi_R}
- =\frac{\scpart{\psi^{\mathsf H}R^{\mathsf H}ZR\psi}}
+ =\frac{\scpart{\psi^{\mathsf H}RZR^{\mathsf H}\psi}}
  {\scpart{\psi^{\mathsf H}\psi}}\\
  R^{\mathsf H}=R^{-1}.
 \end{gather}
-For $Z=\bu\cdot\bsig$, this gives
-$Z'=R^{\mathsf H}ZR=\bu'\cdot\bsig$.
+If the observable is rotated as $Z'=R^{\mathsf H}ZR$, cyclicity gives
+\begin{equation}
+ \langle Z'\rangle_{\psi_R}=\langle Z\rangle_\psi.
+\end{equation}
+In particular, $R^{\mathsf H}(\br\cdot\bsig)R=\br'\cdot\bsig$ gives the
+same Rodrigues rotation displayed above.  Both entries of a Dirac block
+transform by this same factor:
+\begin{equation}
+ \Psi_1'=R^{\mathsf H}\Psi_1,
+ \qquad
+ \Psi_2'=R^{\mathsf H}\Psi_2.
+\end{equation}
+The current transforms by the same vector sandwich:
+\begin{equation}
+ J'=R^{\mathsf H}JR.
+\end{equation}
 
 \subsection{Boosts}
 \label{sec:boosts}
 
 Let $\bu\in\R^3$ be a unit boost direction,
 $X=t+\br\cdot\bsig$ a spacetime paravector,
-$F=(\bE+\ii\bBf)\cdot\bsig$ an electromagnetic field, and $\psi,Z$
-paravector amplitudes.  Let rapidity $\theta$ satisfy
+$F=(\bE+\ii\bBf)\cdot\bsig$ an electromagnetic field, and
+$\Phi=V+\bA\cdot\bsig$ the potential,
+$D=\rho+\bJ\cdot\bsig$ the electromagnetic source, and
+$\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$ a Dirac block.  Let rapidity $\theta$
+satisfy
 $\beta=\tanh\theta$ and $\gamma=\cosh\theta$.  The boost is
 \begin{gather}
  L:=\exp\!\left(\frac\theta2\,\bu\cdot\bsig\right)
@@ -2632,15 +2762,22 @@ $\beta=\tanh\theta$ and $\gamma=\cosh\theta$.  The boost is
  L^{-1}=L^*
  =\cosh\frac\theta2-\bu\cdot\bsig\,\sinh\frac\theta2.
 \end{gather}
-For $\psi_L:=L^{-1}\psi$, the inverse boost factor is Hermitian, so
-\begin{gather}
- \psi_L^{\mathsf H}=\psi^{\mathsf H}L^{-1}\\
- \langle Z\rangle_{\psi_L}
- =\frac{\scpart{\psi^{\mathsf H}L^{-1}ZL^{-1}\psi}}
- {\scpart{\psi^{\mathsf H}L^{-2}\psi}}.
-\end{gather}
+Unlike a rotation, a boost acts oppositely on the two chiral entries of a
+Dirac block.  With the ordering used in the Dirac equation,
+\begin{equation}
+ \Psi_1'=L\Psi_1,
+ \qquad
+ \Psi_2'=L^{-1}\Psi_2.
+ \label{eq:dirac-boost}
+\end{equation}
+Thus $L^{-1}\psi$ is the transformation of the second chiral carrier, while
+$L\psi$ is the transformation of the first.  A single minimal-ideal
+amplitude has no unique boost law until its chirality is specified.  The two
+chiral representations use the same rotation factor but opposite boost
+generators, as required by the mass coupling.
+
 The similarity $L^{-1}ZL$ is a different operation: it preserves
-$\scpart Z$ and is not the spacetime or spinor-bilinear boost used here.
+$\scpart Z$ and is not the spacetime-vector boost used here.
 The spacetime paravector therefore transforms by the Hermitian congruence
 $X'=L^{-1}XL^{-1}$, which yields
 the components
@@ -2667,12 +2804,28 @@ components of $\bBf$ and $\bBf'$ by the same formulas.  Then
 \end{align}
 With the same convention,
 \begin{gather}
- \partial'=L^{-1}\partial L\\
- D'^*=L^{-1}D^*L.
+ \Phi'=L^{-1}\Phi L^{-1}\\
+ \partial'=L\partial L\\
+ \partial'^*=L^{-1}\partial^*L^{-1}\\
+ D'=L^{-1}DL^{-1}\\
+ D'^*=LD^*L.
 \end{gather}
 Since $L$ is constant and $LL^{-1}=1$, the field equation is covariant:
 \begin{equation}
- \partial'F'=L^{-1}(\partial F)L=L^{-1}D^*L=D'^*.
+ \partial'F'=L(\partial F)L=LD^*L=D'^*.
+\end{equation}
+The potential and derivative transformations likewise give
+\begin{align}
+ \ii\partial'-q\Phi'^*
+ &=L(\ii\partial-q\Phi^*)L,\\
+ \ii\partial'^*-q\Phi'
+ &=L^{-1}(\ii\partial^*-q\Phi)L^{-1}.
+\end{align}
+Together with equation~\eqref{eq:dirac-boost}, these identities make both
+coupled Dirac equations covariant.  The current in
+equation~\eqref{eq:dirac-current} transforms with the spacetime-vector law,
+\begin{equation}
+ J'=L^{-1}JL^{-1}.
 \end{equation}
 
 \section{Generalized spacetime and metric form}
@@ -2718,7 +2871,7 @@ If $f'=\dd f/\dd t$ and $\bg'=\dd\bg/\dd t$, then
 \begin{gather}
  \frac{\dd\bv}{\dd t}
  =\frac{\bg''f'-\bg'f''}{(f')^2}\\
- [U,\dd U/\dd s]=2\gamma^3(\bv\times\ba)\cdot\ii\bsig.
+ [U,\dd U/\dd s]=2\gamma^2(\bv\times\ba)\cdot\ii\bsig.
 \end{gather}
 
 
@@ -2834,6 +2987,8 @@ balance~\eqref{eq:poynting}.  The connection to invariant proper acceleration
 is developed in Section~\ref{sec:lorentz-proper-acceleration}.
 
 \paragraph{\hyperref[sec:waves]{Wave equations, spin, and energy sectors}.}
+Here $P$ is the fixed ideal selector, while $\Pi_\pm$ are measurement
+projectors.  In the energy formulas, $H$ denotes the free Dirac Hamiltonian.
 \begin{align*}
  \langle\psi'\mid\psi\rangle
  &=\scpart{\psi'^{\mathsf H}\psi},\\
@@ -2844,20 +2999,26 @@ is developed in Section~\ref{sec:lorentz-proper-acceleration}.
  {\langle\psi\mid\psi\rangle}
  =\frac{\scpart{\psi^{\mathsf H}Z\psi}}
  {\scpart{\psi^{\mathsf H}\psi}},\\
+ P&=\tfrac12(1+\sigma_3),
+ &\psi P&=\psi,\\
  (\Box+m^2)\psi&=0,\\
  \Wop(Z)&=\begin{Bmatrix}0&Z\\\adj Z&0\end{Bmatrix},\\
  \bigl(\Wop(\ii\partial)-m\bI\bigr)\bPsi&=0,\\
  \bigl(\Wop(\ii\partial-q\Phi^*)-m\bI\bigr)\bPsi&=0,\\
- \ii\partial_t\bPsi&=\left(
+ \ii\partial_t\bpsi&=\left(
  \frac{(-\ii\pdr-q\bA)^2}{2m}+qV
- -\frac q{2m}\bBf\cdot\bsig\right)\bPsi,\\
+ -\frac q{2m}\bBf\cdot\bsig\right)\bpsi,\\
+ J&=\adj{\Psi_1\Psi_1^{\mathsf H}}+\Psi_2\Psi_2^{\mathsf H}
+   &&\text{\eqref{eq:dirac-current}},\\
  \Pi_\pm&=\tfrac12(1\pm\bu\cdot\bsig),\\
  p_\pm(\bu)&=\tfrac12(1\pm\bu\cdot\bm{s}),\\
  U&=(E+\bP\cdot\bsig)/m,\\
+ H&=\begin{Bmatrix}-\bP\cdot\bsig&m\\m&\bP\cdot\bsig\end{Bmatrix},
+ &E&=\sqrt{\bP^2+m^2},\\
  \text{positive-energy projector: }&\quad
- \tfrac12(\bI+\Wop(\adj U)),\\
+ \tfrac12(\bI+H/E),\\
  \text{negative-energy projector: }&\quad
- \tfrac12(\bI-\Wop(\adj U)),\\
+ \tfrac12(\bI-H/E),\\
  \text{spin-up projection: }&\quad\Pi_+\bPsi,\\
  \text{spin-down projection: }&\quad\Pi_-\bPsi.
 \end{align*}
@@ -2868,21 +3029,29 @@ Klein--Gordon equation~\eqref{eq:kg}, Dirac equations~\eqref{eq:dirac} and
 \eqref{eq:dirac-field}, general Klein--Gordon lift
 \eqref{eq:kg-dirac-general-lift}, Pauli equation~\eqref{eq:pauli}, and spin
 probability~\eqref{eq:spin-probability}.
+The covariant mass-shell idempotents
+$\tfrac12(\bI\pm\Wop(\adj U))$ are distinct from the Hermitian energy
+projectors summarized here.
 
 \paragraph{\hyperref[sec:transformations]{Rotations and boosts}.}
 \begin{align*}
  R&=\exp(\ii\theta\bu\cdot\bsig/2),\\
  R^{\mathsf H}&=R^{-1},\\
  Z'&=R^{\mathsf H}ZR,\\
+ \psi'&=R^{\mathsf H}\psi,\\
  L&=\exp(\theta\bu\cdot\bsig/2),\\
  L^{\mathsf H}&=L,\\
  X'&=L^{-1}XL^{-1},\\
- \langle Z\rangle_{\psi_T}
- &=\frac{\scpart{\psi^{\mathsf H}T^{\mathsf H}ZT\psi}}
- {\scpart{\psi^{\mathsf H}T^{\mathsf H}T\psi}}.
+ \Psi_1'&=L\Psi_1,
+ &\Psi_2'&=L^{-1}\Psi_2,\\
+ \partial'&=L\partial L,
+ &D'&=L^{-1}DL^{-1},\\
+ F'&=L^{-1}FL,
+ &J'&=L^{-1}JL^{-1}.
 \end{align*}
-See the bilinear rule~\eqref{eq:bilinear-congruence} and varying-frame
-derivatives in Section~\ref{sec:varying-transformations}.
+See the bilinear rule~\eqref{eq:bilinear-congruence}, Dirac boost
+rule~\eqref{eq:dirac-boost}, and varying-frame derivatives in
+Section~\ref{sec:varying-transformations}.
 
 \paragraph{\hyperref[sec:matrix]{Matrix representation in Appendix A}.}
 \begin{align*}
@@ -3225,84 +3394,157 @@ Thus $\operatorname{mat}(\psi^{\mathsf H}\psi)
 =\bM_\psi^{\mathsf H}\bM_\psi$ is generally Hermitian rather than scalar;
 the scalar inner product is obtained by taking half its trace.
 
-For the fixed unit direction $\bu$, the paravector projectors have matrix
-images
-\begin{equation}
- \operatorname{mat}(\Pi_\pm)
- =\tfrac12(\bI_2\pm\bu\cdot\bsig).
-\end{equation}
-Let $\bm v_+$ be a normalized positive eigenvector,
-\begin{gather}
- (\bu\cdot\bsig)\bm v_+=\bm v_+\\
- \bm v_+^{\mathsf H}\bm v_+=1.
-\end{gather}
-A convenient phase choice, valid for $u_3\ne-1$, is
-\begin{equation}
- \bm v_+
- =\frac{\{1+u_3,\ u_1+\ii u_2\}^{\mathsf T}}
- {\sqrt{2(1+u_3)}}.
-\end{equation}
-At the excluded direction $\bu=-\bm e_3$, use
-\begin{equation}
- \bm v_+=\{0,1\}^{\mathsf T}.
-\end{equation}
-Then
-\begin{equation}
- \operatorname{mat}(\Pi_+)
- =\bm v_+\bm v_+^{\mathsf H}.
-\end{equation}
+An unrestricted matrix $\bM_\psi$ contains two independent columns.  Under
+left multiplication those columns transform as two equivalent
+two-component carriers, so the full matrix is not yet one conventional Pauli
+column.  The fixed right projection below selects one carrier.
 
-For the projected amplitude $\psi'=\Pi_+\psi$, define
+Recall the fixed idempotent from Section~\ref{sec:physical-spinors}:
+\begin{equation}
+ P=\tfrac12(1+\sigma_3).
+\end{equation}
+With
 \begin{gather}
- \bM_{\psi'}:=\operatorname{mat}(\psi')
- =\operatorname{mat}(\Pi_+)\bM_\psi\\
- \bm\chi:=\bM_\psi^{\mathsf H}\bm v_+.
+ \bm v:=\{1,0\}^{\mathsf T}\\
+ \bm v^{\mathsf H}\bm v=1,
 \end{gather}
-The algebra, rank-one matrix, and two-component column are related by
-\begin{align}
- \bm\chi&=\bM_{\psi'}^{\mathsf H}\bm v_+
+its matrix image is
+\begin{equation}
+ \operatorname{mat}(P)=\bm v\bm v^{\mathsf H}
+ =\begin{Bmatrix}1&0\\0&0\end{Bmatrix}.
+\end{equation}
+Any other fixed primitive Hermitian idempotent gives an equivalent column
+basis, but $P$ is kept fixed throughout the following formulas.
+
+Let $\psi=AP$ and $\psi'=A'P$ be two ideal amplitudes.  Define their
+conventional columns by
+\begin{gather}
+ \bpsi:=\frac1{\sqrt2}\bM_\psi\bm v
  \label{eq:ideal-column-map}
  \\
- \bM_{\psi'}&=\bm v_+\bm\chi^{\mathsf H}.
+ \bpsi':=\frac1{\sqrt2}\bM_{\psi'}\bm v.
+\end{gather}
+The inverse relations are
+\begin{gather}
+ \bM_\psi=\sqrt2\,\bpsi\bm v^{\mathsf H}
  \label{eq:ideal-matrix-map}
-\end{align}
-Thus $\psi'$ and $\bm\chi\in\C^2$ contain the same two complex
-components.  The matrix $\bM_{\psi'}$ has rank one and has
-$\bm\chi^{\mathsf H}$ as its nonzero row precisely when the basis begins
-with $\bm v_+$.  Conversely, $\bm v_+\bm\chi^{\mathsf H}$ uniquely
-determines $\psi'$.  Moreover,
-\begin{equation}
- \bm\chi^{\mathsf H}\bm\chi
- =\operatorname{tr}(\bM_{\psi'}^{\mathsf H}\bM_{\psi'})
- =2\scpart{\psi'^{\mathsf H}\psi'},
- \label{eq:minimal-ideal-spinor}
-\end{equation}
-For an observable acting from the left, the intrinsic matrix element is
-\begin{equation}
- 2\scpart{\psi'^{\mathsf H}Z\psi'}
- =\operatorname{tr}(\bM_{\psi'}^{\mathsf H}
-   \operatorname{mat}(Z)\bM_{\psi'})
- =(\bm\chi^{\mathsf H}\bm\chi)
-  (\bm v_+^{\mathsf H}\operatorname{mat}(Z)\bm v_+).
-\end{equation}
+ \\
+ \bM_{\psi'}=\sqrt2\,\bpsi'\bm v^{\mathsf H}.
+\end{gather}
+Thus each ideal amplitude and its column contain the same two complex
+components.  Its matrix has rank one for a nonzero state and rank zero for
+the zero state.  The fixed right factor records the chosen ideal, while all
+state information is contained in the column.
 
-The two left-projected matrix amplitudes are
+Substitution into the trace pairing gives exactly the conventional formulas:
+\begin{align}
+ \langle\psi'\mid\psi\rangle
+ &=\bpsi'^{\mathsf H}\bpsi
+ \label{eq:minimal-ideal-spinor}
+ \\
+ \langle\psi'\mid Z\mid\psi\rangle
+ &=\bpsi'^{\mathsf H}\operatorname{mat}(Z)\bpsi.
+\end{align}
+In particular,
+\begin{gather}
+ \scpart{\psi^{\mathsf H}\psi}=\bpsi^{\mathsf H}\bpsi\\
+ \langle Z\rangle_\psi
+ =\frac{\bpsi^{\mathsf H}\operatorname{mat}(Z)\bpsi}
+ {\bpsi^{\mathsf H}\bpsi}.
+\end{gather}
+The factor $1/\sqrt2$ in the column map compensates for scalar extraction
+being one half of the matrix trace.  Left multiplication needs no further
+adjustment: $T\psi$ maps to $\operatorname{mat}(T)\bpsi$.
+In particular, the rotor law $\psi'=R^{\mathsf H}\psi$ becomes
 \begin{equation}
- \bM_{\psi',\pm}
- :=\operatorname{mat}(\Pi_\pm)\bM_\psi.
+ \bpsi'=\operatorname{mat}(R)^{\mathsf H}\bpsi,
 \end{equation}
-Consequently, the intrinsic probabilities in
-\eqref{eq:spin-probability} have the matrix form
+which rotates the column and its Bloch vector in the same direction as the
+Rodrigues formula in Section~\ref{sec:transformations}.
+
+For a measurement along a unit direction $\bu$, let
 \begin{equation}
+ \Pi_\pm=\tfrac12(1\pm\bu\cdot\bsig),
+ \qquad
+ \psi_\pm=\Pi_\pm\psi.
+\end{equation}
+The corresponding matrices and columns are
+\begin{align}
+ \bM_{\psi_\pm}
+ &=\operatorname{mat}(\Pi_\pm)\bM_\psi,\\
+ \bpsi_\pm
+ &=\operatorname{mat}(\Pi_\pm)\bpsi.
+\end{align}
+Consequently, the probability in equation~\eqref{eq:spin-probability} is
+\begin{align}
  p_\pm(\bu)
- =\frac{\operatorname{tr}
-   (\bM_\psi^{\mathsf H}\operatorname{mat}(\Pi_\pm)^{\mathsf H}
-    \operatorname{mat}(\Pi_\pm)\bM_\psi)}
-  {\operatorname{tr}(\bM_\psi^{\mathsf H}\bM_\psi)}
- =\frac{\operatorname{tr}
+ &=\frac{\bpsi_\pm^{\mathsf H}\bpsi_\pm}
+ {\bpsi^{\mathsf H}\bpsi}\\
+ &=\frac{\bpsi^{\mathsf H}\operatorname{mat}(\Pi_\pm)\bpsi}
+ {\bpsi^{\mathsf H}\bpsi}\\
+ &=\frac{\operatorname{tr}
    (\bM_\psi^{\mathsf H}\operatorname{mat}(\Pi_\pm)\bM_\psi)}
   {\operatorname{tr}(\bM_\psi^{\mathsf H}\bM_\psi)}.
+\end{align}
+For an ideal amplitude, its normalized density matrix may therefore be
+written in either form
+\begin{equation}
+ \frac{\bpsi\bpsi^{\mathsf H}}{\bpsi^{\mathsf H}\bpsi}
+ =\frac{\bM_\psi\bM_\psi^{\mathsf H}}
+ {\operatorname{tr}(\bM_\psi\bM_\psi^{\mathsf H})}.
 \end{equation}
+For an unrestricted matrix amplitude, the expression on the right remains a
+valid normalized positive density matrix and may describe a mixed state.  It
+comes from a single Pauli column precisely when the matrix amplitude has rank
+one.
+
+For the Dirac block, apply the same column map to each ideal entry and write
+$\bpsi_1,\bpsi_2$ for the resulting columns.  The faithful block action is
+\begin{equation}
+ \Wop(Z)\bPsi
+ \quad\longleftrightarrow\quad
+ \begin{Bmatrix}
+  0&\operatorname{mat}(Z)\\
+  \operatorname{mat}(\adj Z)&0
+ \end{Bmatrix}
+ \begin{Bmatrix}\bpsi_1\\\bpsi_2\end{Bmatrix}.
+\end{equation}
+For $Z=S+\bV\cdot\bsig$, this block matrix is
+\begin{equation}
+ \begin{Bmatrix}
+  0&S\bI_2+\bV\cdot\bsig\\
+  S\bI_2-\bV\cdot\bsig&0
+ \end{Bmatrix},
+\end{equation}
+which is the standard chiral form used by the Dirac equation.  In this
+ordering the conventional Hermitian row entering the Dirac current is
+$\{\bpsi_2^{\mathsf H},\bpsi_1^{\mathsf H}\}$.  The matrix image of
+equation~\eqref{eq:dirac-current} is
+\begin{align}
+ \operatorname{mat}(J)
+ ={}&(\bpsi_1^{\mathsf H}\bpsi_1
+     +\bpsi_2^{\mathsf H}\bpsi_2)\bI_2\\
+ &+\sum_{n=1}^{3}
+ \left(-\bpsi_1^{\mathsf H}\bm{\sigma}_n\bpsi_1
+       +\bpsi_2^{\mathsf H}\bm{\sigma}_n\bpsi_2\right)\bm{\sigma}_n.
+\end{align}
+The rotation and boost laws of the two columns are correspondingly
+\begin{align}
+ \begin{Bmatrix}\bpsi_1'\\\bpsi_2'\end{Bmatrix}
+ &=\begin{Bmatrix}
+   \operatorname{mat}(R)^{\mathsf H}&0\\
+   0&\operatorname{mat}(R)^{\mathsf H}
+  \end{Bmatrix}
+  \begin{Bmatrix}\bpsi_1\\\bpsi_2\end{Bmatrix},\\
+ \begin{Bmatrix}\bpsi_1'\\\bpsi_2'\end{Bmatrix}
+ &=\begin{Bmatrix}
+   \operatorname{mat}(L)&0\\
+   0&\operatorname{mat}(L)^{-1}
+  \end{Bmatrix}
+  \begin{Bmatrix}\bpsi_1\\\bpsi_2\end{Bmatrix}.
+\end{align}
+Thus the two columns have the same rotation generator and opposite boost
+generators, which is the standard chiral Dirac transformation.
 
 \subsection{Quaternion subalgebra}
 \label{sec:quaternions}
@@ -3461,6 +3703,11 @@ therefore reproduces the same Rodrigues rotation.
  entrywise complex conjugation, and Hermitian transpose.  It distinguishes
  these operations from sigma conjugation and states which operations reverse
  product order.
+
+ \item The fixed idempotent $P=\tfrac12(1+\sigma_3)$ is multiplied on the
+ right to select one minimal left ideal and one Pauli column.  The variable
+ projectors $\Pi_\pm=\tfrac12(1\pm\bu\cdot\bsig)$ act from the left and
+ represent physical spin measurements.  These roles are not interchangeable.
 
  \item Plus/minus labels are subscripts
  \(({}_\pm,{}_{+},{}_{-})\), not superscripts or parenthesized labels.
