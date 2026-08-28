@@ -49,7 +49,7 @@
 \newcommand{\bE}{\bm{E}}
 \newcommand{\bBf}{\bm{B}}
 \newcommand{\bJ}{\bm{J}}
-\newcommand{\bP}{\bm{P}}
+\newcommand{\bp}{\bm{p}}
 \newcommand{\bM}{\bm{M}}
 \newcommand{\bN}{\bm{N}}
 \newcommand{\bI}{\bm{I}}
@@ -313,6 +313,16 @@ Whenever $\det(Z)\ne0$, define
  =\frac{S-\bV\cdot\bsig}{S^2-\bV^2}\\
  Z^{-1}Z=ZZ^{-1}=1.
 \end{gather}
+A paravector denoted by $U$ is called a unit when it has a two-sided
+inverse.  Its defining property is
+\begin{equation}
+ UU^{-1}=U^{-1}U=1.
+ \label{eq:unit-paravector}
+\end{equation}
+For a paravector this is equivalent to $\det(U)\ne0$, with
+$U^{-1}=\adj U/\det(U)$.  The definition does not by itself require
+$\det(U)=1$ or $U^{\mathsf H}=U^{-1}$; either is an additional property of
+particular units.
 For another paravector $Z'=S'+\bV'\cdot\bsig$, division by $Z$ is generally
 order-sensitive and must be written using an explicitly ordered inverse.  For
 invertible $Z$, the unambiguous quotient is defined when $Z'$ and $Z$ commute:
@@ -630,6 +640,23 @@ $\Pi_\pm':=\tfrac12(1\pm\bu'\cdot\bsig)$.  Their products are
  \Pi_-\Pi_-'&=\tfrac14(1+\bu\cdot\bu')
  +\tfrac14(-\bu-\bu'+\ii\bu\times\bu')\cdot\bsig.
 \end{align}
+
+For arbitrary real vector increments $\dd\bu$ and $\dd\bu'$, the same
+dot--cross decomposition gives the geometric determinant identity
+\begin{equation}
+ \Det{(\dd\bu\cdot\bsig)(\dd\bu'\cdot\bsig)}
+ =(\dd\bu\cdot\dd\bu')^2
+ +\frac14\left\lVert
+ [\dd\bu\cdot\bsig,\dd\bu'\cdot\bsig]\right\rVert^2.
+\end{equation}
+Consequently,
+\begin{equation}
+ \sqrt{\Det{(\dd\bu\cdot\bsig)(\dd\bu'\cdot\bsig)}}
+ \geq\frac12\left\lVert
+ [\dd\bu\cdot\bsig,\dd\bu'\cdot\bsig]\right\rVert.
+\end{equation}
+This is Lagrange's dot--cross identity written in the algebra; it is not a
+quantum uncertainty relation.
 
 \subsubsection{Ladder operators}
 \label{sec:ladder-operators}
@@ -1177,30 +1204,18 @@ The square-root and logarithm formulas above are understood with a fixed
 analytic branch wherever that branch is regular.  Independent branch choices
 need not have a finite limit when the two eigenvalues coalesce.
 
-\subsection{Differentiated fields}
-
-Let $Z(t,\br)$ and $Z'(t,\br)$ be paravector fields.  For their product,
-\begin{equation}
- \partial(ZZ')=(\partial Z)Z'+Z(\partial Z')
- +[\bsig,Z]\cdot\pdr Z'.
-\end{equation}
-Let $F=(a+b\ii)+(\bA+\bB\ii)\cdot\bsig$ depend on $(t,\br)$.  Then
-\begin{align}
- \partial F={}&(\partial_ta+\pdr\cdot\bA)
- +\ii(\partial_tb+\pdr\cdot\bB)\\
- &+(\pdr a+\partial_t\bA-\pdr\times\bB)\cdot\bsig\\
- &+\ii(\pdr b+\pdr\times\bA+\partial_t\bB)\cdot\bsig.
-\end{align}
-Multiplication by $\ii$ rotates these four components: the real scalar becomes
-$-\partial_tb-\pdr\cdot\bB$, the imaginary scalar becomes
-$\partial_ta+\pdr\cdot\bA$, the real vector becomes the negative of the
-imaginary vector above, and the imaginary vector becomes the real vector.
-
 \section{Transformations and invariants}
 \label{sec:preserved-quantities}
 
-Here $Z$ is a complex paravector, $T$ and $T'$ are general complex
-transformation paravectors, and $U$ is a unitary transformation paravector.
+Here $Z$ is a complex paravector, and $T$ and $T'$ are general complex
+transformation paravectors.  Recall from equation~\eqref{eq:unit-paravector}
+that $U$ denotes a unit paravector.  A unitary transformation is a unit $U$
+that additionally satisfies
+\begin{align}
+ U^{\mathsf H}U=UU^{\mathsf H}&=1
+ \label{eq:unitary-transform}\\
+ U^{\mathsf H}&=U^{-1}.
+\end{align}
 The transformations used below are organized by the quantities they leave
 unchanged:
 \begin{gather}
@@ -1210,15 +1225,9 @@ unchanged:
  =\tfrac12\operatorname{tr}(Z^{\mathsf H}Z).
 \end{gather}
 The trace is linear; the determinant and norm are quadratic.  The prime on
-$T'$ marks a second transformation factor rather than a derivative.  The
-unitary factor satisfies
-\begin{align}
- U^{\mathsf H}U=UU^{\mathsf H}&=1
- \label{eq:unitary-transform}\\
- U^{\mathsf H}&=U^{-1}.
-\end{align}
-Here $U$ is a transformation; Section~\ref{sec:kinematics} later reuses the
-symbol for four-velocity.
+$T'$ marks a second transformation factor rather than a derivative.  In the
+physical sections, the same unit notation is specialized locally to proper
+velocity by recalling $U=\dd X/\dd s$.
 
 \subsection{Similarity invariants}
 
@@ -1304,6 +1313,167 @@ norm.  A nonzero boost satisfies
 \end{gather}
 so $L$ is not unitary.  The transformation $Z'=L^{-1}ZL^{-1}$ preserves the
 determinant but does not generally preserve the trace or norm.
+
+\section{Differentiated fields}
+\label{sec:differentiated-fields}
+
+\subsection{Paravector differential operators}
+
+In this subsection, $t\in\R$ is a real scalar coordinate and
+$\br=\{r_1,r_2,r_3\}\in\R^3$ is a real spatial vector.  Define their
+derivatives and the paravector differential operators by
+\begin{gather}
+ \partial_t:=\frac{\partial}{\partial t},
+ \qquad
+ \pdr:=\left\{
+  \frac{\partial}{\partial r_1},
+  \frac{\partial}{\partial r_2},
+  \frac{\partial}{\partial r_3}\right\},\\
+ \partial:=\partial_t+\bsig\cdot\pdr
+ =\partial_t+\sum_{n=1}^{3}\sigma_n\frac{\partial}{\partial r_n},\\
+ \partial^*=\adj{\partial}
+ =\partial_t-\bsig\cdot\pdr.
+ \label{eq:paravector-derivative}
+\end{gather}
+We call $\partial$ the partial paravector and $\partial^*$ its
+sigma-conjugate partial paravector.  They act from the left on every field to
+their right unless parentheses state otherwise.  The sigma generators are
+constant, while the coefficient derivatives act on the fields.
+
+For fields whose second coordinate derivatives commute, the spatial part
+squares to a scalar operator:
+\begin{align}
+ (\bsig\cdot\pdr)^2
+ &={}
+ \sum_{n,m=1}^{3}\sigma_n\sigma_m
+ \frac{\partial^2}{\partial r_n\partial r_m}\notag\\
+ &=\sum_{n=1}^{3}\frac{\partial^2}{\partial r_n^2}
+ +\sum_{n<m}(\sigma_n\sigma_m+\sigma_m\sigma_n)
+ \frac{\partial^2}{\partial r_n\partial r_m}\notag\\
+ &=\sum_{n=1}^{3}\frac{\partial^2}{\partial r_n^2}
+ =\pdr\cdot\pdr.
+ \label{eq:spatial-paravector-square}
+\end{align}
+The mixed time--space terms also cancel because the coordinate derivatives
+commute.  Therefore
+\begin{align}
+ \partial\partial^*
+ &=(\partial_t+\bsig\cdot\pdr)
+   (\partial_t-\bsig\cdot\pdr)
+ =\partial_t^2-\pdr\cdot\pdr,\\
+ \partial^*\partial
+ &=(\partial_t-\bsig\cdot\pdr)
+   (\partial_t+\bsig\cdot\pdr)
+ =\partial_t^2-\pdr\cdot\pdr.
+\end{align}
+Thus the two orders give the same scalar second-order operator,
+\begin{equation}
+ \partial\partial^*=\partial^*\partial
+ =\partial_t^2-\pdr\cdot\pdr
+ =\frac{\partial^2}{\partial t^2}
+  -\sum_{n=1}^{3}\frac{\partial^2}{\partial r_n^2}
+ =:\Box,
+ \label{eq:dalembertian}
+\end{equation}
+called the d'Alembertian.  The equalities here are identities of operators:
+for example, $\partial\partial^*Z$ means
+$\partial(\partial^*Z)$.
+
+\subsection{Differentiated paravector fields}
+
+First let the single paravector field
+\begin{equation}
+ Z(t,\br)=(a+b\ii)+(\bA+\bB\ii)\cdot\bsig
+\end{equation}
+be given, with $a$, $b$, $\bA$, and $\bB$ depending on $(t,\br)$.  Direct use
+of the ordered vector product gives
+\begin{align}
+ \partial Z={}&(\partial_ta+\pdr\cdot\bA)
+ +\ii(\partial_tb+\pdr\cdot\bB)\\
+ &+(\pdr a+\partial_t\bA-\pdr\times\bB)\cdot\bsig\\
+ &+\ii(\pdr b+\pdr\times\bA+\partial_t\bB)\cdot\bsig.
+ \label{eq:differentiated-paravector}
+\end{align}
+Multiplication by $\ii$ rotates these four components: the real scalar becomes
+$-\partial_tb-\pdr\cdot\bB$, the imaginary scalar becomes
+$\partial_ta+\pdr\cdot\bA$, the real vector becomes the negative of the
+imaginary vector above, and the imaginary vector becomes the real vector.
+
+Now let $Z(t,\br)$ and $Z'(t,\br)$ be paravector fields; the prime labels the
+second field and is not a derivative.  For their product,
+\begin{align}
+ \partial(ZZ')=(\partial Z)Z'+Z(\partial Z')
+ +[\bsig,Z]\cdot\pdr Z',\\
+ \partial^*(ZZ')=(\partial^* Z)Z'+Z(\partial^* Z')
+ -[\bsig,Z]\cdot\pdr Z'.
+ \label{eq:paravector-product-rules}
+\end{align}
+Here the final contraction is defined componentwise, with multiplied order
+retained:
+\begin{equation}
+ [\bsig,Z]\cdot\pdr Z'
+ :=\sum_{n=1}^{3}[\sigma_n,Z]
+       \frac{\partial Z'}{\partial r_n}.
+ \label{eq:paravector-commutator-contraction}
+\end{equation}
+To derive the first rule, apply the ordinary scalar product rule to every
+coefficient derivative:
+\begin{align}
+ \partial(ZZ')
+ ={}&(\partial_tZ)Z'+Z(\partial_tZ')\notag\\
+ &+\sum_{n=1}^{3}\sigma_n
+ \left(\frac{\partial Z}{\partial r_n}Z'
+       +Z\frac{\partial Z'}{\partial r_n}\right)\notag\\
+ ={}&(\partial Z)Z'+Z(\partial Z')
+ +\sum_{n=1}^{3}(\sigma_nZ-Z\sigma_n)
+       \frac{\partial Z'}{\partial r_n}\notag\\
+ ={}&(\partial Z)Z'+Z(\partial Z')
+ +[\bsig,Z]\cdot\pdr Z'.
+ \label{eq:paravector-product-rule-derivation}
+\end{align}
+The same expansion with the negative spatial part of $\partial^*$ gives
+\begin{align}
+ \partial^*(ZZ')
+ ={}&(\partial^*Z)Z'+Z(\partial^*Z')\notag\\
+ &+\sum_{n=1}^{3}(-\sigma_nZ+Z\sigma_n)
+       \frac{\partial Z'}{\partial r_n}\notag\\
+ ={}&(\partial^*Z)Z'+Z(\partial^*Z')
+ -[\bsig,Z]\cdot\pdr Z'.
+ \label{eq:paravector-star-product-rule-derivation}
+\end{align}
+Thus the opposite signs come directly from the opposite spatial signs in
+$\partial$ and $\partial^*$.
+
+As a concrete noncommuting check, take $Z=\sigma_2$ and $Z'=r_1$.  Only
+the $r_1$ derivative remains, and
+\begin{equation}
+ \sigma_1\sigma_2=\ii\sigma_3,
+ \qquad
+ \sigma_2\sigma_1=-\ii\sigma_3,
+ \qquad
+ [\sigma_1,\sigma_2]=2\ii\sigma_3.
+\end{equation}
+The first right-hand side gives
+\begin{equation}
+ \sigma_2\sigma_1+[\sigma_1,\sigma_2]
+ =-\ii\sigma_3+2\ii\sigma_3
+ =\ii\sigma_3
+ =\partial(\sigma_2r_1),
+\end{equation}
+while the second gives
+\begin{equation}
+ -\sigma_2\sigma_1-[\sigma_1,\sigma_2]
+ =\ii\sigma_3-2\ii\sigma_3
+ =-\ii\sigma_3
+ =\partial^*(\sigma_2r_1).
+\end{equation}
+This verifies both the commutator order and the relative sign in a case where
+$Z$ does not commute with the differential basis.
+
+Thus $\partial$ and $\partial^*$ obey the ordinary Leibniz rule when the
+left factor commutes with every $\sigma_n$, in particular when it is a
+complex scalar.  For a general paravector field, the commutator term is part
+of the derivative and multiplied order cannot be rearranged.
 
 \section{Space--time kinematics}
 \label{sec:kinematics}
@@ -1395,53 +1565,86 @@ Applying this operator a second time gives
  =\gamma^2\frac{\dd^2}{\dd t^2}
   +\gamma\frac{\dd\gamma}{\dd t}\frac{\dd}{\dd t}.
 \end{equation}
-In particular, the proper velocity is
+In particular, the proper-velocity paravector is
 \begin{equation}
- U:=\frac{\dd X}{\dd s}=\gamma(1+\bv\cdot\bsig).
+ \frac{\dd X}{\dd s}=\gamma(1+\bv\cdot\bsig).
 \end{equation}
 Using the scalar-scaling rule~\eqref{eq:det-scalar-scaling}, its determinant is
+\begin{equation}
+ \det\left(\frac{\dd X}{\dd s}\right)
+ =\frac{\det(\dd X)}{\dd s^2}
+ =1.
+\end{equation}
+Thus $\dd X/\dd s$ is a unit paravector in the sense of
+equation~\eqref{eq:unit-paravector}.  We represent this proper velocity by
+$U$, so
+\begin{equation}
+ U=\frac{\dd X}{\dd s}=\gamma(1+\bv\cdot\bsig).
+ \label{eq:proper-velocity}
+\end{equation}
+In terms of $\gamma$ and $\bv$, the same determinant calculation is
 \begin{equation}
  \det(U)
  =\det\left(\frac{\dd X}{\dd s}\right)
  =\frac{\det(\dd X)}{\dd s^2}
+ =\gamma^2(1-\bv^2)
  =1.
 \end{equation}
-Equivalently, $\det(U)=\gamma^2(1-\bv^2)=1$, so
+Since $U$ is real, its adjugate is its sigma conjugate, and therefore
 \begin{equation}
- U^{-1}=\frac{\adj U}{\det(U)}=U^*.
+ U^{-1}=\frac{\adj U}{\det(U)}=U^*
+ =\gamma(1-\bv\cdot\bsig).
 \end{equation}
+This sigma-conjugate normalization is distinct from Hermitian unitarity;
+proper velocity is not generally a unitary transformation.
+
 Proper time therefore obeys
 \begin{equation}
  \tau=\int\dd s
  =\int\sqrt{1-\bv^2}\,\dd t
  =\int\frac{\dd t}{\gamma}.
 \end{equation}
-The four-momentum is the paravector
+For a massive particle with $m>0$, the four-momentum is the real paravector
 \begin{equation}
- mU=m\gamma+m\gamma\bv\cdot\bsig
- =E+\bP\cdot\bsig.
+ P:=mU=m\gamma+m\gamma\bv\cdot\bsig
+ =E+\bp\cdot\bsig.
  \label{eq:momentum}
 \end{equation}
-Its scalar and vector components define
+Its scalar and vector parts define the energy and spatial momentum:
 \begin{gather}
- E:=m\gamma\\
- \bP:=m\gamma\bv.
+ E:=\scpart P=m\gamma\\
+ \bp:=\vecpart P=m\gamma\bv\\
+ \adj P=E-\bp\cdot\bsig.
 \end{gather}
 Taking its determinant gives the mass-shell relation
 \begin{equation}
- \det(mU)=m^2\det(U)=m^2
- =\det(E+\bP\cdot\bsig)=E^2-\bP^2,
+ \det(P)=m^2\det(U)=m^2
+ =\det(E+\bp\cdot\bsig)=E^2-\bp^2,
 \end{equation}
-or $E^2=\bP^2+m^2$; for $m=0$, $E^2=\bP^2$.
+or $E^2=\bp^2+m^2$.  Since $m>0$, the momentum is invertible and
+\begin{equation}
+ P^{-1}=\frac{\adj P}{\det(P)}
+ =\frac{E-\bp\cdot\bsig}{m^2}.
+\end{equation}
+A massless worldline is null and has no proper-time velocity $U$.  Its
+four-momentum is therefore defined directly as a future-directed null
+paravector $P=E+\bp\cdot\bsig$ satisfying
+\begin{equation}
+ \det(P)=E^2-\bp^2=0,
+ \qquad E>0.
+\end{equation}
+It has no inverse.  Thus the same determinant gives the massive and massless
+dispersion relations, while only the massive momentum is constructed as
+$mU$.
 
 \subsubsection{Proper acceleration}
 
-The required worldline quantities are
+Recall that $U=\dd X/\dd s=\gamma(1+\bv\cdot\bsig)$ is the proper
+velocity.  The required coordinate quantities are
 \begin{gather}
  \bv:=\frac{\dd\br}{\dd t}\\
  \ba:=\frac{\dd\bv}{\dd t}\\
- \gamma:=\frac{\dd t}{\dd s}\\
- U:=\frac{\dd X}{\dd s}.
+ \gamma:=\frac{\dd t}{\dd s}.
 \end{gather}
 Differentiating $\gamma=(1-\bv^2)^{-1/2}$ gives
 \begin{equation}
@@ -1541,7 +1744,8 @@ $\det(\dd U/\dd s)=-\ba^2$.
 \subsection{Varying transformations and second differentials}
 \label{sec:varying-transformations}
 
-Let $X$ be a paravector along a path and $T$ an invertible transformation
+Recall $U=\dd X/\dd s$, and likewise write $U'=\dd X'/\dd s$.  Let $X$
+be a paravector along a path and $T$ an invertible transformation
 paravector that may vary along it.  Let $\dd$ denote successive
 differentiation with respect to the path parameter and define
 \begin{equation}
@@ -1565,7 +1769,7 @@ Dividing by the corresponding powers of $\dd s$, define
  \Omega:=\frac{\dd\Theta}{\dd s}
  =T^{-1}\,\frac{\dd T}{\dd s},
 \end{equation}
-so, with $U=\dd X/\dd s$ and $U'=\dd X'/\dd s$,
+so
 \begin{equation}
  \frac{\dd U'}{\dd s}
  =T^{-1}\,\frac{\dd U}{\dd s}\,T+[U',\Omega].
@@ -1650,11 +1854,15 @@ Throughout this section,
 $F=(\bE+\ii\bBf)\cdot\bsig$ is the field,
 $\Phi=V+\bA\cdot\bsig$ is the potential, and
 $D=\rho+\bJ\cdot\bsig$ is the source.
+For the particle equations, recall
+$U=\dd X/\dd s=\gamma(1+\bv\cdot\bsig)$ from
+equation~\eqref{eq:proper-velocity}.
 
 \subsection{Field equation and potentials}
 
-Introduce the paravector differential operator, electromagnetic field, and
-source
+Recall the paravector differential operator from
+equation~\eqref{eq:paravector-derivative}, and define the electromagnetic
+field and source by
 \begin{gather}
  \partial=\partial_t+\bsig\cdot\pdr\\
  F=(\bE+\bBf\ii)\cdot\bsig\\
@@ -1686,14 +1894,11 @@ $\rho-\bJ\cdot\bsig$ gives, respectively,
  \text{real vector:}\quad&\pdr\times\bBf=\bJ+\partial_t\bE,\\
  \text{imaginary vector:}\quad&\pdr\times\bE=-\partial_t\bBf.
 \end{align}
-The conjugate operator products give
+Equation~\eqref{eq:dalembertian} gives
+$\partial\partial^*=\partial^*\partial=\Box$, whereas
 \begin{equation}
- \partial\sconj\partial=\sconj\partial\,\partial
- =\partial_t^2-\pdr^2=:\Box,
-\end{equation}
-whereas
-\begin{equation}
- \partial^2=\partial_t^2+\pdr^2+2\partial_t\pdr\cdot\bsig
+ \partial^2=\partial_t^2+\pdr\cdot\pdr
+ +2\partial_t\,\bsig\cdot\pdr
  \ne\Box.
 \end{equation}
 Applying $\sconj\partial$ to~\eqref{eq:maxwell} gives
@@ -1820,12 +2025,13 @@ and flux below, they do not change with the observer.
 \subsection{Lorentz force from the field and action}
 
 Recall $F=(\bE+\ii\bBf)\cdot\bsig$,
-$\Phi=V+\bA\cdot\bsig$, $U=\gamma(1+\bv\cdot\bsig)$, and
-$\bP=m\gamma\bv$, where $s$ is proper time and $m$ and $q$ are the particle
-mass and charge.
+$\Phi=V+\bA\cdot\bsig$,
+$U=\dd X/\dd s=\gamma(1+\bv\cdot\bsig)$,
+$P=mU=E+\bp\cdot\bsig$, and $\bp=m\gamma\bv$, where $s$ is proper time,
+$m>0$ is constant, and $q$ is the particle charge.
 The Lorentz proper-force equation is
 \begin{equation}
- m\frac{\dd U}{\dd s}=q\repart{FU}
+ \frac{\dd P}{\dd s}=m\frac{\dd U}{\dd s}=q\repart{FU}
  =\frac q2\bigl(FU+U\rev F\bigr).
  \label{eq:lorentz}
 \end{equation}
@@ -1833,7 +2039,7 @@ The Hermitian extraction removes the imaginary magnetic-dual components.
 The remaining scalar and vector components are, respectively,
 \begin{gather}
  \frac{\dd(m\gamma)}{\dd t}=q\bv\cdot\bE\\
- \frac{\dd\bP}{\dd t}=q(\bE+\bv\times\bBf).
+ \frac{\dd\bp}{\dd t}=q(\bE+\bv\times\bBf).
 \end{gather}
 
 The same result follows from the potential through the interacting-particle
@@ -1850,12 +2056,12 @@ action
 Thus
 \begin{gather}
  L=-\frac m\gamma-q(V-\bv\cdot\bA)\\
- \partial_{\bv}L=m\gamma\bv+q\bA=\bP+q\bA.
+ \partial_{\bv}L=m\gamma\bv+q\bA=\bp+q\bA.
 \end{gather}
 The Euler--Lagrange terms are
 \begin{align}
  \frac{\dd}{\dd t}\partial_{\bv}L
- &=\frac{\dd\bP}{\dd t}+q\partial_t\bA
+ &=\frac{\dd\bp}{\dd t}+q\partial_t\bA
    +q(\bv\cdot\pdr)\bA,\\
  \pdr L&=-q\pdr V+q\pdr(\bv\cdot\bA).
 \end{align}
@@ -1863,20 +2069,25 @@ Using
 $(\bv\cdot\pdr)\bA=\pdr(\bv\cdot\bA)
 -\bv\times(\pdr\times\bA)$ gives
 \begin{align}
- \frac{\dd\bP}{\dd t}
+ \frac{\dd\bp}{\dd t}
  &=-q\pdr V-q\partial_t\bA
    +q\bigl(\pdr(\bv\cdot\bA)-(\bv\cdot\pdr)\bA\bigr)\\
  &=q\bigl(-\pdr V-\partial_t\bA
           +\bv\times(\pdr\times\bA)\bigr)\\
  &=q(\bE+\bv\times\bBf).
 \end{align}
-The Hamiltonian follows with the gauge-dependent terms cancelling:
+The Hamiltonian follows with the velocity-dependent vector-potential terms
+cancelling:
 \begin{align}
  H&=\bv\cdot\partial_{\bv}L-L\\
   &=m\gamma\bv^2+q\bv\cdot\bA
     +\frac m\gamma+qV-q\bv\cdot\bA\\
-  &=m\gamma(\bv^2+\gamma^{-2})+qV=m\gamma+qV.
+ &=m\gamma(\bv^2+\gamma^{-2})+qV=m\gamma+qV.
 \end{align}
+This is the canonical energy and is gauge dependent under time-dependent
+gauge changes; the kinetic energy $E=m\gamma$ is gauge invariant.  A
+conserved canonical energy is obtained when the external potentials are time
+independent in the chosen gauge.
 Finally, $\dd H/\dd t=-\partial_tL$ gives
 \begin{align}
  \frac{\dd(m\gamma)}{\dd t}+q\partial_tV
@@ -1899,36 +2110,65 @@ Taking the real paravector part removes the two imaginary components.
 \subsection{Proper acceleration from the Lorentz force}
 \label{sec:lorentz-proper-acceleration}
 
-Recall $F=(\bE+\ii\bBf)\cdot\bsig$,
-$U=\gamma(1+\bv\cdot\bsig)$, $\ba=\dd\bv/\dd t$, and
-$\bP=m\gamma\bv$ for a particle of mass $m$ and charge $q$, with $s$ its
-proper time.
-The Lorentz force is automatically compatible with the orthogonality of
-four-velocity and four-acceleration.  Since $U^*U=1$, cyclicity of the scalar
-part and $\scpart F=\scpart{F^{\mathsf H}}=0$ give
-\begin{equation}
- \scpart{U^*\repart{FU}}
- =\tfrac12\scpart{U^*FU+U^*UF^{\mathsf H}}
- =\tfrac12\left(\scpart F+\scpart{F^{\mathsf H}}\right)
+For a particle of constant mass $m>0$, recall
+\begin{gather}
+ \dd X=\dd t+\dd\br\cdot\bsig,\\
+ U=\frac{\dd X}{\dd s}
+ =\gamma(1+\bv\cdot\bsig),\\
+ P=mU=E+\bp\cdot\bsig,\\
+ E=m\gamma,
+ \qquad
+ \bp=m\gamma\bv,\\
+ \frac{\dd P}{\dd s}=m\frac{\dd U}{\dd s}.
+\end{gather}
+Also let $F=(\bE+\ii\bBf)\cdot\bsig$ and
+$\ba=\dd\bv/\dd t$.  Thus $\dd P/\dd s$ is the proper-force paravector,
+while $\dd U/\dd s$ is the proper-acceleration paravector.
+
+The Lorentz four-force is automatically orthogonal to the four-velocity.
+Since $U^*U=UU^*=1$, cyclicity of the scalar part and
+$\scpart F=\scpart{F^{\mathsf H}}=0$ give
+\begin{align}
+ \scpart{U^*\dd P/\dd s}
+ &=q\scpart{U^*\repart{FU}}\\
+ &=\frac q2\scpart{U^*FU+U^*UF^{\mathsf H}}\\
+ &=\frac q2\left(\scpart F+\scpart{F^{\mathsf H}}\right)
  =0.
-\end{equation}
-Equation~\eqref{eq:lorentz} therefore implies
+\end{align}
+Because $\dd P/\dd s=m\dd U/\dd s$, this is equivalently
 \begin{equation}
- \scpart{U^*\dd U/\dd s}=0,
+ \scpart{U^*\dd P/\dd s}
+ =m\scpart{U^*\dd U/\dd s}=0,
 \end{equation}
 in agreement with the proper-acceleration development above.
 
-The coordinate acceleration follows from the scalar and vector components of
-the same equation.  Using
-$\dd\gamma/\dd t=\gamma^3\bv\cdot\ba$ in the energy equation gives
+The earlier kinematic result for $\dd U/\dd s$, multiplied by $m$, gives
+\begin{align}
+ \frac{\dd P}{\dd s}
+ &=\gamma\left(
+   \frac{\dd E}{\dd t}
+   +\frac{\dd\bp}{\dd t}\cdot\bsig\right)\\
+ &=m\gamma^4(\bv\cdot\ba)
+ +m\left(\gamma^2\ba
+ +\gamma^4(\bv\cdot\ba)\bv\right)\cdot\bsig.
+\end{align}
+The real paravector part of the field product is
 \begin{equation}
- m\gamma^3\bv\cdot\ba=q\bv\cdot\bE.
+ q\repart{FU}
+ =q\gamma\left(
+ \bv\cdot\bE
+ +(\bE+\bv\times\bBf)\cdot\bsig\right).
 \end{equation}
-Differentiating $\bP=m\gamma\bv$ in the momentum equation gives
-\begin{equation}
- m\gamma\left(\ba+\gamma^2(\bv\cdot\ba)\bv\right)
+Equating the scalar and vector parts of
+$\dd P/\dd s=q\repart{FU}$ and dividing by $\gamma$ gives
+\begin{align}
+ \frac{\dd E}{\dd t}
+ &=m\gamma^3\bv\cdot\ba
+ =q\bv\cdot\bE,\\
+ \frac{\dd\bp}{\dd t}
+ &=m\gamma\left(\ba+\gamma^2(\bv\cdot\ba)\bv\right)
  =q(\bE+\bv\times\bBf).
-\end{equation}
+\end{align}
 Eliminating $\bv\cdot\ba$ between these two equations yields
 \begin{equation}
  \ba=\frac{q}{m\gamma}
@@ -1937,26 +2177,34 @@ Eliminating $\bv\cdot\ba$ between these two equations yields
 \end{equation}
 The magnetic term is perpendicular to $\bv$ and therefore changes momentum
 without contributing to the coordinate-time power
-$\dd(m\gamma)/\dd t=q\bv\cdot\bE$.
+$\dd E/\dd t=q\bv\cdot\bE$.
 
-Finally, substitute this acceleration into
-equation~\eqref{eq:proper-acceleration-determinant}.  Since
+The scalar and vector parts of the proper force give its invariant squared
+magnitude directly:
 \begin{equation}
- \bv\cdot\ba=\frac{q}{m\gamma^3}\bv\cdot\bE,
+ -\det\left(\frac{\dd P}{\dd s}\right)
+ =q^2\gamma^2
+ \left((\bE+\bv\times\bBf)^2-(\bv\cdot\bE)^2\right).
 \end{equation}
-the invariant proper-acceleration magnitude becomes
+Since $\dd P/\dd s=m\dd U/\dd s$, the scalar-scaling rule gives
+\begin{equation}
+ \det\left(\frac{\dd P}{\dd s}\right)
+ =m^2\det\left(\frac{\dd U}{\dd s}\right).
+\end{equation}
+Therefore the corresponding invariant squared proper-acceleration magnitude
+is
 \begin{equation}
  -\det\left(\frac{\dd U}{\dd s}\right)
  =\frac{q^2}{m^2}\gamma^2
  \left((\bE+\bv\times\bBf)^2-(\bv\cdot\bE)^2\right).
  \label{eq:lorentz-proper-acceleration}
 \end{equation}
-The quantity on the right is the squared electric-field magnitude in the
-particle's instantaneous rest frame, multiplied by $q^2/m^2$.  Thus the
-Lorentz-force equation supplies exactly the space-like proper acceleration
-required by $U^*U=1$: the electric field accelerates the particle in its rest
-frame, while the magnetic field enters through the frame-dependent split into
-electric and magnetic components.
+The factor
+$\gamma^2((\bE+\bv\times\bBf)^2-(\bv\cdot\bE)^2)$ is the squared
+electric-field magnitude in the particle's instantaneous rest frame.  Thus
+$\dd P/\dd s$ is the space-like proper force required by the fixed mass shell
+$P^*P=m^2$; division by $m$ gives the proper acceleration required by
+$U^*U=1$.
 
 \subsection{Energy balance}
 
@@ -1985,7 +2233,26 @@ These quantities describe energy measured in the chosen frame; they are not
 the two Lorentz invariants contained in $F^2$.  The product
 $\tfrac12FF^{\mathsf H}$ packages energy density and energy flux into a
 paravector, but is not by itself the full electromagnetic stress--energy
-tensor.
+tensor.  The full tensor is represented without indices by the linear map
+\begin{equation}
+ T(N):=\tfrac12FN F^{\mathsf H},
+ \label{eq:electromagnetic-stress-map}
+\end{equation}
+where $N$ is a real paravector.  In the frame whose time direction is $N=1$,
+$T(1)=u+\bS\cdot\bsig$.  If
+$F'=L^{-1}FL$ and $N'=L^{-1}NL^{-1}$, then
+\begin{equation}
+ T'(N')=L^{-1}T(N)L^{-1},
+\end{equation}
+so every energy--momentum flux paravector has the correct four-vector law.
+Its time-direction value is future causal because
+\begin{equation}
+ \det(T(1))=u^2-\bS^2
+ =\tfrac14\lVert\det(F)\rVert^2\geq0.
+ \label{eq:electromagnetic-energy-causal}
+\end{equation}
+Equality holds for a null radiation field.  Thus the field invariants,
+energy density, and Poynting flux meet in one determinant identity.
 This product order gives the conventional sign of the Poynting vector
 directly.  For comparison, reversing the order preserves the scalar
 coefficient and changes the sign of the vector coefficient:
@@ -2029,15 +2296,33 @@ Equivalently, in paravector coefficients,
 \section{Relativistic wave equations}
 \label{sec:waves}
 
+Recall that $U=\dd X/\dd s$ for a classical massive particle.  For a free
+massive future mass-shell momentum, the corresponding normalized unit is
+$U=P/m$.
+
 In this section, $\psi$ denotes a scalar or paravector amplitude as stated
 locally, $\bPsi$ denotes a two-paravector Dirac block, $m$ is the mass, and
-$q$ is the charge.
+$q$ is the charge.  Three uses of the algebra must be kept distinct.  Real
+space--time quantities such as $X$, $P$, and a conserved current transform as
+four-vectors.  Scalar and pure-vector fields carry spin zero and spin one
+through their field transformation laws.  A spin-one-half state is instead a
+minimal-ideal amplitude with a one-sided rotation law; a Dirac state contains
+two such amplitudes with opposite boost laws.  The algebra element alone does
+not determine the spin---its transformation law does.
+
+The wave equations below describe classical fields and, where the conserved
+density is positive, one-particle wave mechanics in a prescribed
+electromagnetic field.  The negative-frequency solutions required by the
+relativistic equations are also displayed.  Their interpretation as
+positive-energy antiparticles is stated separately because that step belongs
+to charge conjugation and field quantization, not to a negative probability.
 
 \subsection{Paravector inner products and expectations}
 \label{sec:paravector-inner-products}
 
-For paravector amplitudes $\psi,\psi'$ and a paravector $Z$, define the
-inner product and matrix element intrinsically by scalar extraction:
+For finite paravector amplitudes $\psi,\psi'$ and an algebraic paravector
+$Z$, define the local pairing and matrix element intrinsically by scalar
+extraction:
 \begin{align}
  \langle\psi'\mid\psi\rangle
  &:=\scpart{\psi'^{\mathsf H}\psi},
@@ -2047,34 +2332,60 @@ inner product and matrix element intrinsically by scalar extraction:
  \label{eq:paravector-matrix-element}
 \end{align}
 The first is the $Z=1$ case of the second, and
-$\langle\psi\mid\psi\rangle=\lVert\psi\rVert^2$.  Thus normalization is
-$\scpart{\psi^{\mathsf H}\psi}=1$, not $\psi^{\mathsf H}\psi=1$, for a
-finite spin amplitude.  For a spatial wavefunction the displayed expression
-is a density and the inner product includes its spatial integral.
+$\langle\psi\mid\psi\rangle=\lVert\psi\rVert^2$.  In particular,
+\begin{equation}
+ n:=\scpart{\psi^{\mathsf H}\psi}\geq0
+\end{equation}
+is the local norm density.  A finite spin amplitude is normalized by $n=1$,
+not by $\psi^{\mathsf H}\psi=1$.  For spatial wavefunctions the same pairing
+means
+\begin{align}
+ \langle\psi'\mid\psi\rangle
+ &:=\int\scpart{\psi'^{\mathsf H}\psi}\,\dd^3\br,\\
+ \langle\psi'\mid Z\mid\psi\rangle
+ &:=\int\scpart{\psi'^{\mathsf H}Z\psi}\,\dd^3\br.
+\end{align}
+Thus wavefunction normalization is $\int n\,\dd^3\br=1$ whenever this
+positive pairing is the conserved norm, as it is for Pauli and Dirac
+amplitudes.  The Klein--Gordon scalar has a different conserved current and
+is treated separately below.
 For an observable $Z^{\mathsf H}=Z$ acting from the left,
 \begin{equation}
  \langle Z\rangle_\psi
  :=\frac{\langle\psi\mid Z\mid\psi\rangle}
- {\langle\psi\mid\psi\rangle}
- =\frac{\scpart{\psi^{\mathsf H}Z\psi}}
- {\scpart{\psi^{\mathsf H}\psi}}.
+ {\langle\psi\mid\psi\rangle}.
  \label{eq:paravector-expectation}
 \end{equation}
+For a finite amplitude this is the local ratio
+\begin{equation}
+ \langle Z\rangle_\psi
+ =\frac{\scpart{\psi^{\mathsf H}Z\psi}}
+ {\scpart{\psi^{\mathsf H}\psi}},
+\end{equation}
+whereas for a spatial wavefunction both scalar pairings are integrated.
 For normalized $\psi$, this reduces to
 $\langle Z\rangle_\psi=\langle\psi\mid Z\mid\psi\rangle$.
-For unrestricted paravectors this is the Hilbert--Schmidt pairing of their
-matrix images.  A single Pauli spinor is obtained only after restricting the
-amplitude to a minimal left ideal as described next.  Appendix~\ref{sec:matrix-spinors}
+If an observable contains derivatives, those derivatives act on the
+amplitude to their right.  Hermiticity is then a statement about the
+integrated pairing and follows by integration by parts with suitable boundary
+conditions; it is not obtained by applying $^{\mathsf H}$ only to the
+displayed algebra coefficient.
+For unrestricted paravectors, the local pairing is one half of the usual
+Hilbert--Schmidt pairing of their matrix images.  A single Pauli spinor is
+obtained only after restricting the amplitude to a minimal left ideal as
+described next.  Appendix~\ref{sec:matrix-spinors}
 then shows that these definitions become the standard two-component column
 formulas.
 
-For a paravector $T$ with $\psi'=T\psi$,
+For a paravector $T$ with $\psi'=T\psi$, a finite amplitude obeys
 \begin{equation}
  \langle Z\rangle_{\psi'}
  =\frac{\scpart{\psi^{\mathsf H}T^{\mathsf H}ZT\psi}}
  {\scpart{\psi^{\mathsf H}T^{\mathsf H}T\psi}}.
  \label{eq:bilinear-congruence}
 \end{equation}
+For a spatial wavefunction, integrate the scalar numerator and denominator
+before taking their ratio.
 If $T^{\mathsf H}T=1$ and $\langle\psi\mid\psi\rangle=1$, then the
 denominator is unity and
 \begin{equation}
@@ -2089,25 +2400,63 @@ current on a spacelike hypersurface.
 \subsection{Physical spinors and minimal ideals}
 \label{sec:physical-spinors}
 
-In this subsection, $P$ is the fixed idempotent
+In this subsection, $\Pi_3$ is the fixed column idempotent
 \begin{equation}
- P:=\tfrac12(1+\sigma_3).
+ \Pi_3:=\tfrac12(1+\sigma_3).
 \end{equation}
-It satisfies $P^2=P=P^{\mathsf H}$ and is held fixed; it selects a column
-representation and is not a measured spin direction.  A physical
+It satisfies $\Pi_3^2=\Pi_3=\Pi_3^{\mathsf H}$ and is held fixed; it selects a column
+representation when it multiplies from the right.  When the same element
+acts from the left it is also the positive-$\sigma_3$ measurement projector;
+the side of multiplication distinguishes these two roles.  A physical
 two-component Pauli amplitude has the form
 \begin{equation}
- \psi=AP,
- \qquad \psi P=\psi,
+ \psi=Z\Pi_3,
+ \qquad \psi\Pi_3=\psi,
 \end{equation}
-where $A$ is an unrestricted paravector amplitude.  These amplitudes form a
-minimal left ideal because every left action remains in the same set:
+where
+$Z=S+\bV\cdot\bsig$, with $S\in\C$ and $\bV\in\C^3$, is an unrestricted
+complex paravector, not a scalar.  The representative $Z$ is not
+unique; the product $Z\Pi_3$ contains the two complex components of $\psi$.
+Let $Z'=S'+\bV'\cdot\bsig$, with $S'\in\C$ and $\bV'\in\C^3$, be any
+unrestricted complex paravector.  These amplitudes form a minimal left ideal
+because every such left action remains in the same set:
 \begin{equation}
- (Z\psi)P=Z(\psi P)=Z\psi.
+ (Z'\psi)\Pi_3=Z'(\psi\Pi_3)=Z'\psi.
 \end{equation}
-Right multiplication by the fixed $P$ is therefore essential.  Left
-multiplication by $P$ would instead produce a right ideal, which is not
+Right multiplication by the fixed $\Pi_3$ is therefore essential.  Left
+multiplication by $\Pi_3$ would instead produce a right ideal, which is not
 preserved by general observables acting from the left.
+
+A normalized basis of this ideal is
+\begin{equation}
+ e_+:=\sqrt2\Pi_3,
+ \qquad
+ e_-:=\sqrt2\sigma_1\Pi_3.
+ \label{eq:ideal-spin-basis}
+\end{equation}
+Direct use of the algebra operations gives
+\begin{gather}
+ \scpart{e_+^{\mathsf H}e_+}
+ =\scpart{e_-^{\mathsf H}e_-}=1,\\
+ \scpart{e_+^{\mathsf H}e_-}=0,\\
+ \sigma_3e_+=e_+,
+ \qquad
+ \sigma_3e_-=-e_-.
+\end{gather}
+Every ideal amplitude can therefore be written with two complex scalars as
+\begin{equation}
+ \psi=c_+e_++c_-e_-.
+\end{equation}
+For a $\sigma_3$ measurement its two probabilities are simply
+\begin{equation}
+ p_+=\frac{\lVert c_+\rVert^2}
+ {\lVert c_+\rVert^2+\lVert c_-\rVert^2},
+ \qquad
+ p_-=\frac{\lVert c_-\rVert^2}
+ {\lVert c_+\rVert^2+\lVert c_-\rVert^2}.
+\end{equation}
+Appendix~\ref{sec:matrix-spinors} maps $e_+$ and $e_-$ to the standard
+columns $\{1,0\}^{\mathsf T}$ and $\{0,1\}^{\mathsf T}$.
 
 For a physical spin measurement, let $\bu\in\R^3$ be a unit direction and
 use the projectors from Section~\ref{sec:algebra-projectors},
@@ -2120,17 +2469,91 @@ $\Pi_\pm^{\mathsf H}=\Pi_\pm$.  They act from the left and give
 \begin{equation}
  \psi_\pm:=\Pi_\pm\psi.
 \end{equation}
-Because $\psi_\pm P=\psi_\pm$, both outcomes remain in the same fixed
+The algebra element $\bu\cdot\bsig$ has eigenvalues $+1$ and $-1$.  In
+natural units the physical spin component is one half of this element, so
+spin up and spin down mean respectively
+\begin{align}
+ (\bu\cdot\bsig)\psi&=\psi,
+ &\Pi_+\psi&=\psi,
+ &\Pi_-\psi&=0,\\
+ (\bu\cdot\bsig)\psi&=-\psi,
+ &\Pi_-\psi&=\psi,
+ &\Pi_+\psi&=0.
+\end{align}
+The corresponding measured spin values are $+\tfrac12$ and $-\tfrac12$.
+Because $\psi_\pm\Pi_3=\psi_\pm$, both outcomes remain in the same fixed
 minimal left ideal.  Hermitian conjugation reverses the multiplied order, so
 their norms and observable matrix elements are
 \begin{align}
  \langle\psi_\pm\mid\psi_\pm\rangle
  &=\scpart{\psi^{\mathsf H}\Pi_\pm^{\mathsf H}\Pi_\pm\psi}
  =\langle\psi\mid\Pi_\pm\mid\psi\rangle,\\
- \langle\psi_\pm\mid Z\mid\psi_\pm\rangle
- &=\scpart{\psi^{\mathsf H}\Pi_\pm^{\mathsf H}Z\Pi_\pm\psi}
- =\langle\psi\mid\Pi_\pm Z\Pi_\pm\mid\psi\rangle.
+ \langle\psi_\pm\mid Z'\mid\psi_\pm\rangle
+ &=\scpart{\psi^{\mathsf H}\Pi_\pm^{\mathsf H}Z'\Pi_\pm\psi}
+ =\langle\psi\mid\Pi_\pm Z'\Pi_\pm\mid\psi\rangle.
 \end{align}
+
+The spin direction of a finite amplitude also has a compact intrinsic form.
+For nonzero $\psi$, define the normalized Hermitian paravector
+\begin{equation}
+ B:=\frac{\psi\psi^{\mathsf H}}
+ {\scpart{\psi^{\mathsf H}\psi}}
+ =1+\bm{s}\cdot\bsig,
+ \qquad
+ \bm{s}:=\vecpart B.
+ \label{eq:spin-state-paravector}
+\end{equation}
+It obeys $B^{\mathsf H}=B$ and $\scpart B=1$.  Multiplicativity gives the
+entirely intrinsic identity
+\begin{equation}
+ \det(B)
+ =\frac{\det(\psi)\det(\psi^{\mathsf H})}{n^2}
+ =\frac{\lVert\det(\psi)\rVert^2}{n^2}
+ =1-\bm{s}^2\geq0.
+\end{equation}
+A nonzero minimal-ideal amplitude has $\det(\psi)=0$, so
+$\bm{s}^2=1$ and $\bm{s}$ is the unit Bloch direction of a pure Pauli state.
+For an unrestricted amplitude, $\bm{s}^2\leq1$ and $B$ can also represent a
+mixed state.  Thus pure states lie on the null boundary $\det(B)=0$, mixed
+states lie inside it, and the Bloch ball is the unit-scalar slice of this
+paravector cone.  This is state geometry, not the particle's spacetime
+momentum.  In Appendix~\ref{sec:matrix-spinors}, the matrix image of $B/2$
+is the conventional normalized density matrix.  The two outcome
+probabilities are already contained in $B$:
+\begin{equation}
+ p_\pm(\bu)=\scpart{\Pi_\pm B}
+ =\tfrac12(1\pm\bu\cdot\bm{s}).
+ \label{eq:spin-probability-intrinsic}
+\end{equation}
+For a spatial Pauli wavefunction, the directly computable global
+probabilities are instead the density-weighted integrals
+\begin{equation}
+ p_\pm(\bu)=
+ \frac{\displaystyle\int
+  \scpart{\psi^{\mathsf H}\Pi_\pm\psi}\,\dd^3\br}
+ {\displaystyle\int
+  \scpart{\psi^{\mathsf H}\psi}\,\dd^3\br}.
+ \label{eq:integrated-pauli-spin-probability}
+\end{equation}
+More generally, let $Z'=a+\bb\cdot\bsig$ be Hermitian, with $a\in\R$,
+$\bb\in\R^3$, and $\bb\ne0$, and take
+$\bu=\bb/\lVert\bb\rVert$.  Its spectral form and expectation are
+\begin{align}
+ Z'&=(a+\lVert\bb\rVert)\Pi_+
+   +(a-\lVert\bb\rVert)\Pi_-,\\
+ \langle Z'\rangle_\psi
+ &=\scpart{Z'B}=a+\bb\cdot\bm{s}\\
+ &=(a+\lVert\bb\rVert)p_+(\bu)
+  +(a-\lVert\bb\rVert)p_-(\bu).
+\end{align}
+Thus the same two projectors give the complete measurement rule for every
+Hermitian paravector observable.  Cyclicity also gives the adjoint relation
+\begin{equation}
+ \langle\psi'\mid Z'\psi\rangle
+ =\langle Z'^{\mathsf H}\psi'\mid\psi\rangle,
+\end{equation}
+so left multiplication by $Z'$ has adjoint left multiplication by
+$Z'^{\mathsf H}$.
 Appendix~\ref{sec:matrix-spinors} shows that the fixed right projection gives
 one conventional two-component Pauli column, while the left projections give
 its ordinary spin-measurement components.  Applying the same fixed right
@@ -2142,8 +2565,8 @@ complex components.
 
 Here $R$ is the rotation rotor defined in
 Section~\ref{sec:transformations}, $a$ is a complex scalar amplitude,
-$\psi=AP$ is a minimal-ideal amplitude, and
-$Z=S+\bV\cdot\bsig$ is an unrestricted paravector amplitude.
+$\psi\Pi_3=\psi$ is a minimal-ideal amplitude, and
+$Z=S+\bV\cdot\bsig$ is an unrestricted complex paravector amplitude.
 Spin is determined by how an amplitude transforms under rotations, not merely
 by how many coefficients are used to write it.  The scalar, minimal-ideal,
 and vector carriers transform differently.
@@ -2164,7 +2587,7 @@ is represented intrinsically by
 \end{equation}
 This choice gives the same active rotation as the vector sandwich
 $R^{\mathsf H}ZR$ used below.  It also preserves the fixed ideal because
-$(R^{\mathsf H}\psi)P=R^{\mathsf H}\psi$.  Since $R$ contains the
+$(R^{\mathsf H}\psi)\Pi_3=R^{\mathsf H}\psi$.  Since $R$ contains the
 half-angle, a full $2\pi$ rotation gives
 \begin{equation}
  \psi'=-\psi.
@@ -2180,10 +2603,18 @@ A pure vector amplitude $\bV\cdot\bsig$ transforms by the two-sided sandwich
 \end{equation}
 The two rotor signs cancel under a $2\pi$ rotation, so this three-component
 carrier returns to itself and carries spin one.  The electromagnetic field
-$F=(\bE+\ii\bBf)\cdot\bsig$ is a complex pure vector of this type.  Maxwell's
-equations and transversality reduce a free massless electromagnetic wave to
-its two physical helicities; the three algebraic vector coefficients should
-not be confused with three independent photon polarizations.
+$F=(\bE+\ii\bBf)\cdot\bsig$ is a complex pure vector of this type.  The full
+real Maxwell field has the two physical helicities.  After a frequency split,
+the self-dual field $F$ carries one helicity on a positive-frequency branch,
+while its Hermitian-conjugate sector supplies the other.  The three algebraic
+vector coefficients should not be confused with three independent photon
+polarizations.  The classical
+Maxwell field carries energy density and Poynting flux as derived in
+Section~\ref{sec:electromagnetism}; it is not by itself a normalized
+single-photon position wavefunction.  More generally, a pure vector has the
+rotation content of spin one but is not automatically a physical particle
+field; a massive spin-one theory additionally requires its field equation
+and constraint and has three physical polarizations.
 
 Consequently, under the two-sided sandwich an unrestricted paravector
 $Z=S+\bV\cdot\bsig$ is reducible: its scalar component carries spin zero and
@@ -2193,56 +2624,163 @@ unrestricted paravector consists of two Pauli columns and carries two copies
 of the spin-one-half representation.  The fixed right projection selects one
 of those copies; it does not select scalar and vector coefficients.
 
+Under Lorentz boosts the distinction becomes sharper.  A scalar remains a
+scalar, the electromagnetic pure vector obeys $F'=L^{-1}FL$, and the two
+minimal-ideal entries of a Dirac state use the opposite factors $L$ and
+$L^{-1}$.  When $m=0$ the two Dirac equations decouple into the two chiral
+spin-one-half equations.  For a positive-energy massless mode with
+$\bu=\bp/\lVert\bp\rVert$, the free equation gives
+\begin{equation}
+ (\bu\cdot\bsig)\Psi_1=-\Psi_1,
+ \qquad
+ (\bu\cdot\bsig)\Psi_2=\Psi_2.
+\end{equation}
+Thus the two entries become opposite helicities in the massless limit.  They
+are not, by themselves, the spin-up/down or particle/antiparticle entries.
+The mass term couples them when $m\ne0$.
+
+\subsection{Energy and momentum as differential operators}
+\label{sec:quantum-energy-momentum}
+
+Recall the real space--time paravector $X=t+\br\cdot\bsig$ and the real
+four-momentum $P=E+\bp\cdot\bsig$.  Their invariant scalar pairing is
+\begin{equation}
+ f(X):=\scpart{\adj P\,X}=Et-\bp\cdot\br.
+\end{equation}
+The corresponding scalar plane wave is
+\begin{equation}
+ w(X):=\exp(-\ii f(X))
+ =\exp(-\ii Et+\ii\bp\cdot\br).
+\end{equation}
+Its response to time and space translations gives
+\begin{gather}
+ \ii\partial_t w=Ew,\\
+ -\ii\pdr w=\bp w.
+\end{gather}
+Thus energy and momentum are not separate substitutions added to the
+algebra: they are the scalar and vector coefficients of one paravector
+differential eigenvalue.  Indeed,
+\begin{align}
+ \scpart{\ii\partial^*}&=\ii\partial_t,
+ &\vecpart{\ii\partial^*}&=-\ii\pdr,\\
+ \ii\partial^*w&=P w,
+ &\ii\partial w&=\adj P\,w.
+ \label{eq:momentum-operator-eigenvalues}
+\end{align}
+Here coefficient extraction from a differential paravector is understood
+before it acts.  On the spatially integrated pairing, the three components
+of $-\ii\pdr$ are Hermitian when boundary terms vanish.  The reality of an
+energy spectrum follows after the wave equation has been put in the
+Hermitian evolution form $\ii\partial_t\bPsi=H\bPsi$.
+
+The particle action gives canonical momentum $\bp+q\bA$ and canonical
+energy $E+qV$.  Identifying these translation generators with
+$-\ii\pdr$ and $\ii\partial_t$ respectively gives the kinetic operators
+below and directly links minimal coupling to the classical action.
+In an electromagnetic potential the gauge-covariant, or kinetic, operators
+are
+\begin{align}
+ E&:=\ii\partial_t-qV,
+ &\bp&:=-\ii\pdr-q\bA,\\
+ E+\bp\cdot\bsig&=\ii\partial^*-q\Phi,
+ &E-\bp\cdot\bsig&=\ii\partial-q\Phi^*.
+ \label{eq:covariant-momentum-paravectors}
+\end{align}
+The last two expressions have the same coefficient pattern as $P$ and
+$\adj P$.  They are nevertheless differential operators.  In a field their
+components do not commute, so their ordered products must be retained; one
+may not replace such a product by the ordinary paravector determinant.  For
+the free operators all components commute and
+\begin{equation}
+ (\ii\partial)(\ii\partial^*)
+ =(\ii\partial^*)(\ii\partial)=-\Box.
+ \label{eq:free-momentum-product}
+\end{equation}
+The electromagnetic remainder produced when the covariant orderings are
+interchanged is derived explicitly below in the interacting factorization.
+
 \subsection{Klein--Gordon equation}
 
-Let $E$ be the particle energy, $\bP$ its momentum, $m$ its mass, and
-$\psi$ a scalar amplitude.  For a free particle, the mass-shell relation is
-$E^2-\bP^2=m^2$.  On a plane wave with phase
-$\exp(-\ii Et+\ii\bP\cdot\br)$, the operators $\ii\partial_t$ and
-$-\ii\pdr$ return the energy and momentum.  The corresponding substitutions
-for a scalar amplitude $\psi$ are therefore
-\begin{gather}
- E=\ii\partial_t\\
- \bP=-\ii\pdr.
-\end{gather}
-Applying the mass-shell polynomial to $\psi$ gives
-\begin{align*}
- 0&=(E^2-\bP^2-m^2)\psi\\
-  &=\left((\ii\partial_t)^2-(-\ii\pdr)^2-m^2\right)\psi\\
-  &=\left(-\partial_t^2+\pdr^2-m^2\right)\psi.
-\end{align*}
-Multiplying by $-1$ and defining
-$\Box:=\partial_t^2-\pdr^2$ gives the Klein--Gordon equation
+Let $\psi$ be a complex scalar amplitude.  For a free momentum
+$P=E+\bp\cdot\bsig$, the mass shell is the single algebraic statement
+\begin{equation}
+ \det(P)=m^2.
+\end{equation}
+Equations~\eqref{eq:momentum-operator-eigenvalues} and
+\eqref{eq:free-momentum-product} turn this determinant polynomial into
+\begin{equation}
+ \left((\ii\partial)(\ii\partial^*)-m^2\right)\psi
+ =-(\Box+m^2)\psi=0.
+\end{equation}
+Thus the Klein--Gordon equation is
 \begin{equation}
  (\Box+m^2)\psi=0.
  \label{eq:kg}
 \end{equation}
 
-In an electromagnetic potential, minimal coupling replaces the free
-operators by
-\begin{gather}
- E=\ii\partial_t-qV\\
- \bP=-\ii\pdr-q\bA,
-\end{gather}
-and the Klein--Gordon equation takes the covariant form
+In an electromagnetic potential use the covariant operators in
+equation~\eqref{eq:covariant-momentum-paravectors}.  The spin-zero equation
+is the scalar part of either ordered paravector product:
 \begin{equation}
- (-E^2+\bP^2+m^2)\psi=0.
+ \left(-E^2+\bp^2+m^2\right)\psi
+ =\left(-\scpart{(E-\bp\cdot\bsig)
+                         (E+\bp\cdot\bsig)}+m^2\right)\psi=0.
+ \label{eq:kg-field}
 \end{equation}
+The vector part is not discarded accidentally: it is absent from the scalar
+equation but becomes the electromagnetic spin coupling when the Dirac
+operator is squared.
+
+For $m>0$, the conserved Klein--Gordon current has the intrinsic
+paravector form
+\begin{equation}
+ J:=\frac1m\repart{\psi^{\mathsf H}
+       (E+\bp\cdot\bsig)\psi}
+ =j+\bm j\cdot\bsig.
+ \label{eq:kg-current}
+\end{equation}
+The covariant equation and its Hermitian form give
+\begin{equation}
+ \scpart{\partial J}
+ =\partial_tj+\pdr\cdot\bm j=0.
+\end{equation}
+For the free branches $\exp(-\ii f)$ and $\exp(+\ii f)$, respectively,
+\begin{equation}
+ J=+\frac{\psi^{\mathsf H}\psi}{m}P,
+ \qquad
+ J=-\frac{\psi^{\mathsf H}\psi}{m}P.
+\end{equation}
+Its time component is therefore positive on the positive-frequency branch
+and negative on the negative-frequency branch.  Consequently $j$ is a
+signed conserved density and
+$qj$ is the electric charge density; $j$ is not a positive probability
+density on an arbitrary Klein--Gordon solution.  A one-particle probability
+interpretation requires restriction to a positive-frequency sector, where
+the integrated Klein--Gordon pairing is positive; its local density need not
+be pointwise positive for a superposition.  The complete particle--antiparticle
+interpretation is the quantized scalar field.  This is why the positive
+pairing used for Pauli and Dirac wavefunctions was not assigned to the
+relativistic scalar field.
 
 \subsection{Spin-zero low-energy limit}
 
-Let $E=\ii\partial_t-qV$ and $\bP=-\ii\pdr-q\bA$, with
+Let $E=\ii\partial_t-qV$ and $\bp=-\ii\pdr-q\bA$, with
 $\Phi=V+\bA\cdot\bsig$, and denote the relativistic scalar solution by
 $\psi'$.  Separate its rest-energy phase by
 $\psi'=\exp(-\ii mt)\psi$.  The exact equation for the slowly varying
 amplitude becomes
 \begin{gather}
- (-E^2-2mE+\bP^2)\psi=0\\
- E=\frac{\bP^2-E^2}{2m}.
+ (-E^2-2mE+\bp^2)\psi=0\\
+ E\psi=\frac{\bp^2-E^2}{2m}\psi.
 \end{gather}
-For a free particle the operators commute, and iteration gives
+For a free positive-frequency particle the operators commute and the exact
+residual-energy branch is
 \begin{equation}
- E=\frac{\bP^2}{2m}-\frac{\bP^4}{8m^3}+\cdots.
+ E=\sqrt{\bp^2+m^2}-m.
+\end{equation}
+Its expansion gives
+\begin{equation}
+ E=\frac{\bp^2}{2m}-\frac{\bp^4}{8m^3}+\cdots.
 \end{equation}
 More generally, neglecting $E^2$ at leading nonrelativistic order in the
 covariant equation gives the Schr\"odinger equation
@@ -2257,9 +2795,28 @@ $\Phi=V+\bA\cdot\bsig$ when a field is present.  Here
 $\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$ is a two-entry block whose entries
 belong to the same fixed minimal left ideal:
 \begin{equation}
- \Psi_1P=\Psi_1,
+ \Psi_1\Pi_3=\Psi_1,
  \qquad
- \Psi_2P=\Psi_2.
+ \Psi_2\Pi_3=\Psi_2.
+\end{equation}
+The existing Hermitian operation extends to blocks by transposing the block
+and applying $^{\mathsf H}$ to each entry.  Thus, if a block has entries
+$Z_{nm}$, then its Hermitian block has entries $Z_{mn}^{\mathsf H}$.  This is
+only the block extension of the operation already defined in
+Section~\ref{sec:conjugate-operators}.  Sigma conjugation of a block acts
+entrywise without transposing the block.  The componentwise Dirac pairing is
+\begin{equation}
+ \langle\bPsi'\mid\bPsi\rangle
+ :=\sum_{k=1}^{2}\scpart{\Psi_k'^{\mathsf H}\Psi_k},
+ \label{eq:dirac-inner-product}
+\end{equation}
+with a spatial integral for wavefunctions.  The corresponding local Dirac
+norm density is
+\begin{equation}
+ \lVert\bPsi\rVert^2
+ =\scpart{\Psi_1^{\mathsf H}\Psi_1}
+ +\scpart{\Psi_2^{\mathsf H}\Psi_2}.
+ \label{eq:dirac-norm}
 \end{equation}
 Define
 \begin{equation}
@@ -2306,7 +2863,7 @@ Conversely, for $m\ne0$, any scalar solution $\psi'$ of
 $(\Box+m^2)\psi'=0$ gives a Dirac solution
 \begin{equation}
  \bPsi=
- \left\{\psi'P,\frac{\ii}{m}(\sconj\partial\psi')P\right\}^{\mathsf T}.
+ \left\{\psi'\Pi_3,\frac{\ii}{m}(\sconj\partial\psi')\Pi_3\right\}^{\mathsf T}.
 \end{equation}
 Indeed, the second component equation holds by definition, and the first
 reduces to $-(\Box+m^2)\psi'/m=0$.
@@ -2318,7 +2875,7 @@ solution gives
  \begin{Bmatrix}
   ma+\ii b\partial\\
   \ii a\sconj\partial+mb
- \end{Bmatrix}\psi'P.
+ \end{Bmatrix}\psi'\Pi_3.
  \label{eq:kg-dirac-general-lift}
 \end{equation}
 Substitution into the two component equations leaves respectively
@@ -2334,6 +2891,28 @@ It is invariant under
 $\Phi'=\Phi+\sconj\partial\lambda$ and
 $\bPsi=\exp(\ii q\lambda)\bPsi'$.
 
+Isolating the time derivative in the two paravector equations gives the
+ordinary evolution form
+\begin{equation}
+ \ii\partial_t\bPsi=H\bPsi,
+ \qquad
+ H:=qV\bI+\Wop(1)
+       \left(m\bI+\Wop(\bp\cdot\bsig)\right)
+ =qV\bI+
+ \begin{Bmatrix}
+  -\bp\cdot\bsig&m\\
+  m&\bp\cdot\bsig
+ \end{Bmatrix},
+ \label{eq:dirac-hamiltonian}
+\end{equation}
+where $\bp=-\ii\pdr-q\bA$.  For real $V$ and $\bA$, suitable boundary
+conditions make $\bp$ and hence $H$ Hermitian with respect to the integrated
+Dirac pairing.  Therefore equation~\eqref{eq:dirac-hamiltonian} conserves the
+spatial integral of the positive density in
+equation~\eqref{eq:dirac-norm}.  This operator statement includes the
+integration by parts implicit in spatial derivatives; it is stronger than
+applying the algebraic $^{\mathsf H}$ pointwise.
+
 In the rest of this subsection, $J$ denotes the Dirac probability-current
 paravector rather than the electromagnetic source.  It has the intrinsic
 form
@@ -2343,28 +2922,54 @@ form
    =j+\bm j\cdot\bsig.
  \label{eq:dirac-current}
 \end{equation}
-Its scalar component is the positive equal-time density,
-\begin{equation}
+Its scalar and vector components are
+\begin{gather}
  j=\scpart{\Psi_1^{\mathsf H}\Psi_1}
-  +\scpart{\Psi_2^{\mathsf H}\Psi_2},
-\end{equation}
-and the Dirac equation and its Hermitian form give
+  +\scpart{\Psi_2^{\mathsf H}\Psi_2},\\
+ \bm j=-\vecpart{\Psi_1\Psi_1^{\mathsf H}}
+       +\vecpart{\Psi_2\Psi_2^{\mathsf H}}.
+\end{gather}
+Here $j$ is the positive equal-time density.
+The Dirac equation and its Hermitian form give
 \begin{equation}
- \partial_tj+\pdr\cdot\bm j=0.
+ \scpart{\partial J}
+ =\partial_tj+\pdr\cdot\bm j=0.
 \end{equation}
-Thus the spatial integral of $j$ is conserved.  The full paravector $J$, not
-the scalar component by itself, has a Lorentz-covariant transformation law.
-For a wavefunction normalized on a constant-time slice,
+Thus the spatial integral of $j$ is conserved.  The ideal condition makes
+each term in $J$ a future-null Hermitian paravector.  Their sum is therefore
+future causal, and direct use of the determinant gives
+\begin{equation}
+ J^{\mathsf H}=J,
+ \qquad
+ \det(J)=j^2-\bm j^2
+ =4\left\lVert\scpart{\Psi_1^{\mathsf H}\Psi_2}\right\rVert^2\geq0.
+ \label{eq:dirac-current-causal}
+\end{equation}
+Consequently $\lVert\bm j\rVert\leq j$; where $j\ne0$, the ratio
+$\bm j/j$ is the probability-flow velocity.  It is not the spin direction.
+
+The full paravector $J$, not the scalar component by itself, has a
+Lorentz-covariant transformation law.  For a wavefunction normalized on a
+constant-time slice,
 \begin{equation}
  \int j\,\dd^3\br=1.
 \end{equation}
+More generally, if $N$ is the future unit-normal paravector to a spacelike
+hypersurface and $\dd A$ its invariant volume element, the covariant
+normalization is
+\begin{equation}
+ \int\scpart{\adj N\,J}\,\dd A=1.
+ \label{eq:dirac-hypersurface-norm}
+\end{equation}
+For a constant-time surface, $N=1$ and this reduces to the preceding spatial
+integral.
 The corresponding conventional column formulas are given in
 Appendix~\ref{sec:matrix-spinors}.
 
 \subsection{Schr\"odinger--Pauli limit}
 
 Recall $\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$,
-$E=\ii\partial_t-qV$, $\bP=-\ii\pdr-q\bA$, and
+$E=\ii\partial_t-qV$, $\bp=-\ii\pdr-q\bA$, and
 $F=(\bE+\ii\bBf)\cdot\bsig$.
 Each relativistic Dirac component contains the rapid phase associated with
 the rest energy.  For $n=1,2$, separate it from the slowly varying component
@@ -2373,19 +2978,19 @@ by
  \Psi_n'=\exp(-\ii mt)\Psi_n.
 \end{equation}
 For the covariant operators $E=\ii\partial_t-qV$ and
-$\bP=-\ii\pdr-q\bA$, the exponential is spatially constant and therefore
+$\bp=-\ii\pdr-q\bA$, the exponential is spatially constant and therefore
 \begin{align}
  E\Psi_n'&=\exp(-\ii mt)(E+m)\Psi_n,\\
- \bP\Psi_n'&=\exp(-\ii mt)\bP\Psi_n.
+ \bp\Psi_n'&=\exp(-\ii mt)\bp\Psi_n.
 \end{align}
 After cancelling the common exponential, the two Dirac equations become
 \begin{align}
- (E+m-\bP\cdot\bsig)\Psi_2-m\Psi_1&=0,\\
- (E+m+\bP\cdot\bsig)\Psi_1-m\Psi_2&=0.
+ (E+m-\bp\cdot\bsig)\Psi_2-m\Psi_1&=0,\\
+ (E+m+\bp\cdot\bsig)\Psi_1-m\Psi_2&=0.
 \end{align}
 Eliminating $\Psi_1$ gives the exact second-order equation
 \begin{equation}
- \left(E^2+2mE-\bP^2+q\bBf\cdot\bsig
+ \left(E^2+2mE-\bp^2+q\bBf\cdot\bsig
  -\ii q\bE\cdot\bsig\right)\Psi_2=0.
 \end{equation}
 Under the usual low-energy, slowly varying-field power counting, the $E^2$
@@ -2395,7 +3000,7 @@ relative to $m$; it is not an expansion in small $m$.  Retaining the leading
 terms gives
 \begin{equation}
  E\Psi_2=
- \frac{\bP^2-q\bBf\cdot\bsig}{2m}\Psi_2.
+ \frac{\bp^2-q\bBf\cdot\bsig}{2m}\Psi_2.
 \end{equation}
 At this order $\Psi_1$ and $\Psi_2$ have the same leading rest-frame
 amplitude.  The conventionally normalized large component is their sum
@@ -2405,15 +3010,20 @@ as $\bpsi$ and substituting the covariant operators gives the Pauli equation
 \begin{equation}
  \ii\partial_t\bpsi=\left(
   \frac{(-\ii\pdr-q\bA)^2}{2m}+qV
-  -\frac{q}{2m}\bBf\cdot\bsig\right)\bpsi.
+ -\frac{q}{2m}\bBf\cdot\bsig\right)\bpsi.
  \label{eq:pauli}
 \end{equation}
+In this column formula, each sigma-algebra element acts through its faithful
+matrix image.
+Since the physical spin is one half of $\bsig$, the magnetic term is
+$-(q/m)\bBf\cdot(\bsig/2)$.  Thus minimal Dirac coupling gives magnetic
+moment $q/m$ times the spin, or $g=2$, before radiative corrections.
 Using the spin projectors,
 $\bpsi=\bpsi_++\bpsi_-$ with $\bpsi_\pm=\Pi_\pm\bpsi$.  For a uniform static
 magnetic field, $\bu=\bBf/\lVert\bBf\rVert$, the sectors decouple:
 \begin{equation}
  \ii\partial_t\bpsi_\pm=\left(
- \frac{\bP^2\mp q\lVert\bBf\rVert}{2m}+qV\right)\bpsi_\pm.
+ \frac{\bp^2\mp q\lVert\bBf\rVert}{2m}+qV\right)\bpsi_\pm.
 \end{equation}
 For a varying field direction the sectors are coupled.  With $H$ denoting the
 Pauli Hamiltonian, direct differentiation gives
@@ -2427,29 +3037,46 @@ Because the field term commutes with its own instantaneous projectors, this is
 \begin{gather}
  \ii\partial_t\bpsi_\pm=H\bpsi_\pm+\bm{S}_\pm\\
  \bm{S}_\pm=\left(\ii\partial_t\Pi_\pm
- +\frac{[\Pi_\pm,\bP^2]}{2m}\right)\bpsi.
+ +\frac{[\Pi_\pm,\bp^2]}{2m}\right)\bpsi.
 \end{gather}
 
 \subsection{Interacting operators and factorization}
+\label{sec:interacting-factorization}
 
-Recall $E=\ii\partial_t-qV$, $\bP=-\ii\pdr-q\bA$,
+Recall $E=\ii\partial_t-qV$, $\bp=-\ii\pdr-q\bA$,
 $\Phi=V+\bA\cdot\bsig$, $F=(\bE+\ii\bBf)\cdot\bsig$, and
 $S=\partial_tV+\pdr\cdot\bA$, with
 $\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$.  The covariant energy and momentum
 operators do not commute.  Direct
 application to a test wavefunction gives
 \begin{gather}
- [E,P_m]=\ii qE_m\\
- [P_m,P_n]=\ii q(\partial_mA_n-\partial_nA_m)\\
- \bP\times\bP=\ii q\bBf.
+ [E,p_m]=\ii qE_m\\
+ [p_m,p_n]=\ii q(\partial_mA_n-\partial_nA_m)\\
+ \bp\times\bp=\ii q\bBf.
 \end{gather}
 Therefore
 \begin{align}
- (E+\bsig\cdot\bP)(E-\bsig\cdot\bP)&=E^2-\bP^2-\ii qF,\\
- (E-\bsig\cdot\bP)(E+\bsig\cdot\bP)&=E^2-\bP^2-\ii qF^*,\\
- E+\bsig\cdot\bP&=\ii\partial^*-q\Phi,\\
- E-\bsig\cdot\bP&=\ii\partial-q\Phi^*.
+ (E+\bsig\cdot\bp)(E-\bsig\cdot\bp)&=E^2-\bp^2-\ii qF,\\
+ (E-\bsig\cdot\bp)(E+\bsig\cdot\bp)&=E^2-\bp^2-\ii qF^*,\\
+ E+\bsig\cdot\bp&=\ii\partial^*-q\Phi,\\
+ E-\bsig\cdot\bp&=\ii\partial-q\Phi^*.
 \end{align}
+Equivalently, scalar and vector extraction expose the two distinct pieces:
+\begin{align}
+ \scpart{(E+\bp\cdot\bsig)(E-\bp\cdot\bsig)}
+ &=E^2-\bp^2,\\
+ \scpart{(E-\bp\cdot\bsig)(E+\bp\cdot\bsig)}
+ &=E^2-\bp^2,\\
+ \vecpart{(E+\bp\cdot\bsig)(E-\bp\cdot\bsig)}\cdot\bsig
+ &=-\ii qF,\\
+ \vecpart{(E-\bp\cdot\bsig)(E+\bp\cdot\bsig)}\cdot\bsig
+ &=-\ii qF^*.
+ \label{eq:ordered-covariant-parts}
+\end{align}
+The Klein--Gordon equation retains the common scalar part.  Dirac
+factorization retains the full ordered paravectors, so their vector
+remainders are precisely the spin--field couplings.  This is the algebraic
+reason spin appears when the first-order equation is squared.
 Expanding the minimally coupled Klein--Gordon operator gives the fully explicit
 result
 \begin{equation}
@@ -2460,10 +3087,10 @@ The two orderings satisfy
 \begin{align}
  0&=\left((\partial+\ii q\Phi^*)
           (\partial^*+\ii q\Phi)+m^2\right)\Psi_1
-   =(-E^2+\bP^2+m^2+\ii qF^*)\Psi_1,\\
+   =(-E^2+\bp^2+m^2+\ii qF^*)\Psi_1,\\
  0&=\left((\partial^*+\ii q\Phi)
           (\partial+\ii q\Phi^*)+m^2\right)\Psi_2
-   =(-E^2+\bP^2+m^2+\ii qF)\Psi_2.
+   =(-E^2+\bp^2+m^2+\ii qF)\Psi_2.
 \end{align}
 These follow from the same mass-conjugate factorization used for the free
 Dirac equation.  With the potential included, the two block operators become
@@ -2475,219 +3102,247 @@ Then
 \begin{equation}
  \bDm'\bDm=
  -\begin{Bmatrix}
-  -E^2+\bP^2+m^2+\ii qF^*&0\\
-  0&-E^2+\bP^2+m^2+\ii qF
+  -E^2+\bp^2+m^2+\ii qF^*&0\\
+  0&-E^2+\bp^2+m^2+\ii qF
  \end{Bmatrix}.
 \end{equation}
 The electromagnetic field therefore prevents the interacting product from
 being proportional to the block identity: its two components acquire the
 distinct spin couplings $\ii qF^*$ and $\ii qF$.  In the free limit
-$q=0$, both couplings vanish and $-E^2+\bP^2=\Box$, so
+$q=0$, both couplings vanish and $-E^2+\bp^2=\Box$, so
 \begin{equation}
  \bDm'\bDm=-(\Box+m^2)\bI.
 \end{equation}
 Thus the free Dirac equation $\bDm\bPsi=0$ recovers the Klein--Gordon
 equation on both components of the Dirac block.
 
-\subsection{Spin probabilities and energy sectors}
-
-Let $\psi$ be a nonzero paravector amplitude, let $\bu\in\R^3$ be a unit
-direction, and recall $\Pi_\pm=\tfrac12(1\pm\bu\cdot\bsig)$ and
-$\psi_\pm=\Pi_\pm\psi$.  The measurement projectors act from the left, and
-the projected amplitudes are orthogonal and complete:
-\begin{gather}
- \psi=\psi_++\psi_-\\
- \langle\psi_+\mid\psi_-\rangle=0\\
- \langle\psi_-\mid\psi_+\rangle=0.
-\end{gather}
-Define the real Bloch vector of a nonzero amplitude by its intrinsic
-expectation values,
-\begin{gather}
- s_n:=\frac{\scpart{\psi^{\mathsf H}\sigma_n\psi}}
- {\scpart{\psi^{\mathsf H}\psi}}\\
- \bm{s}:=\{s_1,s_2,s_3\}\\
- \lVert\bm{s}\rVert^2\leq1.
-\end{gather}
-For an unrestricted paravector, these are the Bloch components of the
-normalized positive matrix formed from its two columns.  A minimal-ideal
-amplitude $\psi P=\psi$ has only one independent column and satisfies
-$\lVert\bm{s}\rVert^2=1$.  More generally, equality holds precisely when the
-matrix amplitude has rank one.
-The probabilities for spin along and against $\bu$ are
+The same formulas close the classical field--matter system without leaving
+the paravector algebra.  For one charged Dirac field, take
 \begin{equation}
- p_\pm(\bu)
- :=\frac{\langle\psi_\pm\mid\psi_\pm\rangle}
- {\langle\psi\mid\psi\rangle}
- =\frac{\scpart{\psi^{\mathsf H}\Pi_\pm^{\mathsf H}\Pi_\pm\psi}}
- {\scpart{\psi^{\mathsf H}\psi}}
- =\frac{\scpart{\psi^{\mathsf H}\Pi_\pm\psi}}
- {\scpart{\psi^{\mathsf H}\psi}}
- =\tfrac12(1\pm\bu\cdot\bm{s}).
- \label{eq:spin-probability}
-\end{equation}
-Their conventional column-spinor and density-matrix forms are derived in
-Appendix~\ref{sec:matrix-spinors}.
-
-For a state aligned with $\bu$ and $\bu\cdot\bu'=\cos\alpha$, the measurement
-probabilities along $\bu'$ are
-\begin{gather}
- p_+(\bu')=\tfrac12(1+\bu\cdot\bu')=\cos^2(\alpha/2)\\
- p_-(\bu')=\tfrac12(1-\bu\cdot\bu')=\sin^2(\alpha/2).
-\end{gather}
-If $\bu'$ is obtained by rotating $\bu$ through $\theta$ about $\bn$, then
-\begin{equation}
- \bu\cdot\bu'=(\bn\cdot\bu)^2
- +\left(1-(\bn\cdot\bu)^2\right)\cos\theta.
-\end{equation}
-Thus $\alpha=\theta$ when $\bn\cdot\bu=0$.
-
-For fluctuations $\dd\bu$ and $\dd\bu'$, the squared determinant identity is
-\begin{equation}
- \Det{(\dd\bu\cdot\bsig)(\dd\bu'\cdot\bsig)}
- =(\dd\bu\cdot\dd\bu')^2
- +\frac14\left\lVert
- [\dd\bu\cdot\bsig,\dd\bu'\cdot\bsig]\right\rVert^2.
-\end{equation}
-Since the first term is nonnegative,
-\begin{equation}
- \sqrt{\Det{(\dd\bu\cdot\bsig)(\dd\bu'\cdot\bsig)}}
- \geq\frac12\left\lVert
- [\dd\bu\cdot\bsig,\dd\bu'\cdot\bsig]\right\rVert.
-\end{equation}
-Finally, consider a free particle at fixed momentum, with
-\begin{equation}
- E=\sqrt{\bP^2+m^2}>0,
+ F^*=\partial\Phi-\scpart{\partial\Phi},
  \qquad
- U=\frac{E+\bP\cdot\bsig}{m}.
-\end{equation}
-On the plane-wave convention used in the Dirac equation,
-$\ii\partial=E-\bP\cdot\bsig=m\adj U$.  Thus the dimensionless free Dirac
-operator is $\Wop(\adj U)$.  Since $\Det{\adj U}=1$ and
-$\Wop(\adj U)^2=\bI$, the two operators
-\begin{gather}
- \tfrac12(\bI+\Wop(\adj U))\\
- \tfrac12(\bI-\Wop(\adj U)).
-\end{gather}
-Each squares to itself, their product is zero, and their sum is $\bI$.
-They are the covariant mass-shell idempotents.  They are not Hermitian under
-the positive componentwise inner product away from the rest frame, because
-\begin{equation}
- \Wop(\adj U)^{\mathsf H}=\Wop(U)\ne\Wop(\adj U)
- \qquad (\bP\ne0).
-\end{equation}
-They are therefore useful in covariant solution and completeness formulas,
-but their squared component norms are not probabilities.
-
-For positive-norm energy probabilities, let $H$ denote the free Dirac
-Hamiltonian in this subsection:
-\begin{equation}
- H:=\begin{Bmatrix}
-  -\bP\cdot\bsig&m\\
-  m&\bP\cdot\bsig
- \end{Bmatrix}.
-\end{equation}
-It satisfies
-\begin{equation}
- H^{\mathsf H}=H,
+ D=qJ,
  \qquad
- H^2=E^2\bI.
+ \partial F=D^*,
+ \label{eq:maxwell-dirac-source}
 \end{equation}
-The Hermitian positive- and negative-energy projectors are consequently
-\begin{equation}
- \tfrac12\left(\bI+\frac{H}{E}\right),
- \qquad
- \tfrac12\left(\bI-\frac{H}{E}\right).
- \label{eq:energy-projectors}
-\end{equation}
-They are mutually orthogonal and sum to $\bI$.
+together with the interacting Dirac equation~\eqref{eq:dirac-field}.  Then
+$\scpart{\partial D}=q\scpart{\partial J}=0$ is exactly the source
+consistency required by Maxwell's equation.  Replacing the Dirac current by
+the Klein--Gordon current~\eqref{eq:kg-current} gives the corresponding
+classical scalar system.  These are the Maxwell--Dirac and
+Maxwell--Klein--Gordon equations; quantized photons, particle creation, and
+radiative corrections require quantum field theory.
 
-The spin projectors act with the same sign on both entries of $\bPsi$:
+\subsection{Spin, energy sign, and probabilities}
+\label{sec:dirac-spin-energy}
+
+The Pauli-state paravector $B$ and the spin probabilities
+$p_\pm(\bu)=\scpart{\Pi_\pm B}$ were constructed intrinsically in
+equations~\eqref{eq:spin-state-paravector} and
+\eqref{eq:spin-probability-intrinsic}.  For a Dirac block, the corresponding
+local spin-state paravector is
+\begin{equation}
+ B:=\frac{\Psi_1\Psi_1^{\mathsf H}
+          +\Psi_2\Psi_2^{\mathsf H}}{j}
+ =1+\bm{s}\cdot\bsig,
+ \qquad j\ne0.
+ \label{eq:dirac-spin-state}
+\end{equation}
+It satisfies $B^{\mathsf H}=B$, $\scpart B=1$, and
+$\det(B)=1-\bm{s}^2\geq0$.  A Dirac block can therefore have
+$\bm{s}^2<1$ even when the full block is a pure state, because its two chiral
+entries need not have the same spin direction.
+It must not be confused with the current $J$: the adjugate on the first term
+of $J$ makes its vector part probability flow, whereas the same-sign sum in
+$B$ gives spin.  The spin projectors act identically from the left on both
+entries,
 \begin{equation}
  \Pi_\pm\bPsi
- :=\{\Pi_\pm\Psi_1,\Pi_\pm\Psi_2\}^{\mathsf T}.
+ :=\{\Pi_\pm\Psi_1,\Pi_\pm\Psi_2\}^{\mathsf T},
 \end{equation}
-They commute with $H$ when $\bu$ is parallel to $\bP$, or for any $\bu$ in
-the rest frame.  Only under this condition do the four pairwise products give
-joint orthogonal energy--spin projectors.  Write the corresponding components
-with the first sign denoting energy and the second sign denoting spin:
-\begin{align}
- \bPsi_{++}&:=\tfrac12\left(\bI+\frac{H}{E}\right)\Pi_+\bPsi
- &&\text{positive energy, spin up},\\
- \bPsi_{+-}&:=\tfrac12\left(\bI+\frac{H}{E}\right)\Pi_-\bPsi
- &&\text{positive energy, spin down},\\
- \bPsi_{--}&:=\tfrac12\left(\bI-\frac{H}{E}\right)\Pi_-\bPsi
- &&\text{negative energy, spin down},\\
- \bPsi_{-+}&:=\tfrac12\left(\bI-\frac{H}{E}\right)\Pi_+\bPsi
- &&\text{negative energy, spin up}.
-\end{align}
-Under the stated commutation condition they resolve the Dirac block:
+and the local outcome fractions are
 \begin{equation}
- \bPsi=\bPsi_{++}+\bPsi_{+-}+\bPsi_{--}+\bPsi_{-+}.
+ \scpart{\Pi_\pm B}
+ =\frac{\scpart{\Psi_1^{\mathsf H}\Pi_\pm\Psi_1}
+       +\scpart{\Psi_2^{\mathsf H}\Pi_\pm\Psi_2}}{j}
+ =\tfrac12(1\pm\bu\cdot\bm{s}).
+ \label{eq:dirac-spin-probability}
 \end{equation}
-Each term is a two-entry block of the same form as $\bPsi$; the terms are
-added entry by entry rather than concatenated.  Because each entry remains in
-the fixed minimal left ideal, the complete block still has the usual four
-complex components.
+For a spatial wavefunction, the directly computable probability is
+\begin{equation}
+ p_\pm(\bu)=
+ \frac{\displaystyle\int\left(
+  \scpart{\Psi_1^{\mathsf H}\Pi_\pm\Psi_1}
+ +\scpart{\Psi_2^{\mathsf H}\Pi_\pm\Psi_2}\right)\dd^3\br}
+ {\displaystyle\int j\,\dd^3\br}.
+ \label{eq:integrated-dirac-spin-probability}
+\end{equation}
+For a normalized state the denominator is one.  If a pure state is aligned
+with $\bu$ and
+$\bu\cdot\bu'=\cos\alpha$, a measurement along $\bu'$ gives
+$\cos^2(\alpha/2)$ and $\sin^2(\alpha/2)$.
 
-For two Dirac blocks
-$\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$ and
-$\bPsi'=\{\Psi'_1,\Psi'_2\}^{\mathsf T}$, extend the paravector inner
-product componentwise:
+For the free field, the Hamiltonian follows directly from the paravector
+block function:
 \begin{equation}
- \langle\bPsi'\mid\bPsi\rangle
- :=\sum_{n=1}^{2}\scpart{\Psi_n'^{\mathsf H}\Psi_n}.
+ H=\Wop(1)\left(m\bI+\Wop(\bp\cdot\bsig)\right)
+ =\begin{Bmatrix}
+  -\bp\cdot\bsig&m\\
+  m&\bp\cdot\bsig
+ \end{Bmatrix}.
+ \label{eq:free-dirac-hamiltonian}
 \end{equation}
-Hence
+At fixed real momentum, let $E=\sqrt{\bp^2+m^2}>0$.  Then
 \begin{equation}
- \lVert\bPsi\rVert^2
- =\scpart{\Psi_1^{\mathsf H}\Psi_1}
- +\scpart{\Psi_2^{\mathsf H}\Psi_2}.
+ H^{\mathsf H}=H,
+ \qquad H^2=E^2\bI.
 \end{equation}
-This is the pointwise density $j$ in equation~\eqref{eq:dirac-current}; the
-wavefunction inner product is obtained by integrating it over space.  When
-the energy and spin projectors
-commute, the four joint projectors are Hermitian and mutually orthogonal, so
+The Hermitian energy projectors are therefore
 \begin{equation}
- \lVert\bPsi\rVert^2
- =\lVert\bPsi_{++}\rVert^2
- +\lVert\bPsi_{+-}\rVert^2
- +\lVert\bPsi_{--}\rVert^2
- +\lVert\bPsi_{-+}\rVert^2.
+ \bQm_\pm:=\tfrac12\left(\bI\pm\frac{H}{E}\right).
+ \label{eq:energy-projectors}
 \end{equation}
-For a normalized finite spin state, these four squared norms are the
-probabilities of the four joint outcomes.  For a spatial wavefunction the
-same statement uses the spatially integrated norms.
+They satisfy $\bQm_\pm^{\mathsf H}=\bQm_\pm$,
+$\bQm_\pm^2=\bQm_\pm$, $\bQm_+\bQm_-=0$, and
+$\bQm_++\bQm_-=\bI$.  Their directly computable probabilities
+are
+\begin{equation}
+ \frac{\lVert\bQm_+\bPsi\rVert^2}{\lVert\bPsi\rVert^2},
+ \qquad
+ \frac{\lVert\bQm_-\bPsi\rVert^2}{\lVert\bPsi\rVert^2}.
+ \label{eq:energy-probabilities}
+\end{equation}
 
-For a Hermitian paravector $Z$ acting diagonally and identically on both
-entries of the Dirac block, define
+For a wave packet, let $\bPsi(\bp)$ denote its momentum-space block and use
+$H(\bp)$ and $E(\bp)=\sqrt{\bp^2+m^2}$ in the preceding formulas.  For
+example, the positive-energy probability is
 \begin{equation}
- \langle\bPsi'\mid Z\mid\bPsi\rangle
- :=\sum_{n=1}^{2}\scpart{\Psi_n'^{\mathsf H}Z\Psi_n}.
+ \frac{\displaystyle\int
+  \left\lVert\tfrac12\left(\bI+H(\bp)/E(\bp)\right)
+  \bPsi(\bp)\right\rVert^2\dd^3\bp}
+ {\displaystyle\int\lVert\bPsi(\bp)\rVert^2\dd^3\bp},
+ \label{eq:wavepacket-energy-probability}
 \end{equation}
-Its expectation value is
+with the sign reversed for the negative-energy probability.  In position
+space $E=\sqrt{-\pdr^2+m^2}$, so these free energy projectors are nonlocal.
+
+For $m>0$, the covariant mass-shell idempotents have a different role.  Put
 \begin{equation}
- \langle Z\rangle_{\bPsi}
- :=\frac{\langle\bPsi\mid Z\mid\bPsi\rangle}
- {\langle\bPsi\mid\bPsi\rangle}.
+ U=\frac{P}{m}=\frac{E+\bp\cdot\bsig}{m}.
 \end{equation}
-If $Z$ commutes with both the energy and spin projectors, it preserves each
-sector and the numerator separates into four diagonal contributions:
+The mass shell gives $\det(U)=\det(P)/m^2=1$, and therefore
+$\Wop(\adj U)^2=\bI$.  Hence the following expressions are idempotents.
+For the phase $w=\exp(-\ii f)$, the free Dirac equation requires the constant
+amplitude to lie in the $+1$ eigenspace of $\Wop(\adj U)$.  For the conjugate
+phase $w^{\mathsf H}=\exp(+\ii f)$, it lies in the $-1$ eigenspace.  Hence
+\begin{equation}
+ \tfrac12(\bI+\Wop(\adj U)),
+ \qquad
+ \tfrac12(\bI-\Wop(\adj U))
+\end{equation}
+are the covariant positive- and negative-frequency amplitude idempotents.
+The conjugate phase has canonical spatial momentum $-\bp$.  To compare its
+amplitude with the Hamiltonian projector $\bQm_-(\bp)$ at a fixed momentum
+label $\bp$, first replace $\bp$ by $-\bp$ in the future momentum and then
+take the conjugate phase.  Equivalently, $\bQm_-(\bp)$ acts on the
+negative-frequency phase $\exp(+\ii Et+\ii\bp\cdot\br)$, whereas the
+displayed $w^{\mathsf H}$ corresponds directly to $\bQm_-(-\bp)$.
+They are not Hermitian under the positive componentwise pairing away from
+rest, because
+\begin{equation}
+ \Wop(\adj U)^{\mathsf H}=\Wop(U)\ne\Wop(\adj U)
+ \qquad(\bp\ne0).
+\end{equation}
+Their squared component norms are therefore not probabilities; the
+Hermitian projectors $\bQm_\pm$ are used for that purpose.
+
+For a massive free field, the four joint spin--energy basis states are most
+transparent at rest.  When $\bp=0$,
+\begin{equation}
+ H=m\begin{Bmatrix}0&1\\1&0\end{Bmatrix}.
+\end{equation}
+Positive energy means $\Psi_2=\Psi_1$, while negative energy means
+$\Psi_2=-\Psi_1$.  With the spin basis from
+equation~\eqref{eq:ideal-spin-basis}, the four normalized rest states are
 \begin{align}
- \langle\bPsi\mid Z\mid\bPsi\rangle
- ={}&\langle\bPsi_{++}\mid Z\mid\bPsi_{++}\rangle
- +\langle\bPsi_{+-}\mid Z\mid\bPsi_{+-}\rangle\\
- &+\langle\bPsi_{--}\mid Z\mid\bPsi_{--}\rangle
- +\langle\bPsi_{-+}\mid Z\mid\bPsi_{-+}\rangle.
+ \frac1{\sqrt2}\{e_+,e_+\}^{\mathsf T},
+ &\qquad
+ \frac1{\sqrt2}\{e_-,e_-\}^{\mathsf T},\\
+ \frac1{\sqrt2}\{e_+,-e_+\}^{\mathsf T},
+ &\qquad
+ \frac1{\sqrt2}\{e_-,-e_-\}^{\mathsf T}.
+ \label{eq:dirac-rest-states}
 \end{align}
-Thus its expectation is the probability-weighted average of its expectation
-within the four sectors.  If $Z$ does not commute with either projector,
-off-diagonal terms such as
-$\langle\bPsi_{++}\mid Z\mid\bPsi_{--}\rangle$ remain and
-describe transitions or interference between sectors.
-All four-sector norm and expectation decompositions above require the stated
-commutation condition.  Without it, the four sequentially projected terms
-still sum to $\bPsi$, but they are not joint orthogonal outcomes and their
-squared norms are not four probabilities.
+Thus the choice $e_+$ or $e_-$ is spin up or down, while the relative sign
+between the two chiral entries is the energy sign.
+
+Negative energy is not by itself an antimatter label.  The existing sigma
+conjugation gives a charge-reversed solution without introducing another
+conjugation operation.  If $\bPsi$ has charge $q$, define
+\begin{equation}
+ \bPsi_c:=\{\Psi_2^*\sigma_1,-\Psi_1^*\sigma_1\}^{\mathsf T}.
+ \label{eq:dirac-charge-reversal}
+\end{equation}
+Since $\Pi_3^*\sigma_1=\sigma_1\Pi_3$, both entries of $\bPsi_c$ remain in the fixed
+minimal left ideal.  Applying $^*$ to the two coupled Dirac equations shows
+that $\bPsi_c$ satisfies the same equations with $q$ replaced by $-q$.
+Sigma conjugation also reverses the scalar plane-wave phase, so it maps a
+negative-frequency charge-$q$ mode to a positive-frequency charge-$-q$
+mode.  Since $\Pi_\pm^*=\Pi_\mp$, the raw Pauli-projector label also
+reverses under this map; the physical antiparticle spin is determined by
+applying the desired spin projector to the charge-reversed state.  After
+field quantization the coefficients of the original
+negative-frequency modes become creation amplitudes for positive-energy
+antiparticles.  Thus $\bQm_-$ is a negative-frequency projector for the
+one-particle charge-$q$ equation, not an antimatter-probability projector.
+For a free field, proper orthochronous Lorentz transformations preserve the
+future and past mass shells and do not mix these two frequency branches.
+
+Finally, $\Pi_\pm$ describes the canonical Pauli spin in the chosen inertial
+frame.  Spin and energy give simultaneous alternatives only when their
+projectors commute.  For a fixed free momentum this occurs for any spin axis
+at rest, and away from rest for $\bu$ collinear with $\bp$.  Taking
+$\bu=\bp/\lVert\bp\rVert$ gives the usual helicity labels; reversing the axis
+reverses those labels.  A covariant arbitrary rest-frame spin axis would
+require a momentum-dependent boosted projector, so it is not represented by
+simply holding $\bu$ fixed in $\Pi_\pm$.  For $a,b\in\{+1,-1\}$, write
+\begin{equation}
+ \bQm_a:=\tfrac12(\bI+aH/E),
+ \qquad
+ \Pi_b:=\tfrac12(1+b\bu\cdot\bsig).
+\end{equation}
+Here $\Pi_b$ acts componentwise on both Dirac entries, so
+$[\bQm_a,\Pi_b]$ is a commutator of block operators.  When
+$[\bQm_a,\Pi_b]=0$, the four joint probabilities are
+\begin{equation}
+ p_{ab}=\frac{\lVert\bQm_a\Pi_b\bPsi\rVert^2}
+ {\lVert\bPsi\rVert^2},
+ \qquad
+ \sum_{a,b}p_{ab}=1.
+ \label{eq:joint-spin-energy-probability}
+\end{equation}
+They describe positive or negative energy combined with spin up or down.
+For a wave packet, a fixed axis gives joint projectors only when this
+commutation condition holds throughout its momentum support.
+
+If the projectors do not commute, the question must specify the measurement
+order.  Energy followed by spin and spin followed by energy give respectively
+\begin{equation}
+ \frac{\lVert\Pi_b\bQm_a\bPsi\rVert^2}{\lVert\bPsi\rVert^2},
+ \qquad
+ \frac{\lVert\bQm_a\Pi_b\bPsi\rVert^2}{\lVert\bPsi\rVert^2},
+ \label{eq:sequential-spin-energy-probability}
+\end{equation}
+and need not agree.  The conditional spin probability after an energy result
+$a$ is
+$\lVert\Pi_b\bQm_a\bPsi\rVert^2/\lVert\bQm_a\bPsi\rVert^2$, provided
+$\lVert\bQm_a\bPsi\rVert^2\ne0$.
+For a static external field, energy sectors are instead defined by the
+spectrum of the full Hermitian Hamiltonian~\eqref{eq:dirac-hamiltonian}.  A
+time-dependent field need not preserve any fixed positive--negative split;
+its mixing of the two sectors requires field quantization for a complete
+pair-production interpretation.
 
 \section{Rotations and Lorentz boosts}
 \label{sec:transformations}
@@ -2701,7 +3356,7 @@ $T$ with a negative exponential.
 
 Let $\theta\in\R$ be the rotation angle, $\bu\in\R^3$ a unit axis,
 $X=t+\br\cdot\bsig$ a spacetime paravector, $Z$ a paravector, and
-$\psi P=\psi$ a minimal-ideal amplitude.  The rotation is generated by
+$\psi\Pi_3=\psi$ a minimal-ideal amplitude.  The rotation is generated by
 \begin{gather}
  R:=\exp\!\left(\ii\frac\theta2\,\bu\cdot\bsig\right)
   =\cos\frac\theta2+\bu\cdot\ii\bsig\,\sin\frac\theta2\\
@@ -2763,11 +3418,13 @@ $\beta=\tanh\theta$ and $\gamma=\cosh\theta$.  The boost is
  =\cosh\frac\theta2-\bu\cdot\bsig\,\sinh\frac\theta2.
 \end{gather}
 Unlike a rotation, a boost acts oppositely on the two chiral entries of a
-Dirac block.  With the ordering used in the Dirac equation,
+Dirac block.  In the following field laws the primed field is evaluated at
+$X'=L^{-1}XL^{-1}$ and the unprimed field at $X$.  With the ordering used in
+the Dirac equation,
 \begin{equation}
- \Psi_1'=L\Psi_1,
+ \Psi_1'(X')=L\Psi_1(X),
  \qquad
- \Psi_2'=L^{-1}\Psi_2.
+ \Psi_2'(X')=L^{-1}\Psi_2(X).
  \label{eq:dirac-boost}
 \end{equation}
 Thus $L^{-1}\psi$ is the transformation of the second chiral carrier, while
@@ -2789,8 +3446,16 @@ $\br'_{\perp}=\br'-\br'_{\parallel}$:
  \br'_{\parallel}&=\gamma(\br_{\parallel}-\beta t\bu),\\
  \br'_{\perp}&=\br_{\perp}.
 \end{align}
-It preserves $\Det X=t^2-\br^2$.  The electromagnetic field instead obeys
-$F'=L^{-1}FL$ for $F=(\bE+\bBf\ii)\cdot\bsig$.  Define
+It preserves $\Det X=t^2-\br^2$.  Four-momentum has the same vector law,
+\begin{equation}
+ P'=L^{-1}PL^{-1},
+ \qquad
+ \scpart{\adj{P'}X'}=\scpart{\adj P\,X},
+\end{equation}
+so the plane-wave phase is Lorentz invariant.  The electromagnetic field
+instead obeys
+$F'(X')=L^{-1}F(X)L$ for
+$F=(\bE+\bBf\ii)\cdot\bsig$.  Define
 $\bE_{\parallel}=(\bE\cdot\bu)\bu$,
 $\bE_{\perp}=\bE-\bE_{\parallel}$ and likewise
 $\bE'_{\parallel}=(\bE'\cdot\bu)\bu$,
@@ -2804,7 +3469,7 @@ components of $\bBf$ and $\bBf'$ by the same formulas.  Then
 \end{align}
 With the same convention,
 \begin{gather}
- \Phi'=L^{-1}\Phi L^{-1}\\
+ \Phi'(X')=L^{-1}\Phi(X)L^{-1}\\
  \partial'=L\partial L\\
  \partial'^*=L^{-1}\partial^*L^{-1}\\
  D'=L^{-1}DL^{-1}\\
@@ -2825,11 +3490,35 @@ Together with equation~\eqref{eq:dirac-boost}, these identities make both
 coupled Dirac equations covariant.  The current in
 equation~\eqref{eq:dirac-current} transforms with the spacetime-vector law,
 \begin{equation}
- J'=L^{-1}JL^{-1}.
+ J'(X')=L^{-1}J(X)L^{-1}.
 \end{equation}
+If the hypersurface normal obeys the same vector law,
+$N'=L^{-1}NL^{-1}$, then
+\begin{equation}
+ \scpart{\adj{N'}J'}=\scpart{\adj N\,J}
+\end{equation}
+by adjugation and cyclicity.  This is the local invariance behind the
+hypersurface normalization~\eqref{eq:dirac-hypersurface-norm}.
 
-\section{Generalized spacetime and metric form}
+\section{Flat spacetime in generalized coordinates}
 \label{sec:generalized}
+
+This section changes coordinates within flat Minkowski spacetime; it does not
+introduce spacetime curvature or a gravitational field.  For a time-like
+curve, recall that $U=\dd X/\dd s$ represents proper velocity.  Let the real
+scalar function $f$ and real three-vector function $\bg$ define a locally invertible
+map from $(t,\br)$ to the inertial components of $X$.  If $x_0=t$ and
+$x_n=r_n$ for $n=1,2,3$, write
+$\partial_n:=\partial/\partial x_n$.  For
+$n,m\in\{0,1,2,3\}$, the pulled-back metric coefficients are
+\begin{equation}
+ g_{nm}:=\partial_n f\,\partial_m f
+ -\partial_n\bg\cdot\partial_m\bg.
+ \label{eq:flat-pullback-metric}
+\end{equation}
+The determinant of the Jacobian of $(f,\bg)$ must be nonzero for these
+functions to form a local coordinate chart.  Although $g_{nm}$ may vary with
+the coordinates, it is the pullback of the flat metric.
 
 Let
 \begin{gather}
@@ -2854,7 +3543,7 @@ Define the geometric velocity and Lorentz factor by
 \begin{gather}
  \bv=\frac{\dd\bg}{\dd f}\\
  \gamma=\frac{\dd f}{\dd s}=\frac1{\sqrt{1-\bv^2}}\\
- U=\gamma(1+\bv\cdot\bsig).
+ \frac{\dd X}{\dd s}=U=\gamma(1+\bv\cdot\bsig).
 \end{gather}
 With geometric acceleration
 $\ba=\dd\bv/\dd s=\gamma\dd^2\bg/\dd f^2$,
@@ -2921,6 +3610,8 @@ For $Z=S+\bV\cdot\bsig=(a+b\ii)+(\bA+\bB\ii)\cdot\bsig$,
  +(S\bV'+S'\bV+\ii\bV\times\bV')\cdot\bsig,\\
  \det(Z)&=\adj Z\,Z=Z\adj Z=S^2-\bV^2,\\
  Z^{-1}&=\frac{\adj Z}{\det(Z)},\\
+ UU^{-1}&=U^{-1}U=1
+   &&\text{\eqref{eq:unit-paravector}},\\
  Z^2-2SZ+(S^2-\bV^2)&=0,\\
  \lambda_\pm&=S\pm\sqrt{\bV^2}.
 \end{align*}
@@ -2939,6 +3630,15 @@ quadratic identity~\eqref{eq:minimal}.
 See the general complex-paravector rule~\eqref{eq:complex-function-projectors}
 and ladder operators in Section~\ref{sec:ladder-operators}.
 
+\paragraph{\hyperref[sec:differentiated-fields]{Paravector differential operators}.}
+\begin{align*}
+ \partial&=\partial_t+\bsig\cdot\pdr,\\
+ \partial^*&=\adj{\partial}=\partial_t-\bsig\cdot\pdr,\\
+ \Box&=\partial\partial^*=\partial^*\partial
+ =\partial_t^2-\pdr\cdot\pdr
+   &&\text{\eqref{eq:dalembertian}}.
+\end{align*}
+
 \paragraph{\hyperref[sec:kinematics]{Space--time kinematics and action}.}
 \begin{align*}
  \dd X&=\dd t+\dd\br\cdot\bsig,\\
@@ -2947,10 +3647,13 @@ and ladder operators in Section~\ref{sec:ladder-operators}.
  \gamma&=(1-\bv^2)^{-1/2},\\
  \dd s&=\dd t/\gamma,\\
  \frac{\dd}{\dd s}&=\gamma\frac{\dd}{\dd t},\\
- U&=\gamma(1+\bv\cdot\bsig),\\
- mU&=E+\bP\cdot\bsig,\\
- E^2-\bP^2&=m^2
+ U&=\dd X/\dd s=\gamma(1+\bv\cdot\bsig)
+   &&\text{\eqref{eq:proper-velocity}},\\
+ P&=mU=E+\bp\cdot\bsig
    &&\text{\eqref{eq:momentum}},\\
+ E&=\scpart P,
+ &\bp&=\vecpart P,\\
+ E^2-\bp^2&=m^2,\\
  \int L\dd t&=-m\int\dd s,\\
  L&=-m/\gamma,\\
  H&=m\gamma,\\
@@ -2960,12 +3663,10 @@ and ladder operators in Section~\ref{sec:ladder-operators}.
 
 \paragraph{\hyperref[sec:electromagnetism]{Electromagnetism}.}
 \begin{align*}
- \partial&=\partial_t+\bsig\cdot\pdr,\\
  F&=(\bE+\bBf\ii)\cdot\bsig,\\
  D&=\rho+\bJ\cdot\bsig,\\
  \partial F&=D^*=\rho-\bJ\cdot\bsig
    &&\text{\eqref{eq:maxwell}},\\
- \Box&=\partial^*\partial,\\
  \partial\Phi&=S+F^*,\\
  \bE&=-\partial_t\bA-\pdr V,\\
  \bBf&=\pdr\times\bA,\\
@@ -2975,8 +3676,10 @@ and ladder operators in Section~\ref{sec:ladder-operators}.
  \tfrac12F^2&=\tfrac12(\bE^2-\bBf^2)+\ii\bE\cdot\bBf,\\
  \tfrac12FF^{\mathsf H}&=\tfrac12(\bE^2+\bBf^2)
  +(\bE\times\bBf)\cdot\bsig,\\
- m\frac{\dd U}{\dd s}&=q\repart{FU},\\
- \frac{\dd\bP}{\dd t}&=q(\bE+\bv\times\bBf)
+ T(N)&=\tfrac12FNF^{\mathsf H}
+   &&\text{\eqref{eq:electromagnetic-stress-map}},\\
+ \frac{\dd P}{\dd s}&=m\frac{\dd U}{\dd s}=q\repart{FU},\\
+ \frac{\dd\bp}{\dd t}&=q(\bE+\bv\times\bBf)
    &&\text{\eqref{eq:lorentz}},\\
  \ba&=\frac{q}{m\gamma}
  \left(\bE+\bv\times\bBf-(\bv\cdot\bE)\bv\right)
@@ -2987,8 +3690,11 @@ balance~\eqref{eq:poynting}.  The connection to invariant proper acceleration
 is developed in Section~\ref{sec:lorentz-proper-acceleration}.
 
 \paragraph{\hyperref[sec:waves]{Wave equations, spin, and energy sectors}.}
-Here $P$ is the fixed ideal selector, while $\Pi_\pm$ are measurement
+Here $\Pi_3$ is the fixed ideal selector, while $\Pi_\pm$ are measurement
 projectors.  In the energy formulas, $H$ denotes the free Dirac Hamiltonian.
+The unintegrated ratios below apply to finite amplitudes and pointwise local
+states; for spatial wavefunctions, integrate the scalar numerator and
+denominator before taking their ratio.
 \begin{align*}
  \langle\psi'\mid\psi\rangle
  &=\scpart{\psi'^{\mathsf H}\psi},\\
@@ -2999,8 +3705,17 @@ projectors.  In the energy formulas, $H$ denotes the free Dirac Hamiltonian.
  {\langle\psi\mid\psi\rangle}
  =\frac{\scpart{\psi^{\mathsf H}Z\psi}}
  {\scpart{\psi^{\mathsf H}\psi}},\\
- P&=\tfrac12(1+\sigma_3),
- &\psi P&=\psi,\\
+ \Pi_3&=\tfrac12(1+\sigma_3),
+ &\psi\Pi_3&=\psi,\\
+ B&=\frac{\psi\psi^{\mathsf H}}
+ {\scpart{\psi^{\mathsf H}\psi}}
+ =1+\bm{s}\cdot\bsig,\\
+ p_\pm(\bu)&=\scpart{\Pi_\pm B}
+ =\tfrac12(1\pm\bu\cdot\bm{s}),\\
+ P&=E+\bp\cdot\bsig,
+ &w&=\exp\!\left(-\ii\scpart{\adj P\,X}\right),\\
+ \ii\partial^*w&=P w,
+ &\ii\partial w&=\adj P\,w,\\
  (\Box+m^2)\psi&=0,\\
  \Wop(Z)&=\begin{Bmatrix}0&Z\\\adj Z&0\end{Bmatrix},\\
  \bigl(\Wop(\ii\partial)-m\bI\bigr)\bPsi&=0,\\
@@ -3011,24 +3726,26 @@ projectors.  In the energy formulas, $H$ denotes the free Dirac Hamiltonian.
  J&=\adj{\Psi_1\Psi_1^{\mathsf H}}+\Psi_2\Psi_2^{\mathsf H}
    &&\text{\eqref{eq:dirac-current}},\\
  \Pi_\pm&=\tfrac12(1\pm\bu\cdot\bsig),\\
- p_\pm(\bu)&=\tfrac12(1\pm\bu\cdot\bm{s}),\\
- U&=(E+\bP\cdot\bsig)/m,\\
- H&=\begin{Bmatrix}-\bP\cdot\bsig&m\\m&\bP\cdot\bsig\end{Bmatrix},
- &E&=\sqrt{\bP^2+m^2},\\
- \text{positive-energy projector: }&\quad
- \tfrac12(\bI+H/E),\\
- \text{negative-energy projector: }&\quad
- \tfrac12(\bI-H/E),\\
+ U&=P/m=(E+\bp\cdot\bsig)/m,
+ &\det(U)&=1\quad(m>0,\ E>0),\\
+ H&=\begin{Bmatrix}-\bp\cdot\bsig&m\\m&\bp\cdot\bsig\end{Bmatrix},
+ &E&=\sqrt{\bp^2+m^2},\\
+ \bQm_\pm&=\tfrac12(\bI\pm H/E)
+   &&\text{\eqref{eq:energy-projectors}},\\
  \text{spin-up projection: }&\quad\Pi_+\bPsi,\\
- \text{spin-down projection: }&\quad\Pi_-\bPsi.
+ \text{spin-down projection: }&\quad\Pi_-\bPsi,\\
+ \bPsi_c&=\{\Psi_2^*\sigma_1,-\Psi_1^*\sigma_1\}^{\mathsf T}
+   &&\text{\eqref{eq:dirac-charge-reversal}}.
 \end{align*}
 See the paravector inner product~\eqref{eq:paravector-inner-product},
 minimal-ideal development in Section~\ref{sec:physical-spinors},
 spin-carrier comparison in Section~\ref{sec:paravector-spin-content},
 Klein--Gordon equation~\eqref{eq:kg}, Dirac equations~\eqref{eq:dirac} and
 \eqref{eq:dirac-field}, general Klein--Gordon lift
-\eqref{eq:kg-dirac-general-lift}, Pauli equation~\eqref{eq:pauli}, and spin
-probability~\eqref{eq:spin-probability}.
+\eqref{eq:kg-dirac-general-lift}, Pauli equation~\eqref{eq:pauli}, spin
+probability~\eqref{eq:spin-probability-intrinsic}, energy
+probabilities~\eqref{eq:energy-probabilities}, and joint rule
+\eqref{eq:joint-spin-energy-probability}.
 The covariant mass-shell idempotents
 $\tfrac12(\bI\pm\Wop(\adj U))$ are distinct from the Hermitian energy
 projectors summarized here.
@@ -3079,12 +3796,12 @@ See the quaternion product~\eqref{eq:quaternion-product}, its paravector
 embedding~\eqref{eq:quaternion-paravector}, and its faithful matrix
 form~\eqref{eq:quaternion-matrix}.
 
-\paragraph{\hyperref[sec:generalized]{Generalized spacetime and metric form}.}
+\paragraph{\hyperref[sec:generalized]{Flat spacetime in generalized coordinates}.}
 \begin{align*}
  X&=f+\bg\cdot\bsig,\\
  \dd s^2&=\dd f^2-\dd\bg^2,\\
  \bv&=\dd\bg/\dd f,\\
- U&=\gamma(1+\bv\cdot\bsig).
+ U&=\dd X/\dd s=\gamma(1+\bv\cdot\bsig).
 \end{align*}
 }
 
@@ -3401,8 +4118,10 @@ column.  The fixed right projection below selects one carrier.
 
 Recall the fixed idempotent from Section~\ref{sec:physical-spinors}:
 \begin{equation}
- P=\tfrac12(1+\sigma_3).
+ \Pi_3=\tfrac12(1+\sigma_3).
 \end{equation}
+Here $\Pi_3$ is the fixed column selector and is distinct from the matrix
+superscript $^{\mathsf C}$ used for entrywise complex conjugation.
 With
 \begin{gather}
  \bm v:=\{1,0\}^{\mathsf T}\\
@@ -3410,13 +4129,14 @@ With
 \end{gather}
 its matrix image is
 \begin{equation}
- \operatorname{mat}(P)=\bm v\bm v^{\mathsf H}
+ \operatorname{mat}(\Pi_3)=\bm v\bm v^{\mathsf H}
  =\begin{Bmatrix}1&0\\0&0\end{Bmatrix}.
 \end{equation}
 Any other fixed primitive Hermitian idempotent gives an equivalent column
-basis, but $P$ is kept fixed throughout the following formulas.
+basis, but $\Pi_3$ is kept fixed throughout the following formulas.
 
-Let $\psi=AP$ and $\psi'=A'P$ be two ideal amplitudes.  Define their
+For unrestricted complex paravectors $Z$ and $Z'$, let
+$\psi=Z\Pi_3$ and $\psi'=Z'\Pi_3$ be two ideal amplitudes.  Define their
 conventional columns by
 \begin{gather}
  \bpsi:=\frac1{\sqrt2}\bM_\psi\bm v
@@ -3431,6 +4151,16 @@ The inverse relations are
  \\
  \bM_{\psi'}=\sqrt2\,\bpsi'\bm v^{\mathsf H}.
 \end{gather}
+For the normalized ideal basis in
+equation~\eqref{eq:ideal-spin-basis}, this map gives explicitly
+\begin{equation}
+ \frac1{\sqrt2}\operatorname{mat}(e_+)\bm v
+ =\begin{Bmatrix}1\\0\end{Bmatrix},
+ \qquad
+ \frac1{\sqrt2}\operatorname{mat}(e_-)\bm v
+ =\begin{Bmatrix}0\\1\end{Bmatrix}.
+ \label{eq:ideal-basis-column-map}
+\end{equation}
 Thus each ideal amplitude and its column contain the same two complex
 components.  Its matrix has rank one for a nonzero state and rank zero for
 the zero state.  The fixed right factor records the chosen ideal, while all
@@ -3475,7 +4205,8 @@ The corresponding matrices and columns are
  \bpsi_\pm
  &=\operatorname{mat}(\Pi_\pm)\bpsi.
 \end{align}
-Consequently, the probability in equation~\eqref{eq:spin-probability} is
+Consequently, the probability in
+equation~\eqref{eq:spin-probability-intrinsic} is
 \begin{align}
  p_\pm(\bu)
  &=\frac{\bpsi_\pm^{\mathsf H}\bpsi_\pm}
@@ -3487,16 +4218,17 @@ Consequently, the probability in equation~\eqref{eq:spin-probability} is
   {\operatorname{tr}(\bM_\psi^{\mathsf H}\bM_\psi)}.
 \end{align}
 For an ideal amplitude, its normalized density matrix may therefore be
-written in either form
+written in any of the equivalent forms
 \begin{equation}
  \frac{\bpsi\bpsi^{\mathsf H}}{\bpsi^{\mathsf H}\bpsi}
  =\frac{\bM_\psi\bM_\psi^{\mathsf H}}
- {\operatorname{tr}(\bM_\psi\bM_\psi^{\mathsf H})}.
+ {\operatorname{tr}(\bM_\psi\bM_\psi^{\mathsf H})}
+ =\tfrac12\operatorname{mat}(B).
 \end{equation}
-For an unrestricted matrix amplitude, the expression on the right remains a
-valid normalized positive density matrix and may describe a mixed state.  It
-comes from a single Pauli column precisely when the matrix amplitude has rank
-one.
+For an unrestricted matrix amplitude, the matrix-amplitude expression remains
+a valid normalized positive density matrix and may describe a mixed state.
+It comes from a single Pauli column precisely when the matrix amplitude has
+rank one.
 
 For the Dirac block, apply the same column map to each ideal entry and write
 $\bpsi_1,\bpsi_2$ for the resulting columns.  The faithful block action is
@@ -3518,7 +4250,34 @@ For $Z=S+\bV\cdot\bsig$, this block matrix is
 \end{equation}
 which is the standard chiral form used by the Dirac equation.  In this
 ordering the conventional Hermitian row entering the Dirac current is
-$\{\bpsi_2^{\mathsf H},\bpsi_1^{\mathsf H}\}$.  The matrix image of
+$\{\bpsi_2^{\mathsf H},\bpsi_1^{\mathsf H}\}$.  The normalized spin state in
+equation~\eqref{eq:dirac-spin-state} becomes
+\begin{equation}
+ \tfrac12\operatorname{mat}(B)
+ =\frac{\bpsi_1\bpsi_1^{\mathsf H}
+        +\bpsi_2\bpsi_2^{\mathsf H}}
+       {\bpsi_1^{\mathsf H}\bpsi_1
+        +\bpsi_2^{\mathsf H}\bpsi_2}.
+\end{equation}
+The charge-reversal rule also has a direct column form.  Entrywise
+conjugation of a column is denoted by the already defined matrix superscript
+$^{\mathsf C}$.  The ideal map gives
+\begin{equation}
+ \frac1{\sqrt2}\operatorname{mat}(\psi^*\sigma_1)\bm v
+ =\bm S^{-1}\bpsi^{\mathsf C},
+\end{equation}
+so equation~\eqref{eq:dirac-charge-reversal} becomes
+\begin{equation}
+ \bPsi_c\quad\longleftrightarrow\quad
+ \begin{Bmatrix}
+  \bm S^{-1}\bpsi_2^{\mathsf C}\\
+  -\bm S^{-1}\bpsi_1^{\mathsf C}
+ \end{Bmatrix}.
+ \label{eq:charge-reversal-column-map}
+\end{equation}
+This is the familiar antisymmetric two-component charge-reversal map in the
+chiral ordering used here.
+By contrast, the matrix image of
 equation~\eqref{eq:dirac-current} is
 \begin{align}
  \operatorname{mat}(J)
@@ -3665,6 +4424,11 @@ therefore reproduces the same Rodrigues rotation.
  while scalar energy remains the unbold symbol \(E\).  Blackboard bold is
  retained only for the number sets \(\R\) and \(\C\).
 
+ \item A unit paravector $U$ is defined by the existence of a two-sided
+ inverse, $UU^{-1}=U^{-1}U=1$.  In particle applications the local recall
+ $U=\dd X/\dd s$ specializes this general notation to proper velocity; that
+ real unit additionally satisfies $\det(U)=1$ and $U^{-1}=U^*$.
+
  \item The action is written as \(\int L\dd t\), avoiding conflict with the
  scalar part \(S\).  The Lagrangian \(L\) and Hamiltonian \(H\) use the regular
  math font.  The Dirac block function is the upright bold \(\Wop(\cdot)\), and
@@ -3704,10 +4468,24 @@ therefore reproduces the same Rodrigues rotation.
  these operations from sigma conjugation and states which operations reverse
  product order.
 
- \item The fixed idempotent $P=\tfrac12(1+\sigma_3)$ is multiplied on the
+ \item The fixed idempotent $\Pi_3=\tfrac12(1+\sigma_3)$ is multiplied on the
  right to select one minimal left ideal and one Pauli column.  The variable
  projectors $\Pi_\pm=\tfrac12(1\pm\bu\cdot\bsig)$ act from the left and
- represent physical spin measurements.  These roles are not interchangeable.
+ represent physical spin measurements.  When $\bu$ is the third-axis
+ direction, $\Pi_3$ and $\Pi_+$ are the same algebra element, but right ideal
+ selection and left measurement remain different actions.
+
+ \item The adjugate--determinant identity applies directly to algebraic
+ paravectors and to free differential paravectors whose coefficient
+ operators commute.  Gauge-covariant energy and momentum components do not
+ commute; their products remain ordered and their vector remainders are the
+ electromagnetic field couplings.
+
+ \item On Dirac blocks, $^{\mathsf H}$ transposes the block and applies the
+ same algebraic $^{\mathsf H}$ to every entry, while $^*$ acts entrywise
+ without transposing the block.  For spatial differential operators,
+ Hermiticity additionally includes the operator domain, boundary conditions,
+ and integration by parts.
 
  \item Plus/minus labels are subscripts
  \(({}_\pm,{}_{+},{}_{-})\), not superscripts or parenthesized labels.
@@ -3721,8 +4499,9 @@ therefore reproduces the same Rodrigues rotation.
 
  \item Long product expansions were consolidated while retaining their
  distinct components and results.  Expressions otherwise preserve the compact
- ordering of the source, for example \(\operatorname{sc}(\Phi^*U)\), without
- an extra pair of grouping parentheses.
+ ordering of the source, for example
+ \(\operatorname{sc}(\Phi^*U)\) with $U=\dd X/\dd s$, without an extra pair
+ of grouping parentheses.
 \end{itemize}
 
 \end{document}
