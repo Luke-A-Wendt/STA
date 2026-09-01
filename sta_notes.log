@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.3.6)  28 AUG 2026 10:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.3.6)  31 AUG 2026 22:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -569,13 +569,13 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
  [68] [69] (./sta_notes.aux)
 Package rerunfilecheck Info: File `sta_notes.out' has not changed.
-(rerunfilecheck)             Checksum: 861F51EC37DFFF6AB5724F17C502A929;13639.
+(rerunfilecheck)             Checksum: DCB4F6080C9075A2247AE36EAF2B74D4;13868.
  ) 
 Here is how much of TeX's memory you used:
- 15002 strings out of 480247
- 232743 string characters out of 5896152
- 582874 words of memory out of 5000000
- 31653 multiletter control sequences out of 15000+600000
+ 15009 strings out of 480247
+ 232852 string characters out of 5896152
+ 583882 words of memory out of 5000000
+ 31656 multiletter control sequences out of 15000+600000
  491276 words of font info for 179 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,15n,63p,1006b,489s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -597,10 +597,10 @@ fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/symbols/msbm10.pfb>
-Output written on sta_notes.pdf (69 pages, 474735 bytes).
+Output written on sta_notes.pdf (69 pages, 477049 bytes).
 PDF statistics:
- 1991 PDF objects out of 2073 (max. 8388607)
- 1711 compressed objects within 18 object streams
- 918 named destinations out of 1000 (max. 500000)
- 48177 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 2007 PDF objects out of 2073 (max. 8388607)
+ 1727 compressed objects within 18 object streams
+ 922 named destinations out of 1000 (max. 500000)
+ 48193 words of extra memory for PDF output out of 51595 (max. 10000000)
 

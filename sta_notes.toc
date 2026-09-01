@@ -39,27 +39,29 @@
 \contentsline {subsection}{\numberline {6.2}Varying transformations and second differentials}{29}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Free-particle action}{30}{subsection.6.3}%
 \contentsline {section}{\numberline {7}Electromagnetism}{31}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Field equation and potentials}{31}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Field invariants}{33}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Lorentz force from the field and action}{33}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Proper acceleration from the Lorentz force}{35}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Energy balance}{36}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.1}Maxwell's equations}{31}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}The wave equations}{31}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}The potentials}{32}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Field invariants}{33}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Lorentz force from the field and action}{34}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Proper acceleration from the Lorentz force}{35}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Energy balance}{36}{subsection.7.7}%
 \contentsline {section}{\numberline {8}Relativistic wave equations}{37}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Paravector inner products and expectations}{38}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}Physical spinors and minimal ideals}{39}{subsection.8.2}%
 \contentsline {subsection}{\numberline {8.3}Spin carried by paravector components}{41}{subsection.8.3}%
 \contentsline {subsection}{\numberline {8.4}Energy and momentum as differential operators}{42}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Klein--Gordon equation}{42}{subsection.8.5}%
-\contentsline {subsection}{\numberline {8.6}Spin-zero low-energy limit}{43}{subsection.8.6}%
+\contentsline {subsection}{\numberline {8.5}Klein--Gordon equation}{43}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.6}Spin-zero low-energy limit}{44}{subsection.8.6}%
 \contentsline {subsection}{\numberline {8.7}Dirac equation in block form}{44}{subsection.8.7}%
 \contentsline {subsection}{\numberline {8.8}Schr\"odinger--Pauli limit}{46}{subsection.8.8}%
 \contentsline {subsection}{\numberline {8.9}Interacting operators and factorization}{47}{subsection.8.9}%
-\contentsline {subsection}{\numberline {8.10}Spin, energy sign, and probabilities}{48}{subsection.8.10}%
+\contentsline {subsection}{\numberline {8.10}Spin, energy sign, and probabilities}{49}{subsection.8.10}%
 \contentsline {section}{\numberline {9}Rotations and Lorentz boosts}{51}{section.9}%
 \contentsline {subsection}{\numberline {9.1}Rotors}{51}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}Boosts}{52}{subsection.9.2}%
-\contentsline {section}{\numberline {10}Flat spacetime in generalized coordinates}{53}{section.10}%
-\contentsline {section}{\numberline {A}Pauli-matrix representation}{54}{appendix.A}%
+\contentsline {section}{\numberline {10}Flat spacetime in generalized coordinates}{54}{section.10}%
+\contentsline {section}{\numberline {A}Pauli-matrix representation}{55}{appendix.A}%
 \contentsline {subsection}{\numberline {A.1}Faithful representation}{55}{subsection.A.1}%
 \contentsline {subsection}{\numberline {A.2}Matrix operations and induced algebra operations}{55}{subsection.A.2}%
 \contentsline {subsubsection}{\numberline {A.2.1}Trace, determinant, and adjugate}{57}{subsubsection.A.2.1}%

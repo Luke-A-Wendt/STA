@@ -1850,34 +1850,44 @@ nonrelativistic kinetic energy $\tfrac12m\bv^2$.
 \section{Electromagnetism}
 \label{sec:electromagnetism}
 
-Throughout this section,
-$F=(\bE+\ii\bBf)\cdot\bsig$ is the field,
-$\Phi=V+\bA\cdot\bsig$ is the potential, and
-$D=\rho+\bJ\cdot\bsig$ is the source.
+Throughout this section, let
+$F=(\bE+\ii\bBf)\cdot\bsig$ be the field paravector, where $\bE$ is the
+electric field and $\bBf$ is the magnetic field.  Let
+$\Phi=V+\bA\cdot\bsig$ be the potential paravector, where $V$ is the
+electric scalar potential and $\bA$ is the magnetic vector potential.  Let
+$D=\rho+\bJ\cdot\bsig$ be the source (density) paravector, where $\rho$ is
+the charge density and $\bJ$ is the current density.
 For the particle equations, recall
 $U=\dd X/\dd s=\gamma(1+\bv\cdot\bsig)$ from
 equation~\eqref{eq:proper-velocity}.
 
-\subsection{Field equation and potentials}
+\subsection{Maxwell's equations}
 
 Recall the paravector differential operator from
-equation~\eqref{eq:paravector-derivative}, and define the electromagnetic
-field and source by
+equation~\eqref{eq:paravector-derivative}, together with the field and
+source paravectors:
 \begin{gather}
  \partial=\partial_t+\bsig\cdot\pdr\\
  F=(\bE+\bBf\ii)\cdot\bsig\\
  D=\rho+\bJ\cdot\bsig.
 \end{gather}
-All four Maxwell equations are the single equation
+The sigma conjugate of $\partial$ is
+$\partial^*=\partial_t-\bsig\cdot\pdr$.
+All four Maxwell equations are encoded in the central field equation
 \begin{equation}
- \partial F=\sconj D=\rho-\bJ\cdot\bsig.
+ \boxed{\partial F=\sconj D}.
  \label{eq:maxwell}
 \end{equation}
-Sigma conjugation gives the equivalent equation
-\begin{equation}
- \partial^*F^*=D.
-\end{equation}
-Expanding the left side by component gives
+The source side and the sigma-conjugate form of~\eqref{eq:maxwell} are,
+respectively,
+\begin{gather}
+ \sconj D=\rho-\bJ\cdot\bsig
+ \label{eq:conjugate-source}
+ \\
+ (\partial F)^*=D.
+\end{gather}
+To recover the component equations, expand the left side
+of~\eqref{eq:maxwell}:
 \begin{align}
  \partial F={}&\underbrace{\pdr\cdot\bE}_{\text{real scalar}}
  +\underbrace{\ii\pdr\cdot\bBf}_{\text{imaginary scalar}}\\
@@ -1886,16 +1896,24 @@ Expanding the left side by component gives
  &+\underbrace{\ii(\partial_t\bBf+\pdr\times\bE)\cdot\bsig}
  _{\text{imaginary vector}}.
 \end{align}
-Equating these four components with those of
-$\rho-\bJ\cdot\bsig$ gives, respectively,
+Equating these four components with the source components
+in~\eqref{eq:conjugate-source} gives, respectively,
 \begin{align}
  \text{real scalar:}\quad&\pdr\cdot\bE=\rho,\\
  \text{imaginary scalar:}\quad&\pdr\cdot\bBf=0,\\
  \text{real vector:}\quad&\pdr\times\bBf=\bJ+\partial_t\bE,\\
  \text{imaginary vector:}\quad&\pdr\times\bE=-\partial_t\bBf.
 \end{align}
-Equation~\eqref{eq:dalembertian} gives
-$\partial\partial^*=\partial^*\partial=\Box$, whereas
+
+\subsection{The wave equations}
+
+Recall the field and source paravectors
+$F=(\bE+\bBf\ii)\cdot\bsig$ and $D=\rho+\bJ\cdot\bsig$, together with the
+paravector derivatives $\partial=\partial_t+\bsig\cdot\pdr$ and
+$\partial^*=\partial_t-\bsig\cdot\pdr$.  Equation~\eqref{eq:dalembertian}
+gives the d'Alembertian
+$\partial\partial^*=\partial^*\partial=\Box$, where
+$\Box=\partial_t^2-\pdr\cdot\pdr$.  By contrast,
 \begin{equation}
  \partial^2=\partial_t^2+\pdr\cdot\pdr
  +2\partial_t\,\bsig\cdot\pdr
@@ -1904,7 +1922,8 @@ $\partial\partial^*=\partial^*\partial=\Box$, whereas
 Applying $\sconj\partial$ to~\eqref{eq:maxwell} gives
 \begin{align}
  \Box F
- &=\sconj\partial\sconj D\\
+ &=\partial^*(\partial F)\\
+ &=\partial^*D^*=(\partial D)^*\\
  &=(\partial_t\rho+\pdr\cdot\bJ)
  +(-\partial_t\bJ-\pdr\rho+\ii\pdr\times\bJ)\cdot\bsig.
 \end{align}
@@ -1921,17 +1940,29 @@ In vacuum, $\rho=0$ and $\bJ=0$, so
  \Box\bBf=0.
 \end{gather}
 
-For the potential $\Phi=V+\bA\cdot\bsig$,
+\subsection{The potentials}
+
+Recall the potential and field paravectors
+$\Phi=V+\bA\cdot\bsig$ and $F=(\bE+\bBf\ii)\cdot\bsig$, together with the
+charge and current densities $\rho$ and $\bJ$.  The relevant operators are
+$\partial=\partial_t+\bsig\cdot\pdr$,
+$\partial^*=\partial_t-\bsig\cdot\pdr$, and
+$\Box=\partial_t^2-\pdr\cdot\pdr$, where $\partial_t$ and $\pdr$ are the
+time derivative and spatial gradient.  Define the scalar component of
+$\partial\Phi$ by
+\begin{equation}
+ S:=\scpart{\partial\Phi}=\partial_tV+\pdr\cdot\bA.
+\end{equation}
+Below, $\lambda$ denotes a scalar gauge field, and primes denote
+gauge-transformed quantities.
+
+Applying $\partial$ to the potential paravector and expanding gives
 \begin{align}
  \partial\Phi={}&
  \underbrace{\partial_tV+\pdr\cdot\bA}_{\text{real scalar}}
  +\underbrace{(\partial_t\bA+\pdr V)\cdot\bsig}_{\text{real vector}}\\
  &+\underbrace{\ii(\pdr\times\bA)\cdot\bsig}_{\text{imaginary vector}}.
 \end{align}
-Define the scalar component
-\begin{equation}
- S:=\scpart{\partial\Phi}=\partial_tV+\pdr\cdot\bA.
-\end{equation}
 Then $\partial\Phi=S+F^*$: its real-vector and imaginary-vector components
 give
 \begin{gather}
@@ -1955,7 +1986,7 @@ $\partial F=\rho-\bJ\cdot\bsig$ gives
  \bJ&=\Box\bA+\pdr S.
  \label{eq:current-from-potential}
 \end{align}
-For a scalar field $\lambda$, the gauge transformation is
+For the scalar gauge field $\lambda$, the gauge transformation is
 \begin{equation}
  \Phi' = \Phi+\sconj\partial\lambda,
 \end{equation}
