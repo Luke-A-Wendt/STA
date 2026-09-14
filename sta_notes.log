@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.3.6)  14 SEP 2026 00:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.3.6)  14 SEP 2026 16:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**sta_notes.tex
-(./sta_notes.tex
+**/home/luke/STA/sta_notes.tex
+(/home/luke/STA/sta_notes.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -270,6 +270,13 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 (/usr/share/texlive/texmf-dist/tex/latex/needspace/needspace.sty
 Package: needspace 2010/09/12 v1.3d reserve vertical space
 )
+(/usr/share/texlive/texmf-dist/tex/latex/xurl/xurl.sty
+Package: xurl 2022/01/09 v 0.10 modify URL breaks
+
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+))
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2021-06-07 v7.00m Hypertext links for LaTeX
 
@@ -342,11 +349,6 @@ Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
 \c@Hy@tempcnt=\count290
-
-(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip17
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
 LaTeX Info: Redefining \url on input line 4804.
 \XeTeXLinkMargin=\dimen186
 
@@ -402,34 +404,34 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip60
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 18.
+Package hyperref Info: Option `colorlinks' set `true' on input line 19.
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count297
 \l__pdf_internal_box=\box57
 )
-(/tmp/sta-order-build/sta_notes.aux)
+(/tmp/sta-wave-origin/sta_notes.aux)
 \openout1 = `sta_notes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -438,7 +440,7 @@ LaTeX Font Info:    ... okay on input line 80.
 * paper: <default>
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
+* modes:
 * h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
 * v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
 * \paperwidth=614.295pt
@@ -487,27 +489,27 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \microtypecontext on input line 80.
-Package microtype Info: Applying patch `item' on input line 80.
-Package microtype Info: Applying patch `toc' on input line 80.
-Package microtype Info: Applying patch `eqnum' on input line 80.
-Package microtype Info: Applying patch `footnote' on input line 80.
+LaTeX Info: Redefining \microtypecontext on input line 83.
+Package microtype Info: Applying patch `item' on input line 83.
+Package microtype Info: Applying patch `toc' on input line 83.
+Package microtype Info: Applying patch `eqnum' on input line 83.
+Package microtype Info: Applying patch `footnote' on input line 83.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 80.
+LaTeX Info: Redefining \showhyphens on input line 83.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
-File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
-Package hyperref Info: Link coloring ON on input line 80.
+Package hyperref Info: Link coloring ON on input line 83.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -520,15 +522,15 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count304
 )
-LaTeX Info: Redefining \ref on input line 80.
-LaTeX Info: Redefining \pageref on input line 80.
-LaTeX Info: Redefining \nameref on input line 80.
+LaTeX Info: Redefining \ref on input line 83.
+LaTeX Info: Redefining \pageref on input line 83.
+LaTeX Info: Redefining \nameref on input line 83.
 
-(/tmp/sta-order-build/sta_notes.out) (/tmp/sta-order-build/sta_notes.out)
+(/tmp/sta-wave-origin/sta_notes.out) (/tmp/sta-wave-origin/sta_notes.out)
 \@outlinefile=\write3
 \openout3 = `sta_notes.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 82.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 85.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -537,7 +539,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 82.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 85.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -546,7 +548,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-(/tmp/sta-order-build/sta_notes.toc [1
+(/tmp/sta-wave-origin/sta_notes.toc [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2])
 \tf@toc=\write4
@@ -562,24 +564,26 @@ Package microtype Info: Loading generic protrusion settings for font family
  [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15]
 [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30]
 [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45]
-[46] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60]
-[61] [62] [63] [64] [65] [66] [67] [68] [69
+[46] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59]
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [60]
+[61] [62
 
-] [70
-
-] [71] [72] [73]
-(/tmp/sta-order-build/sta_notes.aux)
+] [63] [64] [65] (/tmp/sta-wave-origin/sta_notes.aux)
 Package rerunfilecheck Info: File `sta_notes.out' has not changed.
-(rerunfilecheck)             Checksum: 4F87646CE20F54C284DACC06F046108A;13129.
- ) 
+(rerunfilecheck)             Checksum: 72B467FCF34B2C6E40F83F6405C8C291;14255.
+ )
 Here is how much of TeX's memory you used:
- 15090 strings out of 480247
- 237083 string characters out of 5896152
- 598433 words of memory out of 5000000
- 31977 multiletter control sequences out of 15000+600000
- 493656 words of font info for 202 fonts, out of 8000000 for 9000
+ 14994 strings out of 480247
+ 235533 string characters out of 5896152
+ 596454 words of memory out of 5000000
+ 31953 multiletter control sequences out of 15000+600000
+ 492837 words of font info for 194 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,15n,63p,1006b,398s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,14n,63p,1021b,469s stack positions out of 5000i,500n,10000p,200000b,80000s
  </tmp/texfonts/pk/ljfour/jknappen/ec/tcrm1095.600pk></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts
@@ -591,20 +595,19 @@ cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/
 cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/
-msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
-sbm10.pfb>
-Output written on /tmp/sta-order-build/sta_notes.pdf (73 pages, 579789 bytes).
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+symbols/msbm10.pfb>
+Output written on /tmp/sta-wave-origin/sta_notes.pdf (65 pages, 528899 bytes).
 PDF statistics:
- 2090 PDF objects out of 2487 (max. 8388607)
- 1908 compressed objects within 20 object streams
- 636 named destinations out of 1000 (max. 500000)
- 53761 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 1828 PDF objects out of 2073 (max. 8388607)
+ 1659 compressed objects within 17 object streams
+ 571 named destinations out of 1000 (max. 500000)
+ 50225 words of extra memory for PDF output out of 51595 (max. 10000000)
 
