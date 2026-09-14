@@ -1822,11 +1822,122 @@ The exact kinetic energy above rest is
 This and both expansions recover $mv^2/2$
 at low speed after removal of the constant rest term.
 
+\subsection{Flat spacetime in generalized coordinates}
+\label{sec:generalized}
+
+Here $(t,\br)$ denote generalized real chart coordinates.  Smooth functions
+$f:\R^4\to\R$ and $\bg:\R^4\to\R^3$ specify inertial coordinates
+through the real paravector
+\[
+ X=f(t,\br)+\bg(t,\br)\cdot\bsig.
+\]
+Along a future timelike path with proper time $s$, recall the real
+$U=\dd X/\dd s$, a \hyperref[eq:unit-paravector]{unit paravector}
+with $UU^{-1}=1$.
+Require the Jacobian of $(f,\bg)$ to be nonsingular.  Differentiating gives
+\begin{align*}
+ \dd X&=(\partial_tf+\partial_t\bg\cdot\bsig)\dd t
+ +\sum_{k=1}^3(\partial_{r_k}f+\partial_{r_k}\bg\cdot\bsig)\dd r_k,\\
+ \dd s^2&=\dd X\,\dd X^*=\dd f^2-\dd\bg^2.
+\end{align*}
+With $x_0=t$, $x_k=r_k$ and $\partial_k=\partial/\partial x_k$, the
+interval is $\dd s^2=\sum_{j,k=0}^3 g_{jk}\dd x_j\dd x_k$, with real coefficients
+\begin{equation}
+ g_{jk}=\partial_jf\,\partial_kf-\partial_j\bg\cdot\partial_k\bg,
+ \qquad j,k=0,1,2,3.
+ \label{eq:coordinate-metric}
+\end{equation}
+This is the flat Minkowski metric in changed coordinates; varying
+coefficients do not imply curvature.
+
+Along this future timelike curve, $\dd f>0$.
+Define its real inertial three-velocity $\bv=\dd\bg/\dd f$ and
+$\gamma=(1-\bv^2)^{-1/2}$, with $\bv^2<1$.  Then
+\begin{align*}
+ \dd s&=\sqrt{1-\bv^2}\,\dd f,\\
+ U=\frac{\dd X}{\dd s}&=\gamma(1+\bv\cdot\bsig).
+\end{align*}
+Apply \eqref{eq:proper-acceleration-components} with inertial time $f$
+and coordinate acceleration $\dd\bv/\dd f$.
+For inertial motion, the scalar part gives $\bv\cdot\dd\bv/\dd f=0$,
+and its vector part then gives $\dd\bv/\dd f=0$.  Therefore
+\begin{equation}
+ \bg=\bC_1f+\bC_2.
+ \label{eq:inertial-coordinate-path}
+\end{equation}
+The real constants $\bC_1,\bC_2\in\R^3$ are velocity and initial position.
+If primes denote total derivatives along this curve with respect to $t$,
+then, wherever $f'\ne0$,
+\begin{align*}
+ \frac{\dd\bv}{\dd t}&=\frac{\bg''f'-\bg'f''}{(f')^2},\\
+ [U,\dd U/\dd s]&=2\ii\gamma^2\left(\bv\times\frac{\dd\bv}{\dd s}\right)\cdot\bsig.
+\end{align*}
+
+\subsection{Varying frames and local bases}
+\label{sec:varying-transformations}
+
+Use a fixed coordinate chart and let the local frame vary along a curve.
+Let $T(s)$ be a smooth complex \hyperref[eq:unit-paravector]{unit paravector}
+of \hyperref[eq:unit-determinant-paravector]{determinant one} along a real parameter $s$.  When $s$ is proper time,
+recall the real tangent $U=\dd X/\dd s$, a unit paravector with $UU^{-1}=1$.
+Define the complex paravector
+$\Omega(s):=T^{-1}\dd T/\dd s$.  The inverse rule gives
+\[
+ \frac{\dd T^{-1}}{\dd s}=-\Omega T^{-1}.
+\]
+For a complex paravector $Z(s)$ transformed by similarity,
+$Z'=T^{-1}ZT$, product differentiation yields
+\begin{equation}
+ \frac{\dd Z'}{\dd s}
+ =T^{-1}\frac{\dd Z}{\dd s}T+[Z',\Omega].
+ \label{eq:varying-similarity}
+\end{equation}
+Differentiating again and replacing
+$T^{-1}(\dd Z/\dd s)T$ by its first-derivative expression gives
+\begin{equation}
+ \begin{aligned}
+ \frac{\dd^2 Z'}{\dd s^2}={}&T^{-1}\frac{\dd^2Z}{\dd s^2}T
+ +2\left[\frac{\dd Z'}{\dd s},\Omega\right]\\
+ &+\left[Z',\frac{\dd\Omega}{\dd s}\right]
+ +[\Omega,[Z',\Omega]].
+ \end{aligned}
+ \label{eq:varying-similarity-second}
+\end{equation}
+The last term follows from
+$-[ [Z',\Omega],\Omega]=[\Omega,[Z',\Omega]]$.
+For a real paravector transformed instead by congruence,
+$Z'=T^{-1}Z(T^{-1})^{\mathsf H}$, the same rule gives
+\begin{equation}
+ \frac{\dd Z'}{\dd s}
+ =T^{-1}\frac{\dd Z}{\dd s}(T^{-1})^{\mathsf H}
+ -\Omega Z'-Z'\Omega^{\mathsf H}.
+ \label{eq:varying-congruence}
+\end{equation}
+Equations~\eqref{eq:varying-similarity} and \eqref{eq:varying-congruence}
+include the frame terms omitted by a constant-factor transformation.
+For a varying rotation $T=R=\exp(\ii\theta(s)\bu(s)\cdot\bsig/2)$,
+with real $\theta(s)$ and \hyperref[def:real-unit-vector]{real unit vector} $\bu(s)$, unitarity gives
+$\Omega^{\mathsf H}=-\Omega$, so both formulas agree.
+
+When $s$ is proper time, applying the appropriate formula to the pointwise
+transformed tangent $U$ gives its acceleration law.  This differs from
+first transforming the event $X$ and then differentiating: a varying event
+map already contributes frame terms to its first derivative.
+The similarity formula also gives the local algebra-basis law
+$\sigma_k'=T^{-1}\sigma_kT$, with
+\begin{equation}
+ \frac{\dd\sigma_k'}{\dd s}=[\sigma_k',\Omega],\qquad k=1,2,3.
+ \label{eq:moving-algebra-basis}
+\end{equation}
+This evolution preserves all generator products.  A general complex local basis
+is nevertheless distinct from a real spacetime frame, whose vectors require
+the congruence law.
+
 \section{Electromagnetism}
 \label{sec:electromagnetism}
 
-All coefficient fields in this section are real functions of real
-$(t,\br)$.  Define
+All coefficient fields in this section are real functions of real inertial
+coordinates $(t,\br)$.  Define
 \begin{align}
  F&=(\bE+\ii\bBf)\cdot\bsig
  &&\text{electric and magnetic fields}, \label{eq:em-field-definition}\\
@@ -2060,8 +2171,8 @@ Since $P$ is real and $\dd/\dd s=\gamma\dd/\dd t$, they combine into
  \label{eq:lorentz}
 \end{equation}
 Hermitian extraction enforces real mechanical
-momentum and reproduces the action-derived force.  The imaginary part is the magnetic-dual force in
-Section~\ref{sec:magnetic-dual-force}; it need not vanish for an electric charge.
+momentum and reproduces the action-derived force.  The imaginary part
+need not vanish for an electric charge.
 
 \subsection{Acceleration and the mass shell}
 \label{sec:lorentz-proper-acceleration}
@@ -3096,8 +3207,8 @@ nonpositive.  This yields the Robertson bound
 
 We now apply the algebraic actions of Section~\ref{sec:preserved-quantities}
 to the physical variables already defined.  Primed fields are evaluated at
-$X'$ and unprimed fields at $X$.  Factors are constant until the final
-subsection.
+$X'$ and unprimed fields at $X$.  The frame factors here are constant;
+varying factors are treated in Section~\ref{sec:varying-transformations}.
 
 \subsection{Covariance of the physical equations}
 
@@ -3286,429 +3397,6 @@ flux has the real four-vector law; $T(1)$ alone is only the flux through
 the chosen time direction.  The same cancellation in
 \eqref{eq:lorentz} gives the transformed proper force.
 
-\subsection{Varying frames and local bases}
-\label{sec:varying-transformations}
-
-Let $T(s)$ be a smooth complex \hyperref[eq:unit-paravector]{unit paravector}
-of \hyperref[eq:unit-determinant-paravector]{determinant one} along a real parameter $s$.  When $s$ is proper time,
-recall the real tangent $U=\dd X/\dd s$, a unit paravector with $UU^{-1}=1$.
-Define the complex paravector
-$\Omega(s):=T^{-1}\dd T/\dd s$.  The inverse rule gives
-\[
- \frac{\dd T^{-1}}{\dd s}=-\Omega T^{-1}.
-\]
-For a complex paravector $Z(s)$ transformed by similarity,
-$Z'=T^{-1}ZT$, product differentiation yields
-\begin{equation}
- \frac{\dd Z'}{\dd s}
- =T^{-1}\frac{\dd Z}{\dd s}T+[Z',\Omega].
- \label{eq:varying-similarity}
-\end{equation}
-Differentiating again and replacing
-$T^{-1}(\dd Z/\dd s)T$ by its first-derivative expression gives
-\begin{equation}
- \begin{aligned}
- \frac{\dd^2 Z'}{\dd s^2}={}&T^{-1}\frac{\dd^2Z}{\dd s^2}T
- +2\left[\frac{\dd Z'}{\dd s},\Omega\right]\\
- &+\left[Z',\frac{\dd\Omega}{\dd s}\right]
- +[\Omega,[Z',\Omega]].
- \end{aligned}
- \label{eq:varying-similarity-second}
-\end{equation}
-The last term follows from
-$-[ [Z',\Omega],\Omega]=[\Omega,[Z',\Omega]]$.
-For a real paravector transformed instead by congruence,
-$Z'=T^{-1}Z(T^{-1})^{\mathsf H}$, the same rule gives
-\begin{equation}
- \frac{\dd Z'}{\dd s}
- =T^{-1}\frac{\dd Z}{\dd s}(T^{-1})^{\mathsf H}
- -\Omega Z'-Z'\Omega^{\mathsf H}.
- \label{eq:varying-congruence}
-\end{equation}
-Equations~\eqref{eq:varying-similarity} and \eqref{eq:varying-congruence}
-include the frame terms omitted by a constant-factor transformation.
-For a varying rotation $T=R=\exp(\ii\theta(s)\bu(s)\cdot\bsig/2)$,
-with real $\theta(s)$ and \hyperref[def:real-unit-vector]{real unit vector} $\bu(s)$, unitarity gives
-$\Omega^{\mathsf H}=-\Omega$, so both formulas agree.
-
-When $s$ is proper time, applying the appropriate formula to the pointwise
-transformed tangent $U$ gives its acceleration law.  This differs from
-first transforming the event $X$ and then differentiating: a varying event
-map already contributes frame terms to its first derivative.
-The similarity formula also gives the local algebra-basis law
-$\sigma_k'=T^{-1}\sigma_kT$, with
-\begin{equation}
- \frac{\dd\sigma_k'}{\dd s}=[\sigma_k',\Omega],\qquad k=1,2,3.
- \label{eq:moving-algebra-basis}
-\end{equation}
-This evolution preserves all generator products.  A general complex local basis
-is nevertheless distinct from a real spacetime frame, whose vectors require
-the congruence law.
-
-\section{Flat spacetime in generalized coordinates}
-\label{sec:generalized}
-
-Let $f:\R^4\to\R$ and $\bg:\R^4\to\R^3$ be smooth functions on a
-coordinate chart with real coordinates $(t,\br)$.  They specify inertial
-coordinates through the real paravector
-\[
- X=f(t,\br)+\bg(t,\br)\cdot\bsig.
-\]
-Along a future timelike path with proper time $s$, recall the real
-$U=\dd X/\dd s$, a \hyperref[eq:unit-paravector]{unit paravector}
-with $UU^{-1}=1$.
-Require the Jacobian of $(f,\bg)$ to be nonsingular.  Differentiating gives
-\begin{align*}
- \dd X&=(\partial_tf+\partial_t\bg\cdot\bsig)\dd t
- +\sum_{k=1}^3(\partial_{r_k}f+\partial_{r_k}\bg\cdot\bsig)\dd r_k,\\
- \dd s^2&=\dd X\,\dd X^*=\dd f^2-\dd\bg^2.
-\end{align*}
-With $x_0=t$, $x_k=r_k$ and $\partial_k=\partial/\partial x_k$, the
-interval is $\dd s^2=\sum_{j,k=0}^3 g_{jk}\dd x_j\dd x_k$, with real coefficients
-\begin{equation}
- g_{jk}=\partial_jf\,\partial_kf-\partial_j\bg\cdot\partial_k\bg,
- \qquad j,k=0,1,2,3.
- \label{eq:coordinate-metric}
-\end{equation}
-This is the flat Minkowski metric in changed coordinates; varying
-coefficients do not imply curvature.
-
-Along this future timelike curve, $\dd f>0$.
-Define its real inertial three-velocity $\bv=\dd\bg/\dd f$ and
-$\gamma=(1-\bv^2)^{-1/2}$, with $\bv^2<1$.  Then
-\begin{align*}
- \dd s&=\sqrt{1-\bv^2}\,\dd f,\\
- U=\frac{\dd X}{\dd s}&=\gamma(1+\bv\cdot\bsig).
-\end{align*}
-Apply \eqref{eq:proper-acceleration-components} with inertial time $f$
-and coordinate acceleration $\dd\bv/\dd f$.
-For inertial motion, the scalar part gives $\bv\cdot\dd\bv/\dd f=0$,
-and its vector part then gives $\dd\bv/\dd f=0$.  Therefore
-\begin{equation}
- \bg=\bC_1f+\bC_2.
- \label{eq:inertial-coordinate-path}
-\end{equation}
-The real constants $\bC_1,\bC_2\in\R^3$ are velocity and initial position.
-If primes denote total derivatives along this curve with respect to $t$,
-then, wherever $f'\ne0$,
-\begin{align*}
- \frac{\dd\bv}{\dd t}&=\frac{\bg''f'-\bg'f''}{(f')^2},\\
- [U,\dd U/\dd s]&=2\ii\gamma^2\left(\bv\times\frac{\dd\bv}{\dd s}\right)\cdot\bsig.
-\end{align*}
-
-\section{Magnetic duality and constant-field motion}
-\label{sec:magnetic-duality}
-
-This is the standard classical magnetic-source extension on real spacetime.
-Its magnetic charge is a hypothetical source parameter; no observed
-monopole is assumed.  Setting it to zero recovers ordinary electrodynamics.
-
-\subsection{The imaginary force and magnetic charge}
-\label{sec:magnetic-dual-force}
-
-Recall the real proper velocity $U=\dd X/\dd s=\gamma(1+\bv\cdot\bsig)$,
-a \hyperref[eq:unit-paravector]{unit paravector} with $UU^{-1}=1$,
-and real momentum $P=mU=E+\bp\cdot\bsig$, with constant mass $m>0$.
-The real and imaginary parts of the product
-\eqref{eq:force-product} are the electric force and its magnetic dual
-per unit charge.
-Let $q,q'\in\R$ be electric and magnetic charges; here the prime labels
-an independent charge.  The classical dyon force is
-\begin{equation}
- \boxed{\frac{\dd P}{\dd s}=\repart{(q-\ii q')FU}.}
- \label{eq:dyon-force}
-\end{equation}
-Its real components are
-\begin{align}
- \frac{\dd E}{\dd t}&=(q\bE+q'\bBf)\cdot\bv, \label{eq:dyon-energy}\\
- \frac{\dd\bp}{\dd t}
- &=q(\bE+\bv\times\bBf)+q'(\bBf-\bv\times\bE).
- \label{eq:dyon-momentum}
-\end{align}
-Equation~\eqref{eq:dyon-energy} is the work rate;
-\eqref{eq:dyon-momentum} contains the electric and magnetic forces.
-The minus sign in $q-\ii q'$ follows from $F=(\bE+\ii\bBf)\cdot\bsig$:
-a positive magnetic charge feels $+q'\bBf$ at rest.  Both forces preserve
-the mass shell, since cyclicity and $UU^*=1$ give
-\[
- \scpart{U^*FU}=\scpart{FUU^*}=\scpart F=0.
-\]
-Its real and imaginary parts give the two tangency conditions separately.
-
-Let $M=d+\bm M\cdot\bsig$ be a real magnetic-current paravector,
-with real magnetic charge density $d(t,\br)$ and current
-$\bm M(t,\br)\in\R^3$.  Maxwell's extension is
-\begin{equation}
- \boxed{\partial F=D^*+\ii M^*.}
- \label{eq:maxwell-monopoles}
-\end{equation}
-This retains the electric-source laws
-\eqref{eq:gauss-electric}, \eqref{eq:ampere-maxwell}, and
-\eqref{eq:charge-continuity}.  Its magnetic parts become
-\begin{align}
- \pdr\cdot\bBf&=d, \label{eq:magnetic-charge-law}\\
- \pdr\times\bE+\partial_t\bBf&=-\bm M, \label{eq:magnetic-current-law}\\
- \partial_td+\pdr\cdot\bm M&=0. \label{eq:magnetic-continuity}
-\end{align}
-The divergence and curl in \eqref{eq:magnetic-charge-law} and
-\eqref{eq:magnetic-current-law} imply magnetic-charge conservation
-\eqref{eq:magnetic-continuity}.
-For any real constant angle $a$, the classical equations admit the
-simultaneous duality transformation
-\begin{align}
- F&\longmapsto e^{-\ii a}F, \label{eq:duality-field}\\
- q+\ii q'&\longmapsto e^{-\ii a}(q+\ii q'), \label{eq:duality-charge}\\
- D+\ii M&\longmapsto e^{-\ii a}(D+\ii M). \label{eq:duality-current}
-\end{align}
-Equations~\eqref{eq:duality-field} and \eqref{eq:duality-current}
-multiply both sides of Maxwell's law by the same phase;
-\eqref{eq:duality-charge} leaves $(q-\ii q')F$ unchanged.
-A specified quantum charge spectrum need not admit every angle.
-Since a smooth curl has zero divergence, magnetic charge requires
-patched, singular, or enlarged potentials~\cite[pp.~6--8]{tong-monopoles}.
-This extension uses real spacetime.
-
-\subsection{Exact motion in a constant field}
-
-Recall the real proper velocity $U=\dd X/\dd s$, a
-\hyperref[eq:unit-paravector]{unit paravector} with $UU^{-1}=1$,
-real charges $q,q'$, mass $m>0$, and momentum $P=mU$.
-For constant complex electromagnetic field $F$, define the complex
-\hyperref[eq:unit-paravector]{unit paravector}
-\begin{equation}
- T(s)=\exp\!\left(\frac{(q-\ii q')s}{2m}F\right).
- \label{eq:constant-field-factor}
-\end{equation}
-The solution for future real
-initial momentum $P(0)$ with $\det P(0)=m^2$ is
-\begin{equation}
- P(s)=T(s)P(0)T(s)^{\mathsf H}.
- \label{eq:real-force-congruence-solution}
-\end{equation}
-Differentiating, with real $U=P/m$, gives
-\begin{align*}
- \frac{\dd P}{\dd s}
- &=\frac{(q-\ii q')FP+P((q-\ii q')F)^{\mathsf H}}{2m}\\
- &=\repart{(q-\ii q')FU}.
-\end{align*}
-This congruence preserves Hermiticity, determinant, and the future cone;
-$\det T=1$ follows from $\scpart F=0$.  Hence $U=P/m$ remains a
-physical proper velocity.
-For $q'=0$, \hyperref[def:real-unit-vector]{real unit vector} $\bu$, and constant real field magnitudes $E,B$,
-\begin{align*}
- T(s)&=\exp(\ii qBs\bu\cdot\bsig/(2m))
- &&(\bE=0,\ \bBf=B\bu),\\
- T(s)&=\exp(qEs\bu\cdot\bsig/(2m))
- &&(\bBf=0,\ \bE=E\bu).
-\end{align*}
-These are $R=\exp(\ii\theta\bu\cdot\bsig/2)$ with $\theta=qBs/m$
-and $L=\exp(\theta\bu\cdot\bsig/2)$ with $\theta=qEs/m$.
-The evolution changes momentum in a fixed frame.  This explains the
-reversed sandwiches relative to the coordinate actions
-\eqref{eq:rotation-action} and \eqref{eq:boost-action}.
-For the electric case with $qE>0$, $X(0)=0$, and $P(0)=m$, one has
-$U=T^2$.  Integrating gives \eqref{eq:hyperbolic-worldline} with
-$a=qE/m$~\cite[p.~117]{tong-em}.
-Complex field factors thus already generate real motion.
-
-\section{Extrapolation and speculation}
-\label{sec:extensions}
-
-The following coordinate and force laws are additional hypotheses.
-Lorentz covariance, the ordinary force law, stability, and the cosmological
-stress tensor provide established tests of these toy models.  The tests
-do not identify a dark sector or an electroweak interaction with imaginary
-coordinates.
-
-\subsection{Testing a complex momentum equation}
-\label{sec:complex-momentum-test}
-
-Recall the real proper velocity $U=\dd X/\dd s$, a
-\hyperref[eq:unit-paravector]{unit paravector} with $UU^{-1}=1$.
-Keep real charges $q,q'$ and complex electromagnetic field $F$ as above,
-but postulate a complex paravector $P(s)$ with
-\begin{equation}
- \frac{\dd P}{\dd s}=(q+\ii q')FU.
- \label{eq:complex-force-proposal}
-\end{equation}
-Extracting real and imaginary parts gives
-\begin{align*}
- \frac{\dd\repart P}{\dd s}&=q\repart{FU}-q'\impart{FU},\\
- \frac{\dd\impart P}{\dd s}&=q\impart{FU}+q'\repart{FU}.
-\end{align*}
-The real magnetic force has the opposite sign to \eqref{eq:dyon-force}.
-Even when $q'=0$, the imaginary force $q\impart{FU}$ remains.
-At rest in a pure magnetic field, $FU=\ii\bBf\cdot\bsig$: the proposed
-law produces imaginary momentum where an electric charge stays at rest.
-Thus the identification $P=mU$ with real $U$ is inconsistent in general.
-If $P$ is independent of the
-real trajectory, these equations only accumulate two impulses; they do
-not prescribe a complex trajectory.
-
-To close a complex model, replace the real tangent $U$ by $P/m$,
-with complex $P$ and real $m>0$.  Now $s\in\R$ is an evolution parameter,
-not established physical proper time.  The law becomes
-\[
- \frac{\dd P}{\dd s}=\frac{q+\ii q'}m FP.
-\]
-It preserves the complex determinant because
-\begin{align*}
- \frac{\dd\det P}{\dd s}
- &=2\scpart{\adj P\,\frac{\dd P}{\dd s}}\\
- &=\frac{2(q+\ii q')}m\det P\,\scpart F=0.
-\end{align*}
-For constant $F$, the complete solution is
-\begin{equation}
- P(s)=\exp\!\left(\frac{(q+\ii q')s}{m}F\right)P(0).
- \label{eq:complex-momentum-solution}
-\end{equation}
-Take $q'=0$, $q\ne0$, $\bE=0$, and constant $\bBf=B\bu$ with
-real $B\ne0$ and arbitrary real unit $\bu$.  With $P(0)=m$, this gives
-\begin{equation}
- P(s)=m\cos(qBs/m)+\ii m\sin(qBs/m)\bu\cdot\bsig.
- \label{eq:complex-magnetic-counterexample}
-\end{equation}
-Integrating for a complex
-coordinate $Z(s)$ defined by $\dd Z/\dd s=P/m$ and
-$Z(0)=0$ gives
-\begin{equation}
- Z(s)=\frac{m}{qB}\sin(qBs/m)
- +\ii\frac{m}{qB}\bigl(1-\cos(qBs/m)\bigr)\bu\cdot\bsig.
- \label{eq:complex-coordinate-counterexample}
-\end{equation}
-The real energy in \eqref{eq:complex-magnetic-counterexample} changes sign,
-and the time in \eqref{eq:complex-coordinate-counterexample} ceases to
-increase, despite $\det P=m^2$.  This fails the ordinary at-rest electric
-charge limit even with zero magnetic charge.  Determinant conservation
-alone is insufficient for a physical mass shell or causality.
-
-\subsection{Testing complex spacetime and its null set}
-
-Let $Z=X+\ii Y$ be a complex coordinate, with real paravectors
-$X=t+\br\cdot\bsig$ and $Y=u+\bm w\cdot\bsig$.
-Here $t,u\in\R$ and $\br,\bm w\in\R^3$ are independent coordinates.
-Multiplication gives
-\begin{equation}
- \det Z=t^2-\br^2-u^2+\bm w^2+2\ii(tu-\br\cdot\bm w).
- \label{eq:complex-coordinate-determinant}
-\end{equation}
-Complex nullity requires both
-\[
- \det X=\det Y,\qquad tu=\br\cdot\bm w.
-\]
-For arbitrary perpendicular real unit vectors $\bu,\ba$,
-$Z=(\bu+\ii\ba)\cdot\bsig$ is complex-null but its real part
-is spacelike.  Identifying every complex-null separation with observable
-light propagation would therefore permit real spacelike connections.
-Taking only the real determinant gives instead
-\begin{equation}
- \repart{\det(\dd Z)}
- =\dd t^2-\dd\br^2-\dd u^2+\dd\bm w^2.
- \label{eq:complex-real-metric}
-\end{equation}
-This metric has signature $(4,4)$.
-Either proposal needs an operationally defined
-real causal slice.  Complex field values on real spacetime require no
-such change of coordinates.
-
-\subsection{Separate masses and small couplings}
-
-Consider a real four-vector field $A(t,\br)=a(t,\br)+\bA(t,\br)\cdot\bsig$.
-Assign proposed real masses $m_0,m_1\geq0$ to its scalar and vector
-components:
-\begin{align*}
- (\Box+m_0^2)a&=0,\\
- (\Box+m_1^2)\bA&=0.
-\end{align*}
-For $L=\exp(\theta\bu\cdot\bsig/2)$, with arbitrary real unit $\bu$,
-define $\beta=\tanh\theta$ and $\gamma=\cosh\theta$ for real
-rapidity $\theta$.  The passive boost gives
-\begin{align*}
- a'&=\gamma(a-\beta\bu\cdot\bA).
-\end{align*}
-\begin{equation}
- (\Box'+m_0^2)a'=-\gamma\beta(m_0^2-m_1^2)\bu\cdot\bA.
- \label{eq:component-mass-test}
-\end{equation}
-Covariance for arbitrary fields forces $m_0^2=m_1^2$, and similarly
-for every spatial component.  Distinct masses can label distinct fields,
-but cannot label time and space entries of one Lorentz vector.
-
-As a separate toy model, mix two scalar fields.  Let
-$z=a+\ii b$, with $a,b:\R^4\to\R$, and let $m>0$ and $h$ be real
-constants; $h$ has units of mass squared.  The real Lagrangian density
-\begin{equation}
- L=\tfrac12\det(\partial a)+\tfrac12\det(\partial b)
-   -\tfrac12m^2(a^2+b^2)-hab
- \label{eq:scalar-mixing-action}
-\end{equation}
-has positive time-derivative terms, since
-$\det(\partial a)=(\partial_ta)^2-(\pdr a)^2$.
-The resulting equations and their diagonalizing real combinations are
-\begin{align*}
- (\Box+m^2)a+hb&=0,\\
- (\Box+m^2)b+ha&=0,\\
- a'&=(a+b)/\sqrt2,\\
- b'&=(a-b)/\sqrt2.
-\end{align*}
-\begin{align}
- (\Box+m^2+h)a'&=0, \label{eq:mixed-scalar-first}\\
- (\Box+m^2-h)b'&=0. \label{eq:mixed-scalar-second}
-\end{align}
-The squared masses are $m^2\pm h$, both nonnegative when $|h|\leq m^2$.
-The mixing term breaks continuous $z\mapsto e^{\ii c}z$ symmetry
-($c\in\R$ constant), but leaves the principal operator $\Box$ and its
-light cone unchanged.  Small coupling does not create complex coordinates.
-The electroweak interaction likewise requires additional internal gauge
-and chiral structure~\cite[pp.~180--182]{tong-electroweak}.
-
-By contrast, the alternative kinetic term
-\[
- \tfrac12\repart{\det(\partial z)}
- =\tfrac12\det(\partial a)-\tfrac12\det(\partial b)
-\]
-has real kinetic Hamiltonian density $H$:
-\begin{equation}
- H=\tfrac12((\partial_ta)^2+(\pdr a)^2)
- -\tfrac12((\partial_tb)^2+(\pdr b)^2).
- \label{eq:ghost-kinetic-energy}
-\end{equation}
-This density is unbounded below: the independent $b$ mode is a ghost, whose
-negative kinetic sign persists at arbitrarily small coupling~\cite[Secs.~III--V]{carroll-ghosts}.
-
-\subsection{What would be needed for a dark sector?}
-
-A dark-matter model must supply abundance, lifetime, gravitational
-clustering, and interaction rates.  Complex notation alone fixes none.
-To distinguish matter from accelerated expansion, additionally assume
-homogeneous general-relativistic cosmology.  Let $\phi(t)\in\R$ be a
-canonical scalar field, $V(\phi)$ its real potential-energy density,
-$u(t)$ its energy density, and $p(t)$ its isotropic pressure.
-Its stress tensor gives~\cite[pp.~34--35]{carroll2001}
-\begin{align}
- u&=\tfrac12(\partial_t\phi)^2+V, \label{eq:scalar-cosmic-energy}\\
- p&=\tfrac12(\partial_t\phi)^2-V. \label{eq:scalar-cosmic-pressure}
-\end{align}
-For real mass $m>0$, take $V=m^2\phi^2/2$ and oscillations faster than cosmic expansion.
-Neglect expansion over one cycle and take $\phi=A\cos(mt)$ with real
-constant amplitude $A$.  Cycle averaging gives
-\begin{align*}
- \left\langle\tfrac12(\partial_t\phi)^2\right\rangle
- &=\langle V\rangle=m^2A^2/4,\\
- \langle p\rangle&=0.
-\end{align*}
-This limit behaves as pressureless matter.  Neglecting kinetic energy
-instead gives $p=-u$.  For the real positive cosmic scale factor $a(t)$ and
-Newton's constant $G>0$, the acceleration equation is~\mbox{\cite[p.~6]{carroll2001}}
-\begin{equation}
- \frac{\partial_t^2a}{a}=-\frac{4\pi G}{3}(u+3p).
- \label{eq:cosmic-acceleration}
-\end{equation}
-Acceleration therefore requires $u+3p<0$,
-not merely an additional positive
-mass.  A complex-spacetime hypothesis still needs a stable action, a
-physical causal structure, and distinct testable predictions.
-
 \newcommand{\referencesummary}{%
 \section*{Equation reference}
 \addcontentsline{toc}{section}{Equation reference}
@@ -3718,7 +3406,7 @@ physical causal structure, and distinct testable predictions.
 Each displayed formula repeats a numbered result; its right-hand number
 links to the definition or derivation.  Natural units are $\hbar=c=1$.
 The linked text supplies domains, component expansions, and approximation
-conditions.  Speculative models are confined to Section~\ref{sec:extensions}.
+conditions.
 
 \Needspace{8\baselineskip}
 \paragraph{Algebra.}
@@ -3937,34 +3625,6 @@ Here $\psi'$ is a second paravector amplitude and $\bm s$ the real polarization.
 The matrix verification is \eqref{eq:matrix-state}--\eqref{eq:matrix-born};
 spin uncertainty is \eqref{eq:spin-uncertainty}.
 
-\Needspace{8\baselineskip}
-\paragraph{Magnetic duality and constant-field motion.}
-Recall the real proper velocity $U=\dd X/\dd s$, a
-\hyperref[eq:unit-paravector]{unit paravector} with $UU^{-1}=1$.
-For real magnetic-current paravector $M$, Maxwell's extension is
-\begin{equation*}
- \partial F=D^*+\ii M^*.
- \tag*{\eqref{eq:maxwell-monopoles}}
-\end{equation*}
-For real electric and magnetic charges $q,q'$, the force is
-\begin{equation*}
- \frac{\dd P}{\dd s}=\repart{(q-\ii q')FU}.
- \tag*{\eqref{eq:dyon-force}}
-\end{equation*}
-For constant $F$ and real future initial momentum with mass $m>0$, define
-the complex \hyperref[eq:unit-paravector]{unit paravector}
-\begin{equation*}
- T(s)=\exp\!\left(\frac{(q-\ii q')s}{2m}F\right).
- \tag*{\eqref{eq:constant-field-factor}}
-\end{equation*}
-The real future mass-shell solution is
-\begin{equation*}
- P(s)=T(s)P(0)T(s)^{\mathsf H}.
- \tag*{\eqref{eq:real-force-congruence-solution}}
-\end{equation*}
-This classical formalism retains real
-spacetime.  The separate complex-coordinate hypotheses and their failed
-ordinary limits are tested in Section~\ref{sec:extensions}.
 \endgroup
 }
 
@@ -4470,29 +4130,6 @@ R. P. Feynman, R. B. Leighton, and M. Sands,
 \emph{The Feynman Lectures on Physics}, vol.~III.
 Reading, MA, USA: Addison-Wesley, 1965, ch.~6, ``Spin one-half.''
 [Online]. Available: \url{https://www.feynmanlectures.caltech.edu/III_06.html}.
-
-\bibitem{tong-monopoles}
-D. Tong, \emph{Gauge Theory}, University of Cambridge, Cambridge, U.K.,
-lecture notes, 2018, ch.~1, ``Topics in electromagnetism.''
-[Online]. Available: \url{https://www.damtp.cam.ac.uk/user/tong/gaugetheory/1em.pdf}.
-
-\bibitem{tong-electroweak}
-D. Tong, ``Electroweak interactions,'' in \emph{The Standard Model},
-University of Cambridge, Cambridge, U.K., lecture notes, ch.~5.
-Accessed: Sep.~14, 2026. [Online]. Available:
-\url{https://www.damtp.cam.ac.uk/user/tong/sm/standardmodel5.pdf}.
-
-\bibitem{carroll-ghosts}
-S. M. Carroll, M. Hoffman, and M. Trodden,
-``Can the dark energy equation-of-state parameter $w$ be less than $-1$?''
-\emph{Phys. Rev. D}, vol.~68, no.~2, Jul.~2003, Art.~no.~023509,
-doi: \href{https://doi.org/10.1103/PhysRevD.68.023509}{10.1103/PhysRevD.68.023509}.
-[Online]. Available: \url{https://arxiv.org/pdf/astro-ph/0301273}.
-
-\bibitem{carroll2001}
-S. M. Carroll, ``The cosmological constant,''
-\emph{Living Rev. Relativity}, vol.~4, Feb.~2001, Art.~no.~1,
-doi: \href{https://doi.org/10.12942/lrr-2001-1}{10.12942/lrr-2001-1}.
 
 \end{thebibliography}
 
