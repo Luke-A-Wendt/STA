@@ -82,7 +82,7 @@ Z^{-1}=\frac{\mathrm{adj}\,Z}{\det Z}\qquad(\det Z\ne0).
 \end{gathered}
 ```
 
-## Rotations, boosts, and projections
+## Rotations and boosts
 
 For real spacetime $`X`$ and real [unit axis](https://en.wikipedia.org/wiki/Unit_vector) $`\mathbf u`$:
 
@@ -116,11 +116,30 @@ t'&=\gamma(t-\beta\mathbf u\cdot\mathbf r),\\
 \end{aligned}
 ```
 
-[Projections](https://en.wikipedia.org/wiki/Paravector#Null_paravectors_as_projectors) along $`\mathbf u`$:
+## Projections and spectral decomposition
 
 ```math
-\Pi_\pm=\frac12(1\pm\mathbf u\cdot\boldsymbol{\sigma}),
-\qquad \Pi_\pm^2=\Pi_\pm,\qquad\Pi_+\Pi_-=0.
+Z=S+\theta\mathbf u\cdot\boldsymbol{\sigma},
+\qquad S,\theta\in\mathbb C,\quad \mathbf u\in\mathbb C^3,\quad \mathbf u^2=1.
+```
+
+The eigenvalues and complementary [projectors](https://en.wikipedia.org/wiki/Paravector#Null_paravectors_as_projectors) are
+
+```math
+\begin{gathered}
+\lambda_\pm=S\pm\theta,
+\qquad \Pi_\pm=\frac12(1\pm\mathbf u\cdot\boldsymbol{\sigma}),\\[4pt]
+\Pi_\pm^2=\Pi_\pm,\qquad \Pi_+\Pi_-=0,\qquad \Pi_-+\Pi_+=1.
+\end{gathered}
+```
+
+For $`f`$ analytic near $`\lambda_\pm`$:
+
+```math
+\begin{aligned}
+Z&=\lambda_-\Pi_-+\lambda_+\Pi_+,\\[4pt]
+f(Z)&=f(\lambda_-)\Pi_-+f(\lambda_+)\Pi_+.
+\end{aligned}
 ```
 
 ## Spacetime from the [determinant](https://en.wikipedia.org/wiki/Determinant)
