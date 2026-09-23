@@ -1,12 +1,12 @@
 # Space–Time Algebra
 
-**Complex scalars and three-vectors provide a common paravector language for quaternions, rotations, Lorentz boosts, projections, spacetime geometry, relativistic particle dynamics, [Maxwell's equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations), electromagnetic waves and forces, gauge coupling, the [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) equations, their [Schrödinger](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation) and [Pauli](https://en.wikipedia.org/wiki/Pauli_equation) low-energy limits, and spin-one-half amplitudes and measurement probabilities.**
+**[Complex scalars](https://en.wikipedia.org/wiki/Complex_number) and [three-vectors](https://en.wikipedia.org/wiki/Euclidean_vector) provide a common [paravector](https://en.wikipedia.org/wiki/Paravector) language for [quaternions](https://en.wikipedia.org/wiki/Quaternion), [rotations](https://en.wikipedia.org/wiki/Rotation_%28mathematics%29), [Lorentz boosts](https://en.wikipedia.org/wiki/Lorentz_transformation), [projections](https://en.wikipedia.org/wiki/Paravector#Null_paravectors_as_projectors), [spacetime geometry](https://en.wikipedia.org/wiki/Minkowski_space), [relativistic particle dynamics](https://en.wikipedia.org/wiki/Relativistic_mechanics), [Maxwell's equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations), [electromagnetic waves](https://en.wikipedia.org/wiki/Electromagnetic_radiation) and [forces](https://en.wikipedia.org/wiki/Lorentz_force), [gauge coupling](https://en.wikipedia.org/wiki/Minimal_coupling), the [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) equations, their [Schrödinger](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation) and [Pauli](https://en.wikipedia.org/wiki/Pauli_equation) low-energy limits, and [spin-one-half](https://en.wikipedia.org/wiki/Spin-1/2) [amplitudes](https://en.wikipedia.org/wiki/Probability_amplitude) and [measurement probabilities](https://en.wikipedia.org/wiki/Born_rule).**
 
 [Read the paper](./sta_notes.pdf) · [LaTeX source](./sta_notes.tex)
 
-Natural units $`\hbar=c=1`$, rationalized electromagnetic units, and signature $`(+,-,-,-)`$.
+[Natural units](https://en.wikipedia.org/wiki/Natural_units) $`\hbar=c=1`$, [rationalized electromagnetic units](https://en.wikipedia.org/wiki/Heaviside%E2%80%93Lorentz_units), and [signature](https://en.wikipedia.org/wiki/Metric_signature) $`(+,-,-,-)`$.
 
-## One complex paravector
+## One complex [paravector](https://en.wikipedia.org/wiki/Paravector)
 
 ```math
 \boxed{
@@ -23,7 +23,7 @@ Z&=(a+b\mathrm{i})+(\mathbf A+\mathrm{i}\mathbf B)\cdot\boldsymbol{\sigma},
 ```
 
 Eight real components, written as a complex scalar and a complex vector:
-$`Z=S+\mathbf V\cdot\boldsymbol{\sigma}`$. The product carries both the dot and cross products:
+$`Z=S+\mathbf V\cdot\boldsymbol{\sigma}`$. The product carries both the [dot](https://en.wikipedia.org/wiki/Dot_product) and [cross](https://en.wikipedia.org/wiki/Cross_product) products:
 
 ```math
 (\mathbf A\cdot\boldsymbol{\sigma})(\mathbf B\cdot\boldsymbol{\sigma})
@@ -32,9 +32,11 @@ $`Z=S+\mathbf V\cdot\boldsymbol{\sigma}`$. The product carries both the dot and 
 
 ## Six core operations
 
+[Determinant](https://en.wikipedia.org/wiki/Determinant), [trace](https://en.wikipedia.org/wiki/Trace_%28linear_algebra%29), [squared norm](https://en.wikipedia.org/wiki/Norm_%28mathematics%29), [inverse](https://en.wikipedia.org/wiki/Invertible_matrix), and the two conjugations below.
+
 Write $`Z=S+\mathbf V\cdot\boldsymbol{\sigma}`$, where $`S\in\mathbb C`$ is a complex scalar and $`\mathbf V\in\mathbb C^3`$ is a complex vector.
 
-On coefficients, $`^{*}`$ means ordinary complex conjugation. On a paravector, it also reverses the vector sign; $`^{\mathsf H}`$ is Hermitian conjugation.
+On coefficients, $`^{*}`$ means ordinary [complex conjugation](https://en.wikipedia.org/wiki/Complex_conjugate). On a paravector, it also reverses the vector sign; $`^{\mathsf H}`$ is [Hermitian conjugation](https://en.wikipedia.org/wiki/Conjugate_transpose).
 
 ```math
 \begin{aligned}
@@ -49,7 +51,7 @@ Z^{*}&=S^{*}-\mathbf V^{*}\cdot\boldsymbol{\sigma},
 
 ## Rotations, boosts, and projections
 
-For real spacetime $`X`$ and real unit axis $`\mathbf u`$:
+For real spacetime $`X`$ and real [unit axis](https://en.wikipedia.org/wiki/Unit_vector) $`\mathbf u`$:
 
 ```math
 X=t+\mathbf r\cdot\boldsymbol{\sigma},
@@ -68,7 +70,7 @@ t'&=t,\\
 \end{aligned}
 ```
 
-For $`T=L`$: [Lorentz boost](https://en.wikipedia.org/wiki/Lorentz_transformation) to a frame moving at $`+\beta\mathbf u`$, with rapidity $`\theta`$, $`\beta=\tanh\theta`$, and $`\gamma=\cosh\theta`$.
+For $`T=L`$: [Lorentz boost](https://en.wikipedia.org/wiki/Lorentz_transformation) to a frame moving at $`+\beta\mathbf u`$, with [rapidity](https://en.wikipedia.org/wiki/Rapidity) $`\theta`$, $`\beta=\tanh\theta`$, and [Lorentz factor](https://en.wikipedia.org/wiki/Lorentz_factor) $`\gamma=\cosh\theta`$.
 
 ```math
 \begin{aligned}
@@ -81,16 +83,16 @@ t'&=\gamma(t-\beta\mathbf u\cdot\mathbf r),\\
 \end{aligned}
 ```
 
-Projections along $`\mathbf u`$:
+[Projections](https://en.wikipedia.org/wiki/Paravector#Null_paravectors_as_projectors) along $`\mathbf u`$:
 
 ```math
 \Pi_\pm=\frac12(1\pm\mathbf u\cdot\boldsymbol{\sigma}),
 \qquad \Pi_\pm^2=\Pi_\pm,\qquad\Pi_+\Pi_-=0.
 ```
 
-## Spacetime from the determinant
+## Spacetime from the [determinant](https://en.wikipedia.org/wiki/Determinant)
 
-For a future-directed massive particle, proper time and four-momentum follow from a real paravector. Here $`\mathrm d\mathbf r^2:=\mathrm d\mathbf r\cdot\mathrm d\mathbf r`$:
+For a future-directed massive particle, [proper time](https://en.wikipedia.org/wiki/Proper_time) and [four-momentum](https://en.wikipedia.org/wiki/Four-momentum) follow from a real paravector, with [four-velocity](https://en.wikipedia.org/wiki/Four-velocity) $`U`$. Here $`\mathrm d\mathbf r^2:=\mathrm d\mathbf r\cdot\mathrm d\mathbf r`$:
 
 ```math
 \begin{aligned}
@@ -106,7 +108,7 @@ P&=mU=\underbrace{E}_{\text{energy}}+
 
 ## [Maxwell](https://en.wikipedia.org/wiki/Maxwell%27s_equations) in one equation
 
-Combine the electric and magnetic fields and use the paravector derivative. Hats mark named energy, momentum, and Dirac operators; the derivative symbols $`\partial`$ and $`\Box`$ remain unhatted:
+Combine the [electric](https://en.wikipedia.org/wiki/Electric_field) and [magnetic](https://en.wikipedia.org/wiki/Magnetic_field) fields and use the [paravector derivative](https://en.wikipedia.org/wiki/Paravector#Paragradient). Hats mark named [energy](https://en.wikipedia.org/wiki/Energy_operator), [momentum](https://en.wikipedia.org/wiki/Momentum_operator), and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) operators; the derivative symbols $`\partial`$ and $`\Box`$ remain unhatted:
 
 ```math
 F=(\mathbf E+\mathrm{i}\mathbf B)\cdot\boldsymbol{\sigma},
@@ -134,7 +136,7 @@ Applying $`\partial^{*}=\partial_t-\partial_{\mathbf r}\cdot\boldsymbol{\sigma}`
 \end{aligned}
 ```
 
-Since $`\Box F=(\Box\mathbf E+\mathrm{i}\Box\mathbf B)\cdot\boldsymbol{\sigma}`$, its components give
+Since $`\Box F=(\Box\mathbf E+\mathrm{i}\Box\mathbf B)\cdot\boldsymbol{\sigma}`$, its components give [charge conservation](https://en.wikipedia.org/wiki/Charge_conservation) and the field wave equations
 
 ```math
 \begin{aligned}
@@ -150,7 +152,7 @@ In vacuum, $`\Box F=0`$.
 
 ## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) as a first-order wave equation
 
-Package two paravector amplitudes into $`\boldsymbol\Psi=(\Psi_1,\Psi_2)^{\mathsf T}`$, each with two independent complex components. With $`\mathbf I`$ the block identity, define
+Package two paravector [amplitudes](https://en.wikipedia.org/wiki/Probability_amplitude) into $`\boldsymbol\Psi=(\Psi_1,\Psi_2)^{\mathsf T}`$, each with two independent complex components. With $`\mathbf I`$ the block identity, define $`\mathbf W`$ in the [Weyl (chiral) representation](https://en.wikipedia.org/wiki/Gamma_matrices#Weyl_%28chiral%29_basis):
 
 ```math
 \mathbf W(Z)=
@@ -185,7 +187,7 @@ Applying this product to a free Dirac solution gives
 \quad\Longrightarrow\quad\boxed{(\Box+m^2)\boldsymbol\Psi=0.}
 ```
 
-**With an electromagnetic potential**, $`\Phi=V+\mathbf A\cdot\boldsymbol{\sigma}`$ and charge $`q`$, the equation is simply
+**With an [electromagnetic potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential)**, $`\Phi=V+\mathbf A\cdot\boldsymbol{\sigma}`$ and [charge](https://en.wikipedia.org/wiki/Electric_charge) $`q`$, [minimal coupling](https://en.wikipedia.org/wiki/Minimal_coupling) gives
 
 ```math
 \boxed{\bigl(\mathbf W(\mathrm{i}\partial-q\Phi^{*})-m\mathbf I\bigr)\boldsymbol\Psi=0.}
@@ -193,14 +195,14 @@ Applying this product to a free Dirac solution gives
 
 ## Low-energy [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) recovers [Pauli](https://en.wikipedia.org/wiki/Pauli_equation)
 
-Remove the rest phase, $`\Psi_k=e^{-\mathrm{i}mt}\Psi_k'`$, and define
+Remove the [rest phase](https://en.wikipedia.org/wiki/Pauli_equation#Derivation), $`\Psi_k=e^{-\mathrm{i}mt}\Psi_k'`$, and define
 
 ```math
 \hat E=\mathrm{i}\partial_t-qV,\qquad
 \hat{\mathbf p}=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A.
 ```
 
-The exact energy recursion is
+The exact energy recursion includes the [commutator](https://en.wikipedia.org/wiki/Commutator):
 
 ```math
 \begin{aligned}
