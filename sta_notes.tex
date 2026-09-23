@@ -1149,13 +1149,13 @@ every $Z$ exactly when $\det(T')\det(T)=1$.  This alone does not preserve
 scalar part, norm, or the real paravector subspace.
 
 If the factor $T$ is unitary, then $T^{\mathsf H}=T^{-1}$ by
-\eqref{eq:unitary-transform}.  For $Z'=T^{\mathsf H}ZT$, cancellation and
+\eqref{eq:unitary-transform}.  For $Z'=TZT^{\mathsf H}$, cancellation and
 scalar-part cyclicity give
 \begin{equation*}
  \begin{aligned}
  \lVert Z'\rVert^2
- &=\scpart{T^{\mathsf H}Z^{\mathsf H}TT^{\mathsf H}ZT}\\
- &=\scpart{Z^{\mathsf H}ZTT^{\mathsf H}}=\lVert Z\rVert^2.
+ &=\scpart{TZ^{\mathsf H}T^{\mathsf H}TZT^{\mathsf H}}\\
+ &=\scpart{Z^{\mathsf H}ZT^{\mathsf H}T}=\lVert Z\rVert^2.
  \end{aligned}
 \end{equation*}
 The norm is also preserved by $Z'=TZ$ and $Z'=ZT$.
@@ -1208,13 +1208,13 @@ and the first form.  For a constant complex
 \hyperref[eq:unit-paravector]{unit paravector} $T$ with $\det(T)=1$,
 use the Hermitian congruence
 \begin{equation}
- \boxed{X'=T^{\mathsf H}XT.}
+ \boxed{X'=TXT^{\mathsf H}.}
  \label{eq:general-lorentz-congruence}
 \end{equation}
 Hermitian conjugation and determinant multiplication give
 \begin{align*}
- X'^{\mathsf H}&=T^{\mathsf H}X^{\mathsf H}T=X',\\
- \det(X')&=\det(T^{\mathsf H})\det(X)\det(T)=\det(X).
+ X'^{\mathsf H}&=TX^{\mathsf H}T^{\mathsf H}=X',\\
+ \det(X')&=\det(T)\det(X)\det(T^{\mathsf H})=\det(X).
 \end{align*}
 For a second real paravector $Y=b+\bB\cdot\bsig$, with $b\in\R$
 and $\bB\in\R^3$, the associated metric pairing is
@@ -1229,7 +1229,7 @@ These maps preserve the future cone as well.  For
 $a\geq\lVert\bA\rVert$, the eigenvalues
 $a\pm\lVert\bA\rVert$ are nonnegative, so $X$ has a real square root and
 \[
- \scpart{X'}=\lVert\sqrt X\,T\rVert^2\geq0.
+ \scpart{X'}=\lVert\sqrt X\,T^{\mathsf H}\rVert^2\geq0.
 \]
 Together with determinant invariance, this keeps $X'$ in the future cone.
 These are the proper, future-preserving Lorentz transformations; $T$ and
@@ -1240,7 +1240,7 @@ More generally, the congruence multiplies $\det(X)$ by
 $\lVert\det(T)\rVert^2$.  For real $T=\exp(a+\bA\cdot\bsig)$,
 \eqref{eq:exponential-determinant} therefore gives
 \[
- \det(T^{\mathsf H}XT)=e^{4a}\det(X).
+ \det(TXT^{\mathsf H})=e^{4a}\det(X).
 \]
 A nonzero real scalar exponent dilates the metric; it is excluded by
 interval invariance.  An imaginary scalar exponent contributes a phase
@@ -1252,7 +1252,7 @@ Thus a pure boost needs only a real vector exponent.
 For $L=\exp(-\theta\bu\cdot\bsig/2)$, with real $\theta$ and real unit
 $\bu$, applying \eqref{eq:general-lorentz-congruence} to $X=1$ gives
 \begin{align*}
- X'&=L^{\mathsf H}L=L^2=\cosh\theta-\sinh\theta\bu\cdot\bsig,\\
+ X'&=L^2=\cosh\theta-\sinh\theta\bu\cdot\bsig,\\
  \det(X')&=1,\\
  \scpart{X'}&=\cosh\theta,\\
  \lVert X'\rVert^2&=\cosh(2\theta).
@@ -1261,28 +1261,28 @@ A nonzero boost preserves the interval while changing the scalar part
 and positive norm.  In fact, a determinant-one congruence preserves the
 positive norm for every real $X$ exactly when $T$ is
 \hyperref[eq:unitary-transform]{unitary}.  Necessity follows by taking
-$X=1$: the real, positive $T^{\mathsf H}T$ can have both determinant and
-norm one only if $T^{\mathsf H}T=1$.  Sufficiency was proved above.
-Normalizing $L$ to $\lVert L\rVert=1$ would divide the determinant of
-$L^{\mathsf H}XL$ by $\cosh^2\theta$, losing the Lorentz metric.
+$X=1$: the real, positive $TT^{\mathsf H}$ can have both determinant and
+norm one only if it is $1$, which makes $T$ unitary.  Sufficiency was proved above.
+Normalizing $L$ to $\lVert L\rVert=1$ would change its determinant
+and lose the Lorentz metric.
 
 \paragraph{Every factor separates into a boost and a rotation.}
-For a determinant-one complex $T$, the paravector $T^{\mathsf H}T$
+For a determinant-one complex $T$, the paravector $TT^{\mathsf H}$
 is real, has determinant one, and has positive scalar part
 $\lVert T\rVert^2$.  Both eigenvalues are therefore positive.
 Using the positive real square root, define
 \[
- B:=\sqrt{T^{\mathsf H}T},\qquad R:=TB^{-1}.
+ B:=\sqrt{TT^{\mathsf H}},\qquad R:=B^{-1}T.
 \]
 Then $\det(B)=1$,
-$R^{\mathsf H}R=1$, $\det(R)=1$, and $T=RB$.
+$R^{\mathsf H}R=1$, $\det(R)=1$, and $T=BR$.
 The real logarithm of $B$ has zero scalar part by
 \eqref{eq:exponential-determinant}, so $B$ is a real vector exponential.
 For $R$, the identity $R^{\mathsf H}=R^{-1}=\adj R$ makes its scalar
 coefficient real and its vector coefficient imaginary; determinant one
 then gives $R=\cos(\theta/2)-\ii\sin(\theta/2)\bu\cdot\bsig$
 for some real $\theta$ and real unit $\bu$.
-Consequently $T^{\mathsf H}XT=BR^{\mathsf H}XRB$: the rotation is
+Consequently $TXT^{\mathsf H}=BRXR^{\mathsf H}B$: the rotation is
 followed by the boost.  Their component actions follow next.
 
 \subsection{Rotation action and Rodrigues' formula}
@@ -1294,7 +1294,7 @@ $R=\exp(-\ii\theta\bu\cdot\bsig/2)$ from
 \hyperref[def:real-unit-vector]{real unit axis} $\bu$.
 For the complex paravector $Z=S+\bV\cdot\bsig$, use the Hermitian congruence
 \begin{equation}
- \boxed{Z'=R^{\mathsf H}ZR.}
+ \boxed{Z'=RZR^{\mathsf H}.}
  \label{eq:rotation-action}
 \end{equation}
 Since $R^{\mathsf H}=R^{-1}$ by \eqref{eq:rotation-H}, this keeps $S'=S$.
@@ -1310,19 +1310,19 @@ Inserting the sine and cosine forms of $R$ and $R^{\mathsf H}$ therefore yields
 \begin{align*}
  \bV'\cdot\bsig
  &={}\cos^2\frac\theta2\,\bV\cdot\bsig
- -2\sin\frac\theta2\cos\frac\theta2
+ +2\sin\frac\theta2\cos\frac\theta2
        (\bu\times\bV)\cdot\bsig\\
  &\quad+\sin^2\frac\theta2
  \left(2(\bu\cdot\bV)\bu\cdot\bsig-\bV\cdot\bsig\right).
 \end{align*}
 Collecting terms gives Rodrigues' formula:
 \begin{equation}
- \boxed{\bV'=\bV\cos\theta-(\bu\times\bV)\sin\theta
+ \boxed{\bV'=\bV\cos\theta+(\bu\times\bV)\sin\theta
  +(\bu\cdot\bV)(1-\cos\theta)\bu.}
  \label{eq:rodrigues}
 \end{equation}
-These are the components in axes rotated right-handed through $+\theta$
-about $\bu$; the components themselves rotate through $-\theta$.
+This is the active right-handed rotation through $+\theta$ about $\bu$.
+Rotating the coordinate axes through $+\theta$ instead uses the inverse map.
 It preserves $\operatorname{sc}$, determinant, norm, and the real
 paravector subspace.  For complex $\bV$, it rotates its real and imaginary
 parts by the same real rotation.  The sign change in
@@ -1378,22 +1378,21 @@ A unit quaternion has $a^2+\bA^2=1$, so $Q^{-1}=Q^{\mathsf H}$.
 
 To rotate a real vector $\br$, represent it by the pure quaternion
 $\br\cdot\bq=-\ii\br\cdot\bsig$.
-For a unit quaternion $Q=a+\bA\cdot\bq$, use the same order as
-\eqref{eq:rotation-action}:
+For a unit quaternion $Q=a+\bA\cdot\bq$, use the quaternion sandwich:
 \begin{equation}
- \br'\cdot\bq=Q^{\mathsf H}(\br\cdot\bq)Q,
+ \br'\cdot\bq=Q(\br\cdot\bq)Q^{\mathsf H},
  \qquad
- \br'\cdot\bsig=Q^{\mathsf H}(\br\cdot\bsig)Q.
+ \br'\cdot\bsig=Q(\br\cdot\bsig)Q^{\mathsf H}.
  \label{eq:quaternion-rotation}
 \end{equation}
 The two forms agree because $-\ii$ commutes with every paravector.
 Applying \eqref{eq:quaternion-product} twice gives
 \begin{align*}
- Q^{\mathsf H}(\br\cdot\bq)
- &=\bA\cdot\br+(a\br-\bA\times\br)\cdot\bq,\\
- Q^{\mathsf H}(\br\cdot\bq)Q
+ Q(\br\cdot\bq)
+ &=-\bA\cdot\br+(a\br+\bA\times\br)\cdot\bq,\\
+ Q(\br\cdot\bq)Q^{\mathsf H}
  &=\bigl((a^2-\bA^2)\br+2(\bA\cdot\br)\bA
-          -2a\bA\times\br\bigr)\cdot\bq.
+          +2a\bA\times\br\bigr)\cdot\bq.
 \end{align*}
 The scalar part cancels.  For the real unit axis $\bu$ and angle
 $\theta$, choose
@@ -1406,13 +1405,13 @@ $2a\bA=\bu\sin\theta$, and
 $2(\bA\cdot\br)\bA=(1-\cos\theta)(\bu\cdot\br)\bu$.
 Consequently \eqref{eq:quaternion-rotation} recovers
 \[
- \boxed{\br'=\br\cos\theta-(\bu\times\br)\sin\theta
+ \boxed{\br'=\br\cos\theta+(\bu\times\br)\sin\theta
        +(\bu\cdot\br)(1-\cos\theta)\bu.}
 \]
 This is precisely Rodrigues' formula~\eqref{eq:rodrigues} for
-$\bV=\br$, with components in axes rotated through $+\theta$.
-The active rotation of $\br$ through $+\theta$ instead uses
-$Q(\br\cdot\bq)Q^{\mathsf H}$ and has a plus sign on the cross term.
+$\bV=\br$.  Thus $R=Q$, and the quaternion sandwich is exactly
+$R(\br\cdot\bsig)R^{\mathsf H}$ from \eqref{eq:rotation-action}.
+The reversed sandwich $Q^{\mathsf H}(\br\cdot\bsig)Q$ gives the inverse rotation.
 
 \subsection{Boost action and its sign convention}
 \label{sec:algebra-boost-action}
@@ -1422,7 +1421,7 @@ Recall $L=\exp(-\theta\bu\cdot\bsig/2)$ from
 $\beta=\tanh\theta$, and $\gamma=\cosh\theta$.
 Use the same congruence with $T=L$ and $L^{\mathsf H}=L$ from \eqref{eq:boost-H}:
 \begin{equation}
- \boxed{Z'=L^{\mathsf H}ZL.}
+ \boxed{Z'=LZL.}
  \label{eq:boost-action}
 \end{equation}
 The paravector $Z=S+\bV\cdot\bsig$ may be complex; spacetime uses its real case.
@@ -1434,11 +1433,12 @@ Resolve its vector into parallel and perpendicular parts:
 The parallel term commutes with $\bu\cdot\bsig$; the perpendicular term
 anticommutes with it.  Consequently,
 \begin{align*}
- L^{\mathsf H}(S+\bV_{\parallel}\cdot\bsig)L
+ L(S+\bV_{\parallel}\cdot\bsig)L
  &=(S+\bV_{\parallel}\cdot\bsig)L^2,\\
- L^{\mathsf H}(\bV_{\perp}\cdot\bsig)L
+ L(\bV_{\perp}\cdot\bsig)L
  &=\bV_{\perp}\cdot\bsig.
 \end{align*}
+\Needspace{7\baselineskip}
 Using $L^2=\gamma(1-\beta\bu\cdot\bsig)$ from
 \eqref{eq:boost-square}, multiplication gives
 \begin{equation}
@@ -1459,18 +1459,17 @@ Thus \eqref{eq:boost-null-components} preserves $S^2-\bV^2$ and, for real
 $Z$, the light cone.  For spacetime, \eqref{eq:boost-action} gives the
 frame moving with velocity $+\beta\bu$; reversing $\theta$ gives its inverse.
 
-\paragraph{Equivalent factors and unsuccessful alternatives.}
-The positive-exponent definition is equally valid: setting
-$L':=L^{-1}=\exp(+\theta\bu\cdot\bsig/2)$ uses $T=(L')^{-1}$ in
-\eqref{eq:general-lorentz-congruence}.  The negative exponent uses $T=L$
-directly in \eqref{eq:boost-action}.
-The full-rapidity factor $L^2=\gamma(1-\beta\bu\cdot\bsig)$ has the
-familiar gamma prefactor, but requires
-$Z'=(\sqrt{L^2})^{\mathsf H}Z\sqrt{L^2}$,
-using the positive real square root.  Using $L^2$ on both sides instead
-would double the rapidity.  A one-sided product $L^2Z$ preserves the
-determinant but generally adds an imaginary vector proportional to
-$\bu\times\bV$; it cannot transform real spacetime.
+The inverse map is $Z=L^{-1}Z'L^{-1}$, obtained by reversing $\theta$.
+Generally $LX\ne XL$: the scalar and parallel parts commute with $L$,
+while a nonzero perpendicular part does not for a nonzero boost.
+For example, with $\bu\cdot\bsig=\sigma_3$ and $X=\sigma_1$,
+\[
+ LX=\cosh(\theta/2)\sigma_1-\ii\sinh(\theta/2)\sigma_2,
+ \qquad LXL=\sigma_1.
+\]
+The second factor cancels the imaginary transverse term.  Defining a
+full-rapidity factor cannot make a single left product boost every real $X$;
+it would merely replace the two factors by their square roots.
 
 \paragraph{The field uses similarity.}
 For $Z'=LZL^{-1}$, the same commutation rules give $S'=S$ and
@@ -1586,7 +1585,7 @@ By \eqref{eq:general-lorentz-congruence}, a constant complex
 \hyperref[eq:unit-paravector]{unit paravector} $T$ with
 \hyperref[eq:unit-determinant-paravector]{$\det T=1$} gives
 \[
- \dd X'=T^{\mathsf H}\dd X T,
+ \dd X'=T\dd X T^{\mathsf H},
  \qquad \det(\dd X')=\dd s^2.
 \]
 Positive, zero, and negative values of \eqref{eq:interval} mean time-like, null, and space-like
@@ -1621,7 +1620,7 @@ Since $U^{\mathsf H}=U$, this is
 Hermitian unitarity except at rest.
 For a \hyperref[def:real-unit-vector]{real unit direction} $\bu$, write $\bv=\beta\bu$ and
 $\theta=\tanh^{-1}\beta$.  Equation~\eqref{eq:boost-square} gives $U=L^{-2}$ for
-$L=\exp(-\theta\bu\cdot\bsig/2)$: the direct boost $L^{\mathsf H}UL=1$
+$L=\exp(-\theta\bu\cdot\bsig/2)$: the direct boost $LUL=1$
 takes this tangent to rest.
 
 For constant real mass $m>0$, define the real four-momentum
@@ -1962,36 +1961,36 @@ of \hyperref[eq:unit-determinant-paravector]{determinant one} along a real param
 recall the real tangent $U=\dd X/\dd s$, a
 \hyperref[eq:unit-paravector]{unit paravector} with $UU^{-1}=1$.
 Define the complex pure-vector paravector
-$\Omega(s):=T^{-1}(\dd T/\dd s)$.
+$\Omega(s):=(\dd T/\dd s)T^{-1}$.
 Its scalar part vanishes because
 $\dd(\det T)/\dd s=2\scpart\Omega=0$.
 The inverse rule gives
 \[
- \frac{\dd T^{-1}}{\dd s}=-\Omega T^{-1}.
+ \frac{\dd T^{-1}}{\dd s}=-T^{-1}\Omega.
 \]
 For a complex paravector $Z(s)$ transformed by similarity,
-$Z'=T^{\mathsf H}Z(T^{\mathsf H})^{-1}$, product differentiation yields
+$Z'=TZT^{-1}$, product differentiation yields
 \begin{equation}
  \frac{\dd Z'}{\dd s}
- =T^{\mathsf H}\frac{\dd Z}{\dd s}(T^{\mathsf H})^{-1}+[\Omega^{\mathsf H},Z'].
+ =T\frac{\dd Z}{\dd s}T^{-1}+[\Omega,Z'].
  \label{eq:varying-similarity}
 \end{equation}
 Differentiating again and replacing
-$T^{\mathsf H}(\dd Z/\dd s)(T^{\mathsf H})^{-1}$ by its first-derivative expression gives
+$T(\dd Z/\dd s)T^{-1}$ by its first-derivative expression gives
 \begin{equation*}
  \begin{aligned}
- \frac{\dd^2 Z'}{\dd s^2}={}&T^{\mathsf H}\frac{\dd^2Z}{\dd s^2}(T^{\mathsf H})^{-1}
- +2\left[\Omega^{\mathsf H},\frac{\dd Z'}{\dd s}\right]\\
- &+\left[\frac{\dd\Omega^{\mathsf H}}{\dd s},Z'\right]
- -[\Omega^{\mathsf H},[\Omega^{\mathsf H},Z']].
+ \frac{\dd^2 Z'}{\dd s^2}={}&T\frac{\dd^2Z}{\dd s^2}T^{-1}
+ +2\left[\Omega,\frac{\dd Z'}{\dd s}\right]\\
+ &+\left[\frac{\dd\Omega}{\dd s},Z'\right]
+ -[\Omega,[\Omega,Z']].
  \end{aligned}
 \end{equation*}
 For a real paravector transformed instead by congruence,
-$Z'=T^{\mathsf H}ZT$, the same rule gives
+$Z'=TZT^{\mathsf H}$, the same rule gives
 \begin{equation}
  \frac{\dd Z'}{\dd s}
- =T^{\mathsf H}\frac{\dd Z}{\dd s}T
- +\Omega^{\mathsf H}Z'+Z'\Omega.
+ =T\frac{\dd Z}{\dd s}T^{\mathsf H}
+ +\Omega Z'+Z'\Omega^{\mathsf H}.
  \label{eq:varying-congruence}
 \end{equation}
 Equations~\eqref{eq:varying-similarity} and \eqref{eq:varying-congruence}
@@ -2001,14 +2000,14 @@ with real $\theta(s)$ and \hyperref[def:real-unit-vector]{real unit vector} $\bu
 $\Omega^{\mathsf H}=-\Omega$, so both formulas agree.
 
 When $s$ is proper time, the physical acceleration in the local frame is
-$T^{\mathsf H}(\dd U/\dd s)T$.
+$T(\dd U/\dd s)T^{\mathsf H}$.
 In \eqref{eq:varying-congruence}, $\dd U'/\dd s$ also differentiates the
 frame; the two $\Omega$ terms account for this change.  Likewise,
 differentiating the transformed event $X'$ adds frame terms to its tangent.
 The similarity formula also gives the local algebra-basis law
-$\sigma_k'=T^{\mathsf H}\sigma_k(T^{\mathsf H})^{-1}$, with
+$\sigma_k'=T\sigma_kT^{-1}$, with
 \begin{equation*}
- \frac{\dd\sigma_k'}{\dd s}=[\Omega^{\mathsf H},\sigma_k'],\qquad k=1,2,3.
+ \frac{\dd\sigma_k'}{\dd s}=[\Omega,\sigma_k'],\qquad k=1,2,3.
 \end{equation*}
 This evolution preserves all generator products.  A general complex local basis
 is nevertheless distinct from a real spacetime frame, whose vectors require
@@ -2155,7 +2154,7 @@ Since $\scpart F=0$, its adjugate is $-F$.  Squaring gives
  \label{eq:field-invariants}
 \end{equation}
 For a complex \hyperref[eq:unit-paravector]{unit paravector} $T$, the field similarity
-$F'=T^{\mathsf H}F(T^{\mathsf H})^{-1}$ preserves this scalar by \eqref{eq:det-similarity}.
+$F'=TFT^{-1}$ preserves this scalar by \eqref{eq:det-similarity}.
 Physical rotations and boosts use
 $R=\exp(-\ii\theta\bu\cdot\bsig/2)$ and
 $L=\exp(-\theta\bu\cdot\bsig/2)$, respectively, with
@@ -2361,10 +2360,10 @@ their scalar or paravector type is specified below.
 
 All products and norms here act on paravector values at one real event
 $X$.  They sum algebra components only; no spatial integration is implied.
-For complex paravectors $\psi,\psi'$, the mixed scalar
-$\scpart{\psi'^{\mathsf H}\psi}$ is their algebraic inner product.
-We write this product directly and reserve angle brackets for normalized
-expectations below.
+For complex paravectors $\varphi,\psi$, their algebraic inner product is
+$\langle\varphi\mid\psi\rangle:=\scpart{\varphi^{\mathsf H}\psi}$.
+Two entries separated by a vertical bar denote this inner product;
+one entry in angle brackets denotes a normalized expectation below.
 
 For arbitrary constant perpendicular \hyperref[def:real-unit-vector]{real unit vectors}
 $\bu,\ba$, choose a constant complex paravector $\psi_+$ of unit norm
@@ -2446,29 +2445,30 @@ For a projector, this ratio is a Born probability.
 
 \paragraph{Transforming the amplitude.}
 For a constant complex \hyperref[eq:unit-paravector]{unit paravector} $T$,
-set $\psi'=T\psi$ and $Z'=T^{\mathsf H}ZT$.
-For a nonnegative weight $Z$, substitution gives
+set $\psi'=T\psi$.  For a nonnegative weight $Z$, substitution gives
 \begin{equation}
  \boxed{\lVert\psi'\rVert_Z^2
- =\lVert T\psi\rVert_Z^2
- =\scpart{\psi^{\mathsf H}Z'\psi}
- =\lVert\psi\rVert_{Z'}^2.}
+ =\scpart{\psi^{\mathsf H}T^{\mathsf H}ZT\psi}
+ =\lVert\psi\rVert_{T^{\mathsf H}ZT}^2.}
  \label{eq:weighted-density-pullback}
 \end{equation}
-This also proves that $Z'$ is nonnegative.
+This also proves that the transformed weight is nonnegative.
 The same substitution in \eqref{eq:paravector-expectation} applies to
 any complex $Z$.  With $\rho'=\lVert\psi'\rVert^2>0$, it gives
 \begin{equation}
  \boxed{\langle Z\rangle_{\psi'}
- =\frac{\rho}{\rho'}\langle Z'\rangle_\psi.}
+ =\frac{\rho}{\rho'}
+   \langle T^{\mathsf H}ZT\rangle_\psi.}
  \label{eq:amplitude-pullback}
 \end{equation}
-Thus the congruence form in \eqref{eq:general-lorentz-congruence} arises
-directly from the same local product.  For real $\theta$ and real unit $\bu$,
-$R=\exp(-\ii\theta\bu\cdot\bsig/2)$ is unitary and gives $\rho'=\rho$.
-For the Hermitian boost $L=\exp(-\theta\bu\cdot\bsig/2)$,
-$Z=1$ gives $Z'=L^2$ and $\rho'=\lVert\psi\rVert_{Z'}^2$,
-which generally differs from $\rho$.
+For $T=R=\exp(-\ii\theta\bu\cdot\bsig/2)$, with real angle $\theta$
+and real unit $\bu$, unitarity preserves both
+$\rho'=\rho$ and $\langle\varphi'\mid\psi'\rangle=\langle\varphi\mid\psi\rangle$.
+For $T=L=\exp(-\theta\bu\cdot\bsig/2)$, with real rapidity $\theta$,
+this one-sided law instead gives
+$\rho'=\lVert\psi\rVert_{L^2}^2$; the positive norm and inner product
+are generally not invariant.  The two Dirac entries use opposite boost
+factors, as derived in Section~\ref{sec:transformations}.
 
 \Needspace{10\baselineskip}
 \subsection{Energy and momentum as differential operators}
@@ -3224,7 +3224,7 @@ $\theta$, use the unitary rotor
 $R=\exp(-\ii\theta\bu\cdot\bsig/2)$ of
 \eqref{eq:rotation-exponential}.  The spinor law is
 \begin{equation}
- \psi'=R\psi.
+ \boxed{\psi'=R\psi.}
  \label{eq:spin-half-law}
 \end{equation}
 Writing its infinitesimal action as
@@ -3246,8 +3246,10 @@ For a real paravector observable $Z$, the state law
 \begin{equation*}
  \langle Z\rangle_{\psi'}=\langle R^{\mathsf H}ZR\rangle_\psi.
 \end{equation*}
-This is exactly the rotation action~\eqref{eq:rotation-action} inside
-the original state's pairing.
+The observable inside the original state's pairing rotates through
+$-\theta$.  If the observable rotates with the state,
+$Z'=RZR^{\mathsf H}$, then
+$\langle Z'\rangle_{\psi'}=\langle Z\rangle_\psi$.
 
 \subsection{Projectors and probabilities}
 \label{sec:physical-spinors}
@@ -3325,8 +3327,9 @@ axis $\ba$ and real angle $\theta$, the amplitude law \eqref{eq:spin-half-law} g
 \begin{equation*}
  \bu\cdot\bm{s}'=\langle R^{\mathsf H}(\bu\cdot\bsig)R\rangle_\psi.
 \end{equation*}
-Rodrigues' formula~\eqref{eq:rodrigues} rotates the measurement axis
-through $-\theta$, so $\bm{s}'$ rotates through $+\theta$ about $\ba$.
+This is the inverse of Rodrigues' rotation~\eqref{eq:rodrigues}:
+the measurement axis rotates through $-\theta$, so $\bm{s}'$ rotates
+through $+\theta$ about $\ba$.
 Thus the polarization rotates as a vector although its amplitude has
 spin one-half.  Its overlap with the original polarization is
 \[
@@ -3355,21 +3358,22 @@ or rapidity $\theta$.  Recall the real event $X$, momentum $P$, potential
 $\Phi$, and electric current $D$.
 Each transforms by
 \begin{equation}
- Z'=T^{\mathsf H}ZT,
+ Z'=TZT^{\mathsf H},
  \qquad Z=X,P,\Phi,D.
  \label{eq:physical-lorentz-congruence}
 \end{equation}
+Since $\det T=1$, sigma conjugation gives $T^*=(T^{-1})^{\mathsf H}$.
 The derivative and complex field $F=(\bE+\ii\bBf)\cdot\bsig$ use
 \begin{align}
- \partial'&=T^{-1}\partial(T^{-1})^{\mathsf H},
+ \partial'&=T^*\partial T^{-1},
  \label{eq:derivative-transformation}\\
- F'&=T^{\mathsf H}F(T^{\mathsf H})^{-1}. \label{eq:field-transformation}
+ F'&=TFT^{-1}. \label{eq:field-transformation}
 \end{align}
 Equation~\eqref{eq:derivative-transformation} follows from the chain rule.
 For a differentiable scalar $f:\R^4\to\C$ with $f'(X')=f(X)$,
 \[
  \dd f=\scpart{(\partial f)\dd X}
- =\scpart{\bigl(T^{-1}(\partial f)(T^{-1})^{\mathsf H}\bigr)\dd X'}.
+ =\scpart{\bigl(T^*(\partial f)T^{-1}\bigr)\dd X'}.
 \]
 Since this holds for every real increment $\dd X'$, the coefficient is
 $\partial'f'$~\cite[p.~101]{tong-em}.
@@ -3378,14 +3382,14 @@ The field law is fixed by the potential law, rather than chosen separately.
 The identity~\eqref{eq:potential-field}, with real scalar
 $S=\scpart{\partial\Phi}$, gives
 \[
- \partial'\Phi'=T^{-1}(S+F^*)T.
+ \partial'\Phi'=T^*(S+F^*)T^{\mathsf H}.
 \]
 Scalar-part cyclicity gives $S'=S$.  Since $T^*=(T^{\mathsf H})^{-1}$,
 sigma conjugation of the vector part gives
 \eqref{eq:field-transformation}.  Maxwell covariance now follows by cancellation:
 \begin{equation*}
- \partial'F'=T^{-1}(\partial F)(T^{-1})^{\mathsf H}
- =T^{-1}D^*(T^{-1})^{\mathsf H}=D'^*.
+ \partial'F'=T^*(\partial F)T^{-1}
+ =T^*D^*T^{-1}=D'^*.
 \end{equation*}
 Thus the transformed potentials and fields satisfy the same
 Maxwell equation~\eqref{eq:maxwell}; the scalar wave operator also obeys
@@ -3395,31 +3399,40 @@ For real $P,X$, the metric pairing~\eqref{eq:lorentz-pairing}
 is the wave phase.  Adjugation of $P'$ and cyclicity give
 \begin{equation*}
  \scpart{P'^*X'}
- =\scpart{T^{-1}P^*X T}
+ =\scpart{T^*P^*XT^{\mathsf H}}
  =\scpart{P^*X}.
 \end{equation*}
 Consequently $E't'-\bp'\cdot\br'=Et-\bp\cdot\br$, and the
 plane wave~\eqref{eq:plane-wave} satisfies $f(X',P')=f(X,P)$.
 
+A scalar Klein--Gordon field uses $\psi'(X')=\psi(X)$; the derivative
+and potential laws above preserve its wave equation.
 For the two complex paravector Dirac entries, a change of coordinates
-$X'=T^{\mathsf H}XT$ uses
+$X'=TXT^{\mathsf H}$ uses
 \begin{align*}
- \Psi_1'(X')&=T^{-1}\Psi_1(X),\\
- \Psi_2'(X')&=T^{\mathsf H}\Psi_2(X).
+ \Psi_1'(X')&=T^*\Psi_1(X),\\
+ \Psi_2'(X')&=T\Psi_2(X).
 \end{align*}
 Indeed, the first interacting equation~\eqref{eq:dirac-entry-one}
 transforms by cancellation:
 \begin{equation*}
  (\ii\partial'-q\Phi'^*)\Psi_2'
- =T^{-1}(\ii\partial-q\Phi^*)\Psi_2=m\Psi_1'.
+ =T^*(\ii\partial-q\Phi^*)\Psi_2=m\Psi_1'.
 \end{equation*}
 Equation~\eqref{eq:dirac-entry-two} transforms in the same way with left factor
-$T^{\mathsf H}$; $q=0$ gives the free case.
+$T$; $q=0$ gives the free case.
 For $T=R=\exp(-\ii\theta\bu\cdot\bsig/2)$, both entries transform
-by $R^{\mathsf H}$.  This changes coordinate axes; the active spin rotation
-\eqref{eq:spin-half-law} changes the state at fixed coordinates.
+by $R$, consistently with the active rotation
+\eqref{eq:spin-half-law}; the spatial argument also rotates.
+A passive rotation of axes uses the inverse factor $T=R^{-1}$.
 For $T=L=\exp(-\theta\bu\cdot\bsig/2)$, the two entries instead use
 $L^{-1}$ and $L$, respectively~\cite[p.~86, eq.~(4.31)]{tong-qft}.
+The factor $L$ already contains half the rapidity; no further square root
+is needed for either entry.
+Their cross-pairing $\scpart{\Psi_1^{\mathsf H}\Psi_2}$ is invariant:
+the two transformation factors cancel.  Their summed positive density
+\eqref{eq:dirac-norm} is observer-dependent under boosts.
+Use the full Dirac pair for boosts before taking the Pauli low-energy limit.
 
 \subsection{Moving frames, clock rates, and lengths}
 \label{sec:boosts}
@@ -3431,7 +3444,7 @@ The gamma form~\eqref{eq:boost-gamma-form} and its square
 \eqref{eq:boost-square} are the same exponential at half and full rapidity.
 For real $X=t+\br\cdot\bsig$, take coincident inertial origins at
 $t=t'=0$.  Equation~\eqref{eq:physical-lorentz-congruence} with $T=L$
-gives $X'=L^{\mathsf H}XL$: the primed frame moves at $+\beta\bu$.
+gives $X'=LXL$: the primed frame moves at $+\beta\bu$.
 Equations~\eqref{eq:boost-scalar-component}--\eqref{eq:boost-vector-component}
 become
 \begin{align}
@@ -3444,7 +3457,7 @@ $\br_{\perp}=\br-\br_{\parallel}$
 \cite[p.~96, eqs.~(5.1)--(5.2)]{tong-em}.
 In particular, $\br=\beta t\bu$ maps to $\br'=0$, fixing the physical
 meaning of the sign.  Reversing $\theta$ as in \eqref{eq:boost-inverse}
-gives $X=(L^{-1})^{\mathsf H}X'L^{-1}$.
+gives $X=L^{-1}X'L^{-1}$.
 
 \subsubsection{Intervals and light cones}
 
@@ -3489,10 +3502,10 @@ Recall the real proper velocity $U=\dd X/\dd s$, a
 \hyperref[eq:unit-paravector]{unit paravector} with $UU^{-1}=1$,
 along a real world line $X(s)$.  For constant $L$, differentiation gives
 \begin{equation}
- \dd X'=L^{\mathsf H}\dd X L.
+ \dd X'=L\dd X L.
  \label{eq:boost-worldline-step}
 \end{equation}
-Because $\dd s$ is invariant, $U'=L^{\mathsf H}UL$.  At a point where
+Because $\dd s$ is invariant, $U'=LUL$.  At a point where
 $U=L^{-2}=\gamma(1+\beta\bu\cdot\bsig)$, this gives $U'=1$ and
 $\dd X'=\dd s$: the boost takes the particle's instantaneous tangent
 to rest.  For varying velocity, a different $L$ is needed at each point;
@@ -3517,7 +3530,7 @@ For two real proper times $s_1,s_2$, the constant-factor
 law~\eqref{eq:boost-worldline-step} also integrates to
 \begin{equation*}
  X'(s_2)-X'(s_1)
- =L^{\mathsf H}\left(\int_{s_1}^{s_2}U(s)\dd s\right)L.
+ =L\left(\int_{s_1}^{s_2}U(s)\dd s\right)L.
 \end{equation*}
 This is the transformed world-line integral~\eqref{eq:worldline-integral}.
 
@@ -3556,10 +3569,10 @@ The reciprocal statement follows by exchanging primes and reversing $\beta$.
 For constant determinant-one factors $T,T'$, applying the frame change
 $T$ and then $T'$ gives
 \begin{equation*}
- Z''=T'^{\mathsf H}(T^{\mathsf H}ZT)T'
- =(TT')^{\mathsf H}Z(TT').
+ Z''=T'\bigl(TZT^{\mathsf H}\bigr)T'^{\mathsf H}
+ =(T'T)Z(T'T)^{\mathsf H}.
 \end{equation*}
-Thus the right factors multiply in the order the frames are applied.
+Thus the combined factor is $T'T$: the rightmost factor acts first.
 
 Collinear boosts add rapidities by \eqref{eq:boost-composition}.
 For a second real rapidity $\theta'$, set $\beta'=\tanh\theta'$ and
@@ -3586,7 +3599,7 @@ Determinant invariance gives $E'^2-\bp'^2=E^2-\bp^2=m^2$ for a
 particle of rest mass $m>0$.  To see the energy increase directly, start
 with $P'=m$ in its rest frame and invert the boost:
 \begin{equation*}
- P=(L^{-1})^{\mathsf H}mL^{-1}=m\gamma(1+\beta\bu\cdot\bsig).
+ P=L^{-1}mL^{-1}=m\gamma(1+\beta\bu\cdot\bsig).
 \end{equation*}
 Thus $E=m\gamma$ and $\bp=m\gamma\beta\bu$, while $m$ remains unchanged
 \cite[pp.~136--138]{tong-relativity}.
@@ -3597,7 +3610,7 @@ The force response is derived in
 
 For $L=\exp(-\theta\bu\cdot\bsig/2)$ with the parameters above,
 \eqref{eq:derivative-transformation} becomes
-$\partial'=L^{-1}\partial(L^{-1})^{\mathsf H}$.  Its scalar and vector parts are
+$\partial'=L^{-1}\partial L^{-1}$.  Its scalar and vector parts are
 \begin{align*}
  \partial_{t'}&=\gamma(\partial_t+\beta\bu\cdot\pdr),\\
  \partial_{\br'}&=\pdr+(\gamma-1)\bu(\bu\cdot\pdr)
@@ -3616,10 +3629,10 @@ At corresponding events, \eqref{eq:field-transformation} reduces to
 \end{equation}
 Both the field coefficients and their spacetime arguments transform:
 \begin{equation}
- F'(X')=L F((L^{-1})^{\mathsf H}X'L^{-1})L^{-1}.
+ F'(X')=LF(L^{-1}X'L^{-1})L^{-1}.
  \label{eq:boosted-field-arguments}
 \end{equation}
-Here $X=(L^{-1})^{\mathsf H}X'L^{-1}$.  To expand \eqref{eq:boost-field-action},
+Here $X=L^{-1}X'L^{-1}$.  To expand \eqref{eq:boost-field-action},
 apply \eqref{eq:boost-similarity-vector} to
 $\bE+\ii\bBf$ and separate its real and imaginary parts:
 \begin{align}
@@ -3647,14 +3660,14 @@ $\bE'^2-\bBf'^2=\bE^2$.
 
 Recall the stress map $T(N)=FNF^{\mathsf H}/2$ from
 \eqref{eq:electromagnetic-stress-map}, with real paravector input $N$;
-here $T$ denotes this map.  Since $N'=L^{\mathsf H}NL$,
+here $T$ denotes this map.  Since $N'=LNL$,
 \begin{equation*}
- T'(N')=\tfrac12F'N'F'^{\mathsf H}=L^{\mathsf H}T(N)L.
+ T'(N')=\tfrac12F'N'F'^{\mathsf H}=LT(N)L.
 \end{equation*}
 Here $T'$ is the map formed from $F'$.  To measure the primed
 energy density and Poynting vector, use $N'=1$, hence $N=L^{-2}$:
 \begin{equation*}
- T'(1)=L^{\mathsf H}T(L^{-2})L=\tfrac12F'F'^{\mathsf H}.
+ T'(1)=LT(L^{-2})L=\tfrac12F'F'^{\mathsf H}.
 \end{equation*}
 The full map transforms covariantly; its value at $1$ depends on the
 observer's time direction.
@@ -3662,11 +3675,11 @@ observer's time direction.
 Finally, recall the real proper velocity $U=\dd X/\dd s$, a
 \hyperref[eq:unit-paravector]{unit paravector} with $UU^{-1}=1$,
 and real momentum $P=mU$, with real charge $q$ and constant mass $m>0$.
-With $U'=L^{\mathsf H}UL$ and $P'=L^{\mathsf H}PL$, the force
+With $U'=LUL$ and $P'=LPL$, the force
 law~\eqref{eq:lorentz} transforms as
 \begin{equation*}
  \frac{\dd P'}{\dd s}
- =L^{\mathsf H}\frac q2(FU+UF^{\mathsf H})L
+ =L\frac q2(FU+UF^{\mathsf H})L
  =\frac q2(F'U'+U'F'^{\mathsf H}).
 \end{equation*}
 Thus the electric and magnetic components above reproduce the same
@@ -3740,14 +3753,14 @@ The factors and their actions are
    \tag*{\eqref{eq:boost-gamma-form}}\\
  L^2&=\gamma(1-\beta\bu\cdot\bsig),
    \tag*{\eqref{eq:boost-square}}\\
- Z'&=R^{\mathsf H}ZR,
+ Z'&=RZR^{\mathsf H},
    \tag*{\eqref{eq:rotation-action}}\\
- Z'&=L^{\mathsf H}ZL,
+ Z'&=LZL,
    \tag*{\eqref{eq:boost-action}}\\
  F'&=LFL^{-1}.
    \tag*{\eqref{eq:boost-field-action}}
 \end{align*}
-Both $Z$ transformations use $Z'=T^{\mathsf H}ZT$, with
+Both $Z$ transformations use $Z'=TZT^{\mathsf H}$, with
 $R^{\mathsf H}=R^{-1}$ and $L^{\mathsf H}=L$.
 The $Z$ boost acts on a real four-vector; the complex electromagnetic
 field $F$ uses similarity.  Both refer to the same frame.
@@ -3910,7 +3923,14 @@ for scalar and spinor amplitudes respectively.
 Recall a nonzero complex paravector amplitude $\psi$, real norm density
 $\rho>0$, real polarization $\bm{s}$, and
 \hyperref[def:real-unit-vector]{real unit measurement axis} $\bu$.
-The real observable $Z$ acts from the left.
+The real observable $Z$ acts from the left.  A rotation uses
+\begin{equation*}
+ \psi'=R\psi.
+ \tag*{\eqref{eq:spin-half-law}}
+\end{equation*}
+It preserves the norm and inner product; the expectation transforms as
+$\langle Z\rangle_{\psi'}=\langle R^{\mathsf H}ZR\rangle_\psi$ by
+\eqref{eq:amplitude-pullback}.
 All formulas are pointwise.  For a nonnegative real weight $Z$
 from \eqref{eq:weighted-density}, the densities and measurements are
 \begin{align*}
@@ -4091,7 +4111,7 @@ $\operatorname{mat}(R)$, which is unitary.
 
 Multiplication preserves the distinct spacetime and field laws:
 \begin{align*}
- \operatorname{mat}(X')&=\operatorname{mat}(L)^{\mathsf H}
+ \operatorname{mat}(X')&=\operatorname{mat}(L)
                 \operatorname{mat}(X)\operatorname{mat}(L),\\
  \operatorname{mat}(F')&=\operatorname{mat}(L)
                 \operatorname{mat}(F)\operatorname{mat}(L)^{-1}.

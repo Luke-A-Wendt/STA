@@ -1,4 +1,14 @@
-"""Independent exact matrix/operator checks for sta_notes.tex (requires SymPy)."""
+"""Independent exact matrix/operator checks (requires SymPy).
+
+Run with ``python3 verify_sta.py``. Convention-independent algebra and quantum
+checks are retained together with historical inverse-factor Lorentz checks.
+Those checks use positive-exponent R and L and X'=K^-1 X (K^-1)^H; their
+frame factor K is the inverse of the current manuscript's direct factor T.
+The moving-frame generator there is K^-1 dK/ds.  These are equivalent
+parameterizations, not the current manuscript's factor labels.  Direct-action
+R=Q, L, field, spinor, and moving-frame conventions are tested independently
+by ``verify_transformations.py``.
+"""
 
 import sympy as s
 

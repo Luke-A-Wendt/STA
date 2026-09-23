@@ -1,6 +1,7 @@
-"""Independent verification of the local products in sta_notes.tex Sec. 8.1.
+"""Independent verification of the local products in sta_notes.tex.
 
 Uses an independent Pauli-matrix realization, matching the matrix appendix.
+Run with ``python3 verify_densities.py`` (requires SymPy and NumPy).
 """
 import time
 
@@ -111,10 +112,12 @@ check("rotation unitary", R.H*R-I)
 check("boost Hermitian", L.H-L)
 check("boost determinant one", L.det()-1)
 check("rotation preserves arbitrary amplitude density", density(R*psi)-rho)
-check("boost density uses squared boost weight", density(L*psi)-density(psi,L*L))
-require("boost can change local density", density(L*plus) != density(plus))
+check("direct boost density uses squared boost weight", density(L*psi)-density(psi,L*L))
+require("direct boost can change local density", density(L*plus) != density(plus))
 
-for transform in (R, L, R*L, generic_T):
+# The generic identity is psi'=A psi with pullback A^H Z A.  For the
+# paper's active rotation and second Dirac entry, A is the direct frame factor.
+for transform in (R, L, L*R, generic_T):
     require("transform invertible", transform.det() != 0)
     for weight in weights:
         transformed_weight = s.simplify(transform.H*weight*transform)

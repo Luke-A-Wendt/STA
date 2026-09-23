@@ -29,22 +29,21 @@
 \contentsline {subsection}{\numberline {4.3}Rotation action and Rodrigues' formula}{18}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}Quaternions as paravectors}{18}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}Boost action and its sign convention}{19}{subsection.4.5}%
-\contentsline {paragraph}{Equivalent factors and unsuccessful alternatives.}{20}{section*.7}%
-\contentsline {paragraph}{The field uses similarity.}{20}{section*.8}%
+\contentsline {paragraph}{The field uses similarity.}{20}{section*.7}%
 \contentsline {section}{\numberline {5}Differentiated fields}{20}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Paravector differential operators}{20}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Components and the product rule}{21}{subsection.5.2}%
 \contentsline {section}{\numberline {6}Space--time kinematics}{21}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Intervals, velocity, and momentum}{21}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.1}Intervals, velocity, and momentum}{22}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Proper acceleration}{23}{subsection.6.2}%
-\contentsline {paragraph}{Energy and inertia.}{24}{section*.9}%
+\contentsline {paragraph}{Energy and inertia.}{24}{section*.8}%
 \contentsline {subsection}{\numberline {6.3}World lines, clocks, and light cones}{24}{subsection.6.3}%
 \contentsline {subsubsection}{\numberline {6.3.1}Integrating proper velocity}{24}{subsubsection.6.3.1}%
-\contentsline {subsubsection}{\numberline {6.3.2}Clock comparison}{24}{subsubsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.2}Clock comparison}{25}{subsubsection.6.3.2}%
 \contentsline {subsubsection}{\numberline {6.3.3}Constant proper acceleration}{25}{subsubsection.6.3.3}%
 \contentsline {subsubsection}{\numberline {6.3.4}Light cones}{25}{subsubsection.6.3.4}%
 \contentsline {subsection}{\numberline {6.4}Free-particle action}{26}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Flat spacetime in generalized coordinates}{26}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.5}Flat spacetime in generalized coordinates}{27}{subsection.6.5}%
 \contentsline {subsection}{\numberline {6.6}Varying frames and local bases}{27}{subsection.6.6}%
 \contentsline {section}{\numberline {7}Electromagnetism}{28}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Maxwell's equations and wave propagation}{28}{subsection.7.1}%
@@ -56,37 +55,37 @@
 \contentsline {subsection}{\numberline {7.7}Energy and momentum flux}{32}{subsection.7.7}%
 \contentsline {section}{\numberline {8}Relativistic wave equations}{33}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Amplitudes, densities, and local expectations}{33}{subsection.8.1}%
-\contentsline {paragraph}{Nonnegative weighted densities.}{33}{section*.10}%
-\contentsline {paragraph}{Local expectations.}{34}{section*.11}%
-\contentsline {paragraph}{Transforming the amplitude.}{34}{section*.12}%
-\contentsline {subsection}{\numberline {8.2}Energy and momentum as differential operators}{34}{subsection.8.2}%
-\contentsline {subsubsection}{\numberline {8.2.1}Field strength from noncommuting derivatives}{35}{subsubsection.8.2.1}%
+\contentsline {paragraph}{Nonnegative weighted densities.}{34}{section*.9}%
+\contentsline {paragraph}{Local expectations.}{34}{section*.10}%
+\contentsline {paragraph}{Transforming the amplitude.}{34}{section*.11}%
+\contentsline {subsection}{\numberline {8.2}Energy and momentum as differential operators}{35}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Field strength from noncommuting derivatives}{36}{subsubsection.8.2.1}%
 \contentsline {subsection}{\numberline {8.3}Klein--Gordon equation}{36}{subsection.8.3}%
-\contentsline {subsubsection}{\numberline {8.3.1}Positive and negative frequency}{36}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.1}Positive and negative frequency}{37}{subsubsection.8.3.1}%
 \contentsline {subsubsection}{\numberline {8.3.2}Square roots from Fourier series}{37}{subsubsection.8.3.2}%
-\contentsline {subsubsection}{\numberline {8.3.3}Potential}{37}{subsubsection.8.3.3}%
+\contentsline {subsubsection}{\numberline {8.3.3}Potential}{38}{subsubsection.8.3.3}%
 \contentsline {subsection}{\numberline {8.4}Dirac equation}{38}{subsection.8.4}%
 \contentsline {subsubsection}{\numberline {8.4.1}Block form and free factorization}{38}{subsubsection.8.4.1}%
 \contentsline {subsubsection}{\numberline {8.4.2}Reconstructing free solutions from Klein--Gordon}{39}{subsubsection.8.4.2}%
-\contentsline {subsubsection}{\numberline {8.4.3}Potential and paravector components}{39}{subsubsection.8.4.3}%
-\contentsline {subsubsection}{\numberline {8.4.4}Interacting factorization and reconstruction}{40}{subsubsection.8.4.4}%
-\contentsline {subsubsection}{\numberline {8.4.5}Gauge phase}{41}{subsubsection.8.4.5}%
+\contentsline {subsubsection}{\numberline {8.4.3}Potential and paravector components}{40}{subsubsection.8.4.3}%
+\contentsline {subsubsection}{\numberline {8.4.4}Interacting factorization and reconstruction}{41}{subsubsection.8.4.4}%
+\contentsline {subsubsection}{\numberline {8.4.5}Gauge phase}{42}{subsubsection.8.4.5}%
 \contentsline {section}{\numberline {9}Low-energy limits}{42}{section.9}%
 \contentsline {subsection}{\numberline {9.1}Exact reduction and the energy recursion}{42}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Leading order: Pauli}{43}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.2}Leading order: Pauli}{44}{subsection.9.2}%
 \contentsline {subsubsection}{\numberline {9.2.1}Components along a general field direction}{44}{subsubsection.9.2.1}%
 \contentsline {subsection}{\numberline {9.3}The same leading order: Schr\"odinger}{44}{subsection.9.3}%
 \contentsline {subsection}{\numberline {9.4}The next free order}{45}{subsection.9.4}%
 \contentsline {section}{\numberline {10}Spin and probability}{45}{section.10}%
 \contentsline {subsection}{\numberline {10.1}Spin one-half and rotations}{45}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Projectors and probabilities}{45}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.2}Projectors and probabilities}{46}{subsection.10.2}%
 \contentsline {section}{\numberline {11}Rotations and Lorentz boosts}{47}{section.11}%
 \contentsline {subsection}{\numberline {11.1}Covariance of the physical equations}{47}{subsection.11.1}%
 \contentsline {subsection}{\numberline {11.2}Moving frames, clock rates, and lengths}{48}{subsection.11.2}%
 \contentsline {subsubsection}{\numberline {11.2.1}Intervals and light cones}{48}{subsubsection.11.2.1}%
-\contentsline {subsubsection}{\numberline {11.2.2}Spacetime increments and velocity}{48}{subsubsection.11.2.2}%
+\contentsline {subsubsection}{\numberline {11.2.2}Spacetime increments and velocity}{49}{subsubsection.11.2.2}%
 \contentsline {subsubsection}{\numberline {11.2.3}Clock rates and measured lengths}{49}{subsubsection.11.2.3}%
-\contentsline {subsubsection}{\numberline {11.2.4}Composing frames}{49}{subsubsection.11.2.4}%
+\contentsline {subsubsection}{\numberline {11.2.4}Composing frames}{50}{subsubsection.11.2.4}%
 \contentsline {subsubsection}{\numberline {11.2.5}Energy and momentum}{50}{subsubsection.11.2.5}%
 \contentsline {subsection}{\numberline {11.3}Boosted fields and energy flux}{50}{subsection.11.3}%
 \contentsline {section}{\numberline {A}Pauli-matrix representation}{52}{appendix.A}%
@@ -95,18 +94,18 @@
 \contentsline {subsection}{\numberline {A.3}Scalar part, determinant, and norm}{53}{subsection.A.3}%
 \contentsline {subsection}{\numberline {A.4}Boost and rotation matrices}{54}{subsection.A.4}%
 \contentsline {subsection}{\numberline {A.5}Matrix amplitudes and column spinors}{54}{subsection.A.5}%
-\contentsline {paragraph}{An arbitrary spin basis.}{54}{section*.13}%
-\contentsline {paragraph}{The two-component column.}{54}{section*.14}%
+\contentsline {paragraph}{An arbitrary spin basis.}{54}{section*.12}%
+\contentsline {paragraph}{The two-component column.}{54}{section*.13}%
 \contentsline {subsection}{\numberline {A.6}Dirac columns}{55}{subsection.A.6}%
-\contentsline {paragraph}{Characteristic polynomial.}{55}{section*.15}%
+\contentsline {paragraph}{Characteristic polynomial.}{55}{section*.14}%
 \contentsline {subsection}{\numberline {A.7}Four components and the standard Dirac basis}{56}{subsection.A.7}%
 \contentsline {subsection}{\numberline {A.8}Quaternion matrix image}{57}{subsection.A.8}%
-\contentsline {section}{References}{57}{section*.16}%
-\contentsline {section}{Equation reference}{59}{section*.17}%
-\contentsline {paragraph}{Algebra.}{59}{section*.18}%
-\contentsline {paragraph}{Rotations and boosts.}{59}{section*.38}%
-\contentsline {paragraph}{Spacetime and particles.}{60}{section*.53}%
-\contentsline {paragraph}{Electromagnetism.}{60}{section*.72}%
-\contentsline {paragraph}{Relativistic waves.}{61}{section*.89}%
-\contentsline {paragraph}{Low-energy limits.}{61}{section*.112}%
-\contentsline {paragraph}{Spin and probabilities.}{62}{section*.115}%
+\contentsline {section}{References}{57}{section*.15}%
+\contentsline {section}{Equation reference}{59}{section*.16}%
+\contentsline {paragraph}{Algebra.}{59}{section*.17}%
+\contentsline {paragraph}{Rotations and boosts.}{59}{section*.37}%
+\contentsline {paragraph}{Spacetime and particles.}{60}{section*.52}%
+\contentsline {paragraph}{Electromagnetism.}{60}{section*.71}%
+\contentsline {paragraph}{Relativistic waves.}{61}{section*.88}%
+\contentsline {paragraph}{Low-energy limits.}{61}{section*.111}%
+\contentsline {paragraph}{Spin and probabilities.}{62}{section*.114}%

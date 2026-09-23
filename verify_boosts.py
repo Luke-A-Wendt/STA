@@ -1,12 +1,20 @@
-"""Exact independent checks of the boost conventions in sta_notes.tex.
+"""Historical checks of the earlier adjoint-factor parameterization.
 
 Run with ``python3 verify_boosts.py`` (requires SymPy).  Ordinary Pauli
 matrices are used only as an independent implementation of the algebra.
-The document itself uses paravectors.  The adopted actions are
+The current manuscript uses direct actions, checked independently by
+``verify_transformations.py``. This retained suite uses historical factor
+names and actions:
 
     L = exp(-theta*u.sigma/2), R = exp(-i*theta*u.sigma/2),
     X' = T^H X T, F' = T^H F (T^H)^-1,
     partial' = T^-1 partial (T^-1)^H.
+
+Its historical frame factor K is related to the current direct frame factor
+T by K = T^H.  Hermitian boost factors agree; the historical rotation R labels
+the opposite rotation angle.  The equations below remain valid in that
+parameterization; they are not assertions about the current manuscript's
+general frame-factor labels or order of multiplication.
 
 The same T^H Z T is the observable pullback for the separate active-state
 law psi' = T psi.  Frame congruences therefore compose in the reverse

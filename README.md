@@ -49,26 +49,43 @@ Z^{*}&=S^{*}-\mathbf V^{*}\cdot\boldsymbol{\sigma},
 
 ## Rotations, boosts, and projections
 
-For a real unit axis $`\mathbf u`$, a rotation angle $`\theta`$, and a boost rapidity $`\eta`$:
+For real spacetime $`X`$ and real unit axis $`\mathbf u`$:
+
+```math
+X=t+\mathbf r\cdot\boldsymbol{\sigma},
+\qquad X'=TXT^{\mathsf H}=t'+\mathbf r'\cdot\boldsymbol{\sigma}.
+```
+
+For $`T=R`$: [Rodrigues rotation](https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula) through $`\theta`$, with [unit quaternion](https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation) $`Q=R`$, $`q_k=-\mathrm{i}\sigma_k`$.
 
 ```math
 \begin{aligned}
 R&=e^{-\mathrm{i}\theta\mathbf u\cdot\boldsymbol{\sigma}/2}
-=\cos\frac\theta2-\mathrm{i}\mathbf u\cdot\boldsymbol{\sigma}\sin\frac\theta2,
-&Z'&=R^{\mathsf H}ZR,\\
-L&=e^{-\eta\mathbf u\cdot\boldsymbol{\sigma}/2}
-=\cosh\frac\eta2-\mathbf u\cdot\boldsymbol{\sigma}\sinh\frac\eta2,
-&Z'&=L^{\mathsf H}ZL,\\
-\Pi_\pm&=\frac12(1\pm\mathbf u\cdot\boldsymbol{\sigma}),
-&\Pi_\pm^2&=\Pi_\pm,\qquad\Pi_+\Pi_-=0.
+=\cos\frac\theta2-\mathrm{i}\mathbf u\cdot\boldsymbol{\sigma}\sin\frac\theta2,\\
+t'&=t,\\
+\mathbf r'&=\mathbf r\cos\theta+(\mathbf u\times\mathbf r)\sin\theta
++(\mathbf u\cdot\mathbf r)(1-\cos\theta)\mathbf u.
 \end{aligned}
 ```
 
-These are the paper's frame-component transformations; the boost velocity is $`\tanh\eta\,\mathbf u`$. Rotations are also unit quaternions with $`q_k=-\mathrm{i}\sigma_k`$. Their vector sandwich recovers [Rodrigues' formula](https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula) in the same convention:
+For $`T=L`$: [Lorentz boost](https://en.wikipedia.org/wiki/Lorentz_transformation) to a frame moving at $`+\beta\mathbf u`$, with rapidity $`\theta`$, $`\beta=\tanh\theta`$, and $`\gamma=\cosh\theta`$.
 
 ```math
-\mathbf r'=\mathbf r\cos\theta-(\mathbf u\times\mathbf r)\sin\theta
-+(\mathbf u\cdot\mathbf r)(1-\cos\theta)\mathbf u.
+\begin{aligned}
+L&=e^{-\theta\mathbf u\cdot\boldsymbol{\sigma}/2}
+=\cosh\frac\theta2-\mathbf u\cdot\boldsymbol{\sigma}\sinh\frac\theta2
+=L^{\mathsf H},\\
+t'&=\gamma(t-\beta\mathbf u\cdot\mathbf r),\\
+\mathbf r'&=\mathbf r+(\gamma-1)(\mathbf u\cdot\mathbf r)\mathbf u
+-\gamma\beta t\mathbf u.
+\end{aligned}
+```
+
+Projections along $`\mathbf u`$:
+
+```math
+\Pi_\pm=\frac12(1\pm\mathbf u\cdot\boldsymbol{\sigma}),
+\qquad \Pi_\pm^2=\Pi_\pm,\qquad\Pi_+\Pi_-=0.
 ```
 
 ## Spacetime from the determinant
@@ -176,14 +193,14 @@ Applying this product to a free Dirac solution gives
 
 ## Low-energy [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) recovers [Pauli](https://en.wikipedia.org/wiki/Pauli_equation)
 
-Remove the rest phase by writing $`\Psi_k=e^{-\mathrm{i}mt}\Psi_k'`$. On these envelopes, hats mark the residual-energy and kinetic-momentum operators
+Remove the rest phase, $`\Psi_k=e^{-\mathrm{i}mt}\Psi_k'`$, and define
 
 ```math
 \hat E=\mathrm{i}\partial_t-qV,\qquad
 \hat{\mathbf p}=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A.
 ```
 
-Eliminating one Dirac entry gives the exact residual-energy recursion, including the electric-field commutator:
+The exact energy recursion is
 
 ```math
 \begin{aligned}
@@ -194,7 +211,7 @@ Eliminating one Dirac entry gives the exact residual-energy recursion, including
 \end{aligned}
 ```
 
-To retain both entries and their probability density, set $`\phi_1=(\Psi_1'+\Psi_2')/\sqrt2`$ and $`\phi_2=(\Psi_2'-\Psi_1')/\sqrt2`$. Their exact equations give the small-amplitude recursion
+With $`\phi_1=(\Psi_1'+\Psi_2')/\sqrt2`$ and $`\phi_2=(\Psi_2'-\Psi_1')/\sqrt2`$,
 
 ```math
 \hat E\phi_1=(\hat{\mathbf p}\cdot\boldsymbol{\sigma})\phi_2,
@@ -202,7 +219,7 @@ To retain both entries and their probability density, set $`\phi_1=(\Psi_1'+\Psi
 \phi_2=\frac{\hat{\mathbf p}\cdot\boldsymbol{\sigma}}{2m}\phi_1-\frac{\hat E\phi_2}{2m}.
 ```
 
-For slow positive-energy envelopes in weak, slowly varying fields, the first iterate gives
+For slow positive-energy envelopes in weak, slowly varying fields, iterate once:
 
 ```math
 \phi_2\simeq\frac{\hat{\mathbf p}\cdot\boldsymbol{\sigma}}{2m}\phi_1,
@@ -211,12 +228,10 @@ For slow positive-energy envelopes in weak, slowly varying fields, the first ite
 =\frac{\hat{\mathbf p}^2-q\mathbf B\cdot\boldsymbol{\sigma}}{2m}\phi_1.
 ```
 
-Thus the large two-component amplitude obeys [Pauli's equation](https://en.wikipedia.org/wiki/Pauli_equation) at leading nonrelativistic order:
+This gives [Pauli's equation](https://en.wikipedia.org/wiki/Pauli_equation) to leading order:
 
 ```math
 \boxed{\mathrm{i}\partial_t\phi_1=
-\left[\frac{(-\mathrm{i}\partial_{\mathbf r}-q\mathbf A)^2}{2m}
+\left[\frac{\hat{\mathbf p}^2}{2m}
 +qV-\frac{q}{2m}\mathbf B\cdot\boldsymbol{\sigma}\right]\phi_1.}
 ```
-
-The magnetic spin coupling follows directly from the squared paravector momentum above.
