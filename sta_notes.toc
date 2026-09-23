@@ -108,5 +108,5 @@
 \contentsline {paragraph}{Spacetime and particles.}{60}{section*.53}%
 \contentsline {paragraph}{Electromagnetism.}{60}{section*.72}%
 \contentsline {paragraph}{Relativistic waves.}{61}{section*.89}%
-\contentsline {paragraph}{Low-energy limits.}{61}{section*.104}%
-\contentsline {paragraph}{Spin and probabilities.}{61}{section*.107}%
+\contentsline {paragraph}{Low-energy limits.}{61}{section*.112}%
+\contentsline {paragraph}{Spin and probabilities.}{62}{section*.115}%
