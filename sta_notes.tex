@@ -677,52 +677,6 @@ For $\Pi_\pm'=(1\pm\bu'\cdot\bsig)/2$, all four products are
  +\tfrac14(\pm\bu\mp\bu'-\ii\bu\times\bu')\cdot\bsig.
 \end{align*}
 
-For arbitrary real vector increments $\dd\bu$ and $\dd\bu'$, the same
-dot--cross decomposition gives the geometric determinant identity
-\begin{equation}
- \Det{(\dd\bu\cdot\bsig)(\dd\bu'\cdot\bsig)}
- =(\dd\bu\cdot\dd\bu')^2
- +\frac14\left\lVert
- [\dd\bu\cdot\bsig,\dd\bu'\cdot\bsig]\right\rVert^2.
- \label{eq:lagrange-determinant}
-\end{equation}
-Dropping the nonnegative dot-product square in
-\eqref{eq:lagrange-determinant} gives
-\begin{equation}
- \sqrt{\Det{(\dd\bu\cdot\bsig)(\dd\bu'\cdot\bsig)}}
- \geq\frac12\left\lVert
- [\dd\bu\cdot\bsig,\dd\bu'\cdot\bsig]\right\rVert.
- \label{eq:lagrange-inequality}
-\end{equation}
-Equation~\eqref{eq:lagrange-determinant} is Lagrange's dot--cross identity;
-\eqref{eq:lagrange-inequality} is a geometric bound, not a quantum uncertainty law.
-
-\subsubsection{Ladder operators}
-\label{sec:ladder-operators}
-
-For arbitrary real unit vectors $\bu,\ba$ with $\bu\cdot\ba=0$,
-define complex ladder paravectors and the real projectors of
-\eqref{eq:projectors}:
-\begin{align}
- Z_\pm&=\tfrac12\bigl(\ba\pm\ii\bu\times\ba\bigr)\cdot\bsig,
- \label{eq:ladder-operators}\\
- \Pi_\pm&=\tfrac12(1\pm\bu\cdot\bsig). \notag
-\end{align}
-Then
-\begin{align*}
- [\bu\cdot\bsig,Z_\pm]&=\pm2Z_\pm,\\
- Z_\pm^2&=0,\\
- Z_\pm Z_\mp&=\Pi_\pm,\\
- \ba\cdot\bsig&=Z_++Z_-,\\
- (\bu\times\ba)\cdot\bsig&=(Z_+-Z_-)/\ii,\\
- \bu\cdot\bsig&=\Pi_+-\Pi_-.
-\end{align*}
-The two signs give the maps between projected sectors:
-\begin{align*}
- Z_\pm\Pi_\pm&=0,& Z_\pm\Pi_\mp&=Z_\pm,\\
- \Pi_\pm Z_\pm&=Z_\pm,& \Pi_\mp Z_\pm&=0.
-\end{align*}
-
 \subsection{Functions of paravectors}
 \label{sec:spectral}
 
@@ -1371,6 +1325,91 @@ parts by the same real rotation.  The sign change in
 \eqref{eq:rotation-two-pi} affects both factors in
 \eqref{eq:rotation-action}, so $Z'$ has period $2\pi$.
 
+\subsection{Quaternions as paravectors}
+\label{sec:quaternions}
+
+The quaternion units are already present in the complex vector part of
+our algebra.  Define
+\[
+ q_1=-\ii\sigma_1,\qquad q_2=-\ii\sigma_2,\qquad
+ q_3=-\ii\sigma_3,\qquad \bq=\{q_1,q_2,q_3\}.
+\]
+The sigma product gives $q_1^2=q_2^2=q_3^2=-1$,
+$q_1q_2=q_3$, $q_2q_3=q_1$, and $q_3q_1=q_2$; reversing any
+of these distinct pairs changes its sign.  Thus $q_1q_2q_3=-1$.
+These are the three quaternion units, distinct from the commuting
+complex scalar $\ii$.
+
+For four real quaternion components $a,A_1,A_2,A_3$, put
+$\bA=\{A_1,A_2,A_3\}$.  Their paravector representation is
+\begin{equation}
+ \boxed{Q=a+A_1q_1+A_2q_2+A_3q_3
+ =a-\ii\bA\cdot\bsig,\qquad S=a,\quad \bV=-\ii\bA.}
+ \label{eq:quaternion-paravector}
+\end{equation}
+In the decomposition $Z=(a+b\ii)+(\bC+\ii\bB)\cdot\bsig$,
+this selects $b=0$, $\bC=0$, and $\bB=-\bA$.
+Quaternions therefore have a real scalar coefficient and purely
+imaginary vector coefficients in STA.  Their four real components
+form a subalgebra of the eight-real-component complex paravectors.
+Indeed, for $Q'=a'+\bA'\cdot\bq$, the paravector product becomes
+\begin{equation}
+ QQ'=(aa'-\bA\cdot\bA')
+ +(a\bA'+a'\bA+\bA\times\bA')\cdot\bq.
+ \label{eq:quaternion-product}
+\end{equation}
+
+Since $q_k^{\mathsf H}=-q_k$ and $q_k^*=q_k$, quaternion conjugation
+is the existing Hermitian conjugation:
+\begin{align}
+ Q^{\mathsf H}&=a-\bA\cdot\bq,\notag\\
+ Q^*&=Q,\qquad \adj Q=Q^{\mathsf H},\notag\\
+ QQ^{\mathsf H}&=Q^{\mathsf H}Q=a^2+\bA^2
+ =\det Q=\lVert Q\rVert^2.
+ \label{eq:quaternion-norm}
+\end{align}
+For nonzero $Q$, \eqref{eq:quaternion-norm} gives
+$Q^{-1}=Q^{\mathsf H}/(a^2+\bA^2)$.
+A unit quaternion has $a^2+\bA^2=1$, so $Q^{-1}=Q^{\mathsf H}$.
+
+To rotate a real vector $\br$, represent it by the pure quaternion
+$\br\cdot\bq=-\ii\br\cdot\bsig$.
+For a unit quaternion $Q=a+\bA\cdot\bq$, use the same order as
+\eqref{eq:rotation-action}:
+\begin{equation}
+ \br'\cdot\bq=Q^{\mathsf H}(\br\cdot\bq)Q,
+ \qquad
+ \br'\cdot\bsig=Q^{\mathsf H}(\br\cdot\bsig)Q.
+ \label{eq:quaternion-rotation}
+\end{equation}
+The two forms agree because $-\ii$ commutes with every paravector.
+Applying \eqref{eq:quaternion-product} twice gives
+\begin{align*}
+ Q^{\mathsf H}(\br\cdot\bq)
+ &=\bA\cdot\br+(a\br-\bA\times\br)\cdot\bq,\\
+ Q^{\mathsf H}(\br\cdot\bq)Q
+ &=\bigl((a^2-\bA^2)\br+2(\bA\cdot\br)\bA
+          -2a\bA\times\br\bigr)\cdot\bq.
+\end{align*}
+The scalar part cancels.  For the real unit axis $\bu$ and angle
+$\theta$, choose
+\[
+ a=\cos\frac\theta2,\qquad \bA=\bu\sin\frac\theta2,
+ \qquad Q=\cos\frac\theta2-\ii\bu\cdot\bsig\sin\frac\theta2=R.
+\]
+Then $a^2-\bA^2=\cos\theta$,
+$2a\bA=\bu\sin\theta$, and
+$2(\bA\cdot\br)\bA=(1-\cos\theta)(\bu\cdot\br)\bu$.
+Consequently \eqref{eq:quaternion-rotation} recovers
+\[
+ \boxed{\br'=\br\cos\theta-(\bu\times\br)\sin\theta
+       +(\bu\cdot\br)(1-\cos\theta)\bu.}
+\]
+This is precisely Rodrigues' formula~\eqref{eq:rodrigues} for
+$\bV=\br$, with components in axes rotated through $+\theta$.
+The active rotation of $\br$ through $+\theta$ instead uses
+$Q(\br\cdot\bq)Q^{\mathsf H}$ and has a plus sign on the cross term.
+
 \subsection{Boost action and its sign convention}
 \label{sec:algebra-boost-action}
 
@@ -1520,32 +1559,6 @@ reordering any factors:
  ={}&(\partial Z)Z'+Z(\partial Z')
     +\sum_{n=1}^{3}[\sigma_n,Z]\frac{\partial Z'}{\partial r_n}.
 \end{align*}
-Define the last sum as
-$[\bsig,Z]\cdot\pdr Z':=\sum_n[\sigma_n,Z]\,\partial Z'/\partial r_n$.
-Changing the spatial sign gives the paired rules
-\begin{align*}
- \partial(ZZ')&=(\partial Z)Z'+Z(\partial Z')
-                +[\bsig,Z]\cdot\pdr Z',
- \\
- \partial^*(ZZ')&=(\partial^*Z)Z'+Z(\partial^*Z')
-                -[\bsig,Z]\cdot\pdr Z'.
-\end{align*}
-The contraction retains the displayed multiplied order.
-
-For a noncommuting check, take $Z=\sigma_2$ and $Z'=r_1$.  Since
-$[\sigma_1,\sigma_2]=2\ii\sigma_3$, the two right-hand sides give
-\begin{align*}
- \partial(\sigma_2r_1)
- &=\sigma_2\sigma_1+[\sigma_1,\sigma_2]
-  =-\ii\sigma_3+2\ii\sigma_3=\ii\sigma_3,\\
- \partial^*(\sigma_2r_1)
- &=-\sigma_2\sigma_1-[\sigma_1,\sigma_2]
-  =\ii\sigma_3-2\ii\sigma_3=-\ii\sigma_3.
-\end{align*}
-These agree with direct differentiation, $\pm\sigma_1\sigma_2$.
-The ordinary Leibniz rule holds when the left factor commutes with every
-$\sigma_n$, in particular for a complex scalar.  Otherwise the commutator
-term must be retained.
 
 \section{Space--time kinematics}
 \label{sec:kinematics}
@@ -1997,233 +2010,6 @@ This evolution preserves all generator products.  A general complex local basis
 is nevertheless distinct from a real spacetime frame, whose vectors require
 the congruence law.
 
-These formulas describe changes of frame along a curve.  They remain useful
-in curved spacetime, but curvature requires comparing transport in independent
-directions, as developed next.
-
-\subsection{Curved spacetime in the same algebra}
-\label{sec:curved-spacetime}
-
-\subsubsection{Local intervals and transport}
-
-Here $X=t+\br\cdot\bsig$ labels real coordinates on an open domain in
-$\R^4$; it is not assumed to be a global inertial position.
-Let $A=a_0+\ba\cdot\bsig$ and $B=b_0+\bb\cdot\bsig$ be constant real
-paravectors specifying coordinate directions, with $a_0,b_0\in\R$ and
-$\ba,\bb\in\R^3$.  Define the directional derivative, acting on field
-coefficients, by
-\[
- \partial_A:=\scpart{A\partial}
- =a_0\partial_t+\ba\cdot\pdr.
-\]
-Let $H(X,A)$ be a smooth real-paravector-valued function, linear over
-$\R$ and invertible in $A$ at each $X$.  Write $H(A)$ when the coordinate
-argument is understood.  This \emph{local frame map} assigns the physical
-increment $H(\dd X)$ to a coordinate increment $\dd X$ and defines
-\begin{equation}
- \boxed{\dd s^2=\det(H(\dd X)).}
- \label{eq:curved-interval}
-\end{equation}
-The determinant retains one positive and three negative directions.
-Every smooth metric of this signature has such a representation locally.
-The map $H$ need not preserve determinants: it specifies the metric rather
-than changing an observer.  In particular, $H(\dd X)$ need not be the
-differential of a single position function, as it was in
-Section~\ref{sec:generalized}.
-
-To compare real paravectors at neighboring coordinates, introduce a smooth
-complex pure-vector paravector $\Omega(X,A)$, linear over $\R$ in $A$;
-write $\Omega(A)$ with $X$ understood.  Its three complex components specify
-infinitesimal boosts and rotations.  For a real paravector field $Z(X)$,
-define its \emph{covariant derivative} by the existing product:
-\begin{equation}
- \nabla_A Z:=\partial_A Z-\Omega(A)^{\mathsf H}Z-Z\Omega(A).
- \label{eq:curved-derivative}
-\end{equation}
-It measures change after subtracting local transport, following
-\eqref{eq:varying-congruence}.  Since $\scpart{\Omega(A)}=0$, direct
-expansion gives, for real paravector fields $Z,Y$,
-\begin{equation}
- \partial_A\scpart{Z^*Y}
- =\scpart{(\nabla_A Z)^*Y}+\scpart{Z^*\nabla_A Y}.
- \label{eq:curved-metric-compatibility}
-\end{equation}
-Thus parallel transport, defined by vanishing covariant derivative,
-preserves the metric pairing~\eqref{eq:lorentz-pairing} and the determinant.
-To make this transport the one determined by $H$, impose
-\begin{equation}
- \boxed{\nabla_A H(B)=\nabla_B H(A).}
- \label{eq:curved-torsion-free}
-\end{equation}
-This condition is called \emph{torsion-free}: the covariant changes of
-the two coordinate directions agree when their order is exchanged.
-For an invertible $H$, it uniquely determines $\Omega$ together with
-metric compatibility~\eqref{eq:curved-metric-compatibility}
-\cite[pp.~108--110, 132--136]{tong-gr}.
-Computationally, evaluate \eqref{eq:curved-torsion-free} on the six distinct
-pairs from $1,\sigma_1,\sigma_2,\sigma_3$: these give 24 real linear
-equations for the 24 real coefficients of the map $\Omega$.
-
-Equation~\eqref{eq:curved-derivative} acts on real spacetime paravectors.
-A complex field $F$ transforming by similarity instead uses
-$\partial_A F-[\Omega(A)^{\mathsf H},F]$, as in \eqref{eq:varying-similarity}.
-The two actions follow their respective transformation laws; they cannot
-be interchanged when differentiating products.
-
-\subsubsection{Curvature and changes of local frame}
-
-Define the complex pure-vector paravector $C(X,A,B)$, abbreviated $C(A,B)$,
-by
-\begin{equation}
- C(A,B):=\partial_A\Omega(B)-\partial_B\Omega(A)
-          +[\Omega(A),\Omega(B)].
- \label{eq:curved-curvature}
-\end{equation}
-It is linear over $\R$ in each direction and obeys $C(B,A)=-C(A,B)$.
-Expanding the two derivatives in \eqref{eq:curved-derivative} cancels all
-derivatives of $Z$ and gives
-\begin{equation}
- \boxed{[\nabla_A,\nabla_B]Z=-C(A,B)^{\mathsf H}Z-ZC(A,B).}
- \label{eq:curved-commutator}
-\end{equation}
-This is the \emph{curvature}: transport around a small coordinate loop
-can change a vector even though its determinant is preserved.  With
-\eqref{eq:curved-torsion-free}, it is the usual spacetime curvature in
-paravector form; see \cite[pp.~123--127, 135--136]{tong-gr}.
-The constant-direction assumption is essential to
-\eqref{eq:curved-curvature} and \eqref{eq:curved-commutator}.
-
-For a smooth complex paravector $T(X)$ of determinant one, change the
-local frame by $Z'=T^{\mathsf H}ZT$ and $H'(A)=T^{\mathsf H}H(A)T$.
-The product rule requires
-\begin{equation}
- \Omega'(A)=T^{-1}\Omega(A)T+T^{-1}\partial_A T.
- \label{eq:curved-connection-transform}
-\end{equation}
-Substitution of \eqref{eq:curved-connection-transform} in \eqref{eq:curved-derivative} and
-\eqref{eq:curved-curvature} then yields
-\begin{align*}
- \nabla_A'Z'&=T^{\mathsf H}(\nabla_A Z)T,\\
- C'(A,B)&=T^{-1}C(A,B)T.
-\end{align*}
-Hence a frame change preserves \eqref{eq:curved-interval} and cannot
-remove nonzero curvature.
-
-In contrast, if one extends the earlier construction to a single smooth
-$T(X)$ and sets $\Omega(A)=T^{-1}\partial_A T$, commuting coordinate
-derivatives give
-\[
- \partial_A\Omega(B)-\partial_B\Omega(A)
- =-[\Omega(A),\Omega(B)],
- \qquad C(A,B)=0.
-\]
-Thus a varying Lorentz frame alone describes flat transport.  Along one
-curve, even a curved connection can be written as
-$\Omega=T^{-1}(\dd T/\dd s)$ by solving $\dd T/\dd s=T\Omega$.
-In curved spacetime this transport factor depends on the path, not only
-its endpoint.  This is the distinction missing from a one-parameter
-frame calculation.
-
-\subsubsection{Free fall}
-
-Let $X(s)$ be a future timelike coordinate curve, with proper time $s$
-from \eqref{eq:curved-interval}.  Its real local tangent is
-\[
- Z(s):=H\left(\frac{\dd X}{\dd s}\right),\qquad
- \det Z=1,\qquad \scpart Z>0.
-\]
-Here $Z$ represents physical velocity in the local frame; generally
-$Z\ne\dd X/\dd s$.  Along the curve, define
-\[
- \nabla_s Z:=\frac{\dd Z}{\dd s}
- -\Omega\left(\frac{\dd X}{\dd s}\right)^{\mathsf H}Z
- -Z\Omega\left(\frac{\dd X}{\dd s}\right).
-\]
-Extend the free-particle action~\eqref{eq:free-particle-action} to the
-local interval, with constant real $m>0$.  Vary the timelike path with
-fixed endpoints before choosing $s$ as the parameter of the unvaried
-curve.  Using \eqref{eq:curved-torsion-free} to exchange the path and
-variation directions, then \eqref{eq:curved-metric-compatibility} to
-integrate by parts, gives
-\begin{align*}
- \delta\left(-m\int\dd s\right)
- &=-m\int\scpart{Z^*\nabla_s(H(\delta X))}\dd s\\
- &=m\int\scpart{H(\delta X)^*\nabla_s Z}\dd s.
-\end{align*}
-The real variation $\delta X$ is arbitrary and $H$ is invertible, so
-stationarity is equivalent to the geodesic, or free-fall, equation
-\begin{equation}
- \boxed{\nabla_s Z=0.}
- \label{eq:curved-geodesic}
-\end{equation}
-Metric compatibility preserves $\det Z=1$.  This is the standard
-parallel-transport description of free fall
-\cite[Sec.~II, Eqs.~(2.10)--(2.12)]{francis-kosowsky}.
-
-\subsubsection{Acceleration versus curvature}
-
-Choose any constant \hyperref[def:real-unit-vector]{real unit vector}
-$\bu$, let $z=\bu\cdot\br$, and let $f(z)>0$ be a smooth real scalar
-function on the coordinate domain.  Here $f'=\dd f/\dd z$ and
-$f''=\dd^2f/\dd z^2$.
-For the constant directions $A,B$ defined above, take
-\begin{align*}
- H(A)&=f(z)a_0+\ba\cdot\bsig,\\
- \Omega(A)&=-\tfrac12a_0f'(z)\bu\cdot\bsig.
-\end{align*}
-The interval is
-\begin{equation}
- \dd s^2=f(z)^2\dd t^2-\dd\br^2.
- \label{eq:curved-lapse-interval}
-\end{equation}
-To check \eqref{eq:curved-torsion-free}, expand the product:
-\[
- \nabla_A H(B)
- =f'(b_0\bu\cdot\ba+a_0\bu\cdot\bb)
-  +a_0b_0ff'\bu\cdot\bsig.
-\]
-This is symmetric in $A,B$.  The two $\Omega$ values commute, so
-\eqref{eq:curved-curvature} reduces to
-\begin{equation}
- C(A,B)=\tfrac12f''(z)
- (a_0\bu\cdot\bb-b_0\bu\cdot\ba)\bu\cdot\bsig.
- \label{eq:curved-lapse-curvature}
-\end{equation}
-For $f(z)=1+az$, with real constant $a$, this curvature vanishes even
-when $a\ne0$: the varying clock rate describes accelerated coordinates
-in flat spacetime.  Wherever $f''\ne0$, \eqref{eq:curved-lapse-curvature}
-is nonzero for some $A,B$, so the metric is curved.
-
-For this example,
-$Z=f(\dd t/\dd s)+(\dd\br/\dd s)\cdot\bsig$.
-The scalar and vector parts of \eqref{eq:curved-geodesic} are
-\begin{align}
- f\frac{\dd^2t}{\dd s^2}
- +2f'\frac{\dd t}{\dd s}\frac{\dd z}{\dd s}&=0,
- \label{eq:curved-lapse-time}\\
- \frac{\dd^2\br}{\dd s^2}
- +ff'\left(\frac{\dd t}{\dd s}\right)^2\bu&=0.
- \label{eq:curved-lapse-space}
-\end{align}
-Equations~\eqref{eq:curved-lapse-time} and \eqref{eq:curved-lapse-space}
-also follow directly by varying the interval~\eqref{eq:curved-lapse-interval}.
-The example specifies a geometry and its free motion; no matter source
-has been selected.
-
-\subsubsection{What remains for general relativity}
-
-The frame map, compatible transport, curvature, and free fall provide a
-local geometric foundation for GR entirely through the existing
-paravector products.  Local determinant preservation fixes the interval
-under frame changes; it does not fix the geometry $H$.
-Einstein's equation is the additional physical relation between curvature
-and matter and energy.  Developing it requires defining the relevant
-curvature contractions and matter action, then deriving the field equation.
-It does not follow from a varying frame alone.  An algebraic formulation
-of standard GR is available; see \cite[Sec.~II, Eqs.~(2.22)--(2.45)]{francis-kosowsky}.
-The electromagnetism and wave equations below retain their stated flat
-inertial-coordinate scope.
-
 \section{Electromagnetism}
 \label{sec:electromagnetism}
 
@@ -2564,21 +2350,18 @@ $m>0$ is mass, $q\in\R$ is charge, and $\hbar=c=1$.
 Amplitudes are complex functions of these real coordinates;
 their scalar or paravector type is specified below.
 
-\subsection{Amplitudes and their pairing}
+\subsection{Amplitudes, densities, and local expectations}
 \label{sec:quantum-amplitudes}
 \label{sec:paravector-inner-products}
 \label{sec:axis-ideal-basis}
 
-For complex paravectors $\psi,\psi'$ and a left-acting paravector $Z$,
-define the complex scalar pairings
-\begin{align}
- \langle\psi'\mid\psi\rangle
- &:=\scpart{\psi'^{\mathsf H}\psi},
- \label{eq:paravector-inner-product}\\
- \langle\psi'\mid Z\mid\psi\rangle
- &:=\scpart{\psi'^{\mathsf H}Z\psi}.
- \label{eq:paravector-matrix-element}
-\end{align}
+All products and norms here act on paravector values at one real event
+$X$.  They sum algebra components only; no spatial integration is implied.
+For complex paravectors $\psi,\psi'$, the mixed scalar
+$\scpart{\psi'^{\mathsf H}\psi}$ is their algebraic inner product.
+We write this product directly and reserve angle brackets for normalized
+expectations below.
+
 For arbitrary constant perpendicular \hyperref[def:real-unit-vector]{real unit vectors}
 $\bu,\ba$, choose a constant complex paravector $\psi_+$ of unit norm
 with $(\bu\cdot\bsig)\psi_+=\psi_+$, and set $\psi_-=(\ba\cdot\bsig)\psi_+$.
@@ -2587,7 +2370,7 @@ Then
  (\bu\cdot\bsig)\psi_\pm=\pm\psi_\pm.
  \label{eq:axis-ideal-basis}
 \end{equation}
-The pair is orthonormal: $\langle\psi_a\mid\psi_b\rangle=\delta_{ab}$
+The pair is orthonormal: $\scpart{\psi_a^{\mathsf H}\psi_b}=\delta_{ab}$
 for $a,b=+,-$.  A Pauli amplitude or either Dirac entry is
 \begin{equation}
  \psi(t,\br)=c_+(t,\br)\psi_++c_-(t,\br)\psi_-.
@@ -2601,45 +2384,87 @@ The matrix verification is in Appendix~\ref{sec:matrix-spinors}.
 
 The real norm density is
 \begin{equation}
- \rho:=\scpart{\psi^{\mathsf H}\psi}=\lVert\psi\rVert^2\geq0.
+ \rho:=\lVert\psi\rVert^2=\scpart{\psi^{\mathsf H}\psi}\geq0.
  \label{eq:probability-density}
 \end{equation}
 Orthonormality gives $\rho=\lVert c_+\rVert^2+\lVert c_-\rVert^2$.
-For a normalized Pauli wavefunction, $\int\rho\,\dd^3\br=1$;
-Dirac uses the sum over its two entries.  This probability interpretation
-does not apply to an arbitrary scalar KG field.
+For a Pauli wavefunction normalized to unit total probability, this is
+its position density; Dirac uses the sum over its two entries.
+Total spatial normalization is separate from the pointwise norm.
+This probability interpretation does not apply to an arbitrary scalar KG field.
 
-For $\rho>0$, define the normalized mean
+\paragraph{Nonnegative weighted densities.}
+Let $Z=S+\bV\cdot\bsig$ be real ($Z^{\mathsf H}=Z$),
+with $S\in\R$ and $\bV\in\R^3$.
+It acts by multiplication, not differentiation.
+For $\bV\ne0$, take the real unit vector $\bu=\bV/\lVert\bV\rVert$
+and recall the projectors $\Pi_\pm=(1\pm\bu\cdot\bsig)/2$ from
+Section~\ref{sec:algebra-projectors}.  Their spectral decomposition gives
 \begin{equation}
- \langle Z\rangle_\psi
- :=\frac{\scpart{\psi^{\mathsf H}Z\psi}}{\rho}.
+ \scpart{\psi^{\mathsf H}Z\psi}
+ =(S+\lVert\bV\rVert)\lVert\Pi_+\psi\rVert^2
+ +(S-\lVert\bV\rVert)\lVert\Pi_-\psi\rVert^2.
+ \label{eq:weighted-density-spectral}
+\end{equation}
+For $\bV=0$, this reduces to $S\lVert\psi\rVert^2$.
+Thus the product is nonnegative for every $\psi$ exactly when
+$S\geq\lVert\bV\rVert$.  For such a \emph{nonnegative weight}, define
+\begin{equation}
+ \boxed{\lVert\psi\rVert_Z^2
+ :=\scpart{\psi^{\mathsf H}Z\psi}
+ =\lVert\sqrt Z\,\psi\rVert^2\geq0.}
+ \label{eq:weighted-density}
+\end{equation}
+The square root has nonnegative eigenvalues, as in Section~\ref{sec:spectral}.
+For $Z=1$, this is $\rho$.  It is a true squared norm when
+$S>\lVert\bV\rVert$; at equality it can vanish for nonzero $\psi$,
+so the notation then denotes a weighted density.  Projectors are an
+important example.  Reality alone is insufficient: $Z=-1$ gives
+$\scpart{\psi^{\mathsf H}Z\psi}=-\rho$.
+
+\paragraph{Local expectations.}
+For $\rho>0$ and any complex multiplying paravector $Z$, define
+\begin{equation}
+ \boxed{\langle Z\rangle_\psi
+ :=\frac{\scpart{\psi^{\mathsf H}Z\psi}}{\rho}.}
  \label{eq:paravector-expectation}
 \end{equation}
-It is real for a real observable $Z^{\mathsf H}=Z$.
-For a spatial wavefunction, integrate numerator and denominator.
-For differential observables, derivatives act to the right and boundary
-terms must vanish when taking the Hermitian conjugate.
+For real $Z$, this is real and may have either sign.
+Dividing \eqref{eq:weighted-density-spectral} by $\rho$ shows its meaning:
+it averages the two eigenvalues with their projected probabilities
+\cite[p.~45, eq.~(6.3)]{sparks-quantum}.
+For fields this mean is conditional on position; it is not a spatial
+average.  A whole-wavefunction expectation additionally requires spatial
+weighting.  The same formula extends linearly to complex $Z$, including
+commutators.  For a nonnegative weight,
+$\langle Z\rangle_\psi=\lVert\psi\rVert_Z^2/\rho$.
+For a projector, this ratio is a Born probability.
 
+\paragraph{Transforming the amplitude.}
 For a constant complex \hyperref[eq:unit-paravector]{unit paravector} $T$,
-let $\psi'=T\psi$.  The pairing gives the same congruence form as
-\eqref{eq:general-lorentz-congruence}:
+set $\psi'=T\psi$ and $Z'=T^{\mathsf H}ZT$.
+For a nonnegative weight $Z$, substitution gives
 \begin{equation}
- \boxed{\langle\psi'\mid Z\mid\psi'\rangle
- =\scpart{\psi^{\mathsf H}T^{\mathsf H}ZT\psi}
- =\langle\psi\mid T^{\mathsf H}ZT\mid\psi\rangle.}
+ \boxed{\lVert\psi'\rVert_Z^2
+ =\lVert T\psi\rVert_Z^2
+ =\scpart{\psi^{\mathsf H}Z'\psi}
+ =\lVert\psi\rVert_{Z'}^2.}
+ \label{eq:weighted-density-pullback}
+\end{equation}
+This also proves that $Z'$ is nonnegative.
+The same substitution in \eqref{eq:paravector-expectation} applies to
+any complex $Z$.  With $\rho'=\lVert\psi'\rVert^2>0$, it gives
+\begin{equation}
+ \boxed{\langle Z\rangle_{\psi'}
+ =\frac{\rho}{\rho'}\langle Z'\rangle_\psi.}
  \label{eq:amplitude-pullback}
 \end{equation}
-Thus $T^{\mathsf H}ZT$ evaluates the transformed state's measurement
-using the original state.  Dividing by its transformed norm gives
-\begin{equation*}
- \langle Z\rangle_{\psi'}
- =\frac{\langle T^{\mathsf H}ZT\rangle_\psi}
-        {\langle T^{\mathsf H}T\rangle_\psi}.
-\end{equation*}
-The denominator is $1$ for the unitary rotation
-$R=\exp(-\ii\theta\bu\cdot\bsig/2)$ and $\langle L^2\rangle_\psi$
-for the Hermitian boost $L=\exp(-\theta\bu\cdot\bsig/2)$, with real
-$\theta$ and real unit $\bu$ as in Section~\ref{sec:preserved-quantities}.
+Thus the congruence form in \eqref{eq:general-lorentz-congruence} arises
+directly from the same local product.  For real $\theta$ and real unit $\bu$,
+$R=\exp(-\ii\theta\bu\cdot\bsig/2)$ is unitary and gives $\rho'=\rho$.
+For the Hermitian boost $L=\exp(-\theta\bu\cdot\bsig/2)$,
+$Z=1$ gives $Z'=L^2$ and $\rho'=\lVert\psi\rVert_{Z'}^2$,
+which generally differs from $\rho$.
 
 \Needspace{10\baselineskip}
 \subsection{Energy and momentum as differential operators}
@@ -2892,12 +2717,8 @@ A Dirac field is the two-entry block
 Each entry is a complex paravector amplitude of \eqref{eq:axis-ideal-components};
 the block therefore has four independent complex components.
 On blocks, Hermitian conjugation also transposes entries; sigma
-conjugation acts entrywise.  The local pairing is
-\begin{equation*}
- \langle\bPsi'\mid\bPsi\rangle
- :=\sum_{k=1}^{2}\scpart{\Psi_k'^{\mathsf H}\Psi_k}.
-\end{equation*}
-This gives the nonnegative real density
+conjugation acts entrywise.  Summing the two local squared norms gives
+the nonnegative real density
 \begin{equation}
  \lVert\bPsi\rVert^2
  =\scpart{\Psi_1^{\mathsf H}\Psi_1}
@@ -3016,9 +2837,9 @@ $\ii\partial_t\bPsi=H\bPsi$, where the Hamiltonian is
  H:=qV\bI+\Wop(1)\bigl(m\bI+\Wop(\bp\cdot\bsig)\bigr).
  \label{eq:dirac-hamiltonian}
 \end{equation}
-Real potentials and vanishing boundary terms make $H$ Hermitian in the
-integrated pairing, so $\int\lVert\bPsi\rVert^2\dd^3\br$ is conserved,
-with density \eqref{eq:dirac-norm}.
+For real potentials, the Dirac equation conserves total probability
+when the spatial boundary flux vanishes.  The pointwise density
+\eqref{eq:dirac-norm} can still vary through probability flux.
 
 To expose each coefficient, write
 $\Psi_k=a_k+\bb_k\cdot\bsig$ for $k=1,2$, with complex scalar
@@ -3242,8 +3063,10 @@ Adding and subtracting the coupled equations gives the exact pair
  (E+2m)\chi&=(\bp\cdot\bsig)\phi.
  \notag
 \end{align}
-Their conserved norm is
-$\int(\lVert\phi\rVert^2+\lVert\chi\rVert^2)\dd^3\br$.
+The change of entries preserves the local density:
+\begin{equation*}
+ \lVert\bPsi\rVert^2=\lVert\phi\rVert^2+\lVert\chi\rVert^2.
+\end{equation*}
 Rearrange the second equation for iteration:
 \begin{equation}
  \chi=\frac{(\bp\cdot\bsig)\phi}{2m}-\frac{E\chi}{2m}.
@@ -3277,7 +3100,7 @@ from \eqref{eq:kinetic-sigma-square} gives Pauli's equation at this order~\cite[
   -\frac{q}{2m}\bBf\cdot\bsig\right)\phi.}
  \label{eq:pauli}
 \end{equation}
-Here $\int\scpart{\phi^{\mathsf H}\phi}\dd^3\br=1$ at leading order.
+The leading probability density is $\lVert\phi\rVert^2$.
 Its two complex components are the Pauli amplitudes; see
 Appendix~\ref{sec:matrix-spinors}.  It is the $\psi$ used in the
 spin discussion.
@@ -3427,10 +3250,12 @@ Their algebra in Section~\ref{sec:algebra-projectors} gives
 \begin{align*}
  \psi&=\Pi_+\psi+\Pi_-\psi,\\
  S(\bu)(\Pi_\pm\psi)&=\pm\tfrac12\Pi_\pm\psi,\\
- \langle\Pi_+\psi\mid\Pi_-\psi\rangle&=0,\\
- \lVert\Pi_\pm\psi\rVert^2&=\scpart{\psi^{\mathsf H}\Pi_\pm\psi}.
+ \scpart{(\Pi_+\psi)^{\mathsf H}(\Pi_-\psi)}&=0,\\
+ \lVert\Pi_\pm\psi\rVert^2
+ &=\scpart{\psi^{\mathsf H}\Pi_\pm\psi}=\lVert\psi\rVert_{\Pi_\pm}^2.
 \end{align*}
-The Born probability is the projected squared norm divided by
+By \eqref{eq:weighted-density}, these are nonnegative weighted densities.
+The Born probability is this density divided by
 $\rho=\lVert\psi\rVert^2$.  In the fixed orthonormal basis
 \eqref{eq:axis-ideal-basis}, $\psi=c_+\psi_++c_-\psi_-$ with
 complex scalars $c_\pm$, so
@@ -3438,8 +3263,7 @@ $\rho=\lVert c_+\rVert^2+\lVert c_-\rVert^2$.
 When the measurement axis is that basis axis, the probabilities are
 $\lVert c_\pm\rVert^2/\rho$.
 The same-side and cross-side projector products are already derived in
-Section~\ref{sec:algebra-projectors}; the ladder paravectors in
-\eqref{eq:ladder-operators} exchange the two sectors.
+Section~\ref{sec:algebra-projectors}.
 
 Define the real polarization vector $\bm{s}\in\R^3$ by its projection
 along every real unit measurement axis $\bu$:
@@ -3480,8 +3304,7 @@ Therefore
 The mean spin along $\bu$ is
 $(p_+-p_-)/2=\bu\cdot\bm{s}/2$.
 For a spatial wavefunction, \eqref{eq:spin-probability-intrinsic}
-is conditional on position; integrate numerator and denominator to
-obtain the whole-packet probability.
+is the spin probability conditional on position, not a position density.
 If the angle between $\bu$ and $\bm{s}$ is the real angle $\theta$,
 \[
  p_+=\cos^2(\theta/2),\qquad p_-=\sin^2(\theta/2).
@@ -3501,30 +3324,6 @@ spin one-half.  Its overlap with the original polarization is
 \]
 For $\ba\cdot\bm{s}=0$, the probability to retain the initial spin
 is $\cos^2(\theta/2)$.
-
-\subsection{Spin uncertainty}
-
-Recall a Pauli amplitude $\psi$ with $\lVert\psi\rVert=1$ and its real polarization
-$\bm{s}$ in \eqref{eq:spin-state}.  Write $\langle Z\rangle$ for
-$\langle Z\rangle_\psi$ from \eqref{eq:paravector-expectation}.
-For real unit axes $\bu,\bu'$, set $A=\bu\cdot\bsig/2$ and
-$A'=\bu'\cdot\bsig/2$.  Define the real variance by
-$\operatorname{var}(A)=\langle A^2\rangle-\langle A\rangle^2$.
-The sigma product gives
-\begin{align*}
- [A,A']&=\frac{\ii}{2}(\bu\times\bu')\cdot\bsig,\\
- \operatorname{var}(A)&=\frac{1-(\bu\cdot\bm{s})^2}{4}.
-\end{align*}
-Positivity of
-$\lVert(A-\langle A\rangle)\psi+\ii\lambda(A'-\langle A'\rangle)\psi\rVert^2$
-for every real scalar $\lambda$ makes its quadratic discriminant
-nonpositive.  This yields the Robertson bound
-\begin{equation}
- \boxed{\operatorname{var}(A)\;\operatorname{var}(A')
- \geq\tfrac14\lVert\langle[A,A']\rangle\rVert^2
- =\frac{((\bu\times\bu')\cdot\bm{s})^2}{16}.}
- \label{eq:spin-uncertainty}
-\end{equation}
 
 \section{Rotations and Lorentz boosts}
 \label{sec:transformations}
@@ -3909,7 +3708,8 @@ The coefficient form is \eqref{eq:coefficient-norm}; product-order and
 cyclicity rules are \eqref{eq:hermitian-product},
 \eqref{eq:sigma-conjugate-product}, and \eqref{eq:scalar-cyclic-three}.
 Projectors and the spectral rule are \eqref{eq:projectors} and
-\eqref{eq:complex-function-projectors}.  Matrix and quaternion images are
+\eqref{eq:complex-function-projectors}.  The quaternion component map is
+\eqref{eq:quaternion-paravector}; matrix images are
 \eqref{eq:matrix} and \eqref{eq:quaternion-matrix}.
 
 \Needspace{8\baselineskip}
@@ -3993,11 +3793,6 @@ Moving-frame velocity and its causal bound are
 and measured contraction are \eqref{eq:time-dilation} and
 \eqref{eq:length-contraction}; energy and momentum transform by
 \eqref{eq:energy-boost}--\eqref{eq:momentum-boost}.
-Local curved intervals, compatible transport, curvature, and free fall
-are \eqref{eq:curved-interval}, \eqref{eq:curved-derivative},
-\eqref{eq:curved-torsion-free}, \eqref{eq:curved-commutator}, and
-\eqref{eq:curved-geodesic}; their scope is Section~\ref{sec:curved-spacetime}.
-
 \Needspace{8\baselineskip}
 \paragraph{Electromagnetism.}
 Recall the real proper velocity $U=\dd X/\dd s$, a
@@ -4090,12 +3885,13 @@ Recall a nonzero complex paravector amplitude $\psi$, real norm density
 $\rho>0$, real polarization $\bm{s}$, and
 \hyperref[def:real-unit-vector]{real unit measurement axis} $\bu$.
 The real observable $Z$ acts from the left.
-The pairing and measurement formulas are
+All formulas are pointwise.  For a nonnegative real weight $Z$
+from \eqref{eq:weighted-density}, the densities and measurements are
 \begin{align*}
- \langle\psi'\mid\psi\rangle&=\scpart{\psi'^{\mathsf H}\psi},
-   \tag*{\eqref{eq:paravector-inner-product}}\\
- \rho&=\scpart{\psi^{\mathsf H}\psi},
+ \rho&=\lVert\psi\rVert^2=\scpart{\psi^{\mathsf H}\psi},
    \tag*{\eqref{eq:probability-density}}\\
+ \lVert\psi\rVert_Z^2&=\scpart{\psi^{\mathsf H}Z\psi},
+   \tag*{\eqref{eq:weighted-density}}\\
  \bu\cdot\bm{s}&=\scpart{\psi^{\mathsf H}(\bu\cdot\bsig)\psi}/\rho,
    \tag*{\eqref{eq:spin-state}}\\
  p_\pm(\bu)&=\tfrac12(1\pm\bu\cdot\bm s),
@@ -4103,9 +3899,8 @@ The pairing and measurement formulas are
  \langle Z\rangle_\psi&=\scpart{\psi^{\mathsf H}Z\psi}/\rho.
    \tag*{\eqref{eq:paravector-expectation}}
 \end{align*}
-Here $\psi'$ is a second paravector amplitude.
-The matrix verification is \eqref{eq:matrix-state}--\eqref{eq:matrix-born};
-spin uncertainty is \eqref{eq:spin-uncertainty}.
+The expectation formula also applies to signed real observables.
+The matrix verification is \eqref{eq:matrix-state}--\eqref{eq:matrix-born}.
 
 \endgroup
 }
@@ -4287,18 +4082,23 @@ axis.  The first matrix stays Hermitian; the second stays traceless.
 \subsection{Matrix amplitudes and column spinors}
 \label{sec:matrix-spinors}
 
-Let $\psi,\psi'$ be complex paravector amplitudes, with matrix images
-$\bM_\psi,\bM_{\psi'}$, and let $Z=Z^{\mathsf H}$ be a real observable.
-For fields these depend on real $(t,\br)$.  The inner products
-\eqref{eq:paravector-inner-product} and
-\eqref{eq:paravector-matrix-element} become
+Let $\psi$ be a complex paravector amplitude with matrix image
+$\bM_\psi$ at one fixed real event $X$.
+For a nonnegative real weight $Z$, the local densities
+\eqref{eq:probability-density} and \eqref{eq:weighted-density} become
 \begin{align*}
- \langle\psi'\mid\psi\rangle
- &=\tfrac12\operatorname{tr}(\bM_{\psi'}^{\mathsf H}\bM_\psi),\\
- \langle\psi'\mid Z\mid\psi\rangle
+ \lVert\psi\rVert^2
+ &=\tfrac12\operatorname{tr}(\bM_\psi^{\mathsf H}\bM_\psi),\\
+ \lVert\psi\rVert_Z^2
  &=\tfrac12\operatorname{tr}
-    (\bM_{\psi'}^{\mathsf H}\operatorname{mat}(Z)\bM_\psi).
+    (\bM_\psi^{\mathsf H}\operatorname{mat}(Z)\bM_\psi).
 \end{align*}
+The first is one half the sum of the squared magnitudes of the matrix
+entries: the squared Frobenius norm with the factor $1/2$ fixed by
+$\operatorname{sc}=\operatorname{tr}/2$.  The second is its weighted form.
+Both are pointwise; neither contains a spatial integral.
+Matrix multiplication gives exactly the congruence identity
+\eqref{eq:weighted-density-pullback}.
 
 \paragraph{An arbitrary spin basis.}
 Recall the arbitrary constant perpendicular
@@ -4314,7 +4114,7 @@ paravector $\psi'$ with $\Pi_+\psi'\ne0$.  Then
 \end{equation}
 This constructs \eqref{eq:axis-ideal-basis} with
 $(\bu\cdot\bsig)\psi_\pm=\pm\psi_\pm$ and
-$\langle\psi_s\mid\psi_{s'}\rangle=\delta_{ss'}$ for $s,s'=+,-$.
+$\scpart{\psi_s^{\mathsf H}\psi_{s'}}=\delta_{ss'}$ for $s,s'=+,-$.
 The two complex scalar components give
 \begin{equation}
  \psi=c_+\psi_++c_-\psi_-=(c_++c_-\ba\cdot\bsig)\psi_+.
@@ -4331,8 +4131,10 @@ one-dimensional.  Since $\lVert\psi_+\rVert=1$, its matrix therefore
 factors as $\bM_{\psi_+}=\sqrt2\,\bpsi_+\bm v^{\mathsf H}$ for
 constant columns $\bpsi_+,\bm v\in\C^2$ satisfying
 $\bpsi_+^{\mathsf H}\bpsi_+=\bm v^{\mathsf H}\bm v=1$.
+
+\Needspace{3\baselineskip}
 Left multiplication gives
-$\bM_{\psi_-}=\sqrt2\,\bpsi_-\bm v^{\mathsf H}$, where
+\mbox{$\bM_{\psi_-}=\sqrt2\,\bpsi_-\bm v^{\mathsf H}$}, where
 $\bpsi_-=\operatorname{mat}(\ba\cdot\bsig)\bpsi_+$.
 The columns $\bpsi_+,\bpsi_-$ are orthonormal.  Thus every amplitude
 in \eqref{eq:ideal-components} has the conventional Pauli column
@@ -4341,13 +4143,16 @@ in \eqref{eq:ideal-components} has the conventional Pauli column
  =c_+\bpsi_++c_-\bpsi_-.
 \end{equation*}
 Conversely, $\bM_\psi=\sqrt2\,\bpsi\bm v^{\mathsf H}$, so this
-correspondence is one-to-one.  For two amplitudes in this fixed basis,
-substitution cancels the factor of two from the trace pairing:
+correspondence is one-to-one.  For two amplitudes in this fixed basis
+and any complex multiplying paravector $Z$, substitution gives
 \begin{align*}
- \langle\psi'\mid\psi\rangle&=\bpsi'^{\mathsf H}\bpsi,\\
- \langle\psi'\mid Z\mid\psi\rangle
- &=\bpsi'^{\mathsf H}\operatorname{mat}(Z)\bpsi.
+ \scpart{\psi'^{\mathsf H}\psi}&=\bpsi'^{\mathsf H}\bpsi,\\
+ \scpart{\psi^{\mathsf H}Z\psi}
+ &=\bpsi^{\mathsf H}\operatorname{mat}(Z)\bpsi.
 \end{align*}
+For nonnegative $Z$, the second line is $\lVert\psi\rVert_Z^2$.
+Dividing by $\rho=\bpsi^{\mathsf H}\bpsi>0$ gives
+$\langle Z\rangle_\psi$, the ordinary finite-component expectation.
 Left action $T\psi$ maps to $\operatorname{mat}(T)\bpsi$ for any complex paravector $T$.
 
 Let $\bm C$ be the $2\times2$ matrix with columns
@@ -4527,41 +4332,12 @@ The indexed $E_k$ are field components;
 unindexed $E$ remains the mechanical energy operator.
 The two couplings are $-q\bBf\cdot\bsig\pm\ii q\bE\cdot\bsig$.
 
-\subsection{Quaternion subalgebra}
-\label{sec:quaternions}
+\subsection{Quaternion matrix image}
+\label{sec:quaternion-matrix}
 
-Define $q_k=-\ii\sigma_k$ for $k=1,2,3$, and
-$\bq=\{q_1,q_2,q_3\}$.  These are bivectors, not electric charges.
-Their product follows from the sigma rule:
-\begin{equation*}
- q_jq_k=-\delta_{jk}+\sum_{n=1}^3\epsilon_{jkn}q_n.
-\end{equation*}
-In particular,
-$q_k^2=-1$, $q_1q_2=q_3$, and $q_1q_2q_3=-1$.
-For real $a$ and $\bA\in\R^3$, define the quaternion
-\begin{equation*}
- Q=a+\bA\cdot\bq=a-\ii\bA\cdot\bsig.
-\end{equation*}
-It is a complex paravector with real quaternion coordinates.
-These elements form the real scalar--bivector
-subalgebra.  For a second such element
-$Q'=a'+\bA'\cdot\bq$, expansion gives
-\[
- QQ'=(aa'-\bA\cdot\bA')
- +(a\bA'+a'\bA+\bA\times\bA')\cdot\bq.
-\]
-Because $q_k^{\mathsf H}=-q_k$ and $q_k^*=q_k$, quaternion conjugation
-is the existing Hermitian conjugation:
-\begin{align}
- Q^{\mathsf H}&=a-\bA\cdot\bq,\notag\\
- Q^*&=Q,\notag\\
- \adj Q&=Q^{\mathsf H},\notag\\
- QQ^{\mathsf H}&=Q^{\mathsf H}Q=a^2+\bA^2=\det Q.
- \label{eq:quaternion-norm}
-\end{align}
-For nonzero $Q$, \eqref{eq:quaternion-norm} gives the inverse
-$Q^{\mathsf H}/(a^2+\bA^2)$.
-The explicit matrix image is
+For the quaternion $Q=a+\bA\cdot\bq=a-\ii\bA\cdot\bsig$
+of Section~\ref{sec:quaternions}, with real $a$ and $\bA$, the explicit
+matrix image is
 \begin{equation}
  \operatorname{mat}(Q)=
  \begin{Bmatrix}a-\ii A_3&-A_2-\ii A_1\\
@@ -4577,19 +4353,8 @@ The conjugation and norm identities become
  &=(a^2+\bA^2)\bI_2,\\
  \det(\operatorname{mat}(Q))&=a^2+\bA^2.
 \end{align*}
-A unit quaternion means $a^2+\bA^2=1$: it is a
-\hyperref[eq:unit-norm-paravector]{paravector of unit norm} and corresponds
-to a unitary matrix of determinant one.  For
-\hyperref[def:real-unit-vector]{real unit vector} $\bu$ and angle $\theta$, let
-\[
- Q=\cos(\theta/2)+\bu\cdot\bq\sin(\theta/2).
-\]
-Then $Q=R$ for $R=\exp(-\ii\theta\bu\cdot\bsig/2)$.
-For a real vector $\br$, Rodrigues' formula~\eqref{eq:rodrigues}
-in quaternion form is
-\begin{equation*}
- \br'\cdot\bq=Q^{\mathsf H}(\br\cdot\bq)Q.
-\end{equation*}
+For a unit quaternion, $a^2+\bA^2=1$, these identities give a unitary
+matrix of determinant one.
 
 \begin{thebibliography}{99}
 \addcontentsline{toc}{section}{References}
@@ -4605,22 +4370,15 @@ D. Tong, \emph{Dynamics and Relativity}, University of Cambridge,
 Cambridge, U.K., lecture notes, 2013.
 [Online]. Available: \url{https://davidtong.org/pdfs/teaching/dynamics-and-relativity/dynrel.pdf}.
 
-\bibitem{tong-gr}
-D. Tong, \emph{General Relativity}, University of Cambridge,
-Cambridge, U.K., lecture notes, 2019.
-[Online]. Available: \url{https://www.davidtong.org/pdfs/teaching/general-relativity/gr.pdf}.
-
-\bibitem{francis-kosowsky}
-M. R. Francis and A. Kosowsky,
-``Geometric algebra techniques for general relativity,''
-\emph{Ann. Phys.}, vol.~311, no.~2, pp.~459--502, 2004,
-doi: \href{https://doi.org/10.1016/j.aop.2003.12.009}{10.1016/j.aop.2003.12.009}.
-[Online]. Available: \url{https://arxiv.org/pdf/gr-qc/0311007}.
-
 \bibitem{tong-em}
 D. Tong, \emph{Electromagnetism}, University of Cambridge,
 Cambridge, U.K., lecture notes, 2015.
 [Online]. Available: \url{https://davidtong.org/pdfs/teaching/electromagnetism/electro.pdf}.
+
+\bibitem{sparks-quantum}
+J. Sparks, \emph{Quantum Theory}, University of Oxford,
+Oxford, U.K., lecture notes, 2020.
+[Online]. Available: \url{https://users.ox.ac.uk/~math0391/QT2020.pdf}.
 
 \bibitem{debroglie1929}
 L. de Broglie, ``The wave nature of the electron,'' Nobel Lecture,
