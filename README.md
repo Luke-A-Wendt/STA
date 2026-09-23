@@ -301,49 +301,120 @@ Applying this product to a free Dirac solution gives
 \quad\Longrightarrow\quad\boxed{(\Box+m^2)\boldsymbol\Psi=0.}
 ```
 
-**With an [electromagnetic potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential)**, $`\Phi=V+\mathbf A\cdot\boldsymbol{\sigma}`$ and [charge](https://en.wikipedia.org/wiki/Electric_charge) $`q`$, [minimal coupling](https://en.wikipedia.org/wiki/Minimal_coupling) gives
+## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) with an electromagnetic potential
+
+For real [potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) $`\Phi=V+\mathbf A\cdot\boldsymbol{\sigma}`$, constant mass $`m>0`$, and [charge](https://en.wikipedia.org/wiki/Electric_charge) $`q`$, [minimal coupling](https://en.wikipedia.org/wiki/Minimal_coupling) gives
 
 ```math
-\boxed{\bigl(\mathbf W(\mathrm{i}\partial-q\Phi^{*})-m\mathbf I\bigr)\boldsymbol\Psi=0.}
+\begin{aligned}
+\hat D(m)&:=\mathbf W(\mathrm{i}\partial-q\Phi^{*})-m\mathbf I,\\
+\hat D(-m)&=\mathbf W(\mathrm{i}\partial-q\Phi^{*})+m\mathbf I.
+\end{aligned}
+\qquad\boxed{\hat D(m)\boldsymbol\Psi=0.}
 ```
 
-## Low-energy [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) recovers [Pauli](https://en.wikipedia.org/wiki/Pauli_equation)
-
-Remove the [rest phase](https://en.wikipedia.org/wiki/Pauli_equation#Derivation), $`\Psi_k=e^{-\mathrm{i}mt}\Psi_k'`$, and define
+Define
 
 ```math
 \hat E=\mathrm{i}\partial_t-qV,\qquad
 \hat{\mathbf p}=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A.
 ```
 
-The exact energy recursion includes the [commutator](https://en.wikipedia.org/wiki/Commutator):
+These obey
 
 ```math
 \begin{aligned}
-\hat E\Psi_2'&=\frac{(\hat{\mathbf p}\cdot\boldsymbol{\sigma})^2-\hat E^2
--[\hat{\mathbf p}\cdot\boldsymbol{\sigma},\hat E]}{2m}\Psi_2',\\
-[\hat{\mathbf p}\cdot\boldsymbol{\sigma},\hat E]&=-\mathrm{i}q\mathbf E\cdot\boldsymbol{\sigma}.
+[\hat{\mathbf p}\cdot\boldsymbol{\sigma},\hat E]
+&=-\mathrm{i}q\mathbf E\cdot\boldsymbol{\sigma},\\
+(\hat{\mathbf p}\cdot\boldsymbol{\sigma})^2
+&=\hat{\mathbf p}^2-q\mathbf B\cdot\boldsymbol{\sigma},\\
+\hat{\mathbf p}^2+\mathrm{i}qF
+&=(\hat{\mathbf p}\cdot\boldsymbol{\sigma})^2
+-[\hat{\mathbf p}\cdot\boldsymbol{\sigma},\hat E].
 \end{aligned}
 ```
 
-With $`\phi_1=(\Psi_1'+\Psi_2')/\sqrt2`$ and $`\phi_2=(\Psi_2'-\Psi_1')/\sqrt2`$,
+The product, including potential derivatives, is
+
+```math
+\hat D(-m)\hat D(m)
+=(\hat E^2-\hat{\mathbf p}^2-m^2)\mathbf I
+-\mathrm{i}q\begin{pmatrix}F^{*}&0\\0&F\end{pmatrix}.
+```
+
+Dirac solutions satisfy $`\hat D(-m)\hat D(m)\boldsymbol\Psi=0`$, recovering Klein–Gordon at $`q=0`$.
+
+## Low-energy [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) recovers [Pauli](https://en.wikipedia.org/wiki/Pauli_equation)
+
+The lower block of $`\hat D(-m)\hat D(m)\boldsymbol\Psi=0`$ is
+
+```math
+(\hat E^2-\hat{\mathbf p}^2-m^2-\mathrm{i}qF)\Psi_2=0.
+```
+
+Remove the [rest phase](https://en.wikipedia.org/wiki/Pauli_equation#Derivation), $`\Psi_k=e^{-\mathrm{i}mt}\Psi_k'`$. Differentiating it gives
+
+```math
+\begin{aligned}
+\hat E\Psi_k&=(\mathrm{i}\partial_t-qV)(e^{-\mathrm{i}mt}\Psi_k')
+=e^{-\mathrm{i}mt}(m+\hat E)\Psi_k',\\
+\hat E^2\Psi_k&=e^{-\mathrm{i}mt}(m+\hat E)^2\Psi_k'.
+\end{aligned}
+```
+
+The spatial operator and $`F`$ commute with this time-only scalar phase. Cancel it and expand:
+
+```math
+\begin{aligned}
+0&=\bigl((m+\hat E)^2-\hat{\mathbf p}^2-m^2-\mathrm{i}qF\bigr)\Psi_2'\\
+&=\bigl(2m\hat E+\hat E^2-\hat{\mathbf p}^2-\mathrm{i}qF\bigr)\Psi_2'.
+\end{aligned}
+```
+
+Using the identities above, rearrange for the exact residual-energy recursion:
+
+```math
+\begin{aligned}
+\hat E\Psi_2'
+&=\frac{\hat{\mathbf p}^2+\mathrm{i}qF-\hat E^2}{2m}\Psi_2'\\
+&=\frac{(\hat{\mathbf p}\cdot\boldsymbol{\sigma})^2-\hat E^2
+-[\hat{\mathbf p}\cdot\boldsymbol{\sigma},\hat E]}{2m}\Psi_2'.
+\end{aligned}
+```
+
+To retain the first-order coupling, use the envelope equations
+
+```math
+\begin{aligned}
+(m+\hat E-\hat{\mathbf p}\cdot\boldsymbol{\sigma})\Psi_2'&=m\Psi_1',\\
+(m+\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma})\Psi_1'&=m\Psi_2'.
+\end{aligned}
+```
+
+Set $`\phi_1=(\Psi_1'+\Psi_2')/\sqrt2`$ and $`\phi_2=(\Psi_2'-\Psi_1')/\sqrt2`$. Adding and subtracting gives
 
 ```math
 \hat E\phi_1=(\hat{\mathbf p}\cdot\boldsymbol{\sigma})\phi_2,
 \qquad
-\phi_2=\frac{\hat{\mathbf p}\cdot\boldsymbol{\sigma}}{2m}\phi_1-\frac{\hat E\phi_2}{2m}.
+(2m+\hat E)\phi_2=(\hat{\mathbf p}\cdot\boldsymbol{\sigma})\phi_1.
 ```
 
-For slow positive-energy envelopes in weak, slowly varying fields, iterate once:
+For slow positive-energy states in weak, slowly varying fields, $`\phi_2`$ is small. Neglect its residual energy compared with $`2m`$:
 
 ```math
-\phi_2\simeq\frac{\hat{\mathbf p}\cdot\boldsymbol{\sigma}}{2m}\phi_1,
-\qquad
+\phi_2=\frac{\hat{\mathbf p}\cdot\boldsymbol{\sigma}}{2m}\phi_1
+-\frac{\hat E\phi_2}{2m}
+\simeq\frac{\hat{\mathbf p}\cdot\boldsymbol{\sigma}}{2m}\phi_1.
+```
+
+Substitute into the $`\phi_1`$ equation and use the sigma product:
+
+```math
 \hat E\phi_1\simeq\frac{(\hat{\mathbf p}\cdot\boldsymbol{\sigma})^2}{2m}\phi_1
 =\frac{\hat{\mathbf p}^2-q\mathbf B\cdot\boldsymbol{\sigma}}{2m}\phi_1.
 ```
 
-This gives [Pauli's equation](https://en.wikipedia.org/wiki/Pauli_equation) to leading order:
+Restoring $`\hat E=\mathrm{i}\partial_t-qV`$ gives the leading-order [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation):
 
 ```math
 \boxed{\mathrm{i}\partial_t\phi_1=
