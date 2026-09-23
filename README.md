@@ -266,35 +266,35 @@ F'&=F.
 
 ## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) as a first-order wave equation
 
-Package two paravector [amplitudes](https://en.wikipedia.org/wiki/Probability_amplitude) into $`\boldsymbol\Psi=(\Psi_1,\Psi_2)^{\mathsf T}`$, each with two independent complex components. With $`\mathbf I`$ the block identity, define $`\mathbf W`$ in the [Weyl (chiral) representation](https://en.wikipedia.org/wiki/Gamma_matrices#Weyl_%28chiral%29_basis):
+[Weyl representation](https://en.wikipedia.org/wiki/Gamma_matrices#Weyl_%28chiral%29_basis): $`\boldsymbol\Psi=(\Psi_1,\Psi_2)^{\mathsf T}`$, two complex components per entry; $`\mathbf I`$ is the block identity.
 
 ```math
 \mathbf W(Z)=
 \begin{pmatrix}
-0 & Z \\
-\mathrm{adj}\,Z & 0
+0 & \mathrm{adj}\,Z \\
+Z & 0
 \end{pmatrix},
 \qquad \mathbf W(Z)^2=\det(Z)\mathbf I.
 ```
 
-Define the [free Dirac operator](https://en.wikipedia.org/wiki/Dirac_equation) and its equation:
+Free Dirac: $`\hat E=\mathrm{i}\partial_t`$, $`\hat{\mathbf p}=-\mathrm{i}\partial_{\mathbf r}`$.
 
 ```math
-\hat D(m):=\mathbf W(\mathrm{i}\partial)-m\mathbf I,
+\hat D(m):=\mathbf W(\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma})-m\mathbf I,
 \qquad \boxed{\hat D(m)\boldsymbol\Psi=0.}
 ```
 
-Since $`\mathbf W(\mathrm{i}\partial)^2=-\partial^{*}\partial\,\mathbf I=-\Box\mathbf I`$, the opposite mass signs factor the [Klein–Gordon operator](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation):
+[Klein–Gordon factorization](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation), using $`\mathbf W(\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma})^2=-\partial^{*}\partial\,\mathbf I=-\Box\mathbf I`$:
 
 ```math
 \begin{aligned}
 \hat D(m)\hat D(-m)&=\hat D(-m)\hat D(m)\\
-&=\mathbf W(\mathrm{i}\partial)^2-m^2\mathbf I
+&=\mathbf W(\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma})^2-m^2\mathbf I
 =-(\Box+m^2)\mathbf I.
 \end{aligned}
 ```
 
-Applying this product to a free Dirac solution gives
+For Dirac solutions:
 
 ```math
 \hat D(-m)\hat D(m)\boldsymbol\Psi=-(\Box+m^2)\boldsymbol\Psi=0
@@ -303,28 +303,35 @@ Applying this product to a free Dirac solution gives
 
 ## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) with an electromagnetic potential
 
-For real [potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) $`\Phi=V+\mathbf A\cdot\boldsymbol{\sigma}`$, constant mass $`m>0`$, and [charge](https://en.wikipedia.org/wiki/Electric_charge) $`q`$, [minimal coupling](https://en.wikipedia.org/wiki/Minimal_coupling) gives
+[Minimal coupling](https://en.wikipedia.org/wiki/Minimal_coupling): real [potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) $`\Phi=V+\mathbf A\cdot\boldsymbol{\sigma}`$; constant $`m>0`$ and [charge](https://en.wikipedia.org/wiki/Electric_charge) $`q`$.
 
 ```math
 \begin{aligned}
-\hat D(m)&:=\mathbf W(\mathrm{i}\partial-q\Phi^{*})-m\mathbf I,\\
-\hat D(-m)&=\mathbf W(\mathrm{i}\partial-q\Phi^{*})+m\mathbf I.
+\hat E&=\mathrm{i}\partial_t-qV,\\
+\hat{\mathbf p}&=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A.
 \end{aligned}
-\qquad\boxed{\hat D(m)\boldsymbol\Psi=0.}
 ```
-
-Define
 
 ```math
-\hat E=\mathrm{i}\partial_t-qV,\qquad
-\hat{\mathbf p}=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A.
+\boxed{\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma}
+=\mathrm{i}\partial^{*}-q\Phi.}
 ```
-
-These obey
 
 ```math
 \begin{aligned}
-[\hat{\mathbf p}\cdot\boldsymbol{\sigma},\hat E]
+\hat D(m)&:=\mathbf W(\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma})-m\mathbf I\\
+&=\begin{pmatrix}
+-m & \hat E-\hat{\mathbf p}\cdot\boldsymbol{\sigma}\\
+\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma} & -m
+\end{pmatrix}.
+\end{aligned}
+```
+
+Field identities:
+
+```math
+\begin{aligned}
+{}[\hat{\mathbf p}\cdot\boldsymbol{\sigma},\hat E]
 &=-\mathrm{i}q\mathbf E\cdot\boldsymbol{\sigma},\\
 (\hat{\mathbf p}\cdot\boldsymbol{\sigma})^2
 &=\hat{\mathbf p}^2-q\mathbf B\cdot\boldsymbol{\sigma},\\
@@ -334,7 +341,7 @@ These obey
 \end{aligned}
 ```
 
-The product, including potential derivatives, is
+Including potential derivatives:
 
 ```math
 \hat D(-m)\hat D(m)
@@ -342,36 +349,30 @@ The product, including potential derivatives, is
 -\mathrm{i}q\begin{pmatrix}F^{*}&0\\0&F\end{pmatrix}.
 ```
 
-Dirac solutions satisfy $`\hat D(-m)\hat D(m)\boldsymbol\Psi=0`$, recovering Klein–Gordon at $`q=0`$.
+On solutions, $`\hat D(-m)\hat D(m)\boldsymbol\Psi=0`$; $`q=0`$ recovers Klein–Gordon.
 
 ## Low-energy [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) recovers [Pauli](https://en.wikipedia.org/wiki/Pauli_equation)
 
-The lower block of $`\hat D(-m)\hat D(m)\boldsymbol\Psi=0`$ is
-
-```math
-(\hat E^2-\hat{\mathbf p}^2-m^2-\mathrm{i}qF)\Psi_2=0.
-```
-
-Remove the [rest phase](https://en.wikipedia.org/wiki/Pauli_equation#Derivation), $`\Psi_k=e^{-\mathrm{i}mt}\Psi_k'`$. Differentiating it gives
+[Rest phase](https://en.wikipedia.org/wiki/Pauli_equation#Derivation):
 
 ```math
 \begin{aligned}
-\hat E\Psi_k&=(\mathrm{i}\partial_t-qV)(e^{-\mathrm{i}mt}\Psi_k')
-=e^{-\mathrm{i}mt}(m+\hat E)\Psi_k',\\
-\hat E^2\Psi_k&=e^{-\mathrm{i}mt}(m+\hat E)^2\Psi_k'.
+\Psi_k&=e^{-\mathrm{i}mt}\Psi_k',\\
+\hat E\Psi_k&=e^{-\mathrm{i}mt}(m+\hat E)\Psi_k'.
 \end{aligned}
 ```
 
-The spatial operator and $`F`$ commute with this time-only scalar phase. Cancel it and expand:
+Squared Dirac, lower block:
 
 ```math
 \begin{aligned}
-0&=\bigl((m+\hat E)^2-\hat{\mathbf p}^2-m^2-\mathrm{i}qF\bigr)\Psi_2'\\
-&=\bigl(2m\hat E+\hat E^2-\hat{\mathbf p}^2-\mathrm{i}qF\bigr)\Psi_2'.
+0&=(\hat E^2-\hat{\mathbf p}^2-m^2-\mathrm{i}qF)\Psi_2\\
+&=e^{-\mathrm{i}mt}\bigl((m+\hat E)^2-\hat{\mathbf p}^2-m^2-\mathrm{i}qF\bigr)\Psi_2'\\
+&=e^{-\mathrm{i}mt}\bigl(2m\hat E+\hat E^2-\hat{\mathbf p}^2-\mathrm{i}qF\bigr)\Psi_2'.
 \end{aligned}
 ```
 
-Using the identities above, rearrange for the exact residual-energy recursion:
+Cancel the phase; apply field identities:
 
 ```math
 \begin{aligned}
@@ -382,7 +383,7 @@ Using the identities above, rearrange for the exact residual-energy recursion:
 \end{aligned}
 ```
 
-To retain the first-order coupling, use the envelope equations
+The energy–momentum Dirac equation above gives, after the rest-phase shift:
 
 ```math
 \begin{aligned}
@@ -391,33 +392,71 @@ To retain the first-order coupling, use the envelope equations
 \end{aligned}
 ```
 
-Set $`\phi_1=(\Psi_1'+\Psi_2')/\sqrt2`$ and $`\phi_2=(\Psi_2'-\Psi_1')/\sqrt2`$. Adding and subtracting gives
+Set
 
 ```math
-\hat E\phi_1=(\hat{\mathbf p}\cdot\boldsymbol{\sigma})\phi_2,
-\qquad
-(2m+\hat E)\phi_2=(\hat{\mathbf p}\cdot\boldsymbol{\sigma})\phi_1.
+\begin{aligned}
+\phi_1&=\frac{\Psi_1'+\Psi_2'}{\sqrt2},\\
+\phi_2&=\frac{\Psi_2'-\Psi_1'}{\sqrt2}.
+\end{aligned}
 ```
 
-For slow positive-energy states in weak, slowly varying fields, $`\phi_2`$ is small. Neglect its residual energy compared with $`2m`$:
+Add/subtract:
 
 ```math
-\phi_2=\frac{\hat{\mathbf p}\cdot\boldsymbol{\sigma}}{2m}\phi_1
--\frac{\hat E\phi_2}{2m}
-\simeq\frac{\hat{\mathbf p}\cdot\boldsymbol{\sigma}}{2m}\phi_1.
+\begin{aligned}
+\hat E\phi_1&=(\hat{\mathbf p}\cdot\boldsymbol{\sigma})\phi_2,\\
+\phi_2&=\frac{\hat{\mathbf p}\cdot\boldsymbol{\sigma}}{2m}\phi_1
+-\frac{\hat E\phi_2}{2m}.
+\end{aligned}
 ```
 
-Substitute into the $`\phi_1`$ equation and use the sigma product:
+Slow positive-energy states; weak, slowly varying fields. Neglect $`\hat E\phi_2`$ against $`2m\phi_2`$:
 
 ```math
-\hat E\phi_1\simeq\frac{(\hat{\mathbf p}\cdot\boldsymbol{\sigma})^2}{2m}\phi_1
+\begin{aligned}
+\phi_2&\simeq\frac{\hat{\mathbf p}\cdot\boldsymbol{\sigma}}{2m}\phi_1,\\
+\hat E\phi_1&\simeq\frac{(\hat{\mathbf p}\cdot\boldsymbol{\sigma})^2}{2m}\phi_1
 =\frac{\hat{\mathbf p}^2-q\mathbf B\cdot\boldsymbol{\sigma}}{2m}\phi_1.
+\end{aligned}
 ```
 
-Restoring $`\hat E=\mathrm{i}\partial_t-qV`$ gives the leading-order [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation):
+[Pauli](https://en.wikipedia.org/wiki/Pauli_equation): kinetic and spin terms $`O(1/m)`$.
 
 ```math
 \boxed{\mathrm{i}\partial_t\phi_1=
 \left[\frac{\hat{\mathbf p}^2}{2m}
 +qV-\frac{q}{2m}\mathbf B\cdot\boldsymbol{\sigma}\right]\phi_1.}
+```
+
+## Low-energy [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) recovers [Schrödinger](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation)
+
+Charged scalar: $`\psi'=e^{-\mathrm{i}mt}\psi`$.
+
+```math
+\begin{aligned}
+0&=(\hat E^2-\hat{\mathbf p}^2-m^2)\psi'\\
+&=e^{-\mathrm{i}mt}\bigl((m+\hat E)^2-\hat{\mathbf p}^2-m^2\bigr)\psi\\
+&=e^{-\mathrm{i}mt}\bigl(2m\hat E+\hat E^2-\hat{\mathbf p}^2\bigr)\psi.
+\end{aligned}
+```
+
+Cancel the phase:
+
+```math
+\hat E\psi=\frac{\hat{\mathbf p}^2-\hat E^2}{2m}\psi.
+```
+
+Slow positive-energy limit: drop $`\hat E^2\psi`$. Schrödinger, likewise $`O(1/m)`$.
+
+```math
+\boxed{\mathrm{i}\partial_t\psi=
+\left[\frac{(-\mathrm{i}\partial_{\mathbf r}-q\mathbf A)^2}{2m}+qV\right]\psi.}
+```
+
+With $`\mathbf A=0`$ (hence $`\mathbf B=0`$), this recovers the conventional Schrödinger equation:
+
+```math
+\mathrm{i}\partial_t\psi=
+\left[-\frac{\partial_{\mathbf r}^2}{2m}+qV\right]\psi.
 ```

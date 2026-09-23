@@ -2538,11 +2538,11 @@ operators from physical values and mode eigenvalues $E,\bp$.
 The derivative symbols $\partial$, $\pdr$, and $\Box$ remain unhatted.
 Fields obtained by differentiating potentials are coefficient fields,
 not differential operators.  The operators act to the right and combine as
-\begin{align*}
- \hE-\hbp\cdot\bsig&=\ii\partial-q\Phi^*,
- \\
- \hE+\hbp\cdot\bsig&=\ii\partial^*-q\Phi.
-\end{align*}
+\begin{equation}
+ \boxed{\hE+\hbp\cdot\bsig=\ii\partial^*-q\Phi.}
+ \label{eq:mechanical-paravector}
+\end{equation}
+Its adjugate reverses the vector part without conjugating $\ii$.
 Operator order matters in a field; an ordinary paravector determinant
 cannot replace their product.  For free commuting derivatives,
 $\Box=\partial_t^2-\pdr^2$ gives
@@ -2734,11 +2734,11 @@ the nonnegative real density
 
 For a complex paravector $Z$, define the complex-linear block map
 \begin{equation}
- \Wop(Z):=\begin{Bmatrix}0&Z\\\adj Z&0\end{Bmatrix}.
+ \Wop(Z):=\begin{Bmatrix}0&\adj Z\\Z&0\end{Bmatrix}.
  \label{eq:dirac-block-map}
 \end{equation}
 Here $\bI$ is the two-entry block identity.  Applying $\Wop(Z)$ twice
-multiplies the first entry by $Z\adj Z$ and the second by $\adj Z\,Z$.
+multiplies the first entry by $\adj Z\,Z$ and the second by $Z\adj Z$.
 Both products are the paravector determinant, so
 \begin{equation*}
  \Wop(Z)^2=\det(Z)\bI.
@@ -2748,21 +2748,24 @@ Hermitian conjugation also transposes the block:
 \begin{equation*}
  \Wop(Z)^{\mathsf H}=\Wop(Z^*).
 \end{equation*}
-Thus $\Wop(Z)$ is not generally Hermitian.  For the free field, define
-the Dirac operator as a function of the mass argument:
+Thus $\Wop(Z)$ is not generally Hermitian.  For operator arguments,
+$\operatorname{adj}$ reverses the vector part without reordering derivatives.
+For the free field, use
+$\hE=\ii\partial_t$, $\hbp=-\ii\pdr$ ($q=0$ in
+\eqref{eq:mechanical-paravector}) and define the Dirac operator:
 \begin{align}
- \hD(m)&:=\Wop(\ii\partial)-m\bI,
+ \hD(m)&:=\Wop(\hE+\hbp\cdot\bsig)-m\bI,
  \label{eq:dirac-operator}\\
- \hD(-m)&=\Wop(\ii\partial)+m\bI. \notag
+ \hD(-m)&=\Wop(\hE+\hbp\cdot\bsig)+m\bI. \notag
 \end{align}
 The Dirac equation is~\cite[p.~90]{tong-qft}
 \begin{equation}
  \boxed{\hD(m)\bPsi=0.}
  \label{eq:dirac}
 \end{equation}
-Since $\Wop(\ii\partial)^2=-\Box\bI$, its mass conjugate gives
+Since $\Wop(\hE+\hbp\cdot\bsig)^2=-\Box\bI$, its mass conjugate gives
 \begin{equation}
- \hD(-m)\hD(m)=\Wop(\ii\partial)^2-m^2\bI
+ \hD(-m)\hD(m)=\Wop(\hE+\hbp\cdot\bsig)^2-m^2\bI
             =-(\Box+m^2)\bI.
  \label{eq:dirac-free-factorization}
 \end{equation}
@@ -2776,7 +2779,7 @@ constraint is the coupled pair
 
 On one Fourier mode, let $s\in\C$ satisfy $\hD(m)\bPsi=s\bPsi$
 for a nonzero amplitude.  Here $\Box$ denotes its scalar mode eigenvalue.
-Since $\hD(m)+m\bI=\Wop(\ii\partial)$, \eqref{eq:dirac-free-factorization} gives
+Since $\hD(m)+m\bI=\Wop(\hE+\hbp\cdot\bsig)$, \eqref{eq:dirac-free-factorization} gives
 \[
  (\hD(m)+m\bI)^2\bPsi=-\Box\bPsi
  \quad\Longrightarrow\quad
@@ -2831,7 +2834,7 @@ Equation~\eqref{eq:kg-general-solution} evolves its two coefficients.
 Recall the real $\Phi=V+\bA\cdot\bsig$, real charge $q$, and
 $\hE=\ii\partial_t-qV$, $\hbp=-\ii\pdr-q\bA$.  Minimal coupling gives
 \begin{equation}
- \boxed{\bigl(\Wop(\ii\partial-q\Phi^*)-m\bI\bigr)\bPsi=0.}
+ \boxed{\bigl(\Wop(\hE+\hbp\cdot\bsig)-m\bI\bigr)\bPsi=0.}
  \label{eq:dirac-field}
 \end{equation}
 Its entries are
@@ -2842,7 +2845,7 @@ Its entries are
 Isolating the time derivative gives
 $\ii\partial_t\bPsi=\hH\bPsi$, where the Hamiltonian is
 \begin{equation}
- \hH:=qV\bI+\Wop(1)\bigl(m\bI+\Wop(\hbp\cdot\bsig)\bigr).
+ \hH:=qV\bI+\Wop(1)\bigl(m\bI-\Wop(\hbp\cdot\bsig)\bigr).
  \label{eq:dirac-hamiltonian}
 \end{equation}
 For real potentials, the Dirac equation conserves total probability
@@ -2884,19 +2887,22 @@ The difference of \eqref{eq:potential-product-one} and
 
 Applying the block map $\Wop$ twice gives
 \begin{align*}
- \Wop(\partial)\Wop(\Phi^*)\bPsi
+ \Wop(\partial^*)\Wop(\Phi)\bPsi
    &=\begin{Bmatrix}\partial(\Phi\Psi_1)\\\partial^*(\Phi^*\Psi_2)\end{Bmatrix},\\
- \Wop(\Phi^*)\Wop(\partial)\bPsi
+ \Wop(\Phi)\Wop(\partial^*)\bPsi
    &=\begin{Bmatrix}\Phi^*\partial^*\Psi_1\\\Phi\partial\Psi_2\end{Bmatrix},\\
- \Wop(\Phi^*)^2&=\det\Phi\,\bI.
+ \Wop(\Phi)^2&=\det\Phi\,\bI.
 \end{align*}
 Differentiating a parenthesized product includes the potential derivative.
 For the fixed potential $\Phi$ and charge $q$, use the interacting
-Dirac operator and its opposite-mass partner
+Dirac operator
 \begin{align}
- \hD(m)&:=\Wop(\ii\partial-q\Phi^*)-m\bI,
+ \hD(m)&:=\Wop(\hE+\hbp\cdot\bsig)-m\bI
  \label{eq:dirac-field-operator}\\
- \hD(-m)&=\Wop(\ii\partial-q\Phi^*)+m\bI. \notag
+ &=\begin{Bmatrix}
+ -m&\hE-\hbp\cdot\bsig\\
+ \hE+\hbp\cdot\bsig&-m
+ \end{Bmatrix}. \notag
 \end{align}
 The argument $-m$ changes only the mass sign, keeping $q$ and $\Phi$
 fixed.  Multiplying and using the preceding mixed-derivative identities gives
@@ -2950,21 +2956,20 @@ not satisfy the first-order coupling.
 Recall the real scalar $\lambda:\R^4\to\R$ and gauge transformation
 $\Phi'=\Phi+\partial^*\lambda$, or
 $V'=V+\partial_t\lambda$, $\bA'=\bA-\pdr\lambda$.
-The extra derivatives of $\lambda$ are canceled by differentiating a
-scalar phase.  Write $\bPsi=e^{\ii q\lambda}\bPsi'$; entrywise,
+For $\hE'=\ii\partial_t-qV'$ and $\hbp'=-\ii\pdr-q\bA'$, the product rule gives
 \begin{align*}
- (\ii\partial-q\Phi^*)(e^{\ii q\lambda}\Psi_k')
+ (\hE+\hbp\cdot\bsig)(e^{\ii q\lambda}\Psi_k')
  &=e^{\ii q\lambda}
-   (\ii\partial-q\partial\lambda-q\Phi^*)\Psi_k'\\
- &=e^{\ii q\lambda}(\ii\partial-q\Phi'^*)\Psi_k'.
+   (\hE-q\partial_t\lambda+\hbp\cdot\bsig
+      +q(\pdr\lambda)\cdot\bsig)\Psi_k'\\
+ &=e^{\ii q\lambda}(\hE'+\hbp'\cdot\bsig)\Psi_k'.
 \end{align*}
-The same product rule for $\ii\partial^*-q\Phi$ gives the other block entry.
+The adjugate block follows with the vector signs reversed.
 Thus the new amplitude is
 \begin{equation*}
  \bPsi'=e^{-\ii q\lambda}\bPsi.
 \end{equation*}
-With $\hE'=\ii\partial_t-qV'$ and $\hbp'=-\ii\pdr-q\bA'$, the same
-product rule gives
+Equivalently,
 \begin{align*}
  \hE'\bPsi'&=e^{-\ii q\lambda}\hE\bPsi,\\
  \hbp'\bPsi'&=e^{-\ii q\lambda}\hbp\bPsi.
@@ -2972,9 +2977,9 @@ product rule gives
 Consequently
 \begin{equation}
  \begin{aligned}
- &\bigl(\Wop(\ii\partial-q\Phi'^*)-m\bI\bigr)\bPsi'\\
+ &\bigl(\Wop(\hE'+\hbp'\cdot\bsig)-m\bI\bigr)\bPsi'\\
  &\qquad=e^{-\ii q\lambda}
-       \bigl(\Wop(\ii\partial-q\Phi^*)-m\bI\bigr)\bPsi.
+       \bigl(\Wop(\hE+\hbp\cdot\bsig)-m\bI\bigr)\bPsi.
  \end{aligned}
  \label{eq:gauge-operator-covariance}
 \end{equation}
@@ -3413,11 +3418,11 @@ $X'=TXT^{\mathsf H}$ uses
  \Psi_1'(X')&=T^*\Psi_1(X),\\
  \Psi_2'(X')&=T\Psi_2(X).
 \end{align*}
-Indeed, the first interacting equation~\eqref{eq:dirac-entry-one}
-transforms by cancellation:
+Primed mechanical operators use the primed coordinates and potentials.
+The first interacting equation~\eqref{eq:dirac-entry-one} transforms by cancellation:
 \begin{equation*}
- (\ii\partial'-q\Phi'^*)\Psi_2'
- =T^*(\ii\partial-q\Phi^*)\Psi_2=m\Psi_1'.
+ (\hE'-\hbp'\cdot\bsig)\Psi_2'
+ =T^*(\hE-\hbp\cdot\bsig)\Psi_2=m\Psi_1'.
 \end{equation*}
 Equation~\eqref{eq:dirac-entry-two} transforms in the same way with left factor
 $T$; $q=0$ gives the free case.
@@ -3872,13 +3877,13 @@ The operators and wave equations are
    \tag*{\eqref{eq:kinetic-electric-commutator}}\\
  (-\hE^2+\hbp^2+m^2)\psi&=0,
    \tag*{\eqref{eq:kg-field}}\\
- \Wop(Z)&=\begin{Bmatrix}0&Z\\\adj Z&0\end{Bmatrix}.
+ \Wop(Z)&=\begin{Bmatrix}0&\adj Z\\Z&0\end{Bmatrix}.
    \tag*{\eqref{eq:dirac-block-map}}
 \end{align*}
 Here $Z$ is a complex paravector and $\bI$ the block identity.
-For the free field, the Dirac operator, equation, and factorization are
+For the free field ($q=0$), the Dirac operator, equation, and factorization are
 \begin{align*}
- \hD(m)&=\Wop(\ii\partial)-m\bI,
+ \hD(m)&=\Wop(\hE+\hbp\cdot\bsig)-m\bI,
    \tag*{\eqref{eq:dirac-operator}}\\
  \hD(m)\bPsi&=0,
    \tag*{\eqref{eq:dirac}}\\
@@ -3887,9 +3892,9 @@ For the free field, the Dirac operator, equation, and factorization are
 \end{align*}
 For fixed $q$ and $\Phi$, the interacting definition and equation are
 \begin{align*}
- \hD(m)&=\Wop(\ii\partial-q\Phi^*)-m\bI,
+ \hD(m)&=\Wop(\hE+\hbp\cdot\bsig)-m\bI,
    \tag*{\eqref{eq:dirac-field-operator}}\\
- \hD(m)\bPsi&=(\Wop(\ii\partial-q\Phi^*)-m\bI)\bPsi=0.
+ \hD(m)\bPsi&=(\Wop(\hE+\hbp\cdot\bsig)-m\bI)\bPsi=0.
    \tag*{\eqref{eq:dirac-field}}
 \end{align*}
 In each definition, $\hD(-m)$ changes only the sign of the mass term.
@@ -4233,8 +4238,8 @@ For a Dirac block $\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$, let
 $\bpsi_1,\bpsi_2\in\C^2$ be the corresponding columns.  Then
 \[
  \Wop(Z)\bPsi\quad\longleftrightarrow\quad
- \begin{Bmatrix}0&\operatorname{mat}(Z)\\
- \operatorname{mat}(\adj Z)&0\end{Bmatrix}
+ \begin{Bmatrix}0&\operatorname{mat}(\adj Z)\\
+ \operatorname{mat}(Z)&0\end{Bmatrix}
  \begin{Bmatrix}\bpsi_1\\\bpsi_2\end{Bmatrix}.
 \]
 The block norm in \eqref{eq:dirac-norm} becomes the ordinary four-component norm:
@@ -4322,7 +4327,7 @@ $\gamma^j\gamma^k+\gamma^k\gamma^j=0$ for distinct
 $j,k=0,1,2,3$.  The standard chiral Dirac operator in this basis,
 with signature $(+,-,-,-)$, is~\cite[p.~83]{tong-qft}
 \begin{equation*}
- \Wop(\ii\partial-q\Phi^*)
+ \Wop(\hE+\hbp\cdot\bsig)
  \quad\longleftrightarrow\quad
  \gamma^0\hE-\sum_{k=1}^3\gamma^k\hat p_k.
 \end{equation*}

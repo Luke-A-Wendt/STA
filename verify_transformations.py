@@ -59,7 +59,7 @@ def coeff(z):
 
 
 def W(z):
-    return s.BlockMatrix(((zero, z), (adj(z), zero))).as_explicit()
+    return s.BlockMatrix(((zero, adj(z)), (z, zero))).as_explicit()
 
 
 def check(name, expression, reduce=s.expand):
@@ -239,16 +239,17 @@ check("successive field maps use T_total=T2 T1", field_map(booster, field_map(ro
 check("component maps compose in physical order", component_map(composite)
       - component_map(booster) * component_map(rotor))
 
-# Four by four Dirac matrices, including all four component equations.
+# W has adj(Z) above Z; its energy-momentum input is a four-vector.
+# Conventional gamma^j = -W(sigma_j), with the physical Dirac blocks unchanged.
 T, Ti = composite, adj(composite)
 spin = s.diag(Ti.H, T)
-gamma_matrices = (W(one), *(W(item) for item in sigma))
+gamma_matrices = (W(one), *(-W(item) for item in sigma))
 eta = s.diag(1, -1, -1, -1)
 check("Dirac gamma anticommutators", s.Matrix.vstack(*(g * k + k * g - 2 * eta[i, j] * s.eye(4)
       for i, g in enumerate(gamma_matrices) for j, k in enumerate(gamma_matrices))))
 k = s.symbols("k0:4", real=True)
 momentum_symbol = k[0] * one + vector(s.Matrix(k[1:]))
-new_symbol = Ti.H * momentum_symbol * Ti
+new_symbol = T * momentum_symbol * T.H
 mass, charge = s.symbols("m q", real=True)
 potential = event
 new_potential = event_map(T, potential)
@@ -256,8 +257,8 @@ D = W(momentum_symbol) - mass * s.eye(4)
 Dp = W(new_symbol) - mass * s.eye(4)
 check("Dirac principal symbol covariance in every component", Dp * spin - spin * D)
 check("Dirac minimal potential covariance in every component",
-      (W(new_symbol - charge * star(new_potential)) - mass * s.eye(4)) * spin
-      - spin * (W(momentum_symbol - charge * star(potential)) - mass * s.eye(4)))
+      (W(new_symbol - charge * new_potential) - mass * s.eye(4)) * spin
+      - spin * (W(momentum_symbol - charge * potential) - mass * s.eye(4)))
 check("opposite Dirac mass signs factor Klein-Gordon", (W(s.I * momentum_symbol) - mass * s.eye(4))
       * (W(s.I * momentum_symbol) + mass * s.eye(4))
       + (momentum_symbol.det() + mass**2) * s.eye(4))

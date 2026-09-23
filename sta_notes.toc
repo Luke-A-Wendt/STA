@@ -61,15 +61,15 @@
 \contentsline {subsection}{\numberline {8.2}Energy and momentum as differential operators}{35}{subsection.8.2}%
 \contentsline {subsubsection}{\numberline {8.2.1}Field strength from noncommuting derivatives}{36}{subsubsection.8.2.1}%
 \contentsline {subsection}{\numberline {8.3}Klein--Gordon equation}{36}{subsection.8.3}%
-\contentsline {subsubsection}{\numberline {8.3.1}Positive and negative frequency}{37}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.1}Positive and negative frequency}{36}{subsubsection.8.3.1}%
 \contentsline {subsubsection}{\numberline {8.3.2}Square roots from Fourier series}{37}{subsubsection.8.3.2}%
 \contentsline {subsubsection}{\numberline {8.3.3}Potential}{38}{subsubsection.8.3.3}%
 \contentsline {subsection}{\numberline {8.4}Dirac equation}{38}{subsection.8.4}%
 \contentsline {subsubsection}{\numberline {8.4.1}Block form and free factorization}{38}{subsubsection.8.4.1}%
 \contentsline {subsubsection}{\numberline {8.4.2}Reconstructing free solutions from Klein--Gordon}{39}{subsubsection.8.4.2}%
 \contentsline {subsubsection}{\numberline {8.4.3}Potential and paravector components}{40}{subsubsection.8.4.3}%
-\contentsline {subsubsection}{\numberline {8.4.4}Interacting factorization and reconstruction}{41}{subsubsection.8.4.4}%
-\contentsline {subsubsection}{\numberline {8.4.5}Gauge phase}{42}{subsubsection.8.4.5}%
+\contentsline {subsubsection}{\numberline {8.4.4}Interacting factorization and reconstruction}{40}{subsubsection.8.4.4}%
+\contentsline {subsubsection}{\numberline {8.4.5}Gauge phase}{41}{subsubsection.8.4.5}%
 \contentsline {section}{\numberline {9}Low-energy limits}{42}{section.9}%
 \contentsline {subsection}{\numberline {9.1}Exact reduction and the energy recursion}{42}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}Leading order: Pauli}{44}{subsection.9.2}%
@@ -84,10 +84,10 @@
 \contentsline {subsection}{\numberline {11.2}Moving frames, clock rates, and lengths}{48}{subsection.11.2}%
 \contentsline {subsubsection}{\numberline {11.2.1}Intervals and light cones}{48}{subsubsection.11.2.1}%
 \contentsline {subsubsection}{\numberline {11.2.2}Spacetime increments and velocity}{49}{subsubsection.11.2.2}%
-\contentsline {subsubsection}{\numberline {11.2.3}Clock rates and measured lengths}{49}{subsubsection.11.2.3}%
+\contentsline {subsubsection}{\numberline {11.2.3}Clock rates and measured lengths}{50}{subsubsection.11.2.3}%
 \contentsline {subsubsection}{\numberline {11.2.4}Composing frames}{50}{subsubsection.11.2.4}%
 \contentsline {subsubsection}{\numberline {11.2.5}Energy and momentum}{50}{subsubsection.11.2.5}%
-\contentsline {subsection}{\numberline {11.3}Boosted fields and energy flux}{50}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.3}Boosted fields and energy flux}{51}{subsection.11.3}%
 \contentsline {section}{\numberline {A}Pauli-matrix representation}{52}{appendix.A}%
 \contentsline {subsection}{\numberline {A.1}Generators and products}{52}{subsection.A.1}%
 \contentsline {subsection}{\numberline {A.2}Conjugations and product order}{52}{subsection.A.2}%

@@ -49,7 +49,7 @@ check("sigma dot/cross product", vec(A) * vec(B) - A.dot(B) * one - i * vec(A.cr
 Z = (2 + 3 * i) * one + vec(A + i * B)
 S = i * sigma[1]
 check("sigma conjugation", S.inv() * Z.conjugate() * S - ((2 - 3*i)*one - vec(A-i*B)))
-W = lambda z: s.BlockMatrix([[s.zeros(2), z], [adj(z), s.zeros(2)]]).as_explicit()
+W = lambda z: s.BlockMatrix([[s.zeros(2), adj(z)], [z, s.zeros(2)]]).as_explicit()
 check("Dirac block adjoint", W(Z).H - W(S.inv()*Z.conjugate()*S))
 check("algebraic Dirac square", W(Z)**2 - Z.det()*s.eye(4))
 
@@ -129,7 +129,7 @@ check("free mode normalization", (positive.H*positive)[0]-1)
 check("energy orthogonality", (positive.H*negative)[0])
 Q = (s.eye(4)+H/energy)/2
 check("Hermitian energy projector", Q**2-Q)
-check("mass-shell determinant multiplicity", (W(adj(energy*one+K))-m*s.eye(4)-s.Symbol('z')*s.eye(4)).det() - ((m+s.Symbol('z'))**2-m**2)**2)
+check("mass-shell determinant multiplicity", (W(energy*one+K)-m*s.eye(4)-s.Symbol('z')*s.eye(4)).det() - ((m+s.Symbol('z'))**2-m**2)**2)
 A = (energy+m)*one+K
 T = s.BlockMatrix([[adj(A), A], [A, -adj(A)]]).as_explicit()/(2*s.sqrt(energy*(energy+m)))
 check("free FW map unitarity", T.H*T-s.eye(4))
