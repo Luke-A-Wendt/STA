@@ -168,7 +168,7 @@ F=(\mathbf E+\mathrm{i}\mathbf B)\cdot\boldsymbol{\sigma},
 \qquad \boxed{\partial F=\rho-\mathbf J\cdot\boldsymbol{\sigma}.}
 ```
 
-Equating its four components gives [Maxwell's equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations):
+Here $`\rho`$ is [charge density](https://en.wikipedia.org/wiki/Charge_density), $`\mathbf J`$ is [current density](https://en.wikipedia.org/wiki/Current_density), and $`\partial_{\mathbf r}`$ is the [gradient](https://en.wikipedia.org/wiki/Gradient). Its [divergence](https://en.wikipedia.org/wiki/Divergence) and [curl](https://en.wikipedia.org/wiki/Curl_%28mathematics%29) give the four components of [Maxwell's equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations):
 
 ```math
 \begin{aligned}
@@ -179,7 +179,7 @@ Equating its four components gives [Maxwell's equations](https://en.wikipedia.or
 \end{aligned}
 ```
 
-Applying $`\partial^{*}=\partial_t-\partial_{\mathbf r}\cdot\boldsymbol{\sigma}`$ gives the [d'Alembertian](https://en.wikipedia.org/wiki/D%27Alembert_operator) and the [sourced wave equations](https://en.wikipedia.org/wiki/Wave_equation):
+Applying $`\partial^{*}=\partial_t-\partial_{\mathbf r}\cdot\boldsymbol{\sigma}`$ gives the [d'Alembertian](https://en.wikipedia.org/wiki/D%27Alembert_operator) and the [sourced wave equations](https://en.wikipedia.org/wiki/Inhomogeneous_electromagnetic_wave_equation):
 
 ```math
 \begin{aligned}
@@ -201,6 +201,68 @@ Since $`\Box F=(\Box\mathbf E+\mathrm{i}\Box\mathbf B)\cdot\boldsymbol{\sigma}`$
 ```
 
 In vacuum, $`\Box F=0`$.
+
+## [Electromagnetic potentials](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) and [gauge invariance](https://en.wikipedia.org/wiki/Electromagnetic_four-potential#Gauge_freedom)
+
+Define the real [four-potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) from the [scalar potential](https://en.wikipedia.org/wiki/Electric_potential) $`V`$ and [vector potential](https://en.wikipedia.org/wiki/Magnetic_vector_potential) $`\mathbf A`$, with gauge scalar $`S`$:
+
+```math
+\Phi=V+\mathbf A\cdot\boldsymbol{\sigma},
+\qquad S=\mathrm{sc}(\partial\Phi).
+```
+
+**Fields from the potential:**
+
+```math
+\boxed{\partial\Phi=S+F^{*}}
+```
+
+Its components give
+
+```math
+\begin{aligned}
+\text{Real scalar:}\quad &S=\partial_tV+\partial_{\mathbf r}\cdot\mathbf A,\\
+\text{Imaginary scalar:}\quad &0=0,\\
+\text{Real vector:}\quad &\mathbf E=-\partial_t\mathbf A-\partial_{\mathbf r}V,\\
+\text{Imaginary vector:}\quad &\mathbf B=\partial_{\mathbf r}\times\mathbf A.
+\end{aligned}
+```
+
+**Source equations in any [gauge](https://en.wikipedia.org/wiki/Gauge_fixing):**
+
+```math
+\boxed{\Box\Phi^{*}-\partial S=\rho-\mathbf J\cdot\boldsymbol{\sigma}}
+```
+
+Its components give
+
+```math
+\begin{aligned}
+\text{Real scalar:}\quad &\Box V-\partial_tS=\rho,\\
+\text{Imaginary scalar:}\quad &0=0,\\
+\text{Real vector:}\quad &\Box\mathbf A+\partial_{\mathbf r}S=\mathbf J,\\
+\text{Imaginary vector:}\quad &\mathbf 0=\mathbf 0.
+\end{aligned}
+```
+
+**[Gauge invariance](https://en.wikipedia.org/wiki/Electromagnetic_four-potential#Gauge_freedom):** for real scalar $`\lambda`$,
+
+```math
+\begin{aligned}
+\Phi'&=\Phi+\partial^{*}\lambda,\\
+S'&=S+\Box\lambda,\\
+F'&=F.
+\end{aligned}
+```
+
+**[Lorenz gauge](https://en.wikipedia.org/wiki/Lorenz_gauge_condition):** $`S=0`$ gives the [potential wave equations](https://en.wikipedia.org/wiki/Inhomogeneous_electromagnetic_wave_equation)
+
+```math
+\begin{aligned}
+\text{Real scalar:}\quad &\Box V=\rho,\\
+\text{Real vector:}\quad &\Box\mathbf A=\mathbf J.
+\end{aligned}
+```
 
 ## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) as a first-order wave equation
 
