@@ -52,23 +52,28 @@ The product carries both the [dot](https://en.wikipedia.org/wiki/Dot_product) an
 
 Here we use the convention $`\mathbf V^2:=\mathbf V\cdot\mathbf V`$.
 
-## Six core operations
+## Core operations
 
-[Determinant](https://en.wikipedia.org/wiki/Determinant), [trace](https://en.wikipedia.org/wiki/Trace_%28linear_algebra%29), [squared norm](https://en.wikipedia.org/wiki/Norm_%28mathematics%29), [inverse](https://en.wikipedia.org/wiki/Invertible_matrix), and the two conjugations below.
+[Determinant](https://en.wikipedia.org/wiki/Determinant), [trace](https://en.wikipedia.org/wiki/Trace_%28linear_algebra%29), [squared norm](https://en.wikipedia.org/wiki/Norm_%28mathematics%29), adjugate, [inverse](https://en.wikipedia.org/wiki/Invertible_matrix), and the two conjugations below.
 
 Write $`Z=S+\mathbf V\cdot\boldsymbol{\sigma}`$, where $`S\in\mathbb C`$ is a complex scalar and $`\mathbf V\in\mathbb C^3`$ is a complex vector.
 
-On coefficients, $`^{*}`$ means ordinary [complex conjugation](https://en.wikipedia.org/wiki/Complex_conjugate). On a paravector, it also reverses the vector sign; $`^{\mathsf H}`$ is [Hermitian conjugation](https://en.wikipedia.org/wiki/Conjugate_transpose).
+$`(\,)^{*}:=`$ [complex conjugation](https://en.wikipedia.org/wiki/Complex_conjugate) of complex numbers and a sign flip of $`\boldsymbol{\sigma}`$.
+
+$`(\,)^{\mathsf H}:=`$ [Hermitian conjugation](https://en.wikipedia.org/wiki/Conjugate_transpose).
 
 ```math
+\begin{gathered}
 \begin{aligned}
 \det Z&=S^2-\mathbf V\cdot\mathbf V,
-&\mathrm{tr}\,Z&=2S,\\
-\lVert Z\rVert^2&=S^{*}S+\mathbf V^{*}\cdot\mathbf V,
-&Z^{-1}&=\frac{S-\mathbf V\cdot\boldsymbol{\sigma}}{\det Z}\quad(\det Z\ne0),\\
+&\mathrm{adj}\,Z&=S-\mathbf V\cdot\boldsymbol{\sigma},\\
+\mathrm{tr}\,Z&=2S,
+&\lVert Z\rVert^2&=S^{*}S+\mathbf V^{*}\cdot\mathbf V,\\
 Z^{*}&=S^{*}-\mathbf V^{*}\cdot\boldsymbol{\sigma},
 &Z^{\mathsf H}&=S^{*}+\mathbf V^{*}\cdot\boldsymbol{\sigma}.
-\end{aligned}
+\end{aligned}\\[6pt]
+Z^{-1}=\frac{\mathrm{adj}\,Z}{\det Z}\qquad(\det Z\ne0).
+\end{gathered}
 ```
 
 ## Rotations, boosts, and projections
@@ -180,7 +185,7 @@ Package two paravector [amplitudes](https://en.wikipedia.org/wiki/Probability_am
 \mathbf W(Z)=
 \begin{pmatrix}
 0 & Z \\
-Z^{*\mathsf H} & 0
+\mathrm{adj}\,Z & 0
 \end{pmatrix},
 \qquad \mathbf W(Z)^2=\det(Z)\mathbf I.
 ```
