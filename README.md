@@ -23,12 +23,34 @@ Z&=(a+b\mathrm{i})+(\mathbf A+\mathrm{i}\mathbf B)\cdot\boldsymbol{\sigma},
 ```
 
 Eight real components, written as a complex scalar and a complex vector:
-$`Z=S+\mathbf V\cdot\boldsymbol{\sigma}`$. The product carries both the [dot](https://en.wikipedia.org/wiki/Dot_product) and [cross](https://en.wikipedia.org/wiki/Cross_product) products:
+
+```math
+Z=S+\mathbf V\cdot\boldsymbol{\sigma}=X+\mathrm{i}Y,
+\qquad X=a+\mathbf A\cdot\boldsymbol{\sigma},
+\quad Y=b+\mathbf B\cdot\boldsymbol{\sigma}.
+```
+
+The component extractions are
+
+```math
+\begin{aligned}
+\mathrm{re}(Z)&=X,\\
+\mathrm{im}(Z)&=Y,\\
+\mathrm{sc}(Z)&=S=a+\mathrm{i}b,\\
+\mathrm{vec}(Z)&=\mathbf V=\mathbf A+\mathrm{i}\mathbf B.
+\end{aligned}
+```
+
+## Product
+
+The product carries both the [dot](https://en.wikipedia.org/wiki/Dot_product) and [cross](https://en.wikipedia.org/wiki/Cross_product) products:
 
 ```math
 (\mathbf A\cdot\boldsymbol{\sigma})(\mathbf B\cdot\boldsymbol{\sigma})
 =\mathbf A\cdot\mathbf B+\mathrm{i}(\mathbf A\times\mathbf B)\cdot\boldsymbol{\sigma}.
 ```
+
+Here we use the convention $`\mathbf V^2:=\mathbf V\cdot\mathbf V`$.
 
 ## Six core operations
 
@@ -92,7 +114,7 @@ t'&=\gamma(t-\beta\mathbf u\cdot\mathbf r),\\
 
 ## Spacetime from the [determinant](https://en.wikipedia.org/wiki/Determinant)
 
-For a future-directed massive particle, [proper time](https://en.wikipedia.org/wiki/Proper_time) and [four-momentum](https://en.wikipedia.org/wiki/Four-momentum) follow from a real paravector, with [four-velocity](https://en.wikipedia.org/wiki/Four-velocity) $`U`$. Here $`\mathrm d\mathbf r^2:=\mathrm d\mathbf r\cdot\mathrm d\mathbf r`$:
+For a future-directed massive particle, [proper time](https://en.wikipedia.org/wiki/Proper_time) and [four-momentum](https://en.wikipedia.org/wiki/Four-momentum) follow from a real paravector, with [four-velocity](https://en.wikipedia.org/wiki/Four-velocity) $`U`$.
 
 ```math
 \begin{aligned}
