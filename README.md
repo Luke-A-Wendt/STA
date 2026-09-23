@@ -119,15 +119,15 @@ t'&=\gamma(t-\beta\mathbf u\cdot\mathbf r),\\
 ## Projections and spectral decomposition
 
 ```math
-Z=S+\theta\mathbf u\cdot\boldsymbol{\sigma},
-\qquad S,\theta\in\mathbb C,\quad \mathbf u\in\mathbb C^3,\quad \mathbf u^2=1.
+Z=a+b\mathbf u\cdot\boldsymbol{\sigma},
+\qquad a,b\in\mathbb C,\quad \mathbf u\in\mathbb C^3,\quad \mathbf u^2=1.
 ```
 
 The eigenvalues and complementary [projectors](https://en.wikipedia.org/wiki/Paravector#Null_paravectors_as_projectors) are
 
 ```math
 \begin{gathered}
-\lambda_\pm=S\pm\theta,
+\lambda_\pm=a\pm b,
 \qquad \Pi_\pm=\frac12(1\pm\mathbf u\cdot\boldsymbol{\sigma}),\\[4pt]
 \Pi_\pm^2=\Pi_\pm,\qquad \Pi_+\Pi_-=0,\qquad \Pi_-+\Pi_+=1.
 \end{gathered}
