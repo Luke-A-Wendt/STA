@@ -52,6 +52,12 @@ The product carries both the [dot](https://en.wikipedia.org/wiki/Dot_product) an
 
 Here we use the convention $`\mathbf V^2:=\mathbf V\cdot\mathbf V`$.
 
+The [commutator](https://en.wikipedia.org/wiki/Commutator) is
+
+```math
+[A,B]:=AB-BA.
+```
+
 ## Core operations
 
 [Determinant](https://en.wikipedia.org/wiki/Determinant), [trace](https://en.wikipedia.org/wiki/Trace_%28linear_algebra%29), [squared norm](https://en.wikipedia.org/wiki/Norm_%28mathematics%29), adjugate, [inverse](https://en.wikipedia.org/wiki/Invertible_matrix), and the two conjugations below.
@@ -235,8 +241,7 @@ The exact energy recursion includes the [commutator](https://en.wikipedia.org/wi
 \begin{aligned}
 \hat E\Psi_2'&=\frac{(\hat{\mathbf p}\cdot\boldsymbol{\sigma})^2-\hat E^2
 -[\hat{\mathbf p}\cdot\boldsymbol{\sigma},\hat E]}{2m}\Psi_2',\\
-[\hat{\mathbf p}\cdot\boldsymbol{\sigma},\hat E]&=-\mathrm{i}q\mathbf E\cdot\boldsymbol{\sigma},
-\qquad [A,B]:=AB-BA.
+[\hat{\mathbf p}\cdot\boldsymbol{\sigma},\hat E]&=-\mathrm{i}q\mathbf E\cdot\boldsymbol{\sigma}.
 \end{aligned}
 ```
 
