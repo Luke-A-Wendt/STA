@@ -50,7 +50,7 @@ The product carries both the [dot](https://en.wikipedia.org/wiki/Dot_product) an
 =\mathbf A\cdot\mathbf B+\mathrm{i}(\mathbf A\times\mathbf B)\cdot\boldsymbol{\sigma}.
 ```
 
-Here we use the convention $`\mathbf V^2:=\mathbf V\cdot\mathbf V`$.
+Here we use the convention $`\mathbf A^2:=\mathbf A\cdot\mathbf A`$.
 
 The [commutator](https://en.wikipedia.org/wiki/Commutator) is
 
