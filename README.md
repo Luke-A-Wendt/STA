@@ -50,7 +50,7 @@ The product carries both the [dot](https://en.wikipedia.org/wiki/Dot_product) an
 =\mathbf A\cdot\mathbf B+\mathrm{i}(\mathbf A\times\mathbf B)\cdot\boldsymbol{\sigma}.
 ```
 
-Here we use the convention $`\mathbf V^2:=\mathbf V\cdot\mathbf V`$.
+Here we use the convention $`\mathbf A^2:=\mathbf A\cdot\mathbf A`$.
 
 The [commutator](https://en.wikipedia.org/wiki/Commutator) is
 
@@ -66,12 +66,12 @@ Write $`Z=S+\mathbf V\cdot\boldsymbol{\sigma}`$, where $`S\in\mathbb C`$ is a co
 
 $`(\,)^{*}:=`$ [complex conjugation](https://en.wikipedia.org/wiki/Complex_conjugate) of complex numbers and a sign flip of $`\boldsymbol{\sigma}`$.
 
-$`(\,)^{\mathsf H}:=`$ [Hermitian conjugation](https://en.wikipedia.org/wiki/Conjugate_transpose).
+$`(\,)^{\mathsf H}:=`$ [Hermitian conjugation](https://en.wikipedia.org/wiki/Conjugate_transpose), which flips the order of multiplied $`\sigma_k`$.
 
 ```math
 \begin{gathered}
 \begin{aligned}
-\det Z&=S^2-\mathbf V\cdot\mathbf V,
+\det Z&=S^2-\mathbf V^2,
 &\mathrm{adj}\,Z&=S-\mathbf V\cdot\boldsymbol{\sigma},\\
 \mathrm{tr}\,Z&=2S,
 &\lVert Z\rVert^2&=S^{*}S+\mathbf V^{*}\cdot\mathbf V,\\
@@ -119,15 +119,15 @@ t'&=\gamma(t-\beta\mathbf u\cdot\mathbf r),\\
 ## Projections and spectral decomposition
 
 ```math
-Z=S+\theta\mathbf u\cdot\boldsymbol{\sigma},
-\qquad S,\theta\in\mathbb C,\quad \mathbf u\in\mathbb C^3,\quad \mathbf u^2=1.
+Z=a+b\mathbf u\cdot\boldsymbol{\sigma},
+\qquad a,b\in\mathbb C,\quad \mathbf u\in\mathbb C^3,\quad \mathbf u^2=1.
 ```
 
 The eigenvalues and complementary [projectors](https://en.wikipedia.org/wiki/Paravector#Null_paravectors_as_projectors) are
 
 ```math
 \begin{gathered}
-\lambda_\pm=S\pm\theta,
+\lambda_\pm=a\pm b,
 \qquad \Pi_\pm=\frac12(1\pm\mathbf u\cdot\boldsymbol{\sigma}),\\[4pt]
 \Pi_\pm^2=\Pi_\pm,\qquad \Pi_+\Pi_-=0,\qquad \Pi_-+\Pi_+=1.
 \end{gathered}
