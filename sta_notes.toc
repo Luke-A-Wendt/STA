@@ -100,12 +100,18 @@
 \contentsline {paragraph}{Characteristic polynomial.}{55}{section*.14}%
 \contentsline {subsection}{\numberline {A.7}Four components and the standard Dirac basis}{56}{subsection.A.7}%
 \contentsline {subsection}{\numberline {A.8}Quaternion matrix image}{57}{subsection.A.8}%
-\contentsline {section}{References}{57}{section*.15}%
-\contentsline {section}{Equation reference}{59}{section*.16}%
-\contentsline {paragraph}{Algebra.}{59}{section*.17}%
-\contentsline {paragraph}{Rotations and boosts.}{59}{section*.37}%
-\contentsline {paragraph}{Spacetime and particles.}{60}{section*.52}%
-\contentsline {paragraph}{Electromagnetism.}{60}{section*.71}%
-\contentsline {paragraph}{Relativistic waves.}{61}{section*.88}%
-\contentsline {paragraph}{Low-energy limits.}{61}{section*.111}%
-\contentsline {paragraph}{Spin and probabilities.}{62}{section*.114}%
+\contentsline {section}{\numberline {B}Conventions}{58}{appendix.B}%
+\contentsline {paragraph}{Exponent sign and sandwich order.}{58}{section*.15}%
+\contentsline {paragraph}{Hamilton quaternions fix the basis orientation.}{58}{section*.16}%
+\contentsline {paragraph}{Rotating a state versus changing the measured observable.}{59}{section*.17}%
+\contentsline {paragraph}{Fields and wave amplitudes under either notation.}{59}{section*.18}%
+\contentsline {paragraph}{Preserved quantities.}{60}{section*.19}%
+\contentsline {section}{References}{60}{section*.20}%
+\contentsline {section}{Equation reference}{62}{section*.21}%
+\contentsline {paragraph}{Algebra.}{62}{section*.22}%
+\contentsline {paragraph}{Rotations and boosts.}{62}{section*.42}%
+\contentsline {paragraph}{Spacetime and particles.}{63}{section*.57}%
+\contentsline {paragraph}{Electromagnetism.}{63}{section*.76}%
+\contentsline {paragraph}{Relativistic waves.}{64}{section*.93}%
+\contentsline {paragraph}{Low-energy limits.}{64}{section*.116}%
+\contentsline {paragraph}{Spin and probabilities.}{65}{section*.119}%

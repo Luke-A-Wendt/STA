@@ -3348,7 +3348,8 @@ is $\cos^2(\theta/2)$.
 \label{sec:transformations}
 
 We now apply the algebraic actions of Section~\ref{sec:preserved-quantities}
-to the physical variables already defined.  Primed fields are evaluated at
+to the physical variables already defined.  Appendix~\ref{sec:conventions}
+compares alternative exponent signs and sandwich orders.  Primed fields are evaluated at
 $X'$ and unprimed fields at $X$.  The frame factors here are constant;
 varying factors are treated in Section~\ref{sec:varying-transformations}.
 
@@ -4406,6 +4407,192 @@ The conjugation and norm identities become
 \end{align*}
 For a unit quaternion, $a^2+\bA^2=1$, these identities give a unitary
 matrix of determinant one.
+
+\clearpage
+\section{Conventions}
+\label{sec:conventions}
+
+Fix the right-handed sigma product and write
+$N=\bu\cdot\bsig$, with real $\bu^2=1$.  The alternatives below change
+notation or transformation direction, not the underlying physics.
+The main text uses $R=R_-$ and $L=L_-$, with
+\[
+ R_\pm=e^{\pm\ii\theta N/2},\qquad
+ L_\pm=e^{\pm\theta N/2},\qquad
+ R_\pm^{\mathsf H}=R_\pm^{-1}=R_\mp,\qquad
+ L_\pm^{\mathsf H}=L_\pm,\quad L_\pm^{-1}=L_\mp.
+\]
+Here $\theta$ is a rotation angle for $R_\pm$ and rapidity for $L_\pm$.
+
+\paragraph{Exponent sign and sandwich order.}
+For $X=t+\br\cdot\bsig$, the four choices for each kind of factor are
+summarized by the two action columns:
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Factor $T$ & $X'=TXT^{\mathsf H}$ & $X'=T^{\mathsf H}XT$\\
+\midrule
+$R_-$ & Active rotation $+\theta$ & Active rotation $-\theta$\\
+$R_+$ & Active rotation $-\theta$ & Active rotation $+\theta$\\
+$L_-$ & Frame velocity $+\beta\bu$ & Frame velocity $+\beta\bu$\\
+$L_+$ & Frame velocity $-\beta\bu$ & Frame velocity $-\beta\bu$\\
+\bottomrule
+\end{tabular}
+\end{center}
+For rotations $t'=t$.  Both $+\theta$ entries give
+\[
+ \br'=\br\cos\theta+(\bu\times\br)\sin\theta
+       +(1-\cos\theta)(\bu\cdot\br)\bu.
+\]
+This is the active right-handed Rodrigues formula~\eqref{eq:rodrigues};
+a passive rotation of axes uses the inverse map.
+
+For boosts, $\beta=\tanh\theta$ and $\gamma=\cosh\theta$.
+Writing $\br_\parallel=(\bu\cdot\br)\bu$ and
+$\br_\perp=\br-\br_\parallel$, both sandwiches with $L_\pm$ give
+\[
+ t'=\gamma(t\pm\beta\bu\cdot\br),\qquad
+ \br'=\br_\perp+\gamma(\br_\parallel\pm\beta t\bu).
+\]
+The minus choice sends $\br=\beta t\bu$ to $\br'=0$, fixing its frame
+velocity.  Moving the adjoint reverses a rotation but has no effect on a
+boost; reversing the boost exponent gives the inverse frame transformation.
+The same $L_+$ map can instead describe an active boost to velocity
+$+\beta\bu$ in fixed coordinates.
+
+\paragraph{Hamilton quaternions fix the basis orientation.}
+With the sigma orientation held fixed, the two uniform sign choices obey
+\[
+ \begin{aligned}
+ q_k=-\ii\sigma_k&:\quad q_jq_k=-\delta_{jk}+\epsilon_{jkl}q_l,\\
+ \widetilde q_k=+\ii\sigma_k&:\quad
+ \widetilde q_j\widetilde q_k=-\delta_{jk}-\epsilon_{jkl}\widetilde q_l.
+ \end{aligned}
+\]
+Repeated $l$ is summed.  Thus $q_1q_2=q_3$ is Hamilton's convention,
+whereas $\widetilde q_1\widetilde q_2=-\widetilde q_3$ has opposite orientation.
+For the Hamilton basis, Section~\ref{sec:quaternions} gives
+\[
+ Q=e^{\theta\bu\cdot\bq/2}=R_-,\qquad
+ Q^{\mathsf H}=Q^{-1},\qquad
+ \br'\cdot\bq=Q(\br\cdot\bq)Q^{\mathsf H}.
+\]
+Since $\br\cdot\bq=-\ii\br\cdot\bsig$ and $\ii$ commutes with $Q$,
+the same sandwich rotates $\br\cdot\bsig$, with no extra sign.
+For example, $Q=(1-\ii\sigma_3)/\sqrt2$ sends $\sigma_1$ to $\sigma_2$.
+
+Using $\widetilde q_k$ with
+$\widetilde Q=e^{\theta\bu\cdot\widetilde{\bq}/2}=R_+$ and the right-adjoint
+sandwich instead gives $-\theta$.  Recover $+\theta$ by reversing either
+the exponent or the sandwich.  Reflecting the basis also restores Hamilton
+multiplication, but changes its identification with the physical axes.
+Replacing a factor by its negative leaves both sandwiches unchanged;
+the spinor acquires an overall minus sign.  Consequently rotations are
+$2\pi$-periodic on vectors and $4\pi$-periodic on amplitudes.
+
+\paragraph{Rotating a state versus changing the measured observable.}
+With the Hamilton basis, the two consistent descriptions of the same
+active $+\theta$ rotation are
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+Choice & Quaternion relation & Rotated observable & Rotated amplitude\\
+\midrule
+$R=R_-$ & $R=Q$ & $Z'=RZR^{\mathsf H}$ & $\psi'=R\psi$\\
+$R=R_+$ & $R=Q^{\mathsf H}$ & $Z'=R^{\mathsf H}ZR$ & $\psi'=R^{\mathsf H}\psi$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Both have physical amplitude factor
+$e^{-\ii\theta N/2}$ and spin generator $N/2$.
+Changing only the vector sandwich would reverse its rotation relative to
+the spin polarization.
+
+For any invertible factor $G$ acting as $\psi'=G\psi$, the definitions
+\eqref{eq:probability-density} and \eqref{eq:paravector-expectation} give
+\begin{align*}
+ \rho&=\lVert\psi\rVert^2,\qquad
+ \rho'=\rho\langle G^{\mathsf H}G\rangle_\psi,\\
+ \langle\varphi'\mid\psi'\rangle
+ &=\scpart{\varphi^{\mathsf H}G^{\mathsf H}G\psi},\\
+ \langle Z\rangle_{\psi'}
+ &=\frac{\langle G^{\mathsf H}ZG\rangle_\psi}
+         {\langle G^{\mathsf H}G\rangle_\psi}.
+\end{align*}
+Here $\varphi'=G\varphi$, and $\rho>0$.  For a rotation $G^{\mathsf H}G=1$:
+\begin{equation}
+ \boxed{\langle Z\rangle_{\psi'}=\langle G^{\mathsf H}ZG\rangle_\psi,
+ \qquad
+ \langle GZG^{\mathsf H}\rangle_{\psi'}=\langle Z\rangle_\psi.}
+ \label{eq:conventions-expectations}
+\end{equation}
+The first identity measures fixed $Z$ in the rotated state; the second
+rotates the observable with the state.  Thus the opposite sandwich orders
+in \eqref{eq:conventions-expectations} are required, not competing conventions.
+For $G=L_\pm$, the denominator is $\langle L_\pm^2\rangle_\psi$:
+boosts generally change the local positive density and inner product.
+
+\paragraph{Fields and wave amplitudes under either notation.}
+Let $G$ be the constant physical factor of determinant one, so $X'=GXG^{\mathsf H}$.
+For notation $TXT^{\mathsf H}$ take $G=T$; for $T^{\mathsf H}XT$ take
+$G=T^{\mathsf H}$.  At corresponding events the laws are
+\begin{equation}
+ \begin{aligned}
+ Z'&=GZG^{\mathsf H},&& Z=X,P,\Phi,D,\\
+ F'&=GFG^{-1},&&\partial'=G^*\partial G^{-1},\\
+ \Psi_1'&=G^*\Psi_1,&&\Psi_2'=G\Psi_2,\\
+ \psi_{\mathrm{KG}}'(X')&=\psi_{\mathrm{KG}}(X).
+ \end{aligned}
+ \label{eq:conventions-field-laws}
+\end{equation}
+These are the covariance laws of Section~\ref{sec:transformations};
+$G^*=(G^{-1})^{\mathsf H}$.  The field $F$ uses similarity, not the
+four-vector sandwich.  Equation~\eqref{eq:conventions-field-laws} preserves
+the Maxwell, Klein--Gordon, and Dirac equations.
+
+For either rotation description, both Dirac entries use $R_-$.
+For $G=L_\pm$, they use $L_\pm^{-1}$ and $L_\pm$, respectively;
+the factor already contains half the rapidity.
+With $X'=T^{\mathsf H}XT$, the same laws read
+$\Psi_1'=T^{-1}\Psi_1$ and $\Psi_2'=T^{\mathsf H}\Psi_2$.
+The scalar paired quantity $\scpart{\Psi_1^{\mathsf H}\Psi_2}$ is invariant;
+the sum of the two positive densities generally changes under boosts.
+The conserved Dirac current transforms as a four-vector; its time component
+alone is not invariant.
+For products, the physical factors compose as $G_2G_1$.  Hence the
+right-adjoint parameters compose as $T_2T_1$, but the left-adjoint
+parameters compose as $T_1T_2$.
+
+\paragraph{Preserved quantities.}
+The sign of the angle or rapidity changes the direction, not these
+invariance statements.  Here $Z$ is a complex paravector and
+$\lVert Z\rVert^2=\scpart{Z^{\mathsf H}Z}$; ``no'' means not generally preserved.
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+Action & $\det Z$ & $\operatorname{tr}Z,\ \scpart Z$ & $\lVert Z\rVert^2$\\
+\midrule
+Rotation $RZR^{\mathsf H}$ & Yes & Yes & Yes\\
+Boost $LZL^{\mathsf H}$ & Yes & No & No\\
+Field similarity $GZG^{-1}$ & Yes & Yes & If $G$ is unitary\\
+\bottomrule
+\end{tabular}
+\end{center}
+For real four-vectors transformed together, both rotations and boosts preserve
+\[
+ \scpart{X'^*Y'}=\scpart{X^*Y}.
+\]
+Similarity also preserves $\scpart{ZY}$ when both factors transform by
+similarity.  The positive amplitude inner product is rotation invariant;
+boost invariance instead applies to the spacetime metric and the paired
+Dirac quantity above.  Normalized expectations remain equal for a state
+and observable rotated together, not for an arbitrary fixed observable.
+
+The main convention $R=Q=R_-$, $X'=RXR^{\mathsf H}$, $\psi'=R\psi$
+uses the Hamilton quaternion directly.  The alternative
+$R=Q^{\mathsf H}=R_+$, $X'=R^{\mathsf H}XR$, $\psi'=R^{\mathsf H}\psi$
+is equally consistent.  Either can use $L^{\mathsf H}XL=LXL^{\mathsf H}$
+with the boost sign fixed by the chosen frame velocity.
 
 \begin{thebibliography}{99}
 \addcontentsline{toc}{section}{References}
