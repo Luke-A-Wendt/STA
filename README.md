@@ -447,8 +447,8 @@ Slow positive-energy states; weak, slowly varying fields. Neglect $`\hat E\phi_2
 
 ```math
 \boxed{\mathrm{i}\partial_t\phi_1=
-\left[\frac{\hat{\mathbf p}^2}{2m}
-+qV-\frac{q}{2m}\mathbf B\cdot\boldsymbol{\sigma}\right]\phi_1.}
+\left(\frac{\hat{\mathbf p}^2}{2m}
++qV-\frac{q}{2m}\mathbf B\cdot\boldsymbol{\sigma}\right)\phi_1.}
 ```
 
 ## Low-energy [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) recovers [Schrödinger](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation)
@@ -473,12 +473,12 @@ Slow positive-energy limit: drop $`\hat E^2\psi`$. Schrödinger, likewise $`O(1/
 
 ```math
 \boxed{\mathrm{i}\partial_t\psi=
-\left[\frac{(-\mathrm{i}\partial_{\mathbf r}-q\mathbf A)^2}{2m}+qV\right]\psi.}
+\left(\frac{(-\mathrm{i}\partial_{\mathbf r}-q\mathbf A)^2}{2m}+qV\right)\psi.}
 ```
 
 With $`\mathbf A=0`$ (hence $`\mathbf B=0`$), this recovers the conventional Schrödinger equation:
 
 ```math
 \mathrm{i}\partial_t\psi=
-\left[-\frac{\partial_{\mathbf r}^2}{2m}+qV\right]\psi.
+\left(-\frac{\partial_{\mathbf r}^2}{2m}+qV\right)\psi.
 ```
