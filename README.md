@@ -82,6 +82,22 @@ Z^{-1}=\frac{\mathrm{adj}\,Z}{\det Z}\qquad(\det Z\ne0).
 \end{gathered}
 ```
 
+## [Quaternions](https://en.wikipedia.org/wiki/Quaternion)
+
+Quaternions have real scalar and purely imaginary vector parts:
+
+```math
+\begin{aligned}
+q_k&=-\mathrm{i}\sigma_k,
+\qquad q_1^2=q_2^2=q_3^2=q_1q_2q_3=-1,\\
+Q&=a+\mathbf A\cdot\mathbf q
+=a-\mathrm{i}\mathbf A\cdot\boldsymbol{\sigma},
+\qquad a\in\mathbb R,\quad\mathbf A\in\mathbb R^3,\\
+Q^{\mathsf H}&=a+\mathrm{i}\mathbf A\cdot\boldsymbol{\sigma},\\
+QQ^{\mathsf H}&=\det Q=a^2+\mathbf A^2.
+\end{aligned}
+```
+
 ## Rotations and boosts
 
 For real spacetime $`X`$ and real [unit axis](https://en.wikipedia.org/wiki/Unit_vector) $`\mathbf u`$:
