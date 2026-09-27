@@ -121,14 +121,20 @@ t'&=t,\\
 
 For $`T=L`$: [Lorentz boost](https://en.wikipedia.org/wiki/Lorentz_transformation) to a frame moving at $`+\beta\mathbf u`$, with [rapidity](https://en.wikipedia.org/wiki/Rapidity) $`\theta`$, $`\beta=\tanh\theta`$, and [Lorentz factor](https://en.wikipedia.org/wiki/Lorentz_factor) $`\gamma=\cosh\theta`$.
 
+Define the parallel and perpendicular components:
+
+```math
+\mathbf r_\parallel=(\mathbf u\cdot\mathbf r)\mathbf u,
+\qquad \mathbf r_\perp=\mathbf r-\mathbf r_\parallel.
+```
+
 ```math
 \begin{aligned}
 L&=e^{-\theta\mathbf u\cdot\boldsymbol{\sigma}/2}
 =\cosh\frac\theta2-\mathbf u\cdot\boldsymbol{\sigma}\sinh\frac\theta2
 =L^{\mathsf H},\\
 t'&=\gamma(t-\beta\mathbf u\cdot\mathbf r),\\
-\mathbf r'&=\mathbf r+(\gamma-1)(\mathbf u\cdot\mathbf r)\mathbf u
--\gamma\beta t\mathbf u.
+\mathbf r'&=\mathbf r_\perp+\gamma(\mathbf r_\parallel-\beta t\mathbf u).
 \end{aligned}
 ```
 
