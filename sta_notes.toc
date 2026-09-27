@@ -100,18 +100,21 @@
 \contentsline {paragraph}{Characteristic polynomial.}{55}{section*.14}%
 \contentsline {subsection}{\numberline {A.7}Four components and the standard Dirac basis}{56}{subsection.A.7}%
 \contentsline {subsection}{\numberline {A.8}Quaternion matrix image}{57}{subsection.A.8}%
-\contentsline {section}{\numberline {B}Conventions}{58}{appendix.B}%
-\contentsline {paragraph}{Exponent sign and sandwich order.}{58}{section*.15}%
-\contentsline {paragraph}{Hamilton quaternions fix the basis orientation.}{58}{section*.16}%
-\contentsline {paragraph}{Rotating a state versus changing the measured observable.}{59}{section*.17}%
-\contentsline {paragraph}{Fields and wave amplitudes under either notation.}{59}{section*.18}%
-\contentsline {paragraph}{Preserved quantities.}{60}{section*.19}%
-\contentsline {section}{References}{60}{section*.20}%
-\contentsline {section}{Equation reference}{62}{section*.21}%
-\contentsline {paragraph}{Algebra.}{62}{section*.22}%
-\contentsline {paragraph}{Rotations and boosts.}{62}{section*.42}%
-\contentsline {paragraph}{Spacetime and particles.}{63}{section*.57}%
-\contentsline {paragraph}{Electromagnetism.}{63}{section*.76}%
-\contentsline {paragraph}{Relativistic waves.}{64}{section*.93}%
-\contentsline {paragraph}{Low-energy limits.}{64}{section*.116}%
-\contentsline {paragraph}{Spin and probabilities.}{65}{section*.119}%
+\contentsline {section}{\numberline {B}Equation reference}{58}{appendix.B}%
+\contentsline {paragraph}{Algebra.}{58}{section*.15}%
+\contentsline {paragraph}{Rotations and boosts.}{58}{section*.35}%
+\contentsline {paragraph}{Spacetime and particles.}{59}{section*.50}%
+\contentsline {paragraph}{Electromagnetism.}{59}{section*.69}%
+\contentsline {paragraph}{Relativistic waves.}{60}{section*.86}%
+\contentsline {paragraph}{Low-energy limits.}{60}{section*.109}%
+\contentsline {paragraph}{Spin and probabilities.}{61}{section*.112}%
+\contentsline {section}{\numberline {C}Conventions}{62}{appendix.C}%
+\contentsline {paragraph}{Mapping to the literature.}{62}{section*.124}%
+\contentsline {paragraph}{Source comparisons for the cited equations.}{63}{section*.125}%
+\contentsline {paragraph}{Translating the physical comparisons.}{64}{section*.126}%
+\contentsline {paragraph}{Exponent sign and sandwich order.}{65}{section*.127}%
+\contentsline {paragraph}{Hamilton quaternions fix the basis orientation.}{65}{section*.128}%
+\contentsline {paragraph}{Rotating a state versus changing the measured observable.}{66}{section*.129}%
+\contentsline {paragraph}{Fields and wave amplitudes under either notation.}{66}{section*.130}%
+\contentsline {paragraph}{Preserved quantities.}{67}{section*.131}%
+\contentsline {section}{References}{68}{section*.132}%

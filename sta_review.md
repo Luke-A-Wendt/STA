@@ -1,3 +1,33 @@
+The current [PDF](/home/luke/STA/sta_notes.pdf) has **72 pages**. All **94 source citations formerly inside 91 displays** now appear in **89 preceding prose introductions**, with shared introductions covering adjacent equations. The display-citation macro has been removed. Source equation/page locators, blue hyperlinks, and bibliography entries are preserved.
+
+Validation: all **170 citation markers** and **90 distinct source targets** are preserved; every expected URL appears in the compiled PDF. No source citation remains inside display or inline math. Comparing the entire document after removing citation markers confirms unchanged prose and mathematical content. All **266 labels** and **433 internal references** pass; the PDF builds without warnings or overfull/underfull boxes. `git diff --check` passes.
+
+**Earlier revision records.** The following entries describe preceding versions and their validation.
+
+The current [PDF](/home/luke/STA/sta_notes.pdf) has **72 pages**. Every numbered source citation is blue, matching equation references, and includes a verified equation or page locator. The entire citation links to the cited source equation anchor or the physical PDF page containing it. All **21 bibliography entries** have source hyperlinks; References remains the final section.
+
+The source audit checked each comparison against the actual text, including printed versus physical PDF pagination. More precise sources now support the quaternion product, Pauli matrices, exponential, coefficient norm, differential operator, four-momentum, coupled Klein--Gordon equation, interacting Dirac Hamiltonian, Schrödinger equation, and other central results. Unsupported or redundant comparisons were removed, including the Foldy--Wouthuysen citation and the free Fourier citation beside interacting Dirac components. Wikipedia remains a named, section-linked comparison in Conventions rather than an unlocated numbered reference. Other-notation translations remain confined to Conventions.
+
+Validation: **170 precisely located citation markers**, **90 distinct direct source targets**, **266 preserved unique labels**, and **433 resolved internal references**. Every compiled citation URL matches its intended target; PDF text inspection confirms citation color `#065f8f`, identical to the equation links. Bibliography numbering follows first use. The main text and matrix appendix are unchanged apart from citations and citation spacing; the equation-reference appendix is unchanged. Independent algebra/STA, classical, and quantum source reviews completed. The final PDF builds without warnings or overfull/underfull boxes; representative definition, KG, Dirac, Pauli, source-mapping, and bibliography pages were visually inspected. `git diff --check` passes. The README and physical formulas were not changed.
+
+**Earlier revision records.** The following entries describe preceding versions and their validation.
+
+The current [PDF](/home/luke/STA/sta_notes.pdf) has **72 pages**. The final order is Appendix A, **Pauli-matrix representation**; Appendix B, **Equation reference**; Appendix C, **Conventions**; then **References**. The equation reference retains its canonical equation numbers and links.
+
+Direct citation numbers now accompany the relevant algebraic definitions and physical equations. The bibliography contains **19 sources**, including primary APS and STA literature by Baylis, Hestenes, and collaborators. Conventions contains a source-comparison table with equation and page locators, followed by the notation translations needed to compare Maxwell, stress-energy, spinor, and squared-Dirac results. Main-text additions are citation numbers only; no new notation or explanatory prose was added there.
+
+Validation: all **266 labels** are preserved and unique; all **432 internal references** resolve; all **19 bibliography entries** are cited in first-use order. Comparing with the preceding source confirms that the main text and matrix appendix are unchanged apart from citations, and the equation-reference content is unchanged. Three independent source reviews checked the algebra/STA, classical, and quantum comparisons. The final PDF builds without warnings or overfull/underfull boxes; representative citation pages, the equation-reference appendix, the source mappings, and the final bibliography were visually inspected. `git diff --check` passes. The README and physical formulas were not changed in this revision.
+
+**Earlier revision records.** The following entries describe preceding versions and their validation.
+
+The current [PDF](/home/luke/STA/sta_notes.pdf) has **69 pages**. Appendix B begins with a one-page **Mapping to the literature** on printed page 58.
+
+The mapping compares our notation with the Wikipedia Paravector article and primary APS literature: Baylis and Sobczyk (2004), and Baylis, Relativity in introductory physics (2004). Citations identify source sections and equations, and the Wikipedia reference pins revision 1318953844. The table covers basis elements, complex versus real paravectors, reversion, Clifford conjugation, grade involution, component extractions, the metric, and projectors. The accompanying equations distinguish the paragradient sign, active/passive boost factors, field similarity, and the APS-to-STA even-subalgebra map.
+
+Validation: **80 exact basis checks** confirm every APS basis product under the STA embedding and both conjugation correspondences. All **266 labels**, **398 internal references**, and **11 bibliography entries** pass the reference audit; citations follow first-use order. The PDF builds without warnings or overfull/underfull boxes. The mapping page and its transition to the existing appendix were visually inspected. `git diff --check` passes. Existing physical definitions and the README were not changed in this revision.
+
+**Earlier revision records.** The following entries describe preceding versions and their validation.
+
 The current [PDF](/home/luke/STA/sta_notes.pdf) has **68 pages**. Its source is [sta_notes.tex](/home/luke/STA/sta_notes.tex).
 
 Appendix B, **Conventions**, follows the matrix appendix. Its tables compare both exponent signs and both adjoint placements for rotations and boosts, with the resulting Rodrigues angle and moving-frame velocity. It explains the Hamilton quaternion orientation, equivalent rotor conventions, spinor signs, state versus observable transformations, normalized expectations, Dirac and scalar amplitudes, composition order, and the invariants of congruence and similarity. The main text links to this appendix; the existing physical conventions remain unchanged.
