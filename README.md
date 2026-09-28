@@ -74,7 +74,7 @@ $`(\,)^{\mathsf H}:=`$ [Hermitian conjugation](https://en.wikipedia.org/wiki/Con
 \det Z&=S^2-\mathbf V^2,
 &\mathrm{adj}\,Z&=S-\mathbf V\cdot\boldsymbol{\sigma},\\
 \mathrm{tr}\,Z&=2S,
-&\lVert Z\rVert^2&=S^{*}S+\mathbf V^{*}\cdot\mathbf V,\\
+&\lVert Z\rVert^2&=SS^{*}+\mathbf V\cdot\mathbf V^{*},\\
 Z^{*}&=S^{*}-\mathbf V^{*}\cdot\boldsymbol{\sigma},
 &Z^{\mathsf H}&=S^{*}+\mathbf V^{*}\cdot\boldsymbol{\sigma}.
 \end{aligned}\\[6pt]
