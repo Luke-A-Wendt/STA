@@ -2578,10 +2578,9 @@ not differential operators.  The operators act to the right and combine as
 \end{equation}
 Its adjugate reverses the vector part without conjugating $\ii$.
 Operator order matters in a field; an ordinary paravector determinant
-cannot replace their product.  For free commuting derivatives,
-$\Box=\partial_t^2-\pdr^2$ gives
+cannot replace their product.  For commuting free operators ($q=0$),
 \begin{equation}
- (\ii\partial)(\ii\partial^*)=-\Box.
+ \hP\,\adj\hP=\det\hP=\hE^2-\hbp^2=-\Box.
  \label{eq:free-momentum-product}
 \end{equation}
 Reversing the order gives the same result.
@@ -2802,15 +2801,20 @@ The Dirac equation is~\citeat{tong-qft}{Eq.~(4.51)}{page=96}
  \boxed{\hD(m)\bPsi=0.}
  \label{eq:dirac}
 \end{equation}
-Since $\Wop(\hP)^2=-\Box\bI$, its mass conjugate gives~\citeat{tong-qft}{Eqs.~(4.53)--(4.54)}{page=96}
+Using $\Wop(\hP)^2=(\det\hP)\bI=-\Box\bI$ from
+\eqref{eq:free-momentum-product}, its mass conjugate gives~\citeat{tong-qft}{Eqs.~(4.53)--(4.54)}{page=96}
 \begin{equation}
  \hD(-m)\hD(m)=\Wop(\hP)^2-m^2\bI
             =-(\Box+m^2)\bI.
  \label{eq:dirac-free-factorization}
 \end{equation}
-Applying \eqref{eq:dirac-free-factorization} to \eqref{eq:dirac} gives
-$(\Box+m^2)\bPsi=0$: every Dirac component satisfies KG.  The original first-order
-constraint is the coupled pair~\citeat{tong-qft}{Eq.~(4.108)}{page=107}
+Thus every free Dirac solution satisfies the wave form of the mass shell
+$\det P=E^2-\bp^2=m^2$ in \eqref{eq:mass-shell}:
+\begin{equation*}
+ (\det\hP-m^2)\bPsi=0
+ \quad\Longleftrightarrow\quad (\Box+m^2)\bPsi=0.
+\end{equation*}
+The original first-order constraint is the coupled pair~\citeat{tong-qft}{Eq.~(4.108)}{page=107}
 \begin{align}
  \ii\partial\Psi_2&=m\Psi_1,\label{eq:dirac-free-first}\\
  \ii\partial^*\Psi_1&=m\Psi_2.
@@ -3030,6 +3034,7 @@ the phase sign is fixed by the potential shift.
 Its modulus is one, so the norm is unchanged.  The same product rules
 preserve the KG and Pauli equations.
 
+\Needspace{45\baselineskip}
 \section{Low-energy limits}
 \label{sec:low-energy-limits}
 
@@ -3038,130 +3043,72 @@ $V:\R^4\to\R$, $\bA:\R^4\to\R^3$.
 The mechanical operators are $\hE=\ii\partial_t-qV$ and
 $\hbp=-\ii\pdr-q\bA$; the fields are
 $\bE=-\pdr V-\partial_t\bA$ and $\bBf=\pdr\times\bA$.
-Remove the rest oscillation, then iterate the residual energy.
-This gives Pauli from Dirac and Schr\"odinger from KG at leading order.
+Remove the rest oscillation and retain the leading nonrelativistic terms.
+This gives Pauli from Dirac and Schr\"odinger from KG.
 
-\subsection{Exact reduction and the energy recursion}
+\subsection{Dirac to Pauli}
 \label{sec:low-energy-recursion}
+\label{sec:pauli-limit}
 
-The Dirac entries $\Psi_1,\Psi_2$ are complex paravector amplitudes of
-\eqref{eq:axis-ideal-components}, depending on real $(t,\br)$.
-At free positive-energy rest, the time equation is
-\[
- \ii\partial_t\Psi_k=m\Psi_k
- \quad\Longrightarrow\quad
- \Psi_k(t)=e^{-\ii mt}\Psi_k(0).
-\]
-A free mode of real energy $\omega$ near $m$ therefore factors as
-\[
- e^{-\ii\omega t}=e^{-\ii mt}e^{-\ii(\omega-m)t}.
-\]
-The envelope has the smaller frequency $\omega-m$.
-Write $\Psi_k=e^{-\ii mt}\Psi_k'$, or equivalently~\citeat{gurtler-hestenes}{Eq.~(2.1)}{page=4}
+Remove the rest-energy phase to define the envelopes~\citeat{gurtler-hestenes}{Eq.~(2.1)}{page=4}:
 \begin{equation}
  \Psi_k':=e^{\ii mt}\Psi_k,\qquad k=1,2.
  \label{eq:dirac-rest-phase}
 \end{equation}
-The positive sign removes the rest oscillation by its inverse.
 The product rule gives
-\[
- (\ii\partial_t-qV)(e^{-\ii mt}\Psi_k')
- =e^{-\ii mt}(m+\ii\partial_t-qV)\Psi_k'.
-\]
-Hence
-\begin{align*}
- \hE\Psi_k&=e^{-\ii mt}(\hE+m)\Psi_k',\\
- \hbp\Psi_k&=e^{-\ii mt}\hbp\Psi_k'.
-\end{align*}
-The potentials are unchanged; $\hE$ on the envelope measures mechanical
-energy above rest.  Phase removal is exact and preserves the norm and
-both branches.  The approximation below selects slow positive-energy
-envelopes: a free mode near $-m$ instead has residual frequency near $-2m$.
-
-The coupled equations \eqref{eq:dirac-entry-one} and
-\eqref{eq:dirac-entry-two}, after division by $e^{-\ii mt}$, become
-\begin{align*}
- (\hE+m-\hbp\cdot\bsig)\Psi_2'&=m\Psi_1',\\
- (\hE+m+\hbp\cdot\bsig)\Psi_1'&=m\Psi_2'.
-\end{align*}
-Eliminate $\Psi_1'$ before expanding the ordered product:
-\[
- \left((\hE+m+\hbp\cdot\bsig)(\hE+m-\hbp\cdot\bsig)-m^2\right)\Psi_2'=0.
-\]
-Using \eqref{eq:kinetic-sigma-square} and
-$[\hbp\cdot\bsig,\hE]=-\ii q\bE\cdot\bsig$ gives
 \begin{equation*}
- \left(\hE^2+2m\hE-\hbp^2+q\bBf\cdot\bsig
-                   -\ii q\bE\cdot\bsig\right)\Psi_2'=0.
+ \hE\Psi_k=e^{-\ii mt}(m+\hE)\Psi_k'.
 \end{equation*}
-Rearranging gives the residual-energy recursion, with the
-operator order retained:
-\begin{equation}
- \hE\Psi_2'=\frac{\hbp^2-\hE^2-q\bBf\cdot\bsig
-                      -[\hbp\cdot\bsig,\hE]}{2m}\Psi_2'.
- \label{eq:dirac-residual-recursion}
-\end{equation}
-The imaginary electric term in \eqref{eq:dirac-residual-recursion}
-belongs to one Dirac entry, whose norm alone is not the Dirac
-probability.  To derive a probability-preserving Pauli equation,
-keep both entries.
-
-At free positive-energy rest, $\Psi_1'=\Psi_2'$: their sum survives and their
-difference vanishes.  Define the corresponding complex paravector amplitudes
+On the envelopes, $\hE$ measures mechanical energy above rest.
+The two rows of the Dirac equation, \eqref{eq:dirac-entry-one} and
+\eqref{eq:dirac-entry-two}, become
+\begin{align*}
+ (m+\hE-\hbp\cdot\bsig)\Psi_2'&=m\Psi_1',\\
+ (m+\hE+\hbp\cdot\bsig)\Psi_1'&=m\Psi_2'.
+\end{align*}
+At free positive-energy rest, $\Psi_1'=\Psi_2'$.  Define the large and small components
 \begin{align}
  \phi_1&:=\frac{\Psi_1'+\Psi_2'}{\sqrt2},
  \label{eq:dirac-large-amplitude}\\
  \phi_2&:=\frac{\Psi_2'-\Psi_1'}{\sqrt2}.
  \label{eq:dirac-small-amplitude}
 \end{align}
-Adding and subtracting the coupled equations gives the exact pair
+Adding and subtracting gives the exact pair~\citeat{gurtler-hestenes}{Eqs.~(2.15)--(2.16)}{page=6}:
 \begin{align}
  \hE\phi_1&=(\hbp\cdot\bsig)\phi_2,
  \label{eq:dirac-large-component}\\
- (\hE+2m)\phi_2&=(\hbp\cdot\bsig)\phi_1.
- \notag
-\end{align}
-The change of entries preserves the local density:
-\begin{equation*}
- \lVert\bPsi\rVert^2=\lVert\phi_1\rVert^2+\lVert\phi_2\rVert^2.
-\end{equation*}
-Rearrange the second equation for iteration~\citeat{gurtler-hestenes}{Eqs.~(2.15b)--(2.16)}{page=6}:
-\begin{equation}
- \phi_2=\frac{(\hbp\cdot\bsig)\phi_1}{2m}-\frac{\hE\phi_2}{2m}.
+ (2m+\hE)\phi_2&=(\hbp\cdot\bsig)\phi_1.
  \label{eq:dirac-small-recursion}
-\end{equation}
-Start with the first term and substitute repeatedly into
-\eqref{eq:dirac-small-recursion}, replacing $\hE\phi_1$ with
-\eqref{eq:dirac-large-component}.  Keep the operator order.
-For a real small parameter $0<v\ll1$, assume
-$\hbp/m=O(v)$, $\hE/m=O(v^2)$, $qV/m=O(v^2)$,
-$q\bBf/m^2=O(v^2)$, and $q\bE/m^2=O(v^3)$, with smooth fields
-varying on scales $1/(mv)$ in space and $1/(mv^2)$ in time or longer.
-Then $\phi_2=O(v\phi_1)$ and each iteration adds a relative $O(v^2)$.
-
-\Needspace{15\baselineskip}
-\subsection{Leading order: Pauli}
-\label{sec:pauli-limit}
-
-Recall $\phi_1,\phi_2$ from \eqref{eq:dirac-large-amplitude} and
-\eqref{eq:dirac-small-amplitude}.  Keeping the first iterate gives
+\end{align}
+For nonrelativistic positive-energy states in weak, slowly varying fields,
+neglect $\hE\phi_2$ relative to $2m\phi_2$.  Substitute the small component
+into the first equation and use \eqref{eq:kinetic-sigma-square}:
 \begin{align*}
- \phi_2&=\frac{\hbp\cdot\bsig}{2m}\phi_1+O(v^3\phi_1),\\
- \hE\phi_1&=\frac{(\hbp\cdot\bsig)^2}{2m}\phi_1+O(mv^4\phi_1).
+ \phi_2&\simeq\frac{\hbp\cdot\bsig}{2m}\phi_1,\\
+ \hE\phi_1&\simeq\frac{(\hbp\cdot\bsig)^2}{2m}\phi_1
+ =\frac{\hbp^2-q\bBf\cdot\bsig}{2m}\phi_1.
 \end{align*}
-The product identity
-$(\hbp\cdot\bsig)^2=\hbp^2-q\bBf\cdot\bsig$
-from \eqref{eq:kinetic-sigma-square} gives Pauli's equation at this order~\citeat{gurtler-hestenes}{Eq.~(2.13)}{page=6}:
+Restoring $\hE=\ii\partial_t-qV$ gives Pauli's equation through order
+$1/m$~\citeat{gurtler-hestenes}{Eq.~(2.13)}{page=6}:
 \begin{equation}
  \boxed{\ii\partial_t\phi_1=\left(
   \frac{(-\ii\pdr-q\bA)^2}{2m}+qV
   -\frac{q}{2m}\bBf\cdot\bsig\right)\phi_1.}
  \label{eq:pauli}
 \end{equation}
+The change of entries preserves the density exactly:
+\begin{equation*}
+ \lVert\bPsi\rVert^2=\lVert\phi_1\rVert^2+\lVert\phi_2\rVert^2.
+\end{equation*}
 The leading probability density is $\lVert\phi_1\rVert^2$.
 Its two complex components are the Pauli amplitudes; see
 Appendix~\ref{sec:matrix-spinors}.  It is the $\psi$ used in the
 spin discussion.
+For $0<v\ll1$, the scaling $\hbp/m=O(v)$, $\hE/m=O(v^2)$,
+$qV/m=O(v^2)$, $q\bBf/m^2=O(v^2)$, $q\bE/m^2=O(v^3)$,
+with fields varying on spatial scales $1/(mv)$ and time scales $1/(mv^2)$
+or longer, gives $\phi_2=O(v\phi_1)$ and omitted energy terms of order $mv^4$.
+
 Equation~\eqref{eq:spin-half-generator} identifies spin as $\bsig/2$, so the magnetic energy is
 $-(q/m)\bBf\cdot(\bsig/2)$: magnetic moment equals $q/m$ times spin,
 so the gyromagnetic factor is $2$ before radiative corrections.
@@ -4375,8 +4322,10 @@ The operators and wave equations are
    \tag*{\eqref{eq:dirac-block-map}}
 \end{align*}
 Here $Z$ is a complex paravector and $\bI$ the block identity.
-For the free field ($q=0$), the Dirac operator, equation, and factorization are
+For the free field ($q=0$),
 \begin{align*}
+ \hP\,\adj\hP&=\det\hP=\hE^2-\hbp^2=-\Box,
+   \tag*{\eqref{eq:free-momentum-product}}\\
  \hD(m)&=\Wop(\hP)-m\bI,
    \tag*{\eqref{eq:dirac-operator}}\\
  \hD(m)\bPsi&=0,
@@ -4413,7 +4362,7 @@ The complex paravector envelope $\phi_1$ obeys Pauli's equation:
  \frac{\hbp^2-q\bBf\cdot\bsig}{2m}\right)\phi_1.
  \tag*{\eqref{eq:pauli}}
 \end{equation*}
-The recursion and approximation conditions are in
+The derivations and approximation conditions are in
 Section~\ref{sec:low-energy-limits}; these are the same leading order
 for scalar and spinor amplitudes respectively.
 
