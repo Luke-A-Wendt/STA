@@ -74,7 +74,7 @@ $`(\,)^{\mathsf H}:=`$ [Hermitian conjugation](https://en.wikipedia.org/wiki/Con
 \det Z&:=S^2-\mathbf V^2,
 &\mathrm{adj}\,Z&:=S-\mathbf V\cdot\boldsymbol{\sigma},\\
 \mathrm{tr}\,Z&:=2S,
-&\lVert Z\rVert^2&:=S^{*}S+\mathbf V^{*}\cdot\mathbf V,\\
+&\lVert Z\rVert^2&:=SS^{*}+\mathbf V\cdot\mathbf V^{*},\\
 Z^{*}&=S^{*}-\mathbf V^{*}\cdot\boldsymbol{\sigma},
 &Z^{\mathsf H}&=S^{*}+\mathbf V^{*}\cdot\boldsymbol{\sigma}.
 \end{aligned}\\[6pt]
@@ -173,7 +173,7 @@ For a future-directed massive particle, [proper time](https://en.wikipedia.org/w
 \mathrm dX&=\mathrm dt+\mathrm d\mathbf r\cdot\boldsymbol{\sigma},
 &\mathrm ds^2&:=\det(\mathrm dX)=\mathrm dt^2-\mathrm d\mathbf r^2,\\
 U&:=\frac{\mathrm dX}{\mathrm ds}=\gamma(1+\mathbf v\cdot\boldsymbol{\sigma}),
-&\gamma&=(1-\mathbf v^2)^{-1/2},\\
+&\gamma&=(1-\mathbf v^2)^{-1/2},\quad \mathbf v:=\frac{\mathrm d\mathbf r}{\mathrm dt},\\
 P&:=mU=\underbrace{E}_{\text{energy}}+
 \underbrace{\mathbf p\cdot\boldsymbol{\sigma}}_{\text{momentum}},
 &\det P&=E^2-\mathbf p^2=m^2.
