@@ -306,7 +306,7 @@ For a free particle of mass $`m`$, define
 \begin{aligned}
 \hat E&:=\mathrm{i}\partial_t,\\
 \hat{\mathbf p}&:=-\mathrm{i}\partial_{\mathbf r},\\
-\hat P&:=\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma},\\
+\hat P&:=\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma} = \mathrm{i}\partial^{*},\\
 \mathbf W(\hat P)&:=
 \begin{pmatrix}
 0 & \mathrm{adj}\,\hat P \\
