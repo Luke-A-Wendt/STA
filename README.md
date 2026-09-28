@@ -13,31 +13,31 @@
 \begin{aligned}
 \sigma_n^2&=1,
 &\sigma_n\sigma_m&=-\sigma_m\sigma_n\quad(n\ne m),\\
-\mathrm{i}&=\sigma_1\sigma_2\sigma_3,
+\mathrm{i}&:=\sigma_1\sigma_2\sigma_3,
 &\mathrm{i}^2&=-1,\\
-\boldsymbol{\sigma}&=\{\sigma_1,\sigma_2,\sigma_3\},
+\boldsymbol{\sigma}&:=\{\sigma_1,\sigma_2,\sigma_3\},
 &\mathrm{i}\boldsymbol{\sigma}&=\{\sigma_2\sigma_3,\sigma_3\sigma_1,\sigma_1\sigma_2\},\\
-Z&=(a+b\mathrm{i})+(\mathbf A+\mathrm{i}\mathbf B)\cdot\boldsymbol{\sigma},
+Z&:=(a+b\mathrm{i})+(\mathbf A+\mathrm{i}\mathbf B)\cdot\boldsymbol{\sigma},
 &a,b&\in\mathbb R,\quad\mathbf A,\mathbf B\in\mathbb R^3.
 \end{aligned}}
 ```
 
-Eight real components, written as a complex scalar and a complex vector:
+These eight real components form a complex scalar and a complex vector:
 
 ```math
 Z=S+\mathbf V\cdot\boldsymbol{\sigma}=X+\mathrm{i}Y,
-\qquad X=a+\mathbf A\cdot\boldsymbol{\sigma},
-\quad Y=b+\mathbf B\cdot\boldsymbol{\sigma}.
+\qquad X:=a+\mathbf A\cdot\boldsymbol{\sigma},
+\quad Y:=b+\mathbf B\cdot\boldsymbol{\sigma}.
 ```
 
 The component extractions are
 
 ```math
 \begin{aligned}
-\mathrm{re}(Z)&=X,\\
-\mathrm{im}(Z)&=Y,\\
-\mathrm{sc}(Z)&=S=a+\mathrm{i}b,\\
-\mathrm{vec}(Z)&=\mathbf V=\mathbf A+\mathrm{i}\mathbf B.
+\mathrm{re}(Z)&:=X,\\
+\mathrm{im}(Z)&:=Y,\\
+\mathrm{sc}(Z)&:=S=a+\mathrm{i}b,\\
+\mathrm{vec}(Z)&:=\mathbf V=\mathbf A+\mathrm{i}\mathbf B.
 \end{aligned}
 ```
 
@@ -71,10 +71,10 @@ $`(\,)^{\mathsf H}:=`$ [Hermitian conjugation](https://en.wikipedia.org/wiki/Con
 ```math
 \begin{gathered}
 \begin{aligned}
-\det Z&=S^2-\mathbf V^2,
-&\mathrm{adj}\,Z&=S-\mathbf V\cdot\boldsymbol{\sigma},\\
-\mathrm{tr}\,Z&=2S,
-&\lVert Z\rVert^2&=S^{*}S+\mathbf V^{*}\cdot\mathbf V,\\
+\det Z&:=S^2-\mathbf V^2,
+&\mathrm{adj}\,Z&:=S-\mathbf V\cdot\boldsymbol{\sigma},\\
+\mathrm{tr}\,Z&:=2S,
+&\lVert Z\rVert^2&:=S^{*}S+\mathbf V^{*}\cdot\mathbf V,\\
 Z^{*}&=S^{*}-\mathbf V^{*}\cdot\boldsymbol{\sigma},
 &Z^{\mathsf H}&=S^{*}+\mathbf V^{*}\cdot\boldsymbol{\sigma}.
 \end{aligned}\\[6pt]
@@ -84,13 +84,13 @@ Z^{-1}=\frac{\mathrm{adj}\,Z}{\det Z}\qquad(\det Z\ne0).
 
 ## [Quaternions](https://en.wikipedia.org/wiki/Quaternion)
 
-Quaternions have real scalar and purely imaginary vector parts:
+In this representation, quaternions have a real scalar part and a purely imaginary vector part:
 
 ```math
 \begin{aligned}
-q_k&=-\mathrm{i}\sigma_k,
+q_k&:=-\mathrm{i}\sigma_k,
 \qquad q_1^2=q_2^2=q_3^2=q_1q_2q_3=-1,\\
-Q&=a+\mathbf A\cdot\mathbf q
+Q&:=a+\mathbf A\cdot\mathbf q
 =a-\mathrm{i}\mathbf A\cdot\boldsymbol{\sigma},
 \qquad a\in\mathbb R,\quad\mathbf A\in\mathbb R^3,\\
 Q^{\mathsf H}&=a+\mathrm{i}\mathbf A\cdot\boldsymbol{\sigma},\\
@@ -103,15 +103,15 @@ QQ^{\mathsf H}&=\det Q=a^2+\mathbf A^2.
 For real spacetime $`X`$ and real [unit axis](https://en.wikipedia.org/wiki/Unit_vector) $`\mathbf u`$:
 
 ```math
-X=t+\mathbf r\cdot\boldsymbol{\sigma},
-\qquad X'=TXT^{\mathsf H}=t'+\mathbf r'\cdot\boldsymbol{\sigma}.
+X:=t+\mathbf r\cdot\boldsymbol{\sigma},
+\qquad X':=TXT^{\mathsf H}=t'+\mathbf r'\cdot\boldsymbol{\sigma}.
 ```
 
 For $`T=R`$: [Rodrigues rotation](https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula) through $`\theta`$, with [unit quaternion](https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation) $`Q=R`$, $`q_k=-\mathrm{i}\sigma_k`$.
 
 ```math
 \begin{aligned}
-R&=e^{-\mathrm{i}\theta\mathbf u\cdot\boldsymbol{\sigma}/2}
+R&:=e^{-\mathrm{i}\theta\mathbf u\cdot\boldsymbol{\sigma}/2}
 =\cos\frac\theta2-\mathrm{i}\mathbf u\cdot\boldsymbol{\sigma}\sin\frac\theta2,\\
 t'&=t,\\
 \mathbf r'&=\mathbf r\cos\theta+(\mathbf u\times\mathbf r)\sin\theta
@@ -119,18 +119,18 @@ t'&=t,\\
 \end{aligned}
 ```
 
-For $`T=L`$: [Lorentz boost](https://en.wikipedia.org/wiki/Lorentz_transformation) to a frame moving at $`+\beta\mathbf u`$, with [rapidity](https://en.wikipedia.org/wiki/Rapidity) $`\theta`$, $`\beta=\tanh\theta`$, and [Lorentz factor](https://en.wikipedia.org/wiki/Lorentz_factor) $`\gamma=\cosh\theta`$.
+For $`T=L`$: [Lorentz boost](https://en.wikipedia.org/wiki/Lorentz_transformation) to a frame moving at $`+\beta\mathbf u`$, with [rapidity](https://en.wikipedia.org/wiki/Rapidity) $`\theta`$, $`\beta:=\tanh\theta`$, and [Lorentz factor](https://en.wikipedia.org/wiki/Lorentz_factor) $`\gamma:=\cosh\theta`$.
 
 Define the parallel and perpendicular components:
 
 ```math
-\mathbf r_\parallel=(\mathbf u\cdot\mathbf r)\mathbf u,
-\qquad \mathbf r_\perp=\mathbf r-\mathbf r_\parallel.
+\mathbf r_\parallel:=(\mathbf u\cdot\mathbf r)\mathbf u,
+\qquad \mathbf r_\perp:=\mathbf r-\mathbf r_\parallel.
 ```
 
 ```math
 \begin{aligned}
-L&=e^{-\theta\mathbf u\cdot\boldsymbol{\sigma}/2}
+L&:=e^{-\theta\mathbf u\cdot\boldsymbol{\sigma}/2}
 =\cosh\frac\theta2-\mathbf u\cdot\boldsymbol{\sigma}\sinh\frac\theta2
 =L^{\mathsf H},\\
 t'&=\gamma(t-\beta\mathbf u\cdot\mathbf r),\\
@@ -149,8 +149,8 @@ The eigenvalues and complementary [projectors](https://en.wikipedia.org/wiki/Par
 
 ```math
 \begin{gathered}
-\lambda_\pm=a\pm b,
-\qquad \Pi_\pm=\frac12(1\pm\mathbf u\cdot\boldsymbol{\sigma}),\\[4pt]
+\lambda_\pm:=a\pm b,
+\qquad \Pi_\pm:=\frac12(1\pm\mathbf u\cdot\boldsymbol{\sigma}),\\[4pt]
 \Pi_\pm^2=\Pi_\pm,\qquad \Pi_+\Pi_-=0,\qquad \Pi_-+\Pi_+=1.
 \end{gathered}
 ```
@@ -171,10 +171,10 @@ For a future-directed massive particle, [proper time](https://en.wikipedia.org/w
 ```math
 \begin{aligned}
 \mathrm dX&=\mathrm dt+\mathrm d\mathbf r\cdot\boldsymbol{\sigma},
-&\mathrm ds^2&=\det(\mathrm dX)=\mathrm dt^2-\mathrm d\mathbf r^2,\\
-U&=\frac{\mathrm dX}{\mathrm ds}=\gamma(1+\mathbf v\cdot\boldsymbol{\sigma}),
+&\mathrm ds^2&:=\det(\mathrm dX)=\mathrm dt^2-\mathrm d\mathbf r^2,\\
+U&:=\frac{\mathrm dX}{\mathrm ds}=\gamma(1+\mathbf v\cdot\boldsymbol{\sigma}),
 &\gamma&=(1-\mathbf v^2)^{-1/2},\\
-P&=mU=\underbrace{E}_{\text{energy}}+
+P&:=mU=\underbrace{E}_{\text{energy}}+
 \underbrace{\mathbf p\cdot\boldsymbol{\sigma}}_{\text{momentum}},
 &\det P&=E^2-\mathbf p^2=m^2.
 \end{aligned}
@@ -182,11 +182,11 @@ P&=mU=\underbrace{E}_{\text{energy}}+
 
 ## [Maxwell](https://en.wikipedia.org/wiki/Maxwell%27s_equations) in one equation
 
-Combine the [electric](https://en.wikipedia.org/wiki/Electric_field) and [magnetic](https://en.wikipedia.org/wiki/Magnetic_field) fields and use the [paravector derivative](https://en.wikipedia.org/wiki/Paravector#Paragradient). Hats mark named [energy](https://en.wikipedia.org/wiki/Energy_operator), [momentum](https://en.wikipedia.org/wiki/Momentum_operator), and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) operators; the derivative symbols $`\partial`$ and $`\Box`$ remain unhatted:
+Combine the [electric](https://en.wikipedia.org/wiki/Electric_field) and [magnetic](https://en.wikipedia.org/wiki/Magnetic_field) fields and use the [paravector derivative](https://en.wikipedia.org/wiki/Paravector#Paragradient):
 
 ```math
-F=(\mathbf E+\mathrm{i}\mathbf B)\cdot\boldsymbol{\sigma},
-\qquad \partial=\partial_t+\partial_{\mathbf r}\cdot\boldsymbol{\sigma},
+F:=(\mathbf E+\mathrm{i}\mathbf B)\cdot\boldsymbol{\sigma},
+\qquad \partial:=\partial_t+\partial_{\mathbf r}\cdot\boldsymbol{\sigma},
 \qquad \boxed{\partial F=\rho-\mathbf J\cdot\boldsymbol{\sigma}.}
 ```
 
@@ -205,7 +205,7 @@ Applying $`\partial^{*}=\partial_t-\partial_{\mathbf r}\cdot\boldsymbol{\sigma}`
 
 ```math
 \begin{aligned}
-\partial^{*}\partial&=\Box=\partial_t^2-\partial_{\mathbf r}^2,\\
+\Box&:=\partial^{*}\partial=\partial_t^2-\partial_{\mathbf r}^2,\\
 \partial^{*}(\partial F)&=\Box F=\partial^{*}(\rho-\mathbf J\cdot\boldsymbol{\sigma}).
 \end{aligned}
 ```
@@ -229,8 +229,8 @@ In vacuum, $`\Box F=0`$.
 Define the real [four-potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) from the [scalar potential](https://en.wikipedia.org/wiki/Electric_potential) $`V`$ and [vector potential](https://en.wikipedia.org/wiki/Magnetic_vector_potential) $`\mathbf A`$, with gauge scalar $`S`$:
 
 ```math
-\Phi=V+\mathbf A\cdot\boldsymbol{\sigma},
-\qquad S=\mathrm{sc}(\partial\Phi).
+\Phi:=V+\mathbf A\cdot\boldsymbol{\sigma},
+\qquad S:=\mathrm{sc}(\partial\Phi).
 ```
 
 **Fields from the potential:**
@@ -253,6 +253,14 @@ Its components give
 **Source equations in any [gauge](https://en.wikipedia.org/wiki/Gauge_fixing):**
 
 ```math
+\Box\Phi=\partial^{*}(\partial\Phi)
+=\partial^{*}(S+F^{*})
+=\partial^{*}S+(\partial F)^{*}.
+```
+
+Conjugating and using Maxwell’s equation gives
+
+```math
 \boxed{\Box\Phi^{*}-\partial S=\rho-\mathbf J\cdot\boldsymbol{\sigma}}
 ```
 
@@ -271,7 +279,7 @@ Its components give
 
 ```math
 \begin{aligned}
-\Phi'&=\Phi+\partial^{*}\lambda,\\
+\Phi'&:=\Phi+\partial^{*}\lambda,\\
 S'&=S+\Box\lambda,\\
 F'&=F.
 \end{aligned}
@@ -288,35 +296,43 @@ F'&=F.
 
 ## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) as a first-order wave equation
 
-[Weyl representation](https://en.wikipedia.org/wiki/Gamma_matrices#Weyl_%28chiral%29_basis): $`\boldsymbol\Psi=(\Psi_1,\Psi_2)^{\mathsf T}`$, two complex components per entry; $`\mathbf I`$ is the block identity.
+In the [Weyl representation](https://en.wikipedia.org/wiki/Gamma_matrices#Weyl_%28chiral%29_basis), write $`\boldsymbol\Psi:=(\Psi_1,\Psi_2)^{\mathsf T}`$, with two complex components in each entry. Let $`\mathbf I`$ be the block identity.
+
+Hats mark named [energy](https://en.wikipedia.org/wiki/Energy_operator), [momentum](https://en.wikipedia.org/wiki/Momentum_operator), and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) operators; the derivative symbols $`\partial`$ and $`\Box`$ remain unhatted.
+
+For a free particle of mass $`m`$, define
 
 ```math
-\mathbf W(Z)=
+\begin{aligned}
+\hat E&:=\mathrm{i}\partial_t,\\
+\hat{\mathbf p}&:=-\mathrm{i}\partial_{\mathbf r},\\
+\hat P&:=\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma},\\
+\mathbf W(\hat P)&:=
 \begin{pmatrix}
-0 & \mathrm{adj}\,Z \\
-Z & 0
-\end{pmatrix},
-\qquad \mathbf W(Z)^2=\det(Z)\mathbf I.
+0 & \mathrm{adj}\,\hat P \\
+\hat P & 0
+\end{pmatrix},\\
+\hat D(m)&:=\mathbf W(\hat P)-m\mathbf I.
+\end{aligned}
 ```
 
-Free Dirac: $`\hat E=\mathrm{i}\partial_t`$, $`\hat{\mathbf p}=-\mathrm{i}\partial_{\mathbf r}`$.
+The Dirac equation is
 
 ```math
-\hat D(m):=\mathbf W(\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma})-m\mathbf I,
-\qquad \boxed{\hat D(m)\boldsymbol\Psi=0.}
+\boxed{\hat D(m)\boldsymbol\Psi=0.}
 ```
 
-[Klein–Gordon factorization](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation), using $`\mathbf W(\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma})^2=-\partial^{*}\partial\,\mathbf I=-\Box\mathbf I`$:
+Since $`\mathbf W(\hat P)^2=-\partial^{*}\partial\,\mathbf I=-\Box\mathbf I`$, multiplying the opposite-mass operators gives the [Klein–Gordon factorization](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation):
 
 ```math
 \begin{aligned}
 \hat D(m)\hat D(-m)&=\hat D(-m)\hat D(m)\\
-&=\mathbf W(\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma})^2-m^2\mathbf I
+&=\mathbf W(\hat P)^2-m^2\mathbf I
 =-(\Box+m^2)\mathbf I.
 \end{aligned}
 ```
 
-For Dirac solutions:
+Every free Dirac solution therefore also satisfies the Klein–Gordon equation:
 
 ```math
 \hat D(-m)\hat D(m)\boldsymbol\Psi=-(\Box+m^2)\boldsymbol\Psi=0
@@ -325,31 +341,31 @@ For Dirac solutions:
 
 ## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) with an electromagnetic potential
 
-[Minimal coupling](https://en.wikipedia.org/wiki/Minimal_coupling): real [potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) $`\Phi=V+\mathbf A\cdot\boldsymbol{\sigma}`$; constant $`m>0`$ and [charge](https://en.wikipedia.org/wiki/Electric_charge) $`q`$.
+For constant mass $`m>0`$ and [charge](https://en.wikipedia.org/wiki/Electric_charge) $`q`$, [minimal coupling](https://en.wikipedia.org/wiki/Minimal_coupling) to the real [potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) $`\Phi=V+\mathbf A\cdot\boldsymbol{\sigma}`$ replaces the free operators by
 
 ```math
 \begin{aligned}
-\hat E&=\mathrm{i}\partial_t-qV,\\
-\hat{\mathbf p}&=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A.
+\hat E&:=\mathrm{i}\partial_t-qV,\\
+\hat{\mathbf p}&:=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A,\\
+\hat P&:=\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma}.
 \end{aligned}
 ```
 
 ```math
-\boxed{\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma}
-=\mathrm{i}\partial^{*}-q\Phi.}
+\boxed{\hat P=\mathrm{i}\partial^{*}-q\Phi.}
 ```
 
 ```math
 \begin{aligned}
-\hat D(m)&:=\mathbf W(\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma})-m\mathbf I\\
+\hat D(m)&:=\mathbf W(\hat P)-m\mathbf I\\
 &=\begin{pmatrix}
--m & \hat E-\hat{\mathbf p}\cdot\boldsymbol{\sigma}\\
-\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma} & -m
+-m & \mathrm{adj}\,\hat P\\
+\hat P & -m
 \end{pmatrix}.
 \end{aligned}
 ```
 
-Field identities:
+The coupled operators obey these field identities:
 
 ```math
 \begin{aligned}
@@ -363,7 +379,7 @@ Field identities:
 \end{aligned}
 ```
 
-Including potential derivatives:
+When derivatives act on the potentials as well as the wavefunction, the opposite-mass product becomes
 
 ```math
 \hat D(-m)\hat D(m)
@@ -371,20 +387,20 @@ Including potential derivatives:
 -\mathrm{i}q\begin{pmatrix}F^{*}&0\\0&F\end{pmatrix}.
 ```
 
-On solutions, $`\hat D(-m)\hat D(m)\boldsymbol\Psi=0`$; $`q=0`$ recovers Klein–Gordon.
+Every Dirac solution satisfies $`\hat D(-m)\hat D(m)\boldsymbol\Psi=0`$. Setting $`q=0`$ recovers the free Klein–Gordon equation.
 
 ## Low-energy [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) recovers [Pauli](https://en.wikipedia.org/wiki/Pauli_equation)
 
-[Rest phase](https://en.wikipedia.org/wiki/Pauli_equation#Derivation):
+Remove the [rest-energy phase](https://en.wikipedia.org/wiki/Pauli_equation#Derivation) to define the envelopes $`\Psi_k'`$. On these envelopes, $`\hat E`$ measures energy relative to the rest mass:
 
 ```math
 \begin{aligned}
-\Psi_k&=e^{-\mathrm{i}mt}\Psi_k',\\
+\Psi_k'&:=e^{\mathrm{i}mt}\Psi_k,\\
 \hat E\Psi_k&=e^{-\mathrm{i}mt}(m+\hat E)\Psi_k'.
 \end{aligned}
 ```
 
-Squared Dirac, lower block:
+Substitute into the lower block of the squared Dirac equation:
 
 ```math
 \begin{aligned}
@@ -394,7 +410,7 @@ Squared Dirac, lower block:
 \end{aligned}
 ```
 
-Cancel the phase; apply field identities:
+Cancel the common phase and use the field identities above to obtain the exact relation
 
 ```math
 \begin{aligned}
@@ -405,7 +421,7 @@ Cancel the phase; apply field identities:
 \end{aligned}
 ```
 
-The energy–momentum Dirac equation above gives, after the rest-phase shift:
+The two rows of the original Dirac equation give the coupled envelope equations:
 
 ```math
 \begin{aligned}
@@ -418,12 +434,12 @@ Set
 
 ```math
 \begin{aligned}
-\phi_1&=\frac{\Psi_1'+\Psi_2'}{\sqrt2},\\
-\phi_2&=\frac{\Psi_2'-\Psi_1'}{\sqrt2}.
+\phi_1&:=\frac{\Psi_1'+\Psi_2'}{\sqrt2},\\
+\phi_2&:=\frac{\Psi_2'-\Psi_1'}{\sqrt2}.
 \end{aligned}
 ```
 
-Add/subtract:
+Adding and subtracting the envelope equations gives
 
 ```math
 \begin{aligned}
@@ -433,7 +449,7 @@ Add/subtract:
 \end{aligned}
 ```
 
-Slow positive-energy states; weak, slowly varying fields. Neglect $`\hat E\phi_2`$ against $`2m\phi_2`$:
+For nonrelativistic states on the positive-energy branch in weak, slowly varying fields, the residual energy is small compared with $`m`$. Neglect $`\hat E\phi_2`$ relative to $`2m\phi_2`$ and substitute into the first equation:
 
 ```math
 \begin{aligned}
@@ -443,7 +459,7 @@ Slow positive-energy states; weak, slowly varying fields. Neglect $`\hat E\phi_2
 \end{aligned}
 ```
 
-[Pauli](https://en.wikipedia.org/wiki/Pauli_equation): kinetic and spin terms $`O(1/m)`$.
+Restoring $`\hat E=\mathrm{i}\partial_t-qV`$ gives the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation), retaining the kinetic and spin terms through order $`1/m`$:
 
 ```math
 \boxed{\mathrm{i}\partial_t\phi_1=
@@ -453,7 +469,7 @@ Slow positive-energy states; weak, slowly varying fields. Neglect $`\hat E\phi_2
 
 ## Low-energy [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) recovers [Schrödinger](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation)
 
-Charged scalar: $`\psi'=e^{-\mathrm{i}mt}\psi`$.
+For a charged scalar field $`\psi'`$, remove the same rest-energy phase by defining $`\psi:=e^{\mathrm{i}mt}\psi'`$. Substitution into the Klein–Gordon equation gives
 
 ```math
 \begin{aligned}
@@ -463,13 +479,13 @@ Charged scalar: $`\psi'=e^{-\mathrm{i}mt}\psi`$.
 \end{aligned}
 ```
 
-Cancel the phase:
+Cancel the common phase and solve for the residual-energy term:
 
 ```math
 \hat E\psi=\frac{\hat{\mathbf p}^2-\hat E^2}{2m}\psi.
 ```
 
-Slow positive-energy limit: drop $`\hat E^2\psi`$. Schrödinger, likewise $`O(1/m)`$.
+In the same nonrelativistic limit, neglect $`\hat E^2\psi`$ relative to $`2m\hat E\psi`$. Restoring $`\hat E=\mathrm{i}\partial_t-qV`$ gives the Schrödinger equation, retaining the kinetic term through order $`1/m`$:
 
 ```math
 \boxed{\mathrm{i}\partial_t\psi=

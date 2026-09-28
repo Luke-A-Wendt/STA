@@ -65,6 +65,7 @@
 \newcommand{\hD}{\hat D}
 \newcommand{\hE}{\hat E}
 \newcommand{\hbp}{\hat{\bp}}
+\newcommand{\hP}{\hat P}
 \newcommand{\hH}{\hat H}
 \newcommand{\hOmega}{\hat\Omega}
 \newcommand{\pdr}{\partial_{\br}}
@@ -2126,12 +2127,17 @@ remaining components with $F^*$ gives~\citeat{tong-em}{p.~105}{page=113}
 Equation~\eqref{eq:potential-field} separates the gauge scalar from the field;
 \eqref{eq:electric-potential} and \eqref{eq:magnetic-potential} satisfy
 \eqref{eq:gauss-magnetic} and \eqref{eq:faraday} identically.
-Since $F=\partial^*\Phi^*-S$,
-\begin{align*}
- \partial F&=\Box\Phi^*-\partial S\\
- &=(\Box V-\partial_tS)-(\Box\bA+\pdr S)\cdot\bsig.
-\end{align*}
-Comparison with \eqref{eq:maxwell} yields~\citeat{tong-em}{Eq.~(6.1)}{page=142}
+\par\Needspace{10\baselineskip}
+Applying $\partial^*$ gives
+\begin{equation*}
+ \Box\Phi=\partial^*(\partial\Phi)
+ =\partial^*(S+F^*)=\partial^*S+(\partial F)^*.
+\end{equation*}
+Conjugating and using \eqref{eq:maxwell} gives~\citeat{tong-em}{Eq.~(6.1)}{page=142}
+\begin{equation*}
+ \boxed{\Box\Phi^*-\partial S=\partial F=\rho-\bJ\cdot\bsig.}
+\end{equation*}
+Its scalar and vector components are
 \begin{align*}
  \rho&=\Box V-\partial_tS, \\
  \bJ&=\Box\bA+\pdr S.
@@ -2139,7 +2145,7 @@ Comparison with \eqref{eq:maxwell} yields~\citeat{tong-em}{Eq.~(6.1)}{page=142}
 These source equations hold before gauge fixing.
 For a real scalar gauge function $\lambda(t,\br)$, let~\citeat{tong-em}{Eq.~(6.2)}{page=142}
 \begin{equation*}
- \Phi'=\Phi+\partial^*\lambda.
+ \Phi':=\Phi+\partial^*\lambda.
 \end{equation*}
 Differentiating gives
 $\partial\Phi'=\partial\Phi+\Box\lambda$.  Only the scalar changes: $S'=S+\Box\lambda$, while $F'=F$.
@@ -2557,8 +2563,9 @@ operators defines the gauge-covariant mechanical operators~\citeat{gurtler-heste
 \begin{align}
  \hE&:=\ii\partial_t-qV,
  \label{eq:mechanical-energy-operator}\\
- \hbp&:=-\ii\pdr-q\bA.
- \label{eq:mechanical-momentum-operator}
+ \hbp&:=-\ii\pdr-q\bA,
+ \label{eq:mechanical-momentum-operator}\\
+ \hP&:=\hE+\hbp\cdot\bsig. \notag
 \end{align}
 Here $\hE$ includes rest energy.  Hats distinguish named differential
 operators from physical values and mode eigenvalues $E,\bp$.
@@ -2566,7 +2573,7 @@ The derivative symbols $\partial$, $\pdr$, and $\Box$ remain unhatted.
 Fields obtained by differentiating potentials are coefficient fields,
 not differential operators.  The operators act to the right and combine as
 \begin{equation}
- \boxed{\hE+\hbp\cdot\bsig=\ii\partial^*-q\Phi.}
+ \boxed{\hP=\ii\partial^*-q\Phi.}
  \label{eq:mechanical-paravector}
 \end{equation}
 Its adjugate reverses the vector part without conjugating $\ii$.
@@ -2777,22 +2784,27 @@ Hermitian conjugation also transposes the block:
 \end{equation*}
 Thus $\Wop(Z)$ is not generally Hermitian.  For operator arguments,
 $\operatorname{adj}$ reverses the vector part without reordering derivatives.
-For the free field, use
-$\hE=\ii\partial_t$, $\hbp=-\ii\pdr$ ($q=0$ in
-\eqref{eq:mechanical-paravector}) and define the Dirac operator:
+For the free field ($q=0$), define
+\begin{align*}
+ \hE&:=\ii\partial_t,\\
+ \hbp&:=-\ii\pdr,\\
+ \hP&:=\hE+\hbp\cdot\bsig.
+\end{align*}
+The block map and Dirac operator are
 \begin{align}
- \hD(m)&:=\Wop(\hE+\hbp\cdot\bsig)-m\bI,
+ \Wop(\hP)&=\begin{Bmatrix}0&\adj\hP\\\hP&0\end{Bmatrix},\notag\\
+ \hD(m)&:=\Wop(\hP)-m\bI,
  \label{eq:dirac-operator}\\
- \hD(-m)&=\Wop(\hE+\hbp\cdot\bsig)+m\bI. \notag
+ \hD(-m)&=\Wop(\hP)+m\bI. \notag
 \end{align}
 The Dirac equation is~\citeat{tong-qft}{Eq.~(4.51)}{page=96}
 \begin{equation}
  \boxed{\hD(m)\bPsi=0.}
  \label{eq:dirac}
 \end{equation}
-Since $\Wop(\hE+\hbp\cdot\bsig)^2=-\Box\bI$, its mass conjugate gives~\citeat{tong-qft}{Eqs.~(4.53)--(4.54)}{page=96}
+Since $\Wop(\hP)^2=-\Box\bI$, its mass conjugate gives~\citeat{tong-qft}{Eqs.~(4.53)--(4.54)}{page=96}
 \begin{equation}
- \hD(-m)\hD(m)=\Wop(\hE+\hbp\cdot\bsig)^2-m^2\bI
+ \hD(-m)\hD(m)=\Wop(\hP)^2-m^2\bI
             =-(\Box+m^2)\bI.
  \label{eq:dirac-free-factorization}
 \end{equation}
@@ -2807,7 +2819,7 @@ constraint is the coupled pair~\citeat{tong-qft}{Eq.~(4.108)}{page=107}
 
 On one Fourier mode, let $s\in\C$ satisfy $\hD(m)\bPsi=s\bPsi$
 for a nonzero amplitude.  Here $\Box$ denotes its scalar mode eigenvalue.
-Since $\hD(m)+m\bI=\Wop(\hE+\hbp\cdot\bsig)$, \eqref{eq:dirac-free-factorization} gives
+Since $\hD(m)+m\bI=\Wop(\hP)$, \eqref{eq:dirac-free-factorization} gives
 \[
  (\hD(m)+m\bI)^2\bPsi=-\Box\bPsi
  \quad\Longrightarrow\quad
@@ -2862,7 +2874,7 @@ Equation~\eqref{eq:kg-general-solution} evolves its two coefficients.
 Recall the real $\Phi=V+\bA\cdot\bsig$, real charge $q$, and
 $\hE=\ii\partial_t-qV$, $\hbp=-\ii\pdr-q\bA$.  Minimal coupling gives~\citeat{hestenes-spacetime}{Eq.~(191)}{page=32}
 \begin{equation}
- \boxed{\bigl(\Wop(\hE+\hbp\cdot\bsig)-m\bI\bigr)\bPsi=0.}
+ \boxed{\bigl(\Wop(\hP)-m\bI\bigr)\bPsi=0.}
  \label{eq:dirac-field}
 \end{equation}
 Its entries are
@@ -2926,11 +2938,11 @@ Differentiating a parenthesized product includes the potential derivative.
 For the fixed potential $\Phi$ and charge $q$, use the interacting
 Dirac operator
 \begin{align}
- \hD(m)&:=\Wop(\hE+\hbp\cdot\bsig)-m\bI
+ \hD(m)&:=\Wop(\hP)-m\bI
  \label{eq:dirac-field-operator}\\
  &=\begin{Bmatrix}
- -m&\hE-\hbp\cdot\bsig\\
- \hE+\hbp\cdot\bsig&-m
+ -m&\adj\hP\\
+ \hP&-m
  \end{Bmatrix}. \notag
 \end{align}
 The argument $-m$ changes only the mass sign, keeping $q$ and $\Phi$
@@ -2985,7 +2997,8 @@ not satisfy the first-order coupling.
 Recall the real scalar $\lambda:\R^4\to\R$ and gauge transformation
 $\Phi'=\Phi+\partial^*\lambda$, or
 $V'=V+\partial_t\lambda$, $\bA'=\bA-\pdr\lambda$.
-For $\hE'=\ii\partial_t-qV'$ and $\hbp'=-\ii\pdr-q\bA'$, the product rule gives
+For $\hE':=\ii\partial_t-qV'$, $\hbp':=-\ii\pdr-q\bA'$, and
+$\hP':=\hE'+\hbp'\cdot\bsig$, the product rule gives
 \begin{align*}
  (\hE+\hbp\cdot\bsig)(e^{\ii q\lambda}\Psi_k')
  &=e^{\ii q\lambda}
@@ -3006,9 +3019,9 @@ Equivalently,
 Consequently~\citeat{tong-qft}{Eqs.~(6.68)--(6.69)}{page=143}
 \begin{equation}
  \begin{aligned}
- &\bigl(\Wop(\hE'+\hbp'\cdot\bsig)-m\bI\bigr)\bPsi'\\
+ &\bigl(\Wop(\hP')-m\bI\bigr)\bPsi'\\
  &\qquad=e^{-\ii q\lambda}
-       \bigl(\Wop(\hE+\hbp\cdot\bsig)-m\bI\bigr)\bPsi.
+       \bigl(\Wop(\hP)-m\bI\bigr)\bPsi.
  \end{aligned}
  \label{eq:gauge-operator-covariance}
 \end{equation}
@@ -4090,7 +4103,7 @@ $\gamma^j\gamma^k+\gamma^k\gamma^j=0$ for distinct
 $j,k=0,1,2,3$.  The standard chiral Dirac operator in this basis,
 with signature $(+,-,-,-)$, is~
 \begin{equation*}
- \Wop(\hE+\hbp\cdot\bsig)
+ \Wop(\hP)
  \quad\longleftrightarrow\quad
  \gamma^0\hE-\sum_{k=1}^3\gamma^k\hat p_k.
 \end{equation*}
@@ -4350,6 +4363,8 @@ The operators and wave equations are
    \tag*{\eqref{eq:mechanical-energy-operator}}\\
  \hbp&=-\ii\pdr-q\bA,
    \tag*{\eqref{eq:mechanical-momentum-operator}}\\
+ \hP&:=\hE+\hbp\cdot\bsig=\ii\partial^*-q\Phi,
+   \tag*{\eqref{eq:mechanical-paravector}}\\
  (\hbp\cdot\bsig)^2&=\hbp^2-q\bBf\cdot\bsig,
    \tag*{\eqref{eq:kinetic-sigma-square}}\\
  [\hE,\hbp\cdot\bsig]&=\ii q\bE\cdot\bsig,
@@ -4362,7 +4377,7 @@ The operators and wave equations are
 Here $Z$ is a complex paravector and $\bI$ the block identity.
 For the free field ($q=0$), the Dirac operator, equation, and factorization are
 \begin{align*}
- \hD(m)&=\Wop(\hE+\hbp\cdot\bsig)-m\bI,
+ \hD(m)&=\Wop(\hP)-m\bI,
    \tag*{\eqref{eq:dirac-operator}}\\
  \hD(m)\bPsi&=0,
    \tag*{\eqref{eq:dirac}}\\
@@ -4371,9 +4386,9 @@ For the free field ($q=0$), the Dirac operator, equation, and factorization are
 \end{align*}
 For fixed $q$ and $\Phi$, the interacting definition and equation are
 \begin{align*}
- \hD(m)&=\Wop(\hE+\hbp\cdot\bsig)-m\bI,
+ \hD(m)&=\Wop(\hP)-m\bI,
    \tag*{\eqref{eq:dirac-field-operator}}\\
- \hD(m)\bPsi&=(\Wop(\hE+\hbp\cdot\bsig)-m\bI)\bPsi=0.
+ \hD(m)\bPsi&=(\Wop(\hP)-m\bI)\bPsi=0.
    \tag*{\eqref{eq:dirac-field}}
 \end{align*}
 In each definition, $\hD(-m)$ changes only the sign of the mass term.

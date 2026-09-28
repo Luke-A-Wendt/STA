@@ -1,3 +1,9 @@
+The current [PDF](/home/luke/STA/sta_notes.pdf) has **73 pages**. Synced the README’s nonbold momentum paravector `\hat P`, explicit operator definitions, and `W(\hat P)` / Dirac notation throughout the paper and equation reference. Added the potential intermediate step `\partial^*(\partial\Phi)=\partial^*(S+F^*)` before the boxed source equation. Component equations and signs are preserved.
+
+Validation: two clean LaTeX passes, no warnings or overfull/underfull boxes; all 266 labels and 170 source citations preserved, all internal references resolve, and `git diff --check` passes.
+
+**Earlier revision records.**
+
 The current [PDF](/home/luke/STA/sta_notes.pdf) has **72 pages**. All **94 source citations formerly inside 91 displays** now appear in **89 preceding prose introductions**, with shared introductions covering adjacent equations. The display-citation macro has been removed. Source equation/page locators, blue hyperlinks, and bibliography entries are preserved.
 
 Validation: all **170 citation markers** and **90 distinct source targets** are preserved; every expected URL appears in the compiled PDF. No source citation remains inside display or inline math. Comparing the entire document after removing citation markers confirms unchanged prose and mathematical content. All **266 labels** and **433 internal references** pass; the PDF builds without warnings or overfull/underfull boxes. `git diff --check` passes.
