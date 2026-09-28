@@ -322,7 +322,24 @@ The Dirac equation is
 \boxed{\hat D(m)\boldsymbol\Psi=0.}
 ```
 
-Since $`\mathbf W(\hat P)^2=-\partial^{*}\partial\,\mathbf I=-\Box\mathbf I`$, multiplying the opposite-mass operators gives the [Klein–Gordon factorization](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation):
+For commuting free operators,
+
+```math
+\hat P\,\mathrm{adj}\,\hat P
+=\det\hat P
+=\hat E^2-\hat{\mathbf p}^2
+=-\Box.
+```
+
+Thus the spacetime mass shell $`\det P=m^2`$ becomes
+
+```math
+(\det\hat P-m^2)\boldsymbol\Psi=0
+\quad\Longleftrightarrow\quad
+(\Box+m^2)\boldsymbol\Psi=0.
+```
+
+Using $`\mathbf W(\hat P)^2=(\det\hat P)\mathbf I`$ gives the [Klein–Gordon factorization](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation):
 
 ```math
 \begin{aligned}
@@ -332,12 +349,7 @@ Since $`\mathbf W(\hat P)^2=-\partial^{*}\partial\,\mathbf I=-\Box\mathbf I`$, m
 \end{aligned}
 ```
 
-Every free Dirac solution therefore also satisfies the Klein–Gordon equation:
-
-```math
-\hat D(-m)\hat D(m)\boldsymbol\Psi=-(\Box+m^2)\boldsymbol\Psi=0
-\quad\Longrightarrow\quad\boxed{(\Box+m^2)\boldsymbol\Psi=0.}
-```
+Hence every free Dirac solution satisfies Klein–Gordon.
 
 ## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) with an electromagnetic potential
 
