@@ -412,27 +412,6 @@ Remove the [rest-energy phase](https://en.wikipedia.org/wiki/Pauli_equation#Deri
 \end{aligned}
 ```
 
-Substitute into the lower block of the squared Dirac equation:
-
-```math
-\begin{aligned}
-0&=(\hat E^2-\hat{\mathbf p}^2-m^2-\mathrm{i}qF)\Psi_2\\
-&=e^{-\mathrm{i}mt}\bigl((m+\hat E)^2-\hat{\mathbf p}^2-m^2-\mathrm{i}qF\bigr)\Psi_2'\\
-&=e^{-\mathrm{i}mt}\bigl(2m\hat E+\hat E^2-\hat{\mathbf p}^2-\mathrm{i}qF\bigr)\Psi_2'.
-\end{aligned}
-```
-
-Cancel the common phase and use the field identities above to obtain the exact relation
-
-```math
-\begin{aligned}
-\hat E\Psi_2'
-&=\frac{\hat{\mathbf p}^2+\mathrm{i}qF-\hat E^2}{2m}\Psi_2'\\
-&=\frac{(\hat{\mathbf p}\cdot\boldsymbol{\sigma})^2-\hat E^2
--[\hat{\mathbf p}\cdot\boldsymbol{\sigma},\hat E]}{2m}\Psi_2'.
-\end{aligned}
-```
-
 The two rows of the original Dirac equation give the coupled envelope equations:
 
 ```math
@@ -442,7 +421,7 @@ The two rows of the original Dirac equation give the coupled envelope equations:
 \end{aligned}
 ```
 
-Set
+Define the large and small components for the positive-energy branch:
 
 ```math
 \begin{aligned}
@@ -456,12 +435,11 @@ Adding and subtracting the envelope equations gives
 ```math
 \begin{aligned}
 \hat E\phi_1&=(\hat{\mathbf p}\cdot\boldsymbol{\sigma})\phi_2,\\
-\phi_2&=\frac{\hat{\mathbf p}\cdot\boldsymbol{\sigma}}{2m}\phi_1
--\frac{\hat E\phi_2}{2m}.
+(2m+\hat E)\phi_2&=(\hat{\mathbf p}\cdot\boldsymbol{\sigma})\phi_1.
 \end{aligned}
 ```
 
-For nonrelativistic states on the positive-energy branch in weak, slowly varying fields, the residual energy is small compared with $`m`$. Neglect $`\hat E\phi_2`$ relative to $`2m\phi_2`$ and substitute into the first equation:
+In the nonrelativistic limit with weak, slowly varying fields, neglect $`\hat E\phi_2`$ relative to $`2m\phi_2`$. Substitute the resulting small component into the first equation and use the field identity above:
 
 ```math
 \begin{aligned}
