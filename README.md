@@ -77,7 +77,7 @@ Z^{*}&=S^{*}-\mathbf V^{*}\cdot\boldsymbol{\sigma},
 \mathrm{tr}\,Z&:=2S=Z+\mathrm{adj}\,Z,
 &\lVert Z\rVert^2&:=SS^{*}+\mathbf V\cdot\mathbf V^{*} = \mathrm{sc}(Z Z^\mathsf H).
 \end{aligned}\\[6pt]
-Z^{-1}=\frac{\mathrm{adj}\,Z}{\det Z}\qquad(\det Z\ne0).
+Z^{-1}=\frac{\mathrm{adj}\,Z}{\det Z}\qquad \det Z\ne0.
 \end{gathered}
 ```
 
