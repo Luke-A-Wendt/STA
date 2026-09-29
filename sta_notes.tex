@@ -142,8 +142,8 @@ limits recover Pauli and Schr\"odinger, including spin and its magnetic interact
 Projectors give both spectral functions and spin measurement probabilities.
 
 This introduction presents the results together, from the algebra to the
-physical equations and their limits. Each heading links to the detailed
-development later in the paper. Natural units $\hbar=c=1$, rationalized
+physical equations and their limits. Links point to background material and
+the detailed development later in the paper. Natural units $\hbar=c=1$, rationalized
 electromagnetic units, and signature $(+,-,-,-)$ are used.
 
 \Needspace{8\baselineskip}
@@ -425,7 +425,7 @@ F'&=F.
 \]
 
 \Needspace{8\baselineskip}
-\subsection*{\hyperref[sec:dirac-development]{Dirac factors the free Klein--Gordon equation}}
+\subsection*{\hyperref[sec:dirac-development]{Dirac as a first-order wave equation}}
 
 In the Weyl representation, write $\bPsi:=(\Psi_+,\Psi_-)^{\mathsf T}$, where the signs label the entries, each with two complex components. Let $\bI$ be the block identity.
 
@@ -451,12 +451,9 @@ The free Dirac equation is
 \boxed{\hD(m)\bPsi=0.}
 \]
 
-The two entries obey
+Equivalently,
 \[
-\begin{aligned}
-(\hE-\hbp\cdot\bsig)\Psi_-&=m\Psi_+,\\
-(\hE+\hbp\cdot\bsig)\Psi_+&=m\Psi_-.
-\end{aligned}
+(\hE\pm\hbp\cdot\bsig)\Psi_\pm=m\Psi_\mp.
 \]
 
 For commuting free operators,
@@ -516,12 +513,9 @@ The coupled Dirac equation is
 \boxed{\hDq(m)\bPsi=0.}
 \]
 
-The two entries obey
+Equivalently,
 \[
-\begin{aligned}
-(\hEq-\hbpq\cdot\bsig)\Psi_-&=m\Psi_+,\\
-(\hEq+\hbpq\cdot\bsig)\Psi_+&=m\Psi_-.
-\end{aligned}
+(\hEq\pm\hbpq\cdot\bsig)\Psi_\pm=m\Psi_\mp.
 \]
 
 The coupled operators obey these field identities:
@@ -547,7 +541,7 @@ When derivatives act on the potentials as well as the wavefunction, the opposite
 Every Dirac solution satisfies $\hDq(-m)\hDq(m)\bPsi=0$. Setting $q=0$ recovers the free Klein--Gordon equation.
 
 \Needspace{8\baselineskip}
-\subsection*{\hyperref[sec:schrodinger-limit]{Klein--Gordon recovers Schr\"odinger}}
+\subsection*{\hyperref[sec:schrodinger-limit]{Low-energy Klein--Gordon recovers Schr\"odinger}}
 
 For a charged scalar field of constant mass $m$, remove the rest-energy phase, $\psi'=e^{-\ii mt}\psi$. The product rule gives
 \[
@@ -569,12 +563,17 @@ Substitution into the minimally coupled Klein--Gordon equation gives
 \end{aligned}
 \]
 
-Canceling the phase gives the residual-energy equation
+For any $q$ and constant $m>0$, canceling the phase gives the exact recursion:
 \[
 \hEq\psi=\frac{\hbpq^2-\hEq^2}{2m}\psi.
 \]
 
-For weak, slowly varying fields in the nonrelativistic limit, neglect $\hEq^2\psi$ compared with $2m\hEq\psi$ to obtain Schr\"odinger's equation:
+If $\hEq$ and $\hbpq^2$ commute, iteration on the positive-energy branch gives
+\[
+\hEq\psi=\left(\frac{\hbpq^2}{2m}-\frac{\hbpq^4}{8m^3}+\cdots\right)\psi.
+\]
+
+For weak, slowly varying fields, neglect $\hEq^2\psi$ relative to $2m\hEq\psi$ to obtain Schr\"odinger's equation:
 \[
 \boxed{\ii\partial_t\psi=
 \left(\frac{(-\ii\partial_{\bm{r}}-q\bm{A})^2}{2m}+qV\right)\psi.}
@@ -587,14 +586,11 @@ With $\bm{A}=0$ (hence $\bm{B}=0$), this recovers the conventional Schr\"odinger
 \]
 
 \Needspace{8\baselineskip}
-\subsection*{\hyperref[sec:pauli-limit]{Dirac recovers Pauli}}
+\subsection*{\hyperref[sec:pauli-limit]{Low-energy Dirac recovers Pauli}}
 
 Using the same phase shift, $\Psi_\pm':=e^{\ii mt}\Psi_\pm$, gives
 \[
-\begin{aligned}
-(m+\hEq-\hbpq\cdot\bsig)\Psi_-'&=m\Psi_+',\\
-(m+\hEq+\hbpq\cdot\bsig)\Psi_+'&=m\Psi_-'.
-\end{aligned}
+(m+\hEq\pm\hbpq\cdot\bsig)\Psi_\pm'=m\Psi_\mp'.
 \]
 
 Define the large and small components for the positive-energy branch:
@@ -633,7 +629,7 @@ The Pauli magnetic term is
 $-(q/m)\bm{B}\cdot(\bsig/2)$, giving $g=2$ before radiative corrections.
 
 \Needspace{30\baselineskip}
-\subsection*{\hyperref[sec:uniform-spin]{Spin up and spin down in a uniform magnetic field}}
+\subsection*{\href{https://en.wikipedia.org/wiki/Spin-1/2\#Observables}{Spin up and spin down} in a uniform magnetic field}
 For a nonzero, constant magnetic field $\bm{B}$, define its \href{https://en.wikipedia.org/wiki/Unit_vector}{unit direction} and \href{https://en.wikipedia.org/wiki/Pauli_matrices\#Eigenvectors_and_eigenvalues}{spin projectors}:
 
 \[
@@ -675,27 +671,25 @@ The \href{https://en.wikipedia.org/wiki/Momentum_operator\#Electromagnetic_field
 \Needspace{24\baselineskip}
 \subsection*{\hyperref[sec:spin-measurement-angle]{Spin measurement probabilities}}
 
-Prepare spin up along a real unit axis $\bu$, so $\psi=\Pi_+\psi\ne0$.
-Measure along another real unit axis $\bu'$, with $\cos\theta:=\bu\cdot\bu'$.
-Its projectors satisfy
+For real unit axes $\bu,\bu'$, prepare spin up $\psi=\Pi_+\psi\ne0$ along
+$\bu$ and measure along $\bu'$. With $\cos\theta:=\bu\cdot\bu'$,
 \[
 \Pi_\pm':=\frac12(1\pm\bu'\cdot\bsig),
 \qquad \Pi_+\Pi_\pm'\Pi_+=\frac{1\pm\cos\theta}{2}\Pi_+.
 \]
-The \href{https://en.wikipedia.org/wiki/Born_rule}{Born rule} gives the
-probabilities of measuring \href{https://en.wikipedia.org/wiki/Spin-1/2}{spin}
-$\pm\tfrac12$ along $\bu'$:
+The \href{https://en.wikipedia.org/wiki/Born_rule}{Born probabilities} for
+\href{https://en.wikipedia.org/wiki/Spin-1/2}{spin} $\pm\tfrac12$ are
 \[
 \begin{gathered}
-\operatorname{prob}(\pm)
+\mathrm{prob}(\pm)
 =\frac{\lVert\Pi_\pm'\psi\rVert^2}{\lVert\psi\rVert^2}
 =\frac{1\pm\cos\theta}{2},\\[4pt]
-\boxed{\operatorname{prob}(+)=\cos^2\frac\theta2,\qquad
-\operatorname{prob}(-)=\sin^2\frac\theta2.}
+\boxed{\mathrm{prob}(+)=\cos^2\frac\theta2,\qquad
+\mathrm{prob}(-)=\sin^2\frac\theta2.}
 \end{gathered}
 \]
-Aligned axes give spin up with certainty; perpendicular axes give equal
-probabilities. Initial spin down swaps the probabilities.
+Aligned axes give certain spin up; perpendicular axes give equal odds.
+Initial spin down swaps the probabilities.
 
 A rotation through $\varphi$ about a real unit axis $\bn$ acts on a
 two-component spinor as $\psi\mapsto R\psi$, with
@@ -3778,12 +3772,25 @@ On the positive-frequency KG branch, solving
  \hE\psi=\left(\sqrt{m^2+\hbp^2}-m\right)\psi.
 \end{equation*}
 The same energy acts on either normalized positive-energy Dirac spin
-component.  Iteration starts with $\hE\psi=\hbp^2\psi/(2m)$;
+component.  Iteration starts with $\hE\psi\simeq\hbp^2\psi/(2m)$;
 its square supplies the next term~\citeat{gurtler-hestenes}{Eq.~(2.19)}{page=6}:
 \begin{equation*}
  \hE\psi=\left(\frac{\hbp^2}{2m}-\frac{\hbp^4}{8m^3}
              +O\!\left(\frac{\hbp^6}{m^5}\right)\right)\psi.
 \end{equation*}
+
+For the charged scalar equation, the same iteration applies whenever
+$\hEq$ commutes with $\hbpq^2$. On the positive-energy branch,
+\[
+ \begin{aligned}
+ \hEq\psi
+ &=\left(\sqrt{m^2+\hbpq^2}-m\right)\psi\\
+ &=\left(\frac{\hbpq^2}{2m}-\frac{\hbpq^4}{8m^3}
+   +O\!\left(\frac{\hbpq^6}{m^5}\right)\right)\psi.
+ \end{aligned}
+\]
+This expansion applies when the kinetic momenta in the state are small
+compared with $m$.
 
 \section{Spin and probability}
 \label{sec:spin-and-probability}
@@ -3891,12 +3898,12 @@ inserting $\Pi_\pm=(1\pm\bu\cdot\bsig)/2$ directly into the pairing gives
 \]
 Therefore~\citeat{baylis-spin}{Eqs.~(66)--(67)}{page=12}
 \begin{equation}
- \boxed{\operatorname{prob}(\pm\mid\bu)=\frac{\lVert\Pi_\pm\psi\rVert^2}{\rho}
+ \boxed{\mathrm{prob}(\pm\mid\bu)=\frac{\lVert\Pi_\pm\psi\rVert^2}{\rho}
                     =\tfrac12(1\pm\bu\cdot\bm{s}).}
  \label{eq:spin-probability-intrinsic}
 \end{equation}
 The mean spin along $\bu$ is
-$(\operatorname{prob}(+)-\operatorname{prob}(-))/2=\bu\cdot\bm{s}/2$.
+$(\mathrm{prob}(+)-\mathrm{prob}(-))/2=\bu\cdot\bm{s}/2$.
 For a spatial wavefunction, \eqref{eq:spin-probability-intrinsic}
 is the spin probability conditional on position, not a position density.
 
@@ -3945,11 +3952,11 @@ The Born rule divides by the nonzero norm, so no prior normalization
 is needed:
 \begin{equation}
  \begin{gathered}
- \operatorname{prob}(\pm)
+ \mathrm{prob}(\pm)
  :=\frac{\lVert\Pi_\pm'\psi\rVert^2}{\lVert\psi\rVert^2}
  =\frac{1\pm\cos\theta}{2},\\[4pt]
- \boxed{\operatorname{prob}(+)=\cos^2\frac\theta2,\qquad
- \operatorname{prob}(-)=\sin^2\frac\theta2.}
+ \boxed{\mathrm{prob}(+)=\cos^2\frac\theta2,\qquad
+ \mathrm{prob}(-)=\sin^2\frac\theta2.}
  \end{gathered}
  \label{eq:spin-half-angle-probabilities}
 \end{equation}
@@ -4594,7 +4601,7 @@ $\Pi_\pm=(1\pm\bu\cdot\bsig)/2$ become
 \begin{align}
  \bu\cdot\bm{s}&=\bpsi^{\mathsf H}\operatorname{mat}(\bu\cdot\bsig)\bpsi/\rho,
  \label{eq:matrix-state}\\
- \operatorname{prob}(\pm\mid\bu)&=\bpsi^{\mathsf H}\operatorname{mat}(\Pi_\pm)\bpsi/\rho.
+ \mathrm{prob}(\pm\mid\bu)&=\bpsi^{\mathsf H}\operatorname{mat}(\Pi_\pm)\bpsi/\rho.
  \label{eq:matrix-born}
 \end{align}
 Equations~\eqref{eq:matrix-state} and \eqref{eq:matrix-born} are the ordinary
@@ -5034,7 +5041,7 @@ from \eqref{eq:weighted-density}, the densities and measurements are
    \tag*{\eqref{eq:weighted-density}}\\
  \bu\cdot\bm{s}&=\scpart{\psi^{\mathsf H}(\bu\cdot\bsig)\psi}/\rho,
    \tag*{\eqref{eq:spin-state}}\\
- \operatorname{prob}(\pm\mid\bu)&=\tfrac12(1\pm\bu\cdot\bm s),
+ \mathrm{prob}(\pm\mid\bu)&=\tfrac12(1\pm\bu\cdot\bm s),
    \tag*{\eqref{eq:spin-probability-intrinsic}}\\
  \langle Z\rangle_\psi&=\scpart{\psi^{\mathsf H}Z\psi}/\rho.
    \tag*{\eqref{eq:paravector-expectation}}
