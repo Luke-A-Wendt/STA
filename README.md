@@ -555,14 +555,14 @@ The [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Electroma
 
 ## Spin measurement probabilities
 
-Prepare spin up along a real unit axis $`\mathbf u`$, so $`\psi=\Pi_+\psi\ne0`$. Measure along another real unit axis $`\mathbf u'`$, with $`\cos\theta:=\mathbf u\cdot\mathbf u'`$. Its projectors satisfy
+For real unit axes $`\mathbf u,\mathbf u'`$, prepare spin up $`\psi=\Pi_+\psi\ne0`$ along $`\mathbf u`$ and measure along $`\mathbf u'`$. With $`\cos\theta:=\mathbf u\cdot\mathbf u'`$,
 
 ```math
 \Pi_\pm':=\frac12(1\pm\mathbf u'\cdot\boldsymbol{\sigma}),
 \qquad \Pi_+\Pi_\pm'\Pi_+=\frac{1\pm\cos\theta}{2}\Pi_+.
 ```
 
-The [Born rule](https://en.wikipedia.org/wiki/Born_rule) therefore gives the probabilities of measuring [spin](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ along $`\mathbf u'`$:
+The [Born probabilities](https://en.wikipedia.org/wiki/Born_rule) for [spin](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ are
 
 ```math
 \begin{gathered}
@@ -572,4 +572,4 @@ The [Born rule](https://en.wikipedia.org/wiki/Born_rule) therefore gives the pro
 \end{gathered}
 ```
 
-Aligned axes give spin up with certainty; perpendicular axes give equal probabilities. Initial spin down swaps the probabilities.
+Aligned axes give certain spin up; perpendicular axes give equal odds. Initial spin down swaps the probabilities.
