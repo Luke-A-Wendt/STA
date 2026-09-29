@@ -295,7 +295,7 @@ F'&=F.
 
 ## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) as a first-order wave equation
 
-In the [Weyl representation](https://en.wikipedia.org/wiki/Gamma_matrices#Weyl_%28chiral%29_basis), write $`\boldsymbol\Psi:=(\Psi_1,\Psi_2)^{\mathsf T}`$, with two complex components in each entry. Let $`\mathbf I`$ be the block identity.
+In the [Weyl representation](https://en.wikipedia.org/wiki/Gamma_matrices#Weyl_%28chiral%29_basis), write $`\boldsymbol\Psi:=(\Psi_+,\Psi_-)^{\mathsf T}`$, with two complex components in each entry. Let $`\mathbf I`$ be the block identity.
 
 Hats mark named [energy](https://en.wikipedia.org/wiki/Energy_operator), [momentum](https://en.wikipedia.org/wiki/Momentum_operator), and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) operators; the derivative symbols $`\partial`$ and $`\Box`$ remain unhatted.
 
@@ -321,13 +321,10 @@ The Dirac equation is
 \boxed{\hat D(m)\boldsymbol\Psi=0.}
 ```
 
-Its two rows are
+Equivalently,
 
 ```math
-\begin{aligned}
-(\hat E-\hat{\mathbf p}\cdot\boldsymbol{\sigma})\Psi_2&=m\Psi_1,\\
-(\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma})\Psi_1&=m\Psi_2.
-\end{aligned}
+(\hat E\pm\hat{\mathbf p}\cdot\boldsymbol{\sigma})\Psi_\pm=m\Psi_\mp.
 ```
 
 For commuting free operators,
@@ -393,13 +390,10 @@ The coupled Dirac equation is
 \boxed{\hat D_q(m)\boldsymbol\Psi=0.}
 ```
 
-Its two rows are
+Equivalently,
 
 ```math
-\begin{aligned}
-(\hat E_q-\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\Psi_2&=m\Psi_1,\\
-(\hat E_q+\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\Psi_1&=m\Psi_2.
-\end{aligned}
+(\hat E_q\pm\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\Psi_\pm=m\Psi_\mp.
 ```
 
 The coupled operators obey these field identities:
@@ -472,21 +466,18 @@ With $`\mathbf A=0`$ (hence $`\mathbf B=0`$), this recovers the conventional Sch
 
 ## Low-energy [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) recovers [Pauli](https://en.wikipedia.org/wiki/Pauli_equation)
 
-Using the same phase shift, $`\Psi_k':=e^{\mathrm{i}mt}\Psi_k`$, gives
+Using the same phase shift, $`\Psi_\pm':=e^{\mathrm{i}mt}\Psi_\pm`$, gives
 
 ```math
-\begin{aligned}
-(m+\hat E_q-\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\Psi_2'&=m\Psi_1',\\
-(m+\hat E_q+\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\Psi_1'&=m\Psi_2'.
-\end{aligned}
+(m+\hat E_q\pm\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\Psi_\pm'=m\Psi_\mp'.
 ```
 
 Define the large and small components for the positive-energy branch:
 
 ```math
 \begin{aligned}
-\phi_1&:=\frac{\Psi_1'+\Psi_2'}{\sqrt2},\\
-\phi_2&:=\frac{\Psi_2'-\Psi_1'}{\sqrt2}.
+\phi_+&:=\frac{\Psi_+'+\Psi_-'}{\sqrt2},\\
+\phi_-&:=\frac{\Psi_-'-\Psi_+'}{\sqrt2}.
 \end{aligned}
 ```
 
@@ -494,25 +485,25 @@ Adding and subtracting the envelope equations gives
 
 ```math
 \begin{aligned}
-\hat E_q\phi_1&=(\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\phi_2,\\
-(2m+\hat E_q)\phi_2&=(\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\phi_1.
+\hat E_q\phi_+&=(\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\phi_-,\\
+(2m+\hat E_q)\phi_-&=(\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\phi_+.
 \end{aligned}
 ```
 
-In the same nonrelativistic limit, neglect $`\hat E_q\phi_2`$ relative to $`2m\phi_2`$. Substitute the resulting small component into the first equation and use the field identity above:
+In the same nonrelativistic limit, neglect $`\hat E_q\phi_-`$ relative to $`2m\phi_-`$. Substitute the resulting small component into the first equation and use the field identity above:
 
 ```math
 \begin{aligned}
-\phi_2&\simeq\frac{\hat{\mathbf p}_q\cdot\boldsymbol{\sigma}}{2m}\phi_1,\\
-\hat E_q\phi_1&\simeq\frac{(\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})^2}{2m}\phi_1
-=\frac{\hat{\mathbf p}_q^2-q\mathbf B\cdot\boldsymbol{\sigma}}{2m}\phi_1.
+\phi_-&\simeq\frac{\hat{\mathbf p}_q\cdot\boldsymbol{\sigma}}{2m}\phi_+,\\
+\hat E_q\phi_+&\simeq\frac{(\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})^2}{2m}\phi_+
+=\frac{\hat{\mathbf p}_q^2-q\mathbf B\cdot\boldsymbol{\sigma}}{2m}\phi_+.
 \end{aligned}
 ```
 
-Restoring $`\hat E_q=\mathrm{i}\partial_t-qV`$ gives the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation), retaining the kinetic and spin terms through order $`1/m`$:
+Define $`\psi:=\phi_+`$. Restoring $`\hat E_q=\mathrm{i}\partial_t-qV`$ gives the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation), retaining the kinetic and spin terms through order $`1/m`$:
 
 ```math
-\boxed{\mathrm{i}\partial_t\phi_1=
+\boxed{\mathrm{i}\partial_t\psi=
 \left(\frac{\hat{\mathbf p}_q^2}{2m}
-+qV-\frac{q}{2m}\mathbf B\cdot\boldsymbol{\sigma}\right)\phi_1.}
++qV-\frac{q}{2m}\mathbf B\cdot\boldsymbol{\sigma}\right)\psi.}
 ```

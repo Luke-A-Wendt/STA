@@ -443,7 +443,7 @@ F'&=F.
 \Needspace{8\baselineskip}
 \subsection*{\hyperref[sec:dirac-development]{Dirac factors the free Klein--Gordon equation}}
 
-In the Weyl representation, write $\bPsi:=(\Psi_1,\Psi_2)^{\mathsf T}$, with two complex components in each entry. Let $\bI$ be the block identity.
+In the Weyl representation, write $\bPsi:=(\Psi_+,\Psi_-)^{\mathsf T}$, where the signs label the entries, each with two complex components. Let $\bI$ be the block identity.
 
 Hats mark named energy, momentum, and Dirac operators; the derivative symbols $\partial$ and $\Box$ remain unhatted.
 
@@ -470,8 +470,8 @@ The free Dirac equation is
 The two entries obey
 \[
 \begin{aligned}
-(\hE-\hbp\cdot\bsig)\Psi_2&=m\Psi_1,\\
-(\hE+\hbp\cdot\bsig)\Psi_1&=m\Psi_2.
+(\hE-\hbp\cdot\bsig)\Psi_-&=m\Psi_+,\\
+(\hE+\hbp\cdot\bsig)\Psi_+&=m\Psi_-.
 \end{aligned}
 \]
 
@@ -535,8 +535,8 @@ The coupled Dirac equation is
 The two entries obey
 \[
 \begin{aligned}
-(\hEq-\hbpq\cdot\bsig)\Psi_2&=m\Psi_1,\\
-(\hEq+\hbpq\cdot\bsig)\Psi_1&=m\Psi_2.
+(\hEq-\hbpq\cdot\bsig)\Psi_-&=m\Psi_+,\\
+(\hEq+\hbpq\cdot\bsig)\Psi_+&=m\Psi_-.
 \end{aligned}
 \]
 
@@ -605,44 +605,44 @@ With $\bm{A}=0$ (hence $\bm{B}=0$), this recovers the conventional Schr\"odinger
 \Needspace{8\baselineskip}
 \subsection*{\hyperref[sec:pauli-limit]{Dirac recovers Pauli}}
 
-Using the same phase shift, $\Psi_k':=e^{\ii mt}\Psi_k$, gives
+Using the same phase shift, $\Psi_\pm':=e^{\ii mt}\Psi_\pm$, gives
 \[
 \begin{aligned}
-(m+\hEq-\hbpq\cdot\bsig)\Psi_2'&=m\Psi_1',\\
-(m+\hEq+\hbpq\cdot\bsig)\Psi_1'&=m\Psi_2'.
+(m+\hEq-\hbpq\cdot\bsig)\Psi_-'&=m\Psi_+',\\
+(m+\hEq+\hbpq\cdot\bsig)\Psi_+'&=m\Psi_-'.
 \end{aligned}
 \]
 
 Define the large and small components for the positive-energy branch:
 \[
 \begin{aligned}
-\phi_1&:=\frac{\Psi_1'+\Psi_2'}{\sqrt2},\\
-\phi_2&:=\frac{\Psi_2'-\Psi_1'}{\sqrt2}.
+\phi_+&:=\frac{\Psi_+'+\Psi_-'}{\sqrt2},\\
+\phi_-&:=\frac{\Psi_-'-\Psi_+'}{\sqrt2}.
 \end{aligned}
 \]
 
 Adding and subtracting the envelope equations gives
 \[
 \begin{aligned}
-\hEq\phi_1&=(\hbpq\cdot\bsig)\phi_2,\\
-(2m+\hEq)\phi_2&=(\hbpq\cdot\bsig)\phi_1.
+\hEq\phi_+&=(\hbpq\cdot\bsig)\phi_-,\\
+(2m+\hEq)\phi_-&=(\hbpq\cdot\bsig)\phi_+.
 \end{aligned}
 \]
 
-In the same nonrelativistic limit, neglect $\hEq\phi_2$ relative to $2m\phi_2$. Substitute the resulting small component into the first equation and use the field identity above:
+In the same nonrelativistic limit, neglect $\hEq\phi_-$ relative to $2m\phi_-$. Substitute the resulting small component into the first equation and use the field identity above:
 \[
 \begin{aligned}
-\phi_2&\simeq\frac{\hbpq\cdot\bsig}{2m}\phi_1,\\
-\hEq\phi_1&\simeq\frac{(\hbpq\cdot\bsig)^2}{2m}\phi_1
-=\frac{\hbpq^2-q\bm{B}\cdot\bsig}{2m}\phi_1.
+\phi_-&\simeq\frac{\hbpq\cdot\bsig}{2m}\phi_+,\\
+\hEq\phi_+&\simeq\frac{(\hbpq\cdot\bsig)^2}{2m}\phi_+
+=\frac{\hbpq^2-q\bm{B}\cdot\bsig}{2m}\phi_+.
 \end{aligned}
 \]
 
-Restoring $\hEq=\ii\partial_t-qV$ gives the Pauli equation, retaining the kinetic and spin terms through order $1/m$:
+Define $\psi:=\phi_+$. Restoring $\hEq=\ii\partial_t-qV$ gives the Pauli equation, retaining the kinetic and spin terms through order $1/m$:
 \[
-\boxed{\ii\partial_t\phi_1=
+\boxed{\ii\partial_t\psi=
 \left(\frac{\hbpq^2}{2m}
-+qV-\frac{q}{2m}\bm{B}\cdot\bsig\right)\phi_1.}
++qV-\frac{q}{2m}\bm{B}\cdot\bsig\right)\psi.}
 \]
 
 The Pauli magnetic term is
@@ -3288,7 +3288,7 @@ All potential derivatives are retained.
 Recall $m>0$ and real space--time coordinates $(t,\br)$.
 A Dirac field is the two-entry block
 \begin{equation*}
- \bPsi(t,\br)=\begin{Bmatrix}\Psi_1(t,\br)\\\Psi_2(t,\br)\end{Bmatrix}.
+ \bPsi(t,\br)=\begin{Bmatrix}\Psi_+(t,\br)\\\Psi_-(t,\br)\end{Bmatrix}.
 \end{equation*}
 Each entry is a complex paravector amplitude of \eqref{eq:axis-ideal-components};
 the block therefore has four independent complex components.
@@ -3297,8 +3297,8 @@ conjugation acts entrywise.  Summing the two local squared norms gives
 the nonnegative real density~\citeat{tong-qft}{Eqs.~(4.97)--(4.99)}{page=105}
 \begin{equation}
  \lVert\bPsi\rVert^2
- =\scpart{\Psi_1^{\mathsf H}\Psi_1}
- +\scpart{\Psi_2^{\mathsf H}\Psi_2}.
+ =\scpart{\Psi_+^{\mathsf H}\Psi_+}
+ +\scpart{\Psi_-^{\mathsf H}\Psi_-}.
  \label{eq:dirac-norm}
 \end{equation}
 
@@ -3348,8 +3348,8 @@ $\det P=E^2-\bp^2=m^2$ in \eqref{eq:mass-shell}:
 \end{equation*}
 The original first-order constraint is the coupled pair~\citeat{tong-qft}{Eq.~(4.108)}{page=107}
 \begin{align}
- \ii\partial\Psi_2&=m\Psi_1,\label{eq:dirac-free-first}\\
- \ii\partial^*\Psi_1&=m\Psi_2.
+ \ii\partial\Psi_-&=m\Psi_+,\label{eq:dirac-free-first}\\
+ \ii\partial^*\Psi_+&=m\Psi_-.
  \label{eq:dirac-free-second}
 \end{align}
 
@@ -3366,7 +3366,7 @@ Thus the eigenvalues are
  s=-m\pm\ii\sqrt\Box.
 \]
 When distinct, each allows two independent complex coefficients in
-$\Psi_1$, with $\Psi_2=\ii\partial^*\Psi_1/(s+m)$.
+$\Psi_+$, with $\Psi_-=\ii\partial^*\Psi_+/(s+m)$.
 Each root therefore occurs twice, giving the scalar characteristic equation
 \begin{equation}
  \boxed{\bigl((s+m)^2+\Box\bigr)^2=0.}
@@ -3390,9 +3390,9 @@ $\psi_+$.  For constant complex scalars $a,b$, a two-constant construction is
 Substituting \eqref{eq:kg-dirac-general-lift} into
 \eqref{eq:dirac-free-first} and \eqref{eq:dirac-free-second} gives
 \begin{align*}
- \ii\partial\Psi_2-m\Psi_1
+ \ii\partial\Psi_--m\Psi_+
     &=-\frac{a}{m}(\Box+m^2)\psi'\psi_+=0,\\
- \ii\partial^*\Psi_1-m\Psi_2
+ \ii\partial^*\Psi_+-m\Psi_-
     &=-\frac{b}{m}(\Box+m^2)\psi'\psi_+=0.
 \end{align*}
 Taking $a=1,b=0$ gives one scalar-seeded solution.  To span every
@@ -3403,7 +3403,7 @@ with both scalar coefficients solving KG.  Then
  \label{eq:kg-dirac-complete-lift}
 \end{equation}
 The second Dirac equation holds by construction; the first is KG.
-Conversely, every massive free solution has this form with $\psi=\Psi_1$.
+Conversely, every massive free solution has this form with $\psi=\Psi_+$.
 Equation~\eqref{eq:kg-general-solution} evolves its two coefficients.
 
 \subsubsection{Potential and paravector components}
@@ -3415,8 +3415,8 @@ $\hEq=\ii\partial_t-qV$, $\hbpq=-\ii\pdr-q\bA$.  Minimal coupling gives~\citeat{
 \end{equation}
 Its entries are
 \begin{align}
- (\hEq-\hbpq\cdot\bsig)\Psi_2&=m\Psi_1,\label{eq:dirac-entry-one}\\
- (\hEq+\hbpq\cdot\bsig)\Psi_1&=m\Psi_2.
+ (\hEq-\hbpq\cdot\bsig)\Psi_-&=m\Psi_+,\label{eq:dirac-entry-one}\\
+ (\hEq+\hbpq\cdot\bsig)\Psi_+&=m\Psi_-.
  \label{eq:dirac-entry-two}
 \end{align}
 Isolating the time derivative gives
@@ -3430,14 +3430,14 @@ when the spatial boundary flux vanishes.  The pointwise density
 \eqref{eq:dirac-norm} can still vary through probability flux.
 
 To expose each coefficient, write
-$\Psi_k=a_k+\bb_k\cdot\bsig$ for $k=1,2$, with complex scalar
-functions $a_k:\R^4\to\C$ and complex vector functions
-$\bb_k:\R^4\to\C^3$.  Sigma multiplication gives
+$\Psi_\pm=a_\pm+\bb_\pm\cdot\bsig$, with complex scalar
+functions $a_\pm:\R^4\to\C$ and complex vector functions
+$\bb_\pm:\R^4\to\C^3$.  Sigma multiplication gives
 \begin{align*}
- \hEq a_2-\hbpq\cdot\bb_2&=ma_1,\\
- \hEq\bb_2-\hbpq a_2-\ii\hbpq\times\bb_2&=m\bb_1,\\
- \hEq a_1+\hbpq\cdot\bb_1&=ma_2,\\
- \hEq\bb_1+\hbpq a_1+\ii\hbpq\times\bb_1&=m\bb_2.
+ \hEq a_--\hbpq\cdot\bb_-&=ma_+,\\
+ \hEq\bb_--\hbpq a_--\ii\hbpq\times\bb_-&=m\bb_+,\\
+ \hEq a_++\hbpq\cdot\bb_+&=ma_-,\\
+ \hEq\bb_++\hbpq a_++\ii\hbpq\times\bb_+&=m\bb_-.
 \end{align*}
 Every operator acts on the following coefficient.  Each entry still
 has the two independent complex components of \eqref{eq:axis-ideal-components}.
@@ -3465,9 +3465,9 @@ The difference of \eqref{eq:potential-product-one} and
 Applying the block map $\Wop$ twice gives
 \begin{align*}
  \Wop(\partial^*)\Wop(\Phi)\bPsi
-   &=\begin{Bmatrix}\partial(\Phi\Psi_1)\\\partial^*(\Phi^*\Psi_2)\end{Bmatrix},\\
+   &=\begin{Bmatrix}\partial(\Phi\Psi_+)\\\partial^*(\Phi^*\Psi_-)\end{Bmatrix},\\
  \Wop(\Phi)\Wop(\partial^*)\bPsi
-   &=\begin{Bmatrix}\Phi^*\partial^*\Psi_1\\\Phi\partial\Psi_2\end{Bmatrix},\\
+   &=\begin{Bmatrix}\Phi^*\partial^*\Psi_+\\\Phi\partial\Psi_-\end{Bmatrix},\\
  \Wop(\Phi)^2&=\det\Phi\,\bI.
 \end{align*}
 Differentiating a parenthesized product includes the potential derivative.
@@ -3486,21 +3486,21 @@ fixed.  Multiplying and using the preceding mixed-derivative identities gives
 \begin{equation*}
  \hDq(-m)\hDq(m)\bPsi=
  -\begin{Bmatrix}
-  (-\hEq^2+\hbpq^2+m^2+\ii qF^*)\Psi_1\\
-  (-\hEq^2+\hbpq^2+m^2+\ii qF)\Psi_2
+  (-\hEq^2+\hbpq^2+m^2+\ii qF^*)\Psi_+\\
+  (-\hEq^2+\hbpq^2+m^2+\ii qF)\Psi_-
  \end{Bmatrix}.
 \end{equation*}
 This recovers
 \eqref{eq:dirac-free-factorization} at $q=0$.  With coupling, its entries obey
 \begin{align*}
- \left((\partial+\ii q\Phi^*)(\partial^*+\ii q\Phi)+m^2\right)\Psi_1&=0,\\
- \left((\partial^*+\ii q\Phi)(\partial+\ii q\Phi^*)+m^2\right)\Psi_2&=0.
+ \left((\partial+\ii q\Phi^*)(\partial^*+\ii q\Phi)+m^2\right)\Psi_+&=0,\\
+ \left((\partial^*+\ii q\Phi)(\partial+\ii q\Phi^*)+m^2\right)\Psi_-&=0.
 \end{align*}
 Expanding gives the exact second-order equations~\citeat{feynman-gellmann}{Eq.~(6)}{page=2}
 \begin{align}
- (-\hEq^2+\hbpq^2+m^2+\ii qF^*)\Psi_1&=0,
+ (-\hEq^2+\hbpq^2+m^2+\ii qF^*)\Psi_+&=0,
  \label{eq:dirac-squared-first}\\
- (-\hEq^2+\hbpq^2+m^2+\ii qF)\Psi_2&=0.
+ (-\hEq^2+\hbpq^2+m^2+\ii qF)\Psi_-&=0.
  \label{eq:dirac-squared-field}
 \end{align}
 For the spin-term components, write $\bC=\bE+\ii\bBf$ and
@@ -3518,13 +3518,13 @@ Here $\bC^*$ conjugates its scalar coefficients.  Sigma multiplication gives
 \end{align*}
 To construct solutions, take a complex paravector amplitude $\psi$ of
 \eqref{eq:axis-ideal-components} satisfying
-\eqref{eq:dirac-squared-field} with $\psi$ in place of $\Psi_2$.  Set
+\eqref{eq:dirac-squared-field} with $\psi$ in place of $\Psi_-$.  Set
 \begin{equation}
  \boxed{\bPsi=\begin{Bmatrix}(\hEq-\hbpq\cdot\bsig)\psi/m\\\psi\end{Bmatrix}.}
  \label{eq:dirac-field-reconstruction}
 \end{equation}
 The first Dirac equation holds by construction; the second is the seed
-equation.  Every massive solution has this form with $\psi=\Psi_2$.
+equation.  Every massive solution has this form with $\psi=\Psi_-$.
 One must solve that seed equation for the chosen potential: a scalar KG
 seed lacks the spin term, and independently solved squared entries need
 not satisfy the first-order coupling.
@@ -3536,11 +3536,11 @@ $V'=V+\partial_t\lambda$, $\bA'=\bA-\pdr\lambda$.
 For $\hEq':=\ii\partial_t-qV'$, $\hbpq':=-\ii\pdr-q\bA'$, and
 $\hPq':=\hEq'+\hbpq'\cdot\bsig$, the product rule gives
 \begin{align*}
- (\hEq+\hbpq\cdot\bsig)(e^{\ii q\lambda}\Psi_k')
+ (\hEq+\hbpq\cdot\bsig)(e^{\ii q\lambda}\Psi_\pm')
  &=e^{\ii q\lambda}
    (\hEq-q\partial_t\lambda+\hbpq\cdot\bsig
-      +q(\pdr\lambda)\cdot\bsig)\Psi_k'\\
- &=e^{\ii q\lambda}(\hEq'+\hbpq'\cdot\bsig)\Psi_k'.
+      +q(\pdr\lambda)\cdot\bsig)\Psi_\pm'\\
+ &=e^{\ii q\lambda}(\hEq'+\hbpq'\cdot\bsig)\Psi_\pm'.
 \end{align*}
 The adjugate block follows with the vector signs reversed.
 Thus the new amplitude is
@@ -3584,62 +3584,61 @@ This gives Pauli from Dirac and Schr\"odinger from KG.
 
 Remove the rest-energy phase to define the envelopes~\citeat{gurtler-hestenes}{Eq.~(2.1)}{page=4}:
 \begin{equation}
- \Psi_k':=e^{\ii mt}\Psi_k,\qquad k=1,2.
+ \Psi_\pm':=e^{\ii mt}\Psi_\pm.
  \label{eq:dirac-rest-phase}
 \end{equation}
 The product rule gives
 \begin{equation*}
- \hEq\Psi_k=e^{-\ii mt}(m+\hEq)\Psi_k'.
+ \hEq\Psi_\pm=e^{-\ii mt}(m+\hEq)\Psi_\pm'.
 \end{equation*}
 On the envelopes, $\hEq$ measures mechanical energy above rest.
 The two rows of the Dirac equation, \eqref{eq:dirac-entry-one} and
 \eqref{eq:dirac-entry-two}, become
 \begin{align*}
- (m+\hEq-\hbpq\cdot\bsig)\Psi_2'&=m\Psi_1',\\
- (m+\hEq+\hbpq\cdot\bsig)\Psi_1'&=m\Psi_2'.
+ (m+\hEq-\hbpq\cdot\bsig)\Psi_-'&=m\Psi_+',\\
+ (m+\hEq+\hbpq\cdot\bsig)\Psi_+'&=m\Psi_-'.
 \end{align*}
-At free positive-energy rest, $\Psi_1'=\Psi_2'$.  Define the large and small components
+At free positive-energy rest, $\Psi_+'=\Psi_-'$.  Define the large and small components
 \begin{align}
- \phi_1&:=\frac{\Psi_1'+\Psi_2'}{\sqrt2},
+ \phi_+&:=\frac{\Psi_+'+\Psi_-'}{\sqrt2},
  \label{eq:dirac-large-amplitude}\\
- \phi_2&:=\frac{\Psi_2'-\Psi_1'}{\sqrt2}.
+ \phi_-&:=\frac{\Psi_-'-\Psi_+'}{\sqrt2}.
  \label{eq:dirac-small-amplitude}
 \end{align}
 Adding and subtracting gives the exact pair~\citeat{gurtler-hestenes}{Eqs.~(2.15)--(2.16)}{page=6}:
 \begin{align}
- \hEq\phi_1&=(\hbpq\cdot\bsig)\phi_2,
+ \hEq\phi_+&=(\hbpq\cdot\bsig)\phi_-,
  \label{eq:dirac-large-component}\\
- (2m+\hEq)\phi_2&=(\hbpq\cdot\bsig)\phi_1.
+ (2m+\hEq)\phi_-&=(\hbpq\cdot\bsig)\phi_+.
  \label{eq:dirac-small-recursion}
 \end{align}
 For nonrelativistic positive-energy states in weak, slowly varying fields,
-neglect $\hEq\phi_2$ relative to $2m\phi_2$.  Substitute the small component
+neglect $\hEq\phi_-$ relative to $2m\phi_-$.  Substitute the small component
 into the first equation and use \eqref{eq:kinetic-sigma-square}:
 \begin{align*}
- \phi_2&\simeq\frac{\hbpq\cdot\bsig}{2m}\phi_1,\\
- \hEq\phi_1&\simeq\frac{(\hbpq\cdot\bsig)^2}{2m}\phi_1
- =\frac{\hbpq^2-q\bBf\cdot\bsig}{2m}\phi_1.
+ \phi_-&\simeq\frac{\hbpq\cdot\bsig}{2m}\phi_+,\\
+ \hEq\phi_+&\simeq\frac{(\hbpq\cdot\bsig)^2}{2m}\phi_+
+ =\frac{\hbpq^2-q\bBf\cdot\bsig}{2m}\phi_+.
 \end{align*}
-Restoring $\hEq=\ii\partial_t-qV$ gives Pauli's equation through order
+Define $\psi:=\phi_+$. Restoring $\hEq=\ii\partial_t-qV$ gives Pauli's equation through order
 $1/m$~\citeat{gurtler-hestenes}{Eq.~(2.13)}{page=6}:
 \begin{equation}
- \boxed{\ii\partial_t\phi_1=\left(
+ \boxed{\ii\partial_t\psi=\left(
   \frac{(-\ii\pdr-q\bA)^2}{2m}+qV
-  -\frac{q}{2m}\bBf\cdot\bsig\right)\phi_1.}
+  -\frac{q}{2m}\bBf\cdot\bsig\right)\psi.}
  \label{eq:pauli}
 \end{equation}
 The change of entries preserves the density exactly:
 \begin{equation*}
- \lVert\bPsi\rVert^2=\lVert\phi_1\rVert^2+\lVert\phi_2\rVert^2.
+ \lVert\bPsi\rVert^2=\lVert\phi_+\rVert^2+\lVert\phi_-\rVert^2.
 \end{equation*}
-The leading probability density is $\lVert\phi_1\rVert^2$.
+The leading probability density is $\lVert\psi\rVert^2$.
 Its two complex components are the Pauli amplitudes; see
-Appendix~\ref{sec:matrix-spinors}.  It is the $\psi$ used in the
-spin discussion.
+Appendix~\ref{sec:matrix-spinors}. This is the amplitude used in the spin discussion.
 For $0<v\ll1$, the scaling $\hbpq/m=O(v)$, $\hEq/m=O(v^2)$,
 $qV/m=O(v^2)$, $q\bBf/m^2=O(v^2)$, $q\bE/m^2=O(v^3)$,
 with fields varying on spatial scales $1/(mv)$ and time scales $1/(mv^2)$
-or longer, gives $\phi_2=O(v\phi_1)$ and omitted energy terms of order $mv^4$.
+or longer, gives $\phi_-=O(v\phi_+)$ and omitted energy terms of order $mv^4$.
 
 Equation~\eqref{eq:spin-half-generator} identifies spin as $\bsig/2$, so the magnetic energy is
 $-(q/m)\bBf\cdot(\bsig/2)$: magnetic moment equals $q/m$ times spin,
@@ -3651,21 +3650,21 @@ For a nonzero static uniform field, let
 $\bu=\bBf/\lVert\bBf\rVert$ be its
 \hyperref[def:real-unit-vector]{real unit direction} and
 $\Pi_\pm=(1\pm\bu\cdot\bsig)/2$ its spin projectors.
-The complex paravector fields $\phi_{1,\pm}=\Pi_\pm\phi_1$ obey
+The complex paravector fields $\phi_{+,\pm}=\Pi_\pm\phi_+$ obey
 \begin{equation*}
- \ii\partial_t\phi_{1,\pm}=\left(
- \frac{\hbpq^2\mp q\lVert\bBf\rVert}{2m}+qV\right)\phi_{1,\pm}.
+ \ii\partial_t\phi_{+,\pm}=\left(
+ \frac{\hbpq^2\mp q\lVert\bBf\rVert}{2m}+qV\right)\phi_{+,\pm}.
 \end{equation*}
 For a nonzero field with varying direction, the projectors depend on $(t,\br)$.
 Let $\hH$ denote the Pauli Hamiltonian in \eqref{eq:pauli}.
 The product rule gives
 \begin{equation*}
  \begin{aligned}
- \ii\partial_t(\Pi_\pm\phi_1)
- &=\ii(\partial_t\Pi_\pm)\phi_1+\Pi_\pm \hH\phi_1\\
- &=\hH(\Pi_\pm\phi_1)
+ \ii\partial_t(\Pi_\pm\phi_+)
+ &=\ii(\partial_t\Pi_\pm)\phi_++\Pi_\pm \hH\phi_+\\
+ &=\hH(\Pi_\pm\phi_+)
    +\left(\ii\partial_t\Pi_\pm
-          +\frac{[\Pi_\pm,\hbpq^2]}{2m}\right)\phi_1.
+          +\frac{[\Pi_\pm,\hbpq^2]}{2m}\right)\phi_+.
  \end{aligned}
 \end{equation*}
 Only the projector derivatives and kinetic commutator couple the
@@ -3938,14 +3937,14 @@ and potential laws above preserve its wave equation.
 For the two complex paravector Dirac entries, a change of coordinates
 $X'=TXT^{\mathsf H}$ uses
 \begin{align*}
- \Psi_1'(X')&=T^*\Psi_1(X),\\
- \Psi_2'(X')&=T\Psi_2(X).
+ \Psi_+'(X')&=T^*\Psi_+(X),\\
+ \Psi_-'(X')&=T\Psi_-(X).
 \end{align*}
 Primed mechanical operators use the primed coordinates and potentials.
 The first interacting equation~\eqref{eq:dirac-entry-one} transforms by cancellation:
 \begin{equation*}
- (\hEq'-\hbpq'\cdot\bsig)\Psi_2'
- =T^*(\hEq-\hbpq\cdot\bsig)\Psi_2=m\Psi_1'.
+ (\hEq'-\hbpq'\cdot\bsig)\Psi_-'
+ =T^*(\hEq-\hbpq\cdot\bsig)\Psi_-=m\Psi_+'.
 \end{equation*}
 Equation~\eqref{eq:dirac-entry-two} transforms in the same way with left factor
 $T$; $q=0$ gives the free case.
@@ -3957,7 +3956,7 @@ For $T=L=\exp(-\theta\bu\cdot\bsig/2)$, the two entries instead use
 $L^{-1}$ and $L$, respectively~\citeat{tong-qft}{Eq.~(4.31)}{page=92}.
 The factor $L$ already contains half the rapidity; no further square root
 is needed for either entry.
-Their cross-pairing $\scpart{\Psi_1^{\mathsf H}\Psi_2}$ is invariant:
+Their cross-pairing $\scpart{\Psi_+^{\mathsf H}\Psi_-}$ is invariant:
 the two transformation factors cancel.  Their summed positive density
 \eqref{eq:dirac-norm} is observer-dependent under boosts.
 Use the full Dirac pair for boosts before taking the Pauli low-energy limit.
@@ -4489,17 +4488,17 @@ spin expectation and Born rule.
 \subsection{Dirac columns}
 \label{sec:matrix-dirac-columns}
 
-For a Dirac block $\bPsi=\{\Psi_1,\Psi_2\}^{\mathsf T}$, let
-$\bpsi_1,\bpsi_2\in\C^2$ be the corresponding columns.  Then
+For a Dirac block $\bPsi=\{\Psi_+,\Psi_-\}^{\mathsf T}$, let
+$\bPsi_+,\bPsi_-\in\C^2$ be the corresponding columns.  Then
 \[
  \Wop(Z)\bPsi\quad\longleftrightarrow\quad
  \begin{Bmatrix}0&\operatorname{mat}(\adj Z)\\
  \operatorname{mat}(Z)&0\end{Bmatrix}
- \begin{Bmatrix}\bpsi_1\\\bpsi_2\end{Bmatrix}.
+ \begin{Bmatrix}\bPsi_+\\\bPsi_-\end{Bmatrix}.
 \]
 The block norm in \eqref{eq:dirac-norm} becomes the ordinary four-component norm:
 \begin{equation*}
- \rho=\bpsi_1^{\mathsf H}\bpsi_1+\bpsi_2^{\mathsf H}\bpsi_2.
+ \rho=\bPsi_+^{\mathsf H}\bPsi_++\bPsi_-^{\mathsf H}\bPsi_-.
 \end{equation*}
 
 \paragraph{Characteristic polynomial.}
@@ -4525,11 +4524,11 @@ The polynomial identity also holds at $s=-m$.
 \label{sec:matrix-dirac-components}
 
 In the arbitrary-axis basis \eqref{eq:ideal-spin-basis}, write
-$\Psi_1=a\psi_++b\psi_-$ and $\Psi_2=c\psi_++d\psi_-$,
+$\Psi_+=a\psi_++b\psi_-$ and $\Psi_-=c\psi_++d\psi_-$,
 where $a,b,c,d:\R^4\to\C$ are the four scalar components.
-Their columns are $\bpsi_1'=\{a,b\}^{\mathsf T}$ and
-$\bpsi_2'=\{c,d\}^{\mathsf T}$; here the prime means
-$\bpsi_k'=\bm C^{\mathsf H}\bpsi_k$.
+Their columns are $\bPsi_+'=\{a,b\}^{\mathsf T}$ and
+$\bPsi_-'=\{c,d\}^{\mathsf T}$; here the prime means
+$\bPsi_\pm'=\bm C^{\mathsf H}\bPsi_\pm$.
 Recall real mass $m>0$, real charge $q$, and
 real potentials $V:\R^4\to\R$ and $\bA:\R^4\to\R^3$.
 The mechanical energy and momentum operators are $\hEq=\ii\partial_t-qV$ and
@@ -4593,16 +4592,16 @@ The unitary change to the standard Dirac basis commutes with the scalar
 rest-phase factor explained in \eqref{eq:dirac-rest-phase}.
 Together they define the envelope columns
 \begin{equation}
- \begin{Bmatrix}\bm\phi_1\\\bm\phi_2\end{Bmatrix}
+ \begin{Bmatrix}\bm\phi_+\\\bm\phi_-\end{Bmatrix}
  =\frac{e^{\ii mt}}{\sqrt2}
  \begin{Bmatrix}\bI_2&\bI_2\\-\bI_2&\bI_2\end{Bmatrix}
- \begin{Bmatrix}\bpsi_1'\\\bpsi_2'\end{Bmatrix}.
+ \begin{Bmatrix}\bPsi_+'\\\bPsi_-'\end{Bmatrix}.
  \label{eq:matrix-envelope-map}
 \end{equation}
-Here $\bm\phi_1,\bm\phi_2\in\C^2$ are the coefficient columns in the same
+Here $\bm\phi_+,\bm\phi_-\in\C^2$ are the coefficient columns in the same
 spin basis of the paravector fields
-$\phi_1=e^{\ii mt}(\Psi_1+\Psi_2)/\sqrt2$ and
-$\phi_2=e^{\ii mt}(\Psi_2-\Psi_1)/\sqrt2$.
+$\phi_+=e^{\ii mt}(\Psi_++\Psi_-)/\sqrt2$ and
+$\phi_-=e^{\ii mt}(\Psi_--\Psi_+)/\sqrt2$.
 Before removing the rest phase, the basis change in
 \eqref{eq:matrix-envelope-map} sends \eqref{eq:matrix-dirac-hamiltonian} to
 \begin{equation}
@@ -4618,8 +4617,8 @@ Thus \eqref{eq:matrix-standard-dirac} becomes $\hH'-mI_4$:
 its diagonal entries are $qV$ and $qV-2m$.
 Moving $qV$ into $\hEq=\ii\partial_t-qV$ gives the exact envelope equations
 \begin{align*}
- \hEq\bm\phi_1&=\sum_k\hat p_{q,k}\bm\sigma_k\bm\phi_2,\\
- (\hEq+2m)\bm\phi_2&=\sum_k\hat p_{q,k}\bm\sigma_k\bm\phi_1.
+ \hEq\bm\phi_+&=\sum_k\hat p_{q,k}\bm\sigma_k\bm\phi_-,\\
+ (\hEq+2m)\bm\phi_-&=\sum_k\hat p_{q,k}\bm\sigma_k\bm\phi_+.
 \end{align*}
 These identify the large and small amplitudes used in the Pauli limit.
 
@@ -4888,10 +4887,10 @@ Schr\"odinger's equation to leading order:
  \ii\partial_t\psi=\left(qV+\frac{\hbpq^2}{2m}\right)\psi.
  \tag*{\eqref{eq:schrodinger}}
 \end{equation*}
-The complex paravector envelope $\phi_1$ obeys Pauli's equation:
+The complex paravector envelope $\psi:=\phi_+$ obeys Pauli's equation:
 \begin{equation*}
- \ii\partial_t\phi_1=\left(qV+
- \frac{\hbpq^2-q\bBf\cdot\bsig}{2m}\right)\phi_1.
+ \ii\partial_t\psi=\left(qV+
+ \frac{\hbpq^2-q\bBf\cdot\bsig}{2m}\right)\psi.
  \tag*{\eqref{eq:pauli}}
 \end{equation*}
 The derivations and approximation conditions are in
@@ -5276,7 +5275,7 @@ $G=T^{\mathsf H}$.  At corresponding events the laws are
  \begin{aligned}
  Z'&=GZG^{\mathsf H},&& Z=X,P,\Phi,D,\\
  F'&=GFG^{-1},&&\partial'=G^*\partial G^{-1},\\
- \Psi_1'&=G^*\Psi_1,&&\Psi_2'=G\Psi_2,\\
+ \Psi_+'&=G^*\Psi_+,&&\Psi_-'=G\Psi_-,\\
  \psi_{\mathrm{KG}}'(X')&=\psi_{\mathrm{KG}}(X).
  \end{aligned}
  \label{eq:conventions-field-laws}
@@ -5290,8 +5289,8 @@ For either rotation description, both Dirac entries use $R_-$.
 For $G=L_\pm$, they use $L_\pm^{-1}$ and $L_\pm$, respectively;
 the factor already contains half the rapidity.
 With $X'=T^{\mathsf H}XT$, the same laws read
-$\Psi_1'=T^{-1}\Psi_1$ and $\Psi_2'=T^{\mathsf H}\Psi_2$.
-The scalar paired quantity $\scpart{\Psi_1^{\mathsf H}\Psi_2}$ is invariant;
+$\Psi_+'=T^{-1}\Psi_+$ and $\Psi_-'=T^{\mathsf H}\Psi_-$.
+The scalar paired quantity $\scpart{\Psi_+^{\mathsf H}\Psi_-}$ is invariant;
 the sum of the two positive densities generally changes under boosts.
 The conserved Dirac current transforms as a four-vector; its time component
 alone is not invariant.
