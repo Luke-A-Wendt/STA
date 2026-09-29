@@ -71,12 +71,12 @@ $`(\,)^{\mathsf H}:=`$ [Hermitian conjugation](https://en.wikipedia.org/wiki/Con
 ```math
 \begin{gathered}
 \begin{aligned}
+Z^{*}&=S^{*}-\mathbf V^{*}\cdot\boldsymbol{\sigma},
+&Z^{\mathsf H}&=S^{*}+\mathbf V^{*}\cdot\boldsymbol{\sigma},\\
 \det Z&:=S^2-\mathbf V^2,
 &\mathrm{adj}\,Z&:=S-\mathbf V\cdot\boldsymbol{\sigma} = Z^{*\mathsf H},\\
 \mathrm{tr}\,Z&:=2S=Z+\mathrm{adj}\,Z,
-&\lVert Z\rVert^2&:=SS^{*}+\mathbf V\cdot\mathbf V^{*} = \mathrm{sc}(Z Z^\mathsf H),\\
-Z^{*}&=S^{*}-\mathbf V^{*}\cdot\boldsymbol{\sigma},
-&Z^{\mathsf H}&=S^{*}+\mathbf V^{*}\cdot\boldsymbol{\sigma}.
+&\lVert Z\rVert^2&:=SS^{*}+\mathbf V\cdot\mathbf V^{*} = \mathrm{sc}(Z Z^\mathsf H).
 \end{aligned}\\[6pt]
 Z^{-1}=\frac{\mathrm{adj}\,Z}{\det Z}\qquad(\det Z\ne0).
 \end{gathered}
