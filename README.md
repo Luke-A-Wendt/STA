@@ -566,9 +566,9 @@ The [Born rule](https://en.wikipedia.org/wiki/Born_rule) therefore gives the pro
 
 ```math
 \begin{gathered}
-\operatorname{prob}(\pm)=\frac{\lVert\Pi_\pm'\psi\rVert^2}{\lVert\psi\rVert^2}
+\mathrm{prob}(\pm)=\frac{\lVert\Pi_\pm'\psi\rVert^2}{\lVert\psi\rVert^2}
 =\frac{1\pm\cos\theta}{2},\\[6pt]
-\boxed{\operatorname{prob}(+)=\cos^2\frac\theta2,\quad \operatorname{prob}(-)=\sin^2\frac\theta2.}
+\boxed{\mathrm{prob}(+)=\cos^2\frac\theta2,\quad \mathrm{prob}(-)=\sin^2\frac\theta2.}
 \end{gathered}
 ```
 
