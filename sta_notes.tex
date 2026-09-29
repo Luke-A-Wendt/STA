@@ -648,6 +648,46 @@ Define $\psi:=\phi_+$. Restoring $\hEq=\ii\partial_t-qV$ gives the Pauli equatio
 The Pauli magnetic term is
 $-(q/m)\bm{B}\cdot(\bsig/2)$, giving $g=2$ before radiative corrections.
 
+\Needspace{30\baselineskip}
+\subsection*{\hyperref[sec:uniform-spin]{Spin up and spin down in a uniform magnetic field}}
+For a nonzero, constant magnetic field $\bm{B}$, define its \href{https://en.wikipedia.org/wiki/Unit_vector}{unit direction} and \href{https://en.wikipedia.org/wiki/Pauli_matrices\#Eigenvectors_and_eigenvalues}{spin projectors}:
+
+\[
+\begin{aligned}
+\bm{u}&:=\frac{\bm{B}}{\lVert\bm{B}\rVert},
+\qquad \Pi_\pm:=\frac12(1\pm\bm{u}\cdot\bsig),
+\\[3pt] \psi_\pm&:=\Pi_\pm\psi,
+\qquad \psi=\psi_++\psi_-.
+\end{aligned}
+\]
+
+The projector identity gives \href{https://en.wikipedia.org/wiki/Spin-1/2}{spin} $\pm\tfrac12$ along $\bm{u}$:
+
+\[
+(\bm{u}\cdot\bsig)\Pi_\pm=\pm\Pi_\pm,
+\qquad
+\frac{\bm{u}\cdot\bsig}2\psi_\pm=\pm\frac12\psi_\pm.
+\]
+
+Since the projectors are constant, they commute with $\hEq$ and $\hbpq^2$. Projecting the Pauli equation gives
+
+\[
+\begin{aligned}
+2m\hEq\psi_\pm
+&=\Pi_\pm(\hbpq^2-q\bm{B}\cdot\bsig)\psi\\
+&=(\hbpq^2\mp q\lVert\bm{B}\rVert)\psi_\pm.
+\end{aligned}
+\]
+
+Thus the two spin components evolve independently, with opposite \href{https://en.wikipedia.org/wiki/Zeeman_effect}{Zeeman shifts}:
+
+\[
+\boxed{\ii\partial_t\psi_\pm=
+\left(\frac{\hbpq^2\mp q\lVert\bm{B}\rVert}{2m}+qV\right)\psi_\pm.}
+\]
+
+The \href{https://en.wikipedia.org/wiki/Momentum_operator\#Electromagnetic_field}{kinetic momentum} $\hbpq=-\ii\partial_{\bm{r}}-q\bm{A}$ retains the orbital coupling.
+
 The sections that follow develop the algebra, derive these relationships,
 and give the physical assumptions and source comparisons. The equation
 reference in Appendix~\ref{sec:reference-summary} provides a compact index.
@@ -3645,6 +3685,7 @@ $-(q/m)\bBf\cdot(\bsig/2)$: magnetic moment equals $q/m$ times spin,
 so the gyromagnetic factor is $2$ before radiative corrections.
 
 \subsubsection{Components along a general field direction}
+\label{sec:uniform-spin}
 
 For a nonzero static uniform field, let
 $\bu=\bBf/\lVert\bBf\rVert$ be its

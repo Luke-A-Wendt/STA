@@ -507,3 +507,41 @@ Define $`\psi:=\phi_+`$. Restoring $`\hat E_q=\mathrm{i}\partial_t-qV`$ gives th
 \left(\frac{\hat{\mathbf p}_q^2}{2m}
 +qV-\frac{q}{2m}\mathbf B\cdot\boldsymbol{\sigma}\right)\psi.}
 ```
+
+## Spin up and spin down in a uniform magnetic field
+
+For a nonzero, constant magnetic field $`\mathbf B`$, define its [unit direction](https://en.wikipedia.org/wiki/Unit_vector) and [spin projectors](https://en.wikipedia.org/wiki/Pauli_matrices#Eigenvectors_and_eigenvalues):
+
+```math
+\mathbf u:=\frac{\mathbf B}{\lVert\mathbf B\rVert},
+\qquad \Pi_\pm:=\frac12(1\pm\mathbf u\cdot\boldsymbol{\sigma}),
+\qquad \psi_\pm:=\Pi_\pm\psi,
+\qquad \psi=\psi_++\psi_-.
+```
+
+The projector identity gives [spin](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ along $`\mathbf u`$:
+
+```math
+(\mathbf u\cdot\boldsymbol{\sigma})\Pi_\pm=\pm\Pi_\pm,
+\qquad
+\frac{\mathbf u\cdot\boldsymbol{\sigma}}2\psi_\pm=\pm\frac12\psi_\pm.
+```
+
+Since the projectors are constant, they commute with $`\hat E_q`$ and $`\hat{\mathbf p}_q^2`$. Projecting the Pauli equation gives
+
+```math
+\begin{aligned}
+2m\hat E_q\psi_\pm
+&=\Pi_\pm(\hat{\mathbf p}_q^2-q\mathbf B\cdot\boldsymbol{\sigma})\psi\\
+&=(\hat{\mathbf p}_q^2\mp q\lVert\mathbf B\rVert)\psi_\pm.
+\end{aligned}
+```
+
+Thus the two spin components evolve independently, with opposite [Zeeman shifts](https://en.wikipedia.org/wiki/Zeeman_effect):
+
+```math
+\boxed{\mathrm{i}\partial_t\psi_\pm=
+\left(\frac{\hat{\mathbf p}_q^2\mp q\lVert\mathbf B\rVert}{2m}+qV\right)\psi_\pm.}
+```
+
+The [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Electromagnetic_field) $`\hat{\mathbf p}_q=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A`$ retains the orbital coupling.
