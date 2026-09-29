@@ -303,47 +303,47 @@ For a free particle of mass $`m`$, define
 
 ```math
 \begin{aligned}
-\hat E_0&:=\mathrm{i}\partial_t,\\
-\hat{\mathbf p}_0&:=-\mathrm{i}\partial_{\mathbf r},\\
-\hat P_0&:=\hat E_0+\hat{\mathbf p}_0\cdot\boldsymbol{\sigma} = \mathrm{i}\partial^{*},\\
-\mathbf W(\hat P_0)&:=
+\hat E&:=\mathrm{i}\partial_t,\\
+\hat{\mathbf p}&:=-\mathrm{i}\partial_{\mathbf r},\\
+\hat P&:=\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma} = \mathrm{i}\partial^{*},\\
+\mathbf W(\hat P)&:=
 \begin{pmatrix}
-0 & \mathrm{adj}\,\hat P_0 \\
-\hat P_0 & 0
+0 & \mathrm{adj}\,\hat P \\
+\hat P & 0
 \end{pmatrix},\\
-\hat D_0(m)&:=\mathbf W(\hat P_0)-m\mathbf I.
+\hat D(m)&:=\mathbf W(\hat P)-m\mathbf I.
 \end{aligned}
 ```
 
 The Dirac equation is
 
 ```math
-\boxed{\hat D_0(m)\boldsymbol\Psi=0.}
+\boxed{\hat D(m)\boldsymbol\Psi=0.}
 ```
 
 For commuting free operators,
 
 ```math
-\hat P_0\,\mathrm{adj}\,\hat P_0
-=\det\hat P_0
-=\hat E_0^2-\hat{\mathbf p}_0^2
+\hat P\,\mathrm{adj}\,\hat P
+=\det\hat P
+=\hat E^2-\hat{\mathbf p}^2
 =-\Box.
 ```
 
 Thus the spacetime mass shell $`\det P=m^2`$ becomes
 
 ```math
-(\det\hat P_0-m^2)\boldsymbol\Psi=0
+(\det\hat P-m^2)\boldsymbol\Psi=0
 \quad\Longleftrightarrow\quad
 (\Box+m^2)\boldsymbol\Psi=0.
 ```
 
-Using $`\mathbf W(\hat P_0)^2=(\det\hat P_0)\mathbf I`$ gives the [Klein–Gordon factorization](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation):
+Using $`\mathbf W(\hat P)^2=(\det\hat P)\mathbf I`$ gives the [Klein–Gordon factorization](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation):
 
 ```math
 \begin{aligned}
-\hat D_0(m)\hat D_0(-m)&=\hat D_0(-m)\hat D_0(m)\\
-&=\mathbf W(\hat P_0)^2-m^2\mathbf I
+\hat D(m)\hat D(-m)&=\hat D(-m)\hat D(m)\\
+&=\mathbf W(\hat P)^2-m^2\mathbf I
 =-(\Box+m^2)\mathbf I.
 \end{aligned}
 ```
@@ -356,17 +356,17 @@ For constant mass $`m>0`$ and [charge](https://en.wikipedia.org/wiki/Electric_ch
 
 ```math
 \begin{aligned}
-\hat E_q&:=\hat E_0-qV=\mathrm{i}\partial_t-qV,\\
-\hat{\mathbf p}_q&:=\hat{\mathbf p}_0-q\mathbf A=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A,\\
+\hat E_q&:=\hat E-qV=\mathrm{i}\partial_t-qV,\\
+\hat{\mathbf p}_q&:=\hat{\mathbf p}-q\mathbf A=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A,\\
 \hat P_q&:=\hat E_q+\hat{\mathbf p}_q\cdot\boldsymbol{\sigma}.
 \end{aligned}
 ```
 
 ```math
-\boxed{\hat P_q=\hat P_0-q\Phi=\mathrm{i}\partial^{*}-q\Phi.}
+\boxed{\hat P_q=\hat P-q\Phi=\mathrm{i}\partial^{*}-q\Phi.}
 ```
 
-Subscripts $`0`$ and $`q`$ distinguish canonical and coupled operators. The coupled Dirac operator is
+At $`q=0`$, the coupled operators reduce to the canonical ones: $`\hat E_0=\hat E`$, $`\hat{\mathbf p}_0=\hat{\mathbf p}`$, and $`\hat P_0=\hat P`$. The coupled Dirac operator is
 
 ```math
 \begin{aligned}
