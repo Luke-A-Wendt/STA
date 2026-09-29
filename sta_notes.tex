@@ -295,22 +295,6 @@ f(Z)&=f(\lambda_-)\Pi_-+f(\lambda_+)\Pi_+.
 \end{aligned}
 \]
 
-\Needspace{12\baselineskip}
-\subsection*{\hyperref[sec:physical-spinors]{Spin one-half and measurement probabilities}}
-For a real unit axis, the projectors $\Pi_\pm=(1\pm\bu\cdot\bsig)/2$ select
-spin $\pm\tfrac12$ along a real unit measurement axis $\bu$.
-For a pure spin state with unit polarization $\bm{s}$, the probabilities are
-\[
- \boxed{p_\pm(\bu)=\tfrac12(1\pm\bu\cdot\bm{s}),\qquad
- p_+=\cos^2\frac\theta2,\quad p_-=\sin^2\frac\theta2,}
- \qquad \cos\theta=\bu\cdot\bm{s}.
-\]
-A two-component spinor transforms as $\psi\mapsto R\psi$, with
-$R=e^{-\ii\theta\bu\cdot\bsig/2}$. It changes sign under a $2\pi$ rotation
-and returns after $4\pi$, while the measurement probabilities are unchanged
-by the overall sign.
-
-
 \Needspace{8\baselineskip}
 \subsection*{\hyperref[sec:kinematics]{Spacetime from the determinant}}
 
@@ -687,6 +671,37 @@ Thus the two spin components evolve independently, with opposite \href{https://e
 \]
 
 The \href{https://en.wikipedia.org/wiki/Momentum_operator\#Electromagnetic_field}{kinetic momentum} $\hbpq=-\ii\partial_{\bm{r}}-q\bm{A}$ retains the orbital coupling.
+
+\Needspace{24\baselineskip}
+\subsection*{\hyperref[sec:spin-measurement-angle]{Spin measurement probabilities}}
+
+Prepare spin up along a real unit axis $\bu$, so $\psi=\Pi_+\psi\ne0$.
+Measure along another real unit axis $\bu'$, with $\cos\theta:=\bu\cdot\bu'$.
+Its projectors satisfy
+\[
+\Pi_\pm':=\frac12(1\pm\bu'\cdot\bsig),
+\qquad \Pi_+\Pi_\pm'\Pi_+=\frac{1\pm\cos\theta}{2}\Pi_+.
+\]
+The \href{https://en.wikipedia.org/wiki/Born_rule}{Born rule} gives the
+probabilities of measuring \href{https://en.wikipedia.org/wiki/Spin-1/2}{spin}
+$\pm\tfrac12$ along $\bu'$:
+\[
+\begin{gathered}
+\operatorname{prob}(\pm)
+=\frac{\lVert\Pi_\pm'\psi\rVert^2}{\lVert\psi\rVert^2}
+=\frac{1\pm\cos\theta}{2},\\[4pt]
+\boxed{\operatorname{prob}(+)=\cos^2\frac\theta2,\qquad
+\operatorname{prob}(-)=\sin^2\frac\theta2.}
+\end{gathered}
+\]
+Aligned axes give spin up with certainty; perpendicular axes give equal
+probabilities. Initial spin down swaps the probabilities.
+
+A rotation through $\varphi$ about a real unit axis $\bn$ acts on a
+two-component spinor as $\psi\mapsto R\psi$, with
+$R=e^{-\ii\varphi\bn\cdot\bsig/2}$. It changes sign under a $2\pi$ rotation
+and returns after $4\pi$, while the measurement probabilities are unchanged
+by the overall sign.
 
 The sections that follow develop the algebra, derive these relationships,
 and give the physical assumptions and source comparisons. The equation
@@ -3876,34 +3891,93 @@ inserting $\Pi_\pm=(1\pm\bu\cdot\bsig)/2$ directly into the pairing gives
 \]
 Therefore~\citeat{baylis-spin}{Eqs.~(66)--(67)}{page=12}
 \begin{equation}
- \boxed{p_\pm(\bu)=\frac{\lVert\Pi_\pm\psi\rVert^2}{\rho}
+ \boxed{\operatorname{prob}(\pm\mid\bu)=\frac{\lVert\Pi_\pm\psi\rVert^2}{\rho}
                     =\tfrac12(1\pm\bu\cdot\bm{s}).}
  \label{eq:spin-probability-intrinsic}
 \end{equation}
 The mean spin along $\bu$ is
-$(p_+-p_-)/2=\bu\cdot\bm{s}/2$.
+$(\operatorname{prob}(+)-\operatorname{prob}(-))/2=\bu\cdot\bm{s}/2$.
 For a spatial wavefunction, \eqref{eq:spin-probability-intrinsic}
 is the spin probability conditional on position, not a position density.
-If the angle between $\bu$ and $\bm{s}$ is the real angle $\theta$,
+
+\subsubsection{Measurement along a second axis}
+\label{sec:spin-measurement-angle}
+
+Now use $\bu$ for the preparation axis and $\bu'$ for the measurement
+axis, both real unit vectors. Prepare a nonzero spin-up amplitude
+$\psi=\Pi_+\psi$, where $\Pi_+=(1+\bu\cdot\bsig)/2$.
+Let $0\le\theta\le\pi$ be the angle between the axes and write
 \[
- p_+=\cos^2(\theta/2),\qquad p_-=\sin^2(\theta/2).
+ K:=\bu\cdot\bsig,\qquad K':=\bu'\cdot\bsig,\qquad
+ c:=\bu\cdot\bu'=\cos\theta.
 \]
-For $R=\exp(-\ii\theta\ba\cdot\bsig/2)$, with real unit rotation
-axis $\ba$ and real angle $\theta$, the amplitude law \eqref{eq:spin-half-law} gives
+The Pauli product gives $K^2=1$ and $KK'+K'K=2c$.
+Multiplication by $K$ gives $KK'K=2cK-K'$, hence
+\[
+ \begin{aligned}
+ \Pi_+K'\Pi_+
+ &=\frac14(1+K)K'(1+K)\\
+ &=\frac14(K'+KK'+K'K+KK'K)\\
+ &=\frac14(2c+2cK)=c\Pi_+.
+ \end{aligned}
+\]
+The measurement projectors $\Pi_\pm'=(1\pm K')/2$ therefore satisfy
+\begin{equation}
+ \Pi_+\Pi_\pm'\Pi_+
+ =\frac12\left(\Pi_+\pm\Pi_+K'\Pi_+\right)
+ =\frac{1\pm c}{2}\Pi_+.
+ \label{eq:spin-projector-overlap}
+\end{equation}
+
+Use Hermiticity, idempotence, and $\psi=\Pi_+\psi$ to evaluate the
+projected norm explicitly:
+\[
+ \begin{aligned}
+ \lVert\Pi_\pm'\psi\rVert^2
+ &=\scpart{(\Pi_\pm'\psi)^{\mathsf H}(\Pi_\pm'\psi)}\\
+ &=\scpart{\psi^{\mathsf H}(\Pi_\pm')^2\psi}\\
+ &=\scpart{\psi^{\mathsf H}\Pi_+\Pi_\pm'\Pi_+\psi}\\
+ &=\frac{1\pm c}{2}\scpart{\psi^{\mathsf H}\Pi_+\psi}
+ =\frac{1\pm c}{2}\lVert\psi\rVert^2.
+ \end{aligned}
+\]
+The Born rule divides by the nonzero norm, so no prior normalization
+is needed:
+\begin{equation}
+ \begin{gathered}
+ \operatorname{prob}(\pm)
+ :=\frac{\lVert\Pi_\pm'\psi\rVert^2}{\lVert\psi\rVert^2}
+ =\frac{1\pm\cos\theta}{2},\\[4pt]
+ \boxed{\operatorname{prob}(+)=\cos^2\frac\theta2,\qquad
+ \operatorname{prob}(-)=\sin^2\frac\theta2.}
+ \end{gathered}
+ \label{eq:spin-half-angle-probabilities}
+\end{equation}
+Here $+$ and $-$ label measured spin $+1/2$ and $-1/2$ along $\bu'$.
+The probabilities sum to one. Aligned axes give spin up with certainty,
+perpendicular axes give equal probabilities, and opposite axes give
+spin down with certainty. Preparing $\psi=\Pi_-\psi$ interchanges the
+probabilities. For a spatial wavefunction with the same spin preparation
+at every position, integrating both norm densities gives the same result.
+
+\subsubsection{Rotating the polarization}
+
+For $R=\exp(-\ii\varphi\ba\cdot\bsig/2)$, with real unit rotation
+axis $\ba$ and real angle $\varphi$, the amplitude law \eqref{eq:spin-half-law} gives
 \begin{equation*}
  \bu\cdot\bm{s}'=\langle R^{\mathsf H}(\bu\cdot\bsig)R\rangle_\psi.
 \end{equation*}
 This is the inverse of Rodrigues' rotation~\eqref{eq:rodrigues}:
-the measurement axis rotates through $-\theta$, so $\bm{s}'$ rotates
-through $+\theta$ about $\ba$.
+the measurement axis rotates through $-\varphi$, so $\bm{s}'$ rotates
+through $+\varphi$ about $\ba$.
 Thus the polarization rotates as a vector although its amplitude has
 spin one-half.  Its overlap with the original polarization is
 \[
  \bm{s}\cdot\bm{s}'=(\ba\cdot\bm{s})^2
-   +\left(1-(\ba\cdot\bm{s})^2\right)\cos\theta.
+   +\left(1-(\ba\cdot\bm{s})^2\right)\cos\varphi.
 \]
 For $\ba\cdot\bm{s}=0$, the probability to retain the initial spin
-is $\cos^2(\theta/2)$.
+is $\cos^2(\varphi/2)$.
 
 \section{Rotations and Lorentz boosts}
 \label{sec:transformations}
@@ -4520,7 +4594,7 @@ $\Pi_\pm=(1\pm\bu\cdot\bsig)/2$ become
 \begin{align}
  \bu\cdot\bm{s}&=\bpsi^{\mathsf H}\operatorname{mat}(\bu\cdot\bsig)\bpsi/\rho,
  \label{eq:matrix-state}\\
- p_\pm(\bu)&=\bpsi^{\mathsf H}\operatorname{mat}(\Pi_\pm)\bpsi/\rho.
+ \operatorname{prob}(\pm\mid\bu)&=\bpsi^{\mathsf H}\operatorname{mat}(\Pi_\pm)\bpsi/\rho.
  \label{eq:matrix-born}
 \end{align}
 Equations~\eqref{eq:matrix-state} and \eqref{eq:matrix-born} are the ordinary
@@ -4960,7 +5034,7 @@ from \eqref{eq:weighted-density}, the densities and measurements are
    \tag*{\eqref{eq:weighted-density}}\\
  \bu\cdot\bm{s}&=\scpart{\psi^{\mathsf H}(\bu\cdot\bsig)\psi}/\rho,
    \tag*{\eqref{eq:spin-state}}\\
- p_\pm(\bu)&=\tfrac12(1\pm\bu\cdot\bm s),
+ \operatorname{prob}(\pm\mid\bu)&=\tfrac12(1\pm\bu\cdot\bm s),
    \tag*{\eqref{eq:spin-probability-intrinsic}}\\
  \langle Z\rangle_\psi&=\scpart{\psi^{\mathsf H}Z\psi}/\rho.
    \tag*{\eqref{eq:paravector-expectation}}

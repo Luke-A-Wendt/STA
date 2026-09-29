@@ -444,13 +444,20 @@ Substitute into Klein–Gordon:
 \end{aligned}
 ```
 
-Cancel the phase and rearrange:
+For any $`q`$ and constant $`m>0`$, canceling the phase gives the exact recursion:
 
 ```math
 \hat E_q\psi=\frac{\hat{\mathbf p}_q^2-\hat E_q^2}{2m}\psi.
 ```
 
-For weak, slowly varying fields in the nonrelativistic limit, neglect $`\hat E_q^2\psi`$ compared with $`2m\hat E_q\psi`$ to obtain Schrödinger’s equation:
+If $`\hat E_q`$ and $`\hat{\mathbf p}_q^2`$ commute, iteration on the positive-energy branch gives
+
+```math
+\hat E_q\psi=\left(\frac{\hat{\mathbf p}_q^2}{2m}
+-\frac{\hat{\mathbf p}_q^4}{8m^3}+\cdots\right)\psi.
+```
+
+For weak, slowly varying fields, neglect $`\hat E_q^2\psi`$ relative to $`2m\hat E_q\psi`$ to obtain Schrödinger’s equation:
 
 ```math
 \boxed{\mathrm{i}\partial_t\psi=
@@ -545,3 +552,24 @@ Thus the two spin components evolve independently, with opposite [Zeeman shifts]
 ```
 
 The [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Electromagnetic_field) $`\hat{\mathbf p}_q=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A`$ retains the orbital coupling.
+
+## Spin measurement probabilities
+
+Prepare spin up along a real unit axis $`\mathbf u`$, so $`\psi=\Pi_+\psi\ne0`$. Measure along another real unit axis $`\mathbf u'`$, with $`\cos\theta:=\mathbf u\cdot\mathbf u'`$. Its projectors satisfy
+
+```math
+\Pi_\pm':=\frac12(1\pm\mathbf u'\cdot\boldsymbol{\sigma}),
+\qquad \Pi_+\Pi_\pm'\Pi_+=\frac{1\pm\cos\theta}{2}\Pi_+.
+```
+
+The [Born rule](https://en.wikipedia.org/wiki/Born_rule) therefore gives the probabilities of measuring [spin](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ along $`\mathbf u'`$:
+
+```math
+\begin{gathered}
+\operatorname{prob}(\pm)=\frac{\lVert\Pi_\pm'\psi\rVert^2}{\lVert\psi\rVert^2}
+=\frac{1\pm\cos\theta}{2},\\[6pt]
+\boxed{\operatorname{prob}(+)=\cos^2\frac\theta2,\quad \operatorname{prob}(-)=\sin^2\frac\theta2.}
+\end{gathered}
+```
+
+Aligned axes give spin up with certainty; perpendicular axes give equal probabilities. Initial spin down swaps the probabilities.
