@@ -515,7 +515,7 @@ Define $`\psi:=\phi_+`$. Restoring $`\hat E_q=\mathrm{i}\partial_t-qV`$ gives th
 +qV-\frac{q}{2m}\mathbf B\cdot\boldsymbol{\sigma}\right)\psi.}
 ```
 
-## Spin up and spin down in a uniform magnetic field
+## [Spin up and spin down](https://en.wikipedia.org/wiki/Spin-1/2#Observables) in a uniform magnetic field
 
 For a nonzero, constant magnetic field $`\mathbf B`$, define its [unit direction](https://en.wikipedia.org/wiki/Unit_vector) and [spin projectors](https://en.wikipedia.org/wiki/Pauli_matrices#Eigenvectors_and_eigenvalues):
 
