@@ -169,7 +169,8 @@ For a future-directed massive particle, [proper time](https://en.wikipedia.org/w
 
 ```math
 \begin{aligned}
-\mathrm dX&=\mathrm dt+\mathrm d\mathbf r\cdot\boldsymbol{\sigma},
+\mathrm dX&=\mathrm dt+\mathrm d\mathbf r\cdot\boldsymbol{\sigma}
+= \mathrm dt\,(1+ \frac{\mathrm d\mathbf r}{\mathrm dt} \cdot\boldsymbol{\sigma},
 &\mathrm ds^2&:=\det(\mathrm dX)=\mathrm dt^2-\mathrm d\mathbf r^2,\\
 U&:=\frac{\mathrm dX}{\mathrm ds}=\gamma(1+\mathbf v\cdot\boldsymbol{\sigma}),
 &\gamma&=(1-\mathbf v^2)^{-1/2},\quad \mathbf v:=\frac{\mathrm d\mathbf r}{\mathrm dt},\\
