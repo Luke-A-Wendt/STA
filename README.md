@@ -555,21 +555,24 @@ The [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Electroma
 
 ## Spin measurement probabilities
 
-For real unit axes $`\mathbf u,\mathbf u'`$, prepare spin up $`\psi=\Pi_+\psi\ne0`$ along $`\mathbf u`$ and measure along $`\mathbf u'`$. With $`\cos\theta:=\mathbf u\cdot\mathbf u'`$,
+Let $`\mathbf u'`$ be the real unit spin direction and $`\mathbf u`$ the real unit measurement axis. Prepare $`\psi=\Pi_+'\psi\ne0`$, with $`\cos\theta:=\mathbf u\cdot\mathbf u'`$:
 
 ```math
-\Pi_\pm':=\frac12(1\pm\mathbf u'\cdot\boldsymbol{\sigma}),
-\qquad \Pi_+\Pi_\pm'\Pi_+=\frac{1\pm\cos\theta}{2}\Pi_+.
+\begin{gathered}
+\Pi_+':=\frac12(1+\mathbf u'\cdot\boldsymbol{\sigma}),\qquad
+\Pi_\pm:=\frac12(1\pm\mathbf u\cdot\boldsymbol{\sigma}),\\[4pt]
+\Pi_+'\Pi_\pm\Pi_+'=\frac{1\pm\cos\theta}{2}\Pi_+'.
+\end{gathered}
 ```
 
 The [Born probabilities](https://en.wikipedia.org/wiki/Born_rule) for [spin](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ are
 
 ```math
 \begin{gathered}
-\mathrm{prob}(\pm)=\frac{\lVert\Pi_\pm'\psi\rVert^2}{\lVert\psi\rVert^2}
+\mathrm{prob}(\pm)=\frac{\lVert\Pi_\pm\psi\rVert^2}{\lVert\psi\rVert^2}
 =\frac{1\pm\cos\theta}{2},\\[6pt]
 \boxed{\mathrm{prob}(+)=\cos^2\frac\theta2,\quad \mathrm{prob}(-)=\sin^2\frac\theta2.}
 \end{gathered}
 ```
 
-Aligned axes give certain spin up; perpendicular axes give equal odds. Initial spin down swaps the probabilities.
+Aligned axes give certain spin up; perpendicular axes give equal odds. Reversing the prepared spin swaps the probabilities.

@@ -670,26 +670,27 @@ The \href{https://en.wikipedia.org/wiki/Momentum_operator\#Electromagnetic_field
 
 \Needspace{24\baselineskip}
 \subsection*{\hyperref[sec:spin-measurement-angle]{Spin measurement probabilities}}
+Let $\bu'$ be the real unit spin direction and $\bu$ the real unit measurement axis. Prepare $\psi=\Pi_+'\psi\ne0$, with $\cos\theta:=\bu\cdot\bu'$:
 
-For real unit axes $\bu,\bu'$, prepare spin up $\psi=\Pi_+\psi\ne0$ along
-$\bu$ and measure along $\bu'$. With $\cos\theta:=\bu\cdot\bu'$,
-\[
-\Pi_\pm':=\frac12(1\pm\bu'\cdot\bsig),
-\qquad \Pi_+\Pi_\pm'\Pi_+=\frac{1\pm\cos\theta}{2}\Pi_+.
-\]
-The \href{https://en.wikipedia.org/wiki/Born_rule}{Born probabilities} for
-\href{https://en.wikipedia.org/wiki/Spin-1/2}{spin} $\pm\tfrac12$ are
 \[
 \begin{gathered}
-\mathrm{prob}(\pm)
-=\frac{\lVert\Pi_\pm'\psi\rVert^2}{\lVert\psi\rVert^2}
-=\frac{1\pm\cos\theta}{2},\\[4pt]
-\boxed{\mathrm{prob}(+)=\cos^2\frac\theta2,\qquad
-\mathrm{prob}(-)=\sin^2\frac\theta2.}
+\Pi_+':=\frac12(1+\bu'\cdot\bsig),\qquad
+\Pi_\pm:=\frac12(1\pm\bu\cdot\bsig),\\[4pt]
+\Pi_+'\Pi_\pm\Pi_+'=\frac{1\pm\cos\theta}{2}\Pi_+'.
 \end{gathered}
 \]
-Aligned axes give certain spin up; perpendicular axes give equal odds.
-Initial spin down swaps the probabilities.
+
+The \href{https://en.wikipedia.org/wiki/Born_rule}{Born probabilities} for \href{https://en.wikipedia.org/wiki/Spin-1/2}{spin} $\pm\tfrac12$ are
+
+\[
+\begin{gathered}
+\mathrm{prob}(\pm)=\frac{\lVert\Pi_\pm\psi\rVert^2}{\lVert\psi\rVert^2}
+=\frac{1\pm\cos\theta}{2},\\[6pt]
+\boxed{\mathrm{prob}(+)=\cos^2\frac\theta2,\quad \mathrm{prob}(-)=\sin^2\frac\theta2.}
+\end{gathered}
+\]
+
+Aligned axes give certain spin up; perpendicular axes give equal odds. Reversing the prepared spin swaps the probabilities.
 
 A rotation through $\varphi$ about a real unit axis $\bn$ acts on a
 two-component spinor as $\psi\mapsto R\psi$, with
@@ -3866,85 +3867,86 @@ $\lVert c_\pm\rVert^2/\rho$.
 The same-side and cross-side projector products are already derived in
 Section~\ref{sec:algebra-projectors}.
 
-Define the real polarization vector $\bm{s}\in\R^3$ by its projection
+Define the real spin-polarization vector $\bu'\in\R^3$ by its projection
 along every real unit measurement axis $\bu$:
 \begin{equation}
- \bu\cdot\bm{s}
+ \bu\cdot\bu'
 :=\frac{\scpart{\psi^{\mathsf H}(\bu\cdot\bsig)\psi}}{\rho}.
  \label{eq:spin-state}
 \end{equation}
 The right side is real and linear in $\bu$, so it uniquely specifies
-$\bm{s}$.  For the arbitrary perpendicular basis axes $\bu,\ba$ in
+$\bu'$.  For the arbitrary perpendicular basis axes $\bu,\ba$ in
 \eqref{eq:axis-ideal-components}, expanding the same pairing gives
 \begin{equation*}
  \begin{aligned}
- \rho\bm{s}={}&(\lVert c_+\rVert^2-\lVert c_-\rVert^2)\bu\\
+ \rho\bu'={}&(\lVert c_+\rVert^2-\lVert c_-\rVert^2)\bu\\
  &+2\repart{c_+^*c_-}\ba
  +2\impart{c_+^*c_-}(\bu\times\ba).
  \end{aligned}
 \end{equation*}
 These three directions are orthonormal, hence
 \begin{equation*}
- \rho^2\bm{s}^2
+ \rho^2(\bu')^2
  =(\lVert c_+\rVert^2-\lVert c_-\rVert^2)^2+4\lVert c_+^*c_-\rVert^2
  =\rho^2.
 \end{equation*}
-Thus $\bm{s}$ is a real unit vector.  For any real unit measurement axis,
+Thus $\bu'$ is a real unit vector, with mean spin $\bu'/2$.
+For any real unit measurement axis,
 inserting $\Pi_\pm=(1\pm\bu\cdot\bsig)/2$ directly into the pairing gives
 \[
  \lVert\Pi_\pm\psi\rVert^2
  =\scpart{\psi^{\mathsf H}\Pi_\pm\psi}
- =\tfrac12\rho(1\pm\bu\cdot\bm{s}).
+ =\tfrac12\rho(1\pm\bu\cdot\bu').
 \]
 Therefore~\citeat{baylis-spin}{Eqs.~(66)--(67)}{page=12}
 \begin{equation}
  \boxed{\mathrm{prob}(\pm\mid\bu)=\frac{\lVert\Pi_\pm\psi\rVert^2}{\rho}
-                    =\tfrac12(1\pm\bu\cdot\bm{s}).}
+                    =\tfrac12(1\pm\bu\cdot\bu').}
  \label{eq:spin-probability-intrinsic}
 \end{equation}
 The mean spin along $\bu$ is
-$(\mathrm{prob}(+)-\mathrm{prob}(-))/2=\bu\cdot\bm{s}/2$.
+$(\mathrm{prob}(+)-\mathrm{prob}(-))/2=\bu\cdot\bu'/2$.
 For a spatial wavefunction, \eqref{eq:spin-probability-intrinsic}
 is the spin probability conditional on position, not a position density.
 
 \subsubsection{Measurement along a second axis}
 \label{sec:spin-measurement-angle}
 
-Now use $\bu$ for the preparation axis and $\bu'$ for the measurement
+Use $\bu'$ for the prepared spin direction and $\bu$ for the measurement
 axis, both real unit vectors. Prepare a nonzero spin-up amplitude
-$\psi=\Pi_+\psi$, where $\Pi_+=(1+\bu\cdot\bsig)/2$.
+$\psi=\Pi_+'\psi$, where $\Pi_+'=(1+\bu'\cdot\bsig)/2$.
 Let $0\le\theta\le\pi$ be the angle between the axes and write
 \[
- K:=\bu\cdot\bsig,\qquad K':=\bu'\cdot\bsig,\qquad
+ K':=\bu'\cdot\bsig,\qquad K:=\bu\cdot\bsig,\qquad
  c:=\bu\cdot\bu'=\cos\theta.
 \]
-The Pauli product gives $K^2=1$ and $KK'+K'K=2c$.
-Multiplication by $K$ gives $KK'K=2cK-K'$, hence
+The Pauli product gives $(K')^2=1$ and $K'K+KK'=2c$.
+Multiplication by $K'$ gives $K'KK'=2cK'-K$, hence
 \[
  \begin{aligned}
- \Pi_+K'\Pi_+
- &=\frac14(1+K)K'(1+K)\\
- &=\frac14(K'+KK'+K'K+KK'K)\\
- &=\frac14(2c+2cK)=c\Pi_+.
+ \Pi_+'K\Pi_+'
+ &=\frac14(1+K')K(1+K')\\
+ &=\frac14(K+K'K+KK'+K'KK')\\
+ &=\frac14(2c+2cK')=c\Pi_+'.
  \end{aligned}
 \]
-The measurement projectors $\Pi_\pm'=(1\pm K')/2$ therefore satisfy
+The measurement projectors $\Pi_\pm=(1\pm K)/2$ therefore satisfy
 \begin{equation}
- \Pi_+\Pi_\pm'\Pi_+
- =\frac12\left(\Pi_+\pm\Pi_+K'\Pi_+\right)
- =\frac{1\pm c}{2}\Pi_+.
+ \Pi_+'\Pi_\pm\Pi_+'
+ =\frac12\left(\Pi_+'\pm\Pi_+'K\Pi_+'\right)
+ =\frac{1\pm c}{2}\Pi_+'.
  \label{eq:spin-projector-overlap}
 \end{equation}
 
-Use Hermiticity, idempotence, and $\psi=\Pi_+\psi$ to evaluate the
+Use Hermiticity, idempotence, and $\psi=\Pi_+'\psi$ to evaluate the
 projected norm explicitly:
 \[
  \begin{aligned}
- \lVert\Pi_\pm'\psi\rVert^2
- &=\scpart{(\Pi_\pm'\psi)^{\mathsf H}(\Pi_\pm'\psi)}\\
- &=\scpart{\psi^{\mathsf H}(\Pi_\pm')^2\psi}\\
- &=\scpart{\psi^{\mathsf H}\Pi_+\Pi_\pm'\Pi_+\psi}\\
- &=\frac{1\pm c}{2}\scpart{\psi^{\mathsf H}\Pi_+\psi}
+ \lVert\Pi_\pm\psi\rVert^2
+ &=\scpart{(\Pi_\pm\psi)^{\mathsf H}(\Pi_\pm\psi)}\\
+ &=\scpart{\psi^{\mathsf H}(\Pi_\pm)^2\psi}\\
+ &=\scpart{\psi^{\mathsf H}\Pi_+'\Pi_\pm\Pi_+'\psi}\\
+ &=\frac{1\pm c}{2}\scpart{\psi^{\mathsf H}\Pi_+'\psi}
  =\frac{1\pm c}{2}\lVert\psi\rVert^2.
  \end{aligned}
 \]
@@ -3953,37 +3955,39 @@ is needed:
 \begin{equation}
  \begin{gathered}
  \mathrm{prob}(\pm)
- :=\frac{\lVert\Pi_\pm'\psi\rVert^2}{\lVert\psi\rVert^2}
+ :=\frac{\lVert\Pi_\pm\psi\rVert^2}{\lVert\psi\rVert^2}
  =\frac{1\pm\cos\theta}{2},\\[4pt]
  \boxed{\mathrm{prob}(+)=\cos^2\frac\theta2,\qquad
  \mathrm{prob}(-)=\sin^2\frac\theta2.}
  \end{gathered}
  \label{eq:spin-half-angle-probabilities}
 \end{equation}
-Here $+$ and $-$ label measured spin $+1/2$ and $-1/2$ along $\bu'$.
+Here $+$ and $-$ label measured spin $+1/2$ and $-1/2$ along $\bu$.
 The probabilities sum to one. Aligned axes give spin up with certainty,
 perpendicular axes give equal probabilities, and opposite axes give
-spin down with certainty. Preparing $\psi=\Pi_-\psi$ interchanges the
+spin down with certainty. Preparing $\psi=\Pi_-'\psi$ interchanges the
 probabilities. For a spatial wavefunction with the same spin preparation
 at every position, integrating both norm densities gives the same result.
 
 \subsubsection{Rotating the polarization}
 
 For $R=\exp(-\ii\varphi\ba\cdot\bsig/2)$, with real unit rotation
-axis $\ba$ and real angle $\varphi$, the amplitude law \eqref{eq:spin-half-law} gives
+axis $\ba$ and real angle $\varphi$, let $\bu''$ denote the polarization
+of the rotated amplitude $\psi'=R\psi$. The amplitude law
+\eqref{eq:spin-half-law} gives
 \begin{equation*}
- \bu\cdot\bm{s}'=\langle R^{\mathsf H}(\bu\cdot\bsig)R\rangle_\psi.
+ \bu\cdot\bu''=\langle R^{\mathsf H}(\bu\cdot\bsig)R\rangle_\psi.
 \end{equation*}
 This is the inverse of Rodrigues' rotation~\eqref{eq:rodrigues}:
-the measurement axis rotates through $-\varphi$, so $\bm{s}'$ rotates
+the measurement axis rotates through $-\varphi$, so $\bu''$ rotates
 through $+\varphi$ about $\ba$.
 Thus the polarization rotates as a vector although its amplitude has
 spin one-half.  Its overlap with the original polarization is
 \[
- \bm{s}\cdot\bm{s}'=(\ba\cdot\bm{s})^2
-   +\left(1-(\ba\cdot\bm{s})^2\right)\cos\varphi.
+ \bu'\cdot\bu''=(\ba\cdot\bu')^2
+   +\left(1-(\ba\cdot\bu')^2\right)\cos\varphi.
 \]
-For $\ba\cdot\bm{s}=0$, the probability to retain the initial spin
+For $\ba\cdot\bu'=0$, the probability to retain the initial spin
 is $\cos^2(\varphi/2)$.
 
 \section{Rotations and Lorentz boosts}
@@ -4599,7 +4603,7 @@ For nonzero norm $\rho=\bpsi^{\mathsf H}\bpsi$, the polarization
 \eqref{eq:spin-state} and probabilities for
 $\Pi_\pm=(1\pm\bu\cdot\bsig)/2$ become
 \begin{align}
- \bu\cdot\bm{s}&=\bpsi^{\mathsf H}\operatorname{mat}(\bu\cdot\bsig)\bpsi/\rho,
+ \bu\cdot\bu'&=\bpsi^{\mathsf H}\operatorname{mat}(\bu\cdot\bsig)\bpsi/\rho,
  \label{eq:matrix-state}\\
  \mathrm{prob}(\pm\mid\bu)&=\bpsi^{\mathsf H}\operatorname{mat}(\Pi_\pm)\bpsi/\rho.
  \label{eq:matrix-born}
@@ -5022,7 +5026,7 @@ for scalar and spinor amplitudes respectively.
 \Needspace{10\baselineskip}
 \paragraph{Spin and probabilities.}
 Recall a nonzero complex paravector amplitude $\psi$, real norm density
-$\rho>0$, real polarization $\bm{s}$, and
+$\rho>0$, real polarization $\bu'$, and
 \hyperref[def:real-unit-vector]{real unit measurement axis} $\bu$.
 The real observable $Z$ acts from the left.  A rotation uses
 \begin{equation*}
@@ -5039,9 +5043,9 @@ from \eqref{eq:weighted-density}, the densities and measurements are
    \tag*{\eqref{eq:probability-density}}\\
  \lVert\psi\rVert_Z^2&=\scpart{\psi^{\mathsf H}Z\psi},
    \tag*{\eqref{eq:weighted-density}}\\
- \bu\cdot\bm{s}&=\scpart{\psi^{\mathsf H}(\bu\cdot\bsig)\psi}/\rho,
+ \bu\cdot\bu'&=\scpart{\psi^{\mathsf H}(\bu\cdot\bsig)\psi}/\rho,
    \tag*{\eqref{eq:spin-state}}\\
- \mathrm{prob}(\pm\mid\bu)&=\tfrac12(1\pm\bu\cdot\bm s),
+ \mathrm{prob}(\pm\mid\bu)&=\tfrac12(1\pm\bu\cdot\bu'),
    \tag*{\eqref{eq:spin-probability-intrinsic}}\\
  \langle Z\rangle_\psi&=\scpart{\psi^{\mathsf H}Z\psi}/\rho.
    \tag*{\eqref{eq:paravector-expectation}}
@@ -5261,8 +5265,8 @@ electric signs~\citeat{feynman-gellmann}{Eq.~(6)}{page=2}.
 
 Baylis et al.'s $RP_3$ is a two-component minimal-ideal spinor; its
 rotations agree with our left amplitude action.  Their density-operator
-formula also covers mixed polarization and gives the same
-$(1+\bu\cdot\bm s)/2$ probability after basis normalization
+formula gives the same $(1+\bu\cdot\bu')/2$ probability after basis
+normalization, extending to mixed states with $\lVert\bu'\rVert\le1$
 \citeat{baylis-spin}{Eqs.~(66)--(67)}{page=12}.
 Feynman's spin chapter uses passive basis rotations; its $2\pi$ sign and
 probability statements agree, while an active rotor uses the inverse
