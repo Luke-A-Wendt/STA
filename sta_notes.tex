@@ -117,21 +117,543 @@
 \date{}
 
 \begin{document}
-\hypersetup{pageanchor=false}
-\begin{titlepage}
-\maketitle
-\thispagestyle{empty}
-
-\begin{abstract}
-This document develops a three-generator sigma algebra and its complex
-paravectors, then applies them to relativity, electromagnetism, and quantum
-mechanics.  Natural units $\hbar=c=1$, rationalized electromagnetic units,
-and signature $(+,-,-,-)$ are used.
-\end{abstract}
-\end{titlepage}
-
+% BEGIN RESULTS INTRODUCTION
 \pagenumbering{roman}
 \hypersetup{pageanchor=true}
+\begin{center}
+{\LARGE\bfseries Space--Time Algebra}\par
+\smallskip
+{\large A compact development of paravectors and their physical applications}\par
+\smallskip
+Dr. Luke A. Wendt
+\end{center}
+\section*{Introduction: results at a glance}
+\phantomsection
+\label{sec:introduction}
+\addcontentsline{toc}{section}{Introduction: results at a glance}
+
+\textbf{One complex scalar and one complex three-vector provide a common
+language for geometry, electromagnetism, and quantum mechanics.}
+Their product contains both dot and cross products; their determinant gives
+the spacetime interval. Quaternions generate rotations, the same transformation
+law gives Lorentz boosts, and four Maxwell equations fit into one line.
+The Dirac equation factors the free Klein--Gordon equation; their low-energy
+limits recover Pauli and Schr\"odinger, including spin and its magnetic interaction.
+Projectors give both spectral functions and spin measurement probabilities.
+
+This introduction presents the results together, from the algebra to the
+physical equations and their limits. Each heading links to the detailed
+development later in the paper. Natural units $\hbar=c=1$, rationalized
+electromagnetic units, and signature $(+,-,-,-)$ are used.
+
+\Needspace{8\baselineskip}
+\subsection*{\hyperref[sec:algebra]{One complex paravector}}
+\[
+\boxed{
+\begin{aligned}
+\sigma_n^2&=1,
+&\sigma_n\sigma_m&=-\sigma_m\sigma_n\quad(n\ne m),\\
+\ii&:=\sigma_1\sigma_2\sigma_3,
+&\ii^2&=-1,\\
+\bsig&:=\{\sigma_1,\sigma_2,\sigma_3\},
+&\ii\bsig&=\{\sigma_2\sigma_3,\sigma_3\sigma_1,\sigma_1\sigma_2\},\\
+Z&:=(a+b\ii)+(\bm{A}+\ii\bm{B})\cdot\bsig,
+&a,b&\in\mathbb R,\quad\bm{A},\bm{B}\in\mathbb R^3.
+\end{aligned}}
+\]
+
+Every element has eight real components: one complex scalar and one complex three-vector.
+\[
+Z=S+\bm{V}\cdot\bsig=X+\ii Y,
+\qquad X:=a+\bm{A}\cdot\bsig,
+\quad Y:=b+\bm{B}\cdot\bsig.
+\]
+
+The component extractions are
+\[
+\begin{aligned}
+\mathrm{re}(Z)&:=X,\\
+\mathrm{im}(Z)&:=Y,\\
+\mathrm{sc}(Z)&:=S=a+\ii b,\\
+\mathrm{vec}(Z)&:=\bm{V}=\bm{A}+\ii\bm{B}.
+\end{aligned}
+\]
+
+\Needspace{8\baselineskip}
+\subsection*{\hyperref[eq:vector-product]{Dot and cross products in one multiplication}}
+
+The product carries both the dot and cross products:
+\[
+(\bm{A}\cdot\bsig)(\bm{B}\cdot\bsig)
+=\bm{A}\cdot\bm{B}+\ii(\bm{A}\times\bm{B})\cdot\bsig.
+\]
+
+Throughout, $\bm{A}^2:=\bm{A}\cdot\bm{A}$.
+
+The commutator is
+\[
+[A,B]:=AB-BA.
+\]
+
+\Needspace{8\baselineskip}
+\subsection*{\hyperref[sec:algebra-operations]{Determinant, inverse, and conjugations}}
+
+The scalar and vector parts give the determinant, trace, norm, adjugate, and inverse directly.
+
+Write $Z=S+\bm{V}\cdot\bsig$, where $S\in\mathbb C$ is a complex scalar and $\bm{V}\in\mathbb C^3$ is a complex vector.
+
+Sigma conjugation $(\,\cdot\,)^*$ complex conjugates scalar coefficients and
+reverses the sign of $\bsig$. Hermitian conjugation $(\,\cdot\,)^{\mathsf H}$
+reverses the order of products of the generators $\sigma_k$.
+\[
+\begin{gathered}
+\begin{aligned}
+Z^{*}&=S^{*}-\bm{V}^{*}\cdot\bsig,
+&Z^{\mathsf H}&=S^{*}+\bm{V}^{*}\cdot\bsig,\\
+\mathrm{adj}\,Z&:=S-\bm{V}\cdot\bsig = Z^{*\mathsf H},&\det Z&:=S^2-\bm{V}^2 = Z\,\mathrm{adj}\,Z,\\
+\mathrm{tr}\,Z&:=2S=Z+\mathrm{adj}\,Z,
+&\lVert Z\rVert^2&:=SS^{*}+\bm{V}\cdot\bm{V}^{*} = \mathrm{sc}(Z Z^\mathsf H).
+\end{aligned}\\[6pt]
+Z^{-1}=\frac{\mathrm{adj}\,Z}{\det Z}\qquad \mathrm{if} \quad \det Z\ne0.
+\end{gathered}
+\]
+
+\Needspace{8\baselineskip}
+\subsection*{\hyperref[sec:quaternions]{Quaternions inside the same algebra}}
+
+In this representation, quaternions have a real scalar part and a purely imaginary vector part:
+\[
+\begin{aligned}
+q_k&:=-\ii\sigma_k,
+\qquad q_1^2=q_2^2=q_3^2=q_1q_2q_3=-1,\\
+Q&:=a+\bm{A}\cdot\bm{q}
+=a-\ii\bm{A}\cdot\bsig,
+\qquad a\in\mathbb R,\quad\bm{A}\in\mathbb R^3,\\
+Q^{\mathsf H}&=a+\ii\bm{A}\cdot\bsig,\\
+QQ^{\mathsf H}&=\det Q=a^2+\bm{A}^2.
+\end{aligned}
+\]
+
+\Needspace{8\baselineskip}
+\subsection*{\hyperref[sec:preserved-quantities]{Rotations and boosts in the same form}}
+
+Represent a spacetime event by $X$ and take $\bm{u}$ to be a real unit axis:
+\[
+X:=t+\bm{r}\cdot\bsig,
+\qquad X':=TXT^{\mathsf H}=t'+\bm{r}'\cdot\bsig.
+\]
+
+Choosing $T=R$ gives Rodrigues' rotation through $\theta$; $R$ is a unit quaternion in the basis $q_k=-\ii\sigma_k$.
+\[
+\begin{aligned}
+R&:=e^{-\ii\theta\bm{u}\cdot\bsig/2}
+=\cos\frac\theta2-\ii\bm{u}\cdot\bsig\sin\frac\theta2,\\
+t'&=t,\\
+\bm{r}'&=\bm{r}\cos\theta+(\bm{u}\times\bm{r})\sin\theta
++(\bm{u}\cdot\bm{r})(1-\cos\theta)\bm{u}.
+\end{aligned}
+\]
+
+Choosing $T=L$ gives a Lorentz boost to a frame moving at $+\beta\bm{u}$, with rapidity $\theta$, $\beta:=\tanh\theta$, and Lorentz factor $\gamma:=\cosh\theta$.
+
+Define the parallel and perpendicular components:
+\[
+\bm{r}_\parallel:=(\bm{u}\cdot\bm{r})\bm{u},
+\qquad \bm{r}_\perp:=\bm{r}-\bm{r}_\parallel.
+\]
+\[
+\begin{aligned}
+L&:=e^{-\theta\bm{u}\cdot\bsig/2}
+=\cosh\frac\theta2-\bm{u}\cdot\bsig\sinh\frac\theta2
+=L^{\mathsf H},\\
+t'&=\gamma(t-\beta\bm{u}\cdot\bm{r}),\\
+\bm{r}'&=\bm{r}_\perp+\gamma(\bm{r}_\parallel-\beta t\bm{u}).
+\end{aligned}
+\]
+
+\Needspace{8\baselineskip}
+\subsection*{\hyperref[sec:spectral]{Projectors reduce functions to scalar evaluations}}
+\[
+Z=a+b\bm{u}\cdot\bsig,
+\qquad a,b\in\mathbb C,\quad \bm{u}\in\mathbb C^3,\quad \bm{u}^2=1.
+\]
+
+The eigenvalues and complementary projectors are
+\[
+\begin{gathered}
+\lambda_\pm:=a\pm b,
+\qquad \Pi_\pm:=\frac12(1\pm\bm{u}\cdot\bsig),\\[4pt]
+\Pi_\pm^2=\Pi_\pm,\qquad \Pi_+\Pi_-=0,\qquad \Pi_-+\Pi_+=1.
+\end{gathered}
+\]
+
+For $f$ analytic near $\lambda_\pm$:
+\[
+\begin{aligned}
+Z&=\lambda_-\Pi_-+\lambda_+\Pi_+,\\[4pt]
+f(Z)&=f(\lambda_-)\Pi_-+f(\lambda_+)\Pi_+.
+\end{aligned}
+\]
+
+\Needspace{12\baselineskip}
+\subsection*{\hyperref[sec:physical-spinors]{Spin one-half and measurement probabilities}}
+For a real unit axis, the projectors $\Pi_\pm=(1\pm\bu\cdot\bsig)/2$ select
+spin $\pm\tfrac12$ along a real unit measurement axis $\bu$.
+For a pure spin state with unit polarization $\bm{s}$, the probabilities are
+\[
+ \boxed{p_\pm(\bu)=\tfrac12(1\pm\bu\cdot\bm{s}),\qquad
+ p_+=\cos^2\frac\theta2,\quad p_-=\sin^2\frac\theta2,}
+ \qquad \cos\theta=\bu\cdot\bm{s}.
+\]
+A two-component spinor transforms as $\psi\mapsto R\psi$, with
+$R=e^{-\ii\theta\bu\cdot\bsig/2}$. It changes sign under a $2\pi$ rotation
+and returns after $4\pi$, while the measurement probabilities are unchanged
+by the overall sign.
+
+
+\Needspace{8\baselineskip}
+\subsection*{\hyperref[sec:kinematics]{Spacetime from the determinant}}
+
+For a future-directed massive particle, proper time and four-momentum follow from a real paravector, with four-velocity $U$.
+\[
+\begin{aligned}
+\mathrm dX&=\mathrm dt+\mathrm d\bm{r}\cdot\bsig,
+&\mathrm ds^2&:=\det(\mathrm dX)=\mathrm dt^2-\mathrm d\bm{r}^2,\\
+U&:=\frac{\mathrm dX}{\mathrm ds}=\gamma(1+\bm{v}\cdot\bsig),
+&\gamma&=(1-\bm{v}^2)^{-1/2},\quad \bm{v}:=\frac{\mathrm d\bm{r}}{\mathrm dt},\\
+P&:=mU=\underbrace{E}_{\text{energy}}+
+\underbrace{\bm{p}\cdot\bsig}_{\text{momentum}},
+&\det P&=E^2-\bm{p}^2=m^2.
+\end{aligned}
+\]
+
+\clearpage
+\subsection*{\hyperref[eq:maxwell]{Maxwell's four equations in one}}
+
+Combine the electric and magnetic fields and use the paravector derivative:
+\[
+F:=(\bm{E}+\ii\bm{B})\cdot\bsig,
+\qquad \partial:=\partial_t+\partial_{\bm{r}}\cdot\bsig,
+\qquad \boxed{\partial F=\rho-\bm{J}\cdot\bsig.}
+\]
+
+Here $\rho$ is charge density, $\bm{J}$ is current density, and $\partial_{\bm{r}}$ is the gradient. Its divergence and curl give the four components of Maxwell's equations:
+\[
+\begin{aligned}
+\text{Real scalar:}\quad &\partial_{\bm{r}}\cdot\bm{E}=\rho,\\
+\text{Imaginary scalar:}\quad &\partial_{\bm{r}}\cdot\bm{B}=0,\\
+\text{Real vector:}\quad &\partial_t\bm{E}-\partial_{\bm{r}}\times\bm{B}=-\bm{J},\\
+\text{Imaginary vector:}\quad &\partial_t\bm{B}+\partial_{\bm{r}}\times\bm{E}=0.
+\end{aligned}
+\]
+
+Applying $\partial^{*}=\partial_t-\partial_{\bm{r}}\cdot\bsig$ gives the d'Alembertian and the sourced wave equations:
+\[
+\begin{aligned}
+\Box&:=\partial^{*}\partial=\partial_t^2-\partial_{\bm{r}}^2,\\
+\partial^{*}(\partial F)&=\Box F=\partial^{*}(\rho-\bm{J}\cdot\bsig).
+\end{aligned}
+\]
+
+Since $\Box F=(\Box\bm{E}+\ii\Box\bm{B})\cdot\bsig$, its components give charge conservation and the field wave equations
+\[
+\begin{aligned}
+\text{Real scalar:}\quad &0=\partial_t\rho+\partial_{\bm{r}}\cdot\bm{J}
+&&\text{(charge conservation)},\\
+\text{Imaginary scalar:}\quad &0=0,\\
+\text{Real vector:}\quad &\Box\bm{E}=-\partial_t\bm{J}-\partial_{\bm{r}}\rho,\\
+\text{Imaginary vector:}\quad &\Box\bm{B}=\partial_{\bm{r}}\times\bm{J}.
+\end{aligned}
+\]
+
+In vacuum, $\Box F=0$.
+
+The same field gives the \hyperref[eq:lorentz-momentum]{Lorentz force} and
+its rate of work on a particle of charge $q$ and velocity $\bm{v}$:
+\[
+ \frac{\mathrm d\bm{p}}{\mathrm dt}
+ =q(\bm{E}+\bm{v}\times\bm{B}),\qquad
+ \frac{\mathrm dE}{\mathrm dt}=q\bm{v}\cdot\bm{E}.
+\]
+
+
+\Needspace{8\baselineskip}
+\subsection*{\hyperref[eq:potential-field]{Electromagnetic potentials and gauge invariance}}
+
+Define the real four-potential from the scalar potential $V$ and vector potential $\bm{A}$, with gauge scalar $S$:
+\[
+\Phi:=V+\bm{A}\cdot\bsig,
+\qquad S:=\mathrm{sc}(\partial\Phi).
+\]
+
+\textbf{Fields from the potential:}
+\[
+\boxed{\partial\Phi=S+F^{*}}
+\]
+
+Its components give
+\[
+\begin{aligned}
+\text{Real scalar:}\quad &S=\partial_tV+\partial_{\bm{r}}\cdot\bm{A},\\
+\text{Imaginary scalar:}\quad &0=0,\\
+\text{Real vector:}\quad &\bm{E}=-\partial_t\bm{A}-\partial_{\bm{r}}V,\\
+\text{Imaginary vector:}\quad &\bm{B}=\partial_{\bm{r}}\times\bm{A}.
+\end{aligned}
+\]
+
+\textbf{Source equations in any gauge:}
+\[
+\Box\Phi=\partial^{*}(\partial\Phi)
+=\partial^{*}(S+F^{*})
+=\partial^{*}S+(\partial F)^{*}.
+\]
+
+Conjugating and using Maxwell's equation gives
+\[
+\boxed{\Box\Phi^{*}-\partial S=\rho-\bm{J}\cdot\bsig}
+\]
+
+Its components give
+\[
+\begin{aligned}
+\text{Real scalar:}\quad &\Box V-\partial_tS=\rho,\\
+\text{Imaginary scalar:}\quad &0=0,\\
+\text{Real vector:}\quad &\Box\bm{A}+\partial_{\bm{r}}S=\bm{J},\\
+\text{Imaginary vector:}\quad &\bm{0}=\bm{0}.
+\end{aligned}
+\]
+
+\textbf{Gauge invariance:} for real scalar $\lambda$,
+\[
+\begin{aligned}
+\Phi'&:=\Phi+\partial^{*}\lambda,\\
+S'&=S+\Box\lambda,\\
+F'&=F.
+\end{aligned}
+\]
+
+\textbf{Lorenz gauge:} $S=0$ gives the potential wave equations
+\[
+\begin{aligned}
+\text{Real scalar:}\quad &\Box V=\rho,\\
+\text{Real vector:}\quad &\Box\bm{A}=\bm{J}.
+\end{aligned}
+\]
+
+\Needspace{8\baselineskip}
+\subsection*{\hyperref[sec:dirac-development]{Dirac factors the free Klein--Gordon equation}}
+
+In the Weyl representation, write $\bPsi:=(\Psi_1,\Psi_2)^{\mathsf T}$, with two complex components in each entry. Let $\bI$ be the block identity.
+
+Hats mark named energy, momentum, and Dirac operators; the derivative symbols $\partial$ and $\Box$ remain unhatted.
+
+For a free particle of mass $m$, define
+\[
+\begin{aligned}
+\hE&:=\ii\partial_t,\\
+\hbp&:=-\ii\partial_{\bm{r}},\\
+\hP&:=\hE+\hbp\cdot\bsig = \ii\partial^{*},\\
+\Wop(\hP)&:=
+\begin{pmatrix}
+0 & \mathrm{adj}\,\hP \\
+\hP & 0
+\end{pmatrix},\\
+\hD(m)&:=\Wop(\hP)-m\bI.
+\end{aligned}
+\]
+
+The free Dirac equation is
+\[
+\boxed{\hD(m)\bPsi=0.}
+\]
+
+The two entries obey
+\[
+\begin{aligned}
+(\hE-\hbp\cdot\bsig)\Psi_2&=m\Psi_1,\\
+(\hE+\hbp\cdot\bsig)\Psi_1&=m\Psi_2.
+\end{aligned}
+\]
+
+For commuting free operators,
+\[
+\hP\,\mathrm{adj}\,\hP
+=\det\hP
+=\hE^2-\hbp^2
+=-\Box.
+\]
+
+Thus the spacetime mass shell $\det P=m^2$ becomes
+\[
+(\det\hP-m^2)\bPsi=0
+\quad\Longleftrightarrow\quad
+(\Box+m^2)\bPsi=0.
+\]
+
+Using $\Wop(\hP)^2=(\det\hP)\bI$ gives the Klein--Gordon factorization:
+\[
+\begin{aligned}
+\hD(m)\hD(-m)&=\hD(-m)\hD(m)\\
+&=\Wop(\hP)^2-m^2\bI
+=-(\Box+m^2)\bI.
+\end{aligned}
+\]
+
+Hence every free Dirac solution satisfies Klein--Gordon.
+
+\Needspace{8\baselineskip}
+\subsection*{\hyperref[eq:dirac-field]{Dirac with an electromagnetic potential}}
+
+For constant mass $m>0$ and charge $q$, minimal coupling to the real potential $\Phi=V+\bm{A}\cdot\bsig$ defines the gauge-covariant energy and momentum operators
+\[
+\begin{aligned}
+\hEq&:=\hE-qV=\ii\partial_t-qV,\\
+\hbpq&:=\hbp-q\bm{A}=-\ii\partial_{\bm{r}}-q\bm{A},\\
+\hPq&:=\hEq+\hbpq\cdot\bsig.
+\end{aligned}
+\]
+\[
+\boxed{\hPq=\hP-q\Phi=\ii\partial^{*}-q\Phi.}
+\]
+
+At $q=0$, the coupled operators reduce to the canonical ones: $\hat E_0=\hE$, $\hbp_0=\hbp$, and $\hat P_0=\hP$. The coupled Dirac operator is
+\[
+\begin{aligned}
+\hDq(m)&:=\Wop(\hPq)-m\bI\\
+&=\begin{pmatrix}
+-m & \mathrm{adj}\,\hPq\\
+\hPq & -m
+\end{pmatrix}.
+\end{aligned}
+\]
+
+The coupled Dirac equation is
+\[
+\boxed{\hDq(m)\bPsi=0.}
+\]
+
+The two entries obey
+\[
+\begin{aligned}
+(\hEq-\hbpq\cdot\bsig)\Psi_2&=m\Psi_1,\\
+(\hEq+\hbpq\cdot\bsig)\Psi_1&=m\Psi_2.
+\end{aligned}
+\]
+
+The coupled operators obey these field identities:
+\[
+\begin{aligned}
+{}[\hbpq\cdot\bsig,\hEq]
+&=-\ii q\bm{E}\cdot\bsig,\\
+(\hbpq\cdot\bsig)^2
+&=\hbpq^2-q\bm{B}\cdot\bsig,\\
+\hbpq^2+\ii qF
+&=(\hbpq\cdot\bsig)^2
+-[\hbpq\cdot\bsig,\hEq].
+\end{aligned}
+\]
+
+When derivatives act on the potentials as well as the wavefunction, the opposite-mass product becomes
+\[
+\hDq(-m)\hDq(m)
+=(\hEq^2-\hbpq^2-m^2)\bI
+-\ii q\begin{pmatrix}F^{*}&0\\0&F\end{pmatrix}.
+\]
+
+Every Dirac solution satisfies $\hDq(-m)\hDq(m)\bPsi=0$. Setting $q=0$ recovers the free Klein--Gordon equation.
+
+\Needspace{8\baselineskip}
+\subsection*{\hyperref[sec:schrodinger-limit]{Klein--Gordon recovers Schr\"odinger}}
+
+For a charged scalar field of constant mass $m$, remove the rest-energy phase, $\psi'=e^{-\ii mt}\psi$. The product rule gives
+\[
+\begin{aligned}
+\hEq\psi'
+&=(\ii\partial_t-qV)(e^{-\ii mt}\psi)\\
+&=e^{-\ii mt}(m\psi+\ii\partial_t\psi-qV\psi)\\
+&=e^{-\ii mt}(m+\hEq)\psi,\\[6pt]
+\hbpq\psi'&=e^{-\ii mt}\hbpq\psi.
+\end{aligned}
+\]
+
+Substitution into the minimally coupled Klein--Gordon equation gives
+\[
+\begin{aligned}
+0&=(\hEq^2-\hbpq^2-m^2)\psi'\\
+&=e^{-\ii mt}\bigl((m+\hEq)^2-\hbpq^2-m^2\bigr)\psi\\
+&=e^{-\ii mt}\bigl(2m\hEq+\hEq^2-\hbpq^2\bigr)\psi.
+\end{aligned}
+\]
+
+Canceling the phase gives the residual-energy equation
+\[
+\hEq\psi=\frac{\hbpq^2-\hEq^2}{2m}\psi.
+\]
+
+For weak, slowly varying fields in the nonrelativistic limit, neglect $\hEq^2\psi$ compared with $2m\hEq\psi$ to obtain Schr\"odinger's equation:
+\[
+\boxed{\ii\partial_t\psi=
+\left(\frac{(-\ii\partial_{\bm{r}}-q\bm{A})^2}{2m}+qV\right)\psi.}
+\]
+
+With $\bm{A}=0$ (hence $\bm{B}=0$), this recovers the conventional Schr\"odinger equation:
+\[
+\ii\partial_t\psi=
+\left(-\frac{\partial_{\bm{r}}^2}{2m}+qV\right)\psi.
+\]
+
+\Needspace{8\baselineskip}
+\subsection*{\hyperref[sec:pauli-limit]{Dirac recovers Pauli}}
+
+Using the same phase shift, $\Psi_k':=e^{\ii mt}\Psi_k$, gives
+\[
+\begin{aligned}
+(m+\hEq-\hbpq\cdot\bsig)\Psi_2'&=m\Psi_1',\\
+(m+\hEq+\hbpq\cdot\bsig)\Psi_1'&=m\Psi_2'.
+\end{aligned}
+\]
+
+Define the large and small components for the positive-energy branch:
+\[
+\begin{aligned}
+\phi_1&:=\frac{\Psi_1'+\Psi_2'}{\sqrt2},\\
+\phi_2&:=\frac{\Psi_2'-\Psi_1'}{\sqrt2}.
+\end{aligned}
+\]
+
+Adding and subtracting the envelope equations gives
+\[
+\begin{aligned}
+\hEq\phi_1&=(\hbpq\cdot\bsig)\phi_2,\\
+(2m+\hEq)\phi_2&=(\hbpq\cdot\bsig)\phi_1.
+\end{aligned}
+\]
+
+In the same nonrelativistic limit, neglect $\hEq\phi_2$ relative to $2m\phi_2$. Substitute the resulting small component into the first equation and use the field identity above:
+\[
+\begin{aligned}
+\phi_2&\simeq\frac{\hbpq\cdot\bsig}{2m}\phi_1,\\
+\hEq\phi_1&\simeq\frac{(\hbpq\cdot\bsig)^2}{2m}\phi_1
+=\frac{\hbpq^2-q\bm{B}\cdot\bsig}{2m}\phi_1.
+\end{aligned}
+\]
+
+Restoring $\hEq=\ii\partial_t-qV$ gives the Pauli equation, retaining the kinetic and spin terms through order $1/m$:
+\[
+\boxed{\ii\partial_t\phi_1=
+\left(\frac{\hbpq^2}{2m}
++qV-\frac{q}{2m}\bm{B}\cdot\bsig\right)\phi_1.}
+\]
+
+The Pauli magnetic term is
+$-(q/m)\bm{B}\cdot(\bsig/2)$, giving $g=2$ before radiative corrections.
+
+The sections that follow develop the algebra, derive these relationships,
+and give the physical assumptions and source comparisons. The equation
+reference in Appendix~\ref{sec:reference-summary} provides a compact index.
+\clearpage
+% END RESULTS INTRODUCTION
+
 \begingroup
 \setlength{\parskip}{0pt}
 \tableofcontents
