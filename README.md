@@ -352,26 +352,28 @@ Hence every free Dirac solution satisfies Klein–Gordon.
 
 ## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) with an electromagnetic potential
 
-For constant mass $`m>0`$ and [charge](https://en.wikipedia.org/wiki/Electric_charge) $`q`$, [minimal coupling](https://en.wikipedia.org/wiki/Minimal_coupling) to the real [potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) $`\Phi=V+\mathbf A\cdot\boldsymbol{\sigma}`$ replaces the free operators by
+For constant mass $`m>0`$ and [charge](https://en.wikipedia.org/wiki/Electric_charge) $`q`$, [minimal coupling](https://en.wikipedia.org/wiki/Minimal_coupling) to the real [potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) $`\Phi=V+\mathbf A\cdot\boldsymbol{\sigma}`$ defines the gauge-covariant energy and momentum operators
 
 ```math
 \begin{aligned}
-\hat E&:=\mathrm{i}\partial_t-qV,\\
-\hat{\mathbf p}&:=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A,\\
-\hat P&:=\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma}.
+\hat E_q&:=\hat E-qV=\mathrm{i}\partial_t-qV,\\
+\hat{\mathbf p}_q&:=\hat{\mathbf p}-q\mathbf A=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A,\\
+\hat P_q&:=\hat E_q+\hat{\mathbf p}_q\cdot\boldsymbol{\sigma}.
 \end{aligned}
 ```
 
 ```math
-\boxed{\hat P=\mathrm{i}\partial^{*}-q\Phi.}
+\boxed{\hat P_q=\hat P-q\Phi=\mathrm{i}\partial^{*}-q\Phi.}
 ```
+
+The subscript $`q`$ distinguishes coupled operators from canonical operators. The coupled Dirac operator is
 
 ```math
 \begin{aligned}
-\hat D(m)&:=\mathbf W(\hat P)-m\mathbf I\\
+\hat D_q(m)&:=\mathbf W(\hat P_q)-m\mathbf I\\
 &=\begin{pmatrix}
--m & \mathrm{adj}\,\hat P\\
-\hat P & -m
+-m & \mathrm{adj}\,\hat P_q\\
+\hat P_q & -m
 \end{pmatrix}.
 \end{aligned}
 ```
@@ -380,25 +382,25 @@ The coupled operators obey these field identities:
 
 ```math
 \begin{aligned}
-{}[\hat{\mathbf p}\cdot\boldsymbol{\sigma},\hat E]
+{}[\hat{\mathbf p}_q\cdot\boldsymbol{\sigma},\hat E_q]
 &=-\mathrm{i}q\mathbf E\cdot\boldsymbol{\sigma},\\
-(\hat{\mathbf p}\cdot\boldsymbol{\sigma})^2
-&=\hat{\mathbf p}^2-q\mathbf B\cdot\boldsymbol{\sigma},\\
-\hat{\mathbf p}^2+\mathrm{i}qF
-&=(\hat{\mathbf p}\cdot\boldsymbol{\sigma})^2
--[\hat{\mathbf p}\cdot\boldsymbol{\sigma},\hat E].
+(\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})^2
+&=\hat{\mathbf p}_q^2-q\mathbf B\cdot\boldsymbol{\sigma},\\
+\hat{\mathbf p}_q^2+\mathrm{i}qF
+&=(\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})^2
+-[\hat{\mathbf p}_q\cdot\boldsymbol{\sigma},\hat E_q].
 \end{aligned}
 ```
 
 When derivatives act on the potentials as well as the wavefunction, the opposite-mass product becomes
 
 ```math
-\hat D(-m)\hat D(m)
-=(\hat E^2-\hat{\mathbf p}^2-m^2)\mathbf I
+\hat D_q(-m)\hat D_q(m)
+=(\hat E_q^2-\hat{\mathbf p}_q^2-m^2)\mathbf I
 -\mathrm{i}q\begin{pmatrix}F^{*}&0\\0&F\end{pmatrix}.
 ```
 
-Every Dirac solution satisfies $`\hat D(-m)\hat D(m)\boldsymbol\Psi=0`$. Setting $`q=0`$ recovers the free Klein–Gordon equation.
+Every Dirac solution satisfies $`\hat D_q(-m)\hat D_q(m)\boldsymbol\Psi=0`$. Setting $`q=0`$ recovers the free Klein–Gordon equation.
 
 ## Low-energy [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) recovers [Schrödinger](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation)
 
@@ -406,11 +408,11 @@ For constant $`m`$, remove the rest-energy phase, $`\psi'=e^{-\mathrm{i}mt}\psi`
 
 ```math
 \begin{aligned}
-\hat E\psi'
+\hat E_q\psi'
 &=(\mathrm{i}\partial_t-qV)(e^{-\mathrm{i}mt}\psi)\\
 &=e^{-\mathrm{i}mt}(m\psi+\mathrm{i}\partial_t\psi-qV\psi)\\
-&=e^{-\mathrm{i}mt}(m+\hat E)\psi,\\[6pt]
-\hat{\mathbf p}\psi'&=e^{-\mathrm{i}mt}\hat{\mathbf p}\psi.
+&=e^{-\mathrm{i}mt}(m+\hat E_q)\psi,\\[6pt]
+\hat{\mathbf p}_q\psi'&=e^{-\mathrm{i}mt}\hat{\mathbf p}_q\psi.
 \end{aligned}
 ```
 
@@ -418,19 +420,19 @@ Substitute into Klein–Gordon:
 
 ```math
 \begin{aligned}
-0&=(\hat E^2-\hat{\mathbf p}^2-m^2)\psi'\\
-&=e^{-\mathrm{i}mt}\bigl((m+\hat E)^2-\hat{\mathbf p}^2-m^2\bigr)\psi\\
-&=e^{-\mathrm{i}mt}\bigl(2m\hat E+\hat E^2-\hat{\mathbf p}^2\bigr)\psi.
+0&=(\hat E_q^2-\hat{\mathbf p}_q^2-m^2)\psi'\\
+&=e^{-\mathrm{i}mt}\bigl((m+\hat E_q)^2-\hat{\mathbf p}_q^2-m^2\bigr)\psi\\
+&=e^{-\mathrm{i}mt}\bigl(2m\hat E_q+\hat E_q^2-\hat{\mathbf p}_q^2\bigr)\psi.
 \end{aligned}
 ```
 
 Cancel the phase and rearrange:
 
 ```math
-\hat E\psi=\frac{\hat{\mathbf p}^2-\hat E^2}{2m}\psi.
+\hat E_q\psi=\frac{\hat{\mathbf p}_q^2-\hat E_q^2}{2m}\psi.
 ```
 
-For weak, slowly varying fields in the nonrelativistic limit, neglect $`\hat E^2\psi`$ compared with $`2m\hat E\psi`$ to obtain Schrödinger’s equation:
+For weak, slowly varying fields in the nonrelativistic limit, neglect $`\hat E_q^2\psi`$ compared with $`2m\hat E_q\psi`$ to obtain Schrödinger’s equation:
 
 ```math
 \boxed{\mathrm{i}\partial_t\psi=
@@ -450,8 +452,8 @@ The Dirac equations are
 
 ```math
 \begin{aligned}
-(\hat E-\hat{\mathbf p}\cdot\boldsymbol{\sigma})\Psi_2&=m\Psi_1,\\
-(\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma})\Psi_1&=m\Psi_2.
+(\hat E_q-\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\Psi_2&=m\Psi_1,\\
+(\hat E_q+\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\Psi_1&=m\Psi_2.
 \end{aligned}
 ```
 
@@ -459,8 +461,8 @@ Using the same phase shift, $`\Psi_k':=e^{\mathrm{i}mt}\Psi_k`$, gives
 
 ```math
 \begin{aligned}
-(m+\hat E-\hat{\mathbf p}\cdot\boldsymbol{\sigma})\Psi_2'&=m\Psi_1',\\
-(m+\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma})\Psi_1'&=m\Psi_2'.
+(m+\hat E_q-\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\Psi_2'&=m\Psi_1',\\
+(m+\hat E_q+\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\Psi_1'&=m\Psi_2'.
 \end{aligned}
 ```
 
@@ -477,25 +479,25 @@ Adding and subtracting the envelope equations gives
 
 ```math
 \begin{aligned}
-\hat E\phi_1&=(\hat{\mathbf p}\cdot\boldsymbol{\sigma})\phi_2,\\
-(2m+\hat E)\phi_2&=(\hat{\mathbf p}\cdot\boldsymbol{\sigma})\phi_1.
+\hat E_q\phi_1&=(\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\phi_2,\\
+(2m+\hat E_q)\phi_2&=(\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\phi_1.
 \end{aligned}
 ```
 
-In the same nonrelativistic limit, neglect $`\hat E\phi_2`$ relative to $`2m\phi_2`$. Substitute the resulting small component into the first equation and use the field identity above:
+In the same nonrelativistic limit, neglect $`\hat E_q\phi_2`$ relative to $`2m\phi_2`$. Substitute the resulting small component into the first equation and use the field identity above:
 
 ```math
 \begin{aligned}
-\phi_2&\simeq\frac{\hat{\mathbf p}\cdot\boldsymbol{\sigma}}{2m}\phi_1,\\
-\hat E\phi_1&\simeq\frac{(\hat{\mathbf p}\cdot\boldsymbol{\sigma})^2}{2m}\phi_1
-=\frac{\hat{\mathbf p}^2-q\mathbf B\cdot\boldsymbol{\sigma}}{2m}\phi_1.
+\phi_2&\simeq\frac{\hat{\mathbf p}_q\cdot\boldsymbol{\sigma}}{2m}\phi_1,\\
+\hat E_q\phi_1&\simeq\frac{(\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})^2}{2m}\phi_1
+=\frac{\hat{\mathbf p}_q^2-q\mathbf B\cdot\boldsymbol{\sigma}}{2m}\phi_1.
 \end{aligned}
 ```
 
-Restoring $`\hat E=\mathrm{i}\partial_t-qV`$ gives the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation), retaining the kinetic and spin terms through order $`1/m`$:
+Restoring $`\hat E_q=\mathrm{i}\partial_t-qV`$ gives the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation), retaining the kinetic and spin terms through order $`1/m`$:
 
 ```math
 \boxed{\mathrm{i}\partial_t\phi_1=
-\left(\frac{\hat{\mathbf p}^2}{2m}
+\left(\frac{\hat{\mathbf p}_q^2}{2m}
 +qV-\frac{q}{2m}\mathbf B\cdot\boldsymbol{\sigma}\right)\phi_1.}
 ```
