@@ -400,18 +400,62 @@ When derivatives act on the potentials as well as the wavefunction, the opposite
 
 Every Dirac solution satisfies $`\hat D(-m)\hat D(m)\boldsymbol\Psi=0`$. Setting $`q=0`$ recovers the free Klein–Gordon equation.
 
-## Low-energy [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) recovers [Pauli](https://en.wikipedia.org/wiki/Pauli_equation)
+## Low-energy [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) recovers [Schrödinger](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation)
 
-Remove the [rest-energy phase](https://en.wikipedia.org/wiki/Pauli_equation#Derivation) to define the envelopes $`\Psi_k'`$. On these envelopes, $`\hat E`$ measures energy relative to the rest mass:
+For constant $`m`$, remove the rest-energy phase, $`\psi'=e^{-\mathrm{i}mt}\psi`$. The product rule gives
 
 ```math
 \begin{aligned}
-\Psi_k'&:=e^{\mathrm{i}mt}\Psi_k,\\
-\hat E\Psi_k&=e^{-\mathrm{i}mt}(m+\hat E)\Psi_k'.
+\hat E\psi'
+&=(\mathrm{i}\partial_t-qV)(e^{-\mathrm{i}mt}\psi)\\
+&=e^{-\mathrm{i}mt}(m\psi+\mathrm{i}\partial_t\psi-qV\psi)\\
+&=e^{-\mathrm{i}mt}(m+\hat E)\psi,\\[6pt]
+\hat{\mathbf p}\psi'&=e^{-\mathrm{i}mt}\hat{\mathbf p}\psi.
 \end{aligned}
 ```
 
-The two rows of the original Dirac equation give the coupled envelope equations:
+Substitute into Klein–Gordon:
+
+```math
+\begin{aligned}
+0&=(\hat E^2-\hat{\mathbf p}^2-m^2)\psi'\\
+&=e^{-\mathrm{i}mt}\bigl((m+\hat E)^2-\hat{\mathbf p}^2-m^2\bigr)\psi\\
+&=e^{-\mathrm{i}mt}\bigl(2m\hat E+\hat E^2-\hat{\mathbf p}^2\bigr)\psi.
+\end{aligned}
+```
+
+Cancel the phase and rearrange:
+
+```math
+\hat E\psi=\frac{\hat{\mathbf p}^2-\hat E^2}{2m}\psi.
+```
+
+For weak, slowly varying fields in the nonrelativistic limit, neglect $`\hat E^2\psi`$ compared with $`2m\hat E\psi`$ to obtain Schrödinger’s equation:
+
+```math
+\boxed{\mathrm{i}\partial_t\psi=
+\left(\frac{(-\mathrm{i}\partial_{\mathbf r}-q\mathbf A)^2}{2m}+qV\right)\psi.}
+```
+
+With $`\mathbf A=0`$ (hence $`\mathbf B=0`$), this recovers the conventional Schrödinger equation:
+
+```math
+\mathrm{i}\partial_t\psi=
+\left(-\frac{\partial_{\mathbf r}^2}{2m}+qV\right)\psi.
+```
+
+## Low-energy [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) recovers [Pauli](https://en.wikipedia.org/wiki/Pauli_equation)
+
+The Dirac equations are
+
+```math
+\begin{aligned}
+(\hat E-\hat{\mathbf p}\cdot\boldsymbol{\sigma})\Psi_2&=m\Psi_1,\\
+(\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma})\Psi_1&=m\Psi_2.
+\end{aligned}
+```
+
+Using the same phase shift, $`\Psi_k':=e^{\mathrm{i}mt}\Psi_k`$, gives
 
 ```math
 \begin{aligned}
@@ -438,7 +482,7 @@ Adding and subtracting the envelope equations gives
 \end{aligned}
 ```
 
-In the nonrelativistic limit with weak, slowly varying fields, neglect $`\hat E\phi_2`$ relative to $`2m\phi_2`$. Substitute the resulting small component into the first equation and use the field identity above:
+In the same nonrelativistic limit, neglect $`\hat E\phi_2`$ relative to $`2m\phi_2`$. Substitute the resulting small component into the first equation and use the field identity above:
 
 ```math
 \begin{aligned}
@@ -454,36 +498,4 @@ Restoring $`\hat E=\mathrm{i}\partial_t-qV`$ gives the [Pauli equation](https://
 \boxed{\mathrm{i}\partial_t\phi_1=
 \left(\frac{\hat{\mathbf p}^2}{2m}
 +qV-\frac{q}{2m}\mathbf B\cdot\boldsymbol{\sigma}\right)\phi_1.}
-```
-
-## Low-energy [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) recovers [Schrödinger](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation)
-
-For a charged scalar field $`\psi'`$, remove the same rest-energy phase by defining $`\psi:=e^{\mathrm{i}mt}\psi'`$. Substitution into the Klein–Gordon equation gives
-
-```math
-\begin{aligned}
-0&=(\hat E^2-\hat{\mathbf p}^2-m^2)\psi'\\
-&=e^{-\mathrm{i}mt}\bigl((m+\hat E)^2-\hat{\mathbf p}^2-m^2\bigr)\psi\\
-&=e^{-\mathrm{i}mt}\bigl(2m\hat E+\hat E^2-\hat{\mathbf p}^2\bigr)\psi.
-\end{aligned}
-```
-
-Cancel the common phase and solve for the residual-energy term:
-
-```math
-\hat E\psi=\frac{\hat{\mathbf p}^2-\hat E^2}{2m}\psi.
-```
-
-In the same nonrelativistic limit, neglect $`\hat E^2\psi`$ relative to $`2m\hat E\psi`$. Restoring $`\hat E=\mathrm{i}\partial_t-qV`$ gives the Schrödinger equation, retaining the kinetic term through order $`1/m`$:
-
-```math
-\boxed{\mathrm{i}\partial_t\psi=
-\left(\frac{(-\mathrm{i}\partial_{\mathbf r}-q\mathbf A)^2}{2m}+qV\right)\psi.}
-```
-
-With $`\mathbf A=0`$ (hence $`\mathbf B=0`$), this recovers the conventional Schrödinger equation:
-
-```math
-\mathrm{i}\partial_t\psi=
-\left(-\frac{\partial_{\mathbf r}^2}{2m}+qV\right)\psi.
 ```
