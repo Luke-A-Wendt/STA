@@ -321,6 +321,15 @@ The Dirac equation is
 \boxed{\hat D(m)\boldsymbol\Psi=0.}
 ```
 
+Its two rows are
+
+```math
+\begin{aligned}
+(\hat E-\hat{\mathbf p}\cdot\boldsymbol{\sigma})\Psi_2&=m\Psi_1,\\
+(\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma})\Psi_1&=m\Psi_2.
+\end{aligned}
+```
+
 For commuting free operators,
 
 ```math
@@ -375,6 +384,21 @@ At $`q=0`$, the coupled operators reduce to the canonical ones: $`\hat E_0=\hat 
 -m & \mathrm{adj}\,\hat P_q\\
 \hat P_q & -m
 \end{pmatrix}.
+\end{aligned}
+```
+
+The coupled Dirac equation is
+
+```math
+\boxed{\hat D_q(m)\boldsymbol\Psi=0.}
+```
+
+Its two rows are
+
+```math
+\begin{aligned}
+(\hat E_q-\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\Psi_2&=m\Psi_1,\\
+(\hat E_q+\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\Psi_1&=m\Psi_2.
 \end{aligned}
 ```
 
@@ -447,15 +471,6 @@ With $`\mathbf A=0`$ (hence $`\mathbf B=0`$), this recovers the conventional Sch
 ```
 
 ## Low-energy [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) recovers [Pauli](https://en.wikipedia.org/wiki/Pauli_equation)
-
-The Dirac equations are
-
-```math
-\begin{aligned}
-(\hat E_q-\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\Psi_2&=m\Psi_1,\\
-(\hat E_q+\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\Psi_1&=m\Psi_2.
-\end{aligned}
-```
 
 Using the same phase shift, $`\Psi_k':=e^{\mathrm{i}mt}\Psi_k`$, gives
 
