@@ -6,6 +6,7 @@
 
 [Natural units](https://en.wikipedia.org/wiki/Natural_units) $`\hbar=c=1`$, [rationalized electromagnetic units](https://en.wikipedia.org/wiki/Heaviside%E2%80%93Lorentz_units), and [signature](https://en.wikipedia.org/wiki/Metric_signature) $`(+,-,-,-)`$.
 
+
 ## One complex [paravector](https://en.wikipedia.org/wiki/Paravector)
 
 ```math
@@ -55,7 +56,7 @@ Here we use the convention $`\mathbf A^2:=\mathbf A\cdot\mathbf A`$.
 The [commutator](https://en.wikipedia.org/wiki/Commutator) is
 
 ```math
-[A,B]:=AB-BA.
+[X,Y]:=XY-YX.
 ```
 
 ## Core operations
@@ -103,10 +104,10 @@ For real spacetime $`X`$ and real [unit axis](https://en.wikipedia.org/wiki/Unit
 
 ```math
 X:=t+\mathbf r\cdot\boldsymbol{\sigma},
-\qquad X':=TXT^{\mathsf H}=t'+\mathbf r'\cdot\boldsymbol{\sigma}.
+\qquad X':=\mathcal{T}X\mathcal{T}^{\mathsf H}=t'+\mathbf r'\cdot\boldsymbol{\sigma}.
 ```
 
-For $`T=R`$: [Rodrigues rotation](https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula) through $`\theta`$, with [unit quaternion](https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation) $`Q=R`$, $`q_k=-\mathrm{i}\sigma_k`$.
+For $`\mathcal{T}=R`$: [Rodrigues rotation](https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula) through $`\theta`$, with [unit quaternion](https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation) $`Q=R`$, $`q_k=-\mathrm{i}\sigma_k`$.
 
 ```math
 \begin{aligned}
@@ -118,7 +119,7 @@ t'&=t,\\
 \end{aligned}
 ```
 
-For $`T=L`$: [Lorentz boost](https://en.wikipedia.org/wiki/Lorentz_transformation) to a frame moving at $`+\beta\mathbf u`$, with [rapidity](https://en.wikipedia.org/wiki/Rapidity) $`\theta`$, $`\beta:=\tanh\theta`$, and [Lorentz factor](https://en.wikipedia.org/wiki/Lorentz_factor) $`\gamma:=\cosh\theta`$.
+For $`\mathcal{T}=L`$: [Lorentz boost](https://en.wikipedia.org/wiki/Lorentz_transformation) to a frame moving at $`+\beta\mathbf u`$, with [rapidity](https://en.wikipedia.org/wiki/Rapidity) $`\theta`$, $`\beta:=\tanh\theta`$, and [Lorentz factor](https://en.wikipedia.org/wiki/Lorentz_factor) $`\gamma:=\cosh\theta`$.
 
 Define the parallel and perpendicular components:
 
@@ -173,9 +174,9 @@ For a future-directed massive particle, [proper time](https://en.wikipedia.org/w
 &\mathrm ds^2&:=\det(\mathrm dX)=\mathrm dt^2-\mathrm d\mathbf r^2,\\
 U&:=\frac{\mathrm dX}{\mathrm ds}=\gamma(1+\mathbf v\cdot\boldsymbol{\sigma}),
 &\gamma&=(1-\mathbf v^2)^{-1/2},\quad \mathbf v:=\frac{\mathrm d\mathbf r}{\mathrm dt},\\
-P&:=mU=\underbrace{E}_{\text{energy}}+
+\mathcal{P}&:=mU=\underbrace{E}_{\text{energy}}+
 \underbrace{\mathbf p\cdot\boldsymbol{\sigma}}_{\text{momentum}},
-&\det P&=E^2-\mathbf p^2=m^2.
+&\det \mathcal{P}&=E^2-\mathbf p^2=m^2.
 \end{aligned}
 ```
 
@@ -184,12 +185,21 @@ P&:=mU=\underbrace{E}_{\text{energy}}+
 Combine the [electric](https://en.wikipedia.org/wiki/Electric_field) and [magnetic](https://en.wikipedia.org/wiki/Magnetic_field) fields and use the [paravector derivative](https://en.wikipedia.org/wiki/Paravector#Paragradient):
 
 ```math
-F:=(\mathbf E+\mathrm{i}\mathbf B)\cdot\boldsymbol{\sigma},
-\qquad \partial:=\partial_t+\partial_{\mathbf r}\cdot\boldsymbol{\sigma},
-\qquad \boxed{\partial F=\rho-\mathbf J\cdot\boldsymbol{\sigma}.}
+\begin{gathered}
+F:=(\mathbf E+\mathrm{i}\mathbf B)\cdot\boldsymbol{\sigma},\qquad
+\mathcal{D}:=\rho+\mathbf J\cdot\boldsymbol{\sigma},\\[4pt]
+\partial:=\partial_t+\partial_{\mathbf r}\cdot\boldsymbol{\sigma},\qquad
+\mathcal{D}^*=\rho-\mathbf J\cdot\boldsymbol{\sigma}.
+\end{gathered}
 ```
 
-Here $`\rho`$ is [charge density](https://en.wikipedia.org/wiki/Charge_density), $`\mathbf J`$ is [current density](https://en.wikipedia.org/wiki/Current_density), and $`\partial_{\mathbf r}`$ is the [gradient](https://en.wikipedia.org/wiki/Gradient). Its [divergence](https://en.wikipedia.org/wiki/Divergence) and [curl](https://en.wikipedia.org/wiki/Curl_%28mathematics%29) give the four components of [Maxwell's equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations):
+Here $`\rho`$ is [charge density](https://en.wikipedia.org/wiki/Charge_density), $`\mathbf J`$ is [current density](https://en.wikipedia.org/wiki/Current_density), and $`\partial_{\mathbf r}`$ is the [gradient](https://en.wikipedia.org/wiki/Gradient).
+
+```math
+\boxed{\partial F=\mathcal{D}^*}
+```
+
+This boxed equation gives [Maxwell's equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations) component by component:
 
 ```math
 \begin{aligned}
@@ -205,11 +215,15 @@ Applying $`\partial^{*}=\partial_t-\partial_{\mathbf r}\cdot\boldsymbol{\sigma}`
 ```math
 \begin{aligned}
 \Box&:=\partial^{*}\partial=\partial_t^2-\partial_{\mathbf r}^2,\\
-\partial^{*}(\partial F)&=\Box F=\partial^{*}(\rho-\mathbf J\cdot\boldsymbol{\sigma}).
+\partial^{*}(\partial F)&=\Box F=\partial^{*}\mathcal{D}^*.
 \end{aligned}
 ```
 
-Since $`\Box F=(\Box\mathbf E+\mathrm{i}\Box\mathbf B)\cdot\boldsymbol{\sigma}`$, its components give [charge conservation](https://en.wikipedia.org/wiki/Charge_conservation) and the field wave equations
+```math
+\boxed{\Box F^*=\partial\mathcal{D}}
+```
+
+This boxed equation gives [charge conservation](https://en.wikipedia.org/wiki/Charge_conservation) and the field wave equations component by component:
 
 ```math
 \begin{aligned}
@@ -228,14 +242,14 @@ In vacuum, $`\Box F=0`$.
 Define the real [four-potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) from the [scalar potential](https://en.wikipedia.org/wiki/Electric_potential) $`V`$ and [vector potential](https://en.wikipedia.org/wiki/Magnetic_vector_potential) $`\mathbf A`$, with gauge scalar $`S`$:
 
 ```math
-\Phi:=V+\mathbf A\cdot\boldsymbol{\sigma},
-\qquad S:=\mathrm{sc}(\partial\Phi).
+\mathcal{A}:=V+\mathbf A\cdot\boldsymbol{\sigma},
+\qquad S:=\mathrm{sc}(\partial\mathcal{A}).
 ```
 
 **Fields from the potential:**
 
 ```math
-\boxed{\partial\Phi=S+F^{*}}
+\boxed{\partial\mathcal{A}=S+F^{*}}
 ```
 
 Its components give
@@ -252,15 +266,15 @@ Its components give
 **Source equations in any [gauge](https://en.wikipedia.org/wiki/Gauge_fixing):**
 
 ```math
-\Box\Phi=\partial^{*}(\partial\Phi)
+\Box\mathcal{A}=\partial^{*}(\partial\mathcal{A})
 =\partial^{*}(S+F^{*})
 =\partial^{*}S+(\partial F)^{*}.
 ```
 
-Conjugating and using Maxwell’s equation gives
+Using Maxwell’s equation gives
 
 ```math
-\boxed{\Box\Phi^{*}-\partial S=\rho-\mathbf J\cdot\boldsymbol{\sigma}}
+\boxed{\Box\mathcal{A}=\partial^{*}S+\mathcal{D}}
 ```
 
 Its components give
@@ -278,7 +292,7 @@ Its components give
 
 ```math
 \begin{aligned}
-\Phi'&:=\Phi+\partial^{*}\lambda,\\
+\mathcal{A}'&:=\mathcal{A}+\partial^{*}\lambda,\\
 S'&=S+\Box\lambda,\\
 F'&=F.
 \end{aligned}
@@ -305,20 +319,20 @@ For a free particle of mass $`m`$, define
 \begin{aligned}
 \hat E&:=\mathrm{i}\partial_t,\\
 \hat{\mathbf p}&:=-\mathrm{i}\partial_{\mathbf r},\\
-\hat P&:=\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma} = \mathrm{i}\partial^{*},\\
-\mathbf W(\hat P)&:=
+\hat{\mathcal{P}}&:=\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma} = \mathrm{i}\partial^{*},\\
+\mathbf W(\hat{\mathcal{P}})&:=
 \begin{pmatrix}
-0 & \mathrm{adj}\,\hat P \\
-\hat P & 0
+0 & \mathrm{adj}\,\hat{\mathcal{P}} \\
+\hat{\mathcal{P}} & 0
 \end{pmatrix},\\
-\hat D(m)&:=\mathbf W(\hat P)-m\mathbf I.
+\hat{\mathbf D}(m)&:=\mathbf W(\hat{\mathcal{P}})-m\mathbf I.
 \end{aligned}
 ```
 
 The Dirac equation is
 
 ```math
-\boxed{\hat D(m)\boldsymbol\Psi=0.}
+\boxed{\hat{\mathbf D}(m)\boldsymbol\Psi=0.}
 ```
 
 Equivalently,
@@ -330,26 +344,26 @@ Equivalently,
 For commuting free operators,
 
 ```math
-\hat P\,\mathrm{adj}\,\hat P
-=\det\hat P
+\hat{\mathcal{P}}\,\mathrm{adj}\,\hat{\mathcal{P}}
+=\det\hat{\mathcal{P}}
 =\hat E^2-\hat{\mathbf p}^2
 =-\Box.
 ```
 
-Thus the spacetime mass shell $`\det P=m^2`$ becomes
+Thus the spacetime mass shell $`\det \mathcal{P}=m^2`$ becomes
 
 ```math
-(\det\hat P-m^2)\boldsymbol\Psi=0
+(\det\hat{\mathcal{P}}-m^2)\boldsymbol\Psi=0
 \quad\Longleftrightarrow\quad
 (\Box+m^2)\boldsymbol\Psi=0.
 ```
 
-Using $`\mathbf W(\hat P)^2=(\det\hat P)\mathbf I`$ gives the [Klein–Gordon factorization](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation):
+Using $`\mathbf W(\hat{\mathcal{P}})^2=(\det\hat{\mathcal{P}})\mathbf I`$ gives the [Klein–Gordon factorization](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation):
 
 ```math
 \begin{aligned}
-\hat D(m)\hat D(-m)&=\hat D(-m)\hat D(m)\\
-&=\mathbf W(\hat P)^2-m^2\mathbf I
+\hat{\mathbf D}(m)\hat{\mathbf D}(-m)&=\hat{\mathbf D}(-m)\hat{\mathbf D}(m)\\
+&=\mathbf W(\hat{\mathcal{P}})^2-m^2\mathbf I
 =-(\Box+m^2)\mathbf I.
 \end{aligned}
 ```
@@ -358,28 +372,28 @@ Hence every free Dirac solution satisfies Klein–Gordon.
 
 ## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) with an electromagnetic potential
 
-For constant mass $`m>0`$ and [charge](https://en.wikipedia.org/wiki/Electric_charge) $`q`$, [minimal coupling](https://en.wikipedia.org/wiki/Minimal_coupling) to the real [potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) $`\Phi=V+\mathbf A\cdot\boldsymbol{\sigma}`$ defines the gauge-covariant energy and momentum operators
+For constant mass $`m>0`$ and [charge](https://en.wikipedia.org/wiki/Electric_charge) $`q`$, [minimal coupling](https://en.wikipedia.org/wiki/Minimal_coupling) to the real [potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) $`\mathcal{A}=V+\mathbf A\cdot\boldsymbol{\sigma}`$ defines the gauge-covariant energy and momentum operators
 
 ```math
 \begin{aligned}
 \hat E_q&:=\hat E-qV=\mathrm{i}\partial_t-qV,\\
 \hat{\mathbf p}_q&:=\hat{\mathbf p}-q\mathbf A=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A,\\
-\hat P_q&:=\hat E_q+\hat{\mathbf p}_q\cdot\boldsymbol{\sigma}.
+\hat{\mathcal{P}}_q&:=\hat E_q+\hat{\mathbf p}_q\cdot\boldsymbol{\sigma}.
 \end{aligned}
 ```
 
 ```math
-\boxed{\hat P_q=\hat P-q\Phi=\mathrm{i}\partial^{*}-q\Phi.}
+\boxed{\hat{\mathcal{P}}_q=\hat{\mathcal{P}}-q\mathcal{A}=\mathrm{i}\partial^{*}-q\mathcal{A}.}
 ```
 
-At $`q=0`$, the coupled operators reduce to the canonical ones: $`\hat E_0=\hat E`$, $`\hat{\mathbf p}_0=\hat{\mathbf p}`$, and $`\hat P_0=\hat P`$. The coupled Dirac operator is
+At $`q=0`$, the coupled operators reduce to the canonical ones: $`\hat E_0=\hat E`$, $`\hat{\mathbf p}_0=\hat{\mathbf p}`$, and $`\hat{\mathcal{P}}_0=\hat{\mathcal{P}}`$. The coupled Dirac operator is
 
 ```math
 \begin{aligned}
-\hat D_q(m)&:=\mathbf W(\hat P_q)-m\mathbf I\\
+\hat{\mathbf D}_q(m)&:=\mathbf W(\hat{\mathcal{P}}_q)-m\mathbf I\\
 &=\begin{pmatrix}
--m & \mathrm{adj}\,\hat P_q\\
-\hat P_q & -m
+-m & \mathrm{adj}\,\hat{\mathcal{P}}_q\\
+\hat{\mathcal{P}}_q & -m
 \end{pmatrix}.
 \end{aligned}
 ```
@@ -387,7 +401,7 @@ At $`q=0`$, the coupled operators reduce to the canonical ones: $`\hat E_0=\hat 
 The coupled Dirac equation is
 
 ```math
-\boxed{\hat D_q(m)\boldsymbol\Psi=0.}
+\boxed{\hat{\mathbf D}_q(m)\boldsymbol\Psi=0.}
 ```
 
 Equivalently,
@@ -413,12 +427,12 @@ The coupled operators obey these field identities:
 When derivatives act on the potentials as well as the wavefunction, the opposite-mass product becomes
 
 ```math
-\hat D_q(-m)\hat D_q(m)
+\hat{\mathbf D}_q(-m)\hat{\mathbf D}_q(m)
 =(\hat E_q^2-\hat{\mathbf p}_q^2-m^2)\mathbf I
 -\mathrm{i}q\begin{pmatrix}F^{*}&0\\0&F\end{pmatrix}.
 ```
 
-Every Dirac solution satisfies $`\hat D_q(-m)\hat D_q(m)\boldsymbol\Psi=0`$. Setting $`q=0`$ recovers the free Klein–Gordon equation.
+Every Dirac solution satisfies $`\hat{\mathbf D}_q(-m)\hat{\mathbf D}_q(m)\boldsymbol\Psi=0`$. Setting $`q=0`$ recovers the free Klein–Gordon equation.
 
 ## Low-energy [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) recovers [Schrödinger](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation)
 
