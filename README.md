@@ -104,10 +104,10 @@ For real spacetime $`X`$ and real [unit axis](https://en.wikipedia.org/wiki/Unit
 
 ```math
 X:=t+\mathbf r\cdot\boldsymbol{\sigma},
-\qquad X':=\mathcal{T}X\mathcal{T}^{\mathsf H}=t'+\mathbf r'\cdot\boldsymbol{\sigma}.
+\qquad X':=TXT^{\mathsf H}=t'+\mathbf r'\cdot\boldsymbol{\sigma}.
 ```
 
-For $`\mathcal{T}=R`$: [Rodrigues rotation](https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula) through $`\theta`$, with [unit quaternion](https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation) $`Q=R`$, $`q_k=-\mathrm{i}\sigma_k`$.
+For $`T=R`$: [Rodrigues rotation](https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula) through $`\theta`$, with [unit quaternion](https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation) $`Q=R`$, $`q_k=-\mathrm{i}\sigma_k`$.
 
 ```math
 \begin{aligned}
@@ -119,7 +119,7 @@ t'&=t,\\
 \end{aligned}
 ```
 
-For $`\mathcal{T}=L`$: [Lorentz boost](https://en.wikipedia.org/wiki/Lorentz_transformation) to a frame moving at $`+\beta\mathbf u`$, with [rapidity](https://en.wikipedia.org/wiki/Rapidity) $`\theta`$, $`\beta:=\tanh\theta`$, and [Lorentz factor](https://en.wikipedia.org/wiki/Lorentz_factor) $`\gamma:=\cosh\theta`$.
+For $`T=L`$: [Lorentz boost](https://en.wikipedia.org/wiki/Lorentz_transformation) to a frame moving at $`+\beta\mathbf u`$, with [rapidity](https://en.wikipedia.org/wiki/Rapidity) $`\theta`$, $`\beta:=\tanh\theta`$, and [Lorentz factor](https://en.wikipedia.org/wiki/Lorentz_factor) $`\gamma:=\cosh\theta`$.
 
 Define the parallel and perpendicular components:
 
@@ -186,7 +186,7 @@ Combine the [electric](https://en.wikipedia.org/wiki/Electric_field) and [magnet
 
 ```math
 \begin{gathered}
-F:=(\mathbf E+\mathrm{i}\mathbf B)\cdot\boldsymbol{\sigma},\qquad
+\mathcal{F}:=(\mathbf E+\mathrm{i}\mathbf B)\cdot\boldsymbol{\sigma},\qquad
 \mathcal{D}:=\rho+\mathbf J\cdot\boldsymbol{\sigma},\\[4pt]
 \partial:=\partial_t+\partial_{\mathbf r}\cdot\boldsymbol{\sigma},\qquad
 \mathcal{D}^*=\rho-\mathbf J\cdot\boldsymbol{\sigma}.
@@ -196,7 +196,7 @@ F:=(\mathbf E+\mathrm{i}\mathbf B)\cdot\boldsymbol{\sigma},\qquad
 Here $`\rho`$ is [charge density](https://en.wikipedia.org/wiki/Charge_density), $`\mathbf J`$ is [current density](https://en.wikipedia.org/wiki/Current_density), and $`\partial_{\mathbf r}`$ is the [gradient](https://en.wikipedia.org/wiki/Gradient).
 
 ```math
-\boxed{\partial F=\mathcal{D}^*}
+\boxed{\partial \mathcal{F}=\mathcal{D}^*}
 ```
 
 This boxed equation gives [Maxwell's equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations) component by component:
@@ -215,12 +215,12 @@ Applying $`\partial^{*}=\partial_t-\partial_{\mathbf r}\cdot\boldsymbol{\sigma}`
 ```math
 \begin{aligned}
 \Box&:=\partial^{*}\partial=\partial_t^2-\partial_{\mathbf r}^2,\\
-\partial^{*}(\partial F)&=\Box F=\partial^{*}\mathcal{D}^*.
+\partial^{*}(\partial \mathcal{F})&=\Box \mathcal{F}=\partial^{*}\mathcal{D}^*.
 \end{aligned}
 ```
 
 ```math
-\boxed{\Box F^*=\partial\mathcal{D}}
+\boxed{\Box \mathcal{F}^*=\partial\mathcal{D}}
 ```
 
 This boxed equation gives [charge conservation](https://en.wikipedia.org/wiki/Charge_conservation) and the field wave equations component by component:
@@ -235,7 +235,7 @@ This boxed equation gives [charge conservation](https://en.wikipedia.org/wiki/Ch
 \end{aligned}
 ```
 
-In vacuum, $`\Box F=0`$.
+In vacuum, $`\Box \mathcal{F}=0`$.
 
 ## [Electromagnetic potentials](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) and [gauge invariance](https://en.wikipedia.org/wiki/Electromagnetic_four-potential#Gauge_freedom)
 
@@ -249,7 +249,7 @@ Define the real [four-potential](https://en.wikipedia.org/wiki/Electromagnetic_f
 **Fields from the potential:**
 
 ```math
-\boxed{\partial\mathcal{A}=S+F^{*}}
+\boxed{\partial\mathcal{A}=S+\mathcal{F}^{*}}
 ```
 
 Its components give
@@ -267,8 +267,8 @@ Its components give
 
 ```math
 \Box\mathcal{A}=\partial^{*}(\partial\mathcal{A})
-=\partial^{*}(S+F^{*})
-=\partial^{*}S+(\partial F)^{*}.
+=\partial^{*}(S+\mathcal{F}^{*})
+=\partial^{*}S+(\partial \mathcal{F})^{*}.
 ```
 
 Using Maxwell’s equation gives
@@ -294,7 +294,7 @@ Its components give
 \begin{aligned}
 \mathcal{A}'&:=\mathcal{A}+\partial^{*}\lambda,\\
 S'&=S+\Box\lambda,\\
-F'&=F.
+\mathcal{F}'&=\mathcal{F}.
 \end{aligned}
 ```
 
@@ -309,7 +309,7 @@ F'&=F.
 
 ## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) as a first-order wave equation
 
-In the [Weyl representation](https://en.wikipedia.org/wiki/Gamma_matrices#Weyl_%28chiral%29_basis), write $`\boldsymbol\Psi:=(\Psi_+,\Psi_-)^{\mathsf T}`$, with two complex components in each entry. Let $`\mathbf I`$ be the block identity.
+In the [Weyl representation](https://en.wikipedia.org/wiki/Gamma_matrices#Weyl_%28chiral%29_basis), write $`\boldsymbol\psi:=(\psi_+,\psi_-)^{\mathsf T}`$, with two complex components in each entry. Let $`\mathbf I`$ be the block identity.
 
 Hats mark named [energy](https://en.wikipedia.org/wiki/Energy_operator), [momentum](https://en.wikipedia.org/wiki/Momentum_operator), and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) operators; the derivative symbols $`\partial`$ and $`\Box`$ remain unhatted.
 
@@ -332,13 +332,13 @@ For a free particle of mass $`m`$, define
 The Dirac equation is
 
 ```math
-\boxed{\hat{\mathbf D}(m)\boldsymbol\Psi=0.}
+\boxed{\hat{\mathbf D}(m)\boldsymbol\psi=0.}
 ```
 
 Equivalently,
 
 ```math
-(\hat E\pm\hat{\mathbf p}\cdot\boldsymbol{\sigma})\Psi_\pm=m\Psi_\mp.
+(\hat E\pm\hat{\mathbf p}\cdot\boldsymbol{\sigma})\psi_\pm=m\psi_\mp.
 ```
 
 For commuting free operators,
@@ -353,9 +353,9 @@ For commuting free operators,
 Thus the spacetime mass shell $`\det \mathcal{P}=m^2`$ becomes
 
 ```math
-(\det\hat{\mathcal{P}}-m^2)\boldsymbol\Psi=0
+(\det\hat{\mathcal{P}}-m^2)\boldsymbol\psi=0
 \quad\Longleftrightarrow\quad
-(\Box+m^2)\boldsymbol\Psi=0.
+(\Box+m^2)\boldsymbol\psi=0.
 ```
 
 Using $`\mathbf W(\hat{\mathcal{P}})^2=(\det\hat{\mathcal{P}})\mathbf I`$ gives the [Klein–Gordon factorization](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation):
@@ -401,13 +401,13 @@ At $`q=0`$, the coupled operators reduce to the canonical ones: $`\hat E_0=\hat 
 The coupled Dirac equation is
 
 ```math
-\boxed{\hat{\mathbf D}_q(m)\boldsymbol\Psi=0.}
+\boxed{\hat{\mathbf D}_q(m)\boldsymbol\psi=0.}
 ```
 
 Equivalently,
 
 ```math
-(\hat E_q\pm\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\Psi_\pm=m\Psi_\mp.
+(\hat E_q\pm\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\psi_\pm=m\psi_\mp.
 ```
 
 The coupled operators obey these field identities:
@@ -418,7 +418,7 @@ The coupled operators obey these field identities:
 &=-\mathrm{i}q\mathbf E\cdot\boldsymbol{\sigma},\\
 (\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})^2
 &=\hat{\mathbf p}_q^2-q\mathbf B\cdot\boldsymbol{\sigma},\\
-\hat{\mathbf p}_q^2+\mathrm{i}qF
+\hat{\mathbf p}_q^2+\mathrm{i}q\mathcal{F}
 &=(\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})^2
 -[\hat{\mathbf p}_q\cdot\boldsymbol{\sigma},\hat E_q].
 \end{aligned}
@@ -429,10 +429,10 @@ When derivatives act on the potentials as well as the wavefunction, the opposite
 ```math
 \hat{\mathbf D}_q(-m)\hat{\mathbf D}_q(m)
 =(\hat E_q^2-\hat{\mathbf p}_q^2-m^2)\mathbf I
--\mathrm{i}q\begin{pmatrix}F^{*}&0\\0&F\end{pmatrix}.
+-\mathrm{i}q\begin{pmatrix}\mathcal{F}^{*}&0\\0&\mathcal{F}\end{pmatrix}.
 ```
 
-Every Dirac solution satisfies $`\hat{\mathbf D}_q(-m)\hat{\mathbf D}_q(m)\boldsymbol\Psi=0`$. Setting $`q=0`$ recovers the free Klein–Gordon equation.
+Every Dirac solution satisfies $`\hat{\mathbf D}_q(-m)\hat{\mathbf D}_q(m)\boldsymbol\psi=0`$. Setting $`q=0`$ recovers the free Klein–Gordon equation.
 
 ## Low-energy [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) recovers [Schrödinger](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation)
 
@@ -487,18 +487,18 @@ With $`\mathbf A=0`$ (hence $`\mathbf B=0`$), this recovers the conventional Sch
 
 ## Low-energy [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) recovers [Pauli](https://en.wikipedia.org/wiki/Pauli_equation)
 
-Using the same phase shift, $`\Psi_\pm':=e^{\mathrm{i}mt}\Psi_\pm`$, gives
+Using the same phase shift, $`\psi_\pm':=e^{\mathrm{i}mt}\psi_\pm`$, gives
 
 ```math
-(m+\hat E_q\pm\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\Psi_\pm'=m\Psi_\mp'.
+(m+\hat E_q\pm\hat{\mathbf p}_q\cdot\boldsymbol{\sigma})\psi_\pm'=m\psi_\mp'.
 ```
 
 Define the large and small components for the positive-energy branch:
 
 ```math
 \begin{aligned}
-\phi_+&:=\frac{\Psi_+'+\Psi_-'}{\sqrt2},\\
-\phi_-&:=\frac{\Psi_-'-\Psi_+'}{\sqrt2}.
+\phi_+&:=\frac{\psi_+'+\psi_-'}{\sqrt2},\\
+\phi_-&:=\frac{\psi_-'-\psi_+'}{\sqrt2}.
 \end{aligned}
 ```
 
@@ -521,12 +521,12 @@ In the same nonrelativistic limit, neglect $`\hat E_q\phi_-`$ relative to $`2m\p
 \end{aligned}
 ```
 
-Define $`\psi:=\phi_+`$. Restoring $`\hat E_q=\mathrm{i}\partial_t-qV`$ gives the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation), retaining the kinetic and spin terms through order $`1/m`$:
+Restoring $`\hat E_q=\mathrm{i}\partial_t-qV`$ gives the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation), retaining the kinetic and spin terms through order $`1/m`$:
 
 ```math
-\boxed{\mathrm{i}\partial_t\psi=
+\boxed{\mathrm{i}\partial_t\phi_+=
 \left(\frac{\hat{\mathbf p}_q^2}{2m}
-+qV-\frac{q}{2m}\mathbf B\cdot\boldsymbol{\sigma}\right)\psi.}
++qV-\frac{q}{2m}\mathbf B\cdot\boldsymbol{\sigma}\right)\phi_+.}
 ```
 
 ## [Spin up and spin down](https://en.wikipedia.org/wiki/Spin-1/2#Observables) in a uniform magnetic field
@@ -536,8 +536,8 @@ For a nonzero, constant magnetic field $`\mathbf B`$, define its [unit direction
 ```math
 \mathbf u:=\frac{\mathbf B}{\lVert\mathbf B\rVert},
 \qquad \Pi_\pm:=\frac12(1\pm\mathbf u\cdot\boldsymbol{\sigma}),
-\qquad \psi_\pm:=\Pi_\pm\psi,
-\qquad \psi=\psi_++\psi_-.
+\qquad \phi_{+,\pm}:=\Pi_\pm\phi_+,
+\qquad \phi_+=\phi_{+,+}+\phi_{+,-}.
 ```
 
 The projector identity gives [spin](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ along $`\mathbf u`$:
@@ -545,27 +545,29 @@ The projector identity gives [spin](https://en.wikipedia.org/wiki/Spin-1/2) $`\p
 ```math
 (\mathbf u\cdot\boldsymbol{\sigma})\Pi_\pm=\pm\Pi_\pm,
 \qquad
-\frac{\mathbf u\cdot\boldsymbol{\sigma}}2\psi_\pm=\pm\frac12\psi_\pm.
+\frac{\mathbf u\cdot\boldsymbol{\sigma}}2\phi_{+,\pm}=\pm\frac12\phi_{+,\pm}.
 ```
 
 Since the projectors are constant, they commute with $`\hat E_q`$ and $`\hat{\mathbf p}_q^2`$. Projecting the Pauli equation gives
 
 ```math
 \begin{aligned}
-2m\hat E_q\psi_\pm
-&=\Pi_\pm(\hat{\mathbf p}_q^2-q\mathbf B\cdot\boldsymbol{\sigma})\psi\\
-&=(\hat{\mathbf p}_q^2\mp q\lVert\mathbf B\rVert)\psi_\pm.
+2m\hat E_q\phi_{+,\pm}
+&=\Pi_\pm(\hat{\mathbf p}_q^2-q\mathbf B\cdot\boldsymbol{\sigma})\phi_+\\
+&=(\hat{\mathbf p}_q^2\mp q\lVert\mathbf B\rVert)\phi_{+,\pm}.
 \end{aligned}
 ```
 
 Thus the two spin components evolve independently, with opposite [Zeeman shifts](https://en.wikipedia.org/wiki/Zeeman_effect):
 
 ```math
-\boxed{\mathrm{i}\partial_t\psi_\pm=
-\left(\frac{\hat{\mathbf p}_q^2\mp q\lVert\mathbf B\rVert}{2m}+qV\right)\psi_\pm.}
+\boxed{\mathrm{i}\partial_t\phi_{+,\pm}=
+\left(\frac{\hat{\mathbf p}_q^2\mp q\lVert\mathbf B\rVert}{2m}+qV\right)\phi_{+,\pm}.}
 ```
 
 The [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Electromagnetic_field) $`\hat{\mathbf p}_q=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A`$ retains the orbital coupling.
+
+In the usual spinor representation, $`\phi_{+,+},\phi_{+,-},\phi_{-,+},\phi_{-,-}`$ are four complex scalars, labeled by Dirac block and spin.
 
 ## Spin measurement probabilities
 
