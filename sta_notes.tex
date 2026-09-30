@@ -634,9 +634,6 @@ Restoring $\hEq=\ii\partial_t-qV$ gives the Pauli equation, retaining the kineti
 +qV-\frac{q}{2m}\bm{B}\cdot\bsig\right)\phi_+.}
 \]
 
-The Pauli magnetic term is
-$-(q/m)\bm{B}\cdot(\bsig/2)$, giving $g=2$ before radiative corrections.
-
 \Needspace{30\baselineskip}
 \subsection*{\hyperref[sec:uniform-spin]{Spin up and spin down in a uniform magnetic field}}
 For a nonzero, constant magnetic field $\bm{B}$, define its \hyperref[def:real-unit-vector]{unit direction} and \hyperref[sec:algebra-projectors]{spin projectors}:
@@ -645,8 +642,8 @@ For a nonzero, constant magnetic field $\bm{B}$, define its \hyperref[def:real-u
 \begin{aligned}
 \bm{u}&:=\frac{\bm{B}}{\lVert\bm{B}\rVert},
 \qquad \Pi_\pm:=\frac12(1\pm\bm{u}\cdot\bsig),
-\\[3pt] \phi_{+,\pm}&:=\Pi_\pm\phi_+,
-\qquad \phi_+=\phi_{+,+}+\phi_{+,-}.
+\\[3pt] \phi(+,\pm)&:=\Pi_\pm\phi_+,
+\qquad \phi_+=\phi(+,+)+\phi(+,-).
 \end{aligned}
 \]
 
@@ -655,34 +652,34 @@ The projector identity gives \hyperref[sec:spin-half]{spin} $\pm\tfrac12$ along 
 \[
 (\bm{u}\cdot\bsig)\Pi_\pm=\pm\Pi_\pm,
 \qquad
-\frac{\bm{u}\cdot\bsig}2\phi_{+,\pm}=\pm\frac12\phi_{+,\pm}.
+\frac{\bm{u}\cdot\bsig}2\phi(+,\pm)=\pm\frac12\phi(+,\pm).
 \]
 
 Since the projectors are constant, they commute with $\hEq$ and $\hbpq^2$. Projecting the Pauli equation gives
 
 \[
 \begin{aligned}
-2m\hEq\phi_{+,\pm}
+2m\hEq\phi(+,\pm)
 &=\Pi_\pm(\hbpq^2-q\bm{B}\cdot\bsig)\phi_+\\
-&=(\hbpq^2\mp q\lVert\bm{B}\rVert)\phi_{+,\pm}.
+&=(\hbpq^2\mp q\lVert\bm{B}\rVert)\phi(+,\pm).
 \end{aligned}
 \]
 
 Thus the two spin components evolve independently, with opposite \hyperref[sec:uniform-spin]{Zeeman shifts}:
 
 \[
-\boxed{\ii\partial_t\phi_{+,\pm}=
-\left(\frac{\hbpq^2\mp q\lVert\bm{B}\rVert}{2m}+qV\right)\phi_{+,\pm}.}
+\boxed{\ii\partial_t\phi(+,\pm)=
+\left(\frac{\hbpq^2\mp q\lVert\bm{B}\rVert}{2m}+qV\right)\phi(+,\pm).}
 \]
 
 The \hyperref[eq:mechanical-momentum-operator]{kinetic momentum} $\hbpq=-\ii\partial_{\bm{r}}-q\bm{A}$ retains the orbital coupling.
 
 In the usual spinor representation, the four complex scalars form the matrix
 \[
-\bm{\phi}:=\begin{pmatrix}
-\phi_{+,+}&\phi_{+,-}\\
-\phi_{-,+}&\phi_{-,-}
-\end{pmatrix},
+\bm{\phi}:=\left(\,\begin{matrix}
+\phi(+,+)&\phi(+,-)\\
+\phi(-,+)&\phi(-,-)
+\end{matrix}\,\right),
 \]
 with rows labeled by Dirac block and columns by spin.
 
@@ -3710,10 +3707,6 @@ $qV/m=O(v^2)$, $q\bBf/m^2=O(v^2)$, $q\bE/m^2=O(v^3)$,
 with fields varying on spatial scales $1/(mv)$ and time scales $1/(mv^2)$
 or longer, gives $\phi_-=O(v\phi_+)$ and omitted energy terms of order $mv^4$.
 
-Equation~\eqref{eq:spin-half-generator} identifies spin as $\bsig/2$, so the magnetic energy is
-$-(q/m)\bBf\cdot(\bsig/2)$: magnetic moment equals $q/m$ times spin,
-so the gyromagnetic factor is $2$ before radiative corrections.
-
 \subsubsection{Components along a general field direction}
 \label{sec:uniform-spin}
 
@@ -3721,10 +3714,10 @@ For a nonzero static uniform field, let
 $\bu=\bBf/\lVert\bBf\rVert$ be its
 \hyperref[def:real-unit-vector]{real unit direction} and
 $\Pi_\pm=(1\pm\bu\cdot\bsig)/2$ its spin projectors.
-The complex paravector fields $\phi_{+,\pm}=\Pi_\pm\phi_+$ obey
+The complex paravector fields $\phi(+,\pm)=\Pi_\pm\phi_+$ obey
 \begin{equation*}
- \ii\partial_t\phi_{+,\pm}=\left(
- \frac{\hbpq^2\mp q\lVert\bBf\rVert}{2m}+qV\right)\phi_{+,\pm}.
+ \ii\partial_t\phi(+,\pm)=\left(
+ \frac{\hbpq^2\mp q\lVert\bBf\rVert}{2m}+qV\right)\phi(+,\pm).
 \end{equation*}
 For a nonzero field with varying direction, the projectors depend on $(t,\br)$.
 Let $\hH$ denote the Pauli Hamiltonian in \eqref{eq:pauli}.
@@ -3743,10 +3736,10 @@ sectors; the magnetic term commutes with its own projectors.
 
 In the usual spinor representation, the four complex scalars form the matrix
 \[
-\bm{\phi}:=\begin{pmatrix}
-\phi_{+,+}&\phi_{+,-}\\
-\phi_{-,+}&\phi_{-,-}
-\end{pmatrix},
+\bm{\phi}:=\left(\,\begin{matrix}
+\phi(+,+)&\phi(+,-)\\
+\phi(-,+)&\phi(-,-)
+\end{matrix}\,\right),
 \]
 with rows labeled by Dirac block and columns by spin.
 
