@@ -536,8 +536,8 @@ For a nonzero, constant magnetic field $`\mathbf B`$, define its [unit direction
 ```math
 \mathbf u:=\frac{\mathbf B}{\lVert\mathbf B\rVert},
 \qquad \Pi_\pm:=\frac12(1\pm\mathbf u\cdot\boldsymbol{\sigma}),
-\qquad \phi(+,\pm):=\Pi_\pm\phi_+,
-\qquad \phi_+=\phi(+,+)+\phi(+,-).
+\qquad \phi_{+ \pm}:=\Pi_\pm\phi_+,
+\qquad \phi_+=\phi_{+ +}+\phi_{+ -}.
 ```
 
 The projector identity gives [spin](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ along $`\mathbf u`$:
@@ -545,24 +545,24 @@ The projector identity gives [spin](https://en.wikipedia.org/wiki/Spin-1/2) $`\p
 ```math
 (\mathbf u\cdot\boldsymbol{\sigma})\Pi_\pm=\pm\Pi_\pm,
 \qquad
-\frac{\mathbf u\cdot\boldsymbol{\sigma}}2\phi(+,\pm)=\pm\frac12\phi(+,\pm).
+\frac{\mathbf u\cdot\boldsymbol{\sigma}}2\phi_{+ \pm}=\pm\frac12\phi_{+ \pm}.
 ```
 
 Since the projectors are constant, they commute with $`\hat E_q`$ and $`\hat{\mathbf p}_q^2`$. Projecting the Pauli equation gives
 
 ```math
 \begin{aligned}
-2m\hat E_q\phi(+,\pm)
+2m\hat E_q\phi_{+ \pm}
 &=\Pi_\pm(\hat{\mathbf p}_q^2-q\mathbf B\cdot\boldsymbol{\sigma})\phi_+\\
-&=(\hat{\mathbf p}_q^2\mp q\lVert\mathbf B\rVert)\phi(+,\pm).
+&=(\hat{\mathbf p}_q^2\mp q\lVert\mathbf B\rVert)\phi_{+ \pm}.
 \end{aligned}
 ```
 
 Thus the two spin components evolve independently, with opposite [Zeeman shifts](https://en.wikipedia.org/wiki/Zeeman_effect):
 
 ```math
-\boxed{\mathrm{i}\partial_t\phi(+,\pm)=
-\left(\frac{\hat{\mathbf p}_q^2\mp q\lVert\mathbf B\rVert}{2m}+qV\right)\phi(+,\pm).}
+\boxed{\mathrm{i}\partial_t\phi_{+ \pm}=
+\left(\frac{\hat{\mathbf p}_q^2\mp q\lVert\mathbf B\rVert}{2m}+qV\right)\phi_{+ \pm}.}
 ```
 
 The [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Electromagnetic_field) $`\hat{\mathbf p}_q=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A`$ retains the orbital coupling.
@@ -570,8 +570,8 @@ The [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Electroma
 In the usual spinor representation, the four complex scalars form the matrix
 ```math
 \boldsymbol{\phi}:=\left(\,\begin{matrix}
-\phi(+,+)&\phi(+,-)\\
-\phi(-,+)&\phi(-,-)
+\phi_{+ +}&\phi_{+ -}\\
+\phi_{- +}&\phi_{- -}
 \end{matrix}\,\right),
 ```
 with rows labeled by Dirac block and columns by spin.
