@@ -113,6 +113,7 @@ For $`T=R`$: [Rodrigues rotation](https://en.wikipedia.org/wiki/Rodrigues%27_rot
 \begin{aligned}
 R&:=e^{-\mathrm{i}\theta\mathbf u\cdot\boldsymbol{\sigma}/2}
 =\cos\frac\theta2-\mathrm{i}\mathbf u\cdot\boldsymbol{\sigma}\sin\frac\theta2,\\
+X'&=RXR^{\mathsf H},\\
 t'&=t,\\
 \mathbf r'&=\mathbf r\cos\theta+(\mathbf u\times\mathbf r)\sin\theta
 +(\mathbf u\cdot\mathbf r)(1-\cos\theta)\mathbf u.
@@ -133,6 +134,7 @@ Define the parallel and perpendicular components:
 L&:=e^{-\theta\mathbf u\cdot\boldsymbol{\sigma}/2}
 =\cosh\frac\theta2-\mathbf u\cdot\boldsymbol{\sigma}\sinh\frac\theta2
 =L^{\mathsf H},\\
+X'&=LXL^{\mathsf H},\\
 t'&=\gamma(t-\beta\mathbf u\cdot\mathbf r),\\
 \mathbf r'&=\mathbf r_\perp+\gamma(\mathbf r_\parallel-\beta t\mathbf u).
 \end{aligned}
@@ -173,11 +175,17 @@ For a future-directed massive particle, [proper time](https://en.wikipedia.org/w
 \mathrm dX&=\mathrm dt+\mathrm d\mathbf r\cdot\boldsymbol{\sigma},
 &\mathrm ds^2&:=\det(\mathrm dX)=\mathrm dt^2-\mathrm d\mathbf r^2,\\
 U&:=\frac{\mathrm dX}{\mathrm ds}=\gamma(1+\mathbf v\cdot\boldsymbol{\sigma}),
-&\gamma&=(1-\mathbf v^2)^{-1/2},\quad \mathbf v:=\frac{\mathrm d\mathbf r}{\mathrm dt},\\
-\mathcal{P}&:=mU=\underbrace{E}_{\text{energy}}+
-\underbrace{\mathbf p\cdot\boldsymbol{\sigma}}_{\text{momentum}},
-&\det \mathcal{P}&=E^2-\mathbf p^2=m^2.
+&\gamma&=(1-\mathbf v^2)^{-1/2},\quad \mathbf v:=\frac{\mathrm d\mathbf r}{\mathrm dt}.
 \end{aligned}
+```
+
+```math
+\mathcal{P}:=mU=\underbrace{E}_{\text{energy}}+
+\underbrace{\mathbf p\cdot\boldsymbol{\sigma}}_{\text{momentum}}.
+```
+
+```math
+\det\mathcal{P}=E^2-\mathbf p^2=m^2.
 ```
 
 ## [Maxwell](https://en.wikipedia.org/wiki/Maxwell%27s_equations) in one equation
@@ -307,19 +315,67 @@ S'&=S+\Box\lambda,\\
 \end{aligned}
 ```
 
-## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) as a first-order wave equation
+## [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) from the mass shell
 
-In the [Weyl representation](https://en.wikipedia.org/wiki/Gamma_matrices#Weyl_%28chiral%29_basis), write $`\boldsymbol\psi:=(\psi_+,\psi_-)^{\mathsf T}`$, with two complex components in each entry. Let $`\mathbf I`$ be the block identity.
+Proper-time normalization gives
+
+```math
+\det U=\det\!\left(\frac{\mathrm dX}{\mathrm ds}\right)
+=\frac{\det(\mathrm dX)}{\mathrm ds^2}=1.
+```
+
+For constant mass $`m>0`$, the determinant scales quadratically:
+
+```math
+\det\mathcal P=\det(mU)=m^2\det U=m^2,
+\qquad E^2-\mathbf p^2=m^2.
+```
 
 Hats mark named [energy](https://en.wikipedia.org/wiki/Energy_operator), [momentum](https://en.wikipedia.org/wiki/Momentum_operator), and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) operators; the derivative symbols $`\partial`$ and $`\Box`$ remain unhatted.
 
-For a free particle of mass $`m`$, define
+Represent energy and momentum on a complex scalar wavefunction $`\psi`$ by
 
 ```math
 \begin{aligned}
 \hat E&:=\mathrm{i}\partial_t,\\
 \hat{\mathbf p}&:=-\mathrm{i}\partial_{\mathbf r},\\
-\hat{\mathcal{P}}&:=\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma} = \mathrm{i}\partial^{*},\\
+\hat{\mathcal{P}}&:=\hat E+\hat{\mathbf p}\cdot\boldsymbol{\sigma} = \mathrm{i}\partial^{*}.
+\end{aligned}
+```
+
+The free operators commute, so
+
+```math
+\hat{\mathcal{P}}\,\mathrm{adj}\,\hat{\mathcal{P}}
+=\det\hat{\mathcal{P}}
+=\hat E^2-\hat{\mathbf p}^2
+=-\Box.
+```
+
+Imposing the mass shell on $`\psi`$ gives
+
+```math
+\begin{aligned}
+0&=(\det\hat{\mathcal P}-m^2)\psi\\
+&=(\hat E^2-\hat{\mathbf p}^2-m^2)\psi\\
+&=-(\Box+m^2)\psi.
+\end{aligned}
+```
+
+Thus the free Klein–Gordon equation is
+
+```math
+\boxed{(\Box+m^2)\psi=0.}
+```
+
+## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) as a first-order wave equation
+
+In the [Weyl representation](https://en.wikipedia.org/wiki/Gamma_matrices#Weyl_%28chiral%29_basis), write $`\boldsymbol\psi:=(\psi_+,\psi_-)^{\mathsf T}`$, with two complex components in each entry. Let $`\mathbf I`$ be the block identity.
+
+Using the free momentum operator above, define
+
+```math
+\begin{aligned}
 \mathbf W(\hat{\mathcal{P}})&:=
 \begin{pmatrix}
 0 & \mathrm{adj}\,\hat{\mathcal{P}} \\
@@ -339,23 +395,6 @@ Equivalently,
 
 ```math
 (\hat E\pm\hat{\mathbf p}\cdot\boldsymbol{\sigma})\psi_\pm=m\psi_\mp.
-```
-
-For commuting free operators,
-
-```math
-\hat{\mathcal{P}}\,\mathrm{adj}\,\hat{\mathcal{P}}
-=\det\hat{\mathcal{P}}
-=\hat E^2-\hat{\mathbf p}^2
-=-\Box.
-```
-
-Thus the spacetime mass shell $`\det \mathcal{P}=m^2`$ becomes
-
-```math
-(\det\hat{\mathcal{P}}-m^2)\boldsymbol\psi=0
-\quad\Longleftrightarrow\quad
-(\Box+m^2)\boldsymbol\psi=0.
 ```
 
 Using $`\mathbf W(\hat{\mathcal{P}})^2=(\det\hat{\mathcal{P}})\mathbf I`$ gives the [Klein–Gordon factorization](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation):
@@ -531,54 +570,67 @@ Restoring $`\hat E_q=\mathrm{i}\partial_t-qV`$ gives the [Pauli equation](https:
 
 ## [Spin up and spin down](https://en.wikipedia.org/wiki/Spin-1/2#Observables) in a uniform magnetic field
 
-For a nonzero, constant magnetic field $`\mathbf B`$, define its [unit direction](https://en.wikipedia.org/wiki/Unit_vector) and [spin projectors](https://en.wikipedia.org/wiki/Pauli_matrices#Eigenvectors_and_eigenvalues):
+For a constant nonzero field $`\mathbf B`$, define its [unit direction](https://en.wikipedia.org/wiki/Unit_vector) and [spin projectors](https://en.wikipedia.org/wiki/Pauli_matrices#Eigenvectors_and_eigenvalues):
 
 ```math
 \mathbf u:=\frac{\mathbf B}{\lVert\mathbf B\rVert},
-\qquad \Pi_\pm:=\frac12(1\pm\mathbf u\cdot\boldsymbol{\sigma}),
-\qquad \phi_{+ \pm}:=\Pi_\pm\phi_+,
-\qquad \phi_+=\phi_{+ +}+\phi_{+ -}.
+\qquad \Pi_\pm:=\frac12(1\pm\mathbf u\cdot\boldsymbol{\sigma}).
 ```
 
-The projector identity gives [spin](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ along $`\mathbf u`$:
+[Spectral decomposition](#projections-and-spectral-decomposition) gives
 
 ```math
-(\mathbf u\cdot\boldsymbol{\sigma})\Pi_\pm=\pm\Pi_\pm,
+\mathbf B\cdot\boldsymbol{\sigma}
+=\lVert\mathbf B\rVert(\Pi_+-\Pi_-),
 \qquad
-\frac{\mathbf u\cdot\boldsymbol{\sigma}}2\phi_{+ \pm}=\pm\frac12\phi_{+ \pm}.
+\Pi_\pm(\mathbf B\cdot\boldsymbol{\sigma})
+=\pm\lVert\mathbf B\rVert\Pi_\pm.
 ```
 
-Since the projectors are constant, they commute with $`\hat E_q`$ and $`\hat{\mathbf p}_q^2`$. Projecting the Pauli equation gives
+Let constant unit spinors $`Z_\pm`$ span the spinor space of $`\phi_\pm`$:
+
+```math
+\Pi_\pm Z_\pm=Z_\pm,\qquad \Pi_\pm Z_\mp=0.
+```
+
+Expand $`\phi_+`$ in complex scalar wavefunctions:
 
 ```math
 \begin{aligned}
-2m\hat E_q\phi_{+ \pm}
-&=\Pi_\pm(\hat{\mathbf p}_q^2-q\mathbf B\cdot\boldsymbol{\sigma})\phi_+\\
-&=(\hat{\mathbf p}_q^2\mp q\lVert\mathbf B\rVert)\phi_{+ \pm}.
+\phi_+&=\phi_{++}Z_++\phi_{+-}Z_-,\\
+\Pi_\pm\phi_+&=\phi_{+\pm}Z_\pm.
 \end{aligned}
 ```
 
-Thus the two spin components evolve independently, with opposite [Zeeman shifts](https://en.wikipedia.org/wiki/Zeeman_effect):
+Left-multiply both sides of the Pauli equation by constant $`\Pi_\pm`$, which commute with $`\hat E_q`$ and $`\hat{\mathbf p}_q^2`$:
 
 ```math
-\boxed{\mathrm{i}\partial_t\phi_{+ \pm}=
-\left(\frac{\hat{\mathbf p}_q^2\mp q\lVert\mathbf B\rVert}{2m}+qV\right)\phi_{+ \pm}.}
+\left(2m\hat E_q-\hat{\mathbf p}_q^2\pm q\lVert\mathbf B\rVert\right)\Pi_\pm\phi_+=0.
 ```
 
-The [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Electromagnetic_field) $`\hat{\mathbf p}_q=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A`$ retains the orbital coupling.
+Constant $`Z_\pm`$ pass through derivatives. Substitute the expansion, equate scalar coefficients, and restore $`\hat E_q=\mathrm{i}\partial_t-qV`$:
 
-In the usual spinor representation, the four complex scalars form the matrix
+```math
+\boxed{\mathrm{i}\partial_t\phi_{+\pm}=
+\left(\frac{\hat{\mathbf p}_q^2\mp q\lVert\mathbf B\rVert}{2m}+qV\right)\phi_{+\pm}.}
+```
+
+[Spin](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ along $`\mathbf u`$ has opposite [Zeeman shifts](https://en.wikipedia.org/wiki/Zeeman_effect). The [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Electromagnetic_field) $`\hat{\mathbf p}_q=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A`$ retains the orbital coupling.
+
+Expanding $`\phi_-=\phi_{-+}Z_++\phi_{--}Z_-`$ gives four complex scalar components:
+
 ```math
 \boldsymbol{\phi}:=\left(\,\begin{matrix}
-\phi_{+ +}&\phi_{+ -}\\
-\phi_{- +}&\phi_{- -}
-\end{matrix}\,\right),
+\phi_{++}&\phi_{+-}\\
+\phi_{-+}&\phi_{--}
+\end{matrix}\,\right).
 ```
-with rows labeled by Dirac block and columns by spin.
+
+Rows label Dirac blocks, columns spin; the Pauli limit governs the upper row.
 
 ## Spin measurement probabilities
 
-Let $`\mathbf u'`$ be the real unit spin direction and $`\mathbf u`$ the real unit measurement axis. Prepare $`\psi=\Pi_+'\psi\ne0`$, with $`\cos\theta:=\mathbf u\cdot\mathbf u'`$:
+For the measurement, let $`\mathbf u'`$ be a real unit spin direction at any angle to the real unit measurement axis $`\mathbf u`$. Prepare $`\psi=\Pi_+'\psi\ne0`$, with $`\cos\theta:=\mathbf u\cdot\mathbf u'`$:
 
 ```math
 \begin{gathered}

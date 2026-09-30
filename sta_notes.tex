@@ -144,6 +144,12 @@ This introduction presents the results together, from the algebra to the
 physical equations and their limits. Links point to the detailed development later in the paper. Natural units $\hbar=c=1$, rationalized
 electromagnetic units, and signature $(+,-,-,-)$ are used.
 
+Domains below specify values: scalars lie in $\R$ or $\C$, vectors in
+$\R^3$ or $\C^3$, and paravectors in the corresponding scalar--vector
+direct sum. Fields depend on real spacetime coordinates and are sufficiently
+differentiable wherever derivatives appear. Domains carry through a section,
+including primes and components, unless stated otherwise.
+
 \Needspace{8\baselineskip}
 \subsection*{\hyperref[sec:algebra]{One complex paravector}}
 \[
@@ -160,11 +166,13 @@ Z&:=(a+b\ii)+(\bm{A}+\ii\bm{B})\cdot\bsig,
 \end{aligned}}
 \]
 
-Every element has eight real components: one complex scalar and one complex three-vector.
+The direct sum specifies scalar and vector coefficients; multiplication uses the fixed sigma generators:
 \[
-Z=S+\bm{V}\cdot\bsig=X+\ii Y,
-\qquad X:=a+\bm{A}\cdot\bsig,
-\quad Y:=b+\bm{B}\cdot\bsig.
+\begin{gathered}
+Z=S+\bm{V}\cdot\bsig=X+\ii Y\in\C\oplus\C^3,\\
+X:=a+\bm{A}\cdot\bsig,\quad Y:=b+\bm{B}\cdot\bsig,
+\qquad X,Y\in\R\oplus\R^3.
+\end{gathered}
 \]
 
 The component extractions are
@@ -172,23 +180,25 @@ The component extractions are
 \begin{aligned}
 \mathrm{re}(Z)&:=X,\\
 \mathrm{im}(Z)&:=Y,\\
-\mathrm{sc}(Z)&:=S=a+\ii b,\\
-\mathrm{vec}(Z)&:=\bm{V}=\bm{A}+\ii\bm{B}.
+\mathrm{sc}(Z)&:=S=a+\ii b\in\C,\\
+\mathrm{vec}(Z)&:=\bm{V}=\bm{A}+\ii\bm{B}\in\C^3.
 \end{aligned}
 \]
 
 \Needspace{8\baselineskip}
 \subsection*{\hyperref[eq:vector-product]{Dot and cross products in one multiplication}}
 
-The product carries both the dot and cross products:
+For $\bm A,\bm B\in\C^3$, the product carries both the dot and cross products:
 \[
 (\bm{A}\cdot\bsig)(\bm{B}\cdot\bsig)
 =\bm{A}\cdot\bm{B}+\ii(\bm{A}\times\bm{B})\cdot\bsig.
 \]
 
-Throughout, $\bm{A}^2:=\bm{A}\cdot\bm{A}$.
+Dot and cross products are complex bilinear: $\bm A^2:=\bm A\cdot\bm A$
+uses no conjugation. For $\bm A,\bm B\in\R^3$, the displayed product
+lies in $\R\oplus\ii\R^3$.
 
-The commutator is
+For $X,Y\in\C\oplus\C^3$, the commutator is
 \[
 [X,Y]:=XY-YX.
 \]
@@ -198,7 +208,9 @@ The commutator is
 
 The scalar and vector parts give the determinant, trace, norm, adjugate, and inverse directly.
 
-Write $Z=S+\bm{V}\cdot\bsig$, where $S\in\mathbb C$ is a complex scalar and $\bm{V}\in\mathbb C^3$ is a complex vector.
+For $Z=S+\bm V\cdot\bsig\in\C\oplus\C^3$,
+$\det Z,\mathrm{tr}\,Z\in\C$ and $\lVert Z\rVert^2\in\R_{\ge0}$.
+Conjugates, adjugates, and existing inverses remain in $\C\oplus\C^3$.
 
 Sigma conjugation $(\,\cdot\,)^*$ complex conjugates scalar coefficients and
 reverses the sign of $\bsig$. Hermitian conjugation $(\,\cdot\,)^{\mathsf H}$
@@ -219,7 +231,8 @@ Z^{-1}=\frac{\mathrm{adj}\,Z}{\det Z}\qquad \mathrm{if} \quad \det Z\ne0.
 \Needspace{8\baselineskip}
 \subsection*{\hyperref[sec:quaternions]{Quaternions inside the same algebra}}
 
-In this representation, quaternions have a real scalar part and a purely imaginary vector part:
+Quaternions lie in $\R\oplus\ii\R^3$: a real scalar and a purely imaginary
+vector. The $q_k$ are algebra elements, and $\bm q:=(q_1,q_2,q_3)$ is their ordered triple:
 \[
 \begin{aligned}
 q_k&:=-\ii\sigma_k,
@@ -235,24 +248,27 @@ QQ^{\mathsf H}&=\det Q=a^2+\bm{A}^2.
 \Needspace{8\baselineskip}
 \subsection*{\hyperref[sec:preserved-quantities]{Rotations and boosts in the same form}}
 
-Represent a spacetime event by $X$ and take $\bm{u}$ to be a real unit axis:
+Let $t,\theta\in\R$, $\bm r,\bm u\in\R^3$, $\bm u^2=1$, and
+$T\in\C\oplus\C^3$ with $\det T=1$.
+The spacetime events $X,X'\in\R\oplus\R^3$ transform as:
 \[
 X:=t+\bm{r}\cdot\bsig,
 \qquad X':=TXT^{\mathsf H}=t'+\bm{r}'\cdot\bsig.
 \]
 
-Choosing $T=R$ gives Rodrigues' rotation through $\theta$; $R$ is a unit quaternion in the basis $q_k=-\ii\sigma_k$.
+Choosing $T=R\in\R\oplus\ii\R^3$ gives Rodrigues' rotation through $\theta$; $R$ is a unit quaternion in the basis $q_k=-\ii\sigma_k$.
 \[
 \begin{aligned}
 R&:=e^{-\ii\theta\bm{u}\cdot\bsig/2}
 =\cos\frac\theta2-\ii\bm{u}\cdot\bsig\sin\frac\theta2,\\
+X'&=RXR^{\mathsf H},\\
 t'&=t,\\
 \bm{r}'&=\bm{r}\cos\theta+(\bm{u}\times\bm{r})\sin\theta
 +(\bm{u}\cdot\bm{r})(1-\cos\theta)\bm{u}.
 \end{aligned}
 \]
 
-Choosing $T=L$ gives a Lorentz boost to a frame moving at $+\beta\bm{u}$, with rapidity $\theta$, $\beta:=\tanh\theta$, and Lorentz factor $\gamma:=\cosh\theta$.
+Choosing $T=L\in\R\oplus\R^3$ gives a Lorentz boost to a frame moving at $+\beta\bm{u}$, with rapidity $\theta$, $\beta:=\tanh\theta$, and Lorentz factor $\gamma:=\cosh\theta$ ($\beta\in(-1,1)$, $\gamma\ge1$).
 
 Define the parallel and perpendicular components:
 \[
@@ -264,6 +280,7 @@ Define the parallel and perpendicular components:
 L&:=e^{-\theta\bm{u}\cdot\bsig/2}
 =\cosh\frac\theta2-\bm{u}\cdot\bsig\sinh\frac\theta2
 =L^{\mathsf H},\\
+X'&=LXL^{\mathsf H},\\
 t'&=\gamma(t-\beta\bm{u}\cdot\bm{r}),\\
 \bm{r}'&=\bm{r}_\perp+\gamma(\bm{r}_\parallel-\beta t\bm{u}).
 \end{aligned}
@@ -276,7 +293,7 @@ Z=a+b\bm{u}\cdot\bsig,
 \qquad a,b\in\mathbb C,\quad \bm{u}\in\mathbb C^3,\quad \bm{u}^2=1.
 \]
 
-The eigenvalues and complementary projectors are
+The eigenvalues $\lambda_\pm\in\C$ and complementary projectors are
 \[
 \begin{gathered}
 \lambda_\pm:=a\pm b,
@@ -285,7 +302,8 @@ The eigenvalues and complementary projectors are
 \end{gathered}
 \]
 
-For $f$ analytic near $\lambda_\pm$:
+Here $\Pi_\pm\in\R\oplus\C^3$; they are Hermitian when $\bm u\in\R^3$.
+For a complex-valued $f$ analytic near $\lambda_\pm$, $f(Z)\in\C\oplus\C^3$:
 \[
 \begin{aligned}
 Z&=\lambda_-\Pi_-+\lambda_+\Pi_+,\\[4pt]
@@ -296,23 +314,30 @@ f(Z)&=f(\lambda_-)\Pi_-+f(\lambda_+)\Pi_+.
 \Needspace{8\baselineskip}
 \subsection*{\hyperref[sec:kinematics]{Spacetime from the determinant}}
 
-For a future-directed massive particle, proper time and four-momentum follow from a real paravector, with four-velocity $U$.
+For $m\in\R_{>0}$, a future-directed massive particle has $t,s,E\in\R$,
+$\bm r,\bm v,\bm p\in\R^3$, $\bm v^2<1$, and $\gamma\ge1$.
+Proper time and four-momentum follow from $X,U,\mathcal P\in\R\oplus\R^3$,
+with four-velocity $U$.
 \[
 \begin{aligned}
 \mathrm dX&=\mathrm dt+\mathrm d\bm{r}\cdot\bsig,
 &\mathrm ds^2&:=\det(\mathrm dX)=\mathrm dt^2-\mathrm d\bm{r}^2,\\
 U&:=\frac{\mathrm dX}{\mathrm ds}=\gamma(1+\bm{v}\cdot\bsig),
-&\gamma&=(1-\bm{v}^2)^{-1/2},\quad \bm{v}:=\frac{\mathrm d\bm{r}}{\mathrm dt},\\
-\mathcal{P}&:=mU=\underbrace{E}_{\text{energy}}+
-\underbrace{\bm{p}\cdot\bsig}_{\text{momentum}},
-&\det \mathcal{P}&=E^2-\bm{p}^2=m^2.
+&\gamma&=(1-\bm{v}^2)^{-1/2},\quad \bm{v}:=\frac{\mathrm d\bm{r}}{\mathrm dt}.
 \end{aligned}
+\]
+\[
+\mathcal{P}:=mU=\underbrace{E}_{\text{energy}}+
+\underbrace{\bm{p}\cdot\bsig}_{\text{momentum}}.
+\]
+\[
+\det\mathcal{P}=E^2-\bm{p}^2=m^2.
 \]
 
 \clearpage
 \subsection*{\hyperref[eq:maxwell]{Maxwell's four equations in one}}
 
-Combine the electric and magnetic fields and use the paravector derivative:
+For $\rho\in\R$ and $\bm E,\bm B,\bm J\in\R^3$, combine the electric and magnetic fields and use the paravector derivative:
 \[
 \begin{gathered}
 \mathcal{F}:=(\bm{E}+\ii\bm{B})\cdot\bsig,\qquad
@@ -322,7 +347,9 @@ Combine the electric and magnetic fields and use the paravector derivative:
 \end{gathered}
 \]
 
-Here $\rho$ is charge density, $\bm{J}$ is current density, and $\partial_{\bm{r}}$ is the gradient.
+Here $\mathcal F\in\{0\}\oplus\C^3$ and $\mathcal D\in\R\oplus\R^3$.
+The symbols $\partial$, $\partial^*$, and $\Box$ denote differential operators.
+$\rho$ is charge density, $\bm J$ current density, and $\partial_{\bm r}$ the gradient.
 \[
 \boxed{\partial \mathcal{F}=\mathcal{D}^*}
 \]
@@ -362,7 +389,7 @@ This boxed equation gives \hyperref[eq:charge-continuity]{charge conservation} a
 In vacuum, $\Box \mathcal{F}=0$.
 
 The same field gives the \hyperref[eq:lorentz-momentum]{Lorentz force} and
-its rate of work on a particle of charge $q$ and velocity $\bm{v}$:
+its rate of work on a particle of charge $q\in\R$ and velocity $\bm v\in\R^3$:
 \[
  \frac{\mathrm d\bm{p}}{\mathrm dt}
  =q(\bm{E}+\bm{v}\times\bm{B}),\qquad
@@ -373,9 +400,9 @@ its rate of work on a particle of charge $q$ and velocity $\bm{v}$:
 \Needspace{8\baselineskip}
 \subsection*{\hyperref[eq:potential-field]{Electromagnetic potentials and gauge invariance}}
 
-Define the real four-potential from the scalar potential $V$ and vector potential $\bm{A}$, with gauge scalar $S$:
+Define the real four-potential from $V\in\R$ and $\bm A\in\R^3$, with gauge scalar $S\in\R$:
 \[
-\mathcal{A}:=V+\bm{A}\cdot\bsig,
+\mathcal{A}:=V+\bm{A}\cdot\bsig\in\R\oplus\R^3,
 \qquad S:=\mathrm{sc}(\partial\mathcal{A}).
 \]
 
@@ -416,7 +443,7 @@ Its components give
 \end{aligned}
 \]
 
-\textbf{Gauge invariance:} for real scalar $\lambda$,
+\textbf{Gauge invariance:} for a scalar gauge function $\lambda\in\R$,
 \[
 \begin{aligned}
 \mathcal{A}'&:=\mathcal{A}+\partial^{*}\lambda,\\
@@ -433,19 +460,65 @@ S'&=S+\Box\lambda,\\
 \end{aligned}
 \]
 
-\Needspace{8\baselineskip}
-\subsection*{\hyperref[sec:dirac-development]{Dirac as a first-order wave equation}}
+\clearpage
+\subsection*{\hyperref[eq:kg]{Klein--Gordon from the mass shell}}
 
-In the Weyl representation, write $\bpsi:=(\psi_+,\psi_-)^{\mathsf T}$, where the signs label the entries, each with two complex components. Let $\bI$ be the block identity.
+For $X,U,\mathcal P\in\R\oplus\R^3$, proper-time normalization gives
+\[
+\det U=\det\!\left(\frac{\mathrm dX}{\mathrm ds}\right)
+=\frac{\det(\mathrm dX)}{\mathrm ds^2}=1.
+\]
+For constant $m\in\R_{>0}$, the determinant scales quadratically:
+\[
+\det\mathcal P=\det(mU)=m^2\det U=m^2,
+\qquad E^2-\bm p^2=m^2.
+\]
 
-Hats mark named energy, momentum, and Dirac operators; the derivative symbols $\partial$ and $\Box$ remain unhatted.
-
-For a free particle of mass $m$, define
+Hats mark named energy, momentum, and Dirac operators; the derivative
+symbols $\partial$ and $\Box$ remain unhatted.
+Represent energy and momentum on a scalar field $\psi:\R^4\to\C$ by
 \[
 \begin{aligned}
 \hE&:=\ii\partial_t,\\
 \hbp&:=-\ii\partial_{\bm{r}},\\
-\hP&:=\hE+\hbp\cdot\bsig = \ii\partial^{*},\\
+\hP&:=\hE+\hbp\cdot\bsig = \ii\partial^{*}.
+\end{aligned}
+\]
+$\hE$ is a scalar differential operator, $\hbp$ a triple of scalar
+differential operators, and $\hP$ a paravector differential operator.
+The free operators commute, so
+\[
+\hP\,\mathrm{adj}\,\hP
+=\det\hP
+=\hE^2-\hbp^2
+=-\Box.
+\]
+Imposing the mass shell on $\psi$ gives
+\[
+\begin{aligned}
+0&=(\det\hP-m^2)\psi\\
+&=(\hE^2-\hbp^2-m^2)\psi\\
+&=-(\Box+m^2)\psi.
+\end{aligned}
+\]
+Thus the free Klein--Gordon equation is
+\[
+\boxed{(\Box+m^2)\psi=0.}
+\]
+
+\clearpage
+\subsection*{\hyperref[sec:dirac-development]{Dirac as a first-order wave equation}}
+
+In the Weyl representation, write $\bpsi:=(\psi_+,\psi_-)^{\mathsf T}$.
+Each $\psi_\pm$ lies in the same fixed two-dimensional complex spinor
+subspace of $\C\oplus\C^3$, preserved by left multiplication
+(\hyperref[sec:quantum-amplitudes]{construction}). Its coordinates lie in
+$\C^2$, giving $\bpsi$ a coordinate column in $\C^4$. $\bI$ is the block
+identity, represented by $I_4$.
+
+Using the free momentum operator above and $m\in\R_{>0}$, define
+\[
+\begin{aligned}
 \Wop(\hP)&:=
 \begin{pmatrix}
 0 & \mathrm{adj}\,\hP \\
@@ -455,6 +528,9 @@ For a free particle of mass $m$, define
 \end{aligned}
 \]
 
+$\Wop(\hP)$ and $\hD$ act on four-component spinor fields as
+$4\times4$ matrix differential operators.
+
 The free Dirac equation is
 \[
 \boxed{\hD(m)\bpsi=0.}
@@ -463,21 +539,6 @@ The free Dirac equation is
 Equivalently,
 \[
 (\hE\pm\hbp\cdot\bsig)\psi_\pm=m\psi_\mp.
-\]
-
-For commuting free operators,
-\[
-\hP\,\mathrm{adj}\,\hP
-=\det\hP
-=\hE^2-\hbp^2
-=-\Box.
-\]
-
-Thus the spacetime mass shell $\det \mathcal{P}=m^2$ becomes
-\[
-(\det\hP-m^2)\bpsi=0
-\quad\Longleftrightarrow\quad
-(\Box+m^2)\bpsi=0.
 \]
 
 Using $\Wop(\hP)^2=(\det\hP)\bI$ gives the Klein--Gordon factorization:
@@ -494,7 +555,9 @@ Hence every free Dirac solution satisfies Klein--Gordon.
 \Needspace{8\baselineskip}
 \subsection*{\hyperref[eq:dirac-field]{Dirac with an electromagnetic potential}}
 
-For constant mass $m>0$ and charge $q$, minimal coupling to the real potential $\mathcal{A}=V+\bm{A}\cdot\bsig$ defines the gauge-covariant energy and momentum operators
+For constant mass $m\in\R_{>0}$ and charge $q\in\R$, minimal coupling
+to $\mathcal A=V+\bm A\cdot\bsig\in\R\oplus\R^3$, with
+$V\in\R$, $\bm A\in\R^3$, defines operators of the same types as in the free case
 \[
 \begin{aligned}
 \hEq&:=\hE-qV=\ii\partial_t-qV,\\
@@ -552,7 +615,7 @@ Every Dirac solution satisfies $\hDq(-m)\hDq(m)\bpsi=0$. Setting $q=0$ recovers 
 \Needspace{8\baselineskip}
 \subsection*{\hyperref[sec:schrodinger-limit]{Low-energy Klein--Gordon recovers Schr\"odinger}}
 
-For a charged scalar field of constant mass $m$, remove the rest-energy phase, $\psi'=e^{-\ii mt}\psi$. The product rule gives
+Here $\psi',\psi\in\C$ are scalar fields, with constant $m\in\R_{>0}$ and $q\in\R$. Remove the rest-energy phase, $\psi'=e^{-\ii mt}\psi$. The product rule gives
 \[
 \begin{aligned}
 \hEq\psi'
@@ -602,7 +665,7 @@ Using the same phase shift, $\psi_\pm':=e^{\ii mt}\psi_\pm$, gives
 (m+\hEq\pm\hbpq\cdot\bsig)\psi_\pm'=m\psi_\mp'.
 \]
 
-Define the large and small components for the positive-energy branch:
+For the positive-energy branch, the envelopes $\psi_\pm'$ and the following large and small components lie in the same two-dimensional complex spinor space as $\psi_\pm$:
 \[
 \begin{aligned}
 \phi_+&:=\frac{\psi_+'+\psi_-'}{\sqrt2},\\
@@ -636,56 +699,67 @@ Restoring $\hEq=\ii\partial_t-qV$ gives the Pauli equation, retaining the kineti
 
 \Needspace{30\baselineskip}
 \subsection*{\hyperref[sec:uniform-spin]{Spin up and spin down in a uniform magnetic field}}
-For a nonzero, constant magnetic field $\bm{B}$, define its \hyperref[def:real-unit-vector]{unit direction} and \hyperref[sec:algebra-projectors]{spin projectors}:
+For a constant field $\bm B\in\R^3\setminus\{0\}$, define its \hyperref[def:real-unit-vector]{unit direction} and \hyperref[sec:algebra-projectors]{spin projectors}:
 
 \[
-\begin{aligned}
-\bm{u}&:=\frac{\bm{B}}{\lVert\bm{B}\rVert},
-\qquad \Pi_\pm:=\frac12(1\pm\bm{u}\cdot\bsig),
-\\[3pt] \phi_{+ \pm}&:=\Pi_\pm\phi_+,
-\qquad \phi_+=\phi_{+ +}+\phi_{+ -}.
-\end{aligned}
+\bm{u}:=\frac{\bm{B}}{\lVert\bm{B}\rVert}\in\R^3,
+\qquad \Pi_\pm:=\frac12(1\pm\bm{u}\cdot\bsig)\in\R\oplus\R^3.
 \]
 
-The projector identity gives \hyperref[sec:spin-half]{spin} $\pm\tfrac12$ along $\bm{u}$:
+\hyperref[sec:spectral]{Spectral decomposition} gives
 
 \[
-(\bm{u}\cdot\bsig)\Pi_\pm=\pm\Pi_\pm,
+\bm{B}\cdot\bsig
+=\lVert\bm{B}\rVert(\Pi_+-\Pi_-),
 \qquad
-\frac{\bm{u}\cdot\bsig}2\phi_{+ \pm}=\pm\frac12\phi_{+ \pm}.
+\Pi_\pm(\bm{B}\cdot\bsig)
+=\pm\lVert\bm{B}\rVert\Pi_\pm.
 \]
 
-Since the projectors are constant, they commute with $\hEq$ and $\hbpq^2$. Projecting the Pauli equation gives
+Let constant unit spinors $Z_\pm\in\C\oplus\C^3$ span that fixed spinor space, so $\phi_\pm\in\mathrm{span}_{\C}\{Z_+,Z_-\}$:
+
+\[
+\Pi_\pm Z_\pm=Z_\pm,\qquad \Pi_\pm Z_\mp=0.
+\]
+
+Expand $\phi_+$ with scalar wavefunctions $\phi_{++},\phi_{+-}\in\C$:
 
 \[
 \begin{aligned}
-2m\hEq\phi_{+ \pm}
-&=\Pi_\pm(\hbpq^2-q\bm{B}\cdot\bsig)\phi_+\\
-&=(\hbpq^2\mp q\lVert\bm{B}\rVert)\phi_{+ \pm}.
+\phi_+&=\phi_{++}Z_++\phi_{+-}Z_-,\\
+\Pi_\pm\phi_+&=\phi_{+\pm}Z_\pm.
 \end{aligned}
 \]
 
-Thus the two spin components evolve independently, with opposite \hyperref[sec:uniform-spin]{Zeeman shifts}:
+Left-multiply both sides of the Pauli equation by constant $\Pi_\pm$, which commute with $\hEq$ and $\hbpq^2$:
 
 \[
-\boxed{\ii\partial_t\phi_{+ \pm}=
-\left(\frac{\hbpq^2\mp q\lVert\bm{B}\rVert}{2m}+qV\right)\phi_{+ \pm}.}
+\left(2m\hEq-\hbpq^2\pm q\lVert\bm{B}\rVert\right)\Pi_\pm\phi_+=0.
 \]
 
-The \hyperref[eq:mechanical-momentum-operator]{kinetic momentum} $\hbpq=-\ii\partial_{\bm{r}}-q\bm{A}$ retains the orbital coupling.
+Constant $Z_\pm$ pass through derivatives. Substitute the expansion, equate scalar coefficients, and restore $\hEq=\ii\partial_t-qV$:
 
-In the usual spinor representation, the four complex scalars form the matrix
+\[
+\boxed{\ii\partial_t\phi_{+\pm}=
+\left(\frac{\hbpq^2\mp q\lVert\bm{B}\rVert}{2m}+qV\right)\phi_{+\pm}.}
+\]
+
+\hyperref[sec:spin-half]{Spin} $\pm\tfrac12$ along $\bm{u}$ has opposite \hyperref[sec:uniform-spin]{Zeeman shifts}. The \hyperref[eq:mechanical-momentum-operator]{kinetic momentum} $\hbpq=-\ii\partial_{\bm{r}}-q\bm{A}$ retains the orbital coupling.
+
+Expanding $\phi_-=\phi_{-+}Z_++\phi_{--}Z_-$ gives four complex scalar components:
+
 \[
 \bm{\phi}:=\left(\,\begin{matrix}
-\phi_{+ +}&\phi_{+ -}\\
-\phi_{- +}&\phi_{- -}
-\end{matrix}\,\right),
+\phi_{++}&\phi_{+-}\\
+\phi_{-+}&\phi_{--}
+\end{matrix}\,\right)\in\C^{2\times2}.
 \]
-with rows labeled by Dirac block and columns by spin.
+
+Rows label Dirac blocks, columns spin; the Pauli limit governs the upper row.
 
 \Needspace{24\baselineskip}
 \subsection*{\hyperref[sec:spin-measurement-angle]{Spin measurement probabilities}}
-Let $\bu'$ be the real unit spin direction and $\bu$ the real unit measurement axis. Prepare $\psi=\Pi_+'\psi\ne0$, with $\cos\theta:=\bu\cdot\bu'$:
+For a spinor $\psi$ in the same fixed spinor space, let $\bu,\bu'\in\R^3$ be unit measurement and preparation axes. Their projectors lie in $\R\oplus\R^3$. Prepare $\psi=\Pi_+'\psi\ne0$, with $\theta\in[0,\pi]$ and $\cos\theta:=\bu\cdot\bu'$:
 
 \[
 \begin{gathered}
@@ -705,9 +779,9 @@ The \hyperref[sec:spin-measurement-angle]{Born probabilities} for \hyperref[sec:
 \end{gathered}
 \]
 
-Aligned axes give certain spin up; perpendicular axes give equal odds. Reversing the prepared spin swaps the probabilities.
+Both probabilities lie in $[0,1]\subset\R$ and sum to one. Aligned axes give certain spin up; perpendicular axes give equal odds. Reversing the prepared spin swaps the probabilities.
 
-A rotation through $\varphi$ about a real unit axis $\bn$ acts on a
+A rotation through $\varphi\in\R$ about a unit axis $\bn\in\R^3$ acts on a
 two-component spinor as $\psi\mapsto R\psi$, with
 $R=e^{-\ii\varphi\bn\cdot\bsig/2}$. It changes sign under a $2\pi$ rotation
 and returns after $4\pi$, while the measurement probabilities are unchanged
@@ -728,6 +802,19 @@ reference in Appendix~\ref{sec:reference-summary} provides a compact index.
 
 \section{The algebra at a glance}
 \label{sec:algebra}
+
+We identify $S+\bV\cdot\bsig$ with its coefficient pair
+$(S,\bV)\in\C\oplus\C^3$. Real paravectors lie in $\R\oplus\R^3$;
+mixed sums specify the two coefficient spaces separately.
+The direct sum describes values, while the sigma rules define multiplication.
+The generators $\sigma_k$ are algebra elements; $\bsig$ is their ordered
+triple, not a numerical vector in $\R^3$.
+
+Domains persist within a section unless a specialization is stated.
+Primes and subscripts inherit the declared type unless explicitly redefined.
+For fields, membership states the value at each real spacetime point;
+function notation specifies the independent variables.
+All differentiations assume the required regularity.
 
 The generators $\sigma_n$, $n=1,2,3$, obey ordered multiplication rules.
 Their products generally do not commute.  The panel gives their defining
@@ -785,7 +872,7 @@ changes, so
 \end{equation*}
 Thus its order of multiplication does not matter.
 
-For algebra elements $X,Y$, the commutator is
+For $X,Y\in\C\oplus\C^3$, the commutator is
 \begin{gather*}
  [X,Y]:=XY-YX,\\
  [Y,X]=-[X,Y].
@@ -852,7 +939,7 @@ For example, on a bivector the signs follow directly:
  (\ii\sigma_n)^{\mathsf H}
  &=\sigma_n^{\mathsf H}\ii^{\mathsf H}=-\ii\sigma_n.
 \end{align*}
-For arbitrary algebra elements $Z,Z'$, the definitions give the product
+For $Z,Z'\in\C\oplus\C^3$, the definitions give the product
 laws~\citeat{baylis2004}{p.~4}{page=4}\,\citeat{chappell-functions}{p.~2}{page=2}
 \begin{align}
  (ZZ')^{\mathsf H}&=Z'^{\mathsf H}Z^{\mathsf H},
@@ -871,14 +958,20 @@ representation, where $^{\mathsf H}$ is the usual matrix Hermitian conjugation.
 \label{sec:algebra-operations}
 
 Let $a,b\in\R$ and $\bA,\bB\in\R^3$.  The real paravectors
-$X=a+\bA\cdot\bsig$ and $Y=b+\bB\cdot\bsig$ form the general complex
-paravector
+$X=a+\bA\cdot\bsig,\ Y=b+\bB\cdot\bsig\in\R\oplus\R^3$ form the
+general complex paravector $Z\in\C\oplus\C^3$:
 \begin{equation*}
  Z=X+\ii Y=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig
    =S+\bV\cdot\bsig.
 \end{equation*}
 Here $S=a+b\ii\in\C$ and $\bV=\bA+\ii\bB\in\C^3$ are its
-complex scalar and vector coefficients.  Define their extraction functions by
+complex scalar and vector coefficients.
+
+Thus $\operatorname{sc},\det,\operatorname{tr}$ take values in $\C$,
+$\operatorname{vec}$ in $\C^3$, and $\operatorname{re},\operatorname{im}$
+in $\R\oplus\R^3$. Conjugates, adjugates, and existing inverses take values
+in $\C\oplus\C^3$.
+Define the scalar and vector extractions by
 \begin{align*}
  \scpart {Z}&:=S,
  \\
@@ -912,7 +1005,7 @@ The determinant is the complex scalar~\citeat{baylis-applications}{p.~104}{page=
  \det(Z):=\adj {Z}\,Z=Z\adj {Z}=S^2-\bV^2.
  \label{eq:det}
 \end{equation}
-For complex $Z'$, adjugation reverses product order, giving determinant
+For $Z'\in\C\oplus\C^3$, adjugation reverses product order, giving determinant
 multiplicativity:
 \begin{align*}
  \adj{ZZ'}&=\adj{Z'}\adj {Z},
@@ -921,7 +1014,7 @@ multiplicativity:
            =\det(Z)\det(Z').
 \end{align*}
 Since the determinants are scalars, the determinant of any product is
-unchanged by reordering its factors.  For a complex scalar $c$,
+unchanged by reordering its factors.  For a scalar $c\in\C$,
 \begin{align}
  \adj{cZ}&=c\adj {Z}, \notag\\
  \det(cZ)&=c^2\det(Z).
@@ -933,7 +1026,7 @@ When $\det(Z)\ne0$, the inverse is~\citeat{chappell-functions}{Eq.~(47)}{page=11
        =\frac{S-\bV\cdot\bsig}{S^2-\bV^2}.
  \label{eq:inverse}
 \end{equation}
-For $Z'=S'+\bV'\cdot\bsig$, with complex coefficients, division is
+For $Z'=S'+\bV'\cdot\bsig$, with $S'\in\C$, $\bV'\in\C^3$, division is
 order-sensitive.  An unambiguous quotient exists when $Z$ is invertible
 and the factors commute:
 \begin{equation*}
@@ -944,7 +1037,7 @@ Differentiating $Z^{-1}Z=1$ gives the inverse rule
 \begin{equation*}
  \dd(Z^{-1})=-Z^{-1}(\dd Z)Z^{-1}.
 \end{equation*}
-For complex $Z,Z',Z''$, scalar part obeys the cyclic laws
+For $Z,Z',Z''\in\C\oplus\C^3$, scalar part obeys the cyclic laws
 \begin{align}
  \scpart{ZZ'}&=\scpart{Z'Z},
  \notag\\
@@ -992,8 +1085,8 @@ For $S\in\C$, set $\lVert S\rVert^2:=SS^*$.  The positive paravector norm is~\ci
  \lVert Z\rVert^2:=\lVert S\rVert^2+\lVert\bV\rVert^2.
  \label{eq:coefficient-norm}
 \end{equation}
-All norms denote nonnegative real square roots.
-Here $\bu\in\C^3$ and $Z$ is a complex paravector.
+All norms take values in $\R_{\ge0}$ and denote nonnegative real square roots.
+Here $\bu\in\C^3$ and $Z\in\C\oplus\C^3$.
 Each name below specifies a condition; a letter alone implies none.
 
 \Needspace{7\baselineskip}
@@ -1158,7 +1251,8 @@ $a,b\in\R$ and $\bA,\bB\in\R^3$, \eqref{eq:vector-product} gives
  [X,Y]&=2\ii(\bA\times\bB)\cdot\bsig, \\
  X^2&=(a^2+\bA^2)+2a\bA\cdot\bsig.
 \end{align*}
-Their scalar and vector parts are read directly from these equations.
+Thus $XY\in\R\oplus\C^3$, $[X,Y]\in\{0\}\oplus\ii\R^3$, and
+$X^2\in\R\oplus\R^3$. Real paravectors are not closed under multiplication.
 The real quadratic identity is \eqref{eq:minimal} with $S=a$.
 If $\bA\times\bB=0$, then $XY=YX$; when $\det(X)\ne0$, also
 $X^{-1}Y=YX^{-1}$.
@@ -1173,6 +1267,8 @@ $S,S'\in\C$ and $\bV,\bV'\in\C^3$.  Complex bilinearity extends
  \bigl(S\bV'+S'\bV+\ii\bV\times\bV'\bigr)\cdot\bsig.
  \label{eq:para-product}
 \end{equation}
+
+The result $ZZ'\in\C\oplus\C^3$ has a complex scalar and complex vector part.
 Thus
 \begin{align*}
  \scpart{ZZ'}&=SS'+\bV\cdot\bV',\\
@@ -1220,9 +1316,11 @@ Specializing \eqref{eq:para-product} gives the quadratic products:
  +2\ii(ab-\bA\cdot\bB). \notag
 \end{align}
 Equations~\eqref{eq:star-product-left} and \eqref{eq:star-product-right}
-show $ZZ^*=Z^*Z$ exactly when $\bA\times\bB=0$.  Equations
+have values in $\R\oplus\C^3$ and show $ZZ^*=Z^*Z$ exactly when
+$\bA\times\bB=0$.  Equations
 \eqref{eq:hermitian-product-left} and \eqref{eq:hermitian-product-right}
-give the same condition for $ZZ^{\mathsf H}=Z^{\mathsf H}Z$.
+take values in $\R\oplus\R^3$ and give the same condition for
+$ZZ^{\mathsf H}=Z^{\mathsf H}Z$.
 
 \subsubsection{Norm and determinant}
 For the complex coefficients $S=a+b\ii$ and $\bV=\bA+\ii\bB$, the norms
@@ -1259,12 +1357,14 @@ the norm loses it by \eqref{eq:norm-scalar-scaling}.
 \label{sec:algebra-projectors}
 
 For a \hyperref[def:real-unit-vector]{real unit vector} $\bu$, the
-paravector $\bu\cdot\bsig$ is Hermitian and
+paravector $\bu\cdot\bsig\in\{0\}\oplus\R^3$ is Hermitian and
 \hyperref[eq:involutory-paravector]{self-inverse}.  Define its two orthogonal projectors~\citeat{baylis-applications}{p.~121}{page=132}
 \begin{equation}
  \Pi_\pm:=\tfrac12(1\pm\bu\cdot\bsig).
  \label{eq:projectors}
 \end{equation}
+
+Here $\Pi_\pm\in\R\oplus\R^3$ with scalar part $1/2$.
 Since $(\bu\cdot\bsig)^2=1$,
 \begin{align*}
  \Pi_\pm^2&=\Pi_\pm,\\
@@ -1285,14 +1385,14 @@ Thus $\bu\cdot\bsig=\Pi_+-\Pi_-$.  For a second
  &=\left(2(\bu\cdot\bu')\bu-\bu'\right)\cdot\bsig.
 \end{align*}
 Define $\bu'_{\parallel}=(\bu'\cdot\bu)\bu$ and
-$\bu'_{\perp}=\bu'-\bu'_{\parallel}$.  Then
+$\bu'_{\perp}=\bu'-\bu'_{\parallel}$, both in $\R^3$.  Then
 \begin{align*}
  \Pi_\pm(\bu'\cdot\bsig)\Pi_\pm
  &=\pm(\bu\cdot\bu')\Pi_\pm,\\
  \Pi_\pm(\bu'\cdot\bsig)\Pi_\mp
  &=\tfrac12(\bu'_{\perp}\pm\ii(\bu\times\bu'))\cdot\bsig.
 \end{align*}
-For $\Pi_\pm'=(1\pm\bu'\cdot\bsig)/2$, all four products are
+For $\Pi_\pm'=(1\pm\bu'\cdot\bsig)/2\in\R\oplus\R^3$, all four products lie in $\R\oplus\C^3$:
 \begin{align*}
  \Pi_\pm\Pi_\pm'&=\tfrac14(1+\bu\cdot\bu')
  +\tfrac14(\pm\bu\pm\bu'+\ii\bu\times\bu')\cdot\bsig,\\
@@ -1306,7 +1406,7 @@ For $\Pi_\pm'=(1\pm\bu'\cdot\bsig)/2$, all four products are
 \subsubsection{Spectral rule}
 Let $Z=S+\bV\cdot\bsig$, with $S\in\C$, $\bV\in\C^3$, and
 $\bV^2\ne0$.  Define the complex scalars $w,\lambda_\pm$, complex vector $\bu$, and
-paravector projectors $\Pi_\pm$ by
+projectors $\Pi_\pm\in\R\oplus\C^3$ by
 \begin{align*}
  w&:=+\sqrt{\bV^2},& \lambda_\pm&:=S\pm w,\\
  \bu&:=\bV/w,& \Pi_\pm&:=\tfrac12(1\pm\bu\cdot\bsig).
@@ -1322,6 +1422,8 @@ Its square gives
  Z&=S(\Pi_++\Pi_-)+w(\Pi_+-\Pi_-)
    =\lambda_+\Pi_++\lambda_-\Pi_-.
 \end{align*}
+Here $w,\lambda_\pm\in\C$, $\bu\in\C^3$, and
+$Z,f(Z)\in\C\oplus\C^3$ for the analytic functions below.
 These projectors need not be Hermitian.  The complementary-projector
 identities give, for every
 nonnegative integer $n$,
@@ -1366,7 +1468,9 @@ $\bA\ne0$, the spectral quantities above reduce to
  \bu=\bA/\lVert\bA\rVert,\qquad
  \lambda_\pm=a\pm\lVert\bA\rVert.
 \]
-The projectors are now Hermitian.  In particular, for a
+Here $X,\Pi_\pm\in\R\oplus\R^3$, $w,\lambda_\pm\in\R$,
+and $\bu\in\R^3$. The projectors are now Hermitian; complex-valued
+functions or square roots may still give $f(X)\in\C\oplus\C^3$.  In particular, for a
 \hyperref[def:real-unit-vector]{real unit vector} $\bu$,
 \begin{align*}
  f(\bu\cdot\bsig)
@@ -1405,7 +1509,7 @@ is no real root.
 
 \subsubsection{Coalescing eigenvalues}
 For complex $Z=S+\bV\cdot\bsig$ with $\bV^2=0$, define
-$N=\bV\cdot\bsig$, so $N^2=0$.  A scalar function analytic at $S$
+$N=\bV\cdot\bsig\in\{0\}\oplus\C^3$, so $N^2=0$.  A scalar function analytic at $S$
 has the terminating Taylor expansion~\citeat{higham-functions}{p.~4}{page=5}
 \begin{equation}
  f(Z)=f(S)+f'(S)N.
@@ -1424,7 +1528,7 @@ identity would force its square to vanish.  It has no logarithm because
 it is not invertible.  If $N=0$, a fixed analytic
 branch gives $f(S)$; non-scalar square roots of a scalar must instead be
 found from the component equations $a^2+\bA^2=S$, $2a\bA=0$, now allowing
-$a$ and $\bA$ to be complex.  Independent branch choices need not remain
+$a\in\C$ and $\bA\in\C^3$.  Independent branch choices need not remain
 finite as distinct eigenvalues coalesce.
 
 \subsubsection{Exponential: projection and series derivations}
@@ -1507,7 +1611,8 @@ by the hyperbolic cosine.
 Let $\theta\in\R$ and let $\bu\in\R^3$ be a
 \hyperref[def:real-unit-vector]{real unit vector},
 $\bu^2=1$.  The two special exponentials just derived define the complex
-rotation factor $R$ and the real boost factor $L$~\citeat{baylis2004}{Eq.~(6)}{page=4}\,\citeat{baylis-intro}{p.~23}{page=23}:
+rotation factor $R\in\R\oplus\ii\R^3$ and the real boost factor
+$L\in\R\oplus\R^3$~\citeat{baylis2004}{Eq.~(6)}{page=4}\,\citeat{baylis-intro}{p.~23}{page=23}:
 \begin{equation}
  R(\theta,\bu):=\exp\!\left(-\ii\frac\theta2\bu\cdot\bsig\right)
  =\cos\frac\theta2-\ii\sin\frac\theta2\bu\cdot\bsig,
@@ -1737,7 +1842,8 @@ was treated above.
 \label{sec:preserved-quantities}
 
 Here $Z=S+\bV\cdot\bsig$ is a complex paravector: $S\in\C$ and
-$\bV\in\C^3$.  Transformation factors are constant complex paravectors.
+$\bV\in\C^3$, hence $Z\in\C\oplus\C^3$.
+Transformation factors $T,T'\in\C\oplus\C^3$ are constant.
 Distinguish the scalar part $\scpart {Z}=S=\tfrac12\operatorname{tr}Z$
 from \eqref{eq:trace-scalar}, the complex determinant $S^2-\bV^2$ from
 \eqref{eq:det}, and the positive norm $\scpart{Z^{\mathsf H}Z}$ from
@@ -1894,7 +2000,8 @@ Using the positive real square root, define
  B:=\sqrt{TT^{\mathsf H}},\qquad R:=B^{-1}T.
 \]
 Then $\det(B)=1$,
-$R^{\mathsf H}R=1$, $\det(R)=1$, and $T=BR$.
+$R^{\mathsf H}R=1$, $\det(R)=1$, and $T=BR$, with
+$B\in\R\oplus\R^3$ and $R\in\R\oplus\ii\R^3$.
 The real logarithm of $B$ has zero scalar part by
 \eqref{eq:exponential-determinant}, so $B$ is a real vector exponential.
 For $R$, the identity $R^{\mathsf H}=R^{-1}=\adj {R}$ makes its scalar
@@ -1972,8 +2079,8 @@ $\bA=\{A_1,A_2,A_3\}$.  Their paravector representation is~\citeat{baylis-applic
 \end{equation}
 In the decomposition $Z=(a+b\ii)+(\bC+\ii\bB)\cdot\bsig$,
 this selects $b=0$, $\bC=0$, and $\bB=-\bA$.
-Quaternions therefore have a real scalar coefficient and purely
-imaginary vector coefficients in STA.  Their four real components
+Thus $Q,Q'\in\R\oplus\ii\R^3$: a real scalar coefficient and purely
+imaginary vector coefficients.  Their four real components
 form a subalgebra of the eight-real-component complex paravectors.
 Indeed, for $Q'=a'+\bA'\cdot\bq$, the paravector product becomes~\citeat{lounesto-intro}{p.~9}{page=22}
 \begin{equation}
@@ -1995,7 +2102,7 @@ For nonzero $Q$, \eqref{eq:quaternion-norm} gives
 $Q^{-1}=Q^{\mathsf H}/(a^2+\bA^2)$.
 A unit quaternion has $a^2+\bA^2=1$, so $Q^{-1}=Q^{\mathsf H}$.
 
-To rotate a real vector $\br$, represent it by the pure quaternion
+To rotate $\br\in\R^3$, represent it by the pure quaternion
 $\br\cdot\bq=-\ii\br\cdot\bsig$.
 For a unit quaternion $Q=a+\bA\cdot\bq$, use the quaternion sandwich:
 \begin{equation}
@@ -2043,8 +2150,8 @@ Use the same congruence with $T=L$ and $L^{\mathsf H}=L$ from \eqref{eq:boost-H}
  \boxed{Z'=LZL.}
  \label{eq:boost-action}
 \end{equation}
-The paravector $Z=S+\bV\cdot\bsig$ may be complex; spacetime uses its real case.
-Resolve its vector into parallel and perpendicular parts:
+The paravector $Z=S+\bV\cdot\bsig\in\C\oplus\C^3$ may be complex; spacetime uses $Z\in\R\oplus\R^3$.
+Resolve $\bV\in\C^3$ into parallel and perpendicular parts in $\C^3$:
 \begin{align*}
  \bV_{\parallel}&:=(\bu\cdot\bV)\bu,\\
  \bV_{\perp}&:=\bV-\bV_{\parallel}.
@@ -2109,6 +2216,15 @@ are derived in Section~\ref{sec:transformations}.
 \section{Differentiated fields}
 \label{sec:differentiated-fields}
 
+Fields have domain $\R^4$ (or an open coordinate region).
+The symbols $\partial_t$, $\pdr$, $\partial$, $\partial^*$, and $\Box$
+are differential operators. On a scalar field $f:\R^4\to\C$,
+$\partial_t f,\Box f\in\C$, $\pdr f\in\C^3$, and
+$\partial f,\partial^*f\in\C\oplus\C^3$ pointwise.
+For real $f$, these outputs lie in the corresponding real spaces.
+On a paravector field, $\partial$ and $\partial^*$ use algebra multiplication,
+so even a real input may have a complex output.
+
 \subsection{Paravector differential operators}
 
 Let $t\in\R$ and $\br=\{r_1,r_2,r_3\}\in\R^3$ be real coordinates.
@@ -2169,7 +2285,8 @@ Ordered vector multiplication gives its four real components:
 Multiplication by $\ii$ exchanges real and imaginary parts, with the
 former imaginary parts acquiring a minus sign.
 
-For a second complex paravector field $Z'(t,\br)$, the prime labels the
+Here $Z:\R^4\to\C\oplus\C^3$. For a second field
+$Z':\R^4\to\C\oplus\C^3$, the prime labels the
 field rather than a derivative.  Apply the scalar product rule before
 reordering any factors:
 \begin{align*}
@@ -2185,9 +2302,15 @@ reordering any factors:
 \section{Space--time kinematics}
 \label{sec:kinematics}
 
-Let $X=t+\br\cdot\bsig$ be a real event, with time $t\in\R$ and
-position $\br\in\R^3$.  A massive particle follows a future-directed
-time-like path $\br(t)$; $s$ denotes its proper time.
+Let $X=t+\br\cdot\bsig\in\R\oplus\R^3$ be an event, with $t\in\R$ and
+$\br\in\R^3$.  A massive particle follows a future-directed
+time-like path $\br(t)$; $s\in\R$ denotes its proper time.
+Throughout this section,
+\[
+ X,U,\mathcal P\in\R\oplus\R^3,\qquad
+ \bv,\bp,\ba\in\R^3,\qquad E,m,\gamma\in\R,
+\]
+with $m>0$, $\bv^2<1$, $E>0$, and $\gamma\ge1$ for a massive particle.
 
 \subsection{Intervals, velocity, and momentum}
 
@@ -2253,7 +2376,11 @@ The energy, momentum, and inverse are
  \bp&=\vecpart {\mathcal{P}}=m\gamma\bv,\\
  \mathcal{P}^{-1}&=\frac{E-\bp\cdot\bsig}{m^2}.
 \end{align*}
-Since $\det U=1$, the determinant gives the mass shell~\citeat{tong-relativity}{Eq.~(7.30)}{page=143}
+Since $\det U=1$ and $m$ is a real scalar,
+\[
+ \det\mathcal P=\det(mU)=m^2\det U=m^2.
+\]
+Thus the determinant gives the mass shell~\citeat{tong-relativity}{Eq.~(7.30)}{page=143}
 \begin{equation}
  E^2-\bp^2=\det \mathcal{P}=m^2.
  \label{eq:mass-shell}
@@ -2273,8 +2400,9 @@ $E^2=\bp^2$; it has no inverse.
 Recall the real proper velocity $U=\dd X/\dd s$, a
 \hyperref[eq:unit-paravector]{unit paravector} with $UU^{-1}=1$,
 and the real coordinate velocity $\bv(t)$ and Lorentz factor $\gamma$.
-Define the real coordinate acceleration
-$\ba=\dd\bv/\dd t$.  Differentiating gives
+Define the coordinate acceleration $\ba=\dd\bv/\dd t\in\R^3$.
+The proper acceleration $\dd U/\dd s\in\R\oplus\R^3$ is a paravector;
+its product $U^*\dd U/\dd s\in\{0\}\oplus\C^3$ below is scalar-free.  Differentiating gives
 \begin{align*}
  \frac{\dd\gamma}{\dd t}
  &=-\tfrac12(1-\bv^2)^{-3/2}(-2\bv\cdot\ba)
@@ -2469,7 +2597,8 @@ separation cannot carry a causal signal
 \subsection{Free-particle action}
 
 Recall real $m>0$, $\bv=\dd\br/\dd t$, and $\dd s=\dd t/\gamma$.
-Here $\mathcal{L}(t,\br,\bv)$ is a real scalar Lagrangian; the boost factor is $L$.
+Here $\mathcal L:\R\times\R^3\times\{\bv\in\R^3:\bv^2<1\}\to\R$
+is the particle Lagrangian; the boost factor is $L\in\R\oplus\R^3$.
 $\partial_{\bv}$ denotes its vector derivative with respect to the three
 independent velocity components.
 The free action is the physical choice~\citeat{tong-em}{Eqs.~(5.38)--(5.39)}{page=130}
@@ -2489,7 +2618,7 @@ Lagrangian and integrating by parts gives
  \cdot\delta\br\dd t.
 \]
 Stationarity for every variation yields the Euler--Lagrange equation.
-With real Hamiltonian $H:=\bv\cdot\partial_{\bv}\mathcal{L}-\mathcal{L}$, the chain rule gives
+With Hamiltonian $H:=\bv\cdot\partial_{\bv}\mathcal{L}-\mathcal{L}\in\R$, the chain rule gives
 \begin{align}
  \frac{\dd}{\dd t}\partial_{\bv}\mathcal{L}&=\pdr \mathcal{L}, \label{eq:euler-lagrange}\\
  \frac{\dd H}{\dd t}
@@ -2513,7 +2642,7 @@ by a constant times $v^n$ as $v\to0$.  The binomial series gives
 \end{align*}
 The exact kinetic energy above rest is
 \begin{equation*}
- K:=H-m=m(\gamma-1).
+ K:=H-m=m(\gamma-1)\in\R_{\ge0}.
 \end{equation*}
 This and both expansions recover $mv^2/2$
 at low speed after removal of the constant rest term.
@@ -2521,10 +2650,9 @@ at low speed after removal of the constant rest term.
 \subsection{Flat spacetime in generalized coordinates}
 \label{sec:generalized}
 
-Here $(t,\br)$ denote generalized real chart coordinates.  Smooth real
-functions $f(t,\br)$ and $\bg(t,\br)$, scalar and vector respectively,
-specify inertial coordinates on a coordinate domain in $\R^4$
-through the real paravector
+Here $(t,\br)$ denote generalized real chart coordinates.  Smooth functions $f:\R^4\to\R$ and $\bg:\R^4\to\R^3$,
+restricted to a coordinate region, specify inertial coordinates
+through $X\in\R\oplus\R^3$:
 \[
  X=f(t,\br)+\bg(t,\br)\cdot\bsig.
 \]
@@ -2538,7 +2666,8 @@ Require the Jacobian of $(f,\bg)$ to be nonsingular.  Differentiating gives
  \dd s^2&=\dd X\,\dd X^*=\dd f^2-\dd\bg^2.
 \end{align*}
 With $x_0=t$, $x_k=r_k$ and $\partial_k=\partial/\partial x_k$, the
-interval is $\dd s^2=\sum_{j,k=0}^3 g_{jk}\dd x_j\dd x_k$, with real coefficients
+interval is $\dd s^2=\sum_{j,k=0}^3 g_{jk}\dd x_j\dd x_k$, with
+$x_j,g_{jk}\in\R$ and metric matrix $(g_{jk})\in\R^{4\times4}$:
 \begin{equation*}
  g_{jk}=\partial_jf\,\partial_kf-\partial_j\bg\cdot\partial_k\bg,
  \qquad j,k=0,1,2,3.
@@ -2576,8 +2705,8 @@ Let $T(s)$ be a smooth complex \hyperref[eq:unit-paravector]{unit paravector}
 of \hyperref[eq:unit-determinant-paravector]{determinant one} along a real parameter $s$.  When $s$ is proper time,
 recall the real tangent $U=\dd X/\dd s$, a
 \hyperref[eq:unit-paravector]{unit paravector} with $UU^{-1}=1$.
-Define the complex pure-vector paravector
-$\Omega(s):=(\dd T/\dd s)T^{-1}$.
+Here $T(s),Z(s)\in\C\oplus\C^3$. Define
+$\Omega(s):=(\dd T/\dd s)T^{-1}\in\{0\}\oplus\C^3$.
 Its scalar part vanishes because
 $\dd(\det T)/\dd s=2\scpart\Omega=0$.
 The inverse rule gives
@@ -2613,7 +2742,8 @@ Equations~\eqref{eq:varying-similarity} and \eqref{eq:varying-congruence}
 include the frame terms omitted by a constant-factor transformation.
 For a varying rotation $T=R=\exp(-\ii\theta(s)\bu(s)\cdot\bsig/2)$,
 with real $\theta(s)$ and \hyperref[def:real-unit-vector]{real unit vector} $\bu(s)$, unitarity gives
-$\Omega^{\mathsf H}=-\Omega$, so both formulas agree.
+$\Omega^{\mathsf H}=-\Omega$ and $\Omega\in\{0\}\oplus\ii\R^3$,
+so both formulas agree.
 
 When $s$ is proper time, the physical acceleration in the local frame is
 $T(\dd U/\dd s)T^{\mathsf H}$.
@@ -2644,7 +2774,11 @@ $\bE,\bBf,\bA,\bJ:\R^4\to\R^3$ are vector fields.  Define~\citeat{baylis-intro}{
  \mathcal{D}&=\rho+\bJ\cdot\bsig
  &&\text{charge and current densities}. \notag
 \end{align}
-Thus $\mathcal{A},\mathcal{D}$ are real paravectors, while $\mathcal{F}$ is a complex pure vector.
+Their value spaces are
+\[
+ \mathcal A,\mathcal D\in\R\oplus\R^3,\qquad
+ \mathcal F\in\{0\}\oplus\C^3.
+\]
 Recall $\partial=\partial_t+\bsig\cdot\pdr$ and
 $\partial^*\partial=\Box=\partial_t^2-\pdr^2$.
 
@@ -2709,7 +2843,8 @@ Recall the real potential $\mathcal{A}=V+\bA\cdot\bsig$.  Its derivative is
  +(\partial_t\bA+\pdr V)\cdot\bsig
  +\ii(\pdr\times\bA)\cdot\bsig.
 \end{align*}
-Define the real scalar $S:=\partial_tV+\pdr\cdot\bA$.  Identifying the
+Define $S:=\partial_tV+\pdr\cdot\bA\in\R$.
+Thus $\partial\mathcal A=S+\mathcal F^*\in\R\oplus\C^3$.  Identifying the
 remaining components with $\mathcal{F}^*$ gives~\citeat{tong-em}{p.~105}{page=113}
 \begin{align}
  \partial\mathcal{A}&=S+\mathcal{F}^*, \label{eq:potential-field}\\
@@ -2736,7 +2871,7 @@ Its scalar and vector components are
  \bJ&=\Box\bA+\pdr S.
 \end{align*}
 These source equations hold before gauge fixing.
-For a real scalar gauge function $\lambda(t,\br)$, let~\citeat{tong-em}{Eq.~(6.2)}{page=142}
+For a gauge function $\lambda:\R^4\to\R$, let~\citeat{tong-em}{Eq.~(6.2)}{page=142}
 \begin{equation*}
  \mathcal{A}':=\mathcal{A}+\partial^*\lambda.
 \end{equation*}
@@ -2751,13 +2886,15 @@ $\Box V=\rho$ and $\Box\bA=\bJ$~\citeat{tong-em}{Eq.~(6.4)}{page=143}.
 For real scalar potential $V(t,\br)$ and vector potential
 $\bA(t,\br)$, write $\mathcal{A}=V+\bA\cdot\bsig$.  With prescribed conserved
 current $\mathcal{D}=\rho+\bJ\cdot\bsig$,
-Maxwell dynamics follows from the real Lagrangian density~\citeat{tong-em}{Eq.~(5.42)}{page=133}\,\citeat{tong-em}{Eq.~(5.43)}{page=134}
+Maxwell dynamics follows from the scalar Lagrangian density
+$\mathcal L:\R^4\to\R$~\citeat{tong-em}{Eq.~(5.42)}{page=133}\,\citeat{tong-em}{Eq.~(5.43)}{page=134}
 \begin{equation}
  \mathcal{L}=\tfrac12\repart{\mathcal{F}^2}-\scpart{\mathcal{A}^*\mathcal{D}}
   =\tfrac12(\bE^2-\bBf^2)-\rho V+\bJ\cdot\bA.
  \label{eq:maxwell-lagrangian}
 \end{equation}
-In varying the action, boundary-vanishing variations satisfy
+For boundary-vanishing variations $\delta V\in\R$ and $\delta\bA\in\R^3$,
+the induced field variations $\delta\bE,\delta\bBf\in\R^3$ satisfy
 \begin{align*}
  \delta\bE&=-\pdr\delta V-\partial_t\delta\bA,\\
  \delta\bBf&=\pdr\times\delta\bA.
@@ -2775,7 +2912,8 @@ Together they recover \eqref{eq:maxwell}.
 
 \subsection{Field invariants}
 
-Since $\scpart {\mathcal{F}}=0$, its adjugate is $-\mathcal{F}$.  Squaring gives~\citeat{baylis-applications}{p.~106}{page=117}
+Since $\mathcal F\in\{0\}\oplus\C^3$, its adjugate is $-\mathcal F$.
+Its square is a complex scalar, $\mathcal F^2\in\C$~\citeat{baylis-applications}{p.~106}{page=117}
 \begin{equation}
  \mathcal{F}^2=-\det \mathcal{F}=\bE^2-\bBf^2+2\ii\bE\cdot\bBf.
  \label{eq:field-invariants}
@@ -2934,15 +3072,16 @@ Recall $\mathcal{F}=(\bE+\ii\bBf)\cdot\bsig$.  Its Hermitian product is~\citeat{
  \tfrac12\mathcal{F}\mathcal{F}^{\mathsf H}
  =\tfrac12(\bE^2+\bBf^2)+(\bE\times\bBf)\cdot\bsig.
 \end{equation*}
-Define the real energy density $u=(\bE^2+\bBf^2)/2$ and real Poynting
-vector $\bS=\bE\times\bBf$.  These coefficients are frame-dependent,
+Define $u=(\bE^2+\bBf^2)/2\in\R_{\ge0}$ and the Poynting
+vector $\bS=\bE\times\bBf\in\R^3$.  These coefficients are frame-dependent,
 whereas $\mathcal{F}^2$ contains the Lorentz invariants.
 The full stress--energy tensor is represented by the real linear map~\citeat{hestenes-spacetime}{Eq.~(167)}{page=28}
 \begin{equation}
  T(N):=\tfrac12\mathcal{F}N\mathcal{F}^{\mathsf H},
  \label{eq:electromagnetic-stress-map}
 \end{equation}
-with real paravector input $N$.  Its time-direction value is
+Here $T:\R\oplus\R^3\to\R\oplus\R^3$ is a real-linear map, with
+$N\in\R\oplus\R^3$; $T$ denotes the stress map, not a frame factor.  Its time-direction value is
 $T(1)=u+\bS\cdot\bsig$.  It is future causal because $u\geq0$ and
 \begin{equation*}
  \det(T(1))=u^2-\bS^2=\tfrac14\lVert\det \mathcal{F}\rVert^2\geq0.
@@ -2987,8 +3126,8 @@ their scalar or paravector type is specified below.
 
 All products and norms here act on paravector values at one real event
 $X$.  They sum algebra components only; no spatial integration is implied.
-For complex paravectors $\varphi,\psi$, their algebraic inner product is
-$\langle\varphi\mid\psi\rangle:=\scpart{\varphi^{\mathsf H}\psi}$.
+For $\varphi,\psi\in\C\oplus\C^3$, their algebraic inner product is
+$\langle\varphi\mid\psi\rangle:=\scpart{\varphi^{\mathsf H}\psi}\in\C$.
 Two entries separated by a vertical bar denote this inner product;
 one entry in angle brackets denotes a normalized expectation below.
 
@@ -3006,17 +3145,26 @@ for $a,b=+,-$.  A Pauli amplitude or either Dirac entry is~\citeat{baylis-spin}{
  \psi(t,\br)=c_+(t,\br)\psi_++c_-(t,\br)\psi_-.
  \label{eq:axis-ideal-components}
 \end{equation}
-Here $c_+,c_-:\R^4\to\C$.
-Both Dirac entries use the same fixed pair.
+Here $c_+,c_-:\R^4\to\C$, and pointwise
+\[
+ \psi\in\mathrm{span}_{\C}\{\psi_+,\psi_-\}\subset\C\oplus\C^3.
+\]
+This fixed two-dimensional complex subspace is a left ideal: left
+multiplication by any paravector preserves it. It is represented by $\C^2$,
+not the full four-complex-dimensional paravector space.
+Here $\psi_\pm$ denote constant basis elements; in the Dirac sections they
+denote fields taking values in this same ideal.
 Left multiplication by $\bu\cdot\bsig$ or $\ba\cdot\bsig$ preserves
 this two-component form; these generate all paravector left actions.
 The matrix verification is in Appendix~\ref{sec:matrix-spinors}.
 
-The real norm density is~\citeat{gurtler-hestenes}{Eq.~(1.1a)}{page=1}
+The scalar norm density $\rho:\R^4\to\R_{\ge0}$ is~\citeat{gurtler-hestenes}{Eq.~(1.1a)}{page=1}
 \begin{equation}
  \rho:=\lVert\psi\rVert^2=\scpart{\psi^{\mathsf H}\psi}\geq0.
  \label{eq:probability-density}
 \end{equation}
+This $\rho$ denotes probability density, distinct from charge density
+in the electromagnetic sections.
 Orthonormality gives $\rho=\lVert c_+\rVert^2+\lVert c_-\rVert^2$.
 For a Pauli wavefunction normalized to unit total probability, this is
 its position density; Dirac uses the sum over its two entries.
@@ -3053,7 +3201,8 @@ important example.  Reality alone is insufficient: $Z=-1$ gives
 $\scpart{\psi^{\mathsf H}Z\psi}=-\rho$.
 
 \paragraph{Local expectations.}
-For $\rho>0$ and any complex multiplying paravector $Z$, define~\citeat{sparks-quantum}{Eq.~(6.1)}{page=49}
+For $\rho>0$ and $Z\in\C\oplus\C^3$ acting by multiplication,
+define the scalar expectation $\langle Z\rangle_\psi\in\C$~\citeat{sparks-quantum}{Eq.~(6.1)}{page=49}
 \begin{equation}
  \boxed{\langle Z\rangle_\psi
 :=\frac{\scpart{\psi^{\mathsf H}Z\psi}}{\rho}.}
@@ -3155,10 +3304,18 @@ Define the canonical energy and momentum operators by
  \label{eq:canonical-operators}
 \end{equation}
 
+These are operators on fields, not elements of the numerical coefficient
+spaces. On a smooth scalar field $\psi$, the pointwise outputs satisfy
+$\hE\psi\in\C$, $\hbp\psi\in\C^3$, and
+$\hP\psi\in\C\oplus\C^3$.
+On spinor fields, $\hP$ preserves the fixed ideal of
+\eqref{eq:axis-ideal-components}. The coupled operators have the same types.
+
 In a field, recall the real potential paravector
 $\mathcal{A}(t,\br)=V(t,\br)+\bA(t,\br)\cdot\bsig$:
-$V$ is a real scalar potential and $\bA$ a real vector potential.
-The real charge is $q$.  The particle action gives canonical energy
+$V:\R^4\to\R$, $\bA:\R^4\to\R^3$, and
+$\mathcal A:\R^4\to\R\oplus\R^3$.
+The charge is $q\in\R$.  The particle action gives canonical energy
 $E+qV$ and momentum $\bp+q\bA$; identifying them with translation
 operators defines the gauge-covariant mechanical operators~\citeat{gurtler-hestenes}{Eqs.~(2.11)--(2.12)}{page=6}
 \begin{align}
@@ -3232,14 +3389,31 @@ spin coupling.
 
 \subsection{Klein--Gordon equation}
 
-Let $\psi:\R^4\to\C$ be a scalar field and $m>0$ its real mass.
-For a free real four-momentum, $\det \mathcal{P}=m^2$ means
-$E^2-\bp^2=m^2$.  Replacing its coefficients by the translation
-operators in \eqref{eq:momentum-operator-eigenvalues} gives
+Let $\psi:\R^4\to\C$ be a scalar field of constant mass $m\in\R_{>0}$.
+For $U=\dd X/\dd s\in\R\oplus\R^3$, proper-time normalization gives
 \[
- \bigl((\ii\partial)(\ii\partial^*)-m^2\bigr)\psi=0.
+ \det U=\frac{\det(\dd X)}{\dd s^2}=1.
 \]
-Using \eqref{eq:free-momentum-product}, this is the Klein--Gordon equation~\citeat{tong-qft}{Eq.~(1.13)}{page=15}:
+The real momentum $\mathcal P=mU\in\R\oplus\R^3$ therefore obeys
+\[
+ \det\mathcal P=\det(mU)=m^2\det U=m^2,
+ \qquad E^2-\bp^2=m^2.
+\]
+Represent $E\in\R$ and $\bp\in\R^3$ by the translation operators
+$\hE=\ii\partial_t$ and $\hbp=-\ii\pdr$ from
+\eqref{eq:canonical-operators}. Imposing the mass shell on the scalar
+wavefunction gives
+\[
+ \begin{aligned}
+ 0&=(\det\hP-m^2)\psi\\
+  &=(\hE^2-\hbp^2-m^2)\psi\\
+  &=(-\partial_t^2+\pdr^2-m^2)\psi\\
+  &=-(\Box+m^2)\psi.
+ \end{aligned}
+\]
+Here the free coefficients commute, so the operator determinant is
+the scalar operator in \eqref{eq:free-momentum-product}.
+This yields the Klein--Gordon equation~\citeat{tong-qft}{Eq.~(1.13)}{page=15}:
 \begin{equation}
  \boxed{(\Box+m^2)\psi=0.}
  \label{eq:kg}
@@ -3247,6 +3421,7 @@ Using \eqref{eq:free-momentum-product}, this is the Klein--Gordon equation~\cite
 
 \subsubsection{Positive and negative frequency}
 Recall the complex scalar field $\psi(t,\br)$ and real mass $m>0$.
+Here the branch fields $\psi_\pm:\R^4\to\C$ are scalars, not Dirac entries.
 Define the positive scalar operator
 \[
  \hOmega:=\sqrt{m^2-\pdr^2},\qquad
@@ -3357,8 +3532,9 @@ A Dirac field is the two-entry block
 \begin{equation*}
  \bpsi(t,\br)=\begin{Bmatrix}\psi_+(t,\br)\\\psi_-(t,\br)\end{Bmatrix}.
 \end{equation*}
-Each entry is a complex paravector amplitude of \eqref{eq:axis-ideal-components};
-the block therefore has four independent complex components.
+Each entry takes values in the same fixed two-dimensional complex left ideal
+of $\C\oplus\C^3$ from \eqref{eq:axis-ideal-components}.
+Each has coordinates in $\C^2$, so the block has coordinates in $\C^4$.
 On blocks, Hermitian conjugation also transposes entries; sigma
 conjugation acts entrywise.  Summing the two local squared norms gives
 the nonnegative real density~\citeat{tong-qft}{Eqs.~(4.97)--(4.99)}{page=105}
@@ -3369,12 +3545,15 @@ the nonnegative real density~\citeat{tong-qft}{Eqs.~(4.97)--(4.99)}{page=105}
  \label{eq:dirac-norm}
 \end{equation}
 
-For a complex paravector $Z$, define the complex-linear block map
+For $Z\in\C\oplus\C^3$, define the complex-linear block map
 \begin{equation}
  \Wop(Z):=\begin{Bmatrix}0&\adj {Z}\\Z&0\end{Bmatrix}.
  \label{eq:dirac-block-map}
 \end{equation}
-Here $\bI$ is the two-entry block identity.  Applying $\Wop(Z)$ twice
+In spinor coordinates, $\Wop(Z)$ and $\bI$ are matrices in $\C^{4\times4}$.
+For differential-operator arguments, $\Wop(\hP)$, $\hD$, and $\hDq$
+are instead matrix differential operators on four-component fields.
+Here $\bI$ is the two-entry block identity, represented by $\bI_4$.  Applying $\Wop(Z)$ twice
 multiplies the first entry by $\adj {Z}\,Z$ and the second by $Z\adj {Z}$.
 Both products are the paravector determinant, so
 \begin{equation*}
@@ -3445,7 +3624,7 @@ The matrix verification is \eqref{eq:matrix-dirac-characteristic}.
 
 \subsubsection{Reconstructing free solutions from Klein--Gordon}
 Let $\psi':\R^4\to\C$ solve KG and recall the constant basis amplitude
-$\psi_+$.  For constant complex scalars $a,b$, a two-constant construction is
+$\psi_+$.  For constants $a,b\in\C$, a two-constant construction is
 \begin{equation}
  \bpsi=\frac1m
  \begin{Bmatrix}
@@ -3498,8 +3677,10 @@ when the spatial boundary flux vanishes.  The pointwise density
 
 To expose each coefficient, write
 $\psi_\pm=a_\pm+\bb_\pm\cdot\bsig$, with complex scalar
-functions $a_\pm:\R^4\to\C$ and complex vector functions
-$\bb_\pm:\R^4\to\C^3$.  Sigma multiplication gives
+functions $a_\pm:\R^4\to\C$ and vector functions
+$\bb_\pm:\R^4\to\C^3$. Their pairs $(a_\pm,\bb_\pm)$ are restricted to
+the fixed spinor ideal, so their four complex coefficients per entry are
+not independent. Sigma multiplication gives
 \begin{align*}
  \hEq a_--\hbpq\cdot\bb_-&=ma_+,\\
  \hEq\bb_--\hbpq a_--\ii\hbpq\times\bb_-&=m\bb_+,\\
@@ -3517,7 +3698,7 @@ the conventional four-component Dirac equation.
 Recall the real potential $\mathcal{A}=V+\bA\cdot\bsig$, the complex field
 $\mathcal{F}=(\bE+\ii\bBf)\cdot\bsig$, and
 $S=\partial_tV+\pdr\cdot\bA$.
-For any complex paravector field $\psi(t,\br)$, the product rule gives
+For any field $\psi:\R^4\to\C\oplus\C^3$, the product rule gives
 \begin{align}
  \partial^*(\mathcal{A}^*\psi)+\mathcal{A}\partial\psi
  &=(S+\mathcal{F})\psi+2(V\partial_t+\bA\cdot\pdr)\psi,
@@ -3630,14 +3811,15 @@ Consequently~\citeat{tong-qft}{Eqs.~(6.68)--(6.69)}{page=143}
 \end{equation}
 Equation~\eqref{eq:gauge-operator-covariance} preserves the Dirac equation;
 the phase sign is fixed by the potential shift.
-Its modulus is one, so the norm is unchanged.  The same product rules
+The factor $e^{-\ii q\lambda}\in\C$ has modulus one and preserves the
+spinor ideal, so the norm is unchanged.  The same product rules
 preserve the KG and Pauli equations.
 
 \Needspace{45\baselineskip}
 \section{Low-energy limits}
 \label{sec:low-energy-limits}
 
-Recall the real mass $m>0$, charge $q$, and potentials
+Recall $m\in\R_{>0}$, $q\in\R$, and potentials
 $V:\R^4\to\R$, $\bA:\R^4\to\R^3$.
 The mechanical operators are $\hEq=\ii\partial_t-qV$ and
 $\hbpq=-\ii\pdr-q\bA$; the fields are
@@ -3648,6 +3830,10 @@ This gives Pauli from Dirac and Schr\"odinger from KG.
 \subsection{Dirac to Pauli}
 \label{sec:low-energy-recursion}
 \label{sec:pauli-limit}
+
+The fields $\psi_\pm,\psi_\pm',\phi_\pm$ all take values in the same fixed
+two-dimensional complex left ideal of $\C\oplus\C^3$, with coordinate
+columns in $\C^2$. The phase and change of blocks below preserve this domain.
 
 Remove the rest-energy phase to define the envelopes~\citeat{gurtler-hestenes}{Eq.~(2.1)}{page=4}:
 \begin{equation}
@@ -3702,7 +3888,7 @@ The change of entries preserves the density exactly:
 The leading probability density is $\lVert\phi_+\rVert^2$.
 Its two complex components are the Pauli amplitudes; see
 Appendix~\ref{sec:matrix-spinors}. This is the amplitude used in the spin discussion.
-For $0<v\ll1$, the scaling $\hbpq/m=O(v)$, $\hEq/m=O(v^2)$,
+For a real expansion parameter $0<v\ll1$, the scaling $\hbpq/m=O(v)$, $\hEq/m=O(v^2)$,
 $qV/m=O(v^2)$, $q\bBf/m^2=O(v^2)$, $q\bE/m^2=O(v^3)$,
 with fields varying on spatial scales $1/(mv)$ and time scales $1/(mv^2)$
 or longer, gives $\phi_-=O(v\phi_+)$ and omitted energy terms of order $mv^4$.
@@ -3710,15 +3896,71 @@ or longer, gives $\phi_-=O(v\phi_+)$ and omitted energy terms of order $mv^4$.
 \subsubsection{Components along a general field direction}
 \label{sec:uniform-spin}
 
-For a nonzero static uniform field, let
-$\bu=\bBf/\lVert\bBf\rVert$ be its
-\hyperref[def:real-unit-vector]{real unit direction} and
-$\Pi_\pm=(1\pm\bu\cdot\bsig)/2$ its spin projectors.
-The complex paravector fields $\phi_{+ \pm}=\Pi_\pm\phi_+$ obey
-\begin{equation*}
- \ii\partial_t\phi_{+ \pm}=\left(
- \frac{\hbpq^2\mp q\lVert\bBf\rVert}{2m}+qV\right)\phi_{+ \pm}.
-\end{equation*}
+For a constant field $\bm B\in\R^3\setminus\{0\}$, define its \hyperref[def:real-unit-vector]{unit direction} and \hyperref[sec:algebra-projectors]{spin projectors}:
+
+\[
+\bm{u}:=\frac{\bm{B}}{\lVert\bm{B}\rVert}\in\R^3,
+\qquad \Pi_\pm:=\frac12(1\pm\bm{u}\cdot\bsig)\in\R\oplus\R^3.
+\]
+
+\hyperref[sec:spectral]{Spectral decomposition} gives
+
+\[
+\bm{B}\cdot\bsig
+=\lVert\bm{B}\rVert(\Pi_+-\Pi_-),
+\qquad
+\Pi_\pm(\bm{B}\cdot\bsig)
+=\pm\lVert\bm{B}\rVert\Pi_\pm.
+\]
+
+Let constant unit spinors $Z_\pm\in\C\oplus\C^3$ span the fixed spinor space of \eqref{eq:axis-ideal-components}, so $\phi_\pm\in\mathrm{span}_{\C}\{Z_+,Z_-\}$:
+
+\[
+\Pi_\pm Z_\pm=Z_\pm,\qquad \Pi_\pm Z_\mp=0.
+\]
+
+Expand $\phi_+$ with scalar wavefunctions $\phi_{++},\phi_{+-}\in\C$:
+
+\[
+\begin{aligned}
+\phi_+&=\phi_{++}Z_++\phi_{+-}Z_-,\\
+\Pi_\pm\phi_+&=\phi_{+\pm}Z_\pm.
+\end{aligned}
+\]
+
+The orthonormal basis construction is given in Appendix~\ref{sec:matrix-spinors}.
+The scalar coefficients are
+\[
+ \phi_{+\pm}=\scpart{Z_\pm^{\mathsf H}\phi_+}.
+\]
+
+Left-multiply both sides of the Pauli equation by constant $\Pi_\pm$, which commute with $\hEq$ and $\hbpq^2$:
+
+\[
+\left(2m\hEq-\hbpq^2\pm q\lVert\bm{B}\rVert\right)\Pi_\pm\phi_+=0.
+\]
+
+Constant $Z_\pm$ pass through derivatives. Substitute the expansion, equate scalar coefficients, and restore $\hEq=\ii\partial_t-qV$:
+
+\[
+\boxed{\ii\partial_t\phi_{+\pm}=
+\left(\frac{\hbpq^2\mp q\lVert\bm{B}\rVert}{2m}+qV\right)\phi_{+\pm}.}
+\]
+
+\hyperref[sec:spin-half]{Spin} $\pm\tfrac12$ along $\bm{u}$ has opposite \hyperref[sec:uniform-spin]{Zeeman shifts}. The \hyperref[eq:mechanical-momentum-operator]{kinetic momentum} $\hbpq=-\ii\partial_{\bm{r}}-q\bm{A}$ retains the orbital coupling.
+
+Expanding $\phi_-=\phi_{-+}Z_++\phi_{--}Z_-$ gives four complex scalar components:
+
+\[
+\bm{\phi}:=\left(\,\begin{matrix}
+\phi_{++}&\phi_{+-}\\
+\phi_{-+}&\phi_{--}
+\end{matrix}\,\right)\in\C^{2\times2}.
+\]
+
+Rows label Dirac blocks, columns spin; the Pauli limit governs the upper row; the lower block satisfies
+$\phi_-\simeq(\hbpq\cdot\bsig)\phi_+/(2m)$.
+
 For a nonzero field with varying direction, the projectors depend on $(t,\br)$.
 Let $\hH$ denote the Pauli Hamiltonian in \eqref{eq:pauli}.
 The product rule gives
@@ -3733,15 +3975,6 @@ The product rule gives
 \end{equation*}
 Only the projector derivatives and kinetic commutator couple the
 sectors; the magnetic term commutes with its own projectors.
-
-In the usual spinor representation, the four complex scalars form the matrix
-\[
-\bm{\phi}:=\left(\,\begin{matrix}
-\phi_{+ +}&\phi_{+ -}\\
-\phi_{- +}&\phi_{- -}
-\end{matrix}\,\right),
-\]
-with rows labeled by Dirac block and columns by spin.
 
 \subsection{The same leading order: Schr\"odinger}
 \label{sec:schrodinger-limit}
@@ -3819,6 +4052,13 @@ compared with $m$.
 \label{sec:spin-and-probability}
 \label{sec:paravector-spin-content}
 
+Here $\psi$ takes values in the fixed spinor ideal of
+\eqref{eq:axis-ideal-components}, with coordinates in $\C^2$.
+Axes and polarizations $\bu,\bu',\ba\in\R^3$ are unit vectors;
+angles $\theta,\varphi\in\R$, projectors $\Pi_\pm,\Pi_\pm'\in\R\oplus\R^3$,
+and probabilities lie in $[0,1]\subset\R$.
+The density $\rho\in\R_{\ge0}$ is a probability density.
+
 Spin specifies the intrinsic rotation of an amplitude.  Here we rotate
 the state at fixed coordinates.  A scalar KG amplitude stays unchanged
 under this intrinsic action and has spin zero; a two-component amplitude
@@ -3840,7 +4080,8 @@ $R=\exp(-\ii\theta\bu\cdot\bsig/2)$ of
 \end{equation}
 Writing its infinitesimal action as
 $\psi'=\psi-\ii\theta S(\bu)\psi+O(\theta^2)$ defines the spin
-operator along $\bu$~\citeat{sparks-quantum}{p.~62}{page=66}:
+operator along $\bu$, given by left multiplication by the real pure-vector
+paravector $S(\bu)\in\{0\}\oplus\R^3$~\citeat{sparks-quantum}{p.~62}{page=66}:
 \begin{equation}
  S(\bu)\psi=\tfrac12(\bu\cdot\bsig)\psi.
  \label{eq:spin-half-generator}
@@ -3942,6 +4183,8 @@ Let $0\le\theta\le\pi$ be the angle between the axes and write
  K':=\bu'\cdot\bsig,\qquad K:=\bu\cdot\bsig,\qquad
  c:=\bu\cdot\bu'=\cos\theta.
 \]
+
+Here $K,K'\in\{0\}\oplus\R^3$ and $c\in[-1,1]\subset\R$.
 The Pauli product gives $(K')^2=1$ and $K'K+KK'=2c$.
 Multiplication by $K'$ gives $K'KK'=2cK'-K$, hence
 \[
@@ -4014,6 +4257,21 @@ is $\cos^2(\varphi/2)$.
 
 \section{Rotations and Lorentz boosts}
 \label{sec:transformations}
+
+At corresponding events, the domains are
+\[
+ \begin{gathered}
+ X,U,\mathcal P,\mathcal A,\mathcal D\in\R\oplus\R^3,\qquad
+ \mathcal F\in\{0\}\oplus\C^3,\\
+ T\in\C\oplus\C^3,\quad \det T=1,\qquad
+ R\in\R\oplus\ii\R^3,\quad L\in\R\oplus\R^3,\\
+ t,s,E,V,\rho,\theta,\beta,\gamma\in\R,\qquad
+ \br,\bv,\bp,\bA,\bE,\bBf,\bJ,\bu\in\R^3.
+ \end{gathered}
+\]
+Here $\bu^2=1$, $|\beta|<1$, $\gamma\ge1$, and $\rho$ is charge density.
+Transformed quantities retain their types. Scalar KG fields take values in
+$\C$; Dirac entries remain in their fixed two-dimensional complex spinor ideal.
 
 We now apply the algebraic actions of Section~\ref{sec:preserved-quantities}
 to the physical variables already defined.  Appendix~\ref{sec:conventions}
@@ -4365,7 +4623,10 @@ real four-force in the moving frame; the Hermitian extraction is preserved.
 \label{sec:matrix}
 
 This appendix verifies the paravector formulas in matrix form.  Let $Z=S+\bV\cdot\bsig$, with $S\in\C$ and $\bV\in\C^3$.
-Write $\bM=\operatorname{mat}(Z)$, a $2\times2$ matrix with entries in $\C$.
+The representation is an algebra isomorphism
+$\operatorname{mat}:\C\oplus\C^3\to\C^{2\times2}$.
+Write $\bM=\operatorname{mat}(Z)\in\C^{2\times2}$.
+Real paravectors map to Hermitian matrices, not necessarily real matrices.
 The identity matrices are $\bI_2$ and $\bI_4$ in their stated dimensions.
 
 \subsection{Generators and products}
@@ -4393,11 +4654,11 @@ is ordinary matrix multiplication.
 
 \subsection{Conjugations and product order}
 
-For complex matrices $\bM,\bN$, transpose $^{\mathsf T}$ exchanges row
+For $\bM,\bN\in\C^{2\times2}$, transpose $^{\mathsf T}$ exchanges row
 and column indices; entrywise complex conjugation $^{\mathsf C}$ sends each
 $a+\ii b$ to $a-\ii b$ for real $a,b$.  Their composition is
 $\bM^{\mathsf H}=(\bM^{\mathsf C})^{\mathsf T}$.
-Introduce the fixed real matrix
+Introduce the fixed matrix $\bm S\in\R^{2\times2}$:
 \[
  \bm S=\begin{Bmatrix}0&1\\-1&0\end{Bmatrix},\qquad
  \bm S^{-1}=-\bm S.
@@ -4449,7 +4710,7 @@ The matrix-only operations can be recovered as
 
 \subsection{Scalar part, determinant, and norm}
 
-For $\bM=(m_{jk})$, its trace is $m_{11}+m_{22}$ and its determinant
+For $\bM=(m_{jk})\in\C^{2\times2}$, with $m_{jk}\in\C$, its trace is $m_{11}+m_{22}$ and its determinant
 is $m_{11}m_{22}-m_{12}m_{21}$.  Substituting \eqref{eq:matrix} gives
 \begin{align}
  \scpart {Z}&=\tfrac12\operatorname{tr}\bM=S,
@@ -4535,9 +4796,9 @@ axis.  The first matrix stays Hermitian; the second stays traceless.
 \subsection{Matrix amplitudes and column spinors}
 \label{sec:matrix-spinors}
 
-Let $\psi$ be a complex paravector amplitude with matrix image
-$\bM_\psi$ at one fixed real event $X$.
-For a nonnegative real weight $Z$, the local densities
+Let $\psi\in\C\oplus\C^3$ have matrix image
+$\bM_\psi\in\C^{2\times2}$ at one event $X\in\R\oplus\R^3$.
+For a nonnegative weight $Z\in\R\oplus\R^3$, the local densities
 \eqref{eq:probability-density} and \eqref{eq:weighted-density} become
 \begin{align*}
  \lVert\psi\rVert^2
@@ -4593,7 +4854,7 @@ The columns $\bpsi_+,\bpsi_-$ are orthonormal.  Thus every amplitude
 in \eqref{eq:ideal-components} has the conventional Pauli column
 \begin{equation*}
  \bpsi:=\frac1{\sqrt2}\bM_\psi\bm v
- =c_+\bpsi_++c_-\bpsi_-.
+ =c_+\bpsi_++c_-\bpsi_-\in\C^2.
 \end{equation*}
 Conversely, $\bM_\psi=\sqrt2\,\bpsi\bm v^{\mathsf H}$, so this
 correspondence is one-to-one.  For two amplitudes in this fixed basis
@@ -4608,7 +4869,7 @@ Dividing by $\rho=\bpsi^{\mathsf H}\bpsi>0$ gives
 $\langle Z\rangle_\psi$, the ordinary finite-component expectation.
 Left action $T\psi$ maps to $\operatorname{mat}(T)\bpsi$ for any complex paravector $T$.
 
-Let $\bm C$ be the $2\times2$ matrix with columns
+Let $\bm C\in\C^{2\times2}$ be the matrix with columns
 $\bpsi_+,\bpsi_-$.  Then $\bm C^{\mathsf H}\bm C=\bI_2$ and
 $\bpsi=\bm C\{c_+,c_-\}^{\mathsf T}$.
 For a complex paravector $Z=S+\bV\cdot\bsig$, its matrix in this basis is
@@ -4671,9 +4932,11 @@ The polynomial identity also holds at $s=-m$.
 \subsection{Four components and the standard Dirac basis}
 \label{sec:matrix-dirac-components}
 
-Denote the two basis elements of \eqref{eq:ideal-spin-basis} by $\eta_\pm$. Write
+Denote the fixed basis elements of \eqref{eq:ideal-spin-basis} by
+$\eta_\pm\in\C\oplus\C^3$. Both entries lie in their complex span. Write
 $\psi_+=a\eta_++b\eta_-$ and $\psi_-=c\eta_++d\eta_-$,
-where $a,b,c,d:\R^4\to\C$ are the four scalar components.
+where $a,b,c,d:\R^4\to\C$ are the four scalar components,
+forming a column in $\C^4$ at each event.
 Their columns are $\bm{c}_+'=\{a,b\}^{\mathsf T}$ and
 $\bm{c}_-'=\{c,d\}^{\mathsf T}$; here the prime means
 $\bm{c}_\pm'=\bm C^{\mathsf H}\bm{c}_\pm$.
@@ -4713,7 +4976,8 @@ This is the component image of \eqref{eq:dirac-hamiltonian}.
 \Needspace{10\baselineskip}
 To identify conventional gamma matrices, put
 $\bm\sigma_k=\operatorname{mat}(\sigma_k)$ for $k=1,2,3$.
-These are also the images under $\operatorname{mat}'$ of
+Here $\bm\sigma_k\in\C^{2\times2}$ and the gamma matrices below lie in
+$\C^{4\times4}$. The $\bm\sigma_k$ are also the images under $\operatorname{mat}'$ of
 $\ba\cdot\bsig$, $(\bu\times\ba)\cdot\bsig$, and $\bu\cdot\bsig$,
 respectively.  Their numerical entries apply to every choice of $\bu,\ba$.
 Define~\citeat{tong-qft}{Eqs.~(4.16)--(4.17)}{page=89}
@@ -4789,7 +5053,8 @@ The two couplings are $-q\bBf\cdot\bsig\pm\ii q\bE\cdot\bsig$.
 \label{sec:quaternion-matrix}
 
 For the quaternion $Q=a+\bA\cdot\bq=a-\ii\bA\cdot\bsig$
-of Section~\ref{sec:quaternions}, with real $a$ and $\bA$, the explicit
+of Section~\ref{sec:quaternions}, with $a\in\R$, $\bA\in\R^3$, and
+$Q\in\R\oplus\ii\R^3$, the explicit
 matrix image is~\citeat{lounesto-intro}{p.~10}{page=23}
 \begin{equation}
  \operatorname{mat}(Q)=
@@ -4822,7 +5087,7 @@ conditions.
 \Needspace{8\baselineskip}
 \paragraph{Algebra.}
 Recall complex paravectors $Z=S+\bV\cdot\bsig$ and $Z'=S'+\bV'\cdot\bsig$,
-with complex scalar $S,S'$ and complex vectors $\bV,\bV'$.
+with $S,S'\in\C$, $\bV,\bV'\in\C^3$, and $Z,Z'\in\C\oplus\C^3$.
 The prime here labels a second element.  Their product is
 \begin{equation*}
  \begin{aligned}
@@ -4861,7 +5126,9 @@ Projectors and the spectral rule are \eqref{eq:projectors} and
 
 \Needspace{8\baselineskip}
 \paragraph{Rotations and boosts.}
-Here $\bu$ is a \hyperref[def:real-unit-vector]{real unit axis} and $\theta$ a real angle or rapidity;
+Here $\bu\in\R^3$ is a \hyperref[def:real-unit-vector]{unit axis},
+$\theta\in\R$ an angle or rapidity,
+$R\in\R\oplus\ii\R^3$, and $L\in\R\oplus\R^3$;
 $\beta=\tanh\theta$ and $\gamma=\cosh\theta$ in the boost formulas.
 The factors and their actions are
 \begin{align*}
@@ -4897,8 +5164,8 @@ Appendix~\ref{sec:matrix-boosts}.
 
 \Needspace{8\baselineskip}
 \paragraph{Spacetime and particles.}
-Recall real event $X$, proper time $s$, coordinate velocity $\bv$, and
-constant mass $m>0$.  The real proper velocity $U=\dd X/\dd s$ is a
+Recall $X,U,\mathcal P\in\R\oplus\R^3$, $s,t,E\in\R$,
+$\br,\bv,\bp\in\R^3$, and constant $m\in\R_{>0}$.  The real proper velocity $U=\dd X/\dd s$ is a
 \hyperref[eq:unit-paravector]{unit paravector} with $UU^{-1}=1$.
 The real four-momentum $\mathcal{P}$ has mechanical energy
 $E$ (including rest energy) and spatial momentum $\bp$.
@@ -4944,10 +5211,10 @@ and measured contraction are \eqref{eq:time-dilation} and
 \paragraph{Electromagnetism.}
 Recall the real proper velocity $U=\dd X/\dd s$, a
 \hyperref[eq:unit-paravector]{unit paravector} with $UU^{-1}=1$.
-Recall real potentials $V,\bA$, real electric and magnetic fields
-$\bE,\bBf$, the complex field $\mathcal{F}$, real potential paravector $\mathcal{A}$,
-and real charge-current paravector $\mathcal{D}$.  The real gauge scalar is $S$;
-$q$ is charge.  These fields are functions of real spacetime.
+Recall $V,\rho,S,q\in\R$, $\bA,\bE,\bBf,\bJ\in\R^3$,
+$\mathcal A,\mathcal D\in\R\oplus\R^3$, and
+$\mathcal F\in\{0\}\oplus\C^3$.
+The coefficient fields depend on real spacetime; $q$ is constant charge.
 Their boosted arguments and components are
 \eqref{eq:boosted-field-arguments} and
 \eqref{eq:electric-boost}--\eqref{eq:magnetic-boost}.
@@ -4970,8 +5237,9 @@ The field and particle equations are
  \partial_tu+\pdr\cdot\bS&=-\bJ\cdot\bE.
    \tag*{\eqref{eq:poynting}}
 \end{align*}
-Here $N$ is a real paravector argument of the stress map, $u$ field energy
-density, $\bS$ energy flux, and $\bJ$ electric current density.
+Here $T:\R\oplus\R^3\to\R\oplus\R^3$ is the stress map,
+$N\in\R\oplus\R^3$ its argument, $u\in\R_{\ge0}$ field energy
+density, and $\bS\in\R^3$ energy flux.
 Potential components are \eqref{eq:electric-potential}--\eqref{eq:magnetic-potential};
 force components are \eqref{eq:lorentz-momentum} and \eqref{eq:lorentz-energy}.
 The action derivation uses \eqref{eq:maxwell-lagrangian} and
@@ -4979,10 +5247,12 @@ The action derivation uses \eqref{eq:maxwell-lagrangian} and
 
 \Needspace{8\baselineskip}
 \paragraph{Relativistic waves.}
-Recall real mass $m>0$, charge $q$, and potentials $V,\bA$.
-Their real potential paravector is $\mathcal{A}=V+\bA\cdot\bsig$.
-Here $\hEq,\hbpq$ are mechanical differential operators, $\psi$ a complex
-scalar KG field, and $\bpsi$ a two-entry complex paravector Dirac field.
+Recall $m\in\R_{>0}$, $q,V\in\R$, $\bA\in\R^3$, and
+$\mathcal A=V+\bA\cdot\bsig\in\R\oplus\R^3$.
+Here $\hEq$ is a scalar differential operator and $\hbpq$ a triple of them;
+$\psi:\R^4\to\C$ is a KG field.
+The Dirac field $\bpsi$ has two entries in the same fixed spinor ideal,
+hence four complex coordinates.
 The operators and wave equations are
 \begin{align*}
  \hEq&=\hE-qV=\ii\partial_t-qV,
@@ -5000,7 +5270,9 @@ The operators and wave equations are
  \Wop(Z)&=\begin{Bmatrix}0&\adj {Z}\\Z&0\end{Bmatrix}.
    \tag*{\eqref{eq:dirac-block-map}}
 \end{align*}
-Here $Z$ is a complex paravector and $\bI$ the block identity.
+Here $Z\in\C\oplus\C^3$; $\Wop(Z)$ and $\bI$ are represented by
+matrices in $\C^{4\times4}$, whereas $\hD$ and $\hDq$ are matrix
+differential operators.
 For the free field ($q=0$),
 \begin{align*}
  \hP\,\adj\hP&=\det\hP=\hE^2-\hbp^2=-\Box,
@@ -5035,7 +5307,8 @@ Schr\"odinger's equation to leading order:
  \ii\partial_t\psi=\left(qV+\frac{\hbpq^2}{2m}\right)\psi.
  \tag*{\eqref{eq:schrodinger}}
 \end{equation*}
-The complex paravector envelope $\phi_+$ obeys Pauli's equation:
+The envelope $\phi_+$ in the fixed two-dimensional complex spinor ideal
+of $\C\oplus\C^3$ obeys Pauli's equation:
 \begin{equation*}
  \ii\partial_t\phi_+=\left(qV+
  \frac{\hbpq^2-q\bBf\cdot\bsig}{2m}\right)\phi_+.
@@ -5047,10 +5320,9 @@ for scalar and spinor amplitudes respectively.
 
 \Needspace{10\baselineskip}
 \paragraph{Spin and probabilities.}
-Recall a nonzero complex paravector amplitude $\psi$, real norm density
-$\rho>0$, real polarization $\bu'$, and
-\hyperref[def:real-unit-vector]{real unit measurement axis} $\bu$.
-The real observable $Z$ acts from the left.  A rotation uses
+Recall a nonzero $\psi$ in the fixed spinor ideal, $\rho\in\R_{>0}$,
+and polarization and measurement axes $\bu',\bu\in\R^3$ of unit norm.
+The real observable $Z\in\R\oplus\R^3$ acts from the left.  A rotation uses
 \begin{equation*}
  \psi'=R\psi.
  \tag*{\eqref{eq:spin-half-law}}
@@ -5080,6 +5352,13 @@ The matrix verification is \eqref{eq:matrix-state}--\eqref{eq:matrix-born}.
 \clearpage
 \section{Conventions}
 \label{sec:conventions}
+
+Unadorned source symbols below retain each source's meaning.
+In our coefficient notation, $Z,G\in\C\oplus\C^3$,
+$X,Y,\mathcal A,\mathcal P,\mathcal D\in\R\oplus\R^3$, and
+$\mathcal F\in\{0\}\oplus\C^3$.
+Physical factors $G$ have determinant one; spinor amplitudes lie in the
+fixed ideal of \eqref{eq:axis-ideal-components}.
 
 \paragraph{Mapping to the literature.}
 Our algebra is the algebra of physical space (APS), $\mathrm{Cl}_{3,0}$,
@@ -5154,8 +5433,10 @@ with its even subalgebra is~\citeat{baylis2004}{Eq.~(40)}{page=12}\,\citeat{bayl
  Z^{\mathsf H}\longleftrightarrow
  \gamma_0\widetilde {Z}_{\mathrm{STA}}\gamma_0.
 \]
-Here $Z_{\mathrm{STA}}$ is the image of $Z$ and the tilde reverses STA
-products: reversion in APS and reversion in STA are different operations.
+Here $\gamma_\mu\in\mathrm{Cl}_{1,3}$ are spacetime basis vectors,
+not the numerical gamma matrices of Appendix~\ref{sec:matrix-dirac-components}.
+The image $Z_{\mathrm{STA}}$ lies in the even subalgebra
+$\mathrm{Cl}_{1,3}^{+}$, and the tilde reverses STA products: reversion in APS and reversion in STA are different operations.
 
 \clearpage
 \paragraph{Source comparisons for the cited equations.}
@@ -5257,7 +5538,8 @@ STA embedding above,
 \]
 His explicit spacetime split is already our component equation
 \citeat{hestenes-spacetime}{Eqs.~(175)--(177)}{page=29}.
-For a spacetime vector $n$, put $N=n\gamma_0$.  His stress map
+For a real spacetime vector $n\in\R^{1,3}$, put
+$N=n\gamma_0\in\R\oplus\R^3$ in the observer's paravector identification.  His stress map
 $T_{\mathrm{STA}}(n)=\tfrac12Fn\widetilde {\mathcal{F}}$, with
 $\mathcal{F}^{\mathsf H}=\gamma_0\widetilde {\mathcal{F}}\gamma_0$, gives
 \[
@@ -5296,7 +5578,8 @@ rotation~\citeat{feynmanspin}{Eq.~(6.19)}{Eq:III:6:19}.
 
 \clearpage
 Fix the right-handed sigma product and write
-$N=\bu\cdot\bsig$, with real $\bu^2=1$.  The alternatives below change
+$N=\bu\cdot\bsig\in\{0\}\oplus\R^3$, with $\bu\in\R^3$,
+$\bu^2=1$, and $\theta\in\R$.  The alternatives below change
 notation or transformation direction, not the underlying physics.
 The main text uses $R=R_-$ and $L=L_-$, with
 \[
@@ -5305,7 +5588,8 @@ The main text uses $R=R_-$ and $L=L_-$, with
  R_\pm^{\mathsf H}=R_\pm^{-1}=R_\mp,\qquad
  L_\pm^{\mathsf H}=L_\pm,\quad L_\pm^{-1}=L_\mp.
 \]
-Here $\theta$ is a rotation angle for $R_\pm$ and rapidity for $L_\pm$.
+Here $R_\pm\in\R\oplus\ii\R^3$, $L_\pm\in\R\oplus\R^3$, and
+$\theta$ is a rotation angle or rapidity respectively.
 
 \paragraph{Exponent sign and sandwich order.}
 For $X=t+\br\cdot\bsig$, the four choices for each kind of factor are
@@ -5391,7 +5675,7 @@ $e^{-\ii\theta N/2}$ and spin generator $N/2$.
 Changing only the vector sandwich would reverse its rotation relative to
 the spin polarization.
 
-For any invertible factor $G$ acting as $\psi'=G\psi$, the definitions
+For $G\in\C\oplus\C^3$ with $\det G\ne0$ acting as $\psi'=G\psi$, the definitions
 \eqref{eq:probability-density} and \eqref{eq:paravector-expectation} give
 \begin{align*}
  \rho&=\lVert\psi\rVert^2,\qquad
