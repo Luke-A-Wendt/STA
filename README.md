@@ -378,12 +378,12 @@ For constant mass $`m>0`$ and [charge](https://en.wikipedia.org/wiki/Electric_ch
 \begin{aligned}
 \hat E_q&:=\hat E-qV=\mathrm{i}\partial_t-qV,\\
 \hat{\mathbf p}_q&:=\hat{\mathbf p}-q\mathbf A=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A,\\
-\hat{\mathcal{P}}_q&:=\hat E_q+\hat{\mathbf p}_q\cdot\boldsymbol{\sigma}.
+\hat{\mathcal{P}}_q&:=\hat E_q+\hat{\mathbf p}_q\cdot\boldsymbol{\sigma}=\mathrm{i}\partial^{*}-q\mathcal{A}.
 \end{aligned}
 ```
 
 ```math
-\boxed{\hat{\mathcal{P}}_q=\hat{\mathcal{P}}-q\mathcal{A}=\mathrm{i}\partial^{*}-q\mathcal{A}.}
+\boxed{\hat{\mathcal{P}}_q=\hat{\mathcal{P}}-q\mathcal{A}.}
 ```
 
 At $`q=0`$, the coupled operators reduce to the canonical ones: $`\hat E_0=\hat E`$, $`\hat{\mathbf p}_0=\hat{\mathbf p}`$, and $`\hat{\mathcal{P}}_0=\hat{\mathcal{P}}`$. The coupled Dirac operator is
