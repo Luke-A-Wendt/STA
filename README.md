@@ -567,7 +567,14 @@ Thus the two spin components evolve independently, with opposite [Zeeman shifts]
 
 The [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Electromagnetic_field) $`\hat{\mathbf p}_q=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A`$ retains the orbital coupling.
 
-In the usual spinor representation, $`\phi_{+,+},\phi_{+,-},\phi_{-,+},\phi_{-,-}`$ are four complex scalars, labeled by Dirac block and spin.
+In the usual spinor representation, the four complex scalars form the matrix
+```math
+\boldsymbol{\phi}:=\begin{pmatrix}
+\phi_{+,+}&\phi_{+,-}\\
+\phi_{-,+}&\phi_{-,-}
+\end{pmatrix},
+```
+with rows labeled by Dirac block and columns by spin.
 
 ## Spin measurement probabilities
 
