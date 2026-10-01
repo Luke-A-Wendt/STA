@@ -5,6 +5,13 @@
 \usepackage{booktabs,array}
 \usepackage{graphicx}
 \usepackage[dvipsnames]{xcolor}
+% Match bold symbols and text to the hyperlink color.
+\let\staOriginalBm\bm
+\renewcommand{\bm}[1]{\textcolor{MidnightBlue}{\staOriginalBm{#1}}}
+\let\staOriginalMathbf\mathbf
+\renewcommand{\mathbf}[1]{\textcolor{MidnightBlue}{\staOriginalMathbf{#1}}}
+\AddToHook{cmd/bfseries/after}{\color{MidnightBlue}}
+
 \usepackage{microtype}
 \usepackage{enumitem,needspace}
 \usepackage{xurl}
@@ -1185,10 +1192,10 @@ matrices.
 \label{sec:unit-forms}
 
 Recall $Z=c+\bZ\cdot\bsig$, with $c\in\C$ and $\bZ\in\C^3$.
-For $\bC\in\C^3$, distinguish the square from the positive norm:
+For $\bZ\in\C^3$, distinguish the square from the positive norm:
 \begin{align*}
- \bC^2&:=\bC\cdot\bC,\\
- \lVert\bC\rVert^2&:=\bC\cdot\bC^*.
+ \bZ^2&:=\bZ\cdot\bZ,\\
+ \lVert\bZ\rVert^2&:=\bZ\cdot\bZ^*.
 \end{align*}
 For $c\in\C$, set $\lVert c\rVert^2:=cc^*$.  The positive paravector norm is~\citeat{chappell-functions}{Eq.~(46)}{page=11}
 \begin{equation}
@@ -1206,15 +1213,15 @@ Each name below specifies a condition; a letter alone implies none.
  \bu^2=\bu\cdot\bu=1.
  \label{eq:bilinear-unit-vector}
 \end{equation}
-For $\bC^2\ne0$, take $\bu=\bC/\sqrt{\bC^2}$ with either square root.
-Its norm need not be one.  A nonzero vector with $\bC^2=0$
+For $\bZ^2\ne0$, take $\bu=\bZ/\sqrt{\bZ^2}$ with either square root.
+Its norm need not be one.  A nonzero vector with $\bZ^2=0$
 cannot be normalized this way.
 \item \textbf{Vector of unit norm.} $\bu$ satisfies
 \begin{equation*}
  \lVert\bu\rVert^2=\bu\cdot\bu^*=1.
 \end{equation*}
-For any $\bC\ne0$, take $\bu=\bC/\lVert\bC\rVert$; then
-$\bu^2=\bC^2/\lVert\bC\rVert^2$ need not be one.
+For any $\bZ\ne0$, take $\bu=\bZ/\lVert\bZ\rVert$; then
+$\bu^2=\bZ^2/\lVert\bZ\rVert^2$ need not be one.
 \phantomsection\label{def:real-unit-vector}
 For real vectors the two conditions coincide: a \emph{real unit vector}
 has $\bu^2=\lVert\bu\rVert^2=1$.  For complex vectors, specify which holds.
@@ -1263,7 +1270,7 @@ Two complex vectors illustrate why the normalizations differ:
 \begin{center}
 \begin{tabular}{ccc}
 \toprule
-$\bC$ & $\bC^2$ & $\lVert\bC\rVert^2$\\
+$\bZ$ & $\bZ^2$ & $\lVert\bZ\rVert^2$\\
 \midrule
 $\{\sqrt2,\ii,0\}$ & $1$ & $3$\\
 $\{1,\ii,0\}$ & $0$ & $2$\\
@@ -3873,18 +3880,18 @@ Expanding gives the exact second-order equations~\citeat{feynman-gellmann}{Eq.~(
  (-\hEq^2+\hbpq^2+m^2+\ii qF)\psi_-&=0.
  \label{eq:dirac-squared-field}
 \end{align}
-For the spin-term components, write $\bC=\bE+\ii\bBf$ and
+For the spin-term components, write $\bZ=\bE+\ii\bBf$ and
 $\psi=a+\bb\cdot\bsig$, with complex functions
-$a:\R^4\to\C$ and $\bb,\bC:\R^4\to\C^3$.
-Here $\bC^*$ conjugates its scalar coefficients.  Sigma multiplication gives
+$a:\R^4\to\C$ and $\bb,\bZ:\R^4\to\C^3$.
+Here $\bZ^*$ conjugates its scalar coefficients.  Sigma multiplication gives
 \begin{align*}
  \ii qF\psi
- &=\ii q\bC\cdot\bb+
-   (\ii qa\bC-q\bC\times\bb)\cdot\bsig,
+ &=\ii q\bZ\cdot\bb+
+   (\ii qa\bZ-q\bZ\times\bb)\cdot\bsig,
  \\
  \ii qF^*\psi
- &=-\ii q\bC^*\cdot\bb+
-   (-\ii qa\bC^*+q\bC^*\times\bb)\cdot\bsig.
+ &=-\ii q\bZ^*\cdot\bb+
+   (-\ii qa\bZ^*+q\bZ^*\times\bb)\cdot\bsig.
 \end{align*}
 To construct solutions, take a complex paravector amplitude $\psi$ of
 \eqref{eq:axis-ideal-components} satisfying
