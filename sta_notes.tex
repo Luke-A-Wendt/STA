@@ -2939,10 +2939,14 @@ Define the canonical energy and momentum operators by
 \begin{equation}
  \begin{aligned}
  \hE&:=\ii\partial_t,\\
- \hbp&:=-\ii\pdr,\\
- \hP&:=\hE+\hbp\cdot\bsig=\ii\partial^*.
+ \hbp&:=-\ii\pdr,
  \end{aligned}
  \label{eq:canonical-operators}
+\end{equation}
+which can be combined to form the paravector operator:
+\begin{equation}
+ \hP:=\ii\partial^*=\hE+\hbp\cdot\bsig.
+ \label{eq:canonical-paravector}
 \end{equation}
 
 Here $\hE$ is a scalar differential operator, $\hbp$ is a triple of
@@ -2972,10 +2976,13 @@ operators defines the gauge-covariant mechanical operators~\citeat{gurtler-heste
  \hEq&:=\hE_0-qV,
  \label{eq:mechanical-energy-operator}\\
  \hbpq&:=\hbp_0-q\bA,
- \label{eq:mechanical-momentum-operator}\\
- \hPq&:=\hEq+\hbpq\cdot\bsig=\hP_0-qA.
- \label{eq:mechanical-paravector}
+ \label{eq:mechanical-momentum-operator}
 \end{align}
+which can be combined to form the paravector operator:
+\begin{equation}
+ \hPq:=\hP_0-qA=\hEq+\hbpq\cdot\bsig.
+ \label{eq:mechanical-paravector}
+\end{equation}
 Here $\hEq$ includes rest energy.  Hats distinguish named differential
 operators from physical values and mode eigenvalues $E,\bp$.
 The derivative symbols $\partial$, $\pdr$, and $\Box$ remain unhatted.
@@ -4840,7 +4847,7 @@ Here, subscript $0$ labels the uncoupled operators of
    \tag*{\eqref{eq:mechanical-energy-operator}}\\
  \hbpq&=\hbp_0-q\bA=-\ii\pdr-q\bA,
    \tag*{\eqref{eq:mechanical-momentum-operator}}\\
- \hPq&=\hEq+\hbpq\cdot\bsig=\hP_0-qA,
+ \hPq&=\hP_0-qA=\hEq+\hbpq\cdot\bsig,
    \tag*{\eqref{eq:mechanical-paravector}}\\
  (\hbpq\cdot\bsig)^2&=\hbpq^2-q\bBf\cdot\bsig,
    \tag*{\eqref{eq:kinetic-sigma-square}}\\

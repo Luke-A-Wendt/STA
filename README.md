@@ -451,14 +451,19 @@ In the [Lorenz gauge](https://en.wikipedia.org/wiki/Lorenz_gauge_condition), $`S
 
 Hats mark named [energy](https://en.wikipedia.org/wiki/Energy_operator), [momentum](https://en.wikipedia.org/wiki/Momentum_operator), and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) operators; the derivative symbols $`\partial`$ and $`\Box`$ remain unhatted.
 
-Represent energy and momentum on a complex scalar wavefunction $`\psi`$ by:
+On a complex scalar wavefunction $`\psi`$, use the [energy operator](https://en.wikipedia.org/wiki/Energy_operator) and [momentum operator](https://en.wikipedia.org/wiki/Momentum_operator):
 
 ```math
 \begin{aligned}
 \hat E&:=\mathrm{i}\partial_t,\\
-\hat{𝐏}&:=-\mathrm{i}\partial_{𝐫},\\
-\hat{P}&:=\hat E+\hat{𝐏}\cdot𝝈 = \mathrm{i}\partial^{*}.
+\hat{𝐏}&:=-\mathrm{i}\partial_{𝐫},
 \end{aligned}
+```
+
+which can be combined to form the paravector operator:
+
+```math
+\hat P:=\mathrm{i}\partial^*=\hat E+\hat{𝐏}\cdot𝝈.
 ```
 
 Commutativity of the free operators gives:
@@ -539,14 +544,21 @@ Here, subscript $`0`$ labels the uncoupled operators defined above:
 \end{aligned}
 ```
 
-For constant mass $`m>0`$ and [charge](https://en.wikipedia.org/wiki/Electric_charge) $`q`$, [minimal coupling](https://en.wikipedia.org/wiki/Minimal_coupling) to the real [potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) $`A=V+𝐀\cdot𝝈`$ defines the gauge-covariant energy and momentum operators:
+Take constant mass $`m>0`$, [charge](https://en.wikipedia.org/wiki/Electric_charge) $`q`$, and a real [potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) $`A=V+𝐀\cdot𝝈`$.
+
+[Minimal coupling](https://en.wikipedia.org/wiki/Minimal_coupling) gives the [mechanical energy](https://en.wikipedia.org/wiki/Minimal_coupling) and [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Definition_(position_space)) operators:
 
 ```math
 \begin{aligned}
 \hat E_q&:=\hat E_0-qV,\\
-\hat{𝐏}_q&:=\hat{𝐏}_0-q𝐀,\\
-\hat P_q&:=\hat E_q+\hat{𝐏}_q\cdot𝝈=\hat P_0-qA.
+\hat{𝐏}_q&:=\hat{𝐏}_0-q𝐀.
 \end{aligned}
+```
+
+Together, they form the [four-momentum](https://en.wikipedia.org/wiki/Minimal_coupling) operator:
+
+```math
+\hat P_q:=\hat P_0-qA=\hat E_q+\hat{𝐏}_q\cdot𝝈.
 ```
 
 The coupled [Dirac operator](https://en.wikipedia.org/wiki/Dirac_equation) is:
