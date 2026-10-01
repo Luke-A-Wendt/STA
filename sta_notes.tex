@@ -748,50 +748,53 @@ For a constant field $\bm B\in\R^3\setminus\{0\}$, define its \hyperref[def:real
 =\pm\lVert\bm{B}\rVert\Pi_\pm.
 \]
 
-Let constant unit spinors $Z_\pm\in\C\oplus\C^3$ span that fixed spinor space, so $\phi_\pm\in\mathrm{span}_{\C}\{Z_+,Z_-\}$:
-
-\[
-\Pi_\pm Z_\pm=Z_\pm,\qquad \Pi_\pm Z_\mp=0.
-\]
-
-Expand $\phi_+$ with scalar wavefunctions $\phi_{++},\phi_{+-}\in\C$:
-
+For an aligned paravector
+$\phi_+:\R^4\to\mathrm{span}_{\C}\{1,\bm u\cdot\bsig\}\subset\C\oplus\C^3$,
+spectral decomposition gives scalar wavefunctions $\phi_{++},\phi_{+-}:\R^4\to\C$:
 \[
 \begin{aligned}
-\phi_+&=\phi_{++}Z_++\phi_{+-}Z_-,\\
-\Pi_\pm\phi_+&=\phi_{+\pm}Z_\pm.
+\phi_+&=\phi_{++}\Pi_++\phi_{+-}\Pi_-,\\
+\Pi_\pm\phi_+&=\phi_+\Pi_\pm=\phi_{+\pm}\Pi_\pm.
 \end{aligned}
 \]
 
-Left-multiply both sides of the Pauli equation by constant $\Pi_\pm$, which commute with $\hEq$ and $\hbpq^2$:
-
+Constant $\Pi_\pm$ commute with $\hEq$ and $\hbpq^2$,
+so the Pauli equation gives
 \[
-\left(2m\hEq-\hbpq^2\pm q\lVert\bm{B}\rVert\right)\Pi_\pm\phi_+=0.
+\begin{aligned}
+0&=\Pi_\pm\left(2m\hEq-\hbpq^2+q\bm B\cdot\bsig\right)\phi_+\\
+&=\left(\left(2m\hEq-\hbpq^2
+\pm q\lVert\bm B\rVert\right)\phi_{+\pm}\right)\Pi_\pm.
+\end{aligned}
 \]
 
-Constant $Z_\pm$ pass through derivatives. Substitute the expansion, equate scalar coefficients, and restore $\hEq=\ii\partial_t-qV$:
-
+Since $\Pi_\pm\ne0$, the scalar coefficients vanish.
+Restoring $\hEq=\ii\partial_t-qV$ gives
 \[
 \boxed{\ii\partial_t\phi_{+\pm}=
-\left(\frac{\hbpq^2\mp q\lVert\bm{B}\rVert}{2m}+qV\right)\phi_{+\pm}.}
+\left(\frac{\hbpq^2\mp q\lVert\bm B\rVert}{2m}+qV\right)\phi_{+\pm}.}
 \]
 
-\hyperref[sec:spin-half]{Spin} $\pm\tfrac12$ along $\bm{u}$ has opposite \hyperref[sec:uniform-spin]{Zeeman shifts}. The \hyperref[eq:mechanical-momentum-operator]{kinetic momentum} $\hbpq=-\ii\partial_{\bm{r}}-q\bm{A}$ retains the orbital coupling.
+\hyperref[sec:spin-half]{Spin} $\pm\tfrac12$ along $\bm u$ has opposite
+\hyperref[sec:uniform-spin]{Zeeman shifts}. The
+\hyperref[eq:mechanical-momentum-operator]{kinetic momentum}
+$\hbpq=-\ii\partial_{\bm r}-q\bm A$ retains the orbital coupling.
 
-Expanding $\phi_-=\phi_{-+}Z_++\phi_{--}Z_-$ gives four complex scalar components:
+This representation applies to uniform-field Pauli evolution; the full
+Dirac equation and spin measurements use the fixed spinor space.
 
+The full Dirac spinor has four complex scalar amplitudes:
 \[
 \bm{\phi}:=\left(\,\begin{matrix}
 \phi_{++}&\phi_{+-}\\
 \phi_{-+}&\phi_{--}
 \end{matrix}\,\right)\in\C^{2\times2}.
 \]
-
 Rows label Dirac blocks, columns spin; the Pauli limit governs the upper row.
 
 \Needspace{24\baselineskip}
 \subsection*{\hyperref[sec:spin-measurement-angle]{Spin measurement probabilities}}
-For a spinor $\psi$ in the same fixed spinor space, let $\bu,\bu'\in\R^3$ be unit measurement and preparation axes. Their projectors lie in $\R\oplus\R^3$. Prepare $\psi=\Pi_+'\psi\ne0$, with $\theta\in[0,\pi]$ and $\cos\theta:=\bu\cdot\bu'$:
+For a spinor $\psi$ in the fixed spinor space of \eqref{eq:axis-ideal-components}, let $\bu,\bu'\in\R^3$ be unit measurement and preparation axes. Their projectors lie in $\R\oplus\R^3$. Prepare $\psi=\Pi_+'\psi\ne0$, with $\theta\in[0,\pi]$ and $\cos\theta:=\bu\cdot\bu'$:
 
 \[
 \begin{gathered}
@@ -3956,57 +3959,63 @@ For a constant field $\bm B\in\R^3\setminus\{0\}$, define its \hyperref[def:real
 =\pm\lVert\bm{B}\rVert\Pi_\pm.
 \]
 
-Let constant unit spinors $Z_\pm\in\C\oplus\C^3$ span the fixed spinor space of \eqref{eq:axis-ideal-components}, so $\phi_\pm\in\mathrm{span}_{\C}\{Z_+,Z_-\}$:
-
-\[
-\Pi_\pm Z_\pm=Z_\pm,\qquad \Pi_\pm Z_\mp=0.
-\]
-
-Expand $\phi_+$ with scalar wavefunctions $\phi_{++},\phi_{+-}\in\C$:
-
+For an aligned paravector
+$\phi_+:\R^4\to\mathrm{span}_{\C}\{1,\bm u\cdot\bsig\}\subset\C\oplus\C^3$,
+spectral decomposition gives scalar wavefunctions $\phi_{++},\phi_{+-}:\R^4\to\C$:
 \[
 \begin{aligned}
-\phi_+&=\phi_{++}Z_++\phi_{+-}Z_-,\\
-\Pi_\pm\phi_+&=\phi_{+\pm}Z_\pm.
+\phi_+&=\phi_{++}\Pi_++\phi_{+-}\Pi_-,\\
+\Pi_\pm\phi_+&=\phi_+\Pi_\pm=\phi_{+\pm}\Pi_\pm.
 \end{aligned}
 \]
 
-The orthonormal basis construction is given in Appendix~\ref{sec:matrix-spinors}.
-The scalar coefficients are
+Constant $\Pi_\pm$ commute with $\hEq$ and $\hbpq^2$,
+so the Pauli equation gives
 \[
- \phi_{+\pm}=\scpart{Z_\pm^{\mathsf H}\phi_+}.
+\begin{aligned}
+0&=\Pi_\pm\left(2m\hEq-\hbpq^2+q\bm B\cdot\bsig\right)\phi_+\\
+&=\left(\left(2m\hEq-\hbpq^2
+\pm q\lVert\bm B\rVert\right)\phi_{+\pm}\right)\Pi_\pm.
+\end{aligned}
 \]
 
-Left-multiply both sides of the Pauli equation by constant $\Pi_\pm$, which commute with $\hEq$ and $\hbpq^2$:
-
-\[
-\left(2m\hEq-\hbpq^2\pm q\lVert\bm{B}\rVert\right)\Pi_\pm\phi_+=0.
-\]
-
-Constant $Z_\pm$ pass through derivatives. Substitute the expansion, equate scalar coefficients, and restore $\hEq=\ii\partial_t-qV$:
-
+Since $\Pi_\pm\ne0$, the scalar coefficients vanish.
+Restoring $\hEq=\ii\partial_t-qV$ gives
 \[
 \boxed{\ii\partial_t\phi_{+\pm}=
-\left(\frac{\hbpq^2\mp q\lVert\bm{B}\rVert}{2m}+qV\right)\phi_{+\pm}.}
+\left(\frac{\hbpq^2\mp q\lVert\bm B\rVert}{2m}+qV\right)\phi_{+\pm}.}
 \]
 
-\hyperref[sec:spin-half]{Spin} $\pm\tfrac12$ along $\bm{u}$ has opposite \hyperref[sec:uniform-spin]{Zeeman shifts}. The \hyperref[eq:mechanical-momentum-operator]{kinetic momentum} $\hbpq=-\ii\partial_{\bm{r}}-q\bm{A}$ retains the orbital coupling.
+\hyperref[sec:spin-half]{Spin} $\pm\tfrac12$ along $\bm u$ has opposite
+\hyperref[sec:uniform-spin]{Zeeman shifts}. The
+\hyperref[eq:mechanical-momentum-operator]{kinetic momentum}
+$\hbpq=-\ii\partial_{\bm r}-q\bm A$ retains the orbital coupling.
 
-Expanding $\phi_-=\phi_{-+}Z_++\phi_{--}Z_-$ gives four complex scalar components:
+This representation applies to uniform-field Pauli evolution; the full
+Dirac equation and spin measurements use the fixed spinor space.
 
+The full Dirac spinor has four complex scalar amplitudes:
 \[
 \bm{\phi}:=\left(\,\begin{matrix}
 \phi_{++}&\phi_{+-}\\
 \phi_{-+}&\phi_{--}
 \end{matrix}\,\right)\in\C^{2\times2}.
 \]
+Rows label Dirac blocks, columns spin; the Pauli limit governs the upper row.
 
-Rows label Dirac blocks, columns spin; the Pauli limit governs the upper row; the lower block satisfies
+In a basis diagonalizing $\bm u\cdot\bsig$, the aligned paravector is
+$\mathrm{diag}(\phi_{++},\phi_{+-})$. The corresponding spinor in the
+fixed ideal of \eqref{eq:axis-ideal-components} is
+$\phi_{++}Z_++\phi_{+-}Z_-$, where constant orthonormal $Z_\pm$ satisfy
+$\Pi_\pm Z_\pm=Z_\pm$ and $\Pi_\pm Z_\mp=0$.
+Both representations give the same scalar Pauli equations.
+The full Dirac coupling $\hbpq\cdot\bsig$ need not preserve alignment.
+
+For the original spinor blocks, the lower block still satisfies
 $\phi_-\simeq(\hbpq\cdot\bsig)\phi_+/(2m)$.
-
-For a nonzero field with varying direction, the projectors depend on $(t,\br)$.
-Let $\hH$ denote the Pauli Hamiltonian in \eqref{eq:pauli}.
-The product rule gives
+For a nonzero field with varying direction, its projectors depend on $(t,\br)$.
+With $\hH$ the Pauli Hamiltonian in \eqref{eq:pauli},
+the product rule for the original spinor gives
 \begin{equation*}
  \begin{aligned}
  \ii\partial_t(\Pi_\pm\phi_+)
@@ -4018,6 +4027,67 @@ The product rule gives
 \end{equation*}
 Only the projector derivatives and kinetic commutator couple the
 sectors; the magnetic term commutes with its own projectors.
+
+\Needspace{24\baselineskip}
+\medskip
+\noindent\textbf{Alternate alignment.}
+Let $\bm u'\in\R^3$ be a constant unit vector and $\theta\in[0,\pi]$.
+Take initial scalar wavefunctions $\phi_{++},\phi_{+-}:\R^3\to\C$ along this axis:
+\[
+\begin{gathered}
+\bm u'\cdot\bm u=\cos\theta,\qquad
+\Pi_\pm':=\frac12(1\pm\bm u'\cdot\bsig)\in\R\oplus\R^3,\\
+\phi_+(0)=\phi_{++}\Pi_+'+\phi_{+-}\Pi_-'\in\C\oplus\C^3.
+\end{gathered}
+\]
+
+The magnetic term has both diagonal and off-diagonal parts in these projectors:
+\[
+\begin{aligned}
+\Pi_\pm'(\bm u\cdot\bsig)\Pi_\pm'
+&=\pm\cos\theta\,\Pi_\pm',\\
+\Pi_\mp'(\bm u\cdot\bsig)\Pi_\pm'
+&=\bigl((\bm u-\cos\theta\,\bm u')\cdot\bsig\bigr)\Pi_\pm'.
+\end{aligned}
+\]
+
+Projecting the Pauli equation gives
+\[
+\begin{aligned}
+2m\hEq\Pi_\pm'\phi_+
+&=\left(\hbpq^2\mp q\lVert\bm B\rVert\cos\theta\right)\Pi_\pm'\phi_+\\
+&\quad-q\lVert\bm B\rVert
+\Pi_\pm'(\bm u\cdot\bsig)\Pi_\mp'\phi_+.
+\end{aligned}
+\]
+
+Initially $\Pi_\mp'\phi_+(0)\Pi_\pm'=0$, but
+\[
+\left.\ii\partial_t\bigl(\Pi_\mp'\phi_+\Pi_\pm'\bigr)\right|_{t=0}
+=-\frac{q\lVert\bm B\rVert}{2m}\,
+\phi_{+\pm}\bigl((\bm u-\cos\theta\,\bm u')\cdot\bsig\bigr)\Pi_\pm'.
+\]
+
+For $q\ne0$ and $\sin\theta\ne0$, evolution generates off-diagonal components:
+two scalar multiples of the fixed $\Pi_\pm'$ no longer suffice.
+At $\theta=0$ the earlier equations return; at $\theta=\pi$ the signs exchange.
+For perpendicular axes, the magnetic term is entirely off-diagonal.
+
+For time-independent $V:\R^3\to\R$ and $\bm A:\R^3\to\R^3$,
+the orbital operator commutes with the constant magnetic term.
+The full Pauli evolution of this initial paravector is
+\[
+\begin{aligned}
+\phi_+(t)
+&=e^{-\ii t(\hbpq^2/(2m)+qV)}
+  e^{\,\ii q\lVert\bm B\rVert t\,\bm u\cdot\bsig/(2m)}\phi_+(0)\\
+&=e^{-\ii t(\hbpq^2/(2m)+qV)}
+  \left(\cos\frac{q\lVert\bm B\rVert t}{2m}
+  +\ii\bm u\cdot\bsig\sin\frac{q\lVert\bm B\rVert t}{2m}\right)\phi_+(0).
+\end{aligned}
+\]
+The exponential follows from $(\bm u\cdot\bsig)^2=1$.
+Its transverse contribution produces the off-diagonal terms above.
 
 \subsection{The same leading order: Schr\"odinger}
 \label{sec:schrodinger-limit}

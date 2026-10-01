@@ -621,28 +621,27 @@ For a constant nonzero field $`\mathbf B`$, define its [unit direction](https://
 =\pm\lVert\mathbf B\rVert\Pi_\pm.
 ```
 
-Let constant unit spinors $`Z_\pm`$ span the spinor space of $`\phi_\pm`$:
-
-```math
-\Pi_\pm Z_\pm=Z_\pm,\qquad \Pi_\pm Z_\mp=0.
-```
-
-Expand $`\phi_+`$ in complex scalar wavefunctions:
+For a paravector $`\phi_+`$ with vector part along $`\mathbf u`$, spectral decomposition gives complex scalar wavefunctions:
 
 ```math
 \begin{aligned}
-\phi_+&=\phi_{++}Z_++\phi_{+-}Z_-,\\
-\Pi_\pm\phi_+&=\phi_{+\pm}Z_\pm.
+\phi_+&=\phi_{++}\Pi_++\phi_{+-}\Pi_-,\\
+\Pi_\pm\phi_+&=\phi_+\Pi_\pm=\phi_{+\pm}\Pi_\pm.
 \end{aligned}
 ```
 
-Left-multiply both sides of the Pauli equation by constant $`\Pi_\pm`$, which commute with $`\hat E_q`$ and $`\hat{\mathbf p}_q^2`$:
+Constant $`\Pi_\pm`$ commute with $`\hat E_q`$ and $`\hat{\mathbf p}_q^2`$, so the Pauli equation gives
 
 ```math
-\left(2m\hat E_q-\hat{\mathbf p}_q^2\pm q\lVert\mathbf B\rVert\right)\Pi_\pm\phi_+=0.
+\begin{aligned}
+0&=\Pi_\pm\left(2m\hat E_q-\hat{\mathbf p}_q^2
++q\mathbf B\cdot\boldsymbol{\sigma}\right)\phi_+\\
+&=\left(\left(2m\hat E_q-\hat{\mathbf p}_q^2
+\pm q\lVert\mathbf B\rVert\right)\phi_{+\pm}\right)\Pi_\pm.
+\end{aligned}
 ```
 
-Constant $`Z_\pm`$ pass through derivatives. Substitute the expansion, equate scalar coefficients, and restore $`\hat E_q=\mathrm{i}\partial_t-qV`$:
+Since $`\Pi_\pm\ne0`$, the scalar coefficients vanish. Restoring $`\hat E_q=\mathrm{i}\partial_t-qV`$ gives
 
 ```math
 \boxed{\mathrm{i}\partial_t\phi_{+\pm}=
@@ -651,7 +650,9 @@ Constant $`Z_\pm`$ pass through derivatives. Substitute the expansion, equate sc
 
 [Spin](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ along $`\mathbf u`$ has opposite [Zeeman shifts](https://en.wikipedia.org/wiki/Zeeman_effect). The [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Electromagnetic_field) $`\hat{\mathbf p}_q=-\mathrm{i}\partial_{\mathbf r}-q\mathbf A`$ retains the orbital coupling.
 
-Expanding $`\phi_-=\phi_{-+}Z_++\phi_{--}Z_-`$ gives four complex scalar components:
+This representation applies to uniform-field Pauli evolution; the full Dirac equation and spin measurements use the fixed spinor space.
+
+The full Dirac spinor has four complex scalar amplitudes:
 
 ```math
 \boldsymbol{\phi}:=\left(\,\begin{matrix}
