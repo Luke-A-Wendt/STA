@@ -7,6 +7,8 @@
 We use [natural units](https://en.wikipedia.org/wiki/Natural_units) $`\hbar=c=1`$, [rationalized electromagnetic units](https://en.wikipedia.org/wiki/Heaviside%E2%80%93Lorentz_units), and [signature](https://en.wikipedia.org/wiki/Metric_signature) $`(+,-,-,-)`$.
 
 
+Bold symbols denote vectors or, where specified, matrices.
+
 ## One complex [paravector](https://en.wikipedia.org/wiki/Paravector)
 
 The sigma generators define the algebra and its general complex paravector:
