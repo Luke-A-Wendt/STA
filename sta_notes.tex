@@ -322,24 +322,57 @@ Spacetime increment and proper-time interval:
 \[
 \begin{aligned}
 \mathrm dX&=\mathrm dt+\mathrm d\bm{r}\cdot\bsig,\\
-\mathrm ds^2&:=\det(\mathrm dX)=\mathrm dt^2-\mathrm d\bm{r}^2.
+\det(\mathrm dX)&=\mathrm dt^2-\mathrm d\bm{r}^2.
 \end{aligned}
 \]
 
-Coordinate velocity and four-velocity:
+Choose positive proper time along the future-directed path $\mathrm dt>0$.
+\[
+\mathrm ds:=\sqrt{\mathrm dt^2-\mathrm d\bm{r}^2}=\sqrt{\det(\mathrm dX)}.
+\]
+
+Coordinate velocity:
 
 \[
-\begin{gathered}
-\bm{v}:=\frac{\mathrm d\bm{r}}{\mathrm dt},
-\qquad \gamma:=(1-\bm{v}^2)^{-1/2},\\[4pt]
-U:=\frac{\mathrm dX}{\mathrm ds}=\gamma(1+\bm{v}\cdot\bsig).
-\end{gathered}
+\begin{aligned}
+\frac{\mathrm ds}{\mathrm dt}
+&=\sqrt{\frac{\mathrm dt^2-\mathrm d\bm{r}^2}{\mathrm dt^2}}\\
+&=\sqrt{1-\left(\frac{\mathrm d\bm{r}}{\mathrm dt}\right)^2}
+=\sqrt{1-\bm{v}^2},
+\qquad \bm{v}:=\frac{\mathrm d\bm{r}}{\mathrm dt}.
+\end{aligned}
 \]
-Four-momentum and its mass shell:
+
 \[
-\mathcal{P}:=mU=\underbrace{E}_{\text{energy}}+
-\underbrace{\bm{p}\cdot\bsig}_{\text{momentum}}.
+\gamma:=\frac{\mathrm dt}{\mathrm ds}=\frac{1}{\sqrt{1-\bm{v}^2}}.
 \]
+
+Four-velocity:
+
+\[
+\begin{aligned}
+U:=\frac{\mathrm dX}{\mathrm ds}
+&=\frac{\mathrm dt+\mathrm d\bm{r}\cdot\bsig}{\mathrm ds}\\
+&=\left(1+\frac{\mathrm d\bm{r}}{\mathrm dt}\cdot\bsig\right)
+\frac{\mathrm dt}{\mathrm ds}\\
+&=\gamma(1+\bm{v}\cdot\bsig).
+\end{aligned}
+\]
+For $X,U,\mathcal P\in\R\oplus\R^3$, proper-time normalization gives
+\[
+\det U=\det\!\left(\frac{\mathrm dX}{\mathrm ds}\right)
+=\frac{\det(\mathrm dX)}{\mathrm ds^2}=1.
+\]
+
+For energy $E$ and momentum $\bm{p}$, the four-momentum is
+\[
+\mathcal{P}:=mU=E+\bm{p}\cdot\bsig.
+\]
+For constant $m\in\R_{>0}$, the determinant scales quadratically:
+\[
+\det\mathcal P=\det(mU)=m^2\det U=m^2.
+\]
+
 \[
 \det\mathcal{P}=E^2-\bm{p}^2=m^2.
 \]
@@ -347,7 +380,7 @@ Four-momentum and its mass shell:
 \clearpage
 \subsection*{\hyperref[eq:maxwell]{Maxwell's four equations in one}}
 
-For $\rho\in\R$ and $\bm E,\bm B,\bm J\in\R^3$, combine the electric and magnetic fields and use the paravector derivative:
+For $\rho\in\R$ and $\bm E,\bm B,\bm J\in\R^3$, combine the electric field $\bm E$ and magnetic field $\bm B$ using the paravector derivative:
 \[
 \begin{gathered}
 \mathcal{F}:=(\bm{E}+\ii\bm{B})\cdot\bsig,\qquad
@@ -472,17 +505,6 @@ S'&=S+\Box\lambda,\\
 
 \clearpage
 \subsection*{\hyperref[eq:kg]{Klein--Gordon from the mass shell}}
-
-For $X,U,\mathcal P\in\R\oplus\R^3$, proper-time normalization gives
-\[
-\det U=\det\!\left(\frac{\mathrm dX}{\mathrm ds}\right)
-=\frac{\det(\mathrm dX)}{\mathrm ds^2}=1.
-\]
-For constant $m\in\R_{>0}$, the determinant scales quadratically:
-\[
-\det\mathcal P=\det(mU)=m^2\det U=m^2,
-\qquad E^2-\bm p^2=m^2.
-\]
 
 Hats mark named energy, momentum, and Dirac operators; the derivative
 symbols $\partial$ and $\Box$ remain unhatted.
@@ -2351,20 +2373,37 @@ For two real intervals,
 A null interval has no inverse.
 
 Along the massive path, define the real coordinate velocity
-$\bv=\dd\br/\dd t$ and choose $\dd s>0$.  Then
-$\dd s^2=(1-\bv^2)\dd t^2$ gives~\citeat{tong-relativity}{Eq.~(7.18)}{page=139}
+$\bv=\dd\br/\dd t$ and choose $\dd s>0$, with $\dd t>0$.
+The interval gives
+\[
+ \dd s=\sqrt{\dd t^2-\dd\br^2},\qquad
+ \frac{\dd s}{\dd t}
+ =\sqrt{\frac{\dd t^2-\dd\br^2}{\dd t^2}}
+ =\sqrt{1-\left(\frac{\dd\br}{\dd t}\right)^2}
+ =\sqrt{1-\bv^2}.
+\]
+Thus $\dd s^2=(1-\bv^2)\dd t^2$ gives~\citeat{tong-relativity}{Eq.~(7.18)}{page=139}
 \begin{align}
  \gamma&:=\frac1{\sqrt{1-\bv^2}}=\frac{\dd t}{\dd s},
  \label{eq:lorentz-factor}\\
  \frac{\dd}{\dd s}&=\gamma\frac{\dd}{\dd t}.
  \label{eq:proper-time-derivative}
 \end{align}
-Applying \eqref{eq:proper-time-derivative} with \eqref{eq:lorentz-factor}
-gives the real proper velocity~\citeat{baylis-intro}{Eq.~(8)}{page=8}
+Factor the coordinate-time increment out of the tangent:
+\[
+ \frac{\dd X}{\dd s}
+ =\frac{\dd t+\dd\br\cdot\bsig}{\dd s}
+ =\left(1+\frac{\dd\br}{\dd t}\cdot\bsig\right)\frac{\dd t}{\dd s}.
+\]
+Using \eqref{eq:lorentz-factor} gives the real proper velocity~\citeat{baylis-intro}{Eq.~(8)}{page=8}
 \begin{equation}
  U:=\frac{\dd X}{\dd s}=\gamma(1+\bv\cdot\bsig).
  \label{eq:proper-velocity}
 \end{equation}
+Proper-time normalization gives
+\[
+ \det U=\frac{\det(\dd X)}{\dd s^2}=1.
+\]
 The normalization \eqref{eq:proper-velocity-star-normalization} gives
 $U^*U=1$ and $U^{-1}=U^*=\gamma(1-\bv\cdot\bsig)$.
 Since $U^{\mathsf H}=U$, this is
@@ -2687,7 +2726,7 @@ coefficients do not imply curvature.
 
 Along this future timelike curve, $\dd f>0$.
 Define its real inertial three-velocity $\bv=\dd\bg/\dd f$ and
-$\gamma=(1-\bv^2)^{-1/2}$, with $\bv^2<1$.  Then
+$\gamma=\frac{1}{\sqrt{1-\bv^2}}$, with $\bv^2<1$.  Then
 \begin{align*}
  \dd s&=\sqrt{1-\bv^2}\,\dd f,\\
  U=\frac{\dd X}{\dd s}&=\gamma(1+\bv\cdot\bsig).
@@ -3400,15 +3439,9 @@ spin coupling.
 \subsection{Klein--Gordon equation}
 
 Let $\psi:\R^4\to\C$ be a scalar field of constant mass $m\in\R_{>0}$.
-For $U=\dd X/\dd s\in\R\oplus\R^3$, proper-time normalization gives
-\[
- \det U=\frac{\det(\dd X)}{\dd s^2}=1.
-\]
-The real momentum $\mathcal P=mU\in\R\oplus\R^3$ therefore obeys
-\[
- \det\mathcal P=\det(mU)=m^2\det U=m^2,
- \qquad E^2-\bp^2=m^2.
-\]
+The spacetime derivation in Section~\ref{sec:kinematics} gives the real
+momentum $\mathcal P=mU\in\R\oplus\R^3$ and its mass shell
+$\det\mathcal P=E^2-\bp^2=m^2$.
 Represent $E\in\R$ and $\bp\in\R^3$ by the translation operators
 $\hE=\ii\partial_t$ and $\hbp=-\ii\pdr$ from
 \eqref{eq:canonical-operators}. Imposing the mass shell on the scalar
@@ -5196,7 +5229,7 @@ The kinematic identities are
  E^2-\bp^2&=m^2.
    \tag*{\eqref{eq:mass-shell}}
 \end{align*}
-Here $\gamma=\dd t/\dd s=(1-\bv^2)^{-1/2}$.  Proper velocity is real,
+Here $\gamma=\dd t/\dd s=\frac{1}{\sqrt{1-\bv^2}}$.  Proper velocity is real,
 with \hyperref[eq:unit-determinant-paravector]{determinant one}; Hermitian unitarity is the separate condition
 \eqref{eq:unitary-transform}.
 For real proper times $s_0<s_1$ and coordinate times $t_0<t$,

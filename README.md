@@ -175,25 +175,61 @@ Spacetime increment and proper-time interval:
 ```math
 \begin{aligned}
 \mathrm dX&=\mathrm dt+\mathrm d\mathbf r\cdot\boldsymbol{\sigma},\\
-\mathrm ds^2&:=\det(\mathrm dX)=\mathrm dt^2-\mathrm d\mathbf r^2.
+\det(\mathrm dX)&=\mathrm dt^2-\mathrm d\mathbf r^2.
 \end{aligned}
 ```
 
-Coordinate velocity and four-velocity:
+Choose positive proper time along the future-directed path $`\mathrm dt>0`$.
 
 ```math
-\begin{gathered}
-\mathbf v:=\frac{\mathrm d\mathbf r}{\mathrm dt},
-\qquad \gamma:=(1-\mathbf v^2)^{-1/2},\\[4pt]
-U:=\frac{\mathrm dX}{\mathrm ds}=\gamma(1+\mathbf v\cdot\boldsymbol{\sigma}).
-\end{gathered}
+\mathrm ds:=\sqrt{\mathrm dt^2-\mathrm d\mathbf r^2}=\sqrt{\det(\mathrm dX)}.
 ```
 
-Four-momentum and its mass shell:
+Coordinate velocity:
 
 ```math
-\mathcal{P}:=mU=\underbrace{E}_{\text{energy}}+
-\underbrace{\mathbf p\cdot\boldsymbol{\sigma}}_{\text{momentum}}.
+\begin{aligned}
+\frac{\mathrm ds}{\mathrm dt}
+&=\sqrt{\frac{\mathrm dt^2-\mathrm d\mathbf r^2}{\mathrm dt^2}}\\
+&=\sqrt{1-\left(\frac{\mathrm d\mathbf r}{\mathrm dt}\right)^2}
+=\sqrt{1-\mathbf v^2},
+\qquad \mathbf v:=\frac{\mathrm d\mathbf r}{\mathrm dt}.
+\end{aligned}
+```
+
+```math
+\gamma:=\frac{\mathrm dt}{\mathrm ds}=\frac{1}{\sqrt{1-\mathbf v^2}}.
+```
+
+Four-velocity:
+
+```math
+\begin{aligned}
+U:=\frac{\mathrm dX}{\mathrm ds}
+&=\frac{\mathrm dt+\mathrm d\mathbf r\cdot\boldsymbol{\sigma}}{\mathrm ds}\\
+&=\left(1+\frac{\mathrm d\mathbf r}{\mathrm dt}\cdot\boldsymbol{\sigma}\right)
+\frac{\mathrm dt}{\mathrm ds}\\
+&=\gamma(1+\mathbf v\cdot\boldsymbol{\sigma}).
+\end{aligned}
+```
+
+Proper-time normalization gives
+
+```math
+\det U=\det\!\left(\frac{\mathrm dX}{\mathrm ds}\right)
+=\frac{\det(\mathrm dX)}{\mathrm ds^2}=1.
+```
+
+For energy $`E`$ and momentum $`\mathbf p`$, the four-momentum is
+
+```math
+\mathcal{P}:=mU=E+\mathbf p\cdot\boldsymbol{\sigma}.
+```
+
+For constant mass $`m>0`$, the determinant scales quadratically:
+
+```math
+\det\mathcal P=\det(mU)=m^2\det U=m^2.
 ```
 
 ```math
@@ -202,7 +238,7 @@ Four-momentum and its mass shell:
 
 ## [Maxwell](https://en.wikipedia.org/wiki/Maxwell%27s_equations) in one equation
 
-Combine the [electric](https://en.wikipedia.org/wiki/Electric_field) and [magnetic](https://en.wikipedia.org/wiki/Magnetic_field) fields and use the [paravector derivative](https://en.wikipedia.org/wiki/Paravector#Paragradient):
+Combine the [electric field](https://en.wikipedia.org/wiki/Electric_field) $`\mathbf E`$ and [magnetic field](https://en.wikipedia.org/wiki/Magnetic_field) $`\mathbf B`$ using the [paravector derivative](https://en.wikipedia.org/wiki/Paravector#Paragradient):
 
 ```math
 \begin{gathered}
@@ -328,20 +364,6 @@ S'&=S+\Box\lambda,\\
 ```
 
 ## [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) from the mass shell
-
-Proper-time normalization gives
-
-```math
-\det U=\det\!\left(\frac{\mathrm dX}{\mathrm ds}\right)
-=\frac{\det(\mathrm dX)}{\mathrm ds^2}=1.
-```
-
-For constant mass $`m>0`$, the determinant scales quadratically:
-
-```math
-\det\mathcal P=\det(mU)=m^2\det U=m^2,
-\qquad E^2-\mathbf p^2=m^2.
-```
 
 Hats mark named [energy](https://en.wikipedia.org/wiki/Energy_operator), [momentum](https://en.wikipedia.org/wiki/Momentum_operator), and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) operators; the derivative symbols $`\partial`$ and $`\Box`$ remain unhatted.
 
