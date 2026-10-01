@@ -665,7 +665,9 @@ Rows label Dirac blocks, columns spin; the Pauli limit governs the upper row.
 
 ## Spin measurement probabilities
 
-For the measurement, let $`\mathbf u'`$ be a real unit spin direction at any angle to the real unit measurement axis $`\mathbf u`$. Prepare $`\psi=\Pi_+'\psi\ne0`$, with $`\cos\theta:=\mathbf u\cdot\mathbf u'`$:
+Let $`\mathbf u',\mathbf u`$ be real unit preparation and measurement axes, with $`\cos\theta:=\mathbf u\cdot\mathbf u'`$.
+
+Prepare $`\psi=\Pi_+'\psi\ne0`$:
 
 ```math
 \begin{gathered}
@@ -673,6 +675,25 @@ For the measurement, let $`\mathbf u'`$ be a real unit spin direction at any ang
 \Pi_\pm:=\frac12(1\pm\mathbf u\cdot\boldsymbol{\sigma}),\\[4pt]
 \Pi_+'\Pi_\pm\Pi_+'=\frac{1\pm\cos\theta}{2}\Pi_+'.
 \end{gathered}
+```
+
+Using $`\lVert Z\rVert^2=\operatorname{sc}(ZZ^{\mathsf H})`$, the denominator is
+
+```math
+\lVert\psi\rVert^2=\operatorname{sc}(\psi\psi^{\mathsf H})>0.
+```
+
+For the prepared state, the projected norm is
+
+```math
+\begin{aligned}
+\lVert\Pi_\pm\psi\rVert^2
+&=\operatorname{sc}\bigl((\Pi_\pm\psi)(\Pi_\pm\psi)^{\mathsf H}\bigr)\\
+&=\operatorname{sc}(\Pi_\pm\psi\psi^{\mathsf H})\\
+&=\operatorname{sc}(\Pi_+'\Pi_\pm\Pi_+'\psi\psi^{\mathsf H})\\
+&=\frac{1\pm\cos\theta}{2}\operatorname{sc}(\psi\psi^{\mathsf H})
+=\frac{1\pm\cos\theta}{2}\lVert\psi\rVert^2.
+\end{aligned}
 ```
 
 The [Born probabilities](https://en.wikipedia.org/wiki/Born_rule) for [spin](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ are

@@ -794,7 +794,11 @@ Rows label Dirac blocks, columns spin; the Pauli limit governs the upper row.
 
 \Needspace{24\baselineskip}
 \subsection*{\hyperref[sec:spin-measurement-angle]{Spin measurement probabilities}}
-For a spinor $\psi$ in the fixed spinor space of \eqref{eq:axis-ideal-components}, let $\bu,\bu'\in\R^3$ be unit measurement and preparation axes. Their projectors lie in $\R\oplus\R^3$. Prepare $\psi=\Pi_+'\psi\ne0$, with $\theta\in[0,\pi]$ and $\cos\theta:=\bu\cdot\bu'$:
+Let $\bu',\bu\in\R^3$ be unit preparation and measurement axes, with
+$\cos\theta:=\bu\cdot\bu'$ and $\theta\in[0,\pi]$.
+
+In the fixed spinor space of \eqref{eq:axis-ideal-components},
+prepare $\psi=\Pi_+'\psi\ne0$ using projectors in $\R\oplus\R^3$:
 
 \[
 \begin{gathered}
@@ -802,6 +806,24 @@ For a spinor $\psi$ in the fixed spinor space of \eqref{eq:axis-ideal-components
 \Pi_\pm:=\frac12(1\pm\bu\cdot\bsig),\\[4pt]
 \Pi_+'\Pi_\pm\Pi_+'=\frac{1\pm\cos\theta}{2}\Pi_+'.
 \end{gathered}
+\]
+
+Using $\lVert Z\rVert^2=\scpart{ZZ^{\mathsf H}}$ for $Z\in\C\oplus\C^3$,
+the denominator is
+\[
+\lVert\psi\rVert^2=\scpart{\psi\psi^{\mathsf H}}>0.
+\]
+
+For the prepared state, the projected norm is
+\[
+\begin{aligned}
+\lVert\Pi_\pm\psi\rVert^2
+&=\scpart{(\Pi_\pm\psi)(\Pi_\pm\psi)^{\mathsf H}}\\
+&=\scpart{\Pi_\pm\psi\psi^{\mathsf H}}\\
+&=\scpart{\Pi_+'\Pi_\pm\Pi_+'\psi\psi^{\mathsf H}}\\
+&=\frac{1\pm\cos\theta}{2}\scpart{\psi\psi^{\mathsf H}}
+=\frac{1\pm\cos\theta}{2}\lVert\psi\rVert^2.
+\end{aligned}
 \]
 
 The \hyperref[sec:spin-measurement-angle]{Born probabilities} for \hyperref[sec:spin-half]{spin} $\pm\tfrac12$ are
@@ -4316,18 +4338,24 @@ The measurement projectors $\Pi_\pm=(1\pm K)/2$ therefore satisfy
  \label{eq:spin-projector-overlap}
 \end{equation}
 
-Use Hermiticity, idempotence, and $\psi=\Pi_+'\psi$ to evaluate the
-projected norm explicitly:
+Using $\lVert Z\rVert^2=\scpart{ZZ^{\mathsf H}}$ for $Z\in\C\oplus\C^3$,
+the denominator is
 \[
- \begin{aligned}
- \lVert\Pi_\pm\psi\rVert^2
- &=\scpart{(\Pi_\pm\psi)^{\mathsf H}(\Pi_\pm\psi)}\\
- &=\scpart{\psi^{\mathsf H}(\Pi_\pm)^2\psi}\\
- &=\scpart{\psi^{\mathsf H}\Pi_+'\Pi_\pm\Pi_+'\psi}\\
- &=\frac{1\pm c}{2}\scpart{\psi^{\mathsf H}\Pi_+'\psi}
- =\frac{1\pm c}{2}\lVert\psi\rVert^2.
- \end{aligned}
+\lVert\psi\rVert^2=\scpart{\psi\psi^{\mathsf H}}>0.
 \]
+
+For the prepared state, the projected norm is
+\[
+\begin{aligned}
+\lVert\Pi_\pm\psi\rVert^2
+&=\scpart{(\Pi_\pm\psi)(\Pi_\pm\psi)^{\mathsf H}}\\
+&=\scpart{\Pi_\pm\psi\psi^{\mathsf H}}\\
+&=\scpart{\Pi_+'\Pi_\pm\Pi_+'\psi\psi^{\mathsf H}}\\
+&=\frac{1\pm\cos\theta}{2}\scpart{\psi\psi^{\mathsf H}}
+=\frac{1\pm\cos\theta}{2}\lVert\psi\rVert^2.
+\end{aligned}
+\]
+
 The Born rule divides by the nonzero norm, so no prior normalization
 is needed:
 \begin{equation}
