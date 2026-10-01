@@ -677,10 +677,10 @@ Prepare $`\psi=\Pi_+'\psi\ne0`$:
 \end{gathered}
 ```
 
-Using $`\lVert Z\rVert^2=\operatorname{sc}(ZZ^{\mathsf H})`$, the denominator is
+Using $`\lVert Z\rVert^2=\mathrm{sc}(ZZ^{\mathsf H})`$, the denominator is
 
 ```math
-\lVert\psi\rVert^2=\operatorname{sc}(\psi\psi^{\mathsf H})>0.
+\lVert\psi\rVert^2=\mathrm{sc}(\psi\psi^{\mathsf H})>0.
 ```
 
 For the prepared state, the projected norm is
@@ -688,10 +688,10 @@ For the prepared state, the projected norm is
 ```math
 \begin{aligned}
 \lVert\Pi_\pm\psi\rVert^2
-&=\operatorname{sc}\bigl((\Pi_\pm\psi)(\Pi_\pm\psi)^{\mathsf H}\bigr)\\
-&=\operatorname{sc}(\Pi_\pm\psi\psi^{\mathsf H})\\
-&=\operatorname{sc}(\Pi_+'\Pi_\pm\Pi_+'\psi\psi^{\mathsf H})\\
-&=\frac{1\pm\cos\theta}{2}\operatorname{sc}(\psi\psi^{\mathsf H})
+&=\mathrm{sc}\bigl((\Pi_\pm\psi)(\Pi_\pm\psi)^{\mathsf H}\bigr)\\
+&=\mathrm{sc}(\Pi_\pm\psi\psi^{\mathsf H})\\
+&=\mathrm{sc}(\Pi_+'\Pi_\pm\Pi_+'\psi\psi^{\mathsf H})\\
+&=\frac{1\pm\cos\theta}{2}\mathrm{sc}(\psi\psi^{\mathsf H})
 =\frac{1\pm\cos\theta}{2}\lVert\psi\rVert^2.
 \end{aligned}
 ```
