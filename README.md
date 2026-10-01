@@ -460,7 +460,7 @@ On a complex scalar wavefunction $`\psi`$, use the [energy operator](https://en.
 \end{aligned}
 ```
 
-which can be combined to form the paravector operator:
+Together, they form the four-momentum operator:
 
 ```math
 \hat P:=\mathrm{i}\partial^*=\hat E+\hat{𝐏}\cdot𝝈.
