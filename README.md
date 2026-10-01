@@ -529,23 +529,27 @@ Hence every free [Dirac solution](https://en.wikipedia.org/wiki/Dirac_equation) 
 
 ## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) with an electromagnetic potential
 
+Here, subscript $`0`$ labels the uncoupled operators defined above:
+
+```math
+\begin{aligned}
+\hat E_0&:=\mathrm{i}\partial_t,\\
+\hat{𝐏}_0&:=-\mathrm{i}\partial_{𝐫},\\
+\hat P_0&:=\mathrm{i}\partial^*.
+\end{aligned}
+```
+
 For constant mass $`m>0`$ and [charge](https://en.wikipedia.org/wiki/Electric_charge) $`q`$, [minimal coupling](https://en.wikipedia.org/wiki/Minimal_coupling) to the real [potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) $`A=V+𝐀\cdot𝝈`$ defines the gauge-covariant energy and momentum operators:
 
 ```math
 \begin{aligned}
-\hat E_q&:=\hat E-qV=\mathrm{i}\partial_t-qV,\\
-\hat{𝐏}_q&:=\hat{𝐏}-q𝐀=-\mathrm{i}\partial_{𝐫}-q𝐀,\\
-\hat{P}_q&:=\hat E_q+\hat{𝐏}_q\cdot𝝈=\mathrm{i}\partial^{*}-qA.
+\hat E_q&:=\hat E_0-qV,\\
+\hat{𝐏}_q&:=\hat{𝐏}_0-q𝐀,\\
+\hat P_q&:=\hat E_q+\hat{𝐏}_q\cdot𝝈=\hat P_0-qA.
 \end{aligned}
 ```
 
-In paravector form:
-
-```math
-\boxed{\hat{P}_q=\hat{P}-qA.}
-```
-
-At $`q=0`$, the coupled operators reduce to the canonical ones: $`\hat E_0=\hat E`$, $`\hat{𝐏}_0=\hat{𝐏}`$, and $`\hat{P}_0=\hat{P}`$. The coupled [Dirac operator](https://en.wikipedia.org/wiki/Dirac_equation) is:
+The coupled [Dirac operator](https://en.wikipedia.org/wiki/Dirac_equation) is:
 
 ```math
 \begin{aligned}

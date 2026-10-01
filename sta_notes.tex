@@ -2958,28 +2958,30 @@ In a field, recall the real potential paravector
 $A(t,\br)=V(t,\br)+\bA(t,\br)\cdot\bsig$:
 $V:\R^4\to\R$, $\bA:\R^4\to\R^3$, and
 $A:\R^4\to\R\oplus\R^3$.
+Within the coupling formulas, subscript $0$ labels the uncoupled
+operators of \eqref{eq:canonical-operators}:
+\begin{align*}
+ \hE_0&:=\ii\partial_t,\\
+ \hbp_0&:=-\ii\pdr,\\
+ \hP_0&:=\ii\partial^*.
+\end{align*}
 The charge is $q\in\R$.  The particle action gives canonical energy
 $E+qV$ and momentum $\bp+q\bA$; identifying them with translation
-operators defines the gauge-covariant mechanical operators~\citeat{gurtler-hestenes}{Eqs.~(2.11)--(2.12)}{page=6}
+operators defines the gauge-covariant mechanical operators~\citeat{gurtler-hestenes}{Eqs.~(2.11)--(2.12)}{page=6}:
 \begin{align}
- \hEq&:=\hE-qV=\ii\partial_t-qV,
+ \hEq&:=\hE_0-qV,
  \label{eq:mechanical-energy-operator}\\
- \hbpq&:=\hbp-q\bA=-\ii\pdr-q\bA,
+ \hbpq&:=\hbp_0-q\bA,
  \label{eq:mechanical-momentum-operator}\\
- \hPq&:=\hEq+\hbpq\cdot\bsig. \notag
+ \hPq&:=\hEq+\hbpq\cdot\bsig=\hP_0-qA.
+ \label{eq:mechanical-paravector}
 \end{align}
-At $q=0$, the coupled operators reduce to the canonical ones:
-$\hat E_0=\hE$, $\hat{\bp}_0=\hbp$, and $\hat{P}_0=\hP$.
 Here $\hEq$ includes rest energy.  Hats distinguish named differential
 operators from physical values and mode eigenvalues $E,\bp$.
 The derivative symbols $\partial$, $\pdr$, and $\Box$ remain unhatted.
 Fields obtained by differentiating potentials are coefficient fields,
-not differential operators.  The operators act to the right and combine as
-\begin{equation}
- \boxed{\hPq=\hP-qA=\ii\partial^*-qA.}
- \label{eq:mechanical-paravector}
-\end{equation}
-Its adjugate reverses the vector part without conjugating $\ii$.
+not differential operators. The operators act to the right.
+The adjugate of $\hPq$ reverses the vector part without conjugating $\ii$.
 Operator order matters in a field; an ordinary paravector determinant
 cannot replace their product.  The canonical operators commute, giving
 \begin{equation}
@@ -3306,7 +3308,7 @@ Equation~\eqref{eq:kg-general-solution} evolves its two coefficients.
 \subsection{Potential and paravector components}
 Recall the real $A=V+\bA\cdot\bsig$, real charge $q$, and
 $\hEq=\ii\partial_t-qV$, $\hbpq=-\ii\pdr-q\bA$.
-The mechanical momentum is $\hPq=\hP-qA$ from
+The mechanical momentum is $\hPq=\hP_0-qA$ from
 \eqref{eq:mechanical-paravector}.
 For the fixed potential $A$ and charge $q$, use the interacting
 Dirac operator
@@ -4831,13 +4833,14 @@ Here $\hEq$ is a scalar differential operator and $\hbpq$ a triple of them;
 $\psi:\R^4\to\C$ is a KG field.
 The Dirac field $\bpsi$ has two entries in the same fixed spinor ideal,
 hence four complex coordinates.
-The operators and wave equations are
+Here, subscript $0$ labels the uncoupled operators of
+\eqref{eq:canonical-operators}. The operators and wave equations are
 \begin{align*}
- \hEq&=\hE-qV=\ii\partial_t-qV,
+ \hEq&=\hE_0-qV=\ii\partial_t-qV,
    \tag*{\eqref{eq:mechanical-energy-operator}}\\
- \hbpq&=\hbp-q\bA=-\ii\pdr-q\bA,
+ \hbpq&=\hbp_0-q\bA=-\ii\pdr-q\bA,
    \tag*{\eqref{eq:mechanical-momentum-operator}}\\
- \hPq&=\hP-qA=\hEq+\hbpq\cdot\bsig,
+ \hPq&=\hEq+\hbpq\cdot\bsig=\hP_0-qA,
    \tag*{\eqref{eq:mechanical-paravector}}\\
  (\hbpq\cdot\bsig)^2&=\hbpq^2-q\bBf\cdot\bsig,
    \tag*{\eqref{eq:kinetic-sigma-square}}\\
