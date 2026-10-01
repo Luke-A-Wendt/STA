@@ -55,7 +55,7 @@
 \newcommand{\bE}{\bm{E}}
 \newcommand{\bBf}{\bm{B}}
 \newcommand{\bJ}{\bm{J}}
-\newcommand{\bp}{\bm{p}}
+\newcommand{\bp}{\bm{P}}
 \newcommand{\bM}{\bm{M}}
 \newcommand{\bN}{\bm{N}}
 \newcommand{\bI}{\bm{I}}
@@ -64,11 +64,11 @@
 \newcommand{\hD}{\hat{\bm{D}}}
 \newcommand{\hE}{\hat E}
 \newcommand{\hbp}{\hat{\bp}}
-\newcommand{\hP}{\hat{\mathcal{P}}}
+\newcommand{\hP}{\hat{P}}
 \newcommand{\hDq}{\hat{\bm{D}}_q}
 \newcommand{\hEq}{\hat E_q}
 \newcommand{\hbpq}{\hat{\bp}_q}
-\newcommand{\hPq}{\hat{\mathcal{P}}_q}
+\newcommand{\hPq}{\hat{P}_q}
 \newcommand{\hH}{\hat H}
 \newcommand{\hOmega}{\hat\Omega}
 \newcommand{\pdr}{\partial_{\br}}
@@ -315,8 +315,8 @@ f(Z)&=f(\lambda_-)\Pi_-+f(\lambda_+)\Pi_+.
 \subsection*{\hyperref[sec:kinematics]{Spacetime from the determinant}}
 
 For $m\in\R_{>0}$, a future-directed massive particle has $t,s,E\in\R$,
-$\bm r,\bm v,\bm p\in\R^3$, $\bm v^2<1$, and $\gamma\ge1$.
-Proper time and four-momentum follow from $X,U,\mathcal P\in\R\oplus\R^3$,
+$\bm r,\bm v,\bm{P}\in\R^3$, $\bm v^2<1$, and $\gamma\ge1$.
+Proper time and four-momentum follow from $X,U,P\in\R\oplus\R^3$,
 with four-velocity $U$.
 Spacetime increment and proper-time interval:
 \[
@@ -358,45 +358,49 @@ U:=\frac{\mathrm dX}{\mathrm ds}
 &=\gamma(1+\bm{v}\cdot\bsig).
 \end{aligned}
 \]
-For $X,U,\mathcal P\in\R\oplus\R^3$, proper-time normalization gives
+For $X,U,P\in\R\oplus\R^3$, proper-time normalization gives
 \[
 \det U=\det\!\left(\frac{\mathrm dX}{\mathrm ds}\right)
 =\frac{\det(\mathrm dX)}{\mathrm ds^2}=1.
 \]
 
-For energy $E$ and momentum $\bm{p}$, the four-momentum is
+For energy $E$ and momentum $\bm{P}$, the four-momentum is
 \[
-\mathcal{P}:=mU=E+\bm{p}\cdot\bsig.
+P:=mU=E+\bm{P}\cdot\bsig.
 \]
 For constant $m\in\R_{>0}$, the determinant scales quadratically:
 \[
-\det\mathcal P=\det(mU)=m^2\det U=m^2.
+\det P=\det(mU)=m^2\det U=m^2.
 \]
 
 \[
-\det\mathcal{P}=E^2-\bm{p}^2=m^2.
+\det P=E^2-\bm{P}^2=m^2.
 \]
 
 \clearpage
-\subsection*{\hyperref[eq:maxwell]{Maxwell's four equations in one}}
+\subsection*{\hyperref[eq:maxwell]{Maxwell} in one equation}
 
-For $\rho\in\R$ and $\bm E,\bm B,\bm J\in\R^3$, combine the electric field $\bm E$ and magnetic field $\bm B$ using the paravector derivative:
+Combine the electric field $\bE\in\R^3$ and magnetic field $\bBf\in\R^3$ into the complex electromagnetic field $\bF\in\C^3$ and its paravector $F\in\{0\}\oplus\C^3$:
 \[
-\begin{gathered}
-\mathcal{F}:=(\bm{E}+\ii\bm{B})\cdot\bsig,\qquad
-\mathcal{D}:=\rho+\bm{J}\cdot\bsig,\\[4pt]
-\partial:=\partial_t+\partial_{\bm{r}}\cdot\bsig,\qquad
-\mathcal{D}^*=\rho-\bm{J}\cdot\bsig.
-\end{gathered}
+\bF:=\bE+\ii\bBf,\qquad F:=\bF\cdot\bsig.
 \]
 
-Here $\mathcal F\in\{0\}\oplus\C^3$ and $\mathcal D\in\R\oplus\R^3$.
+Combine the charge density $\rho\in\R$ and current density $\bJ\in\R^3$ into the paravector density $J\in\R\oplus\R^3$:
+\[
+J:=\rho+\bJ\cdot\bsig,\qquad J^*=\rho-\bJ\cdot\bsig.
+\]
+
+Define the paravector derivative, with gradient $\partial_{\br}$:
+\[
+\partial:=\partial_t+\partial_{\br}\cdot\bsig,\qquad
+\partial^*=\partial_t-\partial_{\br}\cdot\bsig.
+\]
 The symbols $\partial$, $\partial^*$, and $\Box$ denote differential operators.
-$\rho$ is charge density, $\bm J$ current density, and $\partial_{\bm r}$ the gradient.
+\hyperref[eq:maxwell]{Maxwell's equations} are given by
 \[
-\boxed{\partial \mathcal{F}=\mathcal{D}^*}
+\boxed{\partial F=J^*}
 \]
-This boxed equation gives \hyperref[eq:maxwell]{Maxwell's equations} component by component:
+with components:
 \[
 \begin{aligned}
 \text{Real scalar:}\quad &\partial_{\bm{r}}\cdot\bm{E}=\rho,\\
@@ -406,16 +410,16 @@ This boxed equation gives \hyperref[eq:maxwell]{Maxwell's equations} component b
 \end{aligned}
 \]
 
-Applying $\partial^{*}=\partial_t-\partial_{\bm{r}}\cdot\bsig$ gives the d'Alembertian and the sourced wave equations:
+Applying $\partial^{*}$ gives the d'Alembertian and the sourced wave equations:
 \[
 \begin{aligned}
 \Box&:=\partial^{*}\partial=\partial_t^2-\partial_{\bm{r}}^2,\\
-\partial^{*}(\partial \mathcal{F})&=\Box \mathcal{F}=\partial^{*}\mathcal{D}^*.
+\partial^{*}(\partial F)&=\Box F=\partial^{*}J^*.
 \end{aligned}
 \]
 
 \[
-\boxed{\Box \mathcal{F}^*=\partial\mathcal{D}}
+\boxed{\Box F^*=\partial J}
 \]
 
 This boxed equation gives \hyperref[eq:charge-continuity]{charge conservation} and the \hyperref[eq:maxwell-wave]{field wave equations} component by component:
@@ -429,12 +433,12 @@ This boxed equation gives \hyperref[eq:charge-continuity]{charge conservation} a
 \end{aligned}
 \]
 
-In vacuum, $\Box \mathcal{F}=0$.
+In vacuum, $\Box F=0$.
 
 The same field gives the \hyperref[eq:lorentz-momentum]{Lorentz force} and
 its rate of work on a particle of charge $q\in\R$ and velocity $\bm v\in\R^3$:
 \[
- \frac{\mathrm d\bm{p}}{\mathrm dt}
+ \frac{\mathrm d\bm{P}}{\mathrm dt}
  =q(\bm{E}+\bm{v}\times\bm{B}),\qquad
  \frac{\mathrm dE}{\mathrm dt}=q\bm{v}\cdot\bm{E}.
 \]
@@ -445,13 +449,13 @@ its rate of work on a particle of charge $q\in\R$ and velocity $\bm v\in\R^3$:
 
 Define the real four-potential from $V\in\R$ and $\bm A\in\R^3$, with gauge scalar $S\in\R$:
 \[
-\mathcal{A}:=V+\bm{A}\cdot\bsig\in\R\oplus\R^3,
-\qquad S:=\mathrm{sc}(\partial\mathcal{A}).
+A:=V+\bm{A}\cdot\bsig\in\R\oplus\R^3,
+\qquad S:=\mathrm{sc}(\partial A).
 \]
 
 Fields from the potential:
 \[
-\boxed{\partial\mathcal{A}=S+\mathcal{F}^{*}}
+\boxed{F^{*}=\partial A-S}
 \]
 
 Its components give
@@ -466,14 +470,14 @@ Its components give
 
 Source equations in any gauge:
 \[
-\Box\mathcal{A}=\partial^{*}(\partial\mathcal{A})
-=\partial^{*}(S+\mathcal{F}^{*})
-=\partial^{*}S+(\partial \mathcal{F})^{*}.
+\Box A=\partial^{*}(\partial A)
+=\partial^{*}(S+F^{*})
+=\partial^{*}S+(\partial F)^{*}.
 \]
 
 Using Maxwell's equation gives
 \[
-\boxed{\Box\mathcal{A}=\partial^{*}S+\mathcal{D}}
+\boxed{\Box A=\partial^{*}S+J}
 \]
 
 Its components give
@@ -489,9 +493,9 @@ Its components give
 Gauge invariance: for a scalar gauge function $\lambda\in\R$,
 \[
 \begin{aligned}
-\mathcal{A}'&:=\mathcal{A}+\partial^{*}\lambda,\\
+A'&:=A+\partial^{*}\lambda,\\
 S'&=S+\Box\lambda,\\
-\mathcal{F}'&=\mathcal{F}.
+F'&=F.
 \end{aligned}
 \]
 
@@ -588,7 +592,7 @@ Hence every free Dirac solution satisfies Klein--Gordon.
 \subsection*{\hyperref[eq:dirac-field]{Dirac with an electromagnetic potential}}
 
 For constant mass $m\in\R_{>0}$ and charge $q\in\R$, minimal coupling
-to $\mathcal A=V+\bm A\cdot\bsig\in\R\oplus\R^3$, with
+to $A=V+\bm A\cdot\bsig\in\R\oplus\R^3$, with
 $V\in\R$, $\bm A\in\R^3$, defines operators of the same types as in the free case
 \[
 \begin{aligned}
@@ -598,10 +602,10 @@ $V\in\R$, $\bm A\in\R^3$, defines operators of the same types as in the free cas
 \end{aligned}
 \]
 \[
-\boxed{\hPq=\hP-q\mathcal{A}=\ii\partial^{*}-q\mathcal{A}.}
+\boxed{\hPq=\hP-qA=\ii\partial^{*}-qA.}
 \]
 
-At $q=0$, the coupled operators reduce to the canonical ones: $\hat E_0=\hE$, $\hbp_0=\hbp$, and $\hat{\mathcal{P}}_0=\hP$. The coupled Dirac operator is
+At $q=0$, the coupled operators reduce to the canonical ones: $\hat E_0=\hE$, $\hbp_0=\hbp$, and $\hat{P}_0=\hP$. The coupled Dirac operator is
 \[
 \begin{aligned}
 \hDq(m)&:=\Wop(\hPq)-m\bI\\
@@ -629,7 +633,7 @@ The coupled operators obey these field identities:
 &=-\ii q\bm{E}\cdot\bsig,\\
 (\hbpq\cdot\bsig)^2
 &=\hbpq^2-q\bm{B}\cdot\bsig,\\
-\hbpq^2+\ii q\mathcal{F}
+\hbpq^2+\ii qF
 &=(\hbpq\cdot\bsig)^2
 -[\hbpq\cdot\bsig,\hEq].
 \end{aligned}
@@ -639,7 +643,7 @@ When derivatives act on the potentials as well as the wavefunction, the opposite
 \[
 \hDq(-m)\hDq(m)
 =(\hEq^2-\hbpq^2-m^2)\bI
--\ii q\begin{pmatrix}\mathcal{F}^{*}&0\\0&\mathcal{F}\end{pmatrix}.
+-\ii q\begin{pmatrix}F^{*}&0\\0&F\end{pmatrix}.
 \]
 
 Every Dirac solution satisfies $\hDq(-m)\hDq(m)\bpsi=0$. Setting $q=0$ recovers the free Klein--Gordon equation.
@@ -2364,7 +2368,7 @@ $\br\in\R^3$.  A massive particle follows a future-directed
 time-like path $\br(t)$; $s\in\R$ denotes its proper time.
 Throughout this section,
 \[
- X,U,\mathcal P\in\R\oplus\R^3,\qquad
+ X,U,P\in\R\oplus\R^3,\qquad
  \bv,\bp,\ba\in\R^3,\qquad E,m,\gamma\in\R,
 \]
 with $m>0$, $\bv^2<1$, $E>0$, and $\gamma\ge1$ for a massive particle.
@@ -2441,22 +2445,22 @@ takes this tangent to rest.
 
 For constant real mass $m>0$, define the real four-momentum~\citeat{tong-relativity}{Eq.~(7.24)}{page=142}
 \begin{equation}
- \mathcal{P}:=mU=E+\bp\cdot\bsig.
+ P:=mU=E+\bp\cdot\bsig.
  \label{eq:four-momentum}
 \end{equation}
 The energy, momentum, and inverse are
 \begin{align*}
- E&=\scpart {\mathcal{P}}=m\gamma,\\
- \bp&=\vecpart {\mathcal{P}}=m\gamma\bv,\\
- \mathcal{P}^{-1}&=\frac{E-\bp\cdot\bsig}{m^2}.
+ E&=\scpart {P}=m\gamma,\\
+ \bp&=\vecpart {P}=m\gamma\bv,\\
+ P^{-1}&=\frac{E-\bp\cdot\bsig}{m^2}.
 \end{align*}
 Since $\det U=1$ and $m$ is a real scalar,
 \[
- \det\mathcal P=\det(mU)=m^2\det U=m^2.
+ \det P=\det(mU)=m^2\det U=m^2.
 \]
 Thus the determinant gives the mass shell~\citeat{tong-relativity}{Eq.~(7.30)}{page=143}
 \begin{equation}
- E^2-\bp^2=\det \mathcal{P}=m^2.
+ E^2-\bp^2=\det P=m^2.
  \label{eq:mass-shell}
 \end{equation}
 For a massive particle of finite energy,
@@ -2465,7 +2469,7 @@ For a massive particle of finite energy,
 \]
 Approaching light speed requires unbounded energy.
 A massless path has no proper-time velocity.  Define its momentum directly
-as a future null paravector $\mathcal{P}=E+\bp\cdot\bsig$, with $E>0$ and
+as a future null paravector $P=E+\bp\cdot\bsig$, with $E>0$ and
 $E^2=\bp^2$; it has no inverse.
 
 \subsection{Proper acceleration}
@@ -2671,39 +2675,39 @@ separation cannot carry a causal signal
 \subsection{Free-particle action}
 
 Recall real $m>0$, $\bv=\dd\br/\dd t$, and $\dd s=\dd t/\gamma$.
-Here $\mathcal L:\R\times\R^3\times\{\bv\in\R^3:\bv^2<1\}\to\R$
+Here $L:\R\times\R^3\times\{\bv\in\R^3:\bv^2<1\}\to\R$
 is the particle Lagrangian; the boost factor is $L\in\R\oplus\R^3$.
 $\partial_{\bv}$ denotes its vector derivative with respect to the three
 independent velocity components.
 The free action is the physical choice~\citeat{tong-em}{Eqs.~(5.38)--(5.39)}{page=130}
 \begin{equation}
- \int \mathcal{L}\dd t=-m\int\dd s.
+ \int L\dd t=-m\int\dd s.
  \label{eq:free-particle-action}
 \end{equation}
 Using $\dd s=\dd t/\gamma$ gives the Lagrangian
 \begin{equation*}
- \mathcal{L}=-m\sqrt{1-\bv^2}=-m/\gamma.
+ L=-m\sqrt{1-\bv^2}=-m/\gamma.
 \end{equation*}
 For endpoint-fixed real path variations $\delta\br(t)$, varying the
 Lagrangian and integrating by parts gives
 \[
- \delta\int \mathcal{L}\dd t
- =\int\left(\pdr \mathcal{L}-\frac{\dd}{\dd t}\partial_{\bv}\mathcal{L}\right)
+ \delta\int L\dd t
+ =\int\left(\pdr L-\frac{\dd}{\dd t}\partial_{\bv}L\right)
  \cdot\delta\br\dd t.
 \]
 Stationarity for every variation yields the Euler--Lagrange equation.
-With Hamiltonian $H:=\bv\cdot\partial_{\bv}\mathcal{L}-\mathcal{L}\in\R$, the chain rule gives
+With Hamiltonian $H:=\bv\cdot\partial_{\bv}L-L\in\R$, the chain rule gives
 \begin{align}
- \frac{\dd}{\dd t}\partial_{\bv}\mathcal{L}&=\pdr \mathcal{L}, \label{eq:euler-lagrange}\\
+ \frac{\dd}{\dd t}\partial_{\bv}L&=\pdr L, \label{eq:euler-lagrange}\\
  \frac{\dd H}{\dd t}
- &=\bv\cdot\left(\frac{\dd}{\dd t}\partial_{\bv}\mathcal{L}-\pdr \mathcal{L}\right)
-   -\partial_t\mathcal{L}=-\partial_t\mathcal{L}. \label{eq:hamiltonian-energy-balance}
+ &=\bv\cdot\left(\frac{\dd}{\dd t}\partial_{\bv}L-\pdr L\right)
+   -\partial_tL=-\partial_tL. \label{eq:hamiltonian-energy-balance}
 \end{align}
 By \eqref{eq:euler-lagrange} and \eqref{eq:hamiltonian-energy-balance},
 spatial and temporal translation invariance conserve canonical
 momentum and energy.  For the free action,
 \begin{align*}
- \partial_{\bv}\mathcal{L}&=m\gamma\bv=\bp,\\
+ \partial_{\bv}L&=m\gamma\bv=\bp,\\
  H&=m\gamma\bv^2+m/\gamma=m\gamma=E.
 \end{align*}
 Write $v=\lVert\bv\rVert\ll1$.  Here $O(v^n)$ denotes terms bounded
@@ -2711,7 +2715,7 @@ by a constant times $v^n$ as $v\to0$.  The binomial series gives
 \begin{align*}
  \sqrt{1-v^2}&=1-\tfrac12v^2+O(v^4),\\
  \gamma&=1+\tfrac12v^2+O(v^4),\\
- \mathcal{L}&=-m+\tfrac12mv^2+O(mv^4),\\
+ L&=-m+\tfrac12mv^2+O(mv^4),\\
  H&=m+\tfrac12mv^2+O(mv^4).
 \end{align*}
 The exact kinetic energy above rest is
@@ -2838,20 +2842,22 @@ the congruence law.
 
 All coefficient fields depend on real inertial coordinates $(t,\br)$:
 $V,\rho:\R^4\to\R$ are scalar fields and
-$\bE,\bBf,\bA,\bJ:\R^4\to\R^3$ are vector fields.  Define~\citeat{baylis-intro}{Eq.~(23)}{page=19}
+$\bE,\bBf,\bA,\bJ:\R^4\to\R^3$ are vector fields, and $\bF:\R^4\to\C^3$ is the complex field vector.  Define~\citeat{baylis-intro}{Eq.~(23)}{page=19}
 \begin{align}
- \mathcal{F}&=(\bE+\ii\bBf)\cdot\bsig
- &&\text{electric and magnetic fields},
+ \bF&:=\bE+\ii\bBf
+ &&\text{complex field vector}, \notag\\
+ F&:=\bF\cdot\bsig
+ &&\text{field paravector},
  \label{eq:em-field-definition}\\
- \mathcal{A}&=V+\bA\cdot\bsig
+ A&=V+\bA\cdot\bsig
  &&\text{scalar and vector potentials}, \notag\\
- \mathcal{D}&=\rho+\bJ\cdot\bsig
+ J&=\rho+\bJ\cdot\bsig
  &&\text{charge and current densities}. \notag
 \end{align}
 Their value spaces are
 \[
- \mathcal A,\mathcal D\in\R\oplus\R^3,\qquad
- \mathcal F\in\{0\}\oplus\C^3.
+ A,J\in\R\oplus\R^3,\qquad
+ F\in\{0\}\oplus\C^3.
 \]
 Recall $\partial=\partial_t+\bsig\cdot\pdr$ and
 $\partial^*\partial=\Box=\partial_t^2-\pdr^2$.
@@ -2859,7 +2865,7 @@ $\partial^*\partial=\Box=\partial_t^2-\pdr^2$.
 The dot/cross product~\eqref{eq:vector-product} combines metric and
 orientation.  With a spatial derivative it gives divergence and curl,
 packing the six real electromagnetic components into one complex field
-$\mathcal{F}$.
+$F$.
 The product explains the compact form; Maxwell dynamics remains physical
 input, derived from an action in Section~\ref{sec:maxwell-action}.
 
@@ -2867,12 +2873,12 @@ input, derived from an action in Section~\ref{sec:maxwell-action}.
 
 Maxwell's four equations are the single field law~\citeat{hestenes-spacetime}{Eq.~(177)}{page=29}
 \begin{equation}
- \boxed{\partial \mathcal{F}=\mathcal{D}^*=\rho-\bJ\cdot\bsig.}
+ \boxed{\partial F=J^*=\rho-\bJ\cdot\bsig.}
  \label{eq:maxwell}
 \end{equation}
 The product rule expands its left side into
 \begin{align*}
- \partial \mathcal{F}={}&\underbrace{\pdr\cdot\bE}_{\text{real scalar}}
+ \partial F={}&\underbrace{\pdr\cdot\bE}_{\text{real scalar}}
  +\underbrace{\ii\pdr\cdot\bBf}_{\text{imaginary scalar}}\\
  &+\underbrace{(\partial_t\bE-\pdr\times\bBf)\cdot\bsig}_{\text{real vector}}\\
  &+\underbrace{\ii(\partial_t\bBf+\pdr\times\bE)\cdot\bsig}_{\text{imaginary vector}}.
@@ -2889,16 +2895,16 @@ Equations~\eqref{eq:gauss-electric}--\eqref{eq:faraday} are Gauss'
 electric and magnetic laws, Amp\`ere--Maxwell's law, and Faraday's law.
 Applying $\partial^*$ to \eqref{eq:maxwell} and taking the star gives~\citeat{hestenes-spacetime}{Eq.~(152)}{page=26}
 \begin{equation}
- \boxed{\Box \mathcal{F}^*=\partial\mathcal{D}}
+ \boxed{\Box F^*=\partial J}
  \label{eq:maxwell-wave}
 \end{equation}
 Expanding the source derivative,
 \[
- \partial\mathcal{D}
+ \partial J
  =(\partial_t\rho+\pdr\cdot\bJ)
  +(\partial_t\bJ+\pdr\rho+\ii\pdr\times\bJ)\cdot\bsig.
 \]
-The scalar part vanishes because $\mathcal{F}$ is scalar-free.  Thus~\citeat{tong-em}{Eq.~(1.1)}{page=12}
+The scalar part vanishes because $F$ is scalar-free.  Thus~\citeat{tong-em}{Eq.~(1.1)}{page=12}
 \begin{align}
  \partial_t\rho+\pdr\cdot\bJ&=0,
  \label{eq:charge-continuity}\\
@@ -2907,21 +2913,21 @@ The scalar part vanishes because $\mathcal{F}$ is scalar-free.  Thus~\citeat{ton
 \end{align}
 Equation~\eqref{eq:charge-continuity} is charge conservation;
 \eqref{eq:electric-wave} and \eqref{eq:magnetic-wave} are the sourced field waves.
-In vacuum, $\mathcal{D}=0$ and both fields obey the free wave equation.
+In vacuum, $J=0$ and both fields obey the free wave equation.
 
 \subsection{Potentials and gauge freedom}
 
-Recall the real potential $\mathcal{A}=V+\bA\cdot\bsig$.  Its derivative is
+Recall the real potential $A=V+\bA\cdot\bsig$.  Its derivative is
 \begin{align*}
- \partial\mathcal{A}={}&(\partial_tV+\pdr\cdot\bA)
+ \partial A={}&(\partial_tV+\pdr\cdot\bA)
  +(\partial_t\bA+\pdr V)\cdot\bsig
  +\ii(\pdr\times\bA)\cdot\bsig.
 \end{align*}
 Define $S:=\partial_tV+\pdr\cdot\bA\in\R$.
-Thus $\partial\mathcal A=S+\mathcal F^*\in\R\oplus\C^3$.  Identifying the
-remaining components with $\mathcal{F}^*$ gives~\citeat{tong-em}{p.~105}{page=113}
+Thus $\partial A=S+F^*\in\R\oplus\C^3$.  Identifying the
+remaining components with $F^*$ gives~\citeat{tong-em}{p.~105}{page=113}
 \begin{align}
- \partial\mathcal{A}&=S+\mathcal{F}^*, \label{eq:potential-field}\\
+ \partial A&=S+F^*, \label{eq:potential-field}\\
  \bE&=-\partial_t\bA-\pdr V, \label{eq:electric-potential}\\
  \bBf&=\pdr\times\bA.
  \label{eq:magnetic-potential}
@@ -2932,12 +2938,12 @@ Equation~\eqref{eq:potential-field} separates the gauge scalar from the field;
 \par\Needspace{10\baselineskip}
 Applying $\partial^*$ gives
 \begin{equation*}
- \Box\mathcal{A}=\partial^*(\partial\mathcal{A})
- =\partial^*(S+\mathcal{F}^*)=\partial^*S+(\partial \mathcal{F})^*.
+ \Box A=\partial^*(\partial A)
+ =\partial^*(S+F^*)=\partial^*S+(\partial F)^*.
 \end{equation*}
 Using \eqref{eq:maxwell} gives~\citeat{tong-em}{Eq.~(6.1)}{page=142}
 \begin{equation*}
- \boxed{\Box\mathcal{A}=\partial^*S+\mathcal{D}.}
+ \boxed{\Box A=\partial^*S+J.}
 \end{equation*}
 Its scalar and vector components are
 \begin{align*}
@@ -2947,10 +2953,10 @@ Its scalar and vector components are
 These source equations hold before gauge fixing.
 For a gauge function $\lambda:\R^4\to\R$, let~\citeat{tong-em}{Eq.~(6.2)}{page=142}
 \begin{equation*}
- \mathcal{A}':=\mathcal{A}+\partial^*\lambda.
+ A':=A+\partial^*\lambda.
 \end{equation*}
 Differentiating gives
-$\partial\mathcal{A}'=\partial\mathcal{A}+\Box\lambda$.  Only the scalar changes: $S'=S+\Box\lambda$, while $\mathcal{F}'=\mathcal{F}$.
+$\partial A'=\partial A+\Box\lambda$.  Only the scalar changes: $S'=S+\Box\lambda$, while $F'=F$.
 In the Lorenz gauge $S=0$, the source equations reduce to
 $\Box V=\rho$ and $\Box\bA=\bJ$~\citeat{tong-em}{Eq.~(6.4)}{page=143}.
 
@@ -2958,12 +2964,12 @@ $\Box V=\rho$ and $\Box\bA=\bJ$~\citeat{tong-em}{Eq.~(6.4)}{page=143}.
 \label{sec:maxwell-action}
 
 For real scalar potential $V(t,\br)$ and vector potential
-$\bA(t,\br)$, write $\mathcal{A}=V+\bA\cdot\bsig$.  With prescribed conserved
-current $\mathcal{D}=\rho+\bJ\cdot\bsig$,
+$\bA(t,\br)$, write $A=V+\bA\cdot\bsig$.  With prescribed conserved
+current $J=\rho+\bJ\cdot\bsig$,
 Maxwell dynamics follows from the scalar Lagrangian density
-$\mathcal L:\R^4\to\R$~\citeat{tong-em}{Eq.~(5.42)}{page=133}\,\citeat{tong-em}{Eq.~(5.43)}{page=134}
+$L:\R^4\to\R$~\citeat{tong-em}{Eq.~(5.42)}{page=133}\,\citeat{tong-em}{Eq.~(5.43)}{page=134}
 \begin{equation}
- \mathcal{L}=\tfrac12\repart{\mathcal{F}^2}-\scpart{\mathcal{A}^*\mathcal{D}}
+ L=\tfrac12\repart{F^2}-\scpart{A^*J}
   =\tfrac12(\bE^2-\bBf^2)-\rho V+\bJ\cdot\bA.
  \label{eq:maxwell-lagrangian}
 \end{equation}
@@ -2975,7 +2981,7 @@ the induced field variations $\delta\bE,\delta\bBf\in\R^3$ satisfy
 \end{align*}
 Integration by parts gives
 \begin{equation*}
- \delta\int \mathcal{L}\dd t\dd^3\br
+ \delta\int L\dd t\dd^3\br
  =\int\left((\pdr\cdot\bE-\rho)\delta V
  +(\partial_t\bE-\pdr\times\bBf+\bJ)\cdot\delta\bA\right)\dd t\dd^3\br.
 \end{equation*}
@@ -2986,14 +2992,14 @@ Together they recover \eqref{eq:maxwell}.
 
 \subsection{Field invariants}
 
-Since $\mathcal F\in\{0\}\oplus\C^3$, its adjugate is $-\mathcal F$.
-Its square is a complex scalar, $\mathcal F^2\in\C$~\citeat{baylis-applications}{p.~106}{page=117}
+Since $F\in\{0\}\oplus\C^3$, its adjugate is $-F$.
+Its square is a complex scalar, $F^2\in\C$~\citeat{baylis-applications}{p.~106}{page=117}
 \begin{equation}
- \mathcal{F}^2=-\det \mathcal{F}=\bE^2-\bBf^2+2\ii\bE\cdot\bBf.
+ F^2=-\det F=\bE^2-\bBf^2+2\ii\bE\cdot\bBf.
  \label{eq:field-invariants}
 \end{equation}
 For a complex \hyperref[eq:unit-paravector]{unit paravector} $T$, the field similarity
-$\mathcal{F}'=T\mathcal{F}T^{-1}$ preserves this scalar by \eqref{eq:det-similarity}.
+$F'=TFT^{-1}$ preserves this scalar by \eqref{eq:det-similarity}.
 Physical rotations and boosts use
 $R=\exp(-\ii\theta\bu\cdot\bsig/2)$ and
 $L=\exp(-\theta\bu\cdot\bsig/2)$, respectively, with
@@ -3030,22 +3036,22 @@ $\bBf'=0$ and $\bE'=0$, respectively.
 Recall the real proper velocity $U=\dd X/\dd s=\gamma(1+\bv\cdot\bsig)$,
 a \hyperref[eq:unit-paravector]{unit paravector} with $UU^{-1}=1$.
 Let $q\in\R$ be charge and $m>0$ constant mass.  The real momentum is
-$\mathcal{P}=mU=E+\bp\cdot\bsig$, with $E=m\gamma$ and $\bp=m\gamma\bv$.
-The real particle Lagrangian $\mathcal{L}$ is fixed by the action~\citeat{tong-em}{Eq.~(5.41)}{page=132}
+$P=mU=E+\bp\cdot\bsig$, with $E=m\gamma$ and $\bp=m\gamma\bv$.
+The real particle Lagrangian $L$ is fixed by the action~\citeat{tong-em}{Eq.~(5.41)}{page=132}
 \begin{equation}
- \int \mathcal{L}\dd t=-m\int\dd s-q\int\scpart{\mathcal{A}^*U}\dd s.
+ \int L\dd t=-m\int\dd s-q\int\scpart{A^*U}\dd s.
  \label{eq:charged-particle-action}
 \end{equation}
-Since $\scpart{\mathcal{A}^*U}=\gamma(V-\bv\cdot\bA)$, the Lagrangian is
+Since $\scpart{A^*U}=\gamma(V-\bv\cdot\bA)$, the Lagrangian is
 \begin{equation*}
- \mathcal{L}=-m/\gamma-qV+q\bv\cdot\bA.
+ L=-m/\gamma-qV+q\bv\cdot\bA.
 \end{equation*}
 Its Euler--Lagrange terms are
 \begin{align*}
- \partial_{\bv}\mathcal{L}&=\bp+q\bA,\\
- \frac{\dd}{\dd t}\partial_{\bv}\mathcal{L}
+ \partial_{\bv}L&=\bp+q\bA,\\
+ \frac{\dd}{\dd t}\partial_{\bv}L
  &=\frac{\dd\bp}{\dd t}+q\partial_t\bA+q(\bv\cdot\pdr)\bA,\\
- \pdr \mathcal{L}&=-q\pdr V+q\pdr(\bv\cdot\bA).
+ \pdr L&=-q\pdr V+q\pdr(\bv\cdot\bA).
 \end{align*}
 Here spatial differentiation holds the independent velocity argument fixed.
 Using
@@ -3059,13 +3065,13 @@ Here \eqref{eq:electric-potential} and \eqref{eq:magnetic-potential}
 turn the potential derivatives into the fields.
 The Hamiltonian is
 \begin{equation}
- H=\bv\cdot(\bp+q\bA)-\mathcal{L}=E+qV.
+ H=\bv\cdot(\bp+q\bA)-L=E+qV.
  \label{eq:charged-hamiltonian}
 \end{equation}
 Using \eqref{eq:hamiltonian-energy-balance} in \eqref{eq:charged-hamiltonian},
 \begin{align*}
  \frac{\dd E}{\dd t}+q\partial_tV+q\bv\cdot\pdr V
- &=-\partial_t\mathcal{L}=q\partial_tV-q\bv\cdot\partial_t\bA.
+ &=-\partial_tL=q\partial_tV-q\bv\cdot\partial_t\bA.
 \end{align*}
 Canceling $q\partial_tV$ and using \eqref{eq:electric-potential} gives~\citeat{tong-em}{p.~116}{page=124}
 \begin{equation}
@@ -3081,7 +3087,7 @@ and the force unchanged.
 Now expand the complex product of the field and proper velocity:
 \begin{equation}
  \begin{aligned}
- \frac{\mathcal{F}U}{\gamma}={}&\bv\cdot\bE
+ \frac{FU}{\gamma}={}&\bv\cdot\bE
    +(\bE+\bv\times\bBf)\cdot\bsig\\
  &+\ii\left(\bv\cdot\bBf
    +(\bBf-\bv\times\bE)\cdot\bsig\right).
@@ -3090,10 +3096,10 @@ Now expand the complex product of the field and proper velocity:
 \end{equation}
 The real scalar and vector parts reproduce
 \eqref{eq:lorentz-energy} and \eqref{eq:lorentz-momentum}.
-Since $\mathcal{P}$ is real and $\dd/\dd s=\gamma\dd/\dd t$, they combine into~\citeat{baylis-charge}{Eq.~(2)}{page=4}
+Since $P$ is real and $\dd/\dd s=\gamma\dd/\dd t$, they combine into~\citeat{baylis-charge}{Eq.~(2)}{page=4}
 \begin{equation}
- \boxed{\frac{\dd \mathcal{P}}{\dd s}
- =q\repart{\mathcal{F}U}=\frac q2(\mathcal{F}U+U\mathcal{F}^{\mathsf H}).}
+ \boxed{\frac{\dd P}{\dd s}
+ =q\repart{FU}=\frac q2(FU+UF^{\mathsf H}).}
  \label{eq:lorentz}
 \end{equation}
 Hermitian extraction enforces real mechanical
@@ -3105,12 +3111,12 @@ need not vanish for an electric charge.
 
 Recall the real proper velocity $U=\dd X/\dd s$, a
 \hyperref[eq:unit-paravector]{unit paravector} with $UU^{-1}=1$ and
-$U^{-1}=U^*$, real momentum $\mathcal{P}=mU$, and coordinate acceleration
+$U^{-1}=U^*$, real momentum $P=mU$, and coordinate acceleration
 $\ba=\dd\bv/\dd t$.  Scalar-part cyclicity proves tangency to the mass shell:
 \begin{align*}
- \scpart{U^*\dd \mathcal{P}/\dd s}
- &=\frac q2\scpart{U^*\mathcal{F}U+\mathcal{F}^{\mathsf H}}\\
- &=\frac q2\left(\scpart {\mathcal{F}}+\scpart{\mathcal{F}^{\mathsf H}}\right)=0.
+ \scpart{U^*\dd P/\dd s}
+ &=\frac q2\scpart{U^*FU+F^{\mathsf H}}\\
+ &=\frac q2\left(\scpart {F}+\scpart{F^{\mathsf H}}\right)=0.
 \end{align*}
 This agrees with $\scpart{U^*\dd U/\dd s}=0$ in
 Section~\ref{sec:proper-acceleration}.
@@ -3130,7 +3136,7 @@ The magnetic term changes momentum without doing work.
 Taking the determinant of the real force gives
 \begin{equation*}
  \begin{aligned}
- -\det\left(\frac{\dd \mathcal{P}}{\dd s}\right)
+ -\det\left(\frac{\dd P}{\dd s}\right)
  &=-m^2\det\left(\frac{\dd U}{\dd s}\right)\\
  &=q^2\gamma^2\left((\bE+\bv\times\bBf)^2-(\bv\cdot\bE)^2\right).
  \end{aligned}
@@ -3141,27 +3147,27 @@ is the squared electric field in the particle's instantaneous rest frame.
 
 \subsection{Energy and momentum flux}
 
-Recall $\mathcal{F}=(\bE+\ii\bBf)\cdot\bsig$.  Its Hermitian product is~\citeat{hestenes-spacetime}{Eq.~(180)}{page=30}
+Recall $F=(\bE+\ii\bBf)\cdot\bsig$.  Its Hermitian product is~\citeat{hestenes-spacetime}{Eq.~(180)}{page=30}
 \begin{equation*}
- \tfrac12\mathcal{F}\mathcal{F}^{\mathsf H}
+ \tfrac12FF^{\mathsf H}
  =\tfrac12(\bE^2+\bBf^2)+(\bE\times\bBf)\cdot\bsig.
 \end{equation*}
 Define $u=(\bE^2+\bBf^2)/2\in\R_{\ge0}$ and the Poynting
 vector $\bS=\bE\times\bBf\in\R^3$.  These coefficients are frame-dependent,
-whereas $\mathcal{F}^2$ contains the Lorentz invariants.
+whereas $F^2$ contains the Lorentz invariants.
 The full stress--energy tensor is represented by the real linear map~\citeat{hestenes-spacetime}{Eq.~(167)}{page=28}
 \begin{equation}
- T(N):=\tfrac12\mathcal{F}N\mathcal{F}^{\mathsf H},
+ T(N):=\tfrac12FNF^{\mathsf H},
  \label{eq:electromagnetic-stress-map}
 \end{equation}
 Here $T:\R\oplus\R^3\to\R\oplus\R^3$ is a real-linear map, with
 $N\in\R\oplus\R^3$; $T$ denotes the stress map, not a frame factor.  Its time-direction value is
 $T(1)=u+\bS\cdot\bsig$.  It is future causal because $u\geq0$ and
 \begin{equation*}
- \det(T(1))=u^2-\bS^2=\tfrac14\lVert\det \mathcal{F}\rVert^2\geq0.
+ \det(T(1))=u^2-\bS^2=\tfrac14\lVert\det F\rVert^2\geq0.
 \end{equation*}
 Equality holds for null fields.  Reversing the order gives
-$\mathcal{F}^{\mathsf H}\mathcal{F}=(\mathcal{F}\mathcal{F}^{\mathsf H})^*$: the same energy density and opposite
+$F^{\mathsf H}F=(FF^{\mathsf H})^*$: the same energy density and opposite
 flux.  The transformation of the full map is derived in
 Section~\ref{sec:transformations}.
 
@@ -3180,8 +3186,8 @@ Thus Poynting's energy-balance law is~\citeat{tong-em}{Eq.~(5.45)}{page=136}
  \label{eq:poynting}
 \end{equation}
 Equivalently, the left side is
-$\tfrac12\partial_t\scpart{\mathcal{F}\mathcal{F}^{\mathsf H}}
-+\tfrac12\pdr\cdot\vecpart{\mathcal{F}\mathcal{F}^{\mathsf H}}$.
+$\tfrac12\partial_t\scpart{FF^{\mathsf H}}
++\tfrac12\pdr\cdot\vecpart{FF^{\mathsf H}}$.
 The term $\bJ\cdot\bE$ is the power delivered to matter per unit
 volume.
 
@@ -3343,11 +3349,11 @@ $\bp\in\R^3$ is momentum; its magnitude is $h/\lambda$.
 Photoelectric measurements test the energy relation~\citeat{millikan1924}{p.~62}{page=9};
 electron diffraction tests the momentum relation~\citeat{debroglie1929}{p.~255}{page=12}.
 
-For the constant real four-momentum $\mathcal{P}=E+\bp\cdot\bsig$, the
+For the constant real four-momentum $P=E+\bp\cdot\bsig$, the
 complex scalar plane wave is
 \[
  \begin{aligned}
- f(X,\mathcal{P})&:=\exp\!\left(-\ii(\omega t-2\pi\bk\cdot\br)\right)\\
+ f(X,P)&:=\exp\!\left(-\ii(\omega t-2\pi\bk\cdot\br)\right)\\
        &=\exp\!\left(-\frac{\ii}{\hbar}(Et-\bp\cdot\br)\right).
  \end{aligned}
 \]
@@ -3361,12 +3367,12 @@ Thus $\ii\hbar\partial_t$ and $-\ii\hbar\pdr$ represent energy and
 momentum on each mode, and extend to superpositions by linearity.
 Returning to $\hbar=1$ means $h=2\pi$, giving~\citeat{tong-qft}{Eq.~(4.104)}{page=106}
 \begin{equation}
- f(X,\mathcal{P})=\exp\!\left(-\ii(Et-\bp\cdot\br)\right).
+ f(X,P)=\exp\!\left(-\ii(Et-\bp\cdot\br)\right).
  \label{eq:plane-wave}
 \end{equation}
 The two eigenvalue equations combine into
 \begin{equation}
- \ii\partial^*f=\mathcal{P}f.
+ \ii\partial^*f=Pf.
  \label{eq:momentum-operator-eigenvalues}
 \end{equation}
 
@@ -3386,9 +3392,9 @@ On spinor fields, $\hP$ preserves the fixed ideal of
 \eqref{eq:axis-ideal-components}. The coupled operators have the same types.
 
 In a field, recall the real potential paravector
-$\mathcal{A}(t,\br)=V(t,\br)+\bA(t,\br)\cdot\bsig$:
+$A(t,\br)=V(t,\br)+\bA(t,\br)\cdot\bsig$:
 $V:\R^4\to\R$, $\bA:\R^4\to\R^3$, and
-$\mathcal A:\R^4\to\R\oplus\R^3$.
+$A:\R^4\to\R\oplus\R^3$.
 The charge is $q\in\R$.  The particle action gives canonical energy
 $E+qV$ and momentum $\bp+q\bA$; identifying them with translation
 operators defines the gauge-covariant mechanical operators~\citeat{gurtler-hestenes}{Eqs.~(2.11)--(2.12)}{page=6}
@@ -3400,14 +3406,14 @@ operators defines the gauge-covariant mechanical operators~\citeat{gurtler-heste
  \hPq&:=\hEq+\hbpq\cdot\bsig. \notag
 \end{align}
 At $q=0$, the coupled operators reduce to the canonical ones:
-$\hat E_0=\hE$, $\hat{\bp}_0=\hbp$, and $\hat{\mathcal{P}}_0=\hP$.
+$\hat E_0=\hE$, $\hat{\bp}_0=\hbp$, and $\hat{P}_0=\hP$.
 Here $\hEq$ includes rest energy.  Hats distinguish named differential
 operators from physical values and mode eigenvalues $E,\bp$.
 The derivative symbols $\partial$, $\pdr$, and $\Box$ remain unhatted.
 Fields obtained by differentiating potentials are coefficient fields,
 not differential operators.  The operators act to the right and combine as
 \begin{equation}
- \boxed{\hPq=\hP-q\mathcal{A}=\ii\partial^*-q\mathcal{A}.}
+ \boxed{\hPq=\hP-qA=\ii\partial^*-qA.}
  \label{eq:mechanical-paravector}
 \end{equation}
 Its adjugate reverses the vector part without conjugating $\ii$.
@@ -3423,16 +3429,16 @@ Reversing the order gives the same result.
 Recall the real electric and magnetic fields from
 \eqref{eq:electric-potential} and \eqref{eq:magnetic-potential}, and
 $S=\partial_tV+\pdr\cdot\bA$, the real scalar in
-\eqref{eq:potential-field}.  The real potential is $\mathcal{A}=V+\bA\cdot\bsig$;
-$\mathcal{F}=(\bE+\ii\bBf)\cdot\bsig$ is a complex vector paravector.
+\eqref{eq:potential-field}.  The real potential is $A=V+\bA\cdot\bsig$;
+$F=(\bE+\ii\bBf)\cdot\bsig$ is a complex vector paravector.
 
 Apply the operators to a differentiable complex amplitude.
 The product rule cancels all derivatives of the amplitude in the
-commutators; writing $\hat p_{q,j}:=(\hbpq)_j$ for Cartesian components
+commutators; writing $\hat P_{q,j}:=(\hbpq)_j$ for Cartesian components
 $j,k=1,2,3$,
 \begin{align*}
- [\hEq,\hat p_{q,j}]&=-\ii q(\partial_tA_j+\partial_jV)=\ii qE_j,\\
- [\hat p_{q,j},\hat p_{q,k}]&=\ii q(\partial_jA_k-\partial_kA_j),\\
+ [\hEq,\hat P_{q,j}]&=-\ii q(\partial_tA_j+\partial_jV)=\ii qE_j,\\
+ [\hat P_{q,j},\hat P_{q,k}]&=\ii q(\partial_jA_k-\partial_kA_j),\\
  \hbpq\times\hbpq&=\ii q\bBf.
 \end{align*}
 Sigma multiplication and the energy commutator consequently give~\citeat{gurtler-hestenes}{Eq.~(2.13)}{page=6}\,\citeat{gurtler-hestenes}{p.~6}{page=6}
@@ -3450,11 +3456,11 @@ in the ordered products gives
 \begin{align}
  (\hEq+\hbpq\cdot\bsig)(\hEq-\hbpq\cdot\bsig)
  &=\hEq^2-(\hbpq\cdot\bsig)^2-[\hEq,\hbpq\cdot\bsig]\notag\\
- &=\hEq^2-\hbpq^2-\ii q\mathcal{F},
+ &=\hEq^2-\hbpq^2-\ii qF,
  \label{eq:covariant-product-plus}\\[0.35em]
  (\hEq-\hbpq\cdot\bsig)(\hEq+\hbpq\cdot\bsig)
  &=\hEq^2-(\hbpq\cdot\bsig)^2+[\hEq,\hbpq\cdot\bsig]\notag\\
- &=\hEq^2-\hbpq^2-\ii q\mathcal{F}^*.
+ &=\hEq^2-\hbpq^2-\ii qF^*.
  \label{eq:covariant-product-minus}
 \end{align}
 Their common scalar part gives KG; the vector terms give the Dirac
@@ -3465,8 +3471,8 @@ spin coupling.
 
 Let $\psi:\R^4\to\C$ be a scalar field of constant mass $m\in\R_{>0}$.
 The spacetime derivation in Section~\ref{sec:kinematics} gives the real
-momentum $\mathcal P=mU\in\R\oplus\R^3$ and its mass shell
-$\det\mathcal P=E^2-\bp^2=m^2$.
+momentum $P=mU\in\R\oplus\R^3$ and its mass shell
+$\det P=E^2-\bp^2=m^2$.
 Represent $E\in\R$ and $\bp\in\R^3$ by the translation operators
 $\hE=\ii\partial_t$ and $\hbp=-\ii\pdr$ from
 \eqref{eq:canonical-operators}. Imposing the mass shell on the scalar
@@ -3563,7 +3569,7 @@ its branch does not select the frequency sign.
 \subsubsection{Potential}
 Recall the real potentials $V,\bA$, charge $q$, and kinetic operators
 $\hEq=\ii\partial_t-qV$, $\hbpq=-\ii\pdr-q\bA$.
-The real potential paravector is $\mathcal{A}=V+\bA\cdot\bsig$, with real
+The real potential paravector is $A=V+\bA\cdot\bsig$, with real
 scalar $S=\partial_tV+\pdr\cdot\bA$.
 The scalar equation in a field is~\citeat{lenz-quantum}{Eq.~(299)}{page=59}
 \begin{equation}
@@ -3584,7 +3590,7 @@ The product rule gives
 Substituting \eqref{eq:energy-operator-square} and
 \eqref{eq:momentum-operator-square} into \eqref{eq:kg-field} gives
 \begin{equation*}
- \boxed{\left(\Box+\ii qS-q^2\det\mathcal{A}+m^2
+ \boxed{\left(\Box+\ii qS-q^2\det A+m^2
  +2\ii q(V\partial_t+\bA\cdot\pdr)\right)\psi=0.}
 \end{equation*}
 
@@ -3655,7 +3661,7 @@ Using $\Wop(\hP)^2=(\det\hP)\bI=-\Box\bI$ from
  \label{eq:dirac-free-factorization}
 \end{equation}
 Thus every free Dirac solution satisfies the wave form of the mass shell
-$\det \mathcal{P}=E^2-\bp^2=m^2$ in \eqref{eq:mass-shell}:
+$\det P=E^2-\bp^2=m^2$ in \eqref{eq:mass-shell}:
 \begin{equation*}
  (\det\hP-m^2)\bpsi=0
  \quad\Longleftrightarrow\quad (\Box+m^2)\bpsi=0.
@@ -3721,7 +3727,7 @@ Conversely, every massive free solution has this form with $\psi=\psi_+$.
 Equation~\eqref{eq:kg-general-solution} evolves its two coefficients.
 
 \subsubsection{Potential and paravector components}
-Recall the real $\mathcal{A}=V+\bA\cdot\bsig$, real charge $q$, and
+Recall the real $A=V+\bA\cdot\bsig$, real charge $q$, and
 $\hEq=\ii\partial_t-qV$, $\hbpq=-\ii\pdr-q\bA$.  Minimal coupling gives~\citeat{hestenes-spacetime}{Eq.~(191)}{page=32}
 \begin{equation}
  \boxed{\bigl(\Wop(\hPq)-m\bI\bigr)\bpsi=0.}
@@ -3763,31 +3769,31 @@ the conventional four-component Dirac equation.
 \subsubsection{Interacting factorization and reconstruction}
 \label{sec:interacting-factorization}
 
-Recall the real potential $\mathcal{A}=V+\bA\cdot\bsig$, the complex field
-$\mathcal{F}=(\bE+\ii\bBf)\cdot\bsig$, and
+Recall the real potential $A=V+\bA\cdot\bsig$, the complex field
+$F=(\bE+\ii\bBf)\cdot\bsig$, and
 $S=\partial_tV+\pdr\cdot\bA$.
 For any field $\psi:\R^4\to\C\oplus\C^3$, the product rule gives
 \begin{align}
- \partial^*(\mathcal{A}^*\psi)+\mathcal{A}\partial\psi
- &=(S+\mathcal{F})\psi+2(V\partial_t+\bA\cdot\pdr)\psi,
+ \partial^*(A^*\psi)+A\partial\psi
+ &=(S+F)\psi+2(V\partial_t+\bA\cdot\pdr)\psi,
  \label{eq:potential-product-one}\\
- \partial(\mathcal{A}\psi)+\mathcal{A}^*\partial^*\psi
- &=(S+\mathcal{F}^*)\psi+2(V\partial_t+\bA\cdot\pdr)\psi.
+ \partial(A\psi)+A^*\partial^*\psi
+ &=(S+F^*)\psi+2(V\partial_t+\bA\cdot\pdr)\psi.
  \label{eq:potential-product-two}
 \end{align}
 The difference of \eqref{eq:potential-product-one} and
-\eqref{eq:potential-product-two} is $(\mathcal{F}-\mathcal{F}^*)\psi=2(\bE\cdot\bsig)\psi$.
+\eqref{eq:potential-product-two} is $(F-F^*)\psi=2(\bE\cdot\bsig)\psi$.
 
 Applying the block map $\Wop$ twice gives
 \begin{align*}
- \Wop(\partial^*)\Wop(\mathcal{A})\bpsi
-   &=\begin{Bmatrix}\partial(\mathcal{A}\psi_+)\\\partial^*(\mathcal{A}^*\psi_-)\end{Bmatrix},\\
- \Wop(\mathcal{A})\Wop(\partial^*)\bpsi
-   &=\begin{Bmatrix}\mathcal{A}^*\partial^*\psi_+\\\mathcal{A}\partial\psi_-\end{Bmatrix},\\
- \Wop(\mathcal{A})^2&=\det\mathcal{A}\,\bI.
+ \Wop(\partial^*)\Wop(A)\bpsi
+   &=\begin{Bmatrix}\partial(A\psi_+)\\\partial^*(A^*\psi_-)\end{Bmatrix},\\
+ \Wop(A)\Wop(\partial^*)\bpsi
+   &=\begin{Bmatrix}A^*\partial^*\psi_+\\A\partial\psi_-\end{Bmatrix},\\
+ \Wop(A)^2&=\det A\,\bI.
 \end{align*}
 Differentiating a parenthesized product includes the potential derivative.
-For the fixed potential $\mathcal{A}$ and charge $q$, use the interacting
+For the fixed potential $A$ and charge $q$, use the interacting
 Dirac operator
 \begin{align}
  \hDq(m)&:=\Wop(\hPq)-m\bI
@@ -3797,26 +3803,26 @@ Dirac operator
  \hPq&-m
  \end{Bmatrix}. \notag
 \end{align}
-The argument $-m$ changes only the mass sign, keeping $q$ and $\mathcal{A}$
+The argument $-m$ changes only the mass sign, keeping $q$ and $A$
 fixed.  Multiplying and using the preceding mixed-derivative identities gives
 \begin{equation*}
  \hDq(-m)\hDq(m)\bpsi=
  -\begin{Bmatrix}
-  (-\hEq^2+\hbpq^2+m^2+\ii q\mathcal{F}^*)\psi_+\\
-  (-\hEq^2+\hbpq^2+m^2+\ii q\mathcal{F})\psi_-
+  (-\hEq^2+\hbpq^2+m^2+\ii qF^*)\psi_+\\
+  (-\hEq^2+\hbpq^2+m^2+\ii qF)\psi_-
  \end{Bmatrix}.
 \end{equation*}
 This recovers
 \eqref{eq:dirac-free-factorization} at $q=0$.  With coupling, its entries obey
 \begin{align*}
- \left((\partial+\ii q\mathcal{A}^*)(\partial^*+\ii q\mathcal{A})+m^2\right)\psi_+&=0,\\
- \left((\partial^*+\ii q\mathcal{A})(\partial+\ii q\mathcal{A}^*)+m^2\right)\psi_-&=0.
+ \left((\partial+\ii qA^*)(\partial^*+\ii qA)+m^2\right)\psi_+&=0,\\
+ \left((\partial^*+\ii qA)(\partial+\ii qA^*)+m^2\right)\psi_-&=0.
 \end{align*}
 Expanding gives the exact second-order equations~\citeat{feynman-gellmann}{Eq.~(6)}{page=2}
 \begin{align}
- (-\hEq^2+\hbpq^2+m^2+\ii q\mathcal{F}^*)\psi_+&=0,
+ (-\hEq^2+\hbpq^2+m^2+\ii qF^*)\psi_+&=0,
  \label{eq:dirac-squared-first}\\
- (-\hEq^2+\hbpq^2+m^2+\ii q\mathcal{F})\psi_-&=0.
+ (-\hEq^2+\hbpq^2+m^2+\ii qF)\psi_-&=0.
  \label{eq:dirac-squared-field}
 \end{align}
 For the spin-term components, write $\bC=\bE+\ii\bBf$ and
@@ -3824,11 +3830,11 @@ $\psi=a+\bb\cdot\bsig$, with complex functions
 $a:\R^4\to\C$ and $\bb,\bC:\R^4\to\C^3$.
 Here $\bC^*$ conjugates its scalar coefficients.  Sigma multiplication gives
 \begin{align*}
- \ii q\mathcal{F}\psi
+ \ii qF\psi
  &=\ii q\bC\cdot\bb+
    (\ii qa\bC-q\bC\times\bb)\cdot\bsig,
  \\
- \ii q\mathcal{F}^*\psi
+ \ii qF^*\psi
  &=-\ii q\bC^*\cdot\bb+
    (-\ii qa\bC^*+q\bC^*\times\bb)\cdot\bsig.
 \end{align*}
@@ -3847,7 +3853,7 @@ not satisfy the first-order coupling.
 
 \subsubsection{Gauge phase}
 Recall the real scalar $\lambda:\R^4\to\R$ and gauge transformation
-$\mathcal{A}'=\mathcal{A}+\partial^*\lambda$, or
+$A'=A+\partial^*\lambda$, or
 $V'=V+\partial_t\lambda$, $\bA'=\bA-\pdr\lambda$.
 For $\hEq':=\ii\partial_t-qV'$, $\hbpq':=-\ii\pdr-q\bA'$, and
 $\hPq':=\hEq'+\hbpq'\cdot\bsig$, the product rule gives
@@ -4402,8 +4408,8 @@ is $\cos^2(\varphi/2)$.
 At corresponding events, the domains are
 \[
  \begin{gathered}
- X,U,\mathcal P,\mathcal A,\mathcal D\in\R\oplus\R^3,\qquad
- \mathcal F\in\{0\}\oplus\C^3,\\
+ X,U,P,A,J\in\R\oplus\R^3,\qquad
+ F\in\{0\}\oplus\C^3,\\
  T\in\C\oplus\C^3,\quad \det T=1,\qquad
  R\in\R\oplus\ii\R^3,\quad L\in\R\oplus\R^3,\\
  t,s,E,V,\rho,\theta,\beta,\gamma\in\R,\qquad
@@ -4427,20 +4433,20 @@ with \hyperref[eq:unit-determinant-paravector]{$\det T=1$}.  It may be any order
 product of $R=\exp(-\ii\theta\bu\cdot\bsig/2)$ and
 $L=\exp(-\theta\bu\cdot\bsig/2)$, with
 \hyperref[def:real-unit-vector]{real unit vector} $\bu$ and real angle
-or rapidity $\theta$.  Recall the real event $X$, momentum $\mathcal{P}$, potential
-$\mathcal{A}$, and electric current $\mathcal{D}$.
+or rapidity $\theta$.  Recall the real event $X$, momentum $P$, potential
+$A$, and electric current $J$.
 Each transforms by~\citeat{baylis-intro}{Eq.~(24)}{page=20}
 \begin{equation}
  Z'=TZT^{\mathsf H},
- \qquad Z=X,\mathcal{P},\mathcal{A},\mathcal{D}.
+ \qquad Z=X,P,A,J.
  \label{eq:physical-lorentz-congruence}
 \end{equation}
 Since $\det T=1$, sigma conjugation gives $T^*=(T^{-1})^{\mathsf H}$.
-The derivative and complex field $\mathcal{F}=(\bE+\ii\bBf)\cdot\bsig$ use~\citeat{baylis-intro}{Eq.~(33)}{page=22}
+The derivative and complex field $F=(\bE+\ii\bBf)\cdot\bsig$ use~\citeat{baylis-intro}{Eq.~(33)}{page=22}
 \begin{align}
  \partial'&=T^*\partial T^{-1},
  \label{eq:derivative-transformation}\\
- \mathcal{F}'&=T\mathcal{F}T^{-1}.
+ F'&=TFT^{-1}.
  \label{eq:field-transformation}
 \end{align}
 Equation~\eqref{eq:derivative-transformation} follows from the chain rule.
@@ -4454,30 +4460,30 @@ $\partial'f'$~\citeat{tong-em}{p.~101}{page=109}.
 
 The field law is fixed by the potential law, rather than chosen separately.
 The identity~\eqref{eq:potential-field}, with real scalar
-$S=\scpart{\partial\mathcal{A}}$, gives
+$S=\scpart{\partial A}$, gives
 \[
- \partial'\mathcal{A}'=T^*(S+\mathcal{F}^*)T^{\mathsf H}.
+ \partial'A'=T^*(S+F^*)T^{\mathsf H}.
 \]
 Scalar-part cyclicity gives $S'=S$.  Since $T^*=(T^{\mathsf H})^{-1}$,
 sigma conjugation of the vector part gives
 \eqref{eq:field-transformation}.  Maxwell covariance now follows by cancellation:
 \begin{equation*}
- \partial'\mathcal{F}'=T^*(\partial \mathcal{F})T^{-1}
- =T^*\mathcal{D}^*T^{-1}=\mathcal{D}'^*.
+ \partial'F'=T^*(\partial F)T^{-1}
+ =T^*J^*T^{-1}=J'^*.
 \end{equation*}
 Thus the transformed potentials and fields satisfy the same
 Maxwell equation~\eqref{eq:maxwell}; the scalar wave operator also obeys
 $\Box'=\det(\partial')=\det(\partial)=\Box$.
 
-For real $\mathcal{P},X$, the metric pairing~\eqref{eq:lorentz-pairing}
-is the wave phase.  Adjugation of $\mathcal{P}'$ and cyclicity give
+For real $P,X$, the metric pairing~\eqref{eq:lorentz-pairing}
+is the wave phase.  Adjugation of $P'$ and cyclicity give
 \begin{equation*}
- \scpart{\mathcal{P}'^*X'}
- =\scpart{T^*\mathcal{P}^*XT^{\mathsf H}}
- =\scpart{\mathcal{P}^*X}.
+ \scpart{P'^*X'}
+ =\scpart{T^*P^*XT^{\mathsf H}}
+ =\scpart{P^*X}.
 \end{equation*}
 Consequently $E't'-\bp'\cdot\br'=Et-\bp\cdot\br$, and the
-plane wave~\eqref{eq:plane-wave} satisfies $f(X',\mathcal{P}')=f(X,\mathcal{P})$.
+plane wave~\eqref{eq:plane-wave} satisfies $f(X',P')=f(X,P)$.
 
 A scalar Klein--Gordon field uses $\psi'(X')=\psi(X)$; the derivative
 and potential laws above preserve its wave equation.
@@ -4659,7 +4665,7 @@ Noncollinear boosts instead have the rotation commutator
 \eqref{eq:boost-generator-commutator}, producing the Thomas--Wigner rotation.
 
 \subsubsection{Energy and momentum}
-For the real momentum $\mathcal{P}=E+\bp\cdot\bsig$, the same congruence gives~\citeat{feynman-spacetime}{Eq.~(17.12)}{Eq:I:17:12}
+For the real momentum $P=E+\bp\cdot\bsig$, the same congruence gives~\citeat{feynman-spacetime}{Eq.~(17.12)}{Eq:I:17:12}
 \begin{align}
  E'&=\gamma(E-\beta\bu\cdot\bp),
  \label{eq:energy-boost}\\
@@ -4669,9 +4675,9 @@ For the real momentum $\mathcal{P}=E+\bp\cdot\bsig$, the same congruence gives~\
 Here the projections are along $\bu$.
 Determinant invariance gives $E'^2-\bp'^2=E^2-\bp^2=m^2$ for a
 particle of rest mass $m>0$.  To see the energy increase directly, start
-with $\mathcal{P}'=m$ in its rest frame and invert the boost:
+with $P'=m$ in its rest frame and invert the boost:
 \begin{equation*}
- \mathcal{P}=L^{-1}mL^{-1}=m\gamma(1+\beta\bu\cdot\bsig).
+ P=L^{-1}mL^{-1}=m\gamma(1+\beta\bu\cdot\bsig).
 \end{equation*}
 Thus $E=m\gamma$ and $\bp=m\gamma\beta\bu$, while $m$ remains unchanged
 \citeat{tong-relativity}{Eqs.~(7.25), (7.28)}{page=142}.
@@ -4689,19 +4695,19 @@ $\partial'=L^{-1}\partial L^{-1}$.  Its scalar and vector parts are
  +\gamma\beta\bu\partial_t.
 \end{align*}
 These inverse signs express the chain rule.
-The real potential $\mathcal{A}=V+\bA\cdot\bsig$ and current
-$\mathcal{D}=\rho+\bJ\cdot\bsig$ follow the same component formulas as
+The real potential $A=V+\bA\cdot\bsig$ and current
+$J=\rho+\bJ\cdot\bsig$ follow the same component formulas as
 \eqref{eq:energy-boost}--\eqref{eq:momentum-boost}, with $(E,\bp)$ replaced
 by $(V,\bA)$ or $(\rho,\bJ)$.
 
 At corresponding events, \eqref{eq:field-transformation} reduces to
 \begin{equation}
- \mathcal{F}'=L\mathcal{F}L^{-1}.
+ F'=LFL^{-1}.
  \label{eq:boost-field-action}
 \end{equation}
 Both the field coefficients and their spacetime arguments transform:
 \begin{equation}
- \mathcal{F}'(X')=L\mathcal{F}(L^{-1}X'L^{-1})L^{-1}.
+ F'(X')=LF(L^{-1}X'L^{-1})L^{-1}.
  \label{eq:boosted-field-arguments}
 \end{equation}
 Here $X=L^{-1}X'L^{-1}$.  To expand \eqref{eq:boost-field-action},
@@ -4717,41 +4723,41 @@ Parallel components are unchanged.  These are the usual boosted fields
 along any \hyperref[def:real-unit-vector]{real unit axis}, matching.
 The inverse field law is obtained by reversing $\beta$.
 
-Similarity preserves $\mathcal{F}'^2=L\mathcal{F}^2L^{-1}=\mathcal{F}^2$, since $\mathcal{F}^2$ is scalar.
+Similarity preserves $F'^2=LF^2L^{-1}=F^2$, since $F^2$ is scalar.
 Consequently \eqref{eq:field-invariants} gives
 \begin{align*}
  \bE'^2-\bBf'^2&=\bE^2-\bBf^2,\\
  \bE'\cdot\bBf'&=\bE\cdot\bBf.
 \end{align*}
-In contrast, $\lVert \mathcal{F}\rVert^2=\bE^2+\bBf^2$ is twice the
+In contrast, $\lVert F\rVert^2=\bE^2+\bBf^2$ is twice the
 observer-dependent energy density.  For example, if $\bBf=0$ and
 $\bu\cdot\bE=0$, \eqref{eq:electric-boost} and \eqref{eq:magnetic-boost}
-give $\lVert \mathcal{F}'\rVert^2=\gamma^2(1+\beta^2)\bE^2$, while
+give $\lVert F'\rVert^2=\gamma^2(1+\beta^2)\bE^2$, while
 $\bE'^2-\bBf'^2=\bE^2$.
 
-Recall the stress map $T(N)=\mathcal{F}N\mathcal{F}^{\mathsf H}/2$ from
+Recall the stress map $T(N)=FNF^{\mathsf H}/2$ from
 \eqref{eq:electromagnetic-stress-map}, with real paravector input $N$;
 here $T$ denotes this map.  Since $N'=LNL$,
 \begin{equation*}
- T'(N')=\tfrac12\mathcal{F}'N'\mathcal{F}'^{\mathsf H}=LT(N)L.
+ T'(N')=\tfrac12F'N'F'^{\mathsf H}=LT(N)L.
 \end{equation*}
-Here $T'$ is the map formed from $\mathcal{F}'$.  To measure the primed
+Here $T'$ is the map formed from $F'$.  To measure the primed
 energy density and Poynting vector, use $N'=1$, hence $N=L^{-2}$:
 \begin{equation*}
- T'(1)=LT(L^{-2})L=\tfrac12\mathcal{F}'\mathcal{F}'^{\mathsf H}.
+ T'(1)=LT(L^{-2})L=\tfrac12F'F'^{\mathsf H}.
 \end{equation*}
 The full map transforms covariantly; its value at $1$ depends on the
 observer's time direction.
 
 Finally, recall the real proper velocity $U=\dd X/\dd s$, a
 \hyperref[eq:unit-paravector]{unit paravector} with $UU^{-1}=1$,
-and real momentum $\mathcal{P}=mU$, with real charge $q$ and constant mass $m>0$.
-With $U'=LUL$ and $\mathcal{P}'=L\mathcal{P}L$, the force
+and real momentum $P=mU$, with real charge $q$ and constant mass $m>0$.
+With $U'=LUL$ and $P'=LPL$, the force
 law~\eqref{eq:lorentz} transforms as
 \begin{equation*}
- \frac{\dd \mathcal{P}'}{\dd s}
- =L\frac q2(\mathcal{F}U+U\mathcal{F}^{\mathsf H})L
- =\frac q2(\mathcal{F}'U'+U'\mathcal{F}'^{\mathsf H}).
+ \frac{\dd P'}{\dd s}
+ =L\frac q2(FU+UF^{\mathsf H})L
+ =\frac q2(F'U'+U'F'^{\mathsf H}).
 \end{equation*}
 Thus the electric and magnetic components above reproduce the same
 real four-force in the moving frame; the Hermitian extraction is preserved.
@@ -4922,11 +4928,11 @@ Multiplication preserves the distinct spacetime and field laws:
 \begin{align*}
  \operatorname{mat}(X')&=\operatorname{mat}(L)
                 \operatorname{mat}(X)\operatorname{mat}(L),\\
- \operatorname{mat}(\mathcal{F}')&=\operatorname{mat}(L)
-                \operatorname{mat}(\mathcal{F})\operatorname{mat}(L)^{-1}.
+ \operatorname{mat}(F')&=\operatorname{mat}(L)
+                \operatorname{mat}(F)\operatorname{mat}(L)^{-1}.
 \end{align*}
 Here $X=t+\br\cdot\bsig$ is real and
-$\mathcal{F}=(\bE+\ii\bBf)\cdot\bsig$ is complex, with
+$F=(\bE+\ii\bBf)\cdot\bsig$ is complex, with
 $t\in\R$ and $\br,\bE,\bBf\in\R^3$.
 Extracting scalar and vector coefficients by \eqref{eq:matrix-scalar-part}
 and the preceding component rule gives
@@ -5086,18 +5092,18 @@ real potentials $V:\R^4\to\R$ and $\bA:\R^4\to\R^3$.
 The mechanical energy and momentum operators are $\hEq=\ii\partial_t-qV$ and
 $\hbpq=-\ii\pdr-q\bA$.  Their momentum components in this frame are
 \[
- \hat p_{q,1}=\ba\cdot\hbpq,\qquad \hat p_{q,2}=(\bu\times\ba)\cdot\hbpq,
- \qquad \hat p_{q,3}=\bu\cdot\hbpq.
+ \hat P_{q,1}=\ba\cdot\hbpq,\qquad \hat P_{q,2}=(\bu\times\ba)\cdot\hbpq,
+ \qquad \hat P_{q,3}=\bu\cdot\hbpq.
 \]
 Using \eqref{eq:matrix-arbitrary-axis}, the coupled paravector equations give
 \begin{align}
- (\hEq-\hat p_{q,3})c-(\hat p_{q,1}-\ii \hat p_{q,2})d&=ma,
+ (\hEq-\hat P_{q,3})c-(\hat P_{q,1}-\ii \hat P_{q,2})d&=ma,
  \label{eq:matrix-dirac-a}\\
- -(\hat p_{q,1}+\ii \hat p_{q,2})c+(\hEq+\hat p_{q,3})d&=mb,
+ -(\hat P_{q,1}+\ii \hat P_{q,2})c+(\hEq+\hat P_{q,3})d&=mb,
  \label{eq:matrix-dirac-b}\\
- (\hEq+\hat p_{q,3})a+(\hat p_{q,1}-\ii \hat p_{q,2})b&=mc,
+ (\hEq+\hat P_{q,3})a+(\hat P_{q,1}-\ii \hat P_{q,2})b&=mc,
  \label{eq:matrix-dirac-c}\\
- (\hat p_{q,1}+\ii \hat p_{q,2})a+(\hEq-\hat p_{q,3})b&=md.
+ (\hat P_{q,1}+\ii \hat P_{q,2})a+(\hEq-\hat P_{q,3})b&=md.
  \label{eq:matrix-dirac-d}
 \end{align}
 Operators in \eqref{eq:matrix-dirac-a}--\eqref{eq:matrix-dirac-d}
@@ -5105,10 +5111,10 @@ act on the scalar immediately to their right.  Their Hamiltonian
 on $\{a,b,c,d\}^{\mathsf T}$ is
 \begin{equation}
  \hH=\begin{Bmatrix}
- qV-\hat p_{q,3}&-\hat p_{q,1}+\ii \hat p_{q,2}&m&0\\
- -\hat p_{q,1}-\ii \hat p_{q,2}&qV+\hat p_{q,3}&0&m\\
- m&0&qV+\hat p_{q,3}&\hat p_{q,1}-\ii \hat p_{q,2}\\
- 0&m&\hat p_{q,1}+\ii \hat p_{q,2}&qV-\hat p_{q,3}
+ qV-\hat P_{q,3}&-\hat P_{q,1}+\ii \hat P_{q,2}&m&0\\
+ -\hat P_{q,1}-\ii \hat P_{q,2}&qV+\hat P_{q,3}&0&m\\
+ m&0&qV+\hat P_{q,3}&\hat P_{q,1}-\ii \hat P_{q,2}\\
+ 0&m&\hat P_{q,1}+\ii \hat P_{q,2}&qV-\hat P_{q,3}
  \end{Bmatrix}.
  \label{eq:matrix-dirac-hamiltonian}
 \end{equation}
@@ -5136,9 +5142,9 @@ with signature $(+,-,-,-)$, is~
 \begin{equation*}
  \Wop(\hPq)
  \quad\longleftrightarrow\quad
- \gamma^0\hEq-\sum_{k=1}^3\gamma^k\hat p_{q,k}.
+ \gamma^0\hEq-\sum_{k=1}^3\gamma^k\hat P_{q,k}.
 \end{equation*}
-Here $\mathcal{A}=V+\bA\cdot\bsig$ is the
+Here $A=V+\bA\cdot\bsig$ is the
 real potential paravector.
 
 The unitary change to the standard Dirac basis commutes with the scalar
@@ -5159,8 +5165,8 @@ Before removing the rest phase, the basis change in
 \eqref{eq:matrix-envelope-map} sends \eqref{eq:matrix-dirac-hamiltonian} to
 \begin{equation}
  \hH'=\begin{Bmatrix}
- (qV+m)\bI_2&\sum_k\hat p_{q,k}\bm\sigma_k\\
- \sum_k\hat p_{q,k}\bm\sigma_k&(qV-m)\bI_2
+ (qV+m)\bI_2&\sum_k\hat P_{q,k}\bm\sigma_k\\
+ \sum_k\hat P_{q,k}\bm\sigma_k&(qV-m)\bI_2
  \end{Bmatrix}.
  \label{eq:matrix-standard-dirac}
 \end{equation}
@@ -5170,21 +5176,21 @@ Thus \eqref{eq:matrix-standard-dirac} becomes $\hH'-mI_4$:
 its diagonal entries are $qV$ and $qV-2m$.
 Moving $qV$ into $\hEq=\ii\partial_t-qV$ gives the exact envelope equations
 \begin{align*}
- \hEq\bm\phi_+&=\sum_k\hat p_{q,k}\bm\sigma_k\bm\phi_-,\\
- (\hEq+2m)\bm\phi_-&=\sum_k\hat p_{q,k}\bm\sigma_k\bm\phi_+.
+ \hEq\bm\phi_+&=\sum_k\hat P_{q,k}\bm\sigma_k\bm\phi_-,\\
+ (\hEq+2m)\bm\phi_-&=\sum_k\hat P_{q,k}\bm\sigma_k\bm\phi_+.
 \end{align*}
 These identify the large and small amplitudes used in the Pauli limit.
 
 For real electric and magnetic components $E_k,B_k$ in the same frame,
 the squared Dirac field coupling has the explicit image
 \begin{align*}
- \operatorname{mat}'(\ii q\mathcal{F})
+ \operatorname{mat}'(\ii qF)
  &=q\begin{Bmatrix}
  \ii E_3-B_3&\ii E_1+E_2-B_1+\ii B_2\\
  \ii E_1-E_2-B_1-\ii B_2&-\ii E_3+B_3
  \end{Bmatrix},
  \\
- \operatorname{mat}'(\ii q\mathcal{F}^*)&=\operatorname{mat}'(\ii q\mathcal{F})^{\mathsf H}.
+ \operatorname{mat}'(\ii qF^*)&=\operatorname{mat}'(\ii qF)^{\mathsf H}.
 \end{align*}
 The indexed $E_k$ are field components;
 whereas $\hEq$ is the mechanical energy operator.
@@ -5288,13 +5294,13 @@ The factors and their actions are
    \tag*{\eqref{eq:rotation-action}}\\
  Z'&=LZL,
    \tag*{\eqref{eq:boost-action}}\\
- \mathcal{F}'&=L\mathcal{F}L^{-1}.
+ F'&=LFL^{-1}.
    \tag*{\eqref{eq:boost-field-action}}
 \end{align*}
 Both $Z$ transformations use $Z'=TZT^{\mathsf H}$, with
 $R^{\mathsf H}=R^{-1}$ and $L^{\mathsf H}=L$.
 The $Z$ boost acts on a real four-vector; the complex electromagnetic
-field $\mathcal{F}$ uses similarity.  Both refer to the same frame.
+field $F$ uses similarity.  Both refer to the same frame.
 Rodrigues' rotation is \eqref{eq:rodrigues}; boost components are
 \eqref{eq:boost-scalar-component}--\eqref{eq:boost-vector-component}.
 The general determinant-one congruence is
@@ -5305,10 +5311,10 @@ Appendix~\ref{sec:matrix-boosts}.
 
 \Needspace{8\baselineskip}
 \paragraph{Spacetime and particles.}
-Recall $X,U,\mathcal P\in\R\oplus\R^3$, $s,t,E\in\R$,
+Recall $X,U,P\in\R\oplus\R^3$, $s,t,E\in\R$,
 $\br,\bv,\bp\in\R^3$, and constant $m\in\R_{>0}$.  The real proper velocity $U=\dd X/\dd s$ is a
 \hyperref[eq:unit-paravector]{unit paravector} with $UU^{-1}=1$.
-The real four-momentum $\mathcal{P}$ has mechanical energy
+The real four-momentum $P$ has mechanical energy
 $E$ (including rest energy) and spatial momentum $\bp$.
 The kinematic identities are
 \begin{align*}
@@ -5322,7 +5328,7 @@ The kinematic identities are
    \tag*{\eqref{eq:proper-velocity}}\\
  U^*U&=1,
    \tag*{\eqref{eq:proper-velocity-star-normalization}}\\
- \mathcal{P}&=mU=E+\bp\cdot\bsig,
+ P&=mU=E+\bp\cdot\bsig,
    \tag*{\eqref{eq:four-momentum}}\\
  E^2-\bp^2&=m^2.
    \tag*{\eqref{eq:mass-shell}}
@@ -5353,27 +5359,27 @@ and measured contraction are \eqref{eq:time-dilation} and
 Recall the real proper velocity $U=\dd X/\dd s$, a
 \hyperref[eq:unit-paravector]{unit paravector} with $UU^{-1}=1$.
 Recall $V,\rho,S,q\in\R$, $\bA,\bE,\bBf,\bJ\in\R^3$,
-$\mathcal A,\mathcal D\in\R\oplus\R^3$, and
-$\mathcal F\in\{0\}\oplus\C^3$.
+$A,J\in\R\oplus\R^3$, and
+$F\in\{0\}\oplus\C^3$.
 The coefficient fields depend on real spacetime; $q$ is constant charge.
 Their boosted arguments and components are
 \eqref{eq:boosted-field-arguments} and
 \eqref{eq:electric-boost}--\eqref{eq:magnetic-boost}.
 The field and particle equations are
 \begin{align*}
- \mathcal{F}&=(\bE+\ii\bBf)\cdot\bsig,
+ F&=(\bE+\ii\bBf)\cdot\bsig,
    \tag*{\eqref{eq:em-field-definition}}\\
- \partial \mathcal{F}&=\mathcal{D}^*,
+ \partial F&=J^*,
    \tag*{\eqref{eq:maxwell}}\\
- \Box \mathcal{F}&=\partial^*\mathcal{D}^*,
+ \Box F&=\partial^*J^*,
    \tag*{\eqref{eq:maxwell-wave}}\\
- \partial\mathcal{A}&=S+\mathcal{F}^*,
+ \partial A&=S+F^*,
    \tag*{\eqref{eq:potential-field}}\\
- \mathcal{F}^2&=\bE^2-\bBf^2+2\ii\bE\cdot\bBf,
+ F^2&=\bE^2-\bBf^2+2\ii\bE\cdot\bBf,
    \tag*{\eqref{eq:field-invariants}}\\
- \frac{\dd \mathcal{P}}{\dd s}&=q\repart{\mathcal{F}U},
+ \frac{\dd P}{\dd s}&=q\repart{FU},
    \tag*{\eqref{eq:lorentz}}\\
- T(N)&=\tfrac12\mathcal{F}N\mathcal{F}^{\mathsf H},
+ T(N)&=\tfrac12FNF^{\mathsf H},
    \tag*{\eqref{eq:electromagnetic-stress-map}}\\
  \partial_tu+\pdr\cdot\bS&=-\bJ\cdot\bE.
    \tag*{\eqref{eq:poynting}}
@@ -5389,7 +5395,7 @@ The action derivation uses \eqref{eq:maxwell-lagrangian} and
 \Needspace{8\baselineskip}
 \paragraph{Relativistic waves.}
 Recall $m\in\R_{>0}$, $q,V\in\R$, $\bA\in\R^3$, and
-$\mathcal A=V+\bA\cdot\bsig\in\R\oplus\R^3$.
+$A=V+\bA\cdot\bsig\in\R\oplus\R^3$.
 Here $\hEq$ is a scalar differential operator and $\hbpq$ a triple of them;
 $\psi:\R^4\to\C$ is a KG field.
 The Dirac field $\bpsi$ has two entries in the same fixed spinor ideal,
@@ -5400,7 +5406,7 @@ The operators and wave equations are
    \tag*{\eqref{eq:mechanical-energy-operator}}\\
  \hbpq&=\hbp-q\bA=-\ii\pdr-q\bA,
    \tag*{\eqref{eq:mechanical-momentum-operator}}\\
- \hPq&=\hP-q\mathcal{A}=\hEq+\hbpq\cdot\bsig,
+ \hPq&=\hP-qA=\hEq+\hbpq\cdot\bsig,
    \tag*{\eqref{eq:mechanical-paravector}}\\
  (\hbpq\cdot\bsig)^2&=\hbpq^2-q\bBf\cdot\bsig,
    \tag*{\eqref{eq:kinetic-sigma-square}}\\
@@ -5425,7 +5431,7 @@ For the free field ($q=0$),
  \hD(-m)\hD(m)&=-(\Box+m^2)\bI.
    \tag*{\eqref{eq:dirac-free-factorization}}
 \end{align*}
-For fixed $q$ and $\mathcal{A}$, the interacting definition and equation are
+For fixed $q$ and $A$, the interacting definition and equation are
 \begin{align*}
  \hDq(m)&=\Wop(\hPq)-m\bI,
    \tag*{\eqref{eq:dirac-field-operator}}\\
@@ -5496,8 +5502,8 @@ The matrix verification is \eqref{eq:matrix-state}--\eqref{eq:matrix-born}.
 
 Unadorned source symbols below retain each source's meaning.
 In our coefficient notation, $Z,G\in\C\oplus\C^3$,
-$X,Y,\mathcal A,\mathcal P,\mathcal D\in\R\oplus\R^3$, and
-$\mathcal F\in\{0\}\oplus\C^3$.
+$X,Y,A,P,J\in\R\oplus\R^3$, and
+$F\in\{0\}\oplus\C^3$.
 Physical factors $G$ have determinant one; spinor amplitudes lie in the
 fixed ideal of \eqref{eq:axis-ideal-components}.
 
@@ -5548,7 +5554,7 @@ Wikipedia's \href{https://en.wikipedia.org/w/index.php?title=Paravector&oldid=13
 
 Baylis's rotor action $x'=GxG^\dagger$ is our $X'=GXG^{\mathsf H}$;
 his field $\mathbf E+i\mathbf B$ and law $F'=GF\bar G$ become our
-$\mathcal{F}=(\bE+\ii\bBf)\cdot\bsig$ and $\mathcal{F}'=G\mathcal{F}G^{-1}$ for $\det G=1$
+$F=(\bE+\ii\bBf)\cdot\bsig$ and $F'=GFG^{-1}$ for $\det G=1$
 ($c=1$)~\citeat{baylis-intro}{Eq.~(23)}{page=19}\,\citeat{baylis-intro}{Eq.~(24)}{page=20}\,\citeat{baylis-intro}{Eq.~(33)}{page=22}.
 His positively oriented spatial-plane generator is
 $\mathbf e_2\mathbf e_1=-i\mathbf e_3$, giving our
@@ -5673,18 +5679,18 @@ spacetime derivative and $J_{\mathrm{STA}}$ for his current.  Using the
 STA embedding above,
 \[
  \nabla_{\mathrm{STA}}=\gamma_0\partial,\qquad
- J_{\mathrm{STA}}=\mathcal{D}\gamma_0=\gamma_0\mathcal{D}^*,\qquad
- \partial \mathcal{F}=\mathcal{D}^*\ \Longleftrightarrow\
- \nabla_{\mathrm{STA}}\mathcal{F}=J_{\mathrm{STA}}.
+ J_{\mathrm{STA}}=J\gamma_0=\gamma_0J^*,\qquad
+ \partial F=J^*\ \Longleftrightarrow\
+ \nabla_{\mathrm{STA}}F=J_{\mathrm{STA}}.
 \]
 His explicit spacetime split is already our component equation
 \citeat{hestenes-spacetime}{Eqs.~(175)--(177)}{page=29}.
 For a real spacetime vector $n\in\R^{1,3}$, put
 $N=n\gamma_0\in\R\oplus\R^3$ in the observer's paravector identification.  His stress map
-$T_{\mathrm{STA}}(n)=\tfrac12Fn\widetilde {\mathcal{F}}$, with
-$\mathcal{F}^{\mathsf H}=\gamma_0\widetilde {\mathcal{F}}\gamma_0$, gives
+$T_{\mathrm{STA}}(n)=\tfrac12Fn\widetilde {F}$, with
+$F^{\mathsf H}=\gamma_0\widetilde {F}\gamma_0$, gives
 \[
- T_{\mathrm{STA}}(n)\gamma_0=\tfrac12\mathcal{F}N\mathcal{F}^{\mathsf H}=T(N),
+ T_{\mathrm{STA}}(n)\gamma_0=\tfrac12FNF^{\mathsf H}=T(N),
 \]
 including the energy and flux components in his Eq.~(180)
 \citeat{hestenes-spacetime}{Eq.~(167)}{page=28}\,\citeat{hestenes-spacetime}{Eq.~(180)}{page=30}.
@@ -5702,8 +5708,8 @@ Their large/small equations and Pauli limit then have the same components
 Feynman--Gell-Mann absorb charge into the potential.  Restoring it, their
 Eq.~(6) is our first squared Dirac block because
 \[
- -\ii q\mathcal{F}^*=q(\bBf+\ii\bE)\cdot\bsig,\qquad
- -\ii q\mathcal{F}=q(\bBf-\ii\bE)\cdot\bsig.
+ -\ii qF^*=q(\bBf+\ii\bE)\cdot\bsig,\qquad
+ -\ii qF=q(\bBf-\ii\bE)\cdot\bsig.
 \]
 The two blocks therefore have the same magnetic sign and opposite
 electric signs~\citeat{feynman-gellmann}{Eq.~(6)}{page=2}.
@@ -5846,15 +5852,15 @@ For notation $TXT^{\mathsf H}$ take $G=T$; for $T^{\mathsf H}XT$ take
 $G=T^{\mathsf H}$.  At corresponding events the laws are
 \begin{equation}
  \begin{aligned}
- Z'&=GZG^{\mathsf H},&& Z=X,\mathcal{P},\mathcal{A},\mathcal{D},\\
- \mathcal{F}'&=G\mathcal{F}G^{-1},&&\partial'=G^*\partial G^{-1},\\
+ Z'&=GZG^{\mathsf H},&& Z=X,P,A,J,\\
+ F'&=GFG^{-1},&&\partial'=G^*\partial G^{-1},\\
  \psi_+'&=G^*\psi_+,&&\psi_-'=G\psi_-,\\
  \psi_{\mathrm{KG}}'(X')&=\psi_{\mathrm{KG}}(X).
  \end{aligned}
  \label{eq:conventions-field-laws}
 \end{equation}
 These are the covariance laws of Section~\ref{sec:transformations};
-$G^*=(G^{-1})^{\mathsf H}$.  The field $\mathcal{F}$ uses similarity, not the
+$G^*=(G^{-1})^{\mathsf H}$.  The field $F$ uses similarity, not the
 four-vector sandwich.  Equation~\eqref{eq:conventions-field-laws} preserves
 the Maxwell, Klein--Gordon, and Dirac equations.
 
