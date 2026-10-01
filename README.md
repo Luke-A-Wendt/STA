@@ -168,7 +168,7 @@ f(Z)&=f(\lambda_-)\Pi_-+f(\lambda_+)\Pi_+.
 
 ## Spacetime from the [determinant](https://en.wikipedia.org/wiki/Determinant)
 
-For a future-directed massive particle, [proper time](https://en.wikipedia.org/wiki/Proper_time) and [four-momentum](https://en.wikipedia.org/wiki/Four-momentum) follow from a real paravector, with [four-velocity](https://en.wikipedia.org/wiki/Four-velocity) $`U`$.
+For a future-directed massive particle, proper time and four-momentum follow from a real paravector, with four-velocity $`U`$.
 
 Spacetime increment and proper-time interval:
 
@@ -179,7 +179,7 @@ Spacetime increment and proper-time interval:
 \end{aligned}
 ```
 
-Choose positive proper time along the future-directed path $`\mathrm dt>0`$.
+Choose positive [proper time](https://en.wikipedia.org/wiki/Proper_time) along the future-directed path $`\mathrm dt>0`$.
 
 ```math
 \mathrm ds:=\sqrt{\mathrm dt^2-\mathrm d\mathbf r^2}=\sqrt{\det(\mathrm dX)}.
@@ -201,7 +201,7 @@ Coordinate velocity:
 \gamma:=\frac{\mathrm dt}{\mathrm ds}=\frac{1}{\sqrt{1-\mathbf v^2}}.
 ```
 
-Four-velocity:
+[Four-velocity](https://en.wikipedia.org/wiki/Four-velocity):
 
 ```math
 \begin{aligned}
@@ -220,7 +220,7 @@ Proper-time normalization gives
 =\frac{\det(\mathrm dX)}{\mathrm ds^2}=1.
 ```
 
-For energy $`E`$ and momentum $`\mathbf p`$, the four-momentum is
+For energy $`E`$ and momentum $`\mathbf p`$, the [four-momentum](https://en.wikipedia.org/wiki/Four-momentum) is
 
 ```math
 \mathcal{P}:=mU=E+\mathbf p\cdot\boldsymbol{\sigma}.
@@ -302,7 +302,7 @@ Define the real [four-potential](https://en.wikipedia.org/wiki/Electromagnetic_f
 \qquad S:=\mathrm{sc}(\partial\mathcal{A}).
 ```
 
-**Fields from the potential:**
+Fields from the potential:
 
 ```math
 \boxed{\partial\mathcal{A}=S+\mathcal{F}^{*}}
@@ -319,7 +319,7 @@ Its components give
 \end{aligned}
 ```
 
-**Source equations in any [gauge](https://en.wikipedia.org/wiki/Gauge_fixing):**
+Source equations in any [gauge](https://en.wikipedia.org/wiki/Gauge_fixing):
 
 ```math
 \Box\mathcal{A}=\partial^{*}(\partial\mathcal{A})
@@ -344,7 +344,7 @@ Its components give
 \end{aligned}
 ```
 
-**[Gauge invariance](https://en.wikipedia.org/wiki/Electromagnetic_four-potential#Gauge_freedom):** for real scalar $`\lambda`$,
+[Gauge invariance](https://en.wikipedia.org/wiki/Electromagnetic_four-potential#Gauge_freedom): for real scalar $`\lambda`$,
 
 ```math
 \begin{aligned}
@@ -354,7 +354,7 @@ S'&=S+\Box\lambda,\\
 \end{aligned}
 ```
 
-**[Lorenz gauge](https://en.wikipedia.org/wiki/Lorenz_gauge_condition):** $`S=0`$ gives the [potential wave equations](https://en.wikipedia.org/wiki/Inhomogeneous_electromagnetic_wave_equation)
+[Lorenz gauge](https://en.wikipedia.org/wiki/Lorenz_gauge_condition): $`S=0`$ gives the [potential wave equations](https://en.wikipedia.org/wiki/Inhomogeneous_electromagnetic_wave_equation)
 
 ```math
 \begin{aligned}
@@ -604,7 +604,7 @@ Restoring $`\hat E_q=\mathrm{i}\partial_t-qV`$ gives the [Pauli equation](https:
 
 ## [Spin up and spin down](https://en.wikipedia.org/wiki/Spin-1/2#Observables) in a uniform magnetic field
 
-For a constant nonzero field $`\mathbf B`$, define its [unit direction](https://en.wikipedia.org/wiki/Unit_vector) and [spin projectors](https://en.wikipedia.org/wiki/Pauli_matrices#Eigenvectors_and_eigenvalues):
+For a constant nonzero field $`\mathbf B`$, define its unit direction and [spin projectors](https://en.wikipedia.org/wiki/Pauli_matrices#Eigenvectors_and_eigenvalues):
 
 ```math
 \mathbf u:=\frac{\mathbf B}{\lVert\mathbf B\rVert},
@@ -630,7 +630,7 @@ For a paravector $`\phi_+`$ with vector part along $`\mathbf u`$, spectral decom
 \end{aligned}
 ```
 
-Constant $`\Pi_\pm`$ commute with $`\hat E_q`$ and $`\hat{\mathbf p}_q^2`$, so the Pauli equation gives
+Constant $`\Pi_\pm`$ commute with $`\hat E_q`$ and $`\hat{\mathbf p}_q^2`$, so the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation) gives
 
 ```math
 \begin{aligned}
@@ -652,7 +652,7 @@ Since $`\Pi_\pm\ne0`$, the scalar coefficients vanish. Restoring $`\hat E_q=\mat
 
 This representation applies to uniform-field Pauli evolution; the full Dirac equation and spin measurements use the fixed spinor space.
 
-The full Dirac spinor has four complex scalar amplitudes:
+The full [Dirac spinor](https://en.wikipedia.org/wiki/Dirac_spinor) has four complex scalar amplitudes:
 
 ```math
 \boldsymbol{\phi}:=\left(\,\begin{matrix}
@@ -663,7 +663,7 @@ The full Dirac spinor has four complex scalar amplitudes:
 
 Rows label Dirac blocks, columns spin; the Pauli limit governs the upper row.
 
-## Spin measurement probabilities
+## [Spin measurement](https://en.wikipedia.org/wiki/Spin-1/2#Rotations_and_Spinors) probabilities
 
 Let $`\mathbf u',\mathbf u`$ be real unit preparation and measurement axes, with $`\cos\theta:=\mathbf u\cdot\mathbf u'`$.
 
@@ -677,13 +677,13 @@ Prepare $`\psi=\Pi_+'\psi\ne0`$:
 \end{gathered}
 ```
 
-Using $`\lVert Z\rVert^2=\mathrm{sc}(ZZ^{\mathsf H})`$, the denominator is
+Using the squared norm, $`\lVert Z\rVert^2=\mathrm{sc}(ZZ^{\mathsf H})`$, the denominator is
 
 ```math
 \lVert\psi\rVert^2=\mathrm{sc}(\psi\psi^{\mathsf H})>0.
 ```
 
-For the prepared state, the projected norm is
+For the [prepared state](https://en.wikipedia.org/wiki/Spin-1/2#Bloch_Representation), the projected norm is
 
 ```math
 \begin{aligned}
