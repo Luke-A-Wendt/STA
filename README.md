@@ -18,17 +18,21 @@
 &\mathrm{i}^2&=-1,\\
 𝝈&:=\{\sigma_1,\sigma_2,\sigma_3\},
 &\mathrm{i}𝝈&=\{\sigma_2\sigma_3,\sigma_3\sigma_1,\sigma_1\sigma_2\},\\
-Z&:=(a+b\mathrm{i})+(𝐀+\mathrm{i}𝐁)\cdot𝝈,
-&a,b&\in\mathbb R,\quad𝐀,𝐁\in\mathbb R^3.
+Z&:=(a+b\mathrm{i})+(𝐗+\mathrm{i}𝐘)\cdot𝝈,
+&a,b&\in\mathbb R,\quad𝐗,𝐘\in\mathbb R^3.
 \end{aligned}}
 ```
 
 These eight real components form a complex scalar and a complex vector:
 
 ```math
-Z=S+𝐕\cdot𝝈=X+\mathrm{i}Y,
-\qquad X:=a+𝐀\cdot𝝈,
-\quad Y:=b+𝐁\cdot𝝈.
+\begin{aligned}
+X:&=a+𝐗\cdot𝝈,\\
+Y:&=b+𝐘\cdot𝝈,\\[4pt]
+Z&=X+\mathrm{i}Y\\
+&=(a+b\mathrm{i})+(𝐗+\mathrm{i}𝐘)\cdot𝝈\\
+&=c+𝐙\cdot𝝈.
+\end{aligned}
 ```
 
 The component extractions are
@@ -37,8 +41,8 @@ The component extractions are
 \begin{aligned}
 \mathrm{re}(Z)&:=X,\\
 \mathrm{im}(Z)&:=Y,\\
-\mathrm{sc}(Z)&:=S=a+\mathrm{i}b,\\
-\mathrm{vec}(Z)&:=𝐕=𝐀+\mathrm{i}𝐁.
+\mathrm{sc}(Z)&:=c=a+\mathrm{i}b,\\
+\mathrm{vec}(Z)&:=𝐙=𝐗+\mathrm{i}𝐘.
 \end{aligned}
 ```
 
@@ -47,11 +51,11 @@ The component extractions are
 The product carries both the [dot](https://en.wikipedia.org/wiki/Dot_product) and [cross](https://en.wikipedia.org/wiki/Cross_product) products:
 
 ```math
-(𝐀\cdot𝝈)(𝐁\cdot𝝈)
-=𝐀\cdot𝐁+\mathrm{i}(𝐀\times𝐁)\cdot𝝈.
+(𝐗\cdot𝝈)(𝐘\cdot𝝈)
+=𝐗\cdot𝐘+\mathrm{i}(𝐗\times𝐘)\cdot𝝈.
 ```
 
-Here we use the convention $`𝐀^2:=𝐀\cdot𝐀`$.
+Here we use the convention $`𝐗^2:=𝐗\cdot𝐗`$.
 
 The [commutator](https://en.wikipedia.org/wiki/Commutator) is
 
@@ -61,41 +65,90 @@ The [commutator](https://en.wikipedia.org/wiki/Commutator) is
 
 ## Core operations
 
-[Determinant](https://en.wikipedia.org/wiki/Determinant), [trace](https://en.wikipedia.org/wiki/Trace_%28linear_algebra%29), [squared norm](https://en.wikipedia.org/wiki/Norm_%28mathematics%29), adjugate, [inverse](https://en.wikipedia.org/wiki/Invertible_matrix), and the two conjugations below.
-
-Write $`Z=S+𝐕\cdot𝝈`$, where $`S\in\mathbb C`$ is a complex scalar and $`𝐕\in\mathbb C^3`$ is a complex vector.
+Write $`Z=c+𝐙\cdot𝝈`$, where $`c\in\mathbb C`$ is a complex scalar and $`𝐙\in\mathbb C^3`$ is a complex vector.
 
 $`(\,)^{*}:=`$ [complex conjugation](https://en.wikipedia.org/wiki/Complex_conjugate) of complex numbers and a sign flip of $`𝝈`$.
 
 $`(\,)^{\mathsf H}:=`$ [Hermitian conjugation](https://en.wikipedia.org/wiki/Conjugate_transpose), which flips the order of multiplied $`\sigma_k`$.
 
+Applying these conjugation operators to a paravector gives
+
 ```math
-\begin{gathered}
 \begin{aligned}
-Z^{*}&=S^{*}-𝐕^{*}\cdot𝝈,
-&Z^{\mathsf H}&=S^{*}+𝐕^{*}\cdot𝝈,\\
-\mathrm{adj}\,Z&:=S-𝐕\cdot𝝈 = Z^{*\mathsf H},&\det Z&:=S^2-𝐕^2 = Z\,\mathrm{adj}\,Z,\\
-\mathrm{tr}\,Z&:=2S=Z+\mathrm{adj}\,Z,
-&\lVert Z\rVert^2&:=SS^{*}+𝐕\cdot𝐕^{*} = \mathrm{sc}(Z Z^\mathsf H).
-\end{aligned}\\[6pt]
-Z^{-1}=\frac{\mathrm{adj}\,Z}{\det Z}\qquad \mathrm{if} \quad \det Z\ne0.
-\end{gathered}
+Z^{*}&=c^{*}-𝐙^{*}\cdot𝝈,\\[4pt]
+Z^{\mathsf H}&=c^{*}+𝐙^{*}\cdot𝝈.
+\end{aligned}
+```
+
+The paravector [adjugate](https://en.wikipedia.org/wiki/Adjugate_matrix), [determinant](https://en.wikipedia.org/wiki/Determinant), and [inverse](https://en.wikipedia.org/wiki/Invertible_matrix) are given by
+
+```math
+\begin{aligned}
+\mathrm{adj}\,Z&:=c-𝐙\cdot𝝈=Z^{*\mathsf H},\\[4pt]
+\det Z&:=c^2-𝐙^2=Z\,\mathrm{adj}\,Z,\\[6pt]
+Z^{-1}&=\frac{\mathrm{adj}\,Z}{\det Z}\qquad\text{if }\det Z\ne0.
+\end{aligned}
+```
+
+The paravector [trace](https://en.wikipedia.org/wiki/Trace_%28linear_algebra%29) and [norm](https://en.wikipedia.org/wiki/Norm_%28mathematics%29) are given by
+
+```math
+\begin{aligned}
+\mathrm{tr}\,Z&:=2c=Z+\mathrm{adj}\,Z,\\[4pt]
+\lVert Z\rVert^2&:=cc^{*}+𝐙\cdot𝐙^{*}=\mathrm{sc}(ZZ^{\mathsf H}).
+\end{aligned}
 ```
 
 ## [Quaternions](https://en.wikipedia.org/wiki/Quaternion)
 
-In this representation, quaternions have a real scalar part and a purely imaginary vector part:
+Define the quaternion basis:
+
+```math
+\begin{gathered}
+\nu_k:=-\mathrm{i}\sigma_k,\qquad 𝝂:=-\mathrm{i}𝝈=\{\nu_1,\nu_2,\nu_3\},\\
+\nu_1^2=\nu_2^2=\nu_3^2=\nu_1\nu_2\nu_3=-1.
+\end{gathered}
+```
+
+For $`a\in\mathbb R`$ and $`𝐐\in\mathbb R^3`$, the quaternion and its conjugate are
 
 ```math
 \begin{aligned}
-q_k&:=-\mathrm{i}\sigma_k,
-\qquad q_1^2=q_2^2=q_3^2=q_1q_2q_3=-1,\\
-Q&:=a+𝐀\cdot𝐪
-=a-\mathrm{i}𝐀\cdot𝝈,
-\qquad a\in\mathbb R,\quad𝐀\in\mathbb R^3,\\
-Q^{\mathsf H}&=a+\mathrm{i}𝐀\cdot𝝈,\\
-QQ^{\mathsf H}&=\det Q=a^2+𝐀^2.
+Q&:=a+𝐐\cdot𝝂=a-\mathrm{i}𝐐\cdot𝝈,\\
+Q^{\mathsf H}&:=a-𝐐\cdot𝝂=a+\mathrm{i}𝐐\cdot𝝈,
 \end{aligned}
+```
+
+with
+
+```math
+QQ^{\mathsf H}=\det Q=a^2+𝐐^2.
+```
+
+Quaternions are normalized with:
+
+```math
+Q\leftarrow\frac{Q}{\sqrt{QQ^{\mathsf H}}},
+```
+
+which, with $`\lVert𝐐\rVert^2=𝐐^2`$ for real $`𝐐`$, gives
+
+```math
+QQ^{\mathsf H}=a^2+\lVert𝐐\rVert^2=1.
+```
+
+For a unit quaternion with $`𝐐\ne0`$, the rotation axis and angle satisfy
+
+```math
+𝐮=\frac{𝐐}{\lVert𝐐\rVert},\qquad
+a=\cos\frac{\theta}{2},\qquad
+𝐐=𝐮\sin\frac{\theta}{2}.
+```
+
+For $`X=𝐗\cdot𝝂`$, it rotates $`𝐗\in\mathbb R^3`$ about $`𝐮`$ by angle $`\theta`$:
+
+```math
+X'=QXQ^{\mathsf H}.
 ```
 
 ## Rotations and boosts
@@ -107,7 +160,7 @@ X:=t+𝐫\cdot𝝈,
 \qquad X':=TXT^{\mathsf H}=t'+𝐫'\cdot𝝈.
 ```
 
-For $`T=R`$: [Rodrigues rotation](https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula) through $`\theta`$, with [unit quaternion](https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation) $`Q=R`$, $`q_k=-\mathrm{i}\sigma_k`$.
+For $`T=R`$: [Rodrigues rotation](https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula) through $`\theta`$, with [unit quaternion](https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation) $`Q=R`$.
 
 ```math
 \begin{aligned}
@@ -143,15 +196,15 @@ t'&=\gamma(t-\beta𝐮\cdot𝐫),\\
 ## Projections and spectral decomposition
 
 ```math
-Z=a+b𝐮\cdot𝝈,
-\qquad a,b\in\mathbb C,\quad 𝐮\in\mathbb C^3,\quad 𝐮^2=1.
+Z=c+c'𝐮\cdot𝝈,
+\qquad c,c'\in\mathbb C,\quad 𝐮\in\mathbb C^3,\quad 𝐮^2=1.
 ```
 
 The eigenvalues and complementary [projectors](https://en.wikipedia.org/wiki/Paravector#Null_paravectors_as_projectors) are
 
 ```math
 \begin{gathered}
-\lambda_\pm:=a\pm b,
+\lambda_\pm:=c\pm c',
 \qquad \Pi_\pm:=\frac12(1\pm𝐮\cdot𝝈),\\[4pt]
 \Pi_\pm^2=\Pi_\pm,\qquad \Pi_+\Pi_-=0,\qquad \Pi_-+\Pi_+=1.
 \end{gathered}
@@ -348,7 +401,7 @@ Its components give
 \text{Real scalar:}\quad &\Box V-\partial_tS=\rho,\\
 \text{Imaginary scalar:}\quad &0=0,\\
 \text{Real vector:}\quad &\Box𝐀+\partial_{𝐫}S=𝐉,\\
-\text{Imaginary vector:}\quad &\mathbf 0=\mathbf 0.
+\text{Imaginary vector:}\quad &𝟎=𝟎.
 \end{aligned}
 ```
 

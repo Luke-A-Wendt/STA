@@ -40,7 +40,9 @@
 \newcommand{\bA}{\bm{A}}
 \newcommand{\bB}{\bm{B}}
 \newcommand{\bC}{\bm{C}}
-\newcommand{\bV}{\bm{V}}
+\newcommand{\bX}{\bm{X}}
+\newcommand{\bY}{\bm{Y}}
+\newcommand{\bZ}{\bm{Z}}
 \newcommand{\br}{\bm{r}}
 \newcommand{\bv}{\bm{v}}
 \newcommand{\bu}{\bm{u}}
@@ -49,7 +51,8 @@
 \newcommand{\bk}{\bm{k}}
 \newcommand{\bg}{\bm{g}}
 \newcommand{\bb}{\bm{b}}
-\newcommand{\bq}{\bm{q}}
+\newcommand{\bquatbasis}{\bm{\nu}}
+\newcommand{\bQ}{\bm{Q}}
 \newcommand{\bS}{\bm{S}}
 \newcommand{\bF}{\bm{F}}
 \newcommand{\bE}{\bm{E}}
@@ -161,18 +164,20 @@ including primes and components, unless stated otherwise.
 &\ii^2&=-1,\\
 \bsig&:=\{\sigma_1,\sigma_2,\sigma_3\},
 &\ii\bsig&=\{\sigma_2\sigma_3,\sigma_3\sigma_1,\sigma_1\sigma_2\},\\
-Z&:=(a+b\ii)+(\bm{A}+\ii\bm{B})\cdot\bsig,
-&a,b&\in\mathbb R,\quad\bm{A},\bm{B}\in\mathbb R^3.
+Z&:=(a+b\ii)+(\bm{X}+\ii\bm{Y})\cdot\bsig,
+&a,b&\in\mathbb R,\quad\bm{X},\bm{Y}\in\mathbb R^3.
 \end{aligned}}
 \]
 
-The direct sum specifies scalar and vector coefficients; multiplication uses the fixed sigma generators:
+The direct sum specifies scalar and vector coefficients; multiplication uses the fixed sigma generators. With $X,Y\in\R\oplus\R^3$:
 \[
-\begin{gathered}
-Z=S+\bm{V}\cdot\bsig=X+\ii Y\in\C\oplus\C^3,\\
-X:=a+\bm{A}\cdot\bsig,\quad Y:=b+\bm{B}\cdot\bsig,
-\qquad X,Y\in\R\oplus\R^3.
-\end{gathered}
+\begin{aligned}
+X:&=a+\bX\cdot\bsig,\\
+Y:&=b+\bY\cdot\bsig,\\[4pt]
+Z&=X+\ii Y\\
+&=(a+b\ii)+(\bX+\ii\bY)\cdot\bsig\\
+&=c+\bZ\cdot\bsig\in\C\oplus\C^3.
+\end{aligned}
 \]
 
 The component extractions are
@@ -180,22 +185,22 @@ The component extractions are
 \begin{aligned}
 \mathrm{re}(Z)&:=X,\\
 \mathrm{im}(Z)&:=Y,\\
-\mathrm{sc}(Z)&:=S=a+\ii b\in\C,\\
-\mathrm{vec}(Z)&:=\bm{V}=\bm{A}+\ii\bm{B}\in\C^3.
+\mathrm{sc}(Z)&:=c=a+\ii b\in\C,\\
+\mathrm{vec}(Z)&:=\bm{Z}=\bm{X}+\ii\bm{Y}\in\C^3.
 \end{aligned}
 \]
 
 \Needspace{8\baselineskip}
 \subsection*{\hyperref[eq:vector-product]{Dot and cross products in one multiplication}}
 
-For $\bm A,\bm B\in\C^3$, the product carries both the dot and cross products:
+For $\bm{X},\bm{Y}\in\C^3$, the product carries both the dot and cross products:
 \[
-(\bm{A}\cdot\bsig)(\bm{B}\cdot\bsig)
-=\bm{A}\cdot\bm{B}+\ii(\bm{A}\times\bm{B})\cdot\bsig.
+(\bm{X}\cdot\bsig)(\bm{Y}\cdot\bsig)
+=\bm{X}\cdot\bm{Y}+\ii(\bm{X}\times\bm{Y})\cdot\bsig.
 \]
 
-Dot and cross products are complex bilinear: $\bm A^2:=\bm A\cdot\bm A$
-uses no conjugation. For $\bm A,\bm B\in\R^3$, the displayed product
+Dot and cross products are complex bilinear: $\bm{X}^2:=\bm{X}\cdot\bm{X}$
+uses no conjugation. For $\bm{X},\bm{Y}\in\R^3$, the displayed product
 lies in $\R\oplus\ii\R^3$.
 
 For $X,Y\in\C\oplus\C^3$, the commutator is
@@ -208,43 +213,82 @@ For $X,Y\in\C\oplus\C^3$, the commutator is
 
 The scalar and vector parts give the determinant, trace, norm, adjugate, and inverse directly.
 
-For $Z=S+\bm V\cdot\bsig\in\C\oplus\C^3$,
+For $Z=c+\bm Z\cdot\bsig\in\C\oplus\C^3$,
 $\det Z,\mathrm{tr}\,Z\in\C$ and $\lVert Z\rVert^2\in\R_{\ge0}$.
 Conjugates, adjugates, and existing inverses remain in $\C\oplus\C^3$.
 
 Sigma conjugation $(\,\cdot\,)^*$ complex conjugates scalar coefficients and
 reverses the sign of $\bsig$. Hermitian conjugation $(\,\cdot\,)^{\mathsf H}$
 reverses the order of products of the generators $\sigma_k$.
+
+Applying these conjugation operators to a paravector gives
 \[
-\begin{gathered}
 \begin{aligned}
-Z^{*}&=S^{*}-\bm{V}^{*}\cdot\bsig,
-&Z^{\mathsf H}&=S^{*}+\bm{V}^{*}\cdot\bsig,\\
-\mathrm{adj}\,Z&:=S-\bm{V}\cdot\bsig = Z^{*\mathsf H},&\det Z&:=S^2-\bm{V}^2 = Z\,\mathrm{adj}\,Z,\\
-\mathrm{tr}\,Z&:=2S=Z+\mathrm{adj}\,Z,
-&\lVert Z\rVert^2&:=SS^{*}+\bm{V}\cdot\bm{V}^{*} = \mathrm{sc}(Z Z^\mathsf H).
-\end{aligned}\\[6pt]
-Z^{-1}=\frac{\mathrm{adj}\,Z}{\det Z}\qquad \mathrm{if} \quad \det Z\ne0.
-\end{gathered}
+Z^{*}&=c^{*}-\bZ^{*}\cdot\bsig,\\[4pt]
+Z^{\mathsf H}&=c^{*}+\bZ^{*}\cdot\bsig.
+\end{aligned}
+\]
+
+The paravector adjugate, determinant, and inverse are given by
+\[
+\begin{aligned}
+\mathrm{adj}\,Z&:=c-\bZ\cdot\bsig=Z^{*\mathsf H},\\[4pt]
+\det Z&:=c^2-\bZ^2=Z\,\mathrm{adj}\,Z,\\[6pt]
+Z^{-1}&=\frac{\mathrm{adj}\,Z}{\det Z}\qquad\text{if }\det Z\ne0.
+\end{aligned}
+\]
+
+The paravector trace and norm are given by
+\[
+\begin{aligned}
+\mathrm{tr}\,Z&:=2c=Z+\mathrm{adj}\,Z,\\[4pt]
+\lVert Z\rVert^2&:=cc^{*}+\bZ\cdot\bZ^{*}=\mathrm{sc}(ZZ^{\mathsf H}).
+\end{aligned}
 \]
 
 \Needspace{8\baselineskip}
 \subsection*{\hyperref[sec:quaternions]{Quaternions inside the same algebra}}
 
-Quaternions lie in $\R\oplus\ii\R^3$: a real scalar and a purely imaginary
-vector. The $q_k$ are algebra elements, and $\bm q:=(q_1,q_2,q_3)$ is their ordered triple:
+Define the quaternion basis. The $\nu_k$ are algebra elements, and $\bquatbasis$ is their ordered triple:
 \[
-\begin{aligned}
-q_k&:=-\ii\sigma_k,
-\qquad q_1^2=q_2^2=q_3^2=q_1q_2q_3=-1,\\
-Q&:=a+\bm{A}\cdot\bm{q}
-=a-\ii\bm{A}\cdot\bsig,
-\qquad a\in\mathbb R,\quad\bm{A}\in\mathbb R^3,\\
-Q^{\mathsf H}&=a+\ii\bm{A}\cdot\bsig,\\
-QQ^{\mathsf H}&=\det Q=a^2+\bm{A}^2.
-\end{aligned}
+\begin{gathered}
+\nu_k:=-\ii\sigma_k,\qquad \bquatbasis:=-\ii\bsig=\{\nu_1,\nu_2,\nu_3\},\\
+\nu_1^2=\nu_2^2=\nu_3^2=\nu_1\nu_2\nu_3=-1.
+\end{gathered}
 \]
 
+For $a\in\R$ and $\bQ\in\R^3$, the quaternion $Q\in\R\oplus\ii\R^3$ and its conjugate are
+\[
+\begin{aligned}
+Q&:=a+\bQ\cdot\bquatbasis=a-\ii\bQ\cdot\bsig,\\
+Q^{\mathsf H}&:=a-\bQ\cdot\bquatbasis=a+\ii\bQ\cdot\bsig,
+\end{aligned}
+\]
+with
+\[
+QQ^{\mathsf H}=\det Q=a^2+\bQ^2.
+\]
+
+Quaternions are normalized with:
+\[
+Q\leftarrow\frac{Q}{\sqrt{QQ^{\mathsf H}}},
+\]
+which, with $\lVert\bQ\rVert^2=\bQ^2$ for real $\bQ$, gives
+\[
+QQ^{\mathsf H}=a^2+\lVert\bQ\rVert^2=1.
+\]
+
+\Needspace{10\baselineskip}
+For a unit quaternion with $\bQ\ne0$, the rotation axis $\bu\in\R^3$ and angle $\theta\in\R$ satisfy
+\[
+\bu=\frac{\bQ}{\lVert\bQ\rVert},\qquad
+a=\cos\frac{\theta}{2},\qquad
+\bQ=\bu\sin\frac{\theta}{2}.
+\]
+For $X=\bX\cdot\bquatbasis$, it rotates $\bX\in\R^3$ about $\bu$ by angle $\theta$:
+\[
+X'=QXQ^{\mathsf H}.
+\]
 \Needspace{8\baselineskip}
 \subsection*{\hyperref[sec:preserved-quantities]{Rotations and boosts in the same form}}
 
@@ -256,7 +300,7 @@ X:=t+\bm{r}\cdot\bsig,
 \qquad X':=TXT^{\mathsf H}=t'+\bm{r}'\cdot\bsig.
 \]
 
-Choosing $T=R\in\R\oplus\ii\R^3$ gives Rodrigues' rotation through $\theta$; $R$ is a unit quaternion in the basis $q_k=-\ii\sigma_k$.
+Choosing $T=R\in\R\oplus\ii\R^3$ gives Rodrigues' rotation through $\theta$; $Q=R$ is a unit quaternion.
 \[
 \begin{aligned}
 R&:=e^{-\ii\theta\bm{u}\cdot\bsig/2}
@@ -289,14 +333,14 @@ t'&=\gamma(t-\beta\bm{u}\cdot\bm{r}),\\
 \Needspace{8\baselineskip}
 \subsection*{\hyperref[sec:spectral]{Projectors reduce functions to scalar evaluations}}
 \[
-Z=a+b\bm{u}\cdot\bsig,
-\qquad a,b\in\mathbb C,\quad \bm{u}\in\mathbb C^3,\quad \bm{u}^2=1.
+Z=c+c'\bm{u}\cdot\bsig,
+\qquad c,c'\in\mathbb C,\quad \bm{u}\in\mathbb C^3,\quad \bm{u}^2=1.
 \]
 
 The eigenvalues $\lambda_\pm\in\C$ and complementary projectors are
 \[
 \begin{gathered}
-\lambda_\pm:=a\pm b,
+\lambda_\pm:=c\pm c',
 \qquad \Pi_\pm:=\frac12(1\pm\bm{u}\cdot\bsig),\\[4pt]
 \Pi_\pm^2=\Pi_\pm,\qquad \Pi_+\Pi_-=0,\qquad \Pi_-+\Pi_+=1.
 \end{gathered}
@@ -864,8 +908,8 @@ reference in Appendix~\ref{sec:reference-summary} provides a compact index.
 \section{The algebra at a glance}
 \label{sec:algebra}
 
-We identify $S+\bV\cdot\bsig$ with its coefficient pair
-$(S,\bV)\in\C\oplus\C^3$. Real paravectors lie in $\R\oplus\R^3$;
+We identify $c+\bZ\cdot\bsig$ with its coefficient pair
+$(c,\bZ)\in\C\oplus\C^3$. Real paravectors lie in $\R\oplus\R^3$;
 mixed sums specify the two coefficient spaces separately.
 The direct sum describes values, while the sigma rules define multiplication.
 The generators $\sigma_k$ are algebra elements; $\bsig$ is their ordered
@@ -892,18 +936,18 @@ relations and the general complex element~\citeat{baylis2004}{pp.~4--5}{page=4}:
  &\ii^2&=-1,\\
  \bsig&=\{\sigma_1,\sigma_2,\sigma_3\},
  &\ii\bsig&=\{\sigma_2\sigma_3,\sigma_3\sigma_1,\sigma_1\sigma_2\},\\
- Z&=(a+b\ii)+(\bA+\bB\ii)\cdot\bsig,
- &a,b&\in\R,\quad \bA,\bB\in\R^3.
+ Z&=(a+b\ii)+(\bX+\bY\ii)\cdot\bsig,
+ &a,b&\in\R,\quad \bX,\bY\in\R^3.
 \end{align*}
 \end{minipage}}
 \end{center}
 
 Ordinary three-vector operations use
 \begin{align*}
- \bA\cdot\bB&=A_1B_1+A_2B_2+A_3B_3,\\
- \bA\times\bB&=\{A_2B_3-A_3B_2,
- A_3B_1-A_1B_3,A_1B_2-A_2B_1\},\\
- \bA^2&:=\bA\cdot\bA.
+ \bX\cdot\bY&=X_1Y_1+X_2Y_2+X_3Y_3,\\
+ \bX\times\bY&=\{X_2Y_3-X_3Y_2,
+ X_3Y_1-X_1Y_3,X_1Y_2-X_2Y_1\},\\
+ \bX^2&:=\bX\cdot\bX.
 \end{align*}
 Thus the square of a vector always denotes its self dot product.
 For complex vectors, dot and cross products use the same formulas, without
@@ -1018,14 +1062,14 @@ representation, where $^{\mathsf H}$ is the usual matrix Hermitian conjugation.
 \subsection{Core operations}
 \label{sec:algebra-operations}
 
-Let $a,b\in\R$ and $\bA,\bB\in\R^3$.  The real paravectors
-$X=a+\bA\cdot\bsig,\ Y=b+\bB\cdot\bsig\in\R\oplus\R^3$ form the
+Let $a,b\in\R$ and $\bX,\bY\in\R^3$.  The real paravectors
+$X=a+\bX\cdot\bsig,\ Y=b+\bY\cdot\bsig\in\R\oplus\R^3$ form the
 general complex paravector $Z\in\C\oplus\C^3$:
 \begin{equation*}
- Z=X+\ii Y=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig
-   =S+\bV\cdot\bsig.
+ Z=X+\ii Y=(a+b\ii)+(\bX+\ii\bY)\cdot\bsig
+   =c+\bZ\cdot\bsig.
 \end{equation*}
-Here $S=a+b\ii\in\C$ and $\bV=\bA+\ii\bB\in\C^3$ are its
+Here $c=a+b\ii\in\C$ and $\bZ=\bX+\ii\bY\in\C^3$ are its
 complex scalar and vector coefficients.
 
 Thus $\operatorname{sc},\det,\operatorname{tr}$ take values in $\C$,
@@ -1034,36 +1078,36 @@ in $\R\oplus\R^3$. Conjugates, adjugates, and existing inverses take values
 in $\C\oplus\C^3$.
 Define the scalar and vector extractions by
 \begin{align*}
- \scpart {Z}&:=S,
+ \scpart {Z}&:=c,
  \\
- \vecpart {Z}&:=\bV.
+ \vecpart {Z}&:=\bZ.
 \end{align*}
 This notation applies throughout the algebra unless a real specialization
 is stated.  On the coefficients, both conjugations give
-$S^*=S^{\mathsf H}=a-b\ii$ and
-$\bV^*=\bV^{\mathsf H}=\bA-\ii\bB$; on the paravector, the two
+$c^*=c^{\mathsf H}=a-b\ii$ and
+$\bZ^*=\bZ^{\mathsf H}=\bX-\ii\bY$; on the paravector, the two
 conjugations differ in the vector sign~\citeat{chappell-functions}{Eq.~(45)}{page=11}:
 \begin{align}
- Z^*&=S^*-\bV^*\cdot\bsig
- =(a-b\ii)+(-\bA+\ii\bB)\cdot\bsig,
+ Z^*&=c^*-\bZ^*\cdot\bsig
+ =(a-b\ii)+(-\bX+\ii\bY)\cdot\bsig,
  \label{eq:algebra-star}\\
- Z^{\mathsf H}&=S^*+\bV^*\cdot\bsig
- =(a-b\ii)+(\bA-\ii\bB)\cdot\bsig.
+ Z^{\mathsf H}&=c^*+\bZ^*\cdot\bsig
+ =(a-b\ii)+(\bX-\ii\bY)\cdot\bsig.
  \label{eq:algebra-H}
 \end{align}
 Their composition defines the adjugate~\citeat{chappell-functions}{Eq.~(39)}{page=10}
 \begin{equation}
- \adj {Z}:=Z^{*\mathsf H}=S-\bV\cdot\bsig.
+ \adj {Z}:=Z^{*\mathsf H}=c-\bZ\cdot\bsig.
  \label{eq:adjugate}
 \end{equation}
 The trace is twice the scalar part:
 \begin{equation}
- \operatorname{tr}(Z):=Z+\adj {Z}=2\scpart {Z}=2S.
+ \operatorname{tr}(Z):=Z+\adj {Z}=2\scpart {Z}=2c.
  \label{eq:trace-scalar}
 \end{equation}
 The determinant is the complex scalar~\citeat{baylis-applications}{p.~104}{page=115}
 \begin{equation}
- \det(Z):=\adj {Z}\,Z=Z\adj {Z}=S^2-\bV^2.
+ \det(Z):=\adj {Z}\,Z=Z\adj {Z}=c^2-\bZ^2.
  \label{eq:det}
 \end{equation}
 For $Z'\in\C\oplus\C^3$, adjugation reverses product order, giving determinant
@@ -1075,24 +1119,24 @@ multiplicativity:
            =\det(Z)\det(Z').
 \end{align*}
 Since the determinants are scalars, the determinant of any product is
-unchanged by reordering its factors.  For a scalar $c\in\C$,
+unchanged by reordering its factors.  For a scalar $c''\in\C$,
 \begin{align}
- \adj{cZ}&=c\adj {Z}, \notag\\
- \det(cZ)&=c^2\det(Z).
+ \adj{c''Z}&=c''\adj {Z}, \notag\\
+ \det(c''Z)&=(c'')^2\det(Z).
  \label{eq:det-scalar-scaling}
 \end{align}
 When $\det(Z)\ne0$, the inverse is~\citeat{chappell-functions}{Eq.~(47)}{page=11}
 \begin{equation}
  Z^{-1}=\frac{\adj {Z}}{\det(Z)}
-       =\frac{S-\bV\cdot\bsig}{S^2-\bV^2}.
+       =\frac{c-\bZ\cdot\bsig}{c^2-\bZ^2}.
  \label{eq:inverse}
 \end{equation}
-For $Z'=S'+\bV'\cdot\bsig$, with $S'\in\C$, $\bV'\in\C^3$, division is
+For $Z'=c'+\bZ'\cdot\bsig$, with $c'\in\C$, $\bZ'\in\C^3$, division is
 order-sensitive.  An unambiguous quotient exists when $Z$ is invertible
 and the factors commute:
 \begin{equation*}
  \frac{Z'}{Z}:=Z'Z^{-1}=Z^{-1}Z'
- \qquad\text{if }\bV\times\bV'=0.
+ \qquad\text{if }\bZ\times\bZ'=0.
 \end{equation*}
 Differentiating $Z^{-1}Z=1$ gives the inverse rule
 \begin{equation*}
@@ -1117,17 +1161,17 @@ The real and imaginary extractions use Hermitian conjugation~\citeat{baylis2004}
 \end{align}
 Adjugation evaluates the scalar and vector extractions explicitly~\citeat{baylis2004}{Eq.~(14)}{page=6}:
 \begin{align*}
- \scpart {Z}&=\tfrac12(Z+\adj {Z})=S,
+ \scpart {Z}&=\tfrac12(Z+\adj {Z})=c,
  \\
- (\vecpart {Z})\cdot\bsig&=\tfrac12(Z-\adj {Z})=\bV\cdot\bsig.
+ (\vecpart {Z})\cdot\bsig&=\tfrac12(Z-\adj {Z})=\bZ\cdot\bsig.
 \end{align*}
 The functions $\operatorname{re}$ and $\operatorname{im}$ also act on
 complex coefficients.  Composing extractions recovers all four real parts:
 \begin{align*}
- a&=\repart S=\scpart{\repart {Z}},\\
- b&=\impart S=\scpart{\impart {Z}},\\
- \bA&=\repart{\bV}=\vecpart{\repart {Z}},\\
- \bB&=\impart{\bV}=\vecpart{\impart {Z}}.
+ a&=\repart c=\scpart{\repart {Z}},\\
+ b&=\impart c=\scpart{\impart {Z}},\\
+ \bX&=\repart{\bZ}=\vecpart{\repart {Z}},\\
+ \bY&=\impart{\bZ}=\vecpart{\impart {Z}}.
 \end{align*}
 Appendix~\ref{sec:matrix} reproduces these intrinsic operations with Pauli
 matrices.
@@ -1135,15 +1179,15 @@ matrices.
 \subsection{Unit vectors and paravectors}
 \label{sec:unit-forms}
 
-Recall $Z=S+\bV\cdot\bsig$, with $S\in\C$ and $\bV\in\C^3$.
+Recall $Z=c+\bZ\cdot\bsig$, with $c\in\C$ and $\bZ\in\C^3$.
 For $\bC\in\C^3$, distinguish the square from the positive norm:
 \begin{align*}
  \bC^2&:=\bC\cdot\bC,\\
  \lVert\bC\rVert^2&:=\bC\cdot\bC^*.
 \end{align*}
-For $S\in\C$, set $\lVert S\rVert^2:=SS^*$.  The positive paravector norm is~\citeat{chappell-functions}{Eq.~(46)}{page=11}
+For $c\in\C$, set $\lVert c\rVert^2:=cc^*$.  The positive paravector norm is~\citeat{chappell-functions}{Eq.~(46)}{page=11}
 \begin{equation}
- \lVert Z\rVert^2:=\lVert S\rVert^2+\lVert\bV\rVert^2.
+ \lVert Z\rVert^2:=\lVert c\rVert^2+\lVert\bZ\rVert^2.
  \label{eq:coefficient-norm}
 \end{equation}
 All norms take values in $\R_{\ge0}$ and denote nonnegative real square roots.
@@ -1205,7 +1249,7 @@ Unitarity implies unit norm by \eqref{eq:hermitian-norm}.
  \label{eq:involutory-paravector}
 \end{equation}
 Then $Z^{-1}=Z$; it is unitary exactly when $Z^{\mathsf H}=Z$.
-Its parts obey $S^2+\bV^2=1$ and $2S\bV=0$:
+Its parts obey $c^2+\bZ^2=1$ and $2c\bZ=0$:
 thus $Z=\pm1$ or $Z=\bu\cdot\bsig$ with $\bu^2=1$.
 \end{itemize}
 
@@ -1227,74 +1271,74 @@ Section~\ref{sec:preserved-quantities}.
 
 \subsection{Products and quadratic forms}
 
-Here $\bA,\bB\in\R^3$ are real coefficient vectors.
+Here $\bX,\bY\in\R^3$ are real coefficient vectors.
 The sigma rule~\eqref{eq:sigma-product} gives the dot--cross identity~\citeat{chappell-functions}{Eq.~(38)}{page=10}
 \begin{equation}
  \begin{aligned}
- (\bA\cdot\bsig)(\bB\cdot\bsig)
+ (\bX\cdot\bsig)(\bY\cdot\bsig)
  &=\sum_{n=1}^{3}\sum_{m=1}^{3}
-   A_nB_m\sigma_n\sigma_m\\
- &=\sum_{n=1}^{3}\sum_{m=1}^{3}A_nB_m\delta_{nm}
+   X_nY_m\sigma_n\sigma_m\\
+ &=\sum_{n=1}^{3}\sum_{m=1}^{3}X_nY_m\delta_{nm}
    +\sum_{n=1}^{3}\sum_{m=1}^{3}\sum_{k=1}^{3}
-   A_nB_m\epsilon_{nmk}\ii\sigma_k\\
- &=\bA\cdot\bB+\ii(\bA\times\bB)\cdot\bsig.
+   X_nY_m\epsilon_{nmk}\ii\sigma_k\\
+ &=\bX\cdot\bY+\ii(\bX\times\bY)\cdot\bsig.
  \end{aligned}
  \label{eq:vector-product}
 \end{equation}
-Adding the product with $\bA$ and $\bB$ interchanged gives
+Adding the product with $\bX$ and $\bY$ interchanged gives
 \begin{equation*}
- 2(\bA\cdot\bB)
- =(\bA\cdot\bsig)(\bB\cdot\bsig)
- +(\bB\cdot\bsig)(\bA\cdot\bsig).
+ 2(\bX\cdot\bY)
+ =(\bX\cdot\bsig)(\bY\cdot\bsig)
+ +(\bY\cdot\bsig)(\bX\cdot\bsig).
 \end{equation*}
 Consequently, for every nonnegative integer $n$,
 \begin{align*}
- (\bA\cdot\bsig)^2&=\bA^2,\\
- (\bA\cdot\bsig)^{2n}&=(\bA^2)^n,\\
- (\bA\cdot\bsig)^{2n+1}&=(\bA^2)^n\bA\cdot\bsig.
+ (\bX\cdot\bsig)^2&=\bX^2,\\
+ (\bX\cdot\bsig)^{2n}&=(\bX^2)^n,\\
+ (\bX\cdot\bsig)^{2n+1}&=(\bX^2)^n\bX\cdot\bsig.
 \end{align*}
 Also,
 \begin{equation*}
- (\bA\cdot\bsig)\bsig=\bA-\ii\bA\times\bsig.
+ (\bX\cdot\bsig)\bsig=\bX-\ii\bX\times\bsig.
 \end{equation*}
 Subtracting the two orders gives
 \begin{equation*}
- [\bA\cdot\bsig,\bB\cdot\bsig]
- =2\ii(\bA\times\bB)\cdot\bsig.
+ [\bX\cdot\bsig,\bY\cdot\bsig]
+ =2\ii(\bX\times\bY)\cdot\bsig.
 \end{equation*}
 Hence
 \begin{align*}
- [\bA\cdot\bsig,\bsig]&=-2\ii\bA\times\bsig,\\
- [\bA\cdot\ii\bsig,\bsig]&=2\bA\times\bsig,\\
- [\bA\cdot\bsig,\bsig]\cdot\bB
- &=2\ii(\bA\times\bB)\cdot\bsig.
+ [\bX\cdot\bsig,\bsig]&=-2\ii\bX\times\bsig,\\
+ [\bX\cdot\ii\bsig,\bsig]&=2\bX\times\bsig,\\
+ [\bX\cdot\bsig,\bsig]\cdot\bY
+ &=2\ii(\bX\times\bY)\cdot\bsig.
 \end{align*}
 
 \subsection{Quadratic identity and eigenvalues}
 
-Recall $Z=S+\bV\cdot\bsig$, with $S\in\C$ and $\bV\in\C^3$.
-Since $Z-S=\bV\cdot\bsig$ and
-$(\bV\cdot\bsig)^2=\bV^2$,
+Recall $Z=c+\bZ\cdot\bsig$, with $c\in\C$ and $\bZ\in\C^3$.
+Since $Z-c=\bZ\cdot\bsig$ and
+$(\bZ\cdot\bsig)^2=\bZ^2$,
 \begin{align*}
- (Z-S)^2&=\bV^2,\\
- Z^2-2SZ+(S^2-\bV^2)&=0.
+ (Z-c)^2&=\bZ^2,\\
+ Z^2-2cZ+(c^2-\bZ^2)&=0.
 \end{align*}
-Using $\operatorname{tr}(Z)=2S$ and
-$\det(Z)=S^2-\bV^2$ gives the trace--determinant identity
+Using $\operatorname{tr}(Z)=2c$ and
+$\det(Z)=c^2-\bZ^2$ gives the trace--determinant identity
 \begin{equation}
  Z^2-\operatorname{tr}(Z)Z+\det(Z)=0.
   \label{eq:minimal}
 \end{equation}
 An eigenvalue is a scalar $\lambda\in\C$ for which $Z-\lambda$ has no
-inverse.  Thus $\det(Z-\lambda)=\lambda^2-2S\lambda+\det(Z)=0$,
+inverse.  Thus $\det(Z-\lambda)=\lambda^2-2c\lambda+\det(Z)=0$,
 the scalar quadratic corresponding to \eqref{eq:minimal}.  Its roots are
 \begin{equation*}
  \lambda_\pm
  =\frac{\operatorname{tr}(Z)
  \pm\sqrt{\operatorname{tr}(Z)^2-4\det(Z)}}{2}
- =S\pm\sqrt{\bV^2}.
+ =c\pm\sqrt{\bZ^2}.
 \end{equation*}
-Because $\bV$ is generally complex, $\bV^2=\bV\cdot\bV$ and its square
+Because $\bZ$ is generally complex, $\bZ^2=\bZ\cdot\bZ$ and its square
 root may also be complex.
 The quadratic identity therefore factors as
 \begin{equation*}
@@ -1303,37 +1347,37 @@ The quadratic identity therefore factors as
 
 \subsection{Real products}
 
-For real $X=a+\bA\cdot\bsig$ and $Y=b+\bB\cdot\bsig$, with
-$a,b\in\R$ and $\bA,\bB\in\R^3$, \eqref{eq:vector-product} gives
+For real $X=a+\bX\cdot\bsig$ and $Y=b+\bY\cdot\bsig$, with
+$a,b\in\R$ and $\bX,\bY\in\R^3$, \eqref{eq:vector-product} gives
 \begin{align*}
- XY&=(ab+\bA\cdot\bB)
- +(a\bB+b\bA+\ii\bA\times\bB)\cdot\bsig,
+ XY&=(ab+\bX\cdot\bY)
+ +(a\bY+b\bX+\ii\bX\times\bY)\cdot\bsig,
  \\
- [X,Y]&=2\ii(\bA\times\bB)\cdot\bsig, \\
- X^2&=(a^2+\bA^2)+2a\bA\cdot\bsig.
+ [X,Y]&=2\ii(\bX\times\bY)\cdot\bsig, \\
+ X^2&=(a^2+\bX^2)+2a\bX\cdot\bsig.
 \end{align*}
 Thus $XY\in\R\oplus\C^3$, $[X,Y]\in\{0\}\oplus\ii\R^3$, and
 $X^2\in\R\oplus\R^3$. Real paravectors are not closed under multiplication.
-The real quadratic identity is \eqref{eq:minimal} with $S=a$.
-If $\bA\times\bB=0$, then $XY=YX$; when $\det(X)\ne0$, also
+The real quadratic identity is \eqref{eq:minimal} with $c=a$.
+If $\bX\times\bY=0$, then $XY=YX$; when $\det(X)\ne0$, also
 $X^{-1}Y=YX^{-1}$.
 
 \subsection{Complex products}
 
-Let $Z=S+\bV\cdot\bsig$ and $Z'=S'+\bV'\cdot\bsig$, where
-$S,S'\in\C$ and $\bV,\bV'\in\C^3$.  Complex bilinearity extends
+Let $Z=c+\bZ\cdot\bsig$ and $Z'=c'+\bZ'\cdot\bsig$, where
+$c,c'\in\C$ and $\bZ,\bZ'\in\C^3$.  Complex bilinearity extends
 \eqref{eq:vector-product} to the general product
 \begin{equation}
- ZZ'=(SS'+\bV\cdot\bV')+
- \bigl(S\bV'+S'\bV+\ii\bV\times\bV'\bigr)\cdot\bsig.
+ ZZ'=(cc'+\bZ\cdot\bZ')+
+ \bigl(c\bZ'+c'\bZ+\ii\bZ\times\bZ'\bigr)\cdot\bsig.
  \label{eq:para-product}
 \end{equation}
 
 The result $ZZ'\in\C\oplus\C^3$ has a complex scalar and complex vector part.
 Thus
 \begin{align*}
- \scpart{ZZ'}&=SS'+\bV\cdot\bV',\\
- \vecpart{ZZ'}&=S\bV'+S'\bV+\ii\bV\times\bV'.
+ \scpart{ZZ'}&=cc'+\bZ\cdot\bZ',\\
+ \vecpart{ZZ'}&=c\bZ'+c'\bZ+\ii\bZ\times\bZ'.
 \end{align*}
 Equivalently, write $Z=X+\ii Y$ and $Z'=X'+\ii Y'$ with all four
 factors real.  Their products need not be real, but distributivity gives
@@ -1341,54 +1385,54 @@ factors real.  Their products need not be real, but distributivity gives
  ZZ'=(XX'-YY')+\ii(XY'+YX').
 \end{equation*}
 
-Write $Z=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig$ with real
-$a,b,\bA,\bB$, and use primes for the second paravector's real components.  The four
+Write $Z=(a+b\ii)+(\bX+\ii\bY)\cdot\bsig$ with real
+$a,b,\bX,\bY$, and use primes for the second paravector's real components.  The four
 real components of $ZZ'$ are
 \begin{align*}
- \text{real scalar: }&aa'-bb'+\bA\cdot\bA'-\bB\cdot\bB',\\
- \text{imaginary scalar: }&ab'+ba'+\bA\cdot\bB'+\bB\cdot\bA',\\
- \text{real vector: }&a\bA'-b\bB'+a'\bA-b'\bB
-                    -\bA\times\bB'-\bB\times\bA',\\
- \text{imaginary vector: }&a\bB'+b\bA'+a'\bB+b'\bA
-                    +\bA\times\bA'-\bB\times\bB'.
+ \text{real scalar: }&aa'-bb'+\bX\cdot\bX'-\bY\cdot\bY',\\
+ \text{imaginary scalar: }&ab'+ba'+\bX\cdot\bY'+\bY\cdot\bX',\\
+ \text{real vector: }&a\bX'-b\bY'+a'\bX-b'\bY
+                    -\bX\times\bY'-\bY\times\bX',\\
+ \text{imaginary vector: }&a\bY'+b\bX'+a'\bY+b'\bX
+                    +\bX\times\bX'-\bY\times\bY'.
 \end{align*}
 Specializing \eqref{eq:para-product} gives the quadratic products:
 \begin{align}
- Z^2&=(a^2-b^2+\bA^2-\bB^2)
- +2\ii(ab+\bA\cdot\bB) \notag\\
- &\quad+2(a\bA-b\bB)\cdot\bsig
- +2\ii(a\bB+b\bA)\cdot\bsig, \notag\\
- ZZ^*&=(a^2+b^2-\bA^2-\bB^2)
- -2(\bA\times\bB)\cdot\bsig
- +2\ii(a\bB-b\bA)\cdot\bsig,
+ Z^2&=(a^2-b^2+\bX^2-\bY^2)
+ +2\ii(ab+\bX\cdot\bY) \notag\\
+ &\quad+2(a\bX-b\bY)\cdot\bsig
+ +2\ii(a\bY+b\bX)\cdot\bsig, \notag\\
+ ZZ^*&=(a^2+b^2-\bX^2-\bY^2)
+ -2(\bX\times\bY)\cdot\bsig
+ +2\ii(a\bY-b\bX)\cdot\bsig,
  \label{eq:star-product-left}\\
- Z^*Z&=(a^2+b^2-\bA^2-\bB^2)
- +2(\bA\times\bB)\cdot\bsig
- +2\ii(a\bB-b\bA)\cdot\bsig,
+ Z^*Z&=(a^2+b^2-\bX^2-\bY^2)
+ +2(\bX\times\bY)\cdot\bsig
+ +2\ii(a\bY-b\bX)\cdot\bsig,
  \label{eq:star-product-right}\\
- ZZ^{\mathsf H}&=a^2+b^2+\bA^2+\bB^2
- +2(a\bA+b\bB+\bA\times\bB)\cdot\bsig,
+ ZZ^{\mathsf H}&=a^2+b^2+\bX^2+\bY^2
+ +2(a\bX+b\bY+\bX\times\bY)\cdot\bsig,
  \label{eq:hermitian-product-left}\\
- Z^{\mathsf H}Z&=a^2+b^2+\bA^2+\bB^2
- +2(a\bA+b\bB-\bA\times\bB)\cdot\bsig,
+ Z^{\mathsf H}Z&=a^2+b^2+\bX^2+\bY^2
+ +2(a\bX+b\bY-\bX\times\bY)\cdot\bsig,
  \label{eq:hermitian-product-right}\\
  ZZ^{*\mathsf H}&=\det(Z)
- =a^2-b^2-\bA^2+\bB^2
- +2\ii(ab-\bA\cdot\bB). \notag
+ =a^2-b^2-\bX^2+\bY^2
+ +2\ii(ab-\bX\cdot\bY). \notag
 \end{align}
 Equations~\eqref{eq:star-product-left} and \eqref{eq:star-product-right}
 have values in $\R\oplus\C^3$ and show $ZZ^*=Z^*Z$ exactly when
-$\bA\times\bB=0$.  Equations
+$\bX\times\bY=0$.  Equations
 \eqref{eq:hermitian-product-left} and \eqref{eq:hermitian-product-right}
 take values in $\R\oplus\R^3$ and give the same condition for
 $ZZ^{\mathsf H}=Z^{\mathsf H}Z$.
 
 \subsubsection{Norm and determinant}
-For the complex coefficients $S=a+b\ii$ and $\bV=\bA+\ii\bB$, the norms
+For the complex coefficients $c=a+b\ii$ and $\bZ=\bX+\ii\bY$, the norms
 defined above give
 \begin{align*}
- \lVert S\rVert^2&=a^2+b^2,\\
- \lVert\bV\rVert^2&=\bA^2+\bB^2.
+ \lVert c\rVert^2&=a^2+b^2,\\
+ \lVert\bZ\rVert^2&=\bX^2+\bY^2.
 \end{align*}
 For the positive norm~\eqref{eq:coefficient-norm}, the quadratic products
 and cyclicity give the Hermitian form~\citeat{chappell-functions}{Eq.~(46)}{page=11}
@@ -1402,12 +1446,12 @@ and cyclicity give the Hermitian form~\citeat{chappell-functions}{Eq.~(46)}{page
  \end{aligned}
  \label{eq:hermitian-norm}
 \end{equation}
-For complex coefficients, $S^2$ and $\bV^2$ generally differ from these
+For complex coefficients, $c^2$ and $\bZ^2$ generally differ from these
 positive norms.  Also $\det(Z)$ may be complex.  For a complex scalar
-$c=r e^{\ii\theta}$, with real $r\ge0$ and $\theta$, scalar scaling gives
+$c''=r e^{\ii\theta}$, with real $r\ge0$ and $\theta$, scalar scaling gives
 \begin{align}
- \det(cZ)&=r^2e^{2\ii\theta}\det(Z), \notag\\
- \lVert cZ\rVert^2&=\lVert c\rVert^2\lVert Z\rVert^2
+ \det(c''Z)&=r^2e^{2\ii\theta}\det(Z), \notag\\
+ \lVert c''Z\rVert^2&=\lVert c''\rVert^2\lVert Z\rVert^2
  =r^2\lVert Z\rVert^2.
  \label{eq:norm-scalar-scaling}
 \end{align}
@@ -1465,12 +1509,12 @@ For $\Pi_\pm'=(1\pm\bu'\cdot\bsig)/2\in\R\oplus\R^3$, all four products lie in $
 \label{sec:spectral}
 
 \subsubsection{Spectral rule}
-Let $Z=S+\bV\cdot\bsig$, with $S\in\C$, $\bV\in\C^3$, and
-$\bV^2\ne0$.  Define the complex scalars $w,\lambda_\pm$, complex vector $\bu$, and
+Let $Z=c+\bZ\cdot\bsig$, with $c\in\C$, $\bZ\in\C^3$, and
+$\bZ^2\ne0$.  Define the complex scalars $w,\lambda_\pm$, complex vector $\bu$, and
 projectors $\Pi_\pm\in\R\oplus\C^3$ by
 \begin{align*}
- w&:=+\sqrt{\bV^2},& \lambda_\pm&:=S\pm w,\\
- \bu&:=\bV/w,& \Pi_\pm&:=\tfrac12(1\pm\bu\cdot\bsig).
+ w&:=+\sqrt{\bZ^2},& \lambda_\pm&:=c\pm w,\\
+ \bu&:=\bZ/w,& \Pi_\pm&:=\tfrac12(1\pm\bu\cdot\bsig).
 \end{align*}
 The root is the principal scalar root.  Thus $\bu$ is a
 \hyperref[eq:bilinear-unit-vector]{vector of square one};
@@ -1480,7 +1524,7 @@ Its square gives
  \Pi_\pm^2&=\tfrac14(1\pm2\bu\cdot\bsig+1)=\Pi_\pm,\\
  \Pi_+\Pi_-&=\tfrac14(1-(\bu\cdot\bsig)^2)=0,\\
  \Pi_++\Pi_-&=1,\\
- Z&=S(\Pi_++\Pi_-)+w(\Pi_+-\Pi_-)
+ Z&=c(\Pi_++\Pi_-)+w(\Pi_+-\Pi_-)
    =\lambda_+\Pi_++\lambda_-\Pi_-.
 \end{align*}
 Here $w,\lambda_\pm\in\C$, $\bu\in\C^3$, and
@@ -1522,12 +1566,12 @@ pairs and leaves the function unchanged when its branch choices are
 exchanged with them.
 
 \subsubsection{Real paravectors and direct square roots}
-For real $X=a+\bA\cdot\bsig$, with $a\in\R$, $\bA\in\R^3$, and
-$\bA\ne0$, the spectral quantities above reduce to
+For real $X=a+\bX\cdot\bsig$, with $a\in\R$, $\bX\in\R^3$, and
+$\bX\ne0$, the spectral quantities above reduce to
 \[
- w=\lVert\bA\rVert,\qquad
- \bu=\bA/\lVert\bA\rVert,\qquad
- \lambda_\pm=a\pm\lVert\bA\rVert.
+ w=\lVert\bX\rVert,\qquad
+ \bu=\bX/\lVert\bX\rVert,\qquad
+ \lambda_\pm=a\pm\lVert\bX\rVert.
 \]
 Here $X,\Pi_\pm\in\R\oplus\R^3$, $w,\lambda_\pm\in\R$,
 and $\bu\in\R^3$. The projectors are now Hermitian; complex-valued
@@ -1541,89 +1585,89 @@ functions or square roots may still give $f(X)\in\C\oplus\C^3$.  In particular, 
  \sqrt{\bu\cdot\bsig}&=\pm\Pi_+\pm\ii\Pi_-.
 \end{align*}
 The two root signs are independent.  For a fixed analytic branch,
-$f(X)\to f(a)$ as $\bA\to0$; independent root choices require the
+$f(X)\to f(a)$ as $\bX\to0$; independent root choices require the
 scalar case below.
 
 A direct component derivation also determines all \emph{real} roots.
-Let $Y=b+\bB\cdot\bsig$ be real, with $b\in\R$, $\bB\in\R^3$,
-and seek real $X=a+\bA\cdot\bsig$ such that $X^2=Y$.  Equating parts gives
+Let $Y=b+\bY\cdot\bsig$ be real, with $b\in\R$, $\bY\in\R^3$,
+and seek real $X=a+\bX\cdot\bsig$ such that $X^2=Y$.  Equating parts gives
 \begin{align*}
- a^2+\bA^2&=b,\\
- 2a\bA&=\bB.
+ a^2+\bX^2&=b,\\
+ 2a\bX&=\bY.
 \end{align*}
-If $\bB\ne0$, then $a\ne0$ and $\bA=\bB/(2a)$.  Substitution gives
+If $\bY\ne0$, then $a\ne0$ and $\bX=\bY/(2a)$.  Substitution gives
 \begin{align}
- a^4-ba^2+\tfrac14\bB^2&=0, \notag\\
- a^2&=\tfrac12\left(b\pm\sqrt{b^2-\bB^2}\right).
+ a^4-ba^2+\tfrac14\bY^2&=0, \notag\\
+ a^2&=\tfrac12\left(b\pm\sqrt{b^2-\bY^2}\right).
  \label{eq:real-square-root-scalar}
 \end{align}
 For each nonnegative $a^2$ in \eqref{eq:real-square-root-scalar}, take both
 scalar roots $a$ and set
-$\bA=\bB/(2a)$; then $\bA^2=b-a^2$.  There are four real roots when
-$b>\lVert\bB\rVert$, two when $b=\lVert\bB\rVert>0$, and none when
-$b<\lVert\bB\rVert$.
+$\bX=\bY/(2a)$; then $\bX^2=b-a^2$.  There are four real roots when
+$b>\lVert\bY\rVert$, two when $b=\lVert\bY\rVert>0$, and none when
+$b<\lVert\bY\rVert$.
 
-If $\bB=0$, the equations instead give the scalar roots
-$X=\pm\sqrt b$ and the pure-vector roots $X=\bA\cdot\bsig$ with
-$\bA^2=b$ for $b>0$.  For $b=0$ only $X=0$ is real; for $b<0$ there
+If $\bY=0$, the equations instead give the scalar roots
+$X=\pm\sqrt b$ and the pure-vector roots $X=\bX\cdot\bsig$ with
+$\bX^2=b$ for $b>0$.  For $b=0$ only $X=0$ is real; for $b<0$ there
 is no real root.
 
 \subsubsection{Coalescing eigenvalues}
-For complex $Z=S+\bV\cdot\bsig$ with $\bV^2=0$, define
-$N=\bV\cdot\bsig\in\{0\}\oplus\C^3$, so $N^2=0$.  A scalar function analytic at $S$
+For complex $Z=c+\bZ\cdot\bsig$ with $\bZ^2=0$, define
+$N=\bZ\cdot\bsig\in\{0\}\oplus\C^3$, so $N^2=0$.  A scalar function analytic at $c$
 has the terminating Taylor expansion~\citeat{higham-functions}{p.~4}{page=5}
 \begin{equation}
- f(Z)=f(S)+f'(S)N.
+ f(Z)=f(c)+f'(c)N.
  \label{eq:coalescing-function}
 \end{equation}
-For $S\ne0$, the chosen square root and logarithm are
+For $c\ne0$, the chosen square root and logarithm are
 \begin{align*}
  \sqrt {Z}&=r+\frac{N}{2r},
  \\
- \log Z&=\log S+\frac{N}{S}.
+ \log Z&=\log c+\frac{N}{c}.
 \end{align*}
-Here $r\in\C$ is a chosen scalar root of $S$ ($r^2=S$); use a consistent
-logarithm branch.  A nonzero $N$ with $S=0$ has no square
+Here $r\in\C$ is a chosen scalar root of $c$ ($r^2=c$); use a consistent
+logarithm branch.  A nonzero $N$ with $c=0$ has no square
 root: such a root would have only zero eigenvalues, and its quadratic
 identity would force its square to vanish.  It has no logarithm because
 it is not invertible.  If $N=0$, a fixed analytic
-branch gives $f(S)$; non-scalar square roots of a scalar must instead be
-found from the component equations $a^2+\bA^2=S$, $2a\bA=0$, now allowing
-$a\in\C$ and $\bA\in\C^3$.  Independent branch choices need not remain
+branch gives $f(c)$; non-scalar square roots of a scalar must instead be
+found from the component equations $a^2+\bX^2=c$, $2a\bX=0$, now allowing
+$a\in\C$ and $\bX\in\C^3$.  Independent branch choices need not remain
 finite as distinct eigenvalues coalesce.
 
 \subsubsection{Exponential: projection and series derivations}
-For complex $Z=S+\bV\cdot\bsig$ with $\bV^2\ne0$, recall
-$w=+\sqrt{\bV^2}$, the \hyperref[eq:bilinear-unit-vector]{vector of square one}
-$\bu=\bV/w$, and $\lambda_\pm=S\pm w$.
+For complex $Z=c+\bZ\cdot\bsig$ with $\bZ^2\ne0$, recall
+$w=+\sqrt{\bZ^2}$, the \hyperref[eq:bilinear-unit-vector]{vector of square one}
+$\bu=\bZ/w$, and $\lambda_\pm=c\pm w$.
 The spectral rule~\eqref{eq:complex-function-projectors} gives
 \begin{align*}
  \exp(Z)
- &=\tfrac12e^{S+w}(1+\bu\cdot\bsig)
-  +\tfrac12e^{S-w}(1-\bu\cdot\bsig)\\
- &=e^S\left(\frac{e^w+e^{-w}}2
+ &=\tfrac12e^{c+w}(1+\bu\cdot\bsig)
+  +\tfrac12e^{c-w}(1-\bu\cdot\bsig)\\
+ &=e^c\left(\frac{e^w+e^{-w}}2
       +\frac{e^w-e^{-w}}2\bu\cdot\bsig\right).
 \end{align*}
-Independently, $S$ commutes with the vector part and
+Independently, $c$ commutes with the vector part and
 $(w\bu\cdot\bsig)^{2n}=w^{2n}$,
 $(w\bu\cdot\bsig)^{2n+1}=w^{2n+1}\bu\cdot\bsig$.  Separating the
 defining series therefore gives
 \begin{align*}
- \exp(Z)&=e^S\sum_{n=0}^{\infty}
+ \exp(Z)&=e^c\sum_{n=0}^{\infty}
       \frac{(w\bu\cdot\bsig)^n}{n!}\\
- &=e^S\left(\sum_{n=0}^{\infty}\frac{w^{2n}}{(2n)!}
+ &=e^c\left(\sum_{n=0}^{\infty}\frac{w^{2n}}{(2n)!}
        +\sum_{n=0}^{\infty}\frac{w^{2n+1}}{(2n+1)!}\bu\cdot\bsig\right).
 \end{align*}
 Both derivations give~\citeat{chappell-functions}{Eq.~(52)}{page=12}
 \begin{equation}
- \exp(Z)=e^S(\cosh w+\sinh w\,\bu\cdot\bsig).
+ \exp(Z)=e^c(\cosh w+\sinh w\,\bu\cdot\bsig).
  \label{eq:paravector-exponential}
 \end{equation}
 This is independent of the choice $w$ or $-w$: $\cosh$ is even, while
-both $\sinh w$ and $\bu$ change sign.  When $\bV^2=0$,
+both $\sinh w$ and $\bu$ change sign.  When $\bZ^2=0$,
 \eqref{eq:coalescing-function} instead gives
 \[
- \exp(S+\bV\cdot\bsig)=e^S(1+\bV\cdot\bsig).
+ \exp(c+\bZ\cdot\bsig)=e^c(1+\bZ\cdot\bsig).
 \]
 The defining series also gives
 \begin{align*}
@@ -1631,26 +1675,26 @@ The defining series also gives
  \exp(Z^{\mathsf H})&=\exp(Z)^{\mathsf H}.
 \end{align*}
 
-For the real components $a,b,\bA,\bB$ of
-$Z=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig$, write
+For the real components $a,b,\bX,\bY$ of
+$Z=(a+b\ii)+(\bX+\ii\bY)\cdot\bsig$, write
 \[
- w=+\sqrt{\bA^2-\bB^2+2\ii\bA\cdot\bB}.
+ w=+\sqrt{\bX^2-\bY^2+2\ii\bX\cdot\bY}.
 \]
-Substituting $\bu=(\bA+\ii\bB)/w$ into
+Substituting $\bu=(\bX+\ii\bY)/w$ into
 \eqref{eq:paravector-exponential} gives the component form
 \begin{equation*}
  \exp(Z)=e^a(\cos b+\ii\sin b)
- \left(\cosh w+\frac{\sinh w}{w}(\bA+\ii\bB)\cdot\bsig\right).
+ \left(\cosh w+\frac{\sinh w}{w}(\bX+\ii\bY)\cdot\bsig\right).
 \end{equation*}
 Its real and imaginary specializations are
 \begin{align}
- \exp(a+\bA\cdot\bsig)
- &=e^a\left(\cosh\lVert\bA\rVert
-  +\frac{\sinh\lVert\bA\rVert}{\lVert\bA\rVert}\bA\cdot\bsig\right),
+ \exp(a+\bX\cdot\bsig)
+ &=e^a\left(\cosh\lVert\bX\rVert
+  +\frac{\sinh\lVert\bX\rVert}{\lVert\bX\rVert}\bX\cdot\bsig\right),
  \label{eq:real-exponential}\\
- \exp\!\left(\ii(b+\bB\cdot\bsig)\right)
- &=(\cos b+\ii\sin b)\left(\cos\lVert\bB\rVert
-  +\ii\frac{\sin\lVert\bB\rVert}{\lVert\bB\rVert}\bB\cdot\bsig\right).
+ \exp\!\left(\ii(b+\bY\cdot\bsig)\right)
+ &=(\cos b+\ii\sin b)\left(\cos\lVert\bY\rVert
+  +\ii\frac{\sin\lVert\bY\rVert}{\lVert\bY\rVert}\bY\cdot\bsig\right).
  \label{eq:imaginary-exponential}
 \end{align}
 Setting $a=0$ in \eqref{eq:real-exponential} or $b=0$ in
@@ -1659,10 +1703,10 @@ Every quotient uses its analytic limit at a zero argument.
 
 \subsubsection{Rotation and boost factors}
 \label{sec:algebra-rotation-boost}
-For a general real exponent $a+\bA\cdot\bsig$, where $a\in\R$ and
-$\bA\in\R^3$, \eqref{eq:real-exponential} gives
+For a general real exponent $a+\bX\cdot\bsig$, where $a\in\R$ and
+$\bX\in\R^3$, \eqref{eq:real-exponential} gives
 \begin{equation}
- \det\!\left(\exp(a+\bA\cdot\bsig)\right)=e^{2a}.
+ \det\!\left(\exp(a+\bX\cdot\bsig)\right)=e^{2a}.
  \label{eq:exponential-determinant}
 \end{equation}
 Thus a real exponential has determinant one exactly when its scalar
@@ -1762,35 +1806,35 @@ Squaring doubles the exponent, so the full-rapidity paravector is
 \end{equation}
 Equation~\eqref{eq:boost-square} has prefactor $\gamma$; $L$ has the half-angle
 prefactor in \eqref{eq:boost-gamma-form}.  Equivalently, for any real vector
-$\bA\ne0$, put $\bv=\tanh\lVert\bA\rVert\,\bA/\lVert\bA\rVert$ and
-$\gamma=\cosh\lVert\bA\rVert$.  Then
+$\bX\ne0$, put $\bv=\tanh\lVert\bX\rVert\,\bX/\lVert\bX\rVert$ and
+$\gamma=\cosh\lVert\bX\rVert$.  Then
 \[
- \exp(\bA\cdot\bsig)=\gamma(1+\bv\cdot\bsig).
+ \exp(\bX\cdot\bsig)=\gamma(1+\bv\cdot\bsig).
 \]
 The zero-vector case follows by continuity.  This last real paravector has
 \hyperref[eq:unit-determinant-paravector]{determinant one} and becomes proper velocity in
 Section~\ref{sec:kinematics}.
 
 \subsubsection{Cayley transform}
-Let $Y=b+\bB\cdot\bsig$ be real, with $b\in\R$, $\bB\in\R^3$, and
-$0<\lVert\bB\rVert<b$.  Set the \hyperref[def:real-unit-vector]{real unit vector}
-$\bu=\bB/\lVert\bB\rVert$ and recall
+Let $Y=b+\bY\cdot\bsig$ be real, with $b\in\R$, $\bY\in\R^3$, and
+$0<\lVert\bY\rVert<b$.  Set the \hyperref[def:real-unit-vector]{real unit vector}
+$\bu=\bY/\lVert\bY\rVert$ and recall
 $\Pi_\pm=(1\pm\bu\cdot\bsig)/2$.  Its sigma conjugate
-$Y^*=b-\bB\cdot\bsig=\adj {Y}$ commutes with $Y$, so
+$Y^*=b-\bY\cdot\bsig=\adj {Y}$ commutes with $Y$, so
 \[
  \frac{Y}{Y^*}=\frac{Y^2}{\det(Y)}
- =\frac{b^2+\bB^2+2b\bB\cdot\bsig}{b^2-\bB^2}.
+ =\frac{b^2+\bY^2+2b\bY\cdot\bsig}{b^2-\bY^2}.
 \]
-Define the real parameter $\theta=2\tanh^{-1}(\lVert\bB\rVert/b)$.
+Define the real parameter $\theta=2\tanh^{-1}(\lVert\bY\rVert/b)$.
 The double-angle identities give
 \begin{align*}
- \cosh\theta&=\frac{b^2+\bB^2}{b^2-\bB^2},\\
- \sinh\theta&=\frac{2b\lVert\bB\rVert}{b^2-\bB^2}.
+ \cosh\theta&=\frac{b^2+\bY^2}{b^2-\bY^2},\\
+ \sinh\theta&=\frac{2b\lVert\bY\rVert}{b^2-\bY^2}.
 \end{align*}
 Thus the quotient is the full-rapidity exponential
 \begin{equation}
  \begin{aligned}
- \frac{b+\bB\cdot\bsig}{b-\bB\cdot\bsig}
+ \frac{b+\bY\cdot\bsig}{b-\bY\cdot\bsig}
  &=\cosh\theta+\sinh\theta\,\bu\cdot\bsig\\
  &=\exp(\theta\bu\cdot\bsig)
  =e^\theta\Pi_++e^{-\theta}\Pi_-.
@@ -1799,23 +1843,23 @@ Thus the quotient is the full-rapidity exponential
 \end{equation}
 Equation~\eqref{eq:cayley-exponential} is $L(\theta,\bu)^{-2}$ from
 \eqref{eq:boost-square}.  Its real generator
-vector is $\bA=\theta\bu$, while the Cayley vector obeys
+vector is $\bX=\theta\bu$, while the Cayley vector obeys
 \begin{equation*}
- \bB=b\tanh\!\left(\frac{\lVert\bA\rVert}{2}\right)
-       \frac{\bA}{\lVert\bA\rVert}.
+ \bY=b\tanh\!\left(\frac{\lVert\bX\rVert}{2}\right)
+       \frac{\bX}{\lVert\bX\rVert}.
 \end{equation*}
-Thus $\lVert\bB\rVert/b=\tanh(\theta/2)$, the half-rapidity
+Thus $\lVert\bY\rVert/b=\tanh(\theta/2)$, the half-rapidity
 parameter.  The corresponding real gamma factor and vector are
 \begin{align*}
- \gamma&=\frac{b^2+\bB^2}{b^2-\bB^2},\\
- \bv&=\frac{2b\bB}{b^2+\bB^2}.
+ \gamma&=\frac{b^2+\bY^2}{b^2-\bY^2},\\
+ \bv&=\frac{2b\bY}{b^2+\bY^2}.
 \end{align*}
 They give the equivalent forms
 \[
- \exp(\bA\cdot\bsig)=\gamma(1+\bv\cdot\bsig)
- =\frac{b+\bB\cdot\bsig}{b-\bB\cdot\bsig}=\frac{Y}{Y^*}.
+ \exp(\bX\cdot\bsig)=\gamma(1+\bv\cdot\bsig)
+ =\frac{b+\bY\cdot\bsig}{b-\bY\cdot\bsig}=\frac{Y}{Y^*}.
 \]
-Choosing $b=1$ normalizes the scalar part of $Y$ to one; $\bB=0$ follows by
+Choosing $b=1$ normalizes the scalar part of $Y$ to one; $\bY=0$ follows by
 continuity.
 
 \subsubsection{Composing the factors}
@@ -1860,9 +1904,9 @@ This commutator is a rotation generator:
 boosts along nonparallel directions do not commute.
 
 \subsubsection{Logarithm}
-For complex $Z=S+\bV\cdot\bsig$ with $\bV^2\ne0$, recall
-$w=+\sqrt{\bV^2}$, the \hyperref[eq:bilinear-unit-vector]{vector of square one}
-$\bu=\bV/w$, $\lambda_\pm=S\pm w$, and
+For complex $Z=c+\bZ\cdot\bsig$ with $\bZ^2\ne0$, recall
+$w=+\sqrt{\bZ^2}$, the \hyperref[eq:bilinear-unit-vector]{vector of square one}
+$\bu=\bZ/w$, $\lambda_\pm=c\pm w$, and
 $\Pi_\pm=(1\pm\bu\cdot\bsig)/2$.  Assume both eigenvalues are nonzero.
 For a nonzero complex scalar $\lambda$ and any integer $n$, the scalar branches are
 \[
@@ -1888,25 +1932,25 @@ eigenvalues $1$ and $-1$, giving, for integers $n,m$,
  \log(\bu\cdot\bsig)
  =2n\pi\ii\Pi_++(2m+1)\pi\ii\Pi_-.
 \end{equation*}
-For real $Y=b+\bB\cdot\bsig$, with $b\in\R$, $\bB\in\R^3$, and
-$b>\lVert\bB\rVert$, both eigenvalues are positive.  Combining their real
+For real $Y=b+\bY\cdot\bsig$, with $b\in\R$, $\bY\in\R^3$, and
+$b>\lVert\bY\rVert$, both eigenvalues are positive.  Combining their real
 logarithms yields
 \begin{equation*}
- \log Y=\tfrac12\log(b^2-\bB^2)
- +\tanh^{-1}\!\left(\frac{\lVert\bB\rVert}{b}\right)
-       \frac{\bB}{\lVert\bB\rVert}\cdot\bsig.
+ \log Y=\tfrac12\log(b^2-\bY^2)
+ +\tanh^{-1}\!\left(\frac{\lVert\bY\rVert}{b}\right)
+       \frac{\bY}{\lVert\bY\rVert}\cdot\bsig.
 \end{equation*}
-The vector term vanishes at $\bB=0$; the general coalescing case
+The vector term vanishes at $\bY=0$; the general coalescing case
 was treated above.
 
 \section{Transformations and invariants}
 \label{sec:preserved-quantities}
 
-Here $Z=S+\bV\cdot\bsig$ is a complex paravector: $S\in\C$ and
-$\bV\in\C^3$, hence $Z\in\C\oplus\C^3$.
+Here $Z=c+\bZ\cdot\bsig$ is a complex paravector: $c\in\C$ and
+$\bZ\in\C^3$, hence $Z\in\C\oplus\C^3$.
 Transformation factors $T,T'\in\C\oplus\C^3$ are constant.
-Distinguish the scalar part $\scpart {Z}=S=\tfrac12\operatorname{tr}Z$
-from \eqref{eq:trace-scalar}, the complex determinant $S^2-\bV^2$ from
+Distinguish the scalar part $\scpart {Z}=c=\tfrac12\operatorname{tr}Z$
+from \eqref{eq:trace-scalar}, the complex determinant $c^2-\bZ^2$ from
 \eqref{eq:det}, and the positive norm $\scpart{Z^{\mathsf H}Z}$ from
 \eqref{eq:hermitian-norm}.  Scalar part and trace carry exactly the same
 information; we use $\operatorname{sc}$ below.
@@ -1982,11 +2026,11 @@ Section~\ref{sec:kinematics} develops the kinematics of this proper velocity.
 
 \subsection{Real paravectors and the Lorentz metric}
 
-Let $X=a+\bA\cdot\bsig$ be real, with $a\in\R$ and
-$\bA\in\R^3$.  The determinant and positive norm give different quadratic forms:
+Let $X=a+\bX\cdot\bsig$ be real, with $a\in\R$ and
+$\bX\in\R^3$.  The determinant and positive norm give different quadratic forms:
 \begin{align*}
- \det(X)&=a^2-\bA^2,\\
- \lVert X\rVert^2&=a^2+\bA^2.
+ \det(X)&=a^2-\bX^2,\\
+ \lVert X\rVert^2&=a^2+\bX^2.
 \end{align*}
 The first is the Lorentz metric; the second measures the positive sum of
 squared coefficients.  A spacetime transformation must preserve reality
@@ -2002,18 +2046,18 @@ Hermitian conjugation and determinant multiplication give
  X'^{\mathsf H}&=TX^{\mathsf H}T^{\mathsf H}=X',\\
  \det(X')&=\det(T)\det(X)\det(T^{\mathsf H})=\det(X).
 \end{align*}
-For a second real paravector $Y=b+\bB\cdot\bsig$, with $b\in\R$
-and $\bB\in\R^3$, the associated metric pairing is~\citeat{baylis2004}{Eq.~(15)}{page=6}
+For a second real paravector $Y=b+\bY\cdot\bsig$, with $b\in\R$
+and $\bY\in\R^3$, the associated metric pairing is~\citeat{baylis2004}{Eq.~(15)}{page=6}
 \begin{equation}
- \scpart{X^*Y}=ab-\bA\cdot\bB
+ \scpart{X^*Y}=ab-\bX\cdot\bY
  =\tfrac12\bigl(\det(X+Y)-\det(X)-\det(Y)\bigr).
  \label{eq:lorentz-pairing}
 \end{equation}
 Linearity and determinant invariance therefore give
 $\scpart{X'^*Y'}=\scpart{X^*Y}$: the full metric is preserved.
 These maps preserve the future cone as well.  For
-$a\geq\lVert\bA\rVert$, the eigenvalues
-$a\pm\lVert\bA\rVert$ are nonnegative, so $X$ has a real square root and
+$a\geq\lVert\bX\rVert$, the eigenvalues
+$a\pm\lVert\bX\rVert$ are nonnegative, so $X$ has a real square root and
 \[
  \scpart{X'}=\lVert\sqrt {X}\,T^{\mathsf H}\rVert^2\geq0.
 \]
@@ -2023,7 +2067,7 @@ $-T$ give the same map.
 
 \paragraph{Why the scalar exponent vanishes.}
 More generally, the congruence multiplies $\det(X)$ by
-$\lVert\det(T)\rVert^2$.  For real $T=\exp(a+\bA\cdot\bsig)$,
+$\lVert\det(T)\rVert^2$.  For real $T=\exp(a+\bX\cdot\bsig)$,
 \eqref{eq:exponential-determinant} therefore gives
 \[
  \det(TXT^{\mathsf H})=e^{4a}\det(X).
@@ -2079,39 +2123,39 @@ Recall the unitary factor
 $R=\exp(-\ii\theta\bu\cdot\bsig/2)$ from
 \eqref{eq:rotation-exponential}, with real angle $\theta$ and
 \hyperref[def:real-unit-vector]{real unit axis} $\bu$.
-For the complex paravector $Z=S+\bV\cdot\bsig$, use the Hermitian congruence~\citeat{baylis2004}{Eq.~(5)}{page=4}
+For the complex paravector $Z=c+\bZ\cdot\bsig$, use the Hermitian congruence~\citeat{baylis2004}{Eq.~(5)}{page=4}
 \begin{equation}
  \boxed{Z'=RZR^{\mathsf H}.}
  \label{eq:rotation-action}
 \end{equation}
-Since $R^{\mathsf H}=R^{-1}$ by \eqref{eq:rotation-H}, this keeps $S'=S$.
+Since $R^{\mathsf H}=R^{-1}$ by \eqref{eq:rotation-H}, this keeps $c'=c$.
 The vector product
 \eqref{eq:vector-product} gives
 \begin{align*}
- (\bu\cdot\bsig)(\bV\cdot\bsig)(\bu\cdot\bsig)
- &=2(\bu\cdot\bV)\bu\cdot\bsig-\bV\cdot\bsig,\\
- [\bV\cdot\bsig,\bu\cdot\bsig]
- &=-2\ii(\bu\times\bV)\cdot\bsig.
+ (\bu\cdot\bsig)(\bZ\cdot\bsig)(\bu\cdot\bsig)
+ &=2(\bu\cdot\bZ)\bu\cdot\bsig-\bZ\cdot\bsig,\\
+ [\bZ\cdot\bsig,\bu\cdot\bsig]
+ &=-2\ii(\bu\times\bZ)\cdot\bsig.
 \end{align*}
 Inserting the sine and cosine forms of $R$ and $R^{\mathsf H}$ therefore yields
 \begin{align*}
- \bV'\cdot\bsig
- &={}\cos^2\frac\theta2\,\bV\cdot\bsig
+ \bZ'\cdot\bsig
+ &={}\cos^2\frac\theta2\,\bZ\cdot\bsig
  +2\sin\frac\theta2\cos\frac\theta2
-       (\bu\times\bV)\cdot\bsig\\
+       (\bu\times\bZ)\cdot\bsig\\
  &\quad+\sin^2\frac\theta2
- \left(2(\bu\cdot\bV)\bu\cdot\bsig-\bV\cdot\bsig\right).
+ \left(2(\bu\cdot\bZ)\bu\cdot\bsig-\bZ\cdot\bsig\right).
 \end{align*}
 Collecting terms gives Rodrigues' formula~\citeat{baylis-intro}{p.~14}{page=14}:
 \begin{equation}
- \boxed{\bV'=\bV\cos\theta+(\bu\times\bV)\sin\theta
- +(\bu\cdot\bV)(1-\cos\theta)\bu.}
+ \boxed{\bZ'=\bZ\cos\theta+(\bu\times\bZ)\sin\theta
+ +(\bu\cdot\bZ)(1-\cos\theta)\bu.}
  \label{eq:rodrigues}
 \end{equation}
 This is the active right-handed rotation through $+\theta$ about $\bu$.
 Rotating the coordinate axes through $+\theta$ instead uses the inverse map.
 It preserves $\operatorname{sc}$, determinant, norm, and the real
-paravector subspace.  For complex $\bV$, it rotates its real and imaginary
+paravector subspace.  For complex $\bZ$, it rotates its real and imaginary
 parts by the same real rotation.  The sign change in
 \eqref{eq:rotation-two-pi} affects both factors in
 \eqref{eq:rotation-action}, so $Z'$ has period $2\pi$.
@@ -2122,52 +2166,51 @@ parts by the same real rotation.  The sign change in
 The quaternion units are already present in the complex vector part of
 our algebra.  Define
 \[
- q_1=-\ii\sigma_1,\qquad q_2=-\ii\sigma_2,\qquad
- q_3=-\ii\sigma_3,\qquad \bq=\{q_1,q_2,q_3\}.
+ \nu_1=-\ii\sigma_1,\qquad \nu_2=-\ii\sigma_2,\qquad
+ \nu_3=-\ii\sigma_3,\qquad \bquatbasis=\{\nu_1,\nu_2,\nu_3\}.
 \]
-The sigma product gives $q_1^2=q_2^2=q_3^2=-1$,
-$q_1q_2=q_3$, $q_2q_3=q_1$, and $q_3q_1=q_2$; reversing any
-of these distinct pairs changes its sign.  Thus $q_1q_2q_3=-1$.
+The sigma product gives $\nu_1^2=\nu_2^2=\nu_3^2=-1$,
+$\nu_1\nu_2=\nu_3$, $\nu_2\nu_3=\nu_1$, and $\nu_3\nu_1=\nu_2$; reversing any
+of these distinct pairs changes its sign.  Thus $\nu_1\nu_2\nu_3=-1$.
 These are the three quaternion units, distinct from the commuting
 complex scalar $\ii$.
 
-For four real quaternion components $a,A_1,A_2,A_3$, put
-$\bA=\{A_1,A_2,A_3\}$.  Their paravector representation is~\citeat{baylis-applications}{p.~92}{page=103}
+For $a\in\R$ and $\bQ\in\R^3$, the quaternion representation is~\citeat{baylis-applications}{p.~92}{page=103}
 \begin{equation}
- \boxed{Q=a+A_1q_1+A_2q_2+A_3q_3
- =a-\ii\bA\cdot\bsig,\qquad S=a,\quad \bV=-\ii\bA.}
+ \boxed{Q=a+Q_1\nu_1+Q_2\nu_2+Q_3\nu_3
+ =a-\ii\bQ\cdot\bsig,\qquad c'=a,\quad \bZ=-\ii\bQ.}
  \label{eq:quaternion-paravector}
 \end{equation}
-In the decomposition $Z=(a+b\ii)+(\bC+\ii\bB)\cdot\bsig$,
-this selects $b=0$, $\bC=0$, and $\bB=-\bA$.
+In the decomposition $Z=(a'+b'\ii)+(\bX+\ii\bY)\cdot\bsig$, with scalar part $c'=a'+b'\ii$,
+this selects $a'=a$, $b'=0$, $\bX=0$, and $\bY=-\bQ$.
 Thus $Q,Q'\in\R\oplus\ii\R^3$: a real scalar coefficient and purely
 imaginary vector coefficients.  Their four real components
 form a subalgebra of the eight-real-component complex paravectors.
-Indeed, for $Q'=a'+\bA'\cdot\bq$, the paravector product becomes~\citeat{lounesto-intro}{p.~9}{page=22}
+Indeed, for $Q'=a'+\bQ'\cdot\bquatbasis$, the paravector product becomes~\citeat{lounesto-intro}{p.~9}{page=22}
 \begin{equation}
- QQ'=(aa'-\bA\cdot\bA')
- +(a\bA'+a'\bA+\bA\times\bA')\cdot\bq.
+ QQ'=(aa'-\bQ\cdot\bQ')
+ +(a\bQ'+a'\bQ+\bQ\times\bQ')\cdot\bquatbasis.
  \label{eq:quaternion-product}
 \end{equation}
 
-Since $q_k^{\mathsf H}=-q_k$ and $q_k^*=q_k$, quaternion conjugation
+Since $\nu_k^{\mathsf H}=-\nu_k$ and $\nu_k^*=\nu_k$, quaternion conjugation
 is the existing Hermitian conjugation:
 \begin{align}
- Q^{\mathsf H}&=a-\bA\cdot\bq,\notag\\
+ Q^{\mathsf H}&=a-\bQ\cdot\bquatbasis,\notag\\
  Q^*&=Q,\qquad \adj {Q}=Q^{\mathsf H},\notag\\
- QQ^{\mathsf H}&=Q^{\mathsf H}Q=a^2+\bA^2
+ QQ^{\mathsf H}&=Q^{\mathsf H}Q=a^2+\bQ^2
  =\det Q=\lVert Q\rVert^2.
  \label{eq:quaternion-norm}
 \end{align}
 For nonzero $Q$, \eqref{eq:quaternion-norm} gives
-$Q^{-1}=Q^{\mathsf H}/(a^2+\bA^2)$.
-A unit quaternion has $a^2+\bA^2=1$, so $Q^{-1}=Q^{\mathsf H}$.
+$Q^{-1}=Q^{\mathsf H}/(a^2+\bQ^2)$.
+A unit quaternion has $a^2+\bQ^2=1$, so $Q^{-1}=Q^{\mathsf H}$.
 
 To rotate $\br\in\R^3$, represent it by the pure quaternion
-$\br\cdot\bq=-\ii\br\cdot\bsig$.
-For a unit quaternion $Q=a+\bA\cdot\bq$, use the quaternion sandwich:
+$\br\cdot\bquatbasis=-\ii\br\cdot\bsig$.
+For a unit quaternion $Q=a+\bQ\cdot\bquatbasis$, use the quaternion sandwich:
 \begin{equation}
- \br'\cdot\bq=Q(\br\cdot\bq)Q^{\mathsf H},
+ \br'\cdot\bquatbasis=Q(\br\cdot\bquatbasis)Q^{\mathsf H},
  \qquad
  \br'\cdot\bsig=Q(\br\cdot\bsig)Q^{\mathsf H}.
  \label{eq:quaternion-rotation}
@@ -2175,28 +2218,28 @@ For a unit quaternion $Q=a+\bA\cdot\bq$, use the quaternion sandwich:
 The two forms agree because $-\ii$ commutes with every paravector.
 Applying \eqref{eq:quaternion-product} twice gives
 \begin{align*}
- Q(\br\cdot\bq)
- &=-\bA\cdot\br+(a\br+\bA\times\br)\cdot\bq,\\
- Q(\br\cdot\bq)Q^{\mathsf H}
- &=\bigl((a^2-\bA^2)\br+2(\bA\cdot\br)\bA
-          +2a\bA\times\br\bigr)\cdot\bq.
+ Q(\br\cdot\bquatbasis)
+ &=-\bQ\cdot\br+(a\br+\bQ\times\br)\cdot\bquatbasis,\\
+ Q(\br\cdot\bquatbasis)Q^{\mathsf H}
+ &=\bigl((a^2-\bQ^2)\br+2(\bQ\cdot\br)\bQ
+          +2a\bQ\times\br\bigr)\cdot\bquatbasis.
 \end{align*}
 The scalar part cancels.  For the real unit axis $\bu$ and angle
 $\theta$, choose
 \[
- a=\cos\frac\theta2,\qquad \bA=\bu\sin\frac\theta2,
+ a=\cos\frac\theta2,\qquad \bQ=\bu\sin\frac\theta2,
  \qquad Q=\cos\frac\theta2-\ii\bu\cdot\bsig\sin\frac\theta2=R.
 \]
-Then $a^2-\bA^2=\cos\theta$,
-$2a\bA=\bu\sin\theta$, and
-$2(\bA\cdot\br)\bA=(1-\cos\theta)(\bu\cdot\br)\bu$.
+Then $a^2-\bQ^2=\cos\theta$,
+$2a\bQ=\bu\sin\theta$, and
+$2(\bQ\cdot\br)\bQ=(1-\cos\theta)(\bu\cdot\br)\bu$.
 Consequently \eqref{eq:quaternion-rotation} recovers
 \[
  \boxed{\br'=\br\cos\theta+(\bu\times\br)\sin\theta
        +(\bu\cdot\br)(1-\cos\theta)\bu.}
 \]
 This is precisely Rodrigues' formula~\eqref{eq:rodrigues} for
-$\bV=\br$.  Thus $R=Q$, and the quaternion sandwich is exactly
+$\bZ=\br$.  Thus $R=Q$, and the quaternion sandwich is exactly
 $R(\br\cdot\bsig)R^{\mathsf H}$ from \eqref{eq:rotation-action}.
 The reversed sandwich $Q^{\mathsf H}(\br\cdot\bsig)Q$ gives the inverse rotation.
 
@@ -2211,38 +2254,38 @@ Use the same congruence with $T=L$ and $L^{\mathsf H}=L$ from \eqref{eq:boost-H}
  \boxed{Z'=LZL.}
  \label{eq:boost-action}
 \end{equation}
-The paravector $Z=S+\bV\cdot\bsig\in\C\oplus\C^3$ may be complex; spacetime uses $Z\in\R\oplus\R^3$.
-Resolve $\bV\in\C^3$ into parallel and perpendicular parts in $\C^3$:
+The paravector $Z=c+\bZ\cdot\bsig\in\C\oplus\C^3$ may be complex; spacetime uses $Z\in\R\oplus\R^3$.
+Resolve $\bZ\in\C^3$ into parallel and perpendicular parts in $\C^3$:
 \begin{align*}
- \bV_{\parallel}&:=(\bu\cdot\bV)\bu,\\
- \bV_{\perp}&:=\bV-\bV_{\parallel}.
+ \bZ_{\parallel}&:=(\bu\cdot\bZ)\bu,\\
+ \bZ_{\perp}&:=\bZ-\bZ_{\parallel}.
 \end{align*}
 The parallel term commutes with $\bu\cdot\bsig$; the perpendicular term
 anticommutes with it.  Consequently,
 \begin{align*}
- L(S+\bV_{\parallel}\cdot\bsig)L
- &=(S+\bV_{\parallel}\cdot\bsig)L^2,\\
- L(\bV_{\perp}\cdot\bsig)L
- &=\bV_{\perp}\cdot\bsig.
+ L(c+\bZ_{\parallel}\cdot\bsig)L
+ &=(c+\bZ_{\parallel}\cdot\bsig)L^2,\\
+ L(\bZ_{\perp}\cdot\bsig)L
+ &=\bZ_{\perp}\cdot\bsig.
 \end{align*}
 \Needspace{7\baselineskip}
 Using $L^2=\gamma(1-\beta\bu\cdot\bsig)$ from
 \eqref{eq:boost-square}, multiplication gives~\citeat{tong-em}{Eq.~(5.1)}{page=104}
 \begin{equation}
- \boxed{S'=\gamma(S-\beta\bu\cdot\bV),}
+ \boxed{c'=\gamma(c-\beta\bu\cdot\bZ),}
  \label{eq:boost-scalar-component}
 \end{equation}
 \begin{equation}
- \boxed{\bV'=\bV_{\perp}+\gamma(\bV_{\parallel}-\beta S\bu).}
+ \boxed{\bZ'=\bZ_{\perp}+\gamma(\bZ_{\parallel}-\beta c\bu).}
  \label{eq:boost-vector-component}
 \end{equation}
 The equivalent longitudinal combinations expose the invariant directly:
 \begin{equation}
- S'\pm\bu\cdot\bV'=e^{\mp\theta}(S\pm\bu\cdot\bV).
+ c'\pm\bu\cdot\bZ'=e^{\mp\theta}(c\pm\bu\cdot\bZ).
  \label{eq:boost-null-components}
 \end{equation}
-Their product is $S^2-(\bu\cdot\bV)^2$; the transverse part is unchanged.
-Thus \eqref{eq:boost-null-components} preserves $S^2-\bV^2$ and, for real
+Their product is $c^2-(\bu\cdot\bZ)^2$; the transverse part is unchanged.
+Thus \eqref{eq:boost-null-components} preserves $c^2-\bZ^2$ and, for real
 $Z$, the light cone.  For spacetime, \eqref{eq:boost-action} gives the
 frame moving with velocity $+\beta\bu$; reversing $\theta$ gives its inverse.
 
@@ -2259,10 +2302,10 @@ full-rapidity factor cannot make a single left product boost every real $X$;
 it would merely replace the two factors by their square roots.
 
 \paragraph{The field uses similarity.}
-For $Z'=LZL^{-1}$, the same commutation rules give $S'=S$ and
+For $Z'=LZL^{-1}$, the same commutation rules give $c'=c$ and
 \begin{equation}
- \bV'=\bV_{\parallel}
- +\gamma\bigl(\bV_{\perp}-\ii\beta\bu\times\bV\bigr).
+ \bZ'=\bZ_{\parallel}
+ +\gamma\bigl(\bZ_{\perp}-\ii\beta\bu\times\bZ\bigr).
  \label{eq:boost-similarity-vector}
 \end{equation}
 This preserves scalar part and determinant, but fixes $Z=1$ and generally
@@ -2329,18 +2372,18 @@ $\partial(\partial^*Z)$.
 \subsection{Components and the product rule}
 
 Let $a,b:\R^4\to\R$ be real scalar functions and
-$\bA,\bB:\R^4\to\R^3$ real vector functions.  They define the complex
+$\bX,\bY:\R^4\to\R^3$ real vector functions.  They define the complex
 paravector field
 \[
- Z(t,\br)=(a+b\ii)+(\bA+\ii\bB)\cdot\bsig.
+ Z(t,\br)=(a+b\ii)+(\bX+\ii\bY)\cdot\bsig.
 \]
 Ordered vector multiplication gives its four real components:
 \begin{equation*}
  \begin{aligned}
- \partial Z={}&(\partial_ta+\pdr\cdot\bA)
- +\ii(\partial_tb+\pdr\cdot\bB)\\
- &+(\pdr a+\partial_t\bA-\pdr\times\bB)\cdot\bsig\\
- &+\ii(\pdr b+\pdr\times\bA+\partial_t\bB)\cdot\bsig.
+ \partial Z={}&(\partial_ta+\pdr\cdot\bX)
+ +\ii(\partial_tb+\pdr\cdot\bY)\\
+ &+(\pdr a+\partial_t\bX-\pdr\times\bY)\cdot\bsig\\
+ &+\ii(\pdr b+\pdr\times\bX+\partial_t\bY)\cdot\bsig.
  \end{aligned}
 \end{equation*}
 Multiplication by $\ii$ exchanges real and imaginary parts, with the
@@ -3252,21 +3295,21 @@ Total spatial normalization is separate from the pointwise norm.
 This probability interpretation does not apply to an arbitrary scalar KG field.
 
 \paragraph{Nonnegative weighted densities.}
-Let $Z=S+\bV\cdot\bsig$ be real ($Z^{\mathsf H}=Z$),
-with $S\in\R$ and $\bV\in\R^3$.
+Let $Z=c+\bZ\cdot\bsig$ be real ($Z^{\mathsf H}=Z$),
+with $c\in\R$ and $\bZ\in\R^3$.
 It acts by multiplication, not differentiation.
-For $\bV\ne0$, take the real unit vector $\bu=\bV/\lVert\bV\rVert$
+For $\bZ\ne0$, take the real unit vector $\bu=\bZ/\lVert\bZ\rVert$
 and recall the projectors $\Pi_\pm=(1\pm\bu\cdot\bsig)/2$ from
 Section~\ref{sec:algebra-projectors}.  Their spectral decomposition gives
 \begin{equation}
  \scpart{\psi^{\mathsf H}Z\psi}
- =(S+\lVert\bV\rVert)\lVert\Pi_+\psi\rVert^2
- +(S-\lVert\bV\rVert)\lVert\Pi_-\psi\rVert^2.
+ =(c+\lVert\bZ\rVert)\lVert\Pi_+\psi\rVert^2
+ +(c-\lVert\bZ\rVert)\lVert\Pi_-\psi\rVert^2.
  \label{eq:weighted-density-spectral}
 \end{equation}
-For $\bV=0$, this reduces to $S\lVert\psi\rVert^2$.
+For $\bZ=0$, this reduces to $c\lVert\psi\rVert^2$.
 Thus the product is nonnegative for every $\psi$ exactly when
-$S\geq\lVert\bV\rVert$.  For such a \emph{nonnegative weight}, define
+$c\geq\lVert\bZ\rVert$.  For such a \emph{nonnegative weight}, define
 \begin{equation}
  \boxed{\lVert\psi\rVert_Z^2
 :=\scpart{\psi^{\mathsf H}Z\psi}
@@ -3275,7 +3318,7 @@ $S\geq\lVert\bV\rVert$.  For such a \emph{nonnegative weight}, define
 \end{equation}
 The square root has nonnegative eigenvalues, as in Section~\ref{sec:spectral}.
 For $Z=1$, this is $\rho$.  It is a true squared norm when
-$S>\lVert\bV\rVert$; at equality it can vanish for nonzero $\psi$,
+$c>\lVert\bZ\rVert$; at equality it can vanish for nonzero $\psi$,
 so the notation then denotes a weighted density.  Projectors are an
 important example.  Reality alone is insufficient: $Z=-1$ gives
 $\scpart{\psi^{\mathsf H}Z\psi}=-\rho$.
@@ -4322,25 +4365,25 @@ $\psi=\Pi_+'\psi$, where $\Pi_+'=(1+\bu'\cdot\bsig)/2$.
 Let $0\le\theta\le\pi$ be the angle between the axes and write
 \[
  K':=\bu'\cdot\bsig,\qquad K:=\bu\cdot\bsig,\qquad
- c:=\bu\cdot\bu'=\cos\theta.
+ c':=\bu\cdot\bu'=\cos\theta.
 \]
 
-Here $K,K'\in\{0\}\oplus\R^3$ and $c\in[-1,1]\subset\R$.
-The Pauli product gives $(K')^2=1$ and $K'K+KK'=2c$.
-Multiplication by $K'$ gives $K'KK'=2cK'-K$, hence
+Here $K,K'\in\{0\}\oplus\R^3$ and $c'\in[-1,1]\subset\R$.
+The Pauli product gives $(K')^2=1$ and $K'K+KK'=2c'$.
+Multiplication by $K'$ gives $K'KK'=2c'K'-K$, hence
 \[
  \begin{aligned}
  \Pi_+'K\Pi_+'
  &=\frac14(1+K')K(1+K')\\
  &=\frac14(K+K'K+KK'+K'KK')\\
- &=\frac14(2c+2cK')=c\Pi_+'.
+ &=\frac14(2c'+2c'K')=c'\Pi_+'.
  \end{aligned}
 \]
 The measurement projectors $\Pi_\pm=(1\pm K)/2$ therefore satisfy
 \begin{equation}
  \Pi_+'\Pi_\pm\Pi_+'
  =\frac12\left(\Pi_+'\pm\Pi_+'K\Pi_+'\right)
- =\frac{1\pm c}{2}\Pi_+'.
+ =\frac{1\pm c'}{2}\Pi_+'.
  \label{eq:spin-projector-overlap}
 \end{equation}
 
@@ -4769,7 +4812,7 @@ real four-force in the moving frame; the Hermitian extraction is preserved.
 \section{Pauli-matrix representation}
 \label{sec:matrix}
 
-This appendix verifies the paravector formulas in matrix form.  Let $Z=S+\bV\cdot\bsig$, with $S\in\C$ and $\bV\in\C^3$.
+This appendix verifies the paravector formulas in matrix form.  Let $Z=c+\bZ\cdot\bsig$, with $c\in\C$ and $\bZ\in\C^3$.
 The representation is an algebra isomorphism
 $\operatorname{mat}:\C\oplus\C^3\to\C^{2\times2}$.
 Write $\bM=\operatorname{mat}(Z)\in\C^{2\times2}$.
@@ -4786,8 +4829,8 @@ The Pauli images of the generators are~\citeat{lounesto-intro}{p.~11}{page=24}
 \]
 Consequently,
 \begin{equation}
- \operatorname{mat}(S+\bV\cdot\bsig)=
- \begin{Bmatrix}S+V_3&V_1-\ii V_2\\V_1+\ii V_2&S-V_3\end{Bmatrix}.
+ \operatorname{mat}(c+\bZ\cdot\bsig)=
+ \begin{Bmatrix}c+Z_3&Z_1-\ii Z_2\\Z_1+\ii Z_2&c-Z_3\end{Bmatrix}.
  \label{eq:matrix}
 \end{equation}
 The generator images obey the sigma product rule and are linearly independent over
@@ -4860,11 +4903,11 @@ The matrix-only operations can be recovered as
 For $\bM=(m_{jk})\in\C^{2\times2}$, with $m_{jk}\in\C$, its trace is $m_{11}+m_{22}$ and its determinant
 is $m_{11}m_{22}-m_{12}m_{21}$.  Substituting \eqref{eq:matrix} gives
 \begin{align}
- \scpart {Z}&=\tfrac12\operatorname{tr}\bM=S,
+ \scpart {Z}&=\tfrac12\operatorname{tr}\bM=c,
  \label{eq:matrix-scalar-part}\\
  (\vecpart {Z})_k&=\tfrac12\operatorname{tr}
-                    (\operatorname{mat}(\sigma_k)\bM)=V_k,\notag\\
- \det Z&=\det\bM=S^2-\bV^2.
+                    (\operatorname{mat}(\sigma_k)\bM)=Z_k,\notag\\
+ \det Z&=\det\bM=c^2-\bZ^2.
  \label{eq:matrix-determinant}
 \end{align}
 By \eqref{eq:matrix-scalar-part}, matrix-trace cyclicity is precisely the scalar-part cyclicity used
@@ -4881,7 +4924,7 @@ The remaining extraction and norm formulas are
  \operatorname{mat}(\impart {Z})&=(\bM-\bM^{\mathsf H})/(2\ii),
  \label{eq:matrix-imaginary-part}\\
  \lVert Z\rVert^2&=\tfrac12\operatorname{tr}(\bM^{\mathsf H}\bM)
-                  =\lVert S\rVert^2+\lVert\bV\rVert^2.
+                  =\lVert c\rVert^2+\lVert\bZ\rVert^2.
  \label{eq:matrix-norm}
 \end{align}
 Equations~\eqref{eq:matrix-real-part}--\eqref{eq:matrix-imaginary-part}
@@ -5019,12 +5062,12 @@ Left action $T\psi$ maps to $\operatorname{mat}(T)\bpsi$ for any complex paravec
 Let $\bm C\in\C^{2\times2}$ be the matrix with columns
 $\bpsi_+,\bpsi_-$.  Then $\bm C^{\mathsf H}\bm C=\bI_2$ and
 $\bpsi=\bm C\{c_+,c_-\}^{\mathsf T}$.
-For a complex paravector $Z=S+\bV\cdot\bsig$, its matrix in this basis is
+For a complex paravector $Z=c+\bZ\cdot\bsig$, its matrix in this basis is
 \begin{equation}
  \operatorname{mat}'(Z):=\bm C^{\mathsf H}\operatorname{mat}(Z)\bm C
  =\begin{Bmatrix}
- S+\bu\cdot\bV&(\ba-\ii\bu\times\ba)\cdot\bV\\
- (\ba+\ii\bu\times\ba)\cdot\bV&S-\bu\cdot\bV
+ c+\bu\cdot\bZ&(\ba-\ii\bu\times\ba)\cdot\bZ\\
+ (\ba+\ii\bu\times\ba)\cdot\bZ&c-\bu\cdot\bZ
  \end{Bmatrix}.
  \label{eq:matrix-arbitrary-axis}
 \end{equation}
@@ -5081,11 +5124,11 @@ The polynomial identity also holds at $s=-m$.
 
 Denote the fixed basis elements of \eqref{eq:ideal-spin-basis} by
 $\eta_\pm\in\C\oplus\C^3$. Both entries lie in their complex span. Write
-$\psi_+=a\eta_++b\eta_-$ and $\psi_-=c\eta_++d\eta_-$,
-where $a,b,c,d:\R^4\to\C$ are the four scalar components,
+$\psi_+=a\eta_++b\eta_-$ and $\psi_-=c'\eta_++d\eta_-$,
+where $a,b,c',d:\R^4\to\C$ are the four scalar components,
 forming a column in $\C^4$ at each event.
 Their columns are $\bm{c}_+'=\{a,b\}^{\mathsf T}$ and
-$\bm{c}_-'=\{c,d\}^{\mathsf T}$; here the prime means
+$\bm{c}_-'=\{c',d\}^{\mathsf T}$; the primes on the columns denote the basis change
 $\bm{c}_\pm'=\bm C^{\mathsf H}\bm{c}_\pm$.
 Recall real mass $m>0$, real charge $q$, and
 real potentials $V:\R^4\to\R$ and $\bA:\R^4\to\R^3$.
@@ -5097,18 +5140,18 @@ $\hbpq=-\ii\pdr-q\bA$.  Their momentum components in this frame are
 \]
 Using \eqref{eq:matrix-arbitrary-axis}, the coupled paravector equations give
 \begin{align}
- (\hEq-\hat P_{q,3})c-(\hat P_{q,1}-\ii \hat P_{q,2})d&=ma,
+ (\hEq-\hat P_{q,3})c'-(\hat P_{q,1}-\ii \hat P_{q,2})d&=ma,
  \label{eq:matrix-dirac-a}\\
- -(\hat P_{q,1}+\ii \hat P_{q,2})c+(\hEq+\hat P_{q,3})d&=mb,
+ -(\hat P_{q,1}+\ii \hat P_{q,2})c'+(\hEq+\hat P_{q,3})d&=mb,
  \label{eq:matrix-dirac-b}\\
- (\hEq+\hat P_{q,3})a+(\hat P_{q,1}-\ii \hat P_{q,2})b&=mc,
+ (\hEq+\hat P_{q,3})a+(\hat P_{q,1}-\ii \hat P_{q,2})b&=mc',
  \label{eq:matrix-dirac-c}\\
  (\hat P_{q,1}+\ii \hat P_{q,2})a+(\hEq-\hat P_{q,3})b&=md.
  \label{eq:matrix-dirac-d}
 \end{align}
 Operators in \eqref{eq:matrix-dirac-a}--\eqref{eq:matrix-dirac-d}
 act on the scalar immediately to their right.  Their Hamiltonian
-on $\{a,b,c,d\}^{\mathsf T}$ is
+on $\{a,b,c',d\}^{\mathsf T}$ is
 \begin{equation}
  \hH=\begin{Bmatrix}
  qV-\hat P_{q,3}&-\hat P_{q,1}+\ii \hat P_{q,2}&m&0\\
@@ -5199,26 +5242,26 @@ The two couplings are $-q\bBf\cdot\bsig\pm\ii q\bE\cdot\bsig$.
 \subsection{Quaternion matrix image}
 \label{sec:quaternion-matrix}
 
-For the quaternion $Q=a+\bA\cdot\bq=a-\ii\bA\cdot\bsig$
-of Section~\ref{sec:quaternions}, with $a\in\R$, $\bA\in\R^3$, and
+For the quaternion $Q=a+\bQ\cdot\bquatbasis=a-\ii\bQ\cdot\bsig$
+of Section~\ref{sec:quaternions}, with $a\in\R$, $\bQ\in\R^3$, and
 $Q\in\R\oplus\ii\R^3$, the explicit
 matrix image is~\citeat{lounesto-intro}{p.~10}{page=23}
 \begin{equation}
  \operatorname{mat}(Q)=
- \begin{Bmatrix}a-\ii A_3&-A_2-\ii A_1\\
-                 A_2-\ii A_1&a+\ii A_3\end{Bmatrix}.
+ \begin{Bmatrix}a-\ii Q_3&-Q_2-\ii Q_1\\
+                 Q_2-\ii Q_1&a+\ii Q_3\end{Bmatrix}.
  \label{eq:quaternion-matrix}
 \end{equation}
 Here
-$\operatorname{mat}(q_k)=-\ii\operatorname{mat}(\sigma_k)$.
+$\operatorname{mat}(\nu_k)=-\ii\operatorname{mat}(\sigma_k)$.
 The conjugation and norm identities become
 \begin{align*}
  \operatorname{mat}(Q^{\mathsf H})&=\operatorname{mat}(Q)^{\mathsf H},\\
  \operatorname{mat}(Q)^{\mathsf H}\operatorname{mat}(Q)
- &=(a^2+\bA^2)\bI_2,\\
- \det(\operatorname{mat}(Q))&=a^2+\bA^2.
+ &=(a^2+\bQ^2)\bI_2,\\
+ \det(\operatorname{mat}(Q))&=a^2+\bQ^2.
 \end{align*}
-For a unit quaternion, $a^2+\bA^2=1$, these identities give a unitary
+For a unit quaternion, $a^2+\bQ^2=1$, these identities give a unitary
 matrix of determinant one.
 
 \clearpage
@@ -5233,22 +5276,22 @@ conditions.
 
 \Needspace{8\baselineskip}
 \paragraph{Algebra.}
-Recall complex paravectors $Z=S+\bV\cdot\bsig$ and $Z'=S'+\bV'\cdot\bsig$,
-with $S,S'\in\C$, $\bV,\bV'\in\C^3$, and $Z,Z'\in\C\oplus\C^3$.
+Recall complex paravectors $Z=c+\bZ\cdot\bsig$ and $Z'=c'+\bZ'\cdot\bsig$,
+with $c,c'\in\C$, $\bZ,\bZ'\in\C^3$, and $Z,Z'\in\C\oplus\C^3$.
 The prime here labels a second element.  Their product is
 \begin{equation*}
  \begin{aligned}
- ZZ'={}&(SS'+\bV\cdot\bV')\\
- &+(S\bV'+S'\bV+\ii\bV\times\bV')\cdot\bsig.
+ ZZ'={}&(cc'+\bZ\cdot\bZ')\\
+ &+(c\bZ'+c'\bZ+\ii\bZ\times\bZ')\cdot\bsig.
  \end{aligned}\tag*{\eqref{eq:para-product}}
 \end{equation*}
 The basic operations are
 \begin{align*}
- Z^{\mathsf H}&=S^*+\bV^*\cdot\bsig,
+ Z^{\mathsf H}&=c^*+\bZ^*\cdot\bsig,
    \tag*{\eqref{eq:algebra-H}}\\
- Z^*&=S^*-\bV^*\cdot\bsig,
+ Z^*&=c^*-\bZ^*\cdot\bsig,
    \tag*{\eqref{eq:algebra-star}}\\
- \adj {Z}&=Z^{*\mathsf H}=S-\bV\cdot\bsig,
+ \adj {Z}&=Z^{*\mathsf H}=c-\bZ\cdot\bsig,
    \tag*{\eqref{eq:adjugate}}\\
  \operatorname{tr}Z&=2\scpart {Z},
    \tag*{\eqref{eq:trace-scalar}}\\
@@ -5256,7 +5299,7 @@ The basic operations are
    \tag*{\eqref{eq:algebra-re}}\\
  \impart {Z}&=(Z-Z^{\mathsf H})/(2\ii),
    \tag*{\eqref{eq:algebra-im}}\\
- \det Z&=\adj {Z}\,Z=S^2-\bV^2,
+ \det Z&=\adj {Z}\,Z=c^2-\bZ^2,
    \tag*{\eqref{eq:det}}\\
  Z^{-1}&=\adj {Z}/\det Z\qquad(\det Z\ne0),
    \tag*{\eqref{eq:inverse}}\\
@@ -5519,7 +5562,7 @@ Object or operation & This paper & APS notation\\
 Spatial basis & $\sigma_k$ & $\mathbf e_k$\\
 Central imaginary unit & $\ii=\sigma_1\sigma_2\sigma_3$ & $i=\mathbf e_{123}$\\
 Real paravector & $X=t+\br\cdot\bsig$ & $x=x^0+\mathbf x$\\
-General algebra element & $Z=S+\bV\cdot\bsig$ & $A$ (complex paravector)\\
+General algebra element & $Z=c+\bZ\cdot\bsig$ & $A$ (complex paravector)\\
 Reversion & $Z^{\mathsf H}$ & $A^\dagger$\\
 Clifford conjugation & $\operatorname{adj}Z$ & $\bar A$\\
 Grade involution & $Z^*$ & $\bar A^\dagger$\\
@@ -5538,9 +5581,9 @@ $\impart {Z}$ removes the imaginary part's factor $\ii$.
 
 In particular, the bar is our adjugate, not our star:
 \[
- \bar A\ \longleftrightarrow\ S-\bV\cdot\bsig,
+ \bar A\ \longleftrightarrow\ c-\bZ\cdot\bsig,
  \qquad
- \bar A^\dagger\ \longleftrightarrow\ S^*-\bV^*\cdot\bsig.
+ \bar A^\dagger\ \longleftrightarrow\ c^*-\bZ^*\cdot\bsig.
 \]
 They coincide only for real paravectors.  Our star conjugates complex
 coefficients but is grade involution on the full algebra.
@@ -5656,8 +5699,8 @@ $\chi=-\lambda$, whereas Eq.~(6.2) uses our plus-sign convention
 axis rotation; his negative-exponent boost agrees with our passive boost
 \citeat{tong-relativity}{Eq.~(7.38)}{page=159}\,\citeat{tong-relativity}{Eq.~(7.39)}{page=160}.
 
-Chappell et al.'s scalar $Z$ is our $S$, and their vector--bivector
-$F$ is our $\bV\cdot\bsig$, with $|F|^2=-\bV^2$.
+Chappell et al.'s scalar $Z$ is our $c$, and their vector--bivector
+$F$ is our $\bZ\cdot\bsig$, with $|F|^2=-\bZ^2$.
 Thus their trigonometric exponential is our hyperbolic form
 \citeat{chappell-functions}{Eq.~(52)}{page=12}.
 
@@ -5778,25 +5821,25 @@ $+\beta\bu$ in fixed coordinates.
 With the sigma orientation held fixed, the two uniform sign choices obey
 \[
  \begin{aligned}
- q_k=-\ii\sigma_k&:\quad q_jq_k=-\delta_{jk}+\epsilon_{jkl}q_l,\\
- \widetilde q_k=+\ii\sigma_k&:\quad
- \widetilde q_j\widetilde q_k=-\delta_{jk}-\epsilon_{jkl}\widetilde q_l.
+ \nu_k=-\ii\sigma_k&:\quad \nu_j\nu_k=-\delta_{jk}+\epsilon_{jkl}\nu_l,\\
+ \widetilde \nu_k=+\ii\sigma_k&:\quad
+ \widetilde \nu_j\widetilde \nu_k=-\delta_{jk}-\epsilon_{jkl}\widetilde \nu_l.
  \end{aligned}
 \]
-Repeated $l$ is summed.  Thus $q_1q_2=q_3$ is Hamilton's convention,
-whereas $\widetilde q_1\widetilde q_2=-\widetilde q_3$ has opposite orientation.
+Repeated $l$ is summed.  Thus $\nu_1\nu_2=\nu_3$ is Hamilton's convention,
+whereas $\widetilde \nu_1\widetilde \nu_2=-\widetilde \nu_3$ has opposite orientation.
 For the Hamilton basis, Section~\ref{sec:quaternions} gives
 \[
- Q=e^{\theta\bu\cdot\bq/2}=R_-,\qquad
+ Q=e^{\theta\bu\cdot\bquatbasis/2}=R_-,\qquad
  Q^{\mathsf H}=Q^{-1},\qquad
- \br'\cdot\bq=Q(\br\cdot\bq)Q^{\mathsf H}.
+ \br'\cdot\bquatbasis=Q(\br\cdot\bquatbasis)Q^{\mathsf H}.
 \]
-Since $\br\cdot\bq=-\ii\br\cdot\bsig$ and $\ii$ commutes with $Q$,
+Since $\br\cdot\bquatbasis=-\ii\br\cdot\bsig$ and $\ii$ commutes with $Q$,
 the same sandwich rotates $\br\cdot\bsig$, with no extra sign.
 For example, $Q=(1-\ii\sigma_3)/\sqrt2$ sends $\sigma_1$ to $\sigma_2$.
 
-Using $\widetilde q_k$ with
-$\widetilde {Q}=e^{\theta\bu\cdot\widetilde{\bq}/2}=R_+$ and the right-adjoint
+Using $\widetilde \nu_k$ with
+$\widetilde {Q}=e^{\theta\bu\cdot\widetilde{\bquatbasis}/2}=R_+$ and the right-adjoint
 sandwich instead gives $-\theta$.  Recover $+\theta$ by reversing either
 the exponent or the sandwich.  Reflecting the basis also restores Hamilton
 multiplication, but changes its identification with the physical axes.
