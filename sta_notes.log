@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.9.30)  3 OCT 2026 15:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.9.30)  3 OCT 2026 15:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -583,7 +583,7 @@ Package rerunfilecheck Info: File `sta_notes.out' has not changed.
 Here is how much of TeX's memory you used:
  15269 strings out of 469514
  236012 string characters out of 5470072
- 721325 words of memory out of 5000000
+ 720324 words of memory out of 5000000
  42976 multiletter control sequences out of 15000+600000
  653137 words of font info for 225 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -612,10 +612,10 @@ s/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
 c/amsfonts/symbols/msbm10.pfb>
-Output written on sta_notes.pdf (82 pages, 650025 bytes).
+Output written on sta_notes.pdf (82 pages, 650133 bytes).
 PDF statistics:
- 2209 PDF objects out of 2487 (max. 8388607)
- 2004 compressed objects within 21 object streams
+ 2208 PDF objects out of 2487 (max. 8388607)
+ 2003 compressed objects within 21 object streams
  515 named destinations out of 1000 (max. 500000)
  54553 words of extra memory for PDF output out of 61914 (max. 10000000)
 

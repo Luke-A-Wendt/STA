@@ -528,12 +528,15 @@ $\bu^2=\bZ^2/\lVert\bZ\rVert^2$ need not be one.
 For real vectors the two conditions coincide: a \emph{real unit vector}
 has $\bu^2=\lVert\bu\rVert^2=1$.  For complex vectors, specify which holds.
 \Needspace{14\baselineskip}
-\item \textbf{Invertible paravector (algebraic unit).} $\pZ$ has an inverse on both sides:
+\item \textbf{Invertible paravector.} $\pZ$ has an inverse on both sides:
 \begin{equation}
  \pZ \pZ^{-1}=\pZ^{-1}\pZ=1.
  \label{eq:unit-paravector}
 \end{equation}
-Equivalently, $\det(\pZ)\ne0$. An algebraic unit means invertible, not norm one.
+Equivalently, $\det(\pZ)\ne0$. In algebra, an invertible element is
+also called an \emph{algebraic unit}. This terminology does not impose
+unit norm or determinant one; we use \emph{invertible} here to avoid
+confusion with those normalization conditions.
 \item \textbf{Unitary paravector.} Its Hermitian conjugate is its inverse:
 \begin{equation}
  \pZ^{\mathsf H}\pZ=1.
@@ -1322,12 +1325,18 @@ The norm is also preserved by $\pZ'=\pT \pZ$ and $\pZ'=\pZ \pT$.
 The congruence additionally preserves scalar part and determinant;
 a one-sided unitary product need not.
 
-\subsubsection{Unit determinant is not Hermitian unitarity}
+\subsubsection{Determinant one is not Hermitian unitarity}
 \label{sec:determinant-versus-unitarity}
 
-The word \emph{unit} in \eqref{eq:unit-paravector} means invertible;
-\emph{unitary} means \eqref{eq:unitary-transform}.
-A third condition is \hyperref[eq:unit-determinant-paravector]{determinant one}.
+Invertibility, determinant one, and Hermitian unitarity are distinct
+conditions. Invertibility means that a two-sided inverse exists, as in
+\eqref{eq:unit-paravector}; determinant one means $\det\pZ=1$; and
+Hermitian unitarity means $\pZ^{\mathsf H}\pZ=1$, as in
+\eqref{eq:unitary-transform}. The phrase \emph{unit determinant} means
+only that the determinant equals one. It does not mean unit norm or
+Hermitian unitarity.
+
+Determinant one implies invertibility, but does not imply Hermitian unitarity.
 To distinguish them, take a real paravector $\pX=a+\bX\cdot\bsig$
 with $a\in\R$, $\bX\in\R^3$, and $a^2-\bX^2=1$.  Then
 \[

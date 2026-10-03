@@ -27,7 +27,7 @@
 \contentsline {subsection}{\numberline {4.5}Logarithm}{16}{subsection.4.5}%
 \contentsline {section}{\numberline {5}Transformations and invariants}{16}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Similarity, determinant, and norm}{16}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Unit determinant is not Hermitian unitarity}{17}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Determinant one is not Hermitian unitarity}{17}{subsubsection.5.1.1}%
 \contentsline {subsection}{\numberline {5.2}Real paravectors and the Lorentz metric}{17}{subsection.5.2}%
 \contentsline {paragraph}{Why the scalar exponent vanishes.}{18}{section*.4}%
 \contentsline {paragraph}{Why the squared norm is different.}{18}{section*.5}%
