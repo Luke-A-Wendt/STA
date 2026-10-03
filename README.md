@@ -8,7 +8,7 @@ We use [natural units](https://en.wikipedia.org/wiki/Natural_units) $`\hbar=c=1`
 
 ## One complex [paravector](https://en.wikipedia.org/wiki/Paravector)
 
-We use the [algebra of physical space](https://en.wikipedia.org/wiki/Algebra_of_physical_space), $`\mathrm{Cl}_{3,0}`$, isomorphic to the even subalgebra of [spacetime algebra](https://en.wikipedia.org/wiki/Spacetime_algebra). The sigma generators define its general complex paravector:
+We use the [algebra of physical space](https://en.wikipedia.org/wiki/Algebra_of_physical_space) isomorphic to the even subalgebra of [spacetime algebra](https://en.wikipedia.org/wiki/Spacetime_algebra). The sigma generators define its general complex paravector:
 
 ```math
 \boxed{
