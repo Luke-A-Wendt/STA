@@ -1818,15 +1818,42 @@ To differentiate $\pU$, first use the chain rule:
  =-\tfrac12(1-\bv^2)^{-3/2}(-2\bv\cdot\ba)
  =\gamma^3(\bv\cdot\ba).
 \]
-The product rule then gives
+First differentiate with respect to coordinate time. The product rule gives
+\begin{align*}
+ \frac{\dd\pU}{\dd t}
+ &=\frac{\dd\gamma}{\dd t}
+   +\frac{\dd(\gamma\bv)}{\dd t}\cdot\bsig,\\
+ \frac{\dd(\gamma\bv)}{\dd t}
+ &=\gamma\ba+\gamma^3(\bv\cdot\ba)\bv.
+\end{align*}
+For $\bv\ne0$, resolve the coordinate acceleration into components
+parallel and perpendicular to the velocity:
 \[
- \frac{\dd\pU}{\dd s}
- =\gamma\frac{\dd}{\dd t}\bigl[\gamma(1+\bv\cdot\bsig)\bigr]
- =\gamma\frac{\dd\gamma}{\dd t}(1+\bv\cdot\bsig)
-  +\gamma^2\ba\cdot\bsig.
+ \ba_{\parallel}:=\frac{(\bv\cdot\ba)\bv}{\bv^2},
+ \qquad \ba_{\perp}:=\ba-\ba_{\parallel}.
 \]
-Substituting the derivative of $\gamma$ separates the scalar and vector
-parts of the real four-acceleration paravector~\citeat{tong-relativity}{p.~141}{page=147}:
+Since $(\bv\cdot\ba)\bv=\bv^2\ba_{\parallel}$ and
+$1+\gamma^2\bv^2=\gamma^2$, the spatial derivative becomes
+\begin{align*}
+ \frac{\dd(\gamma\bv)}{\dd t}
+ &=\gamma\ba_{\perp}
+   +(\gamma+\gamma^3\bv^2)\ba_{\parallel}\\
+ &=\gamma\ba_{\perp}+\gamma^3\ba_{\parallel}.
+\end{align*}
+Thus the full coordinate-time derivative of four-velocity is
+\begin{equation}
+ \frac{\dd\pU}{\dd t}
+ =\gamma^3(\bv\cdot\ba)
+  +\left(\gamma\ba_{\perp}+\gamma^3\ba_{\parallel}\right)\cdot\bsig.
+ \label{eq:four-velocity-coordinate-derivative}
+\end{equation}
+The combination $\gamma\ba_{\perp}+\gamma^3\ba_{\parallel}$ is its
+spatial vector coefficient; the scalar coefficient is $\dd\gamma/\dd t$.
+Multiplying by $\dd t/\dd s=\gamma$ gives the four-acceleration
+$\dd\pU/\dd s=\gamma^4(\bv\cdot\ba)
+ +(\gamma^2\ba_{\perp}+\gamma^4\ba_{\parallel})\cdot\bsig$.
+Equivalently, without resolving $\ba$ into components, this is the real
+four-acceleration paravector~\citeat{tong-relativity}{p.~141}{page=147}:
 \begin{equation}
  \frac{\dd \pU}{\dd s}
  =\gamma^4(\bv\cdot\ba)
@@ -1876,9 +1903,9 @@ $(\bv\times\ba)^2=\bv^2\ba^2-(\bv\cdot\ba)^2$ and
 $1-\bv^2=\gamma^{-2}$.  Nonzero four-acceleration is therefore space-like. The proper acceleration
 is the acceleration measured in the instantaneous rest frame; its squared
 magnitude is the negative determinant above.
-For $\bv\ne0$, define
-$\ba_{\parallel}=(\bv\cdot\ba)\bv/\bv^2$ and
-$\ba_{\perp}=\ba-\ba_{\parallel}$.  Equivalently,
+Using the parallel and perpendicular components defined above,
+$\ba^2=\ba_{\perp}^2+\ba_{\parallel}^2$ and
+$(\bv\cdot\ba)^2=\bv^2\ba_{\parallel}^2$ give
 \begin{equation*}
  \det\left(\frac{\dd \pU}{\dd s}\right)
  =-\gamma^4\ba_{\perp}^2-\gamma^6\ba_{\parallel}^2.
@@ -1887,13 +1914,11 @@ At rest, $\gamma=1$ and $\dd\pU/\dd s=\ba\cdot\bsig$, so the
  determinant is $-\ba^2$ and the proper acceleration has magnitude $\lVert\ba\rVert$.
 
 \subsubsection{Energy and inertia}
-Recall $E=m\gamma$ and $\bp=m\gamma\bv$ for invariant real mass $m>0$.
-Differentiating, using the derivative of $\gamma$ above, gives
-\[
- \frac{\dd\bp}{\dd t}
- =m\gamma\ba+m\gamma^3(\bv\cdot\ba)\bv.
-\]
-For $\bv\ne0$, resolving along and perpendicular to $\bv$ yields
+For constant invariant mass $m>0$, four-momentum is $\pP=m\pU$,
+so $\dd\pP/\dd t=m\,\dd\pU/\dd t$. Its scalar and spatial parts are
+$E=m\gamma$ and $\bp=m\gamma\bv$.
+Multiplying the spatial part of
+\eqref{eq:four-velocity-coordinate-derivative} by $m$ therefore gives
 \begin{equation}
  \boxed{\frac{\dd\bp}{\dd t}
  =m\gamma\ba_{\perp}+m\gamma^3\ba_{\parallel}.}

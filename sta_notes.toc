@@ -44,89 +44,89 @@
 \contentsline {subsection}{\numberline {6.4}World lines, clocks, and light cones}{26}{subsection.6.4}%
 \contentsline {subsubsection}{\numberline {6.4.1}Integrating four-velocity}{26}{subsubsection.6.4.1}%
 \contentsline {subsubsection}{\numberline {6.4.2}Clock comparison}{26}{subsubsection.6.4.2}%
-\contentsline {subsubsection}{\numberline {6.4.3}Constant proper acceleration}{26}{subsubsection.6.4.3}%
+\contentsline {subsubsection}{\numberline {6.4.3}Constant proper acceleration}{27}{subsubsection.6.4.3}%
 \contentsline {subsubsection}{\numberline {6.4.4}Light cones}{27}{subsubsection.6.4.4}%
-\contentsline {section}{\numberline {7}Inertial frames and particle dynamics}{27}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Coordinates, intervals, and light cones}{27}{subsection.7.1}%
+\contentsline {section}{\numberline {7}Inertial frames and particle dynamics}{28}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Coordinates, intervals, and light cones}{28}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Spacetime increments and velocity}{28}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Clock rates and measured lengths}{29}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}Composing frames}{29}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Energy and momentum}{29}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.5}Energy and momentum}{30}{subsection.7.5}%
 \contentsline {subsection}{\numberline {7.6}Free-particle action}{30}{subsection.7.6}%
 \contentsline {section}{\numberline {8}Coordinates, frames, and differentiation}{31}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Paravector differential operators}{31}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}Components and the product rule}{31}{subsection.8.2}%
 \contentsline {subsection}{\numberline {8.3}Flat spacetime in generalized coordinates}{32}{subsection.8.3}%
 \contentsline {subsection}{\numberline {8.4}Varying frames and local bases}{33}{subsection.8.4}%
-\contentsline {section}{\numberline {9}Electromagnetism}{33}{section.9}%
+\contentsline {section}{\numberline {9}Electromagnetism}{34}{section.9}%
 \contentsline {subsection}{\numberline {9.1}Maxwell's equations and wave propagation}{34}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}Potentials and gauge freedom}{35}{subsection.9.2}%
 \contentsline {subsection}{\numberline {9.3}The electromagnetic field action}{36}{subsection.9.3}%
 \contentsline {subsection}{\numberline {9.4}Field invariants}{36}{subsection.9.4}%
 \contentsline {subsection}{\numberline {9.5}Lorentz force from the action}{37}{subsection.9.5}%
 \contentsline {subsection}{\numberline {9.6}Acceleration and the mass shell}{38}{subsection.9.6}%
-\contentsline {subsection}{\numberline {9.7}Energy and momentum flux}{38}{subsection.9.7}%
+\contentsline {subsection}{\numberline {9.7}Energy and momentum flux}{39}{subsection.9.7}%
 \contentsline {section}{\numberline {10}Quantum amplitudes and differential operators}{39}{section.10}%
 \contentsline {subsection}{\numberline {10.1}Spinor amplitudes and probability density}{39}{subsection.10.1}%
 \contentsline {subsection}{\numberline {10.2}Weighted densities and local expectations}{40}{subsection.10.2}%
 \contentsline {paragraph}{Local expectations.}{40}{section*.8}%
-\contentsline {paragraph}{Transforming the amplitude.}{40}{section*.9}%
+\contentsline {paragraph}{Transforming the amplitude.}{41}{section*.9}%
 \contentsline {subsection}{\numberline {10.3}Energy and momentum as differential operators}{41}{subsection.10.3}%
-\contentsline {subsection}{\numberline {10.4}Field strength from noncommuting derivatives}{42}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.4}Field strength from noncommuting derivatives}{43}{subsection.10.4}%
 \contentsline {section}{\numberline {11}The Klein--Gordon equation}{43}{section.11}%
 \contentsline {subsection}{\numberline {11.1}The mass shell as a wave equation}{43}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Positive and negative frequency}{43}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.2}Positive and negative frequency}{44}{subsection.11.2}%
 \contentsline {subsection}{\numberline {11.3}Square roots from Fourier series}{44}{subsection.11.3}%
 \contentsline {subsection}{\numberline {11.4}Electromagnetic coupling}{45}{subsection.11.4}%
-\contentsline {section}{\numberline {12}The Dirac equation}{45}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Block form and free factorization}{45}{subsection.12.1}%
+\contentsline {section}{\numberline {12}The Dirac equation}{46}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Block form and free factorization}{46}{subsection.12.1}%
 \contentsline {subsection}{\numberline {12.2}Reconstructing free solutions from Klein--Gordon}{47}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}Potential and paravector components}{47}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.3}Potential and paravector components}{48}{subsection.12.3}%
 \contentsline {subsection}{\numberline {12.4}Interacting factorization and reconstruction}{48}{subsection.12.4}%
-\contentsline {subsection}{\numberline {12.5}Gauge phase}{49}{subsection.12.5}%
+\contentsline {subsection}{\numberline {12.5}Gauge phase}{50}{subsection.12.5}%
 \contentsline {section}{\numberline {13}Low-energy limits}{50}{section.13}%
 \contentsline {subsection}{\numberline {13.1}Klein--Gordon to Schr\"odinger}{50}{subsection.13.1}%
 \contentsline {subsection}{\numberline {13.2}Dirac to Pauli}{51}{subsection.13.2}%
 \contentsline {subsection}{\numberline {13.3}Spin components in a uniform magnetic field}{52}{subsection.13.3}%
 \contentsline {subsection}{\numberline {13.4}Evolution about an alternate spin axis}{53}{subsection.13.4}%
-\contentsline {subsection}{\numberline {13.5}The next free order}{53}{subsection.13.5}%
-\contentsline {section}{\numberline {14}Spin and probability}{54}{section.14}%
-\contentsline {subsection}{\numberline {14.1}Spin one-half and rotations}{54}{subsection.14.1}%
+\contentsline {subsection}{\numberline {13.5}The next free order}{54}{subsection.13.5}%
+\contentsline {section}{\numberline {14}Spin and probability}{55}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Spin one-half and rotations}{55}{subsection.14.1}%
 \contentsline {subsection}{\numberline {14.2}Projectors and probabilities}{55}{subsection.14.2}%
 \contentsline {subsection}{\numberline {14.3}Measurement along a second axis}{56}{subsection.14.3}%
 \contentsline {subsection}{\numberline {14.4}Rotating the polarization}{57}{subsection.14.4}%
-\contentsline {section}{\numberline {15}Lorentz covariance and electromagnetic transformations}{57}{section.15}%
-\contentsline {subsection}{\numberline {15.1}Transformation laws for fields and derivatives}{57}{subsection.15.1}%
+\contentsline {section}{\numberline {15}Lorentz covariance and electromagnetic transformations}{58}{section.15}%
+\contentsline {subsection}{\numberline {15.1}Transformation laws for fields and derivatives}{58}{subsection.15.1}%
 \contentsline {subsection}{\numberline {15.2}Maxwell covariance}{58}{subsection.15.2}%
-\contentsline {subsection}{\numberline {15.3}Wave phases and spinor covariance}{58}{subsection.15.3}%
-\contentsline {subsection}{\numberline {15.4}Boosted fields and energy flux}{58}{subsection.15.4}%
-\contentsline {section}{\numberline {A}Pauli-matrix representation}{60}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Generators and products}{60}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Conjugations and product order}{60}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}Scalar part, determinant, and norm}{61}{subsection.A.3}%
-\contentsline {subsection}{\numberline {A.4}Boost and rotation matrices}{62}{subsection.A.4}%
-\contentsline {subsection}{\numberline {A.5}Matrix amplitudes and column spinors}{62}{subsection.A.5}%
-\contentsline {paragraph}{An arbitrary spin basis.}{62}{section*.10}%
-\contentsline {paragraph}{The two-component column.}{62}{section*.11}%
-\contentsline {subsection}{\numberline {A.6}Dirac columns}{63}{subsection.A.6}%
-\contentsline {paragraph}{Characteristic polynomial.}{63}{section*.12}%
-\contentsline {subsection}{\numberline {A.7}Four components and the standard Dirac basis}{64}{subsection.A.7}%
-\contentsline {subsection}{\numberline {A.8}Quaternion matrix image}{65}{subsection.A.8}%
-\contentsline {section}{\numberline {B}Equation reference}{66}{appendix.B}%
-\contentsline {paragraph}{Algebra.}{66}{section*.13}%
-\contentsline {paragraph}{Rotations and boosts.}{66}{section*.33}%
-\contentsline {paragraph}{Spacetime and particles.}{67}{section*.48}%
-\contentsline {paragraph}{Electromagnetism.}{67}{section*.67}%
-\contentsline {paragraph}{Relativistic waves.}{68}{section*.84}%
-\contentsline {paragraph}{Low-energy limits.}{68}{section*.111}%
-\contentsline {paragraph}{Spin and probabilities.}{69}{section*.114}%
-\contentsline {section}{\numberline {C}Conventions}{70}{appendix.C}%
-\contentsline {paragraph}{Mapping to the literature.}{70}{section*.126}%
-\contentsline {paragraph}{Source comparisons for the cited equations.}{72}{section*.127}%
-\contentsline {paragraph}{Translating the physical comparisons.}{73}{section*.128}%
-\contentsline {paragraph}{Exponent sign and sandwich order.}{74}{section*.129}%
-\contentsline {paragraph}{Hamilton quaternions fix the basis orientation.}{74}{section*.130}%
-\contentsline {paragraph}{Rotating a state versus changing the measured observable.}{75}{section*.131}%
-\contentsline {paragraph}{Fields and wave amplitudes under either notation.}{75}{section*.132}%
-\contentsline {paragraph}{Preserved quantities.}{76}{section*.133}%
-\contentsline {section}{References}{77}{section*.134}%
+\contentsline {subsection}{\numberline {15.3}Wave phases and spinor covariance}{59}{subsection.15.3}%
+\contentsline {subsection}{\numberline {15.4}Boosted fields and energy flux}{59}{subsection.15.4}%
+\contentsline {section}{\numberline {A}Pauli-matrix representation}{61}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Generators and products}{61}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Conjugations and product order}{61}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Scalar part, determinant, and norm}{62}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}Boost and rotation matrices}{63}{subsection.A.4}%
+\contentsline {subsection}{\numberline {A.5}Matrix amplitudes and column spinors}{63}{subsection.A.5}%
+\contentsline {paragraph}{An arbitrary spin basis.}{63}{section*.10}%
+\contentsline {paragraph}{The two-component column.}{63}{section*.11}%
+\contentsline {subsection}{\numberline {A.6}Dirac columns}{64}{subsection.A.6}%
+\contentsline {paragraph}{Characteristic polynomial.}{64}{section*.12}%
+\contentsline {subsection}{\numberline {A.7}Four components and the standard Dirac basis}{65}{subsection.A.7}%
+\contentsline {subsection}{\numberline {A.8}Quaternion matrix image}{66}{subsection.A.8}%
+\contentsline {section}{\numberline {B}Equation reference}{67}{appendix.B}%
+\contentsline {paragraph}{Algebra.}{67}{section*.13}%
+\contentsline {paragraph}{Rotations and boosts.}{67}{section*.33}%
+\contentsline {paragraph}{Spacetime and particles.}{68}{section*.48}%
+\contentsline {paragraph}{Electromagnetism.}{68}{section*.67}%
+\contentsline {paragraph}{Relativistic waves.}{69}{section*.84}%
+\contentsline {paragraph}{Low-energy limits.}{69}{section*.111}%
+\contentsline {paragraph}{Spin and probabilities.}{70}{section*.114}%
+\contentsline {section}{\numberline {C}Conventions}{71}{appendix.C}%
+\contentsline {paragraph}{Mapping to the literature.}{71}{section*.126}%
+\contentsline {paragraph}{Source comparisons for the cited equations.}{73}{section*.127}%
+\contentsline {paragraph}{Translating the physical comparisons.}{74}{section*.128}%
+\contentsline {paragraph}{Exponent sign and sandwich order.}{75}{section*.129}%
+\contentsline {paragraph}{Hamilton quaternions fix the basis orientation.}{75}{section*.130}%
+\contentsline {paragraph}{Rotating a state versus changing the measured observable.}{76}{section*.131}%
+\contentsline {paragraph}{Fields and wave amplitudes under either notation.}{76}{section*.132}%
+\contentsline {paragraph}{Preserved quantities.}{77}{section*.133}%
+\contentsline {section}{References}{78}{section*.134}%
