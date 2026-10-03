@@ -81,6 +81,7 @@
 \newcommand{\bu}{\bm{u}}
 \newcommand{\bn}{\bm{n}}
 \newcommand{\ba}{\bm{a}}
+\newcommand{\bj}{\bm{j}}
 \newcommand{\bk}{\bm{k}}
 \newcommand{\bg}{\bm{g}}
 \newcommand{\bb}{\bm{b}}
@@ -112,10 +113,10 @@
 \newcommand{\sconj}[1]{#1^{*}}
 \newcommand{\sr}[1]{#1^{*\mathsf H}}
 \newcommand{\adj}[1]{\operatorname{adj}\!\left(#1\right)}
-\newcommand{\scpart}[1]{\operatorname{sc}(#1)}
-\newcommand{\vecpart}[1]{\operatorname{vec}(#1)}
-\newcommand{\repart}[1]{\operatorname{re}(#1)}
-\newcommand{\impart}[1]{\operatorname{im}(#1)}
+\newcommand{\scpart}[1]{\operatorname{sc}\!\left(#1\right)}
+\newcommand{\vecpart}[1]{\operatorname{vec}\!\left(#1\right)}
+\newcommand{\repart}[1]{\operatorname{re}\!\left(#1\right)}
+\newcommand{\impart}[1]{\operatorname{im}\!\left(#1\right)}
 \newcommand{\Det}[1]{\det\left(#1\right)}
 \newcommand{\Wop}{\bm{W}}
 \newcommand{\dd}{\,\mathrm d}
@@ -145,6 +146,7 @@
 \sourceurl{feynman-schrodinger}{https://www.feynmanlectures.caltech.edu/III_21.html}
 \sourceurl{feynmanspin}{https://www.feynmanlectures.caltech.edu/III_06.html}
 \sourceurl{feynman-spacetime}{https://www.feynmanlectures.caltech.edu/I_17.html}
+\sourceurl{russo-townsend}{https://arxiv.org/pdf/0902.4243}
 
 \title{\textbf{Space--Time Algebra}\\[0.35em]
   \large A compact development of paravectors and their physical applications}
@@ -1935,6 +1937,115 @@ $E/c^2=\gamma m$ is sometimes called \emph{relativistic mass}.
 We retain invariant $m$: the longitudinal and transverse inertia in
 \eqref{eq:relativistic-inertia} differ.
 
+\subsection{Jerk and proper-time derivatives}
+\label{sec:jerk}
+Jerk describes how acceleration changes. In a chosen inertial frame, the
+\emph{coordinate jerk} is the real three-vector
+\begin{equation}
+ \bj:=\frac{\dd\ba}{\dd t}
+ =\frac{\dd^2\bv}{\dd t^2}
+ =\frac{\dd^3\br}{\dd t^3}.
+ \label{eq:coordinate-jerk}
+\end{equation}
+Changing only the differentiation parameter gives
+$\dd\ba/\dd s=\gamma\bj$. This still differentiates the coordinate
+acceleration of that frame. The proper-time derivative of
+\emph{four-acceleration} instead gives the real paravector
+\begin{equation}
+ \frac{\dd}{\dd s}\left(\frac{\dd\pU}{\dd s}\right)
+ =\frac{\dd^2\pU}{\dd s^2}
+ =\frac{\dd^3\pX}{\dd s^3},
+ \label{eq:four-jerk-definition}
+\end{equation}
+which we call the \emph{unprojected four-jerk}.
+
+To relate the two time parameters, put $q:=\bv\cdot\ba$. The product
+rule gives $\dd q/\dd t=\ba^2+\bv\cdot\bj$, hence
+\begin{align*}
+ \frac{\dd^2\gamma}{\dd t^2}
+ &=\gamma^3(\ba^2+\bv\cdot\bj)+3\gamma^5q^2,\\
+ \frac{\dd^2\pU}{\dd t^2}
+ &=\frac{\dd^2\gamma}{\dd t^2}
+ +\left(\gamma\bj+2\gamma^3q\ba
+       +\frac{\dd^2\gamma}{\dd t^2}\bv\right)\cdot\bsig.
+\end{align*}
+Applying $\dd/\dd s=\gamma\dd/\dd t$ twice requires differentiating
+$\gamma$ as well:
+\begin{equation}
+ \boxed{\frac{\dd^2\pU}{\dd s^2}
+ =\gamma\frac{\dd}{\dd t}\left(\gamma\frac{\dd\pU}{\dd t}\right)
+ =\gamma^2\frac{\dd^2\pU}{\dd t^2}
+  +\gamma^4q\frac{\dd\pU}{\dd t}.}
+ \label{eq:jerk-time-conversion}
+\end{equation}
+Thus its scalar and vector components are
+\begin{align}
+ \frac{\dd^2\gamma}{\dd s^2}&=\gamma^5(\ba^2+\bv\cdot\bj)+4\gamma^7q^2,\notag\\
+ \frac{\dd^2\pU}{\dd s^2}&=\frac{\dd^2\gamma}{\dd s^2}+
+ \left(\gamma^3\bj+3\gamma^5q\ba+\frac{\dd^2\gamma}{\dd s^2}\bv\right)\cdot\bsig.
+ \label{eq:four-jerk-components}
+\end{align}
+The third coordinate-time derivative of position is simply
+$\dd^3\pX/\dd t^3=\bj\cdot\bsig$. The derivatives
+$\dd^2\pU/\dd t^2$ and $\dd^2\pU/\dd s^2$ also include changes in $\gamma$.
+
+\paragraph{Jerk in the instantaneous rest frame.}
+Differentiating the orthogonality of four-velocity and four-acceleration gives
+\[
+ \scpart{\pU^*\frac{\dd^2\pU}{\dd s^2}}
+ +\det\left(\frac{\dd\pU}{\dd s}\right)=0.
+\]
+If $\alpha$ is the proper-acceleration magnitude, then
+$\det(\dd\pU/\dd s)=-\alpha^2$. Therefore
+$\scpart{\pU^*\frac{\dd^2\pU}{\dd s^2}}=\alpha^2$: four-jerk generally has a component
+along four-velocity. Removing it defines the projected relativistic
+jerk~\citeat{russo-townsend}{Eqs.~(2.8)--(2.13)}{page=7}, written here
+with signature $(+,-,-,-)$:
+\begin{equation}
+ \scpart{\pU^*\left(\frac{\dd^2\pU}{\dd s^2}-\alpha^2\pU\right)}=0.
+ \label{eq:projected-jerk}
+\end{equation}
+At an instant of rest, $\pU=1$ and
+\begin{align*}
+ \frac{\dd^2\pU}{\dd s^2}&=\ba^2+\bj\cdot\bsig,\\
+ \frac{\dd^2\pU}{\dd s^2}-\alpha^2\pU&=\bj\cdot\bsig,
+\end{align*}
+where $\ba$ and $\bj$ are evaluated in that instantaneous rest frame.
+Thus the projected derivative gives the measured proper jerk there.
+
+\paragraph{Motion along a fixed axis.}
+For a fixed real unit vector $\bu$, introduce rapidity $\theta(s)$ and write
+\[
+ \pU=\cosh\theta+\sinh\theta\bu\cdot\bsig,\qquad
+ \pN=\sinh\theta+\cosh\theta\bu\cdot\bsig.
+\]
+Here $\det\pN=-1$ and $\scpart{\pU^*\pN}=0$. Define signed proper
+acceleration $h:=\dd\theta/\dd s$ and signed proper jerk
+$k:=\dd h/\dd s$. Direct differentiation gives
+\begin{align}
+ \frac{\dd\pU}{\dd s}&=h\pN,\qquad
+ \frac{\dd\pN}{\dd s}=h\pU,\notag\\
+ \frac{\dd^2\pU}{\dd s^2}&=h^2\pU+k\pN,\notag\\
+ \frac{\dd^2\pU}{\dd s^2}-h^2\pU&=k\pN,\notag\\
+ \det\left(\frac{\dd\pU}{\dd s}\right)&=-h^2,\qquad
+ \det\left(\frac{\dd^2\pU}{\dd s^2}-h^2\pU\right)=-k^2,\notag\\
+ \det\left(\frac{\dd^2\pU}{\dd s^2}\right)&=h^4-k^2.
+ \label{eq:rectilinear-jerk}
+\end{align}
+The proper-acceleration and proper-jerk magnitudes are $|h|$ and $|k|$.
+For comparison with coordinate time, let $\beta=\tanh\theta$ and write
+$\ba=a_{\mathrm c}\bu$, $\bj=j_{\mathrm c}\bu$. Since
+$a_{\mathrm c}=h/\gamma^3$, differentiating gives
+\begin{equation}
+ k=\gamma\frac{\dd(\gamma^3a_{\mathrm c})}{\dd t}
+  =\gamma^4j_{\mathrm c}+3\gamma^6\beta a_{\mathrm c}^2,
+ \qquad
+ j_{\mathrm c}=\frac{k-3h^2\beta}{\gamma^4}.
+ \label{eq:coordinate-proper-jerk}
+\end{equation}
+For constant $h$, the proper jerk $k$ and the projected derivative vanish,
+whereas $\dd^2\pU/\dd s^2=h^2\pU$ remains nonzero if $h\ne0$.
+
 \subsection{World lines, clocks, and light cones}
 \label{sec:worldlines}
 
@@ -1987,7 +2098,101 @@ smooth turn.  The traveling clock records
 while the clock at rest records $T$.  This is the twin-clock comparison
 \citeat{tong-relativity}{p.~121}{page=127}.
 
+\subsubsection{Constant velocity}
+\label{sec:constant-velocity}
+Let the coordinate velocity be a fixed real vector $\bv(t)=\bv_0$ in a
+chosen inertial frame, with $\lVert\bv_0\rVert<1$. The Lorentz factor is
+then constant:
+\[
+ \gamma_0=\frac{1}{\sqrt{1-\bv_0^2}}.
+\]
+Starting at $\br(0)=\br_0$, integration of $\dd\br/\dd t=\bv_0$ gives
+\[
+ \br(t)=\br_0+\bv_0t,\qquad
+ \pX(t)=t+(\br_0+\bv_0t)\cdot\bsig.
+\]
+Taking $s(0)=0$, the elapsed proper time follows from
+\eqref{eq:elapsed-proper-time}:
+\[
+ s(t)=\int_0^t\frac{\dd t'}{\gamma_0}
+ =\frac{t}{\gamma_0}=t\sqrt{1-\bv_0^2}.
+\]
+Thus $t=\gamma_0s$, and the world line can also be parametrized by the
+particle's clock:
+\begin{equation}
+ \boxed{\pX(s)=\br_0\cdot\bsig+s\pU_0,\qquad
+ \pU_0=\gamma_0(1+\bv_0\cdot\bsig).}
+ \label{eq:constant-velocity-worldline}
+\end{equation}
+The constant four-velocity $\pU_0$ is the tangent to this straight
+time-like world line. Both coordinate acceleration and four-acceleration
+vanish:
+\[
+ \ba=\frac{\dd\bv}{\dd t}=0,\qquad
+ \frac{\dd\pU}{\dd t}=\frac{\dd\pU}{\dd s}=0.
+\]
+The proper acceleration is therefore zero. For any two events on this
+inertial path, $\Delta\pX=\Delta s\,\pU_0$ and $\det\pU_0=1$ give
+\[
+ \det(\Delta\pX)=(\Delta s)^2
+ =(\Delta t)^2(1-\bv_0^2).
+\]
+In the particle's rest frame, $\bv_0=0$, so $\pU_0=1$ and $s=t$.
+
+\subsubsection{Constant coordinate acceleration}
+\label{sec:constant-coordinate-acceleration}
+Constant coordinate acceleration means that $\ba=\dd\bv/\dd t=\ba_0$
+is a fixed real vector in a chosen inertial frame. With initial position
+$\br(0)=\br_0$ and velocity $\bv(0)=\bv_0$, integration gives
+\begin{align}
+ \bv(t)&=\bv_0+\ba_0t,\\
+ \pX(t)&=t+\left(\br_0+\bv_0t+\tfrac12\ba_0t^2\right)\cdot\bsig.
+ \label{eq:constant-coordinate-acceleration-worldline}
+\end{align}
+These familiar coordinate-time formulas also describe a relativistic
+massive particle, provided $\lVert\bv_0+\ba_0t\rVert<1$ throughout the
+interval considered. A nonzero constant coordinate acceleration can
+therefore persist only for a finite coordinate-time interval.
+
+For motion from rest at the origin, write $\ba_0=a_0\bu$, where $a_0>0$
+and $\bu$ is a fixed real unit vector. Then
+\[
+ \bv(t)=a_0t\bu,\qquad
+ \pX(t)=t+\tfrac12a_0t^2\bu\cdot\bsig,\qquad
+ \gamma(t)=\frac{1}{\sqrt{1-a_0^2t^2}},
+ \qquad 0\le t<\frac{1}{a_0}.
+\]
+The particle's clock runs at $\dd s/\dd t=1/\gamma(t)$. Taking $s(0)=0$
+in \eqref{eq:elapsed-proper-time} gives
+\begin{equation}
+ s(t)=\int_0^t\sqrt{1-a_0^2t'^2}\,\dd t'
+ =\frac{\arcsin(a_0t)+a_0t\sqrt{1-a_0^2t^2}}{2a_0}.
+ \label{eq:constant-coordinate-acceleration-clock}
+\end{equation}
+Four-velocity and four-acceleration follow by differentiating the world line:
+\begin{align*}
+ \pU(t)&=\gamma(t)(1+a_0t\bu\cdot\bsig),\\
+ \frac{\dd\pU}{\dd s}
+ &=\gamma\frac{\dd\pU}{\dd t}
+ =\gamma^4a_0^2t+\gamma^4a_0\bu\cdot\bsig.
+\end{align*}
+Consequently,
+\[
+ \det\left(\frac{\dd\pU}{\dd s}\right)
+ =\gamma^8a_0^2(a_0^2t^2-1)
+ =-\gamma^6a_0^2.
+\]
+The proper-acceleration magnitude is therefore
+\[
+ \alpha(t)=\gamma^3a_0
+ =\frac{a_0}{(1-a_0^2t^2)^{3/2}}.
+\]
+Although the coordinate acceleration stays fixed, the acceleration
+measured in the instantaneous rest frame grows without bound as
+$t\to1/a_0$. The next example instead holds the proper acceleration fixed.
+
 \subsubsection{Constant proper acceleration}
+\label{sec:constant-proper-acceleration}
 Recall the real four-velocity $\pU=\dd \pX/\dd s$, an
 \hyperref[eq:unit-paravector]{invertible paravector} with $\pU \pU^{-1}=1$.
 Let $a>0$ be a constant real proper-acceleration magnitude and $\bu$ a fixed
@@ -1998,8 +2203,8 @@ $\theta(s)=as$.  Then
 \]
 Differentiation verifies the stated acceleration:
 \[
- -\det\left(\frac{\dd \pU}{\dd s}\right)
- =a^2\bigl(\cosh^2(as)-\sinh^2(as)\bigr)=a^2.
+ \det\left(\frac{\dd \pU}{\dd s}\right)
+ =-a^2\bigl(\cosh^2(as)-\sinh^2(as)\bigr)=-a^2.
 \]
 Integrating \eqref{eq:worldline-integral} yields~\citeat{tong-relativity}{Eq.~(7.33), pp.~142--143}{page=148}
 \begin{equation}
@@ -2014,6 +2219,129 @@ Its components give
 \end{align*}
 Thus \eqref{eq:hyperbolic-worldline} is the usual hyperbolic motion, with
 speed below light speed at every finite $s$.
+Eliminating $s$ using $at=\sinh(as)$ makes the coordinate acceleration explicit:
+\[
+ \bv(t)=\frac{at}{\sqrt{1+a^2t^2}}\bu,\qquad
+ \ba(t)=\frac{\dd\bv}{\dd t}
+ =\frac{a}{(1+a^2t^2)^{3/2}}\bu.
+\]
+Here $\gamma(t)=\sqrt{1+a^2t^2}$, so
+$\gamma^3\lVert\ba(t)\rVert=a$ is constant while the coordinate
+acceleration decreases as the particle gains speed.
+
+\subsubsection{Constant jerk}
+\label{sec:constant-jerk}
+The jerk held constant must be specified together with the time parameter
+and frame. We first integrate constant coordinate jerk, then constant
+proper jerk along a fixed axis, and finally the literal condition of a
+constant unprojected four-jerk.
+
+\paragraph{Constant coordinate jerk: $\dd\ba/\dd t=\bj_0$.}
+Let $\bj_0$ be a fixed real vector in an inertial frame. Starting at
+$t=0$ with $\br_0$, $\bv_0$, and $\ba_0$, successive integrations give
+\begin{align}
+ \ba(t)&=\ba_0+\bj_0t,\notag\\
+ \bv(t)&=\bv_0+\ba_0t+\tfrac12\bj_0t^2,\notag\\
+ \pX(t)&=t+
+ \left(\br_0+\bv_0t+\tfrac12\ba_0t^2+\tfrac16\bj_0t^3\right)\cdot\bsig.
+ \label{eq:constant-coordinate-jerk}
+\end{align}
+The allowed interval satisfies $\lVert\bv(t)\rVert<1$. On that interval,
+\[
+ \gamma(t)=\frac{1}{\sqrt{1-\bv(t)^2}},\qquad
+ \pU(t)=\gamma(t)(1+\bv(t)\cdot\bsig),\qquad
+ s(t)=\int_0^t\sqrt{1-\bv(t')^2}\,\dd t'.
+\]
+The four-jerk follows by inserting these $\bv(t)$, $\ba(t)$, and
+$\bj_0$ in \eqref{eq:four-jerk-components}; it generally varies with time.
+For example, from rest with zero initial acceleration, take
+$\bj_0=j_0\bu$, $j_0>0$, along a fixed real unit axis. Then
+\[
+ \bv(t)=\tfrac12j_0t^2\bu,\qquad
+ \br(t)=\br_0+\tfrac16j_0t^3\bu,\qquad
+ 0\le t<\sqrt{\frac{2}{j_0}}.
+\]
+Here $a_{\mathrm c}=j_0t$ and $\beta=j_0t^2/2$, so
+\eqref{eq:coordinate-proper-jerk} gives
+$k(t)=\gamma^4j_0+3\gamma^6\beta(j_0t)^2$.
+Thus constant coordinate jerk does not give constant proper jerk.
+
+\paragraph{Constant proper jerk: $\dd h/\dd s=k_0$.}
+For the fixed-axis motion of Section~\ref{sec:jerk}, choose real constants
+$h_0$, $k_0$, and initial rapidity $\theta_0$. Integrating with respect to
+the particle's proper time gives
+\begin{equation}
+ \boxed{h(s)=h_0+k_0s,\qquad
+ \theta(s)=\theta_0+h_0s+\tfrac12k_0s^2.}
+ \label{eq:constant-proper-jerk}
+\end{equation}
+The corresponding world line, with $t(0)=0$, is
+\begin{align}
+ t(s)&=\int_0^s\cosh\theta(s')\,\dd s',\notag\\
+ \br(s)&=\br_0+\bu\int_0^s\sinh\theta(s')\,\dd s',\qquad
+ \pX(s)=t(s)+\br(s)\cdot\bsig.
+ \label{eq:constant-proper-jerk-worldline}
+\end{align}
+These integrals specify the trajectory exactly; see also
+\citeat{russo-townsend}{Eqs.~(5.8)--(5.9)}{page=19}.
+Because $\dd t/\dd s=\cosh\theta>0$, they also define a unique
+coordinate-time trajectory. Its velocity, acceleration, and jerk are
+\begin{align*}
+ \bv(t(s))&=\tanh\theta(s)\bu,\\
+ \ba(t(s))&=\frac{h(s)}{\cosh^3\theta(s)}\bu,\\
+ \bj(t(s))&=\frac{k_0-3h(s)^2\tanh\theta(s)}{\cosh^4\theta(s)}\bu.
+\end{align*}
+The projected derivative is
+\[
+ \frac{\dd^2\pU}{\dd s^2}-h(s)^2\pU=k_0\pN.
+\]
+It has constant magnitude $|k_0|$, although its components in the original
+inertial frame change as $\pN$ changes. The unprojected four-jerk is
+\[
+ \frac{\dd^2\pU}{\dd s^2}=h(s)^2\pU+k_0\pN.
+\]
+Setting $k_0=0$, $\theta_0=0$, and $h_0=a>0$ recovers the preceding
+constant-proper-acceleration example.
+
+\paragraph{Constant unprojected four-jerk.}
+If the components of $\dd^3\pX/\dd s^3=\dd^2\pU/\dd s^2$ are constant
+in an inertial frame, write primes for $\dd/\dd s$ and use subscript $0$
+for evaluation at $s=0$. Direct integration gives
+\begin{align*}
+ \pU'(s)&=\pU'_0+s\pU''_0,\\
+ \pU(s)&=\pU_0+s\pU'_0+\tfrac12s^2\pU''_0,\\
+ \pX(s)&=\pX_0+s\pU_0+\tfrac12s^2\pU'_0+\tfrac16s^3\pU''_0.
+\end{align*}
+These initial derivatives must preserve $\det\pU(s)=1$. Equating powers
+of $s$, using the metric pairing in \eqref{eq:lorentz-pairing}, gives
+\begin{gather*}
+ \det\pU_0=1,\qquad \scpart{\pU_0^*\pU'_0}=0,\qquad
+ \scpart{\pU_0^*\pU''_0}=-\det(\pU'_0),\\
+ \scpart{(\pU'_0)^*\pU''_0}=0,\qquad \det(\pU''_0)=0.
+\end{gather*}
+In particular, a nonzero constant $\dd^2\pU/\dd s^2$ must be null.
+A concrete example~\citeat{russo-townsend}{Eq.~(3.40)}{page=15}
+uses perpendicular real unit vectors $\bu$ and $\bn$, with $b>0$, and
+initial data
+\[
+ \pX_0=0,\qquad \pU_0=1,\qquad
+ \pU'_0=b\bu\cdot\bsig,\qquad \pU''_0=b^2(1+\bn\cdot\bsig).
+\]
+The resulting world line is
+\begin{equation}
+ \pX(s)=s+\tfrac16b^2s^3
+ +\left(\tfrac12bs^2\bu+\tfrac16b^2s^3\bn\right)\cdot\bsig.
+ \label{eq:constant-four-jerk-worldline}
+\end{equation}
+Differentiation verifies
+\[
+ \frac{\dd^3\pX}{\dd s^3}
+ =\frac{\dd^2\pU}{\dd s^2}=b^2(1+\bn\cdot\bsig),\qquad
+ \det\pU=1.
+\]
+Also $\dd t/\dd s=1+b^2s^2/2>0$, so $s$ is indeed future-directed
+proper time. This curved spatial path is a different motion from the
+fixed-axis constant-proper-jerk example.
 
 \subsubsection{Light cones}
 For a real event separation $\Delta \pX=\Delta t+\Delta\br\cdot\bsig$,
@@ -5594,6 +5922,13 @@ R.~P. Feynman, R.~B. Leighton, and M.~Sands,
 \emph{The Feynman Lectures on Physics}, vol.~I.
 Reading, MA, USA: Addison-Wesley, 1963, ch.~17, ``Space-time.''
 [Online]. Available: \url{https://www.feynmanlectures.caltech.edu/I_17.html}.
+
+\bibitem{russo-townsend}
+J.~G. Russo and P.~K. Townsend,
+``Relativistic kinematics and stationary motions,''
+\emph{J. Phys. A: Math. Theor.}, vol.~42, 445402, 2009,
+doi: \href{https://doi.org/10.1088/1751-8113/42/44/445402}{10.1088/1751-8113/42/44/445402}.
+[Online]. Available: \url{https://arxiv.org/pdf/0902.4243}.
 
 \end{thebibliography}
 
