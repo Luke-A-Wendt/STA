@@ -157,20 +157,17 @@
 \thispagestyle{empty}
 
 \begin{abstract}
-A complex scalar and a complex three-vector form a paravector algebra whose
-product combines dot and cross products. It expresses quaternions, rotations,
-Lorentz boosts, projections and spectral functions, spacetime geometry,
-relativistic particle dynamics, electromagnetism, gauge coupling, the
-Klein--Gordon and Dirac equations, their Schr\"odinger and Pauli limits,
-and spin amplitudes and measurement probabilities.
-A few shared definitions---conjugation, determinant, and projection---connect
-these results through short algebraic steps. Starting from the determinant
-of a spacetime interval, we obtain proper time, four-velocity, four-momentum,
-and the mass shell. Representing energy and momentum by differential
-operators gives Klein--Gordon; a first-order factorization gives Dirac.
-Spin one-half then follows naturally from the rotation structure of its
-paravector spinors, with magnetic coupling and measurement probabilities
-expressed by the same products and projectors.
+A complex scalar and three-vector form a paravector algebra combining dot
+and cross products. It expresses quaternions, rotations, Lorentz boosts,
+projections, spectral functions, spacetime geometry, relativistic dynamics,
+electromagnetism, gauge coupling, Klein--Gordon and Dirac equations,
+Schr\"odinger and Pauli limits, and spin amplitudes and probabilities.
+Shared definitions connect these results through short derivations:
+spacetime determinants give proper time, four-momentum, and the mass shell;
+energy and momentum operators yield Klein--Gordon, whose first-order
+factorization gives Dirac. Spin one-half emerges naturally from the
+rotation structure of paravector spinors. The same products and projectors
+give its magnetic coupling and measurement probabilities.
 \end{abstract}
 
 \clearpage
@@ -428,10 +425,10 @@ multiplicativity:
            =\det(\pZ)\det(\pZ').
 \end{align*}
 Since the determinants are scalars, the determinant of any product is
-unchanged by reordering its factors.  For a scalar $c''\in\C$,
+unchanged by reordering its factors.  For a scalar $z\in\C$,
 \begin{align}
- \adj{c''\pZ}&=c''\adj {\pZ}, \notag\\
- \det(c''\pZ)&=(c'')^2\det(\pZ).
+ \adj{z\pZ}&=z\adj {\pZ}, \notag\\
+ \det(z\pZ)&=z^2\det(\pZ).
  \label{eq:det-scalar-scaling}
 \end{align}
 When $\det(\pZ)\ne0$, the inverse is~\citeat{chappell-functions}{Eq.~(47)}{page=11}
@@ -734,10 +731,10 @@ and cyclicity give the Hermitian form~\citeat{chappell-functions}{Eq.~(46)}{page
 \end{equation}
 For complex coefficients, $c^2$ and $\bZ^2$ generally differ from these
 squared norms.  Also $\det(\pZ)$ may be complex.  For a complex scalar
-$c''=r e^{\ii\theta}$, with real $r\ge0$ and $\theta$, scalar scaling gives
+$z=r e^{\ii\theta}$, with real $r\ge0$ and $\theta$, scalar scaling gives
 \begin{align}
- \det(c''\pZ)&=r^2e^{2\ii\theta}\det(\pZ), \notag\\
- \lVert c''\pZ\rVert^2&=\lVert c''\rVert^2\lVert \pZ\rVert^2
+ \det(z\pZ)&=r^2e^{2\ii\theta}\det(\pZ), \notag\\
+ \lVert z\pZ\rVert^2&=\lVert z\rVert^2\lVert \pZ\rVert^2
  =r^2\lVert \pZ\rVert^2.
  \label{eq:norm-scalar-scaling}
 \end{align}
