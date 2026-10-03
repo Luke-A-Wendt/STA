@@ -162,11 +162,11 @@ a=\cos\frac{\theta}{2},\qquad
 𝐐=𝐮\sin\frac{\theta}{2}.
 ```
 
-Rotate $`𝐗\in\mathbb R^3`$ about $`𝐮`$ by angle $`\theta`$ with:
+Rotate $`𝐫\in\mathbb R^3`$ about $`𝐮`$ by angle $`\theta`$ with:
 
 ```math
-\mathcal{X}'=𝐗'\cdot𝝂, \qquad
-\mathcal{X}=𝐗\cdot𝝂, \qquad
+\mathcal{X}'=𝐫'\cdot𝝂, \qquad
+\mathcal{X}=𝐫\cdot𝝂, \qquad
 \mathcal{X}'=\mathcal{Q}\mathcal{X}\mathcal{Q}^{\mathsf H}.
 ```
 
