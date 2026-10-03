@@ -9,7 +9,7 @@ We use [natural units](https://en.wikipedia.org/wiki/Natural_units) $`\hbar=c=1`
 
 Bold symbols denote vectors, ordered generator triples, or, where specified, matrices.
 
-Calligraphic capital letters denote paravectors and paravector operators. Greek symbols retain their usual forms, including paravector-valued spinors $`\psi,\phi`$, projectors $`\Pi_\pm`$, and the derivative $`\partial`$. Scalar components and wavefunctions remain unadorned.
+Calligraphic capital letters denote paravectors and paravector operators. Greek symbols retain their usual forms; paravector-valued spinors $`𝝍,𝝓`$ are bold. Other Greek paravector symbols include projectors $`\Pi_\pm`$ and the bold paravector derivative $`𝝏`$. Scalar components and wavefunctions remain unadorned.
 
 ## One complex [paravector](https://en.wikipedia.org/wiki/Paravector)
 
@@ -219,15 +219,15 @@ t'&=\gamma(t-\beta𝐮\cdot𝐫),\\
 Consider a paravector of the form:
 
 ```math
-\mathcal{Z}=c+c'𝐮\cdot𝝈,
-\qquad c,c'\in\mathbb C,\quad 𝐮\in\mathbb C^3,\quad 𝐮^2=1.
+\mathcal{Z}=c+z𝐮\cdot𝝈,
+\qquad c,z\in\mathbb C,\quad 𝐮\in\mathbb C^3,\quad 𝐮^2=1.
 ```
 
 The eigenvalues and complementary [projectors](https://en.wikipedia.org/wiki/Paravector#Null_paravectors_as_projectors) are:
 
 ```math
 \begin{gathered}
-\lambda_\pm:=c\pm c',
+\lambda_\pm:=c\pm z,
 \qquad \Pi_\pm:=\frac12(1\pm𝐮\cdot𝝈),\\[4pt]
 \Pi_\pm^2=\Pi_\pm,\qquad \Pi_+\Pi_-=0,\qquad \Pi_-+\Pi_+=1.
 \end{gathered}
@@ -333,14 +333,14 @@ Combine the [charge density](https://en.wikipedia.org/wiki/Charge_density) $`\rh
 Define the [paravector derivative](https://en.wikipedia.org/wiki/Paravector#Paragradient), with [gradient](https://en.wikipedia.org/wiki/Gradient) $`\partial_{𝐫}`$:
 
 ```math
-\partial:=\partial_t+\partial_{𝐫}\cdot𝝈,\qquad
-\partial^*=\partial_t-\partial_{𝐫}\cdot𝝈.
+𝝏:=\partial_t+\partial_{𝐫}\cdot𝝈,\qquad
+𝝏^*=\partial_t-\partial_{𝐫}\cdot𝝈.
 ```
 
 [Maxwell's equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations) are given by:
 
 ```math
-\boxed{\partial \mathcal{F}=\mathcal{J}^*},
+\boxed{𝝏 \mathcal{F}=\mathcal{J}^*},
 ```
 
 with components:
@@ -354,19 +354,19 @@ with components:
 \end{aligned}
 ```
 
-Applying $`\partial^{*}`$ gives the [d'Alembertian](https://en.wikipedia.org/wiki/D%27Alembert_operator) and the [sourced wave equations](https://en.wikipedia.org/wiki/Inhomogeneous_electromagnetic_wave_equation):
+Applying $`𝝏^{*}`$ gives the [d'Alembertian](https://en.wikipedia.org/wiki/D%27Alembert_operator) and the [sourced wave equations](https://en.wikipedia.org/wiki/Inhomogeneous_electromagnetic_wave_equation):
 
 ```math
 \begin{aligned}
-\Box&:=\partial^{*}\partial=\partial_t^2-\partial_{𝐫}^2,\\
-\partial^{*}(\partial \mathcal{F})&=\Box \mathcal{F}=\partial^{*}\mathcal{J}^*.
+\Box&:=𝝏^{*}𝝏=\partial_t^2-\partial_{𝐫}^2,\\
+𝝏^{*}(𝝏 \mathcal{F})&=\Box \mathcal{F}=𝝏^{*}\mathcal{J}^*.
 \end{aligned}
 ```
 
 Equivalently:
 
 ```math
-\boxed{\Box \mathcal{F}^*=\partial \mathcal{J}}.
+\boxed{\Box \mathcal{F}^*=𝝏 \mathcal{J}}.
 ```
 
 This boxed equation gives [charge conservation](https://en.wikipedia.org/wiki/Charge_conservation) and the field wave equations component by component:
@@ -389,13 +389,13 @@ Define the real [four-potential](https://en.wikipedia.org/wiki/Electromagnetic_f
 
 ```math
 \mathcal{A}:=V+𝐀\cdot𝝈,
-\qquad S:=\mathrm{sc}(\partial \mathcal{A}).
+\qquad S:=\mathrm{sc}(𝝏 \mathcal{A}).
 ```
 
 The potential gives the field:
 
 ```math
-\boxed{\mathcal{F}^{*}=\partial \mathcal{A}-S}.
+\boxed{\mathcal{F}^{*}=𝝏 \mathcal{A}-S}.
 ```
 
 Its components give:
@@ -409,18 +409,18 @@ Its components give:
 \end{aligned}
 ```
 
-Applying $`\partial^*`$ gives the source equations in any [gauge](https://en.wikipedia.org/wiki/Gauge_fixing):
+Applying $`𝝏^*`$ gives the source equations in any [gauge](https://en.wikipedia.org/wiki/Gauge_fixing):
 
 ```math
-\Box \mathcal{A}=\partial^{*}(\partial \mathcal{A})
-=\partial^{*}(S+\mathcal{F}^{*})
-=\partial^{*}S+(\partial \mathcal{F})^{*}.
+\Box \mathcal{A}=𝝏^{*}(𝝏 \mathcal{A})
+=𝝏^{*}(S+\mathcal{F}^{*})
+=𝝏^{*}S+(𝝏 \mathcal{F})^{*}.
 ```
 
 Using [Maxwell’s equation](https://en.wikipedia.org/wiki/Maxwell%27s_equations) gives:
 
 ```math
-\boxed{\Box \mathcal{A}=\partial^{*}S+\mathcal{J}}.
+\boxed{\Box \mathcal{A}=𝝏^{*}S+\mathcal{J}}.
 ```
 
 Its components give:
@@ -438,7 +438,7 @@ A [gauge transformation](https://en.wikipedia.org/wiki/Electromagnetic_four-pote
 
 ```math
 \begin{aligned}
-\mathcal{A}'&:=\mathcal{A}+\partial^{*}\lambda,\\
+\mathcal{A}'&:=\mathcal{A}+𝝏^{*}\lambda,\\
 S'&=S+\Box\lambda,\\
 \mathcal{F}'&=\mathcal{F}.
 \end{aligned}
@@ -455,7 +455,7 @@ In the [Lorenz gauge](https://en.wikipedia.org/wiki/Lorenz_gauge_condition), $`S
 
 ## [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) from the [mass shell](https://en.wikipedia.org/wiki/On_shell_and_off_shell#Mass_shell)
 
-Hats mark named [energy](https://en.wikipedia.org/wiki/Energy_operator), [momentum](https://en.wikipedia.org/wiki/Momentum_operator), and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) operators; the derivative symbols $`\partial`$ and $`\Box`$ remain unhatted.
+Hats mark named [energy](https://en.wikipedia.org/wiki/Energy_operator), [momentum](https://en.wikipedia.org/wiki/Momentum_operator), and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) operators; the derivative symbols $`𝝏`$ and $`\Box`$ remain unhatted.
 
 On a complex scalar wavefunction $`\psi`$, use the canonical [energy](https://en.wikipedia.org/wiki/Energy_operator) and [momentum](https://en.wikipedia.org/wiki/Momentum_operator) operators:
 
@@ -469,7 +469,7 @@ On a complex scalar wavefunction $`\psi`$, use the canonical [energy](https://en
 Together, they form the canonical four-momentum operator:
 
 ```math
-\hat{\mathcal{P}}:=\mathrm{i}\partial^*=\hat E+\hat{𝐏}\cdot𝝈.
+\hat{\mathcal{P}}:=\mathrm{i}𝝏^*=\hat E+\hat{𝐏}\cdot𝝈.
 ```
 
 Commutativity of the free operators gives:
@@ -499,7 +499,7 @@ Thus the free [Klein–Gordon equation](https://en.wikipedia.org/wiki/Klein%E2%8
 
 ## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) as a first-order wave equation
 
-In the [Weyl representation](https://en.wikipedia.org/wiki/Gamma_matrices#Weyl_%28chiral%29_basis), write $`𝝍:=(\psi_+,\psi_-)^{\mathsf T}`$, with two complex components in each entry. Let $`𝐈`$ be the block identity.
+In the [Weyl representation](https://en.wikipedia.org/wiki/Gamma_matrices#Weyl_%28chiral%29_basis), write $`𝝍:=(𝝍_+,𝝍_-)^{\mathsf T}`$, with two complex components in each entry. Let $`𝐈`$ be the block identity.
 
 Using the free momentum operator above, define:
 
@@ -523,7 +523,7 @@ The [Dirac equation](https://en.wikipedia.org/wiki/Dirac_equation) is:
 Equivalently:
 
 ```math
-(\hat E\pm\hat{𝐏}\cdot𝝈)\psi_\pm=m\psi_\mp.
+(\hat E\pm\hat{𝐏}\cdot𝝈)𝝍_\pm=m𝝍_\mp.
 ```
 
 Using $`𝐖(\hat{\mathcal{P}})^2=(\det\hat{\mathcal{P}})𝐈`$ gives the [Klein–Gordon factorization](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation):
@@ -546,7 +546,7 @@ Here, subscript $`0`$ labels the uncoupled operators defined above:
 \begin{aligned}
 \hat E_0&:=\mathrm{i}\partial_t,\\
 \hat{𝐏}_0&:=-\mathrm{i}\partial_{𝐫},\\
-\hat{\mathcal{P}}_0&:=\mathrm{i}\partial^*.
+\hat{\mathcal{P}}_0&:=\mathrm{i}𝝏^*.
 \end{aligned}
 ```
 
@@ -592,7 +592,7 @@ The coupled [Dirac equation](https://en.wikipedia.org/wiki/Dirac_equation) is:
 Equivalently:
 
 ```math
-(\hat E_q\pm\hat{𝐏}_q\cdot𝝈)\psi_\pm=m\psi_\mp.
+(\hat E_q\pm\hat{𝐏}_q\cdot𝝈)𝝍_\pm=m𝝍_\mp.
 ```
 
 The coupled operators obey these field identities:
@@ -672,18 +672,18 @@ With $`𝐀=0`$ (hence $`𝐁=0`$), this recovers the conventional [Schrödinger
 
 ## Low-energy [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) recovers [Pauli](https://en.wikipedia.org/wiki/Pauli_equation)
 
-Remove the rest-energy phase from the full Dirac components $`\psi_\pm`$ by defining the envelopes $`\psi_\pm':=e^{\mathrm{i}mt}\psi_\pm`$. This gives:
+Remove the rest-energy phase from the full Dirac components $`𝝍_\pm`$ by defining the envelopes $`𝝍_\pm':=e^{\mathrm{i}mt}𝝍_\pm`$. This gives:
 
 ```math
-(m+\hat E_q\pm\hat{𝐏}_q\cdot𝝈)\psi_\pm'=m\psi_\mp'.
+(m+\hat E_q\pm\hat{𝐏}_q\cdot𝝈)𝝍_\pm'=m𝝍_\mp'.
 ```
 
 Define the large and small components for the positive-energy branch:
 
 ```math
 \begin{aligned}
-\phi_+&:=\frac{\psi_+'+\psi_-'}{\sqrt2},\\
-\phi_-&:=\frac{\psi_-'-\psi_+'}{\sqrt2}.
+𝝓_+&:=\frac{𝝍_+'+𝝍_-'}{\sqrt2},\\
+𝝓_-&:=\frac{𝝍_-'-𝝍_+'}{\sqrt2}.
 \end{aligned}
 ```
 
@@ -691,27 +691,27 @@ Adding and subtracting the envelope equations gives:
 
 ```math
 \begin{aligned}
-\hat E_q\phi_+&=(\hat{𝐏}_q\cdot𝝈)\phi_-,\\
-(2m+\hat E_q)\phi_-&=(\hat{𝐏}_q\cdot𝝈)\phi_+.
+\hat E_q𝝓_+&=(\hat{𝐏}_q\cdot𝝈)𝝓_-,\\
+(2m+\hat E_q)𝝓_-&=(\hat{𝐏}_q\cdot𝝈)𝝓_+.
 \end{aligned}
 ```
 
-In the same nonrelativistic limit, neglect $`\hat E_q\phi_-`$ relative to $`2m\phi_-`$. Substitute the resulting small component into the first equation and use the field identity above:
+In the same nonrelativistic limit, neglect $`\hat E_q𝝓_-`$ relative to $`2m𝝓_-`$. Substitute the resulting small component into the first equation and use the field identity above:
 
 ```math
 \begin{aligned}
-\phi_-&\simeq\frac{\hat{𝐏}_q\cdot𝝈}{2m}\phi_+,\\
-\hat E_q\phi_+&\simeq\frac{(\hat{𝐏}_q\cdot𝝈)^2}{2m}\phi_+
-=\frac{\hat{𝐏}_q^2-q𝐁\cdot𝝈}{2m}\phi_+.
+𝝓_-&\simeq\frac{\hat{𝐏}_q\cdot𝝈}{2m}𝝓_+,\\
+\hat E_q𝝓_+&\simeq\frac{(\hat{𝐏}_q\cdot𝝈)^2}{2m}𝝓_+
+=\frac{\hat{𝐏}_q^2-q𝐁\cdot𝝈}{2m}𝝓_+.
 \end{aligned}
 ```
 
 Restoring $`\hat E_q=\mathrm{i}\partial_t-qV`$ gives the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation), retaining the kinetic and spin terms through order $`1/m`$:
 
 ```math
-\boxed{\mathrm{i}\partial_t\phi_+=
+\boxed{\mathrm{i}\partial_t𝝓_+=
 \left(\frac{\hat{𝐏}_q^2}{2m}
-+qV-\frac{q}{2m}𝐁\cdot𝝈\right)\phi_+.}
++qV-\frac{q}{2m}𝐁\cdot𝝈\right)𝝓_+.}
 ```
 
 ## [Spin up and spin down](https://en.wikipedia.org/wiki/Spin-1/2#Observables) in a uniform magnetic field
@@ -733,12 +733,12 @@ For a constant nonzero field $`𝐁`$, define its unit direction and [spin proje
 =\pm\lVert𝐁\rVert\Pi_\pm.
 ```
 
-Encode the two spin amplitudes $`\phi_{++},\phi_{+-}`$ in a paravector $`\phi_+`$ aligned with $`𝐮`$:
+Encode the two spin amplitudes $`\phi_{++},\phi_{+-}`$ in a paravector $`𝝓_+`$ aligned with $`𝐮`$:
 
 ```math
 \begin{aligned}
-\phi_+&=\phi_{++}\Pi_++\phi_{+-}\Pi_-,\\
-\Pi_\pm\phi_+&=\phi_+\Pi_\pm=\phi_{+\pm}\Pi_\pm.
+𝝓_+&=\phi_{++}\Pi_++\phi_{+-}\Pi_-,\\
+\Pi_\pm𝝓_+&=𝝓_+\Pi_\pm=\phi_{+\pm}\Pi_\pm.
 \end{aligned}
 ```
 
@@ -747,7 +747,7 @@ Constant $`\Pi_\pm`$ commute with $`\hat E_q`$ and $`\hat{𝐏}_q^2`$, so the [P
 ```math
 \begin{aligned}
 0&=\Pi_\pm\left(2m\hat E_q-\hat{𝐏}_q^2
-+q𝐁\cdot𝝈\right)\phi_+\\
++q𝐁\cdot𝝈\right)𝝓_+\\
 &=\left(\left(2m\hat E_q-\hat{𝐏}_q^2
 \pm q\lVert𝐁\rVert\right)\phi_{+\pm}\right)\Pi_\pm.
 \end{aligned}
@@ -779,7 +779,7 @@ Rows label [Dirac blocks](https://en.wikipedia.org/wiki/Dirac_spinor), columns s
 
 Let $`𝐮',𝐮`$ be real unit preparation and measurement axes, with $`\cos\theta:=𝐮\cdot𝐮'`$.
 
-Prepare $`\psi=\Pi_+'\psi\ne0`$ using projectors with the following overlap:
+Prepare $`𝝍=\Pi_+'𝝍\ne0`$ using projectors with the following overlap:
 
 ```math
 \begin{gathered}
@@ -792,19 +792,19 @@ Prepare $`\psi=\Pi_+'\psi\ne0`$ using projectors with the following overlap:
 Using the squared norm, $`\lVert \mathcal{Z}\rVert^2=\mathrm{sc}(\mathcal{Z}\mathcal{Z}^{\mathsf H})`$, the denominator is:
 
 ```math
-\lVert\psi\rVert^2=\mathrm{sc}(\psi\psi^{\mathsf H})>0.
+\lVert𝝍\rVert^2=\mathrm{sc}(𝝍𝝍^{\mathsf H})>0.
 ```
 
 For the [prepared state](https://en.wikipedia.org/wiki/Spin-1/2#Bloch_Representation), the projected squared norm is:
 
 ```math
 \begin{aligned}
-\lVert\Pi_\pm\psi\rVert^2
-&=\mathrm{sc}\bigl((\Pi_\pm\psi)(\Pi_\pm\psi)^{\mathsf H}\bigr)\\
-&=\mathrm{sc}(\Pi_\pm\psi\psi^{\mathsf H})\\
-&=\mathrm{sc}(\Pi_+'\Pi_\pm\Pi_+'\psi\psi^{\mathsf H})\\
-&=\frac{1\pm\cos\theta}{2}\mathrm{sc}(\psi\psi^{\mathsf H})
-=\frac{1\pm\cos\theta}{2}\lVert\psi\rVert^2.
+\lVert\Pi_\pm𝝍\rVert^2
+&=\mathrm{sc}\bigl((\Pi_\pm𝝍)(\Pi_\pm𝝍)^{\mathsf H}\bigr)\\
+&=\mathrm{sc}(\Pi_\pm𝝍𝝍^{\mathsf H})\\
+&=\mathrm{sc}(\Pi_+'\Pi_\pm\Pi_+'𝝍𝝍^{\mathsf H})\\
+&=\frac{1\pm\cos\theta}{2}\mathrm{sc}(𝝍𝝍^{\mathsf H})
+=\frac{1\pm\cos\theta}{2}\lVert𝝍\rVert^2.
 \end{aligned}
 ```
 
@@ -812,7 +812,7 @@ The [Born probabilities](https://en.wikipedia.org/wiki/Born_rule) for [spin proj
 
 ```math
 \begin{gathered}
-\mathrm{prob}(\pm)=\frac{\lVert\Pi_\pm\psi\rVert^2}{\lVert\psi\rVert^2}
+\mathrm{prob}(\pm)=\frac{\lVert\Pi_\pm𝝍\rVert^2}{\lVert𝝍\rVert^2}
 =\frac{1\pm\cos\theta}{2},\\[6pt]
 \boxed{\mathrm{prob}(+)=\cos^2\frac\theta2,\quad \mathrm{prob}(-)=\sin^2\frac\theta2.}
 \end{gathered}

@@ -28,11 +28,11 @@
 \newcommand{\pvPi}{\pvGreek{\Pi}}
 \newcommand{\pveta}{\pvGreek{\eta}}
 \newcommand{\pvnu}{\pvGreek{\nu}}
-\newcommand{\pvpartial}{\pvGreek{\partial}}
-\newcommand{\pvphi}{\pvGreek{\phi}}
-\newcommand{\pvpsi}{\pvGreek{\psi}}
+\newcommand{\pvpartial}{{\bm{\partial}}}
+\newcommand{\pvphi}{{\bm{\phi}}}
+\newcommand{\pvpsi}{{\bm{\psi}}}
 \newcommand{\pvsigma}{\pvGreek{\sigma}}
-\newcommand{\pvvarphi}{\pvGreek{\varphi}}
+\newcommand{\pvvarphi}{{\bm{\varphi}}}
 
 \usepackage{microtype}
 \usepackage{enumitem,needspace}
@@ -189,7 +189,10 @@ and signature $(+,-,-,-)$. Bold symbols denote vectors, ordered generator
 triples, or, where specified, matrices.
 
 Latin paravectors and paravector operators use bold calligraphic capitals.
-Greek paravector symbols retain their usual glyphs; scalar quantities
+Greek paravector symbols retain their usual glyphs, with paravector-valued
+$\pvpsi$, $\pvphi$, and $\pvvarphi$ in bold. The unsubscripted
+paravector derivative $\pvpartial$ is also bold; derivatives such as
+$\partial_t$ and $\pdr$ use an unbolded partial symbol and bold vector subscripts. Scalar quantities
 and coefficient components remain unadorned. Vectors and matrices remain bold.
 These styles distinguish, for example, a boost $\pL$ from a scalar
 Lagrangian $L$, and the paravector momentum $\pP$ from its vector part $\bp$.
@@ -827,9 +830,9 @@ Let $\pZ=c+\bZ\cdot\bsig$, with $c\in\C$, $\bZ\in\C^3$, and
 $\bZ^2\ne0$.  Define the complex scalars $w,\lambda_\pm$, complex vector $\bu$, and
 projectors $\pvPi_\pm\in\R\oplus\C^3$ by
 \begin{align*}
- w&:=+\sqrt{\bZ^2},& c'&:=w,\\
- \bu&:=\bZ/w,& \pZ&=c+c'\bu\cdot\bsig,\\
- \lambda_\pm&:=c\pm c',& \pvPi_\pm&:=\tfrac12(1\pm\bu\cdot\bsig).
+ w&:=+\sqrt{\bZ^2},& z&:=w,\\
+ \bu&:=\bZ/w,& \pZ&=c+z\bu\cdot\bsig,\\
+ \lambda_\pm&:=c\pm z,& \pvPi_\pm&:=\tfrac12(1\pm\bu\cdot\bsig).
 \end{align*}
 The root is the principal scalar root.  Thus $\bu$ is a
 \hyperref[eq:bilinear-unit-vector]{vector of square one};
@@ -846,8 +849,8 @@ Here $w,\lambda_\pm\in\C$, $\bu\in\C^3$, and
 $\pZ,f(\pZ)\in\C\oplus\C^3$ for the analytic functions below.
 These projectors are Hermitian when $\bu$ is real; in general they need
 not be. The same formulas apply directly to any given
-$\pZ=c+c'\bu\cdot\bsig$, with $c,c'\in\C$ and $\bu^2=1$.
-If $c'=0$, $\pZ=c$ is scalar and $f(\pZ)=f(c)$.
+$\pZ=c+z\bu\cdot\bsig$, with $c,z\in\C$ and $\bu^2=1$.
+If $z=0$, $\pZ=c$ is scalar and $f(\pZ)=f(c)$.
 The complementary-projector
 identities give, for every
 nonnegative integer $n$,
@@ -2223,15 +2226,15 @@ so even a real input may have a complex output.
 Let $t\in\R$ and $\br=\{r_1,r_2,r_3\}\in\R^3$ be real coordinates.
 Define their scalar and vector derivatives by
 \[
- \partial_t:=\frac{\partial}{\pvpartial t},\qquad
- \pdr:=\left\{\frac{\partial}{\pvpartial r_1},
-              \frac{\partial}{\pvpartial r_2},
-              \frac{\partial}{\pvpartial r_3}\right\}.
+ \partial_t:=\frac{\partial}{\partial t},\qquad
+ \pdr:=\left\{\frac{\partial}{\partial r_1},
+              \frac{\partial}{\partial r_2},
+              \frac{\partial}{\partial r_3}\right\}.
 \]
 Define the partial paravector and its sigma conjugate by~\citeat{hestenes-spacetime}{Eq.~(176)}{page=29}
 \begin{equation}
  \pvpartial:=\partial_t+\bsig\cdot\pdr
- =\partial_t+\sum_{n=1}^{3}\pvsigma_n\frac{\partial}{\pvpartial r_n},
+ =\partial_t+\sum_{n=1}^{3}\pvsigma_n\frac{\partial}{\partial r_n},
  \label{eq:paravector-derivative}
 \end{equation}
 \begin{equation*}
@@ -2243,9 +2246,9 @@ For fields with commuting second derivatives, anticommutation cancels
 all mixed spatial terms:
 \begin{align*}
  (\bsig\cdot\pdr)^2
- &=\sum_{n=1}^{3}\frac{\partial^2}{\pvpartial r_n^2}
+ &=\sum_{n=1}^{3}\frac{\partial^2}{\partial r_n^2}
  +\sum_{n<m}(\pvsigma_n\pvsigma_m+\pvsigma_m\pvsigma_n)
-           \frac{\partial^2}{\pvpartial r_n\pvpartial r_m}\\
+           \frac{\partial^2}{\partial r_n\partial r_m}\\
  &=\pdr\cdot\pdr.
 \end{align*}
 The mixed time--space terms likewise cancel.  Both orders therefore give
@@ -2286,10 +2289,10 @@ reordering any factors:
  \pvpartial(\pZ \pZ')
  ={}&(\partial_t\pZ)\pZ'+\pZ(\partial_t\pZ')\\
  &+\sum_{n=1}^{3}\pvsigma_n
-   \left(\frac{\partial \pZ}{\pvpartial r_n}\pZ'
-          +\pZ\frac{\partial \pZ'}{\pvpartial r_n}\right)\\
+   \left(\frac{\partial \pZ}{\partial r_n}\pZ'
+          +\pZ\frac{\partial \pZ'}{\partial r_n}\right)\\
  ={}&(\pvpartial \pZ)\pZ'+\pZ(\pvpartial \pZ')
-    +\sum_{n=1}^{3}[\pvsigma_n,\pZ]\frac{\partial \pZ'}{\pvpartial r_n}.
+    +\sum_{n=1}^{3}[\pvsigma_n,\pZ]\frac{\partial \pZ'}{\partial r_n}.
 \end{align*}
 
 \subsection{Flat spacetime in generalized coordinates}
@@ -2310,7 +2313,7 @@ Require the Jacobian of $(f,\bg)$ to be nonsingular.  Differentiating gives
  +\sum_{k=1}^3(\partial_{r_k}f+\partial_{r_k}\bg\cdot\bsig)\dd r_k,\\
  \dd s^2&=\dd \pX\,\dd \pX^*=\dd f^2-\dd\bg^2.
 \end{align*}
-With $x_0=t$, $x_k=r_k$ and $\partial_k=\pvpartial/\pvpartial x_k$, the
+With $x_0=t$, $x_k=r_k$ and $\partial_k=\partial/\partial x_k$, the
 interval is $\dd s^2=\sum_{j,k=0}^3 g_{jk}\dd x_j\dd x_k$, with
 $x_j,g_{jk}\in\R$ and metric matrix $(g_{jk})\in\R^{4\times4}$:
 \begin{equation*}
@@ -2336,10 +2339,10 @@ and its vector part then gives $\dd\bv/\dd f=0$.  Therefore
 \end{equation*}
 The real constants $\bC_1,\bC_2\in\R^3$ are inertial velocity and
 position at inertial time $f=0$, with $\bC_1^2<1$.
-If primes denote total derivatives along this curve with respect to $t$,
-then, wherever $f'\ne0$,
+Overdots denote total derivatives along this curve with respect to $t$;
+wherever $\dot f\ne0$,
 \begin{equation*}
- \frac{\dd\bv}{\dd t}=\frac{\bg''f'-\bg'f''}{(f')^2}.
+ \dot{\bv}=\frac{\ddot{\bg}\dot f-\dot{\bg}\ddot f}{(\dot f)^2}.
 \end{equation*}
 
 \subsection{Varying frames and local bases}
