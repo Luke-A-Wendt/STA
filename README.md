@@ -158,9 +158,11 @@ a=\cos\frac{\theta}{2},\qquad
 𝐐=𝐮\sin\frac{\theta}{2}.
 ```
 
-For $`X=𝐗\cdot𝝂`$, $𝐐$ rotates $`𝐗\in\mathbb R^3`$ about $`𝐮`$ by angle $`\theta`$ with
+Rotate $`𝐗\in\mathbb R^3`$ about $`𝐮`$ by angle $`\theta`$ with:
 
 ```math
+X'=𝐗'\cdot𝝂, \qquad
+X=𝐗\cdot𝝂, \qquad
 X'=QXQ^{\mathsf H}.
 ```
 
