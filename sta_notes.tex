@@ -181,6 +181,8 @@ give its magnetic coupling and measurement probabilities.
 \section{Algebra and paravectors}
 \label{sec:algebra}
 
+\subsection{Notation and physical conventions}
+
 We use natural units $\hbar=c=1$, rationalized electromagnetic units,
 and signature $(+,-,-,-)$. Bold symbols denote vectors, ordered generator
 triples, or, where specified, matrices.
@@ -1321,35 +1323,28 @@ The congruence additionally preserves scalar part and determinant;
 a one-sided unitary product need not.
 
 \subsubsection{Unit determinant is not Hermitian unitarity}
+\label{sec:determinant-versus-unitarity}
 
 The word \emph{unit} in \eqref{eq:unit-paravector} means invertible;
 \emph{unitary} means \eqref{eq:unitary-transform}.
-A useful third condition is \hyperref[eq:unit-determinant-paravector]{determinant one}.
-To see their difference,
-let $\dd \pX=\dd t+\dd\br\cdot\bsig$ be a real paravector increment, with
-$\dd t>\lVert\dd\br\rVert$, and define the positive real scalar
-$\dd s=\sqrt{\dd t^2-\dd\br^2}$.  Reserve $\pU$ for the real four-velocity $\pU=\dd \pX/\dd s$.  Since $\dd \pX^*\dd \pX=\dd s^2$,
-\begin{equation}
- \pU^*\pU=\frac{\dd \pX^*\dd \pX}{\dd s^2}=1.
- \label{eq:proper-velocity-star-normalization}
-\end{equation}
-Thus $\det(\pU)=1$ and $\pU^{-1}=\pU^*$: $\pU$ is an invertible paravector with
-$\pU \pU^{-1}=\pU^{-1}\pU=1$.  Its letter alone implies no algebraic property.
-The two conjugates are
+A third condition is \hyperref[eq:unit-determinant-paravector]{determinant one}.
+To distinguish them, take a real paravector $\pX=a+\bX\cdot\bsig$
+with $a\in\R$, $\bX\in\R^3$, and $a^2-\bX^2=1$.  Then
+\[
+ \pX^*\pX=\det\pX=1,\qquad
+ \pX^{-1}=\pX^*=a-\bX\cdot\bsig.
+\]
+Thus determinant one implies invertibility.  Hermitian conjugation fixes
+$\pX$, whereas sigma conjugation reverses its vector part, so
 \begin{align*}
- \pU^{\mathsf H}&=\pU=\frac{\dd t+\dd\br\cdot\bsig}{\dd s},\\
- \pU^*&=\frac{\dd t-\dd\br\cdot\bsig}{\dd s}.
+ \pX^{\mathsf H}\pX&=\pX^2=a^2+\bX^2+2a\bX\cdot\bsig,\\
+ \lVert\pX\rVert^2&=a^2+\bX^2=1+2\bX^2.
 \end{align*}
-Hermitian conjugation leaves every real paravector fixed; sigma conjugation
-reverses its vector part.  Therefore
-\begin{align*}
- \pU^{\mathsf H}\pU&=\pU^2
- =\frac{\dd t^2+\dd\br^2+2\dd t\,\dd\br\cdot\bsig}{\dd s^2},
- \\
- \lVert \pU\rVert^2&=\frac{\dd t^2+\dd\br^2}{\dd t^2-\dd\br^2}.
-\end{align*}
-Both expressions equal $1$ only when $\dd\br=0$, its rest frame.
-Section~\ref{sec:kinematics} develops the kinematics of this four-velocity.
+Both equal $1$ only when $\bX=0$, in which case $\pX=\pm1$.
+Choosing any nonzero real $\bX$ and $a=\sqrt{1+\bX^2}$ therefore gives
+an invertible paravector of determinant one that is not unitary.
+These properties follow from the defining equations, not from the
+letter used for the paravector.
 
 \subsection{Real paravectors and the Lorentz metric}
 
@@ -1359,9 +1354,10 @@ $\bX\in\R^3$.  The determinant and squared norm give different quadratic forms:
  \det(\pX)&=a^2-\bX^2,\\
  \lVert \pX\rVert^2&=a^2+\bX^2.
 \end{align*}
-The first is the Lorentz metric; the second measures the positive sum of
-squared coefficients.  A spacetime transformation must preserve reality
-and the first form.  For a constant complex
+The first is the Lorentz quadratic form of signature $(+,-,-,-)$;
+the second is the positive sum of squared coefficients.  A real-linear
+isometry of the first form must preserve the real subspace and its
+determinant.  For a constant complex
 \hyperref[eq:unit-paravector]{invertible paravector} $\pT$ with $\det(\pT)=1$,
 use the Hermitian congruence~\citeat{baylis2004}{Eq.~(17)}{page=6}
 \begin{equation}
@@ -1382,15 +1378,15 @@ and $\bY\in\R^3$, the associated metric pairing is~\citeat{baylis2004}{Eq.~(15)}
 \end{equation}
 Linearity and determinant invariance therefore give
 $\scpart{\pX'^*\pY'}=\scpart{\pX^*\pY}$: the full metric is preserved.
-These maps preserve the future cone as well.  For
+These maps preserve the positive cone as well.  For
 $a\geq\lVert\bX\rVert$, the eigenvalues
 $a\pm\lVert\bX\rVert$ are nonnegative, so $\pX$ has a real square root and
 \[
  \scpart{\pX'}=\lVert\sqrt {\pX}\,\pT^{\mathsf H}\rVert^2\geq0.
 \]
-Together with determinant invariance, this keeps $\pX'$ in the future cone.
-These are the proper, future-preserving Lorentz transformations; $\pT$ and
-$-\pT$ give the same map.
+Together with determinant invariance, this keeps $\pX'$ in the cone
+$a\geq\lVert\bX\rVert$.  These are the proper Lorentz transformations
+preserving that cone; $\pT$ and $-\pT$ give the same map.
 
 \paragraph{Why the scalar exponent vanishes.}
 More generally, the congruence multiplies $\det(\pX)$ by
@@ -1400,7 +1396,7 @@ $\lVert\det(\pT)\rVert^2$.  For real $\pT=\exp(a+\bX\cdot\bsig)$,
  \det(\pT \pX \pT^{\mathsf H})=e^{4a}\det(\pX).
 \]
 A nonzero real scalar exponent dilates the metric; it is excluded by
-interval invariance.  An imaginary scalar exponent contributes a phase
+determinant invariance.  An imaginary scalar exponent contributes a phase
 $e^{\ii b}$, $b\in\R$, which cancels between $\pT$ and $\pT^{\mathsf H}$.
 Requiring $\det(\pT)=1$ removes this continuous phase freedom.
 Thus a pure boost needs only a real vector exponent.
@@ -1414,7 +1410,7 @@ $\bu$, applying \eqref{eq:general-lorentz-congruence} to $\pX=1$ gives
  \scpart{\pX'}&=\cosh\theta,\\
  \lVert \pX'\rVert^2&=\cosh(2\theta).
 \end{align*}
-A nonzero boost preserves the interval while changing the scalar part
+A nonzero boost preserves the determinant while changing the scalar part
 and squared norm.  In fact, a determinant-one congruence preserves the
 squared norm for every real $\pX$ exactly when $\pT$ is
 \hyperref[eq:unitary-transform]{unitary}.  Necessity follows by taking
@@ -1482,9 +1478,7 @@ Collecting terms gives Rodrigues' formula~\citeat{baylis-intro}{p.~14}{page=14}:
 This is the active right-handed rotation through $+\theta$ about $\bu$.
 Rotating the coordinate axes through $+\theta$ instead uses the inverse map.
 It preserves $\operatorname{sc}$, determinant, norm, and the real
-paravector subspace. For a spacetime event $\pX=t+\br\cdot\bsig$,
-$\pX'=\pR \pX \pR^{\mathsf H}$ therefore has $t'=t$, with Rodrigues' formula acting
-on $\br$. For complex $\bZ$, it rotates its real and imaginary
+paravector subspace. For complex $\bZ$, it rotates its real and imaginary
 parts by the same real rotation.  The sign change in
 \eqref{eq:rotation-two-pi} affects both factors in
 \eqref{eq:rotation-action}, so $\pZ'$ has period $2\pi$.
@@ -1597,7 +1591,8 @@ Use the same congruence with $\pT=\pL$ and $\pL^{\mathsf H}=\pL$ from \eqref{eq:
  \boxed{\pZ'=\pL \pZ \pL.}
  \label{eq:boost-action}
 \end{equation}
-The paravector $\pZ=c+\bZ\cdot\bsig\in\C\oplus\C^3$ may be complex; spacetime uses $\pZ\in\R\oplus\R^3$.
+The paravector $\pZ=c+\bZ\cdot\bsig\in\C\oplus\C^3$ may be complex;
+the congruence also preserves its real subspace.
 Resolve $\bZ\in\C^3$ into parallel and perpendicular parts in $\C^3$:
 \begin{align*}
  \bZ_{\parallel}&:=(\bu\cdot\bZ)\bu,\\
@@ -1629,8 +1624,7 @@ The equivalent longitudinal combinations expose the invariant directly:
 \end{equation}
 Their product is $c^2-(\bu\cdot\bZ)^2$; the transverse part is unchanged.
 Thus \eqref{eq:boost-null-components} preserves $c^2-\bZ^2$ and, for real
-$\pZ$, the light cone.  For spacetime, \eqref{eq:boost-action} gives the
-frame moving with velocity $+\beta\bu$; reversing $\theta$ gives its inverse.
+$\pZ$, the null cone $c^2-\bZ^2=0$.
 
 The inverse map is $\pZ=\pL^{-1}\pZ'\pL^{-1}$, obtained by reversing $\theta$.
 Generally $\pL \pX\ne \pX \pL$: the scalar and parallel parts commute with $\pL$,
@@ -1644,7 +1638,7 @@ The second factor cancels the imaginary transverse term.  Defining a
 full-rapidity factor cannot make a single left product boost every real $\pX$;
 it would merely replace the two factors by their square roots.
 
-\paragraph{The field uses similarity.}
+\paragraph{Similarity action of the boost factor.}
 For $\pZ'=\pL \pZ \pL^{-1}$, the same commutation rules give $c'=c$ and
 \begin{equation}
  \bZ'=\bZ_{\parallel}
@@ -1652,13 +1646,12 @@ For $\pZ'=\pL \pZ \pL^{-1}$, the same commutation rules give $c'=c$ and
  \label{eq:boost-similarity-vector}
 \end{equation}
 This preserves scalar part and determinant, but fixes $\pZ=1$ and generally
-makes a real vector complex.  It cannot give the time--space mixing of
-\eqref{eq:boost-scalar-component}--\eqref{eq:boost-vector-component}.  It is the
-correct action on the complex electromagnetic field: its imaginary part
-represents the magnetic field, and its zero scalar part must remain zero.
-Conversely, congruence would give a scalar part to a field parallel to
-$\bu$.  The physical field law and its electric and magnetic components
-are derived in Section~\ref{sec:transformations}.
+makes a real vector complex.  It does not mix scalar and vector components
+as the congruence does in
+\eqref{eq:boost-scalar-component}--\eqref{eq:boost-vector-component}.
+In particular, similarity preserves the scalar-free subspace;
+a nonzero boost congruence gives a nonzero scalar part to
+$\pZ=z\bu\cdot\bsig$ for any nonzero $z\in\C$.
 
 \section{Space--time kinematics}
 \label{sec:kinematics}
@@ -1689,6 +1682,13 @@ By \eqref{eq:general-lorentz-congruence}, a constant complex
  \dd \pX'=\pT\dd \pX \pT^{\mathsf H},
  \qquad \det(\dd \pX')=\dd s^2.
 \]
+The positive cone of Section~\ref{sec:preserved-quantities} now represents
+future causal increments $\dd t\geq\lVert\dd\br\rVert$; the congruence
+preserves both their interval and time orientation.
+For a rotation, the event $\pX=t+\br\cdot\bsig$ transforms as
+$\pX'=\pR\pX\pR^{\mathsf H}$.  Its scalar part gives $t'=t$, and
+Rodrigues' formula~\eqref{eq:rodrigues} acts on the spatial position $\br$.
+
 Positive, zero, and negative values of \eqref{eq:interval} mean time-like, null, and space-like
 separation.  Massive particles follow time-like paths; light follows null
 paths; causal signals cannot connect space-like separated events.
@@ -1735,12 +1735,28 @@ Proper-time normalization gives
 \[
  \det \pU=\det\!\left(\frac{\dd \pX}{\dd s}\right)=\frac{\det(\dd \pX)}{\dd s^2}=1.
 \]
-Thus $\pU$ is an \hyperref[eq:unit-paravector]{invertible paravector} with $\pU \pU^{-1}=1$.
-The normalization \eqref{eq:proper-velocity-star-normalization} gives
-$\pU^*\pU=1$ and $\pU^{-1}=\pU^*=\gamma(1-\bv\cdot\bsig)$.
-Since $\pU^{\mathsf H}=\pU$, this is
-\hyperref[eq:unit-determinant-paravector]{determinant one}, not
-Hermitian unitarity except at rest.
+More explicitly, the interval gives
+\begin{equation}
+ \pU^*\pU=\frac{\dd\pX^*\dd\pX}{\dd s^2}=1.
+ \label{eq:proper-velocity-star-normalization}
+\end{equation}
+Thus $\pU$ is an \hyperref[eq:unit-paravector]{invertible paravector} with
+$\pU\pU^{-1}=\pU^{-1}\pU=1$.  Its two conjugates are
+\begin{align*}
+ \pU^{\mathsf H}&=\pU=\frac{\dd t+\dd\br\cdot\bsig}{\dd s},\\
+ \pU^{-1}=\pU^*&=\frac{\dd t-\dd\br\cdot\bsig}{\dd s}
+ =\gamma(1-\bv\cdot\bsig).
+\end{align*}
+This is the distinction between determinant one and Hermitian unitarity
+from Section~\ref{sec:determinant-versus-unitarity}, applied to four-velocity:
+\begin{align*}
+ \pU^{\mathsf H}\pU&=\pU^2
+ =\frac{\dd t^2+\dd\br^2+2\dd t\,\dd\br\cdot\bsig}{\dd s^2},\\
+ \lVert\pU\rVert^2&=\frac{\dd t^2+\dd\br^2}{\dd t^2-\dd\br^2}.
+\end{align*}
+Both equal $1$ only when $\dd\br=0$, the particle's rest frame.
+Proper-time normalization therefore gives determinant one in every
+inertial frame, but Hermitian unitarity only at rest.
 For a \hyperref[def:real-unit-vector]{real unit direction} $\bu$, write $\bv=\beta\bu$ and
 $\theta=\tanh^{-1}\beta$.  Equation~\eqref{eq:boost-square} gives $\pU=\pL^{-2}$ for
 $\pL=\exp(-\theta\bu\cdot\bsig/2)$: the direct boost $\pL \pU \pL=1$
@@ -1778,29 +1794,38 @@ $E^2=\bp^2$; it has no inverse.
 \subsection{Four-acceleration and proper acceleration}
 \label{sec:proper-acceleration}
 
-Recall the real four-velocity $\pU=\dd \pX/\dd s$, an
-\hyperref[eq:unit-paravector]{invertible paravector} with $\pU \pU^{-1}=1$,
-and the real coordinate velocity $\bv(t)$ and Lorentz factor $\gamma$.
-Define the coordinate acceleration $\ba=\dd\bv/\dd t\in\R^3$.
-The four-acceleration $\dd \pU/\dd s\in\R\oplus\R^3$ is a paravector;
-its product $\pU^*\dd \pU/\dd s\in\{0\}\oplus\C^3$ below is scalar-free.  Differentiating gives
-\begin{align*}
+The coordinate acceleration differentiates velocity with respect to coordinate
+time $t$, whereas the four-acceleration differentiates four-velocity with
+respect to proper time $s$.  Recall
+\[
+ \pU=\frac{\dd\pX}{\dd s}=\gamma(1+\bv\cdot\bsig),
+ \qquad \gamma=(1-\bv^2)^{-1/2},
+ \qquad \frac{\dd}{\dd s}=\gamma\frac{\dd}{\dd t},
+\]
+where $\bv=\dd\br/\dd t$ and $\ba=\dd\bv/\dd t\in\R^3$.
+To differentiate $\pU$, first use the chain rule:
+\[
  \frac{\dd\gamma}{\dd t}
- &=-\tfrac12(1-\bv^2)^{-3/2}(-2\bv\cdot\ba)
- =\gamma^3\bv\cdot\ba,\\
- \frac{\dd^2}{\dd s^2}
- &=\gamma\frac{\dd}{\dd t}\left(\gamma\frac{\dd}{\dd t}\right)
- =\gamma^2\frac{\dd^2}{\dd t^2}
-  +\gamma^4(\bv\cdot\ba)\frac{\dd}{\dd t}.
-\end{align*}
-Applying this to $\pX$ yields the real four-acceleration paravector~\citeat{tong-relativity}{p.~141}{page=147}:
+ =-\tfrac12(1-\bv^2)^{-3/2}(-2\bv\cdot\ba)
+ =\gamma^3(\bv\cdot\ba).
+\]
+The product rule then gives
+\[
+ \frac{\dd\pU}{\dd s}
+ =\gamma\frac{\dd}{\dd t}\bigl[\gamma(1+\bv\cdot\bsig)\bigr]
+ =\gamma\frac{\dd\gamma}{\dd t}(1+\bv\cdot\bsig)
+  +\gamma^2\ba\cdot\bsig.
+\]
+Substituting the derivative of $\gamma$ separates the scalar and vector
+parts of the real four-acceleration paravector~\citeat{tong-relativity}{p.~141}{page=147}:
 \begin{equation}
  \frac{\dd \pU}{\dd s}
  =\gamma^4(\bv\cdot\ba)
  +\left(\gamma^2\ba+\gamma^4(\bv\cdot\ba)\bv\right)\cdot\bsig.
  \label{eq:proper-acceleration-components}
 \end{equation}
-Differentiating $\pU^*\pU=1$ gives
+Four-velocity satisfies $\pU^*\pU=\det\pU=1$.
+Differentiating this normalization with respect to proper time gives
 \[
  \left(\frac{\dd \pU}{\dd s}\right)^*\pU
  +\pU^*\frac{\dd \pU}{\dd s}=0.
@@ -1810,6 +1835,8 @@ The two terms have equal real scalar parts, so
  \scpart{\pU^*\dd \pU/\dd s}=0.
 \end{equation*}
 Thus four-velocity and four-acceleration are Minkowski-orthogonal.
+Although $\dd\pU/\dd s$ can have a scalar part, the product
+$\pU^*\dd\pU/\dd s$ is scalar-free and belongs to $\{0\}\oplus\C^3$.
 Multiplication on the right by $\pU^*$ also gives
 \begin{align*}
  \adj{\frac{\dd \pU}{\dd s}}
@@ -1822,8 +1849,11 @@ Expanding the commutator and the product gives
  \pU^*\frac{\dd \pU}{\dd s}
  &=\gamma^3(\ba-\ii\bv\times\ba)\cdot\bsig.
 \end{align*}
-The real vector records acceleration and the imaginary vector records
-turning of the velocity.  Since $\ba\cdot(\bv\times\ba)=0$,
+The real vector part is proportional to $\ba$; the imaginary vector part
+comes from the component of acceleration perpendicular to $\bv$.
+Since $\det\pU^*=1$, multiplying by $\pU^*$ preserves the determinant.
+The determinant of a scalar-free paravector is the negative of its square.
+Using $\ba\cdot(\bv\times\ba)=0$ therefore gives
 \begin{equation*}
  \begin{aligned}
  \det\left(\frac{\dd \pU}{\dd s}\right)
@@ -1841,10 +1871,11 @@ For $\bv\ne0$, define
 $\ba_{\parallel}=(\bv\cdot\ba)\bv/\bv^2$ and
 $\ba_{\perp}=\ba-\ba_{\parallel}$.  Equivalently,
 \begin{equation*}
- -\det\left(\frac{\dd \pU}{\dd s}\right)
- =\gamma^4\ba_{\perp}^2+\gamma^6\ba_{\parallel}^2.
+ \det\left(\frac{\dd \pU}{\dd s}\right)
+ =-\gamma^4\ba_{\perp}^2-\gamma^6\ba_{\parallel}^2.
 \end{equation*}
-At rest this reduces to $\ba^2$.
+At rest, $\gamma=1$ and $\dd\pU/\dd s=\ba\cdot\bsig$, so the
+ determinant is $-\ba^2$ and the proper acceleration has magnitude $\lVert\ba\rVert$.
 
 \subsubsection{Energy and inertia}
 Recall $E=m\gamma$ and $\bp=m\gamma\bv$ for invariant real mass $m>0$.
@@ -4184,6 +4215,13 @@ At corresponding events, \eqref{eq:field-transformation} reduces to
  \pF'=\pL \pF \pL^{-1}.
  \label{eq:boost-field-action}
 \end{equation}
+The similarity preserves the field's zero scalar part, while its
+imaginary vector coefficients represent the magnetic field.
+As shown algebraically in \eqref{eq:boost-similarity-vector}, a real vector
+can acquire an imaginary part under this action.  In contrast, a nonzero
+boost congruence would give a scalar part to a nonzero field parallel to $\bu$.
+Thus the field uses similarity, whereas events and the real four-potential
+use congruence.
 Both the field coefficients and their spacetime arguments transform:
 \begin{equation}
  \pF'(\pX')=\pL \pF(\pL^{-1}\pX'\pL^{-1})\pL^{-1}.
