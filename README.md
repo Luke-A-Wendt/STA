@@ -838,4 +838,3 @@ The [Born probabilities](https://en.wikipedia.org/wiki/Born_rule) for [spin proj
 \end{gathered}
 ```
 
-For aligned axes, spin up is obtained with certainty; for perpendicular axes, equal probabilities are obtained. The probabilities are exchanged by reversal of the prepared spin.
