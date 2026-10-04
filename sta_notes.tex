@@ -6,7 +6,7 @@
 \usepackage{graphicx}
 \usepackage[dvipsnames]{xcolor}
 % Paravectors: calligraphic Latin letters; Greek exceptions retain their glyphs.
-\newcommand{\pv}[1]{{\bm{\mathcal{#1}}}}
+\newcommand{\pv}[1]{{\mathcal{#1}}}
 \newcommand{\pvGreek}[1]{{#1}}
 \newcommand{\pA}{\pv{A}}
 \newcommand{\pB}{\pv{B}}
@@ -28,11 +28,11 @@
 \newcommand{\pvPi}{\pvGreek{\Pi}}
 \newcommand{\pveta}{\pvGreek{\eta}}
 \newcommand{\pvnu}{\pvGreek{\nu}}
-\newcommand{\pvpartial}{{\bm{\partial}}}
-\newcommand{\pvphi}{{\bm{\phi}}}
-\newcommand{\pvpsi}{{\bm{\psi}}}
+\newcommand{\pvpartial}{\pvGreek{\partial}}
+\newcommand{\pvphi}{\pvGreek{\phi}}
+\newcommand{\pvpsi}{\pvGreek{\psi}}
 \newcommand{\pvsigma}{\pvGreek{\sigma}}
-\newcommand{\pvvarphi}{{\bm{\varphi}}}
+\newcommand{\pvvarphi}{\pvGreek{\varphi}}
 
 \usepackage{microtype}
 \usepackage{enumitem,needspace}
@@ -100,7 +100,7 @@
 \newcommand{\hD}{\hat{\bm{D}}}
 \newcommand{\hE}{\hat E}
 \newcommand{\hbp}{\hat{\bp}}
-\newcommand{\hP}{{\bm{\hat{\mathcal{P}}}}}
+\newcommand{\hP}{{\hat{\mathcal{P}}}}
 \newcommand{\hDq}{\hat{\bm{D}}_q}
 \newcommand{\hEq}{\hat E_q}
 \newcommand{\hbpq}{\hat{\bp}_q}
@@ -189,15 +189,17 @@ Natural units $\hbar=c=1$, rationalized electromagnetic units,
 and signature $(+,-,-,-)$ are used. Passages reverting to SI units are marked
 explicitly. The corresponding equations are boxed with a subscript $\mathrm{SI}$
 on the box; the usual quantity symbols are retained inside.
-Vectors, the ordered sigma triple, and, where specified, matrices
-are denoted by bold symbols.
+Bold mathematical symbols are reserved for vectors and matrices of objects,
+including paravectors. Calligraphic lettering is reserved for paravectors
+and paravector operators. No meaning is assigned by convention to uppercase
+or lowercase letters. The ordered sigma triple $\bsig$ is bold;
+each individual sigma $\pvsigma_k$ is non-bold.
 
-Latin paravectors and paravector operators are denoted by bold calligraphic capitals.
-The usual glyphs are retained for Greek paravector symbols, with paravector-valued
-$\pvpsi$, $\pvphi$, and $\pvvarphi$ in bold. The unsubscripted
-paravector derivative $\pvpartial$ is also bold; derivatives such as
-$\partial_t$ and $\pdr$ are written with an unbolded partial symbol and bold vector subscripts. Scalar quantities
-and coefficient components remain unadorned. Vectors and matrices remain bold.
+Latin paravectors and paravector operators are denoted by non-bold calligraphic letters.
+The usual non-bold glyphs are retained for Greek paravector symbols, including
+$\pvpsi$, $\pvphi$, and $\pvvarphi$, and for the paravector derivative $\pvpartial$.
+Derivatives such as $\partial_t$ and $\pdr$ retain bold vector subscripts.
+Scalar quantities and coefficient components remain unadorned.
 By these styles, a boost $\pL$ is distinguished from a scalar
 Lagrangian $L$, and the paravector momentum $\pP$ from its vector part $\bp$.
 

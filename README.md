@@ -6,9 +6,11 @@
 
 [Natural units](https://en.wikipedia.org/wiki/Natural_units) $`\hbar=c=1`$, [rationalized electromagnetic units](https://en.wikipedia.org/wiki/Heaviside%E2%80%93Lorentz_units), and [signature](https://en.wikipedia.org/wiki/Metric_signature) $`(+,-,-,-)`$ are used.
 
+Bold is used for vectors and matrices of objects; calligraphic lettering is reserved for paravectors and paravector operators; letter case is unrestricted.
+
 ## One complex [paravector](https://en.wikipedia.org/wiki/Paravector)
 
-Space-time algebra is developed using complex paravectors. The sigmas are algebraic objects with order-dependent multiplication rules. The sigmas and the general complex paravector are defined by:
+Complex paravectors are formed from sigmas—algebraic objects with order-dependent multiplication:
 
 ```math
 \boxed{
@@ -24,7 +26,7 @@ Space-time algebra is developed using complex paravectors. The sigmas are algebr
 \end{aligned}}
 ```
 
-These eight real components are grouped into a complex scalar and a complex vector:
+The eight real components are grouped into a complex scalar and vector:
 
 ```math
 \begin{aligned}
@@ -64,14 +66,8 @@ The [commutator](https://en.wikipedia.org/wiki/Commutator) is:
 [\mathcal{X},\mathcal{Y}]:=\mathcal{X}\mathcal{Y}-\mathcal{Y}\mathcal{X}.
 ```
 
-For $`n,m,k\in\{1,2,3\}`$, $`\delta_{nm}`$ is defined to be $`1`$ if $`n=m`$ and $`0`$ otherwise. The value of $`\epsilon_{nmk}`$ is defined to be $`+1`$ for even permutations of $`(1,2,3)`$, $`-1`$ for odd permutations, and $`0`$ if any indices repeat. The ordered multiplication rule and commutator are then expressed as:
-
 ```math
-\begin{aligned}
-\sigma_n\sigma_m&=\delta_{nm}
-+\sum_{k=1}^{3}\epsilon_{nmk}\,\mathrm{i}\sigma_k,\\[6pt]
-[\sigma_n,\sigma_m]&=2\sum_{k=1}^{3}\epsilon_{nmk}\,\mathrm{i}\sigma_k.
-\end{aligned}
+[𝐗\cdot𝝈,𝐘\cdot𝝈]=2\mathrm{i}(𝐗\times𝐘)\cdot𝝈.
 ```
 
 ## Hermitian and sigma conjugation
@@ -353,14 +349,14 @@ The [charge density](https://en.wikipedia.org/wiki/Charge_density) $`\rho`$ and 
 The [paravector derivative](https://en.wikipedia.org/wiki/Paravector#Paragradient), with [gradient](https://en.wikipedia.org/wiki/Gradient) $`\partial_{𝐫}`$, is defined by:
 
 ```math
-𝝏:=\partial_t+\partial_{𝐫}\cdot𝝈,\qquad
-𝝏^*=\partial_t-\partial_{𝐫}\cdot𝝈.
+\partial:=\partial_t+\partial_{𝐫}\cdot𝝈,\qquad
+\partial^*=\partial_t-\partial_{𝐫}\cdot𝝈.
 ```
 
 [Maxwell's equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations) are given by:
 
 ```math
-\boxed{𝝏 \mathcal{F}=\mathcal{J}^*},
+\boxed{\partial \mathcal{F}=\mathcal{J}^*},
 ```
 
 with components:
@@ -374,19 +370,19 @@ with components:
 \end{aligned}
 ```
 
-By application of $`𝝏^{*}`$, the [d'Alembertian](https://en.wikipedia.org/wiki/D%27Alembert_operator) and the [sourced wave equations](https://en.wikipedia.org/wiki/Inhomogeneous_electromagnetic_wave_equation) are obtained:
+By application of $`\partial^{*}`$, the [d'Alembertian](https://en.wikipedia.org/wiki/D%27Alembert_operator) and the [sourced wave equations](https://en.wikipedia.org/wiki/Inhomogeneous_electromagnetic_wave_equation) are obtained:
 
 ```math
 \begin{aligned}
-\Box&:=𝝏^{*}𝝏=\partial_t^2-\partial_{𝐫}^2,\\
-𝝏^{*}(𝝏 \mathcal{F})&=\Box \mathcal{F}=𝝏^{*}\mathcal{J}^*.
+\Box&:=\partial^{*}\partial=\partial_t^2-\partial_{𝐫}^2,\\
+\partial^{*}(\partial \mathcal{F})&=\Box \mathcal{F}=\partial^{*}\mathcal{J}^*.
 \end{aligned}
 ```
 
 Equivalently:
 
 ```math
-\boxed{\Box \mathcal{F}^*=𝝏 \mathcal{J}}.
+\boxed{\Box \mathcal{F}^*=\partial \mathcal{J}}.
 ```
 
 From this boxed equation, [charge conservation](https://en.wikipedia.org/wiki/Charge_conservation) and the field wave equations are obtained component by component:
@@ -409,13 +405,13 @@ The real [four-potential](https://en.wikipedia.org/wiki/Electromagnetic_four-pot
 
 ```math
 \mathcal{A}:=V+𝐀\cdot𝝈,
-\qquad S:=\mathrm{sc}(𝝏 \mathcal{A}).
+\qquad S:=\mathrm{sc}(\partial \mathcal{A}).
 ```
 
 The field is obtained from the potential:
 
 ```math
-\boxed{\mathcal{F}^{*}=𝝏 \mathcal{A}-S}.
+\boxed{\mathcal{F}^{*}=\partial \mathcal{A}-S}.
 ```
 
 In components:
@@ -429,18 +425,18 @@ In components:
 \end{aligned}
 ```
 
-The source equations are obtained in any [gauge](https://en.wikipedia.org/wiki/Gauge_fixing) by application of $`𝝏^*`$:
+The source equations are obtained in any [gauge](https://en.wikipedia.org/wiki/Gauge_fixing) by application of $`\partial^*`$:
 
 ```math
-\Box \mathcal{A}=𝝏^{*}(𝝏 \mathcal{A})
-=𝝏^{*}(S+\mathcal{F}^{*})
-=𝝏^{*}S+(𝝏 \mathcal{F})^{*}.
+\Box \mathcal{A}=\partial^{*}(\partial \mathcal{A})
+=\partial^{*}(S+\mathcal{F}^{*})
+=\partial^{*}S+(\partial \mathcal{F})^{*}.
 ```
 
 By substitution of [Maxwell’s equation](https://en.wikipedia.org/wiki/Maxwell%27s_equations):
 
 ```math
-\boxed{\Box \mathcal{A}=𝝏^{*}S+\mathcal{J}}.
+\boxed{\Box \mathcal{A}=\partial^{*}S+\mathcal{J}}.
 ```
 
 In components:
@@ -458,7 +454,7 @@ Under a [gauge transformation](https://en.wikipedia.org/wiki/Electromagnetic_fou
 
 ```math
 \begin{aligned}
-\mathcal{A}'&:=\mathcal{A}+𝝏^{*}\lambda,\\
+\mathcal{A}'&:=\mathcal{A}+\partial^{*}\lambda,\\
 S'&=S+\Box\lambda,\\
 \mathcal{F}'&=\mathcal{F}.
 \end{aligned}
@@ -475,7 +471,7 @@ In the [Lorenz gauge](https://en.wikipedia.org/wiki/Lorenz_gauge_condition), the
 
 ## [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) from the [mass shell](https://en.wikipedia.org/wiki/On_shell_and_off_shell#Mass_shell)
 
-Hats are used for named [energy](https://en.wikipedia.org/wiki/Energy_operator), [momentum](https://en.wikipedia.org/wiki/Momentum_operator), and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) operators; the derivative symbols $`𝝏`$ and $`\Box`$ remain unhatted.
+Hats are used for named [energy](https://en.wikipedia.org/wiki/Energy_operator), [momentum](https://en.wikipedia.org/wiki/Momentum_operator), and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) operators; the derivative symbols $`\partial`$ and $`\Box`$ remain unhatted.
 
 On a complex scalar wavefunction $`\psi`$, the canonical [energy](https://en.wikipedia.org/wiki/Energy_operator) and [momentum](https://en.wikipedia.org/wiki/Momentum_operator) operators are defined by:
 
@@ -489,7 +485,7 @@ On a complex scalar wavefunction $`\psi`$, the canonical [energy](https://en.wik
 The canonical four-momentum operator is formed by:
 
 ```math
-\hat{\mathcal{P}}:=\mathrm{i}𝝏^*=\hat E+\hat{𝐏}\cdot𝝈.
+\hat{\mathcal{P}}:=\mathrm{i}\partial^*=\hat E+\hat{𝐏}\cdot𝝈.
 ```
 
 By commutativity of the free operators:
@@ -519,7 +515,7 @@ Thus the free [Klein–Gordon equation](https://en.wikipedia.org/wiki/Klein%E2%8
 
 ## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) as a first-order wave equation
 
-In the [Weyl representation](https://en.wikipedia.org/wiki/Gamma_matrices#Weyl_%28chiral%29_basis), the notation $`𝝍:=(𝝍_+,𝝍_-)^{\mathsf T}`$ is used, with two complex components in each entry. The block identity is denoted by $`𝐈`$.
+In the [Weyl representation](https://en.wikipedia.org/wiki/Gamma_matrices#Weyl_%28chiral%29_basis), the notation $`𝝍:=(\psi_+,\psi_-)^{\mathsf T}`$ is used, with two complex components in each entry. The block identity is denoted by $`𝐈`$.
 
 The following operators are defined using the free momentum operator above:
 
@@ -543,7 +539,7 @@ The [Dirac equation](https://en.wikipedia.org/wiki/Dirac_equation) is:
 Equivalently:
 
 ```math
-(\hat E\pm\hat{𝐏}\cdot𝝈)𝝍_\pm=m𝝍_\mp.
+(\hat E\pm\hat{𝐏}\cdot𝝈)\psi_\pm=m\psi_\mp.
 ```
 
 By $`𝐖(\hat{\mathcal{P}})^2=(\det\hat{\mathcal{P}})𝐈`$, the [Klein–Gordon factorization](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) is obtained:
@@ -566,7 +562,7 @@ Here, the uncoupled operators defined above are labeled by subscript $`0`$:
 \begin{aligned}
 \hat E_0&:=\mathrm{i}\partial_t,\\
 \hat{𝐏}_0&:=-\mathrm{i}\partial_{𝐫},\\
-\hat{\mathcal{P}}_0&:=\mathrm{i}𝝏^*.
+\hat{\mathcal{P}}_0&:=\mathrm{i}\partial^*.
 \end{aligned}
 ```
 
@@ -612,7 +608,7 @@ The coupled [Dirac equation](https://en.wikipedia.org/wiki/Dirac_equation) is:
 Equivalently:
 
 ```math
-(\hat E_q\pm\hat{𝐏}_q\cdot𝝈)𝝍_\pm=m𝝍_\mp.
+(\hat E_q\pm\hat{𝐏}_q\cdot𝝈)\psi_\pm=m\psi_\mp.
 ```
 
 The following field identities are satisfied by the coupled operators:
@@ -692,18 +688,18 @@ With $`𝐀=0`$ (hence $`𝐁=0`$), the following is obtained for the convention
 
 ## Low-energy [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) to [Pauli](https://en.wikipedia.org/wiki/Pauli_equation)
 
-The rest-energy phase is removed from the full Dirac components $`𝝍_\pm`$ by defining the envelopes $`𝝍_\pm':=e^{\mathrm{i}mt}𝝍_\pm`$. The following is obtained:
+The rest-energy phase is removed from the full Dirac components $`\psi_\pm`$ by defining the envelopes $`\psi_\pm':=e^{\mathrm{i}mt}\psi_\pm`$. The following is obtained:
 
 ```math
-(m+\hat E_q\pm\hat{𝐏}_q\cdot𝝈)𝝍_\pm'=m𝝍_\mp'.
+(m+\hat E_q\pm\hat{𝐏}_q\cdot𝝈)\psi_\pm'=m\psi_\mp'.
 ```
 
 The large and small components for the positive-energy branch are defined by:
 
 ```math
 \begin{aligned}
-𝝓_+&:=\frac{𝝍_+'+𝝍_-'}{\sqrt2},\\
-𝝓_-&:=\frac{𝝍_-'-𝝍_+'}{\sqrt2}.
+\phi_+&:=\frac{\psi_+'+\psi_-'}{\sqrt2},\\
+\phi_-&:=\frac{\psi_-'-\psi_+'}{\sqrt2}.
 \end{aligned}
 ```
 
@@ -711,27 +707,27 @@ By addition and subtraction of the envelope equations:
 
 ```math
 \begin{aligned}
-\hat E_q𝝓_+&=(\hat{𝐏}_q\cdot𝝈)𝝓_-,\\
-(2m+\hat E_q)𝝓_-&=(\hat{𝐏}_q\cdot𝝈)𝝓_+.
+\hat E_q\phi_+&=(\hat{𝐏}_q\cdot𝝈)\phi_-,\\
+(2m+\hat E_q)\phi_-&=(\hat{𝐏}_q\cdot𝝈)\phi_+.
 \end{aligned}
 ```
 
-In the same nonrelativistic limit, $`\hat E_q𝝓_-`$ is neglected relative to $`2m𝝓_-`$. The resulting small component is substituted into the first equation, and the field identity above is applied:
+In the same nonrelativistic limit, $`\hat E_q\phi_-`$ is neglected relative to $`2m\phi_-`$. The resulting small component is substituted into the first equation, and the field identity above is applied:
 
 ```math
 \begin{aligned}
-𝝓_-&\simeq\frac{\hat{𝐏}_q\cdot𝝈}{2m}𝝓_+,\\
-\hat E_q𝝓_+&\simeq\frac{(\hat{𝐏}_q\cdot𝝈)^2}{2m}𝝓_+
-=\frac{\hat{𝐏}_q^2-q𝐁\cdot𝝈}{2m}𝝓_+.
+\phi_-&\simeq\frac{\hat{𝐏}_q\cdot𝝈}{2m}\phi_+,\\
+\hat E_q\phi_+&\simeq\frac{(\hat{𝐏}_q\cdot𝝈)^2}{2m}\phi_+
+=\frac{\hat{𝐏}_q^2-q𝐁\cdot𝝈}{2m}\phi_+.
 \end{aligned}
 ```
 
 With $`\hat E_q=\mathrm{i}\partial_t-qV`$ restored, the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation) is obtained, with kinetic and spin terms retained through order $`1/m`$:
 
 ```math
-\boxed{\mathrm{i}\partial_t𝝓_+=
+\boxed{\mathrm{i}\partial_t\phi_+=
 \left(\frac{\hat{𝐏}_q^2}{2m}
-+qV-\frac{q}{2m}𝐁\cdot𝝈\right)𝝓_+.}
++qV-\frac{q}{2m}𝐁\cdot𝝈\right)\phi_+.}
 ```
 
 ## [Spin up and spin down](https://en.wikipedia.org/wiki/Spin-1/2#Observables) in a uniform magnetic field
@@ -753,12 +749,12 @@ By [spectral decomposition](#projections-and-spectral-decomposition):
 =\pm\lVert𝐁\rVert\Pi_\pm.
 ```
 
-The two spin amplitudes $`\phi_{++},\phi_{+-}`$ are encoded in a paravector $`𝝓_+`$ aligned with $`𝐮`$:
+The two spin amplitudes $`\phi_{++},\phi_{+-}`$ are encoded in a paravector $`\phi_+`$ aligned with $`𝐮`$:
 
 ```math
 \begin{aligned}
-𝝓_+&=\phi_{++}\Pi_++\phi_{+-}\Pi_-,\\
-\Pi_\pm𝝓_+&=𝝓_+\Pi_\pm=\phi_{+\pm}\Pi_\pm.
+\phi_+&=\phi_{++}\Pi_++\phi_{+-}\Pi_-,\\
+\Pi_\pm\phi_+&=\phi_+\Pi_\pm=\phi_{+\pm}\Pi_\pm.
 \end{aligned}
 ```
 
@@ -767,7 +763,7 @@ Constant $`\Pi_\pm`$ commute with $`\hat E_q`$ and $`\hat{𝐏}_q^2`$, so the fo
 ```math
 \begin{aligned}
 0&=\Pi_\pm\left(2m\hat E_q-\hat{𝐏}_q^2
-+q𝐁\cdot𝝈\right)𝝓_+\\
++q𝐁\cdot𝝈\right)\phi_+\\
 &=\left(\left(2m\hat E_q-\hat{𝐏}_q^2
 \pm q\lVert𝐁\rVert\right)\phi_{+\pm}\right)\Pi_\pm.
 \end{aligned}
@@ -799,7 +795,7 @@ The four complex amplitudes of the [Dirac spinor](https://en.wikipedia.org/wiki/
 
 Real unit preparation and measurement axes are denoted by $`𝐮',𝐮`$, with $`\cos\theta:=𝐮\cdot𝐮'`$.
 
-The state $`𝝍=\Pi_+'𝝍\ne0`$ is prepared using projectors with the following overlap:
+The state $`\psi=\Pi_+'\psi\ne0`$ is prepared using projectors with the following overlap:
 
 ```math
 \begin{gathered}
@@ -812,19 +808,19 @@ The state $`𝝍=\Pi_+'𝝍\ne0`$ is prepared using projectors with the followin
 Using the squared norm, $`\lVert \mathcal{Z}\rVert^2=\mathrm{sc}(\mathcal{Z}\mathcal{Z}^{\mathsf H})`$, the denominator is:
 
 ```math
-\lVert𝝍\rVert^2=\mathrm{sc}(𝝍𝝍^{\mathsf H})>0.
+\lVert\psi\rVert^2=\mathrm{sc}(\psi\psi^{\mathsf H})>0.
 ```
 
 For the [prepared state](https://en.wikipedia.org/wiki/Spin-1/2#Bloch_Representation), the projected squared norm is:
 
 ```math
 \begin{aligned}
-\lVert\Pi_\pm𝝍\rVert^2
-&=\mathrm{sc}\bigl((\Pi_\pm𝝍)(\Pi_\pm𝝍)^{\mathsf H}\bigr)\\
-&=\mathrm{sc}(\Pi_\pm𝝍𝝍^{\mathsf H})\\
-&=\mathrm{sc}(\Pi_+'\Pi_\pm\Pi_+'𝝍𝝍^{\mathsf H})\\
-&=\frac{1\pm\cos\theta}{2}\mathrm{sc}(𝝍𝝍^{\mathsf H})
-=\frac{1\pm\cos\theta}{2}\lVert𝝍\rVert^2.
+\lVert\Pi_\pm\psi\rVert^2
+&=\mathrm{sc}\bigl((\Pi_\pm\psi)(\Pi_\pm\psi)^{\mathsf H}\bigr)\\
+&=\mathrm{sc}(\Pi_\pm\psi\psi^{\mathsf H})\\
+&=\mathrm{sc}(\Pi_+'\Pi_\pm\Pi_+'\psi\psi^{\mathsf H})\\
+&=\frac{1\pm\cos\theta}{2}\mathrm{sc}(\psi\psi^{\mathsf H})
+=\frac{1\pm\cos\theta}{2}\lVert\psi\rVert^2.
 \end{aligned}
 ```
 
@@ -832,9 +828,8 @@ The [Born probabilities](https://en.wikipedia.org/wiki/Born_rule) for [spin proj
 
 ```math
 \begin{gathered}
-\mathrm{prob}(\pm)=\frac{\lVert\Pi_\pm𝝍\rVert^2}{\lVert𝝍\rVert^2}
+\mathrm{prob}(\pm)=\frac{\lVert\Pi_\pm\psi\rVert^2}{\lVert\psi\rVert^2}
 =\frac{1\pm\cos\theta}{2},\\[6pt]
 \boxed{\mathrm{prob}(+)=\cos^2\frac\theta2,\quad \mathrm{prob}(-)=\sin^2\frac\theta2.}
 \end{gathered}
 ```
-
