@@ -81,7 +81,6 @@
 \newcommand{\bu}{\bm{u}}
 \newcommand{\bn}{\bm{n}}
 \newcommand{\ba}{\bm{a}}
-\newcommand{\bj}{\bm{j}}
 \newcommand{\bk}{\bm{k}}
 \newcommand{\bg}{\bm{g}}
 \newcommand{\bb}{\bm{b}}
@@ -186,7 +185,10 @@ give its magnetic coupling and measurement probabilities.
 \subsection{Notation and physical conventions}
 
 We use natural units $\hbar=c=1$, rationalized electromagnetic units,
-and signature $(+,-,-,-)$. Bold symbols denote vectors, ordered generator
+and signature $(+,-,-,-)$. Passages reverting to SI units are marked
+explicitly. Their equations are boxed with a subscript $\mathrm{SI}$
+on the box; the quantities inside retain their usual symbols.
+Bold symbols denote vectors, ordered generator
 triples, or, where specified, matrices.
 
 Latin paravectors and paravector operators use bold calligraphic capitals.
@@ -407,17 +409,17 @@ conjugations differ in the vector sign~\citeat{chappell-functions}{Eq.~(45)}{pag
 \end{align}
 Their composition defines the adjugate~\citeat{chappell-functions}{Eq.~(39)}{page=10}
 \begin{equation}
- \adj {\pZ}:=\pZ^{*\mathsf H}=c-\bZ\cdot\bsig.
+ \operatorname{adj} \pZ:=\pZ^{*\mathsf H}=c-\bZ\cdot\bsig.
  \label{eq:adjugate}
 \end{equation}
 The trace is twice the scalar part:
 \begin{equation}
- \operatorname{tr}(\pZ):=\pZ+\adj {\pZ}=2\scpart {\pZ}=2c.
+ \operatorname{tr}(\pZ):=\pZ+\operatorname{adj} \pZ=2\scpart {\pZ}=2c.
  \label{eq:trace-scalar}
 \end{equation}
 The determinant is the complex scalar~\citeat{baylis-applications}{p.~104}{page=115}
 \begin{equation}
- \det(\pZ):=\adj {\pZ}\,\pZ=\pZ\adj {\pZ}=c^2-\bZ^2.
+ \det \pZ:=\adj {\pZ}\,\pZ=\pZ\operatorname{adj} \pZ=c^2-\bZ^2.
  \label{eq:det}
 \end{equation}
 For $\pZ'\in\C\oplus\C^3$, adjugation reverses product order, giving determinant
@@ -547,11 +549,11 @@ confusion with those normalization conditions.
 Then $\pZ^{\mathsf H}=\pZ^{-1}$ and $\pZ \pZ^{\mathsf H}=1$.
 \item \textbf{Paravector of determinant one.} $\pZ$ satisfies
 \begin{equation}
- \det(\pZ)=1.
+ \det \pZ=1.
  \label{eq:unit-determinant-paravector}
 \end{equation}
 It is invertible with $\pZ^{-1}=\adj {\pZ}$; it need not be unitary.
-For real $\pZ$, $\adj {\pZ}=\pZ^*$, so this condition is also $\pZ^*\pZ=1$.
+For real $\pZ$, $\operatorname{adj} \pZ=\pZ^*$, so this condition is also $\pZ^*\pZ=1$.
 This equivalence need not hold for complex $\pZ$.
 \item \textbf{Paravector of unit norm.} $\pZ$ satisfies
 \begin{equation}
@@ -706,7 +708,7 @@ Specializing \eqref{eq:para-product} gives the quadratic products:
  \pZ^{\mathsf H}\pZ&=a^2+b^2+\bX^2+\bY^2
  +2(a\bX+b\bY-\bX\times\bY)\cdot\bsig,
  \label{eq:hermitian-product-right}\\
- \pZ \pZ^{*\mathsf H}&=\det(\pZ)
+ \pZ \pZ^{*\mathsf H}&=\det \pZ
  =a^2-b^2-\bX^2+\bY^2
  +2\ii(ab-\bX\cdot\bY). \notag
 \end{align}
@@ -761,13 +763,13 @@ $(\bZ\cdot\bsig)^2=\bZ^2$,
  \pZ^2-2c\pZ+(c^2-\bZ^2)&=0.
 \end{align*}
 Using $\operatorname{tr}(\pZ)=2c$ and
-$\det(\pZ)=c^2-\bZ^2$ gives the trace--determinant identity
+$\det \pZ=c^2-\bZ^2$ gives the trace--determinant identity
 \begin{equation}
- \pZ^2-\operatorname{tr}(\pZ)\pZ+\det(\pZ)=0.
+ \pZ^2-\operatorname{tr}(\pZ)\pZ+\det \pZ=0.
   \label{eq:minimal}
 \end{equation}
 An eigenvalue is a scalar $\lambda\in\C$ for which $\pZ-\lambda$ has no
-inverse.  Thus $\det(\pZ-\lambda)=\lambda^2-2c\lambda+\det(\pZ)=0$,
+inverse.  Thus $\det(\pZ-\lambda)=\lambda^2-2c\lambda+\det \pZ=0$,
 the scalar quadratic corresponding to \eqref{eq:minimal}.  Its roots are
 \begin{equation*}
  \lambda_\pm
@@ -876,8 +878,8 @@ any decomposition with these projector identities.
 
 Adjugation exchanges the eigenvalues, so
 \begin{align*}
- \adj {\pZ}&=\lambda_-\pvPi_++\lambda_+\pvPi_-,\\
- \det(\pZ)&=\lambda_+\lambda_-,\\
+ \operatorname{adj} \pZ&=\lambda_-\pvPi_++\lambda_+\pvPi_-,\\
+ \det \pZ&=\lambda_+\lambda_-,\\
  \pZ^{-1}&=\frac{\adj {\pZ}}{\det(\pZ)}
        =\lambda_+^{-1}\pvPi_++\lambda_-^{-1}\pvPi_-.
 \end{align*}
@@ -1093,9 +1095,9 @@ Equation~\eqref{eq:rotation-H} makes $\pR$
 makes $\pL$ Hermitian, so $\pL^{\mathsf H}\pL=\pL^2$.  Their determinants and
 squared norms follow from the circular and hyperbolic identities:
 \begin{align}
- \det(\pR)&=\cos^2(\theta/2)+\sin^2(\theta/2)=1,
+ \det \pR&=\cos^2(\theta/2)+\sin^2(\theta/2)=1,
  \label{eq:rotation-determinant}\\
- \det(\pL)&=\cosh^2(\theta/2)-\sinh^2(\theta/2)=1,
+ \det \pL&=\cosh^2(\theta/2)-\sinh^2(\theta/2)=1,
  \label{eq:boost-determinant}\\
  \lVert \pR\rVert^2&=1, \label{eq:rotation-norm}\\
  \lVert \pL\rVert^2&=\cosh\theta. \label{eq:boost-norm}
@@ -1221,7 +1223,7 @@ $w=-(\theta+\ii\theta')/2\in\C$.  Its exponential is
 \]
 Expanding the complex scalar coefficients gives
 \begin{align*}
- \cosh w&=\cosh\frac\theta2\cos\frac{\theta'}2
+ \cosh w&=+\cosh\frac\theta2\cos\frac{\theta'}2
  +\ii\sinh\frac\theta2\sin\frac{\theta'}2,\\
  \sinh w&=-\sinh\frac\theta2\cos\frac{\theta'}2
  -\ii\cosh\frac\theta2\sin\frac{\theta'}2.
@@ -1301,16 +1303,16 @@ Scalar-part cyclicity gives
 \end{equation*}
 Thus trace is also preserved.  Multiplicativity gives
 \begin{equation}
- \det(\pZ')=\det(\pT)\det(\pZ)\det(\pT^{-1})=\det(\pZ).
+ \det \pZ'=\det(\pT)\det(\pZ)\det \pT^{-1}=\det(\pZ).
  \label{eq:det-similarity}
 \end{equation}
 The opposite similarity $\pZ'=\pT^{-1}\pZ \pT$ has the same invariants.
 For independent complex factors $\pT,\pT'$, the law $\pZ'=\pT'\pZ \pT$ instead gives
 \begin{equation*}
- \det(\pZ')=\det(\pT')\det(\pT)\det(\pZ).
+ \det \pZ'=\det(\pT')\det(\pT)\det(\pZ).
 \end{equation*}
 This preserves the determinant for
-every $\pZ$ exactly when $\det(\pT')\det(\pT)=1$.  This alone does not preserve
+every $\pZ$ exactly when $\det(\pT')\det \pT=1$.  This alone does not preserve
 scalar part, norm, or the real paravector subspace.
 
 If the factor $\pT$ is unitary, then $\pT^{\mathsf H}=\pT^{-1}$ by
@@ -1362,14 +1364,14 @@ letter used for the paravector.
 Let $\pX=a+\bX\cdot\bsig$ be real, with $a\in\R$ and
 $\bX\in\R^3$.  The determinant and squared norm give different quadratic forms:
 \begin{align*}
- \det(\pX)&=a^2-\bX^2,\\
+ \det \pX&=a^2-\bX^2,\\
  \lVert \pX\rVert^2&=a^2+\bX^2.
 \end{align*}
 The first is the Lorentz quadratic form of signature $(+,-,-,-)$;
 the second is the positive sum of squared coefficients.  A real-linear
 isometry of the first form must preserve the real subspace and its
 determinant.  For a constant complex
-\hyperref[eq:unit-paravector]{invertible paravector} $\pT$ with $\det(\pT)=1$,
+\hyperref[eq:unit-paravector]{invertible paravector} $\pT$ with $\det \pT=1$,
 use the Hermitian congruence~\citeat{baylis2004}{Eq.~(17)}{page=6}
 \begin{equation}
  \boxed{\pX'=\pT \pX \pT^{\mathsf H}.}
@@ -1378,7 +1380,7 @@ use the Hermitian congruence~\citeat{baylis2004}{Eq.~(17)}{page=6}
 Hermitian conjugation and determinant multiplication give
 \begin{align*}
  \pX'^{\mathsf H}&=\pT \pX^{\mathsf H}\pT^{\mathsf H}=\pX',\\
- \det(\pX')&=\det(\pT)\det(\pX)\det(\pT^{\mathsf H})=\det(\pX).
+ \det \pX'&=\det(\pT)\det(\pX)\det \pT^{\mathsf H}=\det(\pX).
 \end{align*}
 For a second real paravector $\pY=b+\bY\cdot\bsig$, with $b\in\R$
 and $\bY\in\R^3$, the associated metric pairing is~\citeat{baylis2004}{Eq.~(15)}{page=6}
@@ -1409,7 +1411,7 @@ $\lVert\det(\pT)\rVert^2$.  For real $\pT=\exp(a+\bX\cdot\bsig)$,
 A nonzero real scalar exponent dilates the metric; it is excluded by
 determinant invariance.  An imaginary scalar exponent contributes a phase
 $e^{\ii b}$, $b\in\R$, which cancels between $\pT$ and $\pT^{\mathsf H}$.
-Requiring $\det(\pT)=1$ removes this continuous phase freedom.
+Requiring $\det \pT=1$ removes this continuous phase freedom.
 Thus a pure boost needs only a real vector exponent.
 
 \paragraph{Why the squared norm is different.}
@@ -1417,7 +1419,7 @@ For $\pL=\exp(-\theta\bu\cdot\bsig/2)$, with real $\theta$ and real unit
 $\bu$, applying \eqref{eq:general-lorentz-congruence} to $\pX=1$ gives
 \begin{align*}
  \pX'&=\pL^2=\cosh\theta-\sinh\theta\bu\cdot\bsig,\\
- \det(\pX')&=1,\\
+ \det \pX'&=1,\\
  \scpart{\pX'}&=\cosh\theta,\\
  \lVert \pX'\rVert^2&=\cosh(2\theta).
 \end{align*}
@@ -1438,8 +1440,8 @@ Using the positive real square root, define
 \[
  \pB:=\sqrt{\pT \pT^{\mathsf H}},\qquad \pR:=\pB^{-1}\pT.
 \]
-Then $\det(\pB)=1$,
-$\pR^{\mathsf H}\pR=1$, $\det(\pR)=1$, and $\pT=\pB \pR$, with
+Then $\det \pB=1$,
+$\pR^{\mathsf H}\pR=1$, $\det \pR=1$, and $\pT=\pB \pR$, with
 $\pB\in\R\oplus\R^3$ and $\pR\in\R\oplus\ii\R^3$.
 The real logarithm of $\pB$ has zero scalar part by
 \eqref{eq:exponential-determinant}, so $\pB$ is a real vector exponential.
@@ -1533,7 +1535,7 @@ is the existing Hermitian conjugation:
 \begin{align}
  \pQ^{\mathsf H}&=a-\bQ\cdot\bquatbasis
  =a+\ii\bQ\cdot\bsig,\notag\\
- \pQ^*&=\pQ,\qquad \adj {\pQ}=\pQ^{\mathsf H},\notag\\
+ \pQ^*&=\pQ,\qquad \operatorname{adj} \pQ=\pQ^{\mathsf H},\notag\\
  \pQ \pQ^{\mathsf H}&=\pQ^{\mathsf H}\pQ=a^2+\bQ^2
  =\det \pQ=\lVert \pQ\rVert^2.
  \label{eq:quaternion-norm}
@@ -1667,107 +1669,125 @@ $\pZ=z\bu\cdot\bsig$ for any nonzero $z\in\C$.
 \section{Space--time kinematics}
 \label{sec:kinematics}
 
-Let $\pX=t+\br\cdot\bsig\in\R\oplus\R^3$ be an event, with $t\in\R$ and
-$\br\in\R^3$.  A massive particle follows a future-directed
-time-like path $\br(t)$; $s\in\R$ denotes its proper time.
-Throughout this section,
-\[
- \pX,\pU,\pP\in\R\oplus\R^3,\qquad
- \bv,\bp,\ba\in\R^3,\qquad E,m,\gamma\in\R,
-\]
-with $m>0$, $\bv^2<1$, $E>0$, and $\gamma\ge1$ for a massive particle.
+In an inertial frame, an event is $\pX=t+\br\cdot\bsig\in\R\oplus\R^3$.
+A massive particle follows a future-directed time-like path $\br(t)$,
+with coordinate velocity $\bv=\dot{\br}$, $\bv^2<1$, and proper time $s$.
+Dots denote total coordinate-time derivatives: $\dot{\bv}=\dd\bv/\dd t$
+and $\ddot{\bv}=\dd^2\bv/\dd t^2$, with the same convention for
+scalars and paravectors. Natural units are used except in the explicitly
+marked SI equations.
 
-\subsection{Intervals and proper time}
+\subsection{Overview: velocity, acceleration, and jerk}
+\label{sec:kinematics-overview}
 
-The differential event and its invariant interval are~\citeat{baylis-intro}{Eq.~(7)}{page=8}
+The laboratory describes velocity $\bv$, acceleration $\dot{\bv}$, and
+jerk $\ddot{\bv}$ using coordinate time $t$; the traveler measures proper
+time $s$. Uniform velocity produces no accelerometer reading.
+Proper acceleration is that reading; proper jerk is its vector rate of
+change per unit proper time, referred to nonrotating carried axes.
+A steady push along a fixed axis gives zero proper jerk even while
+coordinate acceleration changes.
+
+Differentiating four-velocity with respect to proper time gives
+four-acceleration. Differentiating again also includes a contribution
+from the changing rest frame; projecting this derivative into the
+instantaneous rest space leaves proper jerk.
+
+\subsection{Intervals, light cones, and proper time}
+
+The displacement and its Minkowski interval are~\citeat{baylis-intro}{Eq.~(7)}{page=8}
 \begin{align}
- \dd \pX&=\dd t+\dd\br\cdot\bsig,\notag\\
- \dd s^2&=\det(\dd \pX)=\dd \pX\,\dd \pX^*
- =\dd t^2-\dd\br^2.
+ \dd\pX&=\dd t+\dd\br\cdot\bsig,\notag\\
+ \det(\dd\pX)&=\dd\pX\,\dd\pX^*=\dd t^2-\dd\br^2.
  \label{eq:interval}
 \end{align}
+The interval is positive, zero, or negative for time-like, null, or
+space-like displacements. Along a massive particle's path it equals
+$\dd s^2$; a null path has no elapsed proper time.
 By \eqref{eq:general-lorentz-congruence}, a constant complex
 \hyperref[eq:unit-paravector]{invertible paravector} $\pT$ with
 \hyperref[eq:unit-determinant-paravector]{$\det \pT=1$} gives
 \[
  \dd \pX'=\pT\dd \pX \pT^{\mathsf H},
- \qquad \det(\dd \pX')=\dd s^2.
+ \qquad \det(\dd \pX')=\det(\dd\pX).
 \]
-The positive cone of Section~\ref{sec:preserved-quantities} now represents
-future causal increments $\dd t\geq\lVert\dd\br\rVert$; the congruence
-preserves both their interval and time orientation.
-For a rotation, the event $\pX=t+\br\cdot\bsig$ transforms as
-$\pX'=\pR\pX\pR^{\mathsf H}$.  Its scalar part gives $t'=t$, and
-Rodrigues' formula~\eqref{eq:rodrigues} acts on the spatial position $\br$.
-
-Positive, zero, and negative values of \eqref{eq:interval} mean time-like, null, and space-like
-separation.  Massive particles follow time-like paths; light follows null
-paths; causal signals cannot connect space-like separated events.
-For two real intervals,
+For a rotation, $\pX'=\pR\pX\pR^{\mathsf H}$ leaves $t'=t$ and
+acts on $\br$ by Rodrigues' formula~\eqref{eq:rodrigues}.
+For real displacements, the product also gives
 \begin{align*}
  [\dd \pX,\dd \pX']&=2\ii(\dd\br\times\dd\br')\cdot\bsig,\\
- (\dd \pX)^{-1}&=\frac{\dd \pX^*}{\dd s^2}\qquad(\dd s^2\ne0).
+ (\dd \pX)^{-1}&=\frac{\dd \pX^*}{\det(\dd\pX)}\qquad\left(\det(\dd\pX)\ne0\right).
 \end{align*}
 A null interval has no inverse.
 
-Along the massive path, define the real coordinate velocity
-$\bv=\dd\br/\dd t$ and choose $\dd s>0$, with $\dd t>0$.
-The interval gives
-\begin{equation*}
- \dd s:=\sqrt{\dd t^2-\dd\br^2}=\sqrt{\det(\dd \pX)}.
-\end{equation*}
-Dividing by the positive coordinate-time increment gives
+\paragraph{Light cones.}
+For a finite real event separation $\Delta \pX=\Delta t+\Delta\br\cdot\bsig$,
+the eigenvalues are $\Delta t\pm\lVert\Delta\br\rVert$.
+Both are nonnegative precisely in the future causal cone:
+\begin{equation}
+ \Delta t\ge\lVert\Delta\br\rVert.
+ \label{eq:future-light-cone}
+\end{equation}
+The future null boundary has $\det(\Delta \pX)=0$ and $\Delta t\ge0$; for a
+\hyperref[def:real-unit-vector]{real unit vector} $\bu$, its nonzero future rays are
+\[
+ \Delta \pX=\Delta t(1+\bu\cdot\bsig),
+ \qquad \Delta t>0,\quad\bu^2=1.
+\]
+The Hermitian congruence~\eqref{eq:general-lorentz-congruence} preserves
+nonnegativity of the eigenvalues and the determinant, hence the cone and its
+boundary.  For a future time-like or null path,
+\[
+ \lVert\Delta\br\rVert
+ =\left\lVert\int\bv\dd t\right\rVert
+ \le\int\lVert\bv\rVert\dd t\le\Delta t.
+\]
+Its endpoints therefore satisfy \eqref{eq:future-light-cone}; a space-like
+separation cannot carry a causal signal
+\citeat{tong-relativity}{p.~118}{page=124}.
+
+\paragraph{Proper time.}
+Along a future-directed time-like path, take $\dd t>0$ and
+$\dd s=\sqrt{\det(\dd\pX)}>0$. Dividing by $\dd t$ gives
 \begin{align*}
- \frac{\dd s}{\dd t}
+ \dot{s}=\frac{\dd s}{\dd t}
+ &=\frac{\sqrt{\dd t^2-\dd\br^2}}{\dd t}\\
  &=\sqrt{\frac{\dd t^2-\dd\br^2}{\dd t^2}}\\
- &=\sqrt{1-\left(\frac{\dd\br}{\dd t}\right)^2}
- =\sqrt{1-\bv^2}.
+ &=\sqrt{1-\left(\frac{\dd\br}{\dd t}\right)^2}\\
+ &=\sqrt{1-\dot{\br}^2}=\sqrt{1-\bv^2}.
 \end{align*}
-Thus $\dd s^2=(1-\bv^2)\dd t^2$ gives~\citeat{tong-relativity}{Eq.~(7.18)}{page=139}
+The Lorentz factor and the derivative conversion are therefore~\citeat{tong-relativity}{Eq.~(7.18)}{page=139}
 \begin{align}
- \gamma&:=\frac1{\sqrt{1-\bv^2}}=\frac{\dd t}{\dd s},
+ \gamma&:=\frac{1}{\sqrt{1-\bv^2}}=\frac{\dd t}{\dd s},
  \label{eq:lorentz-factor}\\
  \frac{\dd}{\dd s}&=\gamma\frac{\dd}{\dd t}.
  \label{eq:proper-time-derivative}
 \end{align}
+
 \subsection{Four-velocity and the mass shell}
 
-Factor the coordinate-time increment out of the tangent and use
-\eqref{eq:lorentz-factor} to obtain the real four-velocity~\citeat{baylis-intro}{Eq.~(8)}{page=8}:
-\begin{align}
- \pU:=\frac{\dd \pX}{\dd s}
- &=\frac{\dd t+\dd\br\cdot\bsig}{\dd s}\notag\\
- &=\left(1+\frac{\dd\br}{\dd t}\cdot\bsig\right)
-   \frac{\dd t}{\dd s}\notag\\
- &=\gamma(1+\bv\cdot\bsig).
- \label{eq:proper-velocity}
-\end{align}
-Proper-time normalization gives
-\[
- \det \pU=\det\!\left(\frac{\dd \pX}{\dd s}\right)=\frac{\det(\dd \pX)}{\dd s^2}=1.
-\]
-More explicitly, the interval gives
+The real four-velocity is the proper-time tangent~\citeat{baylis-intro}{Eq.~(8)}{page=8}:
 \begin{equation}
- \pU^*\pU=\frac{\dd\pX^*\dd\pX}{\dd s^2}=1.
+ \pU:=\frac{\dd\pX}{\dd s}
+ =\frac{\dd t}{\dd s}\left(1+\dot{\br}\cdot\bsig\right)
+ =\gamma\left(1+\bv\cdot\bsig\right).
+ \label{eq:proper-velocity}
+\end{equation}
+Its normalization and conjugates are
+\begin{equation}
+ \pU^*\pU=\det\pU=\frac{\det(\dd\pX)}{\dd s^2}=1,
+ \qquad \pU^{\mathsf H}=\pU,\qquad
+ \pU^{-1}=\pU^*=\gamma\left(1-\bv\cdot\bsig\right).
  \label{eq:proper-velocity-star-normalization}
 \end{equation}
-Thus $\pU$ is an \hyperref[eq:unit-paravector]{invertible paravector} with
-$\pU\pU^{-1}=\pU^{-1}\pU=1$.  Its two conjugates are
-\begin{align*}
- \pU^{\mathsf H}&=\pU=\frac{\dd t+\dd\br\cdot\bsig}{\dd s},\\
- \pU^{-1}=\pU^*&=\frac{\dd t-\dd\br\cdot\bsig}{\dd s}
- =\gamma(1-\bv\cdot\bsig).
-\end{align*}
-This is the distinction between determinant one and Hermitian unitarity
-from Section~\ref{sec:determinant-versus-unitarity}, applied to four-velocity:
-\begin{align*}
- \pU^{\mathsf H}\pU&=\pU^2
- =\frac{\dd t^2+\dd\br^2+2\dd t\,\dd\br\cdot\bsig}{\dd s^2},\\
- \lVert\pU\rVert^2&=\frac{\dd t^2+\dd\br^2}{\dd t^2-\dd\br^2}.
-\end{align*}
-Both equal $1$ only when $\dd\br=0$, the particle's rest frame.
-Proper-time normalization therefore gives determinant one in every
-inertial frame, but Hermitian unitarity only at rest.
+Determinant one is distinct from Hermitian unitarity:
+\[
+ \pU^{\mathsf H}\pU=\pU^2
+ =2\gamma^2-1+2\gamma^2\bv\cdot\bsig,\qquad
+ \lVert\pU\rVert^2=2\gamma^2-1.
+\]
+Both equal $1$ only at rest. Thus four-velocity has determinant one in
+every inertial frame but is Hermitian unitary only in its rest frame.
 For a \hyperref[def:real-unit-vector]{real unit direction} $\bu$, write $\bv=\beta\bu$ and
 $\theta=\tanh^{-1}\beta$.  Equation~\eqref{eq:boost-square} gives $\pU=\pL^{-2}$ for
 $\pL=\exp(-\theta\bu\cdot\bsig/2)$: the direct boost $\pL \pU \pL=1$
@@ -1784,13 +1804,9 @@ The energy, momentum, and inverse are
  \bp&=\vecpart {\pP}=m\gamma\bv,\\
  \pP^{-1}&=\frac{E-\bp\cdot\bsig}{m^2}.
 \end{align*}
-Since $\det \pU=1$ and $m$ is a real scalar,
-\[
- \det \pP=\det(m\pU)=m^2\det \pU=m^2.
-\]
-Thus the determinant gives the mass shell~\citeat{tong-relativity}{Eq.~(7.30)}{page=143}
+Since $\det\pU=1$, scalar scaling gives the mass shell~\citeat{tong-relativity}{Eq.~(7.30)}{page=143}:
 \begin{equation}
- E^2-\bp^2=\det \pP=m^2.
+ E^2-\bp^2=\det\pP=m^2,\qquad E>0.
  \label{eq:mass-shell}
 \end{equation}
 For a massive particle of finite energy,
@@ -1798,263 +1814,416 @@ For a massive particle of finite energy,
  \bv^2=\frac{\bp^2}{E^2}=1-\frac{m^2}{E^2}<1.
 \]
 Approaching light speed requires unbounded energy.
-A massless path has no proper-time velocity.  Define its momentum directly
-as a future null paravector $\pP=E+\bp\cdot\bsig$, with $E>0$ and
-$E^2=\bp^2$; it has no inverse.
+A massless particle has no proper-time four-velocity. Its momentum is
+defined directly by $\pP=E+\bp\cdot\bsig$, with $E>0$ and $E^2=\bp^2$.
 
 \subsection{Four-acceleration and proper acceleration}
 \label{sec:proper-acceleration}
 
-The coordinate acceleration differentiates velocity with respect to coordinate
-time $t$, whereas the four-acceleration differentiates four-velocity with
-respect to proper time $s$.  Recall
-\[
- \pU=\frac{\dd\pX}{\dd s}=\gamma(1+\bv\cdot\bsig),
- \qquad \gamma=(1-\bv^2)^{-1/2},
- \qquad \frac{\dd}{\dd s}=\gamma\frac{\dd}{\dd t},
-\]
-where $\bv=\dd\br/\dd t$ and $\ba=\dd\bv/\dd t\in\R^3$.
-To differentiate $\pU$, first use the chain rule:
-\[
- \frac{\dd\gamma}{\dd t}
- =-\tfrac12(1-\bv^2)^{-3/2}(-2\bv\cdot\ba)
- =\gamma^3(\bv\cdot\ba).
-\]
-First differentiate with respect to coordinate time. The product rule gives
+Coordinate acceleration is $\dot{\bv}$; four-acceleration is
+$\dd\pU/\dd s$. We first differentiate with respect to coordinate time:
 \begin{align*}
- \frac{\dd\pU}{\dd t}
- &=\frac{\dd\gamma}{\dd t}
-   +\frac{\dd(\gamma\bv)}{\dd t}\cdot\bsig,\\
- \frac{\dd(\gamma\bv)}{\dd t}
- &=\gamma\ba+\gamma^3(\bv\cdot\ba)\bv.
+ \dot{\gamma}&=\gamma^3\left(\bv\cdot\dot{\bv}\right),\\
+ \dot{\pU}&=\dot{\gamma}
+ +\frac{\dd\left(\gamma\bv\right)}{\dd t}\cdot\bsig,\\
+ \frac{\dd\left(\gamma\bv\right)}{\dd t}
+ &=\gamma\dot{\bv}+\dot{\gamma}\bv.
 \end{align*}
 For $\bv\ne0$, resolve the coordinate acceleration into components
 parallel and perpendicular to the velocity:
 \[
- \ba_{\parallel}:=\frac{(\bv\cdot\ba)\bv}{\bv^2},
- \qquad \ba_{\perp}:=\ba-\ba_{\parallel}.
+ \dot{\bv}_{\parallel}:=\frac{(\bv\cdot\dot{\bv})\bv}{\bv^2},
+ \qquad \dot{\bv}_{\perp}:=\dot{\bv}-\dot{\bv}_{\parallel},
+ \qquad \dot{\bv}=\dot{\bv}_{\perp}+\dot{\bv}_{\parallel}.
 \]
-Since $(\bv\cdot\ba)\bv=\bv^2\ba_{\parallel}$ and
+These subscripts project $\dot{\bv}$; at $\bv=0$, use the unsplit formulas.
+Since $(\bv\cdot\dot{\bv})\bv=\bv^2\dot{\bv}_{\parallel}$ and
 $1+\gamma^2\bv^2=\gamma^2$, the spatial derivative becomes
 \begin{align*}
- \frac{\dd(\gamma\bv)}{\dd t}
- &=\gamma\ba_{\perp}
-   +(\gamma+\gamma^3\bv^2)\ba_{\parallel}\\
- &=\gamma\ba_{\perp}+\gamma^3\ba_{\parallel}.
+ \frac{\dd\left(\gamma\bv\right)}{\dd t}
+ &=\gamma\dot{\bv}_{\perp}
+   +(\gamma+\gamma^3\bv^2)\dot{\bv}_{\parallel}\\
+ &=\gamma\dot{\bv}_{\perp}+\gamma^3\dot{\bv}_{\parallel}.
 \end{align*}
 Thus the full coordinate-time derivative of four-velocity is
 \begin{equation}
- \frac{\dd\pU}{\dd t}
- =\gamma^3(\bv\cdot\ba)
-  +\left(\gamma\ba_{\perp}+\gamma^3\ba_{\parallel}\right)\cdot\bsig.
+ \dot{\pU}
+ =\gamma^3(\bv\cdot\dot{\bv})
+  +\left(\gamma\dot{\bv}_{\perp}+\gamma^3\dot{\bv}_{\parallel}\right)\cdot\bsig.
  \label{eq:four-velocity-coordinate-derivative}
 \end{equation}
-The combination $\gamma\ba_{\perp}+\gamma^3\ba_{\parallel}$ is its
-spatial vector coefficient; the scalar coefficient is $\dd\gamma/\dd t$.
-Multiplying by $\dd t/\dd s=\gamma$ gives the four-acceleration
-$\dd\pU/\dd s=\gamma^4(\bv\cdot\ba)
- +(\gamma^2\ba_{\perp}+\gamma^4\ba_{\parallel})\cdot\bsig$.
-Equivalently, without resolving $\ba$ into components, this is the real
-four-acceleration paravector~\citeat{tong-relativity}{p.~141}{page=147}:
-\begin{equation}
- \frac{\dd \pU}{\dd s}
- =\gamma^4(\bv\cdot\ba)
- +\left(\gamma^2\ba+\gamma^4(\bv\cdot\ba)\bv\right)\cdot\bsig.
- \label{eq:proper-acceleration-components}
-\end{equation}
-Four-velocity satisfies $\pU^*\pU=\det\pU=1$.
-Differentiating this normalization with respect to proper time gives
+\paragraph{Orthogonality and determinant.}
+Differentiating $\pU^*\pU=1$ gives
 \[
- \left(\frac{\dd \pU}{\dd s}\right)^*\pU
- +\pU^*\frac{\dd \pU}{\dd s}=0.
+ \dot{\pU}^*\pU+\pU^*\dot{\pU}=0.
 \]
-The two terms have equal real scalar parts, so
-\begin{equation*}
- \scpart{\pU^*\dd \pU/\dd s}=0.
-\end{equation*}
-Thus four-velocity and four-acceleration are Minkowski-orthogonal.
-Although $\dd\pU/\dd s$ can have a scalar part, the product
-$\pU^*\dd\pU/\dd s$ is scalar-free and belongs to $\{0\}\oplus\C^3$.
+Taking scalar parts gives
+\[
+ \scpart{\pU^*\dot{\pU}}=0.
+\]
+Thus $\pU$ and $\dot{\pU}$ are Minkowski-orthogonal. Although
+$\dot{\pU}$ can have a scalar part, the product $\pU^*\dot{\pU}$
+is scalar-free and belongs to $\{0\}\oplus\C^3$.
 Multiplication on the right by $\pU^*$ also gives
-\begin{align*}
- \adj{\frac{\dd \pU}{\dd s}}
- &=-\pU^*\frac{\dd \pU}{\dd s}\pU^*.
-\end{align*}
+\[
+ \operatorname{adj} \dot{\pU}=-\pU^*\dot{\pU}\pU^*.
+\]
 Expanding the commutator and the product gives
 \begin{align*}
- [\pU,\dd \pU/\dd s]
- &=2\ii\gamma^2\left(\bv\times\frac{\dd\bv}{\dd s}\right)\cdot\bsig,\\
- \pU^*\frac{\dd \pU}{\dd s}
- &=\gamma^3(\ba-\ii\bv\times\ba)\cdot\bsig.
+ [\pU,\dot{\pU}]
+ &=2\ii\gamma^2\left(\bv\times\dot{\bv}\right)\cdot\bsig,\\
+ \pU^*\dot{\pU}
+ &=\gamma^2\left(\dot{\bv}-\ii\bv\times\dot{\bv}\right)\cdot\bsig.
 \end{align*}
-The real vector part is proportional to $\ba$; the imaginary vector part
-comes from the component of acceleration perpendicular to $\bv$.
+The cross product depends only on acceleration perpendicular to $\bv$.
 Since $\det\pU^*=1$, multiplying by $\pU^*$ preserves the determinant.
 The determinant of a scalar-free paravector is the negative of its square.
-Using $\ba\cdot(\bv\times\ba)=0$ therefore gives
-\begin{equation*}
- \begin{aligned}
- \det\left(\frac{\dd \pU}{\dd s}\right)
- &=-\left(\pU^*\frac{\dd \pU}{\dd s}\right)^2\\
- &=-\gamma^6\left(\ba^2-(\bv\times\ba)^2\right)\\
- &=-\gamma^4\left(\ba^2+\gamma^2(\bv\cdot\ba)^2\right).
- \end{aligned}
-\end{equation*}
+Using $\dot{\bv}\cdot\left(\bv\times\dot{\bv}\right)=0$ therefore gives
+\begin{align*}
+ \det \dot{\pU}
+ &=-\left(\pU^*\dot{\pU}\right)^2\\
+ &=-\gamma^4\left(\dot{\bv}^2-\left(\bv\times\dot{\bv}\right)^2\right)\\
+ &=-\gamma^2\left(\dot{\bv}^2+\gamma^2\left(\bv\cdot\dot{\bv}\right)^2\right).
+\end{align*}
 The last equality uses
-$(\bv\times\ba)^2=\bv^2\ba^2-(\bv\cdot\ba)^2$ and
-$1-\bv^2=\gamma^{-2}$.  Nonzero four-acceleration is therefore space-like. The proper acceleration
-is the acceleration measured in the instantaneous rest frame; its squared
-magnitude is the negative determinant above.
+$\left(\bv\times\dot{\bv}\right)^2=\bv^2\dot{\bv}^2-\left(\bv\cdot\dot{\bv}\right)^2$ and
+$1-\bv^2=\gamma^{-2}$.
 Using the parallel and perpendicular components defined above,
-$\ba^2=\ba_{\perp}^2+\ba_{\parallel}^2$ and
-$(\bv\cdot\ba)^2=\bv^2\ba_{\parallel}^2$ give
-\begin{equation*}
- \det\left(\frac{\dd \pU}{\dd s}\right)
- =-\gamma^4\ba_{\perp}^2-\gamma^6\ba_{\parallel}^2.
-\end{equation*}
-At rest, $\gamma=1$ and $\dd\pU/\dd s=\ba\cdot\bsig$, so the
- determinant is $-\ba^2$ and the proper acceleration has magnitude $\lVert\ba\rVert$.
+$\dot{\bv}^2=\dot{\bv}_{\perp}^2+\dot{\bv}_{\parallel}^2$ and
+$\left(\bv\cdot\dot{\bv}\right)^2=\bv^2\dot{\bv}_{\parallel}^2$ give
+\[
+ \det \dot{\pU}
+ =-\gamma^2\dot{\bv}_{\perp}^2-\gamma^4\dot{\bv}_{\parallel}^2.
+\]
+\paragraph{Conversion to proper time.}
+Multiplying $\dot{\pU}$ by $\gamma$ gives~\citeat{tong-relativity}{p.~141}{page=147}
+\begin{equation}
+ \frac{\dd\pU}{\dd s}=\gamma\dot{\pU}
+ =\gamma^4\left(\bv\cdot\dot{\bv}\right)
+ +\left(\gamma^2\dot{\bv}+\gamma^4\left(\bv\cdot\dot{\bv}\right)\bv\right)\cdot\bsig.
+ \label{eq:proper-acceleration-components}
+\end{equation}
+The determinant is quadratic, so
+\begin{align*}
+ \det\left(\frac{\dd\pU}{\dd s}\right)
+ &=\gamma^2\det\left(\dot{\pU}\right)\\
+ &=-\gamma^4\dot{\bv}_{\perp}^2-\gamma^6\dot{\bv}_{\parallel}^2.
+\end{align*}
+The same scaling gives $\scpart{\pU^*\dd\pU/\dd s}=0$, so
+four-velocity and four-acceleration are Minkowski-orthogonal.
+Nonzero four-acceleration is space-like. Its negative determinant is
+the squared magnitude of the acceleration measured in the instantaneous
+rest frame, called the proper acceleration.
+At rest, $\gamma=1$ and $\dd\pU/\dd s=\dot{\bv}\cdot\bsig$, so the
+ determinant is $-\dot{\bv}^2$ and the proper acceleration has magnitude $\lVert\dot{\bv}\rVert$.
 
 \subsubsection{Energy and inertia}
 For constant invariant mass $m>0$, four-momentum is $\pP=m\pU$,
-so $\dd\pP/\dd t=m\,\dd\pU/\dd t$. Its scalar and spatial parts are
+so $\dot{\pP}=m\,\dot{\pU}$. Its scalar and spatial parts are
 $E=m\gamma$ and $\bp=m\gamma\bv$.
 Multiplying the spatial part of
 \eqref{eq:four-velocity-coordinate-derivative} by $m$ therefore gives
 \begin{equation}
- \boxed{\frac{\dd\bp}{\dd t}
- =m\gamma\ba_{\perp}+m\gamma^3\ba_{\parallel}.}
+ \dot{\bp}=m\gamma\dot{\bv}_{\perp}+m\gamma^3\dot{\bv}_{\parallel}.
  \label{eq:relativistic-inertia}
 \end{equation}
 Taking its dot product with $\bv$ gives the work rate
 \begin{equation}
- \frac{\dd E}{\dd t}=m\gamma^3\bv\cdot\ba
- =\bv\cdot\frac{\dd\bp}{\dd t}.
+ \dot{E}=m\gamma^3\bv\cdot\dot{\bv}
+ =\bv\cdot\dot{\bp}.
  \label{eq:relativistic-work}
 \end{equation}
-At rest the force is $m\ba$.  Restoring $c$, $E=\gamma mc^2$;
-$E/c^2=\gamma m$ is sometimes called \emph{relativistic mass}.
-We retain invariant $m$: the longitudinal and transverse inertia in
+At rest the force is $m\dot{\bv}$. Reverting to SI units,
+\[
+ \boxed{E=\gamma mc^2}_{\,\mathrm{SI}},\qquad
+ \boxed{E/c^2=\gamma m}_{\,\mathrm{SI}}.
+\]
+The mass equivalent in the second relation is sometimes called \emph{relativistic mass}. In the natural units used elsewhere, we retain
+invariant $m$: the longitudinal and transverse inertia in
 \eqref{eq:relativistic-inertia} differ.
 
 \subsection{Jerk and proper-time derivatives}
 \label{sec:jerk}
-Jerk describes how acceleration changes. In a chosen inertial frame, the
-\emph{coordinate jerk} is the real three-vector
+Jerk distinguishes three quantities: the coordinate jerk $\ddot{\bv}$,
+the proper-time derivative of four-acceleration, and its projection into
+the instantaneous rest space. Dots still mean $t$ derivatives.
+
+\subsubsection{Coordinate derivatives, then proper-time derivatives}
+Starting from $\dot{\gamma}$ and $\dot{\pU}$ in
+Section~\ref{sec:proper-acceleration}, differentiate once more with respect to $t$.
+Using
+\[
+ \frac{\dd\left(\bv\cdot\dot{\bv}\right)}{\dd t}
+ =\dot{\bv}^2+\bv\cdot\ddot{\bv},
+\]
+a second differentiation gives
+\begin{align*}
+ \ddot{\gamma}
+ &=\gamma^3\left(\dot{\bv}^2+\bv\cdot\ddot{\bv}\right)
+   +\frac{3\dot{\gamma}^2}{\gamma},\\
+ \ddot{\pU}
+ &=\ddot{\gamma}
+ +\left(\gamma\ddot{\bv}+2\dot{\gamma}\dot{\bv}
+       +\ddot{\gamma}\bv\right)\cdot\bsig.
+\end{align*}
+Now apply $\dd/\dd s=\gamma\dd/\dd t$. The first derivative is
+$\dd\pU/\dd s=\gamma\dot{\pU}$, and the second is
 \begin{equation}
- \bj:=\frac{\dd\ba}{\dd t}
- =\frac{\dd^2\bv}{\dd t^2}
- =\frac{\dd^3\br}{\dd t^3}.
- \label{eq:coordinate-jerk}
+ \frac{\dd^2\pU}{\dd s^2}
+ =\gamma\frac{\dd\left(\gamma\dot{\pU}\right)}{\dd t}
+ =\gamma^2\ddot{\pU}+\gamma\dot{\gamma}\dot{\pU}.
+ \label{eq:jerk-time-conversion}
 \end{equation}
-Changing only the differentiation parameter gives
-$\dd\ba/\dd s=\gamma\bj$. This still differentiates the coordinate
-acceleration of that frame. The proper-time derivative of
-\emph{four-acceleration} instead gives the real paravector
+The same conversion applies to every twice-differentiable scalar, vector,
+or paravector along the worldline. In particular,
+\begin{align}
+ \frac{\dd^2\gamma}{\dd s^2}
+ &=\gamma^2\ddot{\gamma}+\gamma\dot{\gamma}^2,\notag\\
+ \frac{\dd^2\pU}{\dd s^2}
+ &=\frac{\dd^2\gamma}{\dd s^2}+
+ \left(\gamma^3\ddot{\bv}+3\gamma^2\dot{\gamma}\dot{\bv}
+ +\frac{\dd^2\gamma}{\dd s^2}\bv\right)\cdot\bsig.
+ \label{eq:four-jerk-components}
+\end{align}
+This derivative of four-acceleration is the \emph{unprojected four-jerk}:
 \begin{equation}
  \frac{\dd}{\dd s}\left(\frac{\dd\pU}{\dd s}\right)
  =\frac{\dd^2\pU}{\dd s^2}
- =\frac{\dd^3\pX}{\dd s^3},
+ =\frac{\dd^3\pX}{\dd s^3}.
  \label{eq:four-jerk-definition}
 \end{equation}
-which we call the \emph{unprojected four-jerk}.
+By comparison, $\dd\dot{\bv}/\dd s=\gamma\ddot{\bv}$ still differentiates
+the coordinate acceleration of the chosen inertial frame.
 
-To relate the two time parameters, put $q:=\bv\cdot\ba$. The product
-rule gives $\dd q/\dd t=\ba^2+\bv\cdot\bj$, hence
-\begin{align*}
- \frac{\dd^2\gamma}{\dd t^2}
- &=\gamma^3(\ba^2+\bv\cdot\bj)+3\gamma^5q^2,\\
- \frac{\dd^2\pU}{\dd t^2}
- &=\frac{\dd^2\gamma}{\dd t^2}
- +\left(\gamma\bj+2\gamma^3q\ba
-       +\frac{\dd^2\gamma}{\dd t^2}\bv\right)\cdot\bsig.
-\end{align*}
-Applying $\dd/\dd s=\gamma\dd/\dd t$ twice requires differentiating
-$\gamma$ as well:
-\begin{equation}
- \boxed{\frac{\dd^2\pU}{\dd s^2}
- =\gamma\frac{\dd}{\dd t}\left(\gamma\frac{\dd\pU}{\dd t}\right)
- =\gamma^2\frac{\dd^2\pU}{\dd t^2}
-  +\gamma^4q\frac{\dd\pU}{\dd t}.}
- \label{eq:jerk-time-conversion}
-\end{equation}
-Thus its scalar and vector components are
-\begin{align}
- \frac{\dd^2\gamma}{\dd s^2}&=\gamma^5(\ba^2+\bv\cdot\bj)+4\gamma^7q^2,\notag\\
- \frac{\dd^2\pU}{\dd s^2}&=\frac{\dd^2\gamma}{\dd s^2}+
- \left(\gamma^3\bj+3\gamma^5q\ba+\frac{\dd^2\gamma}{\dd s^2}\bv\right)\cdot\bsig.
- \label{eq:four-jerk-components}
-\end{align}
-The third coordinate-time derivative of position is simply
-$\dd^3\pX/\dd t^3=\bj\cdot\bsig$. The derivatives
-$\dd^2\pU/\dd t^2$ and $\dd^2\pU/\dd s^2$ also include changes in $\gamma$.
-
-\paragraph{Jerk in the instantaneous rest frame.}
-Differentiating the orthogonality of four-velocity and four-acceleration gives
+\subsubsection{Projection into the instantaneous rest space}
+Start with the coordinate-time normalization identities
+\[
+ \scpart{\pU^*\dot{\pU}}=0,\qquad
+ \scpart{\pU^*\ddot{\pU}}=-\det\left(\dot{\pU}\right).
+\]
+The second follows by differentiating the first. Substitution into
+\eqref{eq:jerk-time-conversion}, together with
+$\det\left(\dd\pU/\dd s\right)=\gamma^2\det\left(\dot{\pU}\right)$, gives
 \[
  \scpart{\pU^*\frac{\dd^2\pU}{\dd s^2}}
- +\det\left(\frac{\dd\pU}{\dd s}\right)=0.
+ =-\det\left(\frac{\dd\pU}{\dd s}\right).
 \]
-If $\alpha$ is the proper-acceleration magnitude, then
-$\det(\dd\pU/\dd s)=-\alpha^2$. Therefore
-$\scpart{\pU^*\frac{\dd^2\pU}{\dd s^2}}=\alpha^2$: four-jerk generally has a component
-along four-velocity. Removing it defines the projected relativistic
-jerk~\citeat{russo-townsend}{Eqs.~(2.8)--(2.13)}{page=7}, written here
-with signature $(+,-,-,-)$:
+Thus the derivative of four-acceleration need not be orthogonal to
+four-velocity. Since $\det\pU=1$, the right-hand side is its coefficient of
+$\pU$ in the unprojected four-jerk. Removing that component defines the
+projected relativistic jerk~\citeat{russo-townsend}{Eqs.~(2.8)--(2.13)}{page=7}.
+With our signature $(+,-,-,-)$, its orthogonality is
 \begin{equation}
- \scpart{\pU^*\left(\frac{\dd^2\pU}{\dd s^2}-\alpha^2\pU\right)}=0.
+ \scpart{\pU^*\left(\frac{\dd^2\pU}{\dd s^2}
+ +\det\left(\frac{\dd\pU}{\dd s}\right)\pU\right)}=0.
  \label{eq:projected-jerk}
 \end{equation}
 At an instant of rest, $\pU=1$ and
 \begin{align*}
- \frac{\dd^2\pU}{\dd s^2}&=\ba^2+\bj\cdot\bsig,\\
- \frac{\dd^2\pU}{\dd s^2}-\alpha^2\pU&=\bj\cdot\bsig,
+ \frac{\dd^2\pU}{\dd s^2}&=\dot{\bv}^2+\ddot{\bv}\cdot\bsig,\\
+ \frac{\dd^2\pU}{\dd s^2}
+ +\det\left(\frac{\dd\pU}{\dd s}\right)\pU&=\ddot{\bv}\cdot\bsig.
 \end{align*}
-where $\ba$ and $\bj$ are evaluated in that instantaneous rest frame.
-Thus the projected derivative gives the measured proper jerk there.
+Here the coordinate derivatives are evaluated in the inertial frame
+in which the particle is instantaneously at rest.
+The projected expression is therefore the measured proper jerk there;
+it is space-like whenever nonzero.
 
-\paragraph{Motion along a fixed axis.}
-For a fixed real unit vector $\bu$, introduce rapidity $\theta(s)$ and write
+\paragraph{Invariant magnitude.}
+Expanding the determinant using the metric pairing and
+\eqref{eq:projected-jerk} gives
+\begin{equation}
+ \det\left(\frac{\dd^2\pU}{\dd s^2}
+ +\det\left(\frac{\dd\pU}{\dd s}\right)\pU\right)
+ =\det\left(\frac{\dd^2\pU}{\dd s^2}\right)
+ -\left(\det\left(\frac{\dd\pU}{\dd s}\right)\right)^2
+ \le0.
+ \label{eq:proper-jerk-determinant}
+\end{equation}
+The negative of this determinant is the squared proper-jerk magnitude.
+The unprojected four-jerk can instead be time-like, null, or space-like;
+its determinant includes the positive contribution from the component
+along $\pU$.
+
+\paragraph{When proper jerk vanishes.}
+In \eqref{eq:four-jerk-components}, subtracting the scalar coefficient
+times $\bv$ from the vector coefficient leaves
+$\gamma^3\left(\ddot{\bv}+3\dot{\gamma}\dot{\bv}/\gamma\right)$.
+Its vanishing says that the unprojected four-jerk is parallel to $\pU$,
+so its projection vanishes. Hence~\citeat{russo-townsend}{Eq.~(2.14)}{page=7}
+\begin{equation}
+ \frac{\dd^2\pU}{\dd s^2}
+ +\det\left(\frac{\dd\pU}{\dd s}\right)\pU=0
+ \quad\Longleftrightarrow\quad
+ \ddot{\bv}=-3\frac{\dot{\gamma}}{\gamma}\dot{\bv}.
+ \label{eq:zero-proper-jerk}
+\end{equation}
+Zero proper jerk therefore need not mean zero coordinate jerk.
+Also, differentiating the acceleration determinant gives
+\[
+ \frac{\dd}{\dd s}\det\left(\frac{\dd\pU}{\dd s}\right)
+ =2\scpart{\left(\frac{\dd\pU}{\dd s}\right)^*
+              \frac{\dd^2\pU}{\dd s^2}}.
+\]
+The pairing is unchanged if the second factor is replaced by its
+projected expression, because $\dd\pU/\dd s$ is orthogonal to $\pU$.
+Consequently, zero projected jerk implies constant proper-acceleration
+magnitude. The converse does not hold in general: the direction can still
+change, as in uniform circular motion.
+
+\subsubsection{Fixed-axis motion and rapidity}
+For a fixed real unit vector $\bu$, write
 \[
  \pU=\cosh\theta+\sinh\theta\bu\cdot\bsig,\qquad
  \pN=\sinh\theta+\cosh\theta\bu\cdot\bsig.
 \]
-Here $\det\pN=-1$ and $\scpart{\pU^*\pN}=0$. Define signed proper
-acceleration $h:=\dd\theta/\dd s$ and signed proper jerk
-$k:=\dd h/\dd s$. Direct differentiation gives
+Here $\det\pU=1$, $\det\pN=-1$, and $\scpart{\pU^*\pN}=0$.
+The pair is an orthonormal time and spatial basis in the plane of motion.
+Although rapidity is given as $\theta(s)$, its coordinate-time derivatives
+are those of the composition $\theta(s(t))$.
+
+\paragraph{Coordinate-time derivatives.}
+The first derivatives exchange $\pU$ and $\pN$:
+\[
+ \dot{\pU}=\dot{\theta}\pN,\qquad
+ \dot{\pN}=\dot{\theta}\pU.
+\]
+Differentiating again gives
+\begin{align*}
+ \ddot{\pU}&=\dot{\theta}^2\pU+\ddot{\theta}\pN,\\
+ \ddot{\pN}&=\dot{\theta}^2\pN+\ddot{\theta}\pU.
+\end{align*}
+The $\dot{\theta}^2$ terms come from differentiating the moving basis;
+the $\ddot{\theta}$ terms come from differentiating its rate of change.
+Their determinants follow directly from the orthogonal unit pair:
+\[
+ \det\dot{\pU}=-\dot{\theta}^2,\qquad
+ \det\ddot{\pU}=-\det\left(\ddot{\pN}\right)
+ =\dot{\theta}^4-\ddot{\theta}^2.
+\]
+For the velocity along the axis, let $\beta=\tanh\theta$, so
+$\bv=\beta\bu$ and $\gamma=\cosh\theta$. Then
+\[
+ \dot{\beta}=\gamma^{-2}\dot{\theta},\qquad
+ \ddot{\beta}=\gamma^{-2}\ddot{\theta}
+ -2\gamma^{-3}\dot{\gamma}\dot{\theta}.
+\]
+
+\paragraph{Conversion to proper time.}
+Since $\dot{s}=1/\gamma$, the chain rule gives
+\[
+ \dot{\theta}=\frac{\dd\theta}{\dd s}\dot{s},\qquad
+ \frac{\dd\theta}{\dd s}=\gamma\dot{\theta},\qquad
+ \frac{\dd^2\theta}{\dd s^2}
+ =\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta}.
+\]
+These are ordinary derivatives of the same rapidity along the path.
+The signed proper acceleration and signed proper jerk are respectively
+$\dd\theta/\dd s$ and $\dd^2\theta/\dd s^2$.
+Scaling the first coordinate derivatives gives
+\[
+ \frac{\dd\pU}{\dd s}=\gamma\dot{\theta}\pN,\qquad
+ \frac{\dd\pN}{\dd s}=\gamma\dot{\theta}\pU.
+\]
+Applying \eqref{eq:jerk-time-conversion} to each member of the pair gives
 \begin{align}
- \frac{\dd\pU}{\dd s}&=h\pN,\qquad
- \frac{\dd\pN}{\dd s}=h\pU,\notag\\
- \frac{\dd^2\pU}{\dd s^2}&=h^2\pU+k\pN,\notag\\
- \frac{\dd^2\pU}{\dd s^2}-h^2\pU&=k\pN,\notag\\
- \det\left(\frac{\dd\pU}{\dd s}\right)&=-h^2,\qquad
- \det\left(\frac{\dd^2\pU}{\dd s^2}-h^2\pU\right)=-k^2,\notag\\
- \det\left(\frac{\dd^2\pU}{\dd s^2}\right)&=h^4-k^2.
+ \frac{\dd^2\pU}{\dd s^2}
+ &=\gamma^2\dot{\theta}^2\pU
+ +\left(\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta}\right)\pN,\notag\\
+ \frac{\dd^2\pN}{\dd s^2}
+ &=\gamma^2\dot{\theta}^2\pN
+ +\left(\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta}\right)\pU.
  \label{eq:rectilinear-jerk}
 \end{align}
-The proper-acceleration and proper-jerk magnitudes are $|h|$ and $|k|$.
-For comparison with coordinate time, let $\beta=\tanh\theta$ and write
-$\ba=a_{\mathrm c}\bu$, $\bj=j_{\mathrm c}\bu$. Since
-$a_{\mathrm c}=h/\gamma^3$, differentiating gives
-\begin{equation}
- k=\gamma\frac{\dd(\gamma^3a_{\mathrm c})}{\dd t}
-  =\gamma^4j_{\mathrm c}+3\gamma^6\beta a_{\mathrm c}^2,
- \qquad
- j_{\mathrm c}=\frac{k-3h^2\beta}{\gamma^4}.
+Removing the component along $\pU$ leaves
+\[
+ \frac{\dd^2\pU}{\dd s^2}-\gamma^2\dot{\theta}^2\pU
+ =\left(\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta}\right)\pN
+ =\frac{\dd^2\theta}{\dd s^2}\pN.
+\]
+Thus the proper-acceleration and proper-jerk magnitudes are
+$\gamma\left|\dot{\theta}\right|$ and
+$\left|\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta}\right|$.
+The corresponding determinant identities are
+\begin{align*}
+ \det\left(\frac{\dd\pU}{\dd s}\right)
+ &=-\gamma^2\dot{\theta}^2,\\
+ \det\left(\frac{\dd^2\pU}{\dd s^2}-\gamma^2\dot{\theta}^2\pU\right)
+ &=-\left(\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta}\right)^2,\\
+ \det\left(\frac{\dd^2\pU}{\dd s^2}\right)
+ &=-\det\left(\frac{\dd^2\pN}{\dd s^2}\right)\\
+ &=\gamma^4\dot{\theta}^4
+ -\left(\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta}\right)^2.
+\end{align*}
+The sign reversal again comes from exchanging the unit time and spatial
+directions. Using $\dot{\theta}=\gamma^2\dot{\beta}$ and
+$\dot{\gamma}=\gamma^3\beta\dot{\beta}$ also gives
+\begin{align}
+ \frac{\dd\theta}{\dd s}&=\gamma^3\dot{\beta},\notag\\
+ \frac{\dd^2\theta}{\dd s^2}
+ &=\gamma^4\ddot{\beta}+3\gamma^3\dot{\gamma}\dot{\beta}
+ =\gamma^4\ddot{\beta}+3\gamma^6\beta\dot{\beta}^2,\notag\\
+ \ddot{\beta}&=\gamma^{-4}\frac{\dd^2\theta}{\dd s^2}
+ -3\frac{\dot{\gamma}}{\gamma}\dot{\beta}.
  \label{eq:coordinate-proper-jerk}
-\end{equation}
-For constant $h$, the proper jerk $k$ and the projected derivative vanish,
-whereas $\dd^2\pU/\dd s^2=h^2\pU$ remains nonzero if $h\ne0$.
+\end{align}
+For fixed-axis motion, zero proper jerk is exactly
+$\gamma\ddot{\theta}+\dot{\gamma}\dot{\theta}=0$, or equivalently
+$\dd^2\theta/\dd s^2=0$. Thus $\gamma\dot{\theta}$ is constant and rapidity
+is affine in proper time. The unprojected four-jerk remains nonzero
+whenever that constant proper acceleration is nonzero.
 
-\subsection{World lines, clocks, and light cones}
+\subsubsection{Null combinations and the constant-acceleration pattern}
+The symmetry of the paired derivatives becomes especially simple on
+adding or subtracting $\pU$ and $\pN$:
+\[
+ \pU\pm\pN=e^{\pm\theta}\left(1\pm\bu\cdot\bsig\right),\qquad
+ \det\left(\pU\pm\pN\right)=0.
+\]
+These two null directions are fixed; only their scalar factors change.
+Their coordinate-time derivatives are
+\begin{align*}
+ \dot{\pU}\pm\dot{\pN}
+ &=\pm\dot{\theta}\left(\pU\pm\pN\right),\\
+ \ddot{\pU}\pm\ddot{\pN}
+ &=\left(\dot{\theta}^2\pm\ddot{\theta}\right)\left(\pU\pm\pN\right).
+\end{align*}
+The proper-time derivatives follow by the same conversion:
+\begin{align*}
+ \frac{\dd\left(\pU\pm\pN\right)}{\dd s}
+ &=\pm\gamma\dot{\theta}\left(\pU\pm\pN\right),\\
+ \frac{\dd^2\left(\pU\pm\pN\right)}{\dd s^2}
+ &=\left(\gamma^2\dot{\theta}^2
+ \pm\left(\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta}\right)\right)
+ \left(\pU\pm\pN\right).
+\end{align*}
+For constant signed proper acceleration $\dd\theta/\dd s=\gamma\dot{\theta}$,
+every proper-time differentiation multiplies each null combination by the
+same constant factor. For integers $n\ge0$,
+\[
+ \frac{\dd^n\left(\pU\pm\pN\right)}{\dd s^n}
+ =\left(\pm\gamma\dot{\theta}\right)^n\left(\pU\pm\pN\right).
+\]
+Adding and subtracting recovers the derivatives of $\pU$ and $\pN$:
+even orders preserve each direction, while odd orders exchange them.
+These ordinary derivatives remain nonzero for nonzero constant proper
+acceleration, even though the projected jerk is zero.
+The constant-proper-acceleration worldline in
+Section~\ref{sec:constant-proper-acceleration} realizes this pattern;
+Section~\ref{sec:constant-jerk} treats nonzero constant proper jerk.
+
+\subsection{World lines and model motions}
 \label{sec:worldlines}
 
+Dots continue to denote coordinate-time derivatives even when a path is
+parametrized by $s$. The integration limits $s_0,s_1$ below are arbitrary;
+in the constant-motion examples, subscript $0$ denotes the initial event
+$t=s=0$.
+
 \subsubsection{Integrating four-velocity}
-Recall the real path $\pX(s)=t(s)+\br(s)\cdot\bsig$ and its tangent
-$\pU=\dd \pX/\dd s$, an \hyperref[eq:unit-paravector]{invertible paravector}
-with $\pU \pU^{-1}=1$.  For real proper times $s_0<s_1$, integration gives
+Integrating $\pU=\dd\pX/\dd s$ between $s_0<s_1$ gives
 \begin{equation}
- \boxed{\pX(s_1)-\pX(s_0)=\int_{s_0}^{s_1}\pU(s)\dd s.}
+ \pX(s_1)-\pX(s_0)=\int_{s_0}^{s_1}\pU(s)\dd s.
  \label{eq:worldline-integral}
 \end{equation}
 Its real components are
@@ -2064,17 +2233,15 @@ Its real components are
 \end{align*}
 Thus between coordinate times $t_0$ and $t$ the clock records~\citeat{tong-relativity}{Eq.~(7.19)}{page=140}
 \begin{equation}
- \boxed{s(t)-s(t_0)=\int_{t_0}^{t}\frac{\dd t'}{\gamma(t')}
- =\int_{t_0}^{t}\sqrt{1-\bv(t')^2}\dd t'.}
+ s(t)-s(t_0)=\int_{t_0}^{t}\frac{\dd t'}{\gamma(t')}
+ =\int_{t_0}^{t}\sqrt{1-\bv(t')^2}\dd t'.
  \label{eq:elapsed-proper-time}
 \end{equation}
-This is the standard world-line proper-time integral.
-For constant $\pU$, \eqref{eq:worldline-integral} is the straight line
-$\pX(s)=\pX(s_0)+(s-s_0)\pU$.  For varying $\pU$, integrate the tangent;
-an endpoint boost alone does not specify the path.
+The velocity history determines the path; an endpoint boost alone does not.
 
 \subsubsection{Clock comparison}
-Let $\pX_0=\pX(s_0)$ and $\pX_1=\pX(s_1)$ be fixed, time-like separated events.
+Let $\pX_0=\pX(s_0)$ and $\pX_1=\pX(s_1)$ be fixed, time-like separated
+events, with $\pX_1$ to the future of $\pX_0$.
 Write $\pX_k=t_k+\br_k\cdot\bsig$ for $k=0,1$.
 In their separation's rest frame, $\br_1=\br_0$ and
 $t_1-t_0=\sqrt{\det(\pX_1-\pX_0)}$.  Since $\sqrt{1-\bv^2}\le1$,
@@ -2100,38 +2267,19 @@ while the clock at rest records $T$.  This is the twin-clock comparison
 
 \subsubsection{Constant velocity}
 \label{sec:constant-velocity}
-Let the coordinate velocity be a fixed real vector $\bv(t)=\bv_0$ in a
-chosen inertial frame, with $\lVert\bv_0\rVert<1$. The Lorentz factor is
-then constant:
+For $\bv(t)=\bv_0$, $\bv_0^2<1$, and $\br(0)=\br_0$,
 \[
- \gamma_0=\frac{1}{\sqrt{1-\bv_0^2}}.
+ \gamma_0=\frac{1}{\sqrt{1-\bv_0^2}},\qquad
+ \pX(t)=t+\left(\br_0+\bv_0t\right)\cdot\bsig.
 \]
-Starting at $\br(0)=\br_0$, integration of $\dd\br/\dd t=\bv_0$ gives
-\[
- \br(t)=\br_0+\bv_0t,\qquad
- \pX(t)=t+(\br_0+\bv_0t)\cdot\bsig.
-\]
-Taking $s(0)=0$, the elapsed proper time follows from
-\eqref{eq:elapsed-proper-time}:
-\[
- s(t)=\int_0^t\frac{\dd t'}{\gamma_0}
- =\frac{t}{\gamma_0}=t\sqrt{1-\bv_0^2}.
-\]
-Thus $t=\gamma_0s$, and the world line can also be parametrized by the
-particle's clock:
+With $s(0)=0$, the clock integral gives $s=t/\gamma_0$. Hence
 \begin{equation}
- \boxed{\pX(s)=\br_0\cdot\bsig+s\pU_0,\qquad
- \pU_0=\gamma_0(1+\bv_0\cdot\bsig).}
+ \pX(s)=\br_0\cdot\bsig+s\pU_0,\qquad
+ \pU_0=\gamma_0\left(1+\bv_0\cdot\bsig\right).
  \label{eq:constant-velocity-worldline}
 \end{equation}
-The constant four-velocity $\pU_0$ is the tangent to this straight
-time-like world line. Both coordinate acceleration and four-acceleration
-vanish:
-\[
- \ba=\frac{\dd\bv}{\dd t}=0,\qquad
- \frac{\dd\pU}{\dd t}=\frac{\dd\pU}{\dd s}=0.
-\]
-The proper acceleration is therefore zero. For any two events on this
+This straight time-like worldline has $\dot{\bv}=0$ and
+$\dot{\pU}=\dd\pU/\dd s=0$. For any two events on this
 inertial path, $\Delta\pX=\Delta s\,\pU_0$ and $\det\pU_0=1$ give
 \[
  \det(\Delta\pX)=(\Delta s)^2
@@ -2141,140 +2289,147 @@ In the particle's rest frame, $\bv_0=0$, so $\pU_0=1$ and $s=t$.
 
 \subsubsection{Constant coordinate acceleration}
 \label{sec:constant-coordinate-acceleration}
-Constant coordinate acceleration means that $\ba=\dd\bv/\dd t=\ba_0$
+Constant coordinate acceleration means that $\dot{\bv}=\dot{\bv}_0$
 is a fixed real vector in a chosen inertial frame. With initial position
 $\br(0)=\br_0$ and velocity $\bv(0)=\bv_0$, integration gives
 \begin{align}
- \bv(t)&=\bv_0+\ba_0t,\\
- \pX(t)&=t+\left(\br_0+\bv_0t+\tfrac12\ba_0t^2\right)\cdot\bsig.
+ \bv(t)&=\bv_0+\dot{\bv}_0t,\\
+ \pX(t)&=t+\left(\br_0+\bv_0t+\tfrac12\dot{\bv}_0t^2\right)\cdot\bsig.
  \label{eq:constant-coordinate-acceleration-worldline}
 \end{align}
 These familiar coordinate-time formulas also describe a relativistic
-massive particle, provided $\lVert\bv_0+\ba_0t\rVert<1$ throughout the
+massive particle, provided $\lVert\bv_0+\dot{\bv}_0t\rVert<1$ throughout the
 interval considered. A nonzero constant coordinate acceleration can
 therefore persist only for a finite coordinate-time interval.
 
-For motion from rest at the origin, write $\ba_0=a_0\bu$, where $a_0>0$
-and $\bu$ is a fixed real unit vector. Then
+For motion from rest at the origin, write $\dot{\bv}_0=\dot{v}_0\bu$,
+where $\dot{v}_0>0$ is the scalar acceleration along the fixed real unit
+vector $\bu$. Then
 \[
- \bv(t)=a_0t\bu,\qquad
- \pX(t)=t+\tfrac12a_0t^2\bu\cdot\bsig,\qquad
- \gamma(t)=\frac{1}{\sqrt{1-a_0^2t^2}},
- \qquad 0\le t<\frac{1}{a_0}.
+ \bv(t)=\dot{v}_0t\bu,\qquad
+ \pX(t)=t+\tfrac12\dot{v}_0t^2\bu\cdot\bsig,\qquad
+ \gamma(t)=\frac{1}{\sqrt{1-\dot{v}_0^2t^2}},
+ \qquad 0\le t<\frac{1}{\dot{v}_0}.
 \]
-The particle's clock runs at $\dd s/\dd t=1/\gamma(t)$. Taking $s(0)=0$
+The particle's clock runs at $\dot{s}=1/\gamma(t)$. Taking $s(0)=0$
 in \eqref{eq:elapsed-proper-time} gives
 \begin{equation}
- s(t)=\int_0^t\sqrt{1-a_0^2t'^2}\,\dd t'
- =\frac{\arcsin(a_0t)+a_0t\sqrt{1-a_0^2t^2}}{2a_0}.
+ s(t)=\int_0^t\sqrt{1-\dot{v}_0^2t'^2}\,\dd t'
+ =\frac{\arcsin(\dot{v}_0t)+\dot{v}_0t\sqrt{1-\dot{v}_0^2t^2}}{2\dot{v}_0}.
  \label{eq:constant-coordinate-acceleration-clock}
 \end{equation}
 Four-velocity and four-acceleration follow by differentiating the world line:
 \begin{align*}
- \pU(t)&=\gamma(t)(1+a_0t\bu\cdot\bsig),\\
+ \pU(t)&=\gamma(t)(1+\dot{v}_0t\bu\cdot\bsig),\\
  \frac{\dd\pU}{\dd s}
- &=\gamma\frac{\dd\pU}{\dd t}
- =\gamma^4a_0^2t+\gamma^4a_0\bu\cdot\bsig.
+ &=\gamma\dot{\pU}
+ =\gamma^4\dot{v}_0^2t+\gamma^4\dot{v}_0\bu\cdot\bsig.
 \end{align*}
 Consequently,
 \[
  \det\left(\frac{\dd\pU}{\dd s}\right)
- =\gamma^8a_0^2(a_0^2t^2-1)
- =-\gamma^6a_0^2.
+ =\gamma^8\dot{v}_0^2(\dot{v}_0^2t^2-1)
+ =-\gamma^6\dot{v}_0^2.
 \]
 The proper-acceleration magnitude is therefore
 \[
- \alpha(t)=\gamma^3a_0
- =\frac{a_0}{(1-a_0^2t^2)^{3/2}}.
+ \sqrt{-\det\left(\frac{\dd\pU}{\dd s}\right)}=\gamma^3\dot{v}_0
+ =\frac{\dot{v}_0}{(1-\dot{v}_0^2t^2)^{3/2}}.
 \]
 Although the coordinate acceleration stays fixed, the acceleration
 measured in the instantaneous rest frame grows without bound as
-$t\to1/a_0$. The next example instead holds the proper acceleration fixed.
+$t\to1/\dot{v}_0$. The next example instead holds the proper acceleration fixed.
 
 \subsubsection{Constant proper acceleration}
 \label{sec:constant-proper-acceleration}
-Recall the real four-velocity $\pU=\dd \pX/\dd s$, an
-\hyperref[eq:unit-paravector]{invertible paravector} with $\pU \pU^{-1}=1$.
-Let $a>0$ be a constant real proper-acceleration magnitude and $\bu$ a fixed
-\hyperref[def:real-unit-vector]{real unit axis}.  Starting at $\pX(0)=0$ and $\pU(0)=1$, take rapidity
-$\theta(s)=as$.  Then
+Let $\bu$ be a fixed \hyperref[def:real-unit-vector]{real unit axis},
+and start at $\pX(0)=0$, $\pU(0)=1$, with initial coordinate acceleration
+$\dot{\bv}_0=\dot{v}_0\bu$, where $\dot{v}_0>0$.
+At rest $\gamma_0=1$ and $\dot{\theta}_0=\dot{v}_0$. Holding the signed
+proper acceleration along this axis constant gives
+$\theta(s)=\dot{v}_0s$, and hence
 \[
- \pU(s)=\pL(as,\bu)^{-2}=\cosh(as)+\sinh(as)\bu\cdot\bsig.
+ \pU(s)=\pL(\dot{v}_0s,\bu)^{-2}=\cosh(\dot{v}_0s)+\sinh(\dot{v}_0s)\bu\cdot\bsig.
 \]
 Differentiation verifies the stated acceleration:
 \[
  \det\left(\frac{\dd \pU}{\dd s}\right)
- =-a^2\bigl(\cosh^2(as)-\sinh^2(as)\bigr)=-a^2.
+ =-\dot{v}_0^2\bigl(\cosh^2(\dot{v}_0s)-\sinh^2(\dot{v}_0s)\bigr)=-\dot{v}_0^2.
 \]
 Integrating \eqref{eq:worldline-integral} yields~\citeat{tong-relativity}{Eq.~(7.33), pp.~142--143}{page=148}
 \begin{equation}
- \boxed{\pX(s)=\frac{\sinh(as)}{a}
-       +\frac{\cosh(as)-1}{a}\bu\cdot\bsig.}
+ \pX(s)=\frac{\sinh(\dot{v}_0s)}{\dot{v}_0}
+       +\frac{\cosh(\dot{v}_0s)-1}{\dot{v}_0}\bu\cdot\bsig.
  \label{eq:hyperbolic-worldline}
 \end{equation}
 Its components give
 \begin{align*}
- \bv(s)&=\frac{\dd\br/\dd s}{\dd t/\dd s}=\tanh(as)\bu,\\
- \bigl(1+a\bu\cdot\br\bigr)^2-(at)^2&=1.
+ \bv(t(s))&=\tanh(\dot{v}_0s)\bu,\\
+ \bigl(1+\dot{v}_0\bu\cdot\br\bigr)^2-(\dot{v}_0t)^2&=1.
 \end{align*}
 Thus \eqref{eq:hyperbolic-worldline} is the usual hyperbolic motion, with
 speed below light speed at every finite $s$.
-Eliminating $s$ using $at=\sinh(as)$ makes the coordinate acceleration explicit:
+Eliminating $s$ using $\dot{v}_0t=\sinh(\dot{v}_0s)$ makes the coordinate acceleration explicit:
 \[
- \bv(t)=\frac{at}{\sqrt{1+a^2t^2}}\bu,\qquad
- \ba(t)=\frac{\dd\bv}{\dd t}
- =\frac{a}{(1+a^2t^2)^{3/2}}\bu.
+ \bv(t)=\frac{\dot{v}_0t}{\sqrt{1+\dot{v}_0^2t^2}}\bu,\qquad
+ \dot{\bv}(t)
+ =\frac{\dot{v}_0}{(1+\dot{v}_0^2t^2)^{3/2}}\bu.
 \]
-Here $\gamma(t)=\sqrt{1+a^2t^2}$, so
-$\gamma^3\lVert\ba(t)\rVert=a$ is constant while the coordinate
+Here $\gamma(t)=\sqrt{1+\dot{v}_0^2t^2}$, so
+$\gamma^3\lVert\dot{\bv}(t)\rVert=\dot{v}_0$ is constant while the coordinate
 acceleration decreases as the particle gains speed.
 
 \subsubsection{Constant jerk}
 \label{sec:constant-jerk}
-The jerk held constant must be specified together with the time parameter
-and frame. We first integrate constant coordinate jerk, then constant
-proper jerk along a fixed axis, and finally the literal condition of a
-constant unprojected four-jerk.
+We distinguish constant coordinate jerk in a chosen inertial frame,
+constant signed proper jerk along a fixed axis, and constant components
+of the unprojected four-jerk. The last condition is preserved by constant
+Lorentz transformations.
 
-\paragraph{Constant coordinate jerk: $\dd\ba/\dd t=\bj_0$.}
-Let $\bj_0$ be a fixed real vector in an inertial frame. Starting at
-$t=0$ with $\br_0$, $\bv_0$, and $\ba_0$, successive integrations give
+\paragraph{Constant coordinate jerk.}
+For $\ddot{\bv}=\ddot{\bv}_0$ in a chosen inertial frame, integration gives
 \begin{align}
- \ba(t)&=\ba_0+\bj_0t,\notag\\
- \bv(t)&=\bv_0+\ba_0t+\tfrac12\bj_0t^2,\notag\\
+ \dot{\bv}(t)&=\dot{\bv}_0+\ddot{\bv}_0\,t,\notag\\
+ \bv(t)&=\bv_0+\dot{\bv}_0t+\tfrac12\ddot{\bv}_0\,t^2,\notag\\
  \pX(t)&=t+
- \left(\br_0+\bv_0t+\tfrac12\ba_0t^2+\tfrac16\bj_0t^3\right)\cdot\bsig.
+ \left(\br_0+\bv_0t+\tfrac12\dot{\bv}_0t^2+\tfrac16\ddot{\bv}_0\,t^3\right)\cdot\bsig.
  \label{eq:constant-coordinate-jerk}
 \end{align}
-The allowed interval satisfies $\lVert\bv(t)\rVert<1$. On that interval,
-\[
- \gamma(t)=\frac{1}{\sqrt{1-\bv(t)^2}},\qquad
- \pU(t)=\gamma(t)(1+\bv(t)\cdot\bsig),\qquad
- s(t)=\int_0^t\sqrt{1-\bv(t')^2}\,\dd t'.
-\]
-The four-jerk follows by inserting these $\bv(t)$, $\ba(t)$, and
-$\bj_0$ in \eqref{eq:four-jerk-components}; it generally varies with time.
+These formulas apply on the interval where $\bv(t)^2<1$.
+Equations~\eqref{eq:lorentz-factor}, \eqref{eq:proper-velocity}, and
+\eqref{eq:elapsed-proper-time} give $\gamma$, $\pU$, and $s(t)$;
+\eqref{eq:four-jerk-components} gives the generally varying four-jerk.
 For example, from rest with zero initial acceleration, take
-$\bj_0=j_0\bu$, $j_0>0$, along a fixed real unit axis. Then
+$\ddot{\bv}_0=\ddot{v}_0\bu$, where $\ddot{v}_0>0$ is the scalar jerk
+along the fixed real unit axis $\bu$. Then
 \[
- \bv(t)=\tfrac12j_0t^2\bu,\qquad
- \br(t)=\br_0+\tfrac16j_0t^3\bu,\qquad
- 0\le t<\sqrt{\frac{2}{j_0}}.
+ \bv(t)=\tfrac12\ddot{v}_0t^2\bu,\qquad
+ \br(t)=\br_0+\tfrac16\ddot{v}_0t^3\bu,\qquad
+ 0\le t<\sqrt{\frac{2}{\ddot{v}_0}}.
 \]
-Here $a_{\mathrm c}=j_0t$ and $\beta=j_0t^2/2$, so
+Here $\dot{\beta}=\ddot{v}_0t$ and $\beta=\ddot{v}_0t^2/2$, so
 \eqref{eq:coordinate-proper-jerk} gives
-$k(t)=\gamma^4j_0+3\gamma^6\beta(j_0t)^2$.
+$\dd^2\theta/\dd s^2=\gamma^4\ddot{v}_0+3\gamma^6\beta\left(\ddot{v}_0t\right)^2$.
 Thus constant coordinate jerk does not give constant proper jerk.
 
-\paragraph{Constant proper jerk: $\dd h/\dd s=k_0$.}
-For the fixed-axis motion of Section~\ref{sec:jerk}, choose real constants
-$h_0$, $k_0$, and initial rapidity $\theta_0$. Integrating with respect to
-the particle's proper time gives
-\begin{equation}
- \boxed{h(s)=h_0+k_0s,\qquad
- \theta(s)=\theta_0+h_0s+\tfrac12k_0s^2.}
+\paragraph{Constant proper jerk.}
+For fixed-axis motion, hold the signed quantity $\dd^2\theta/\dd s^2$ constant. Express its value and the initial signed
+proper acceleration in coordinate-time data using
+$\gamma_0=\cosh\theta_0$ and $\dot{\gamma}_0=\sinh\theta_0\dot{\theta}_0$.
+Integrating with respect to proper time gives
+\begin{align}
+ \frac{\dd\theta}{\dd s}
+ &=\gamma_0\dot{\theta}_0
+ +\left(\gamma_0^2\ddot{\theta}_0
+       +\gamma_0\dot{\gamma}_0\dot{\theta}_0\right)s,\notag\\
+ \theta(s)&=\theta_0+\gamma_0\dot{\theta}_0s
+ +\frac12\left(\gamma_0^2\ddot{\theta}_0
+       +\gamma_0\dot{\gamma}_0\dot{\theta}_0\right)s^2.
  \label{eq:constant-proper-jerk}
-\end{equation}
+\end{align}
+If the particle starts at rest, $\theta_0=0$, $\gamma_0=1$, and
+$\dot{\gamma}_0=0$, so this reduces to
+$\theta(s)=\dot{\theta}_0s+\tfrac12\ddot{\theta}_0s^2$.
 The corresponding world line, with $t(0)=0$, is
 \begin{align}
  t(s)&=\int_0^s\cosh\theta(s')\,\dd s',\notag\\
@@ -2288,89 +2443,91 @@ Because $\dd t/\dd s=\cosh\theta>0$, they also define a unique
 coordinate-time trajectory. Its velocity, acceleration, and jerk are
 \begin{align*}
  \bv(t(s))&=\tanh\theta(s)\bu,\\
- \ba(t(s))&=\frac{h(s)}{\cosh^3\theta(s)}\bu,\\
- \bj(t(s))&=\frac{k_0-3h(s)^2\tanh\theta(s)}{\cosh^4\theta(s)}\bu.
+ \dot{\bv}(t(s))&=\frac{1}{\cosh^3\theta(s)}\frac{\dd\theta}{\dd s}\bu,\\
+ \ddot{\bv}(t(s))&=\frac{1}{\cosh^4\theta(s)}
+ \left(\frac{\dd^2\theta}{\dd s^2}-3\left(\frac{\dd\theta}{\dd s}\right)^2\tanh\theta(s)\right)\bu.
 \end{align*}
-The projected derivative is
-\[
- \frac{\dd^2\pU}{\dd s^2}-h(s)^2\pU=k_0\pN.
-\]
-It has constant magnitude $|k_0|$, although its components in the original
-inertial frame change as $\pN$ changes. The unprojected four-jerk is
-\[
- \frac{\dd^2\pU}{\dd s^2}=h(s)^2\pU+k_0\pN.
-\]
-Setting $k_0=0$, $\theta_0=0$, and $h_0=a>0$ recovers the preceding
+The projected jerk is $(\dd^2\theta/\dd s^2)\pN$, as derived in
+Section~\ref{sec:jerk}. Its magnitude is constant, while its inertial-frame
+components change with $\pN$. The unprojected derivative also contains
+the changing component $(\dd\theta/\dd s)^2\pU$.
+Setting $\theta_0=0$, $\ddot{\theta}_0=0$, and
+$\dot{\theta}_0=\dot{v}_0>0$ recovers the preceding
 constant-proper-acceleration example.
 
 \paragraph{Constant unprojected four-jerk.}
-If the components of $\dd^3\pX/\dd s^3=\dd^2\pU/\dd s^2$ are constant
-in an inertial frame, write primes for $\dd/\dd s$ and use subscript $0$
-for evaluation at $s=0$. Direct integration gives
+If the components of $\dd^2\pU/\dd s^2$ are constant in an inertial frame,
+its value is determined by the initial coordinate-time derivatives:
+\[
+ \frac{\dd^2\pU}{\dd s^2}
+ =\gamma_0^2\ddot{\pU}_0+\gamma_0\dot{\gamma}_0\dot{\pU}_0.
+\]
+Here $\gamma_0$ and $\dot{\gamma}_0$ are the scalar parts of
+$\pU_0$ and $\dot{\pU}_0$, respectively.
+Direct integration then gives
 \begin{align*}
- \pU'(s)&=\pU'_0+s\pU''_0,\\
- \pU(s)&=\pU_0+s\pU'_0+\tfrac12s^2\pU''_0,\\
- \pX(s)&=\pX_0+s\pU_0+\tfrac12s^2\pU'_0+\tfrac16s^3\pU''_0.
+ \pU(s)&=\pU_0+s\gamma_0\dot{\pU}_0
+ +\frac{s^2}{2}\left(\gamma_0^2\ddot{\pU}_0
+                   +\gamma_0\dot{\gamma}_0\dot{\pU}_0\right),\\
+ \pX(s)&=\pX_0+s\pU_0+\frac{s^2}{2}\gamma_0\dot{\pU}_0
+ +\frac{s^3}{6}\left(\gamma_0^2\ddot{\pU}_0
+                   +\gamma_0\dot{\gamma}_0\dot{\pU}_0\right).
 \end{align*}
-These initial derivatives must preserve $\det\pU(s)=1$. Equating powers
-of $s$, using the metric pairing in \eqref{eq:lorentz-pairing}, gives
+With $\pU_0$ future-directed, the following coefficient conditions
+are necessary and sufficient for $\det\pU(s)=1$. Equating powers of $s$
+using the metric pairing in \eqref{eq:lorentz-pairing} gives
 \begin{gather*}
- \det\pU_0=1,\qquad \scpart{\pU_0^*\pU'_0}=0,\qquad
- \scpart{\pU_0^*\pU''_0}=-\det(\pU'_0),\\
- \scpart{(\pU'_0)^*\pU''_0}=0,\qquad \det(\pU''_0)=0.
+ \det\pU_0=1,\qquad \scpart{\pU_0^*\dot{\pU}_0}=0,\qquad
+ \scpart{\pU_0^*\ddot{\pU}_0}=-\det\left(\dot{\pU}_0\right),\\
+ \gamma_0\scpart{\dot{\pU}_0^*\ddot{\pU}_0}
+ +\dot{\gamma}_0\det\left(\dot{\pU}_0\right)=0,\qquad
+ \det\left(\gamma_0\ddot{\pU}_0+\dot{\gamma}_0\dot{\pU}_0\right)=0.
 \end{gather*}
 In particular, a nonzero constant $\dd^2\pU/\dd s^2$ must be null.
-A concrete example~\citeat{russo-townsend}{Eq.~(3.40)}{page=15}
-uses perpendicular real unit vectors $\bu$ and $\bn$, with $b>0$, and
-initial data
+If it is zero, the normalization conditions force $\dot{\pU}_0=0$,
+so the motion is inertial.
+
+For a concrete example~\citeat{russo-townsend}{Eq.~(3.40)}{page=15},
+start at rest at the origin and choose nonzero initial coordinate
+acceleration $\dot{\bv}_0$ and jerk $\ddot{\bv}_0$ satisfying
+\[
+ \dot{\bv}_0\cdot\ddot{\bv}_0=0,\qquad
+ \ddot{\bv}_0^2=\left(\dot{\bv}_0^2\right)^2.
+\]
+Here $\gamma_0=1$ and $\dot{\gamma}_0=0$, so the initial paravector data are
 \[
  \pX_0=0,\qquad \pU_0=1,\qquad
- \pU'_0=b\bu\cdot\bsig,\qquad \pU''_0=b^2(1+\bn\cdot\bsig).
+ \dot{\pU}_0=\dot{\bv}_0\cdot\bsig,\qquad
+ \ddot{\pU}_0=\dot{\bv}_0^2+\ddot{\bv}_0\cdot\bsig.
 \]
 The resulting world line is
 \begin{equation}
- \pX(s)=s+\tfrac16b^2s^3
- +\left(\tfrac12bs^2\bu+\tfrac16b^2s^3\bn\right)\cdot\bsig.
+ \pX(s)=s+\tfrac16\dot{\bv}_0^2s^3
+ +\left(\tfrac12\dot{\bv}_0s^2+\tfrac16\ddot{\bv}_0s^3\right)\cdot\bsig.
  \label{eq:constant-four-jerk-worldline}
 \end{equation}
 Differentiation verifies
 \[
- \frac{\dd^3\pX}{\dd s^3}
- =\frac{\dd^2\pU}{\dd s^2}=b^2(1+\bn\cdot\bsig),\qquad
+ \frac{\dd^2\pU}{\dd s^2}=\dot{\bv}_0^2+\ddot{\bv}_0\cdot\bsig,\qquad
  \det\pU=1.
 \]
-Also $\dd t/\dd s=1+b^2s^2/2>0$, so $s$ is indeed future-directed
+Its invariants are
+\[
+ \det\left(\frac{\dd\pU}{\dd s}\right)=-\dot{\bv}_0^2,\qquad
+ \det\left(\frac{\dd^2\pU}{\dd s^2}\right)=0.
+\]
+Thus the proper-acceleration magnitude $\lVert\dot{\bv}_0\rVert$ and,
+by \eqref{eq:proper-jerk-determinant}, the proper-jerk magnitude
+$\dot{\bv}_0^2=\lVert\ddot{\bv}_0\rVert$ are both constant.
+Also $\dd t/\dd s=1+\dot{\bv}_0^2s^2/2>0$, so $s$ is indeed future-directed
 proper time. This curved spatial path is a different motion from the
 fixed-axis constant-proper-jerk example.
 
-\subsubsection{Light cones}
-For a real event separation $\Delta \pX=\Delta t+\Delta\br\cdot\bsig$,
-the eigenvalues are $\Delta t\pm\lVert\Delta\br\rVert$.
-Both are nonnegative precisely in the future causal cone:
-\begin{equation}
- \Delta t\ge\lVert\Delta\br\rVert.
- \label{eq:future-light-cone}
-\end{equation}
-The boundary has $\det(\Delta \pX)=0$; for a
-\hyperref[def:real-unit-vector]{real unit vector} $\bu$, its nonzero future rays are
-\[
- \Delta \pX=\Delta t(1+\bu\cdot\bsig),
- \qquad \Delta t>0,\quad\bu^2=1.
-\]
-The Hermitian congruence~\eqref{eq:general-lorentz-congruence} preserves
-nonnegativity of the eigenvalues and the determinant, hence the cone and its
-boundary.  For a future time-like or null path,
-\[
- \lVert\Delta\br\rVert
- =\left\lVert\int\bv\dd t\right\rVert
- \le\int\lVert\bv\rVert\dd t\le\Delta t.
-\]
-Its endpoints therefore satisfy \eqref{eq:future-light-cone}; a space-like
-separation cannot carry a causal signal
-\citeat{tong-relativity}{p.~118}{page=124}.
-
 \section{Inertial frames and particle dynamics}
 \label{sec:inertial-frames}
+
+Recall that a dot denotes a total derivative with respect to coordinate
+time $t$, for example $\dot{\br}=\dd\br/\dd t$.
 
 Constant Lorentz transformations relate coordinates and measured quantities in
 inertial frames. The invariant mass and proper time retain the meanings
@@ -2452,7 +2609,7 @@ $\dd \pX'=\dd s$: the boost takes the particle's instantaneous tangent
 to rest.  For varying velocity, a different $\pL$ is needed at each point;
 Section~\ref{sec:varying-transformations} supplies its derivative terms.
 
-Recall the particle velocity $\bv=\dd\br/\dd t$ and resolve it along
+Recall the particle velocity $\bv=\dot{\br}$ and resolve it along
 $\bu$.  Dividing the spatial increment by
 $\dd t'=\gamma(1-\beta\bu\cdot\bv)\dd t$ gives~\citeat{tong-relativity}{Eq.~(7.22)}{page=141}
 \begin{equation}
@@ -2548,7 +2705,7 @@ The force response is derived in
 
 \subsection{Free-particle action}
 
-Recall real $m>0$, $\bv=\dd\br/\dd t$, and $\dd s=\dd t/\gamma$.
+Recall real $m>0$, $\bv=\dot{\br}$, and $\dd s=\dd t/\gamma$.
 Here $L:\R\times\R^3\times\{\bv\in\R^3:\bv^2<1\}\to\R$
 is the particle Lagrangian; the boost factor is $\pL\in\R\oplus\R^3$.
 $\partial_{\bv}$ denotes its vector derivative with respect to the three
@@ -2566,15 +2723,15 @@ For endpoint-fixed real path variations $\delta\br(t)$, varying the
 Lagrangian and integrating by parts gives
 \[
  \delta\int L\dd t
- =\int\left(\pdr L-\frac{\dd}{\dd t}\partial_{\bv}L\right)
+ =\int\left(\pdr L-\frac{\dd\left(\partial_{\bv}L\right)}{\dd t}\right)
  \cdot\delta\br\dd t.
 \]
 Stationarity for every variation yields the Euler--Lagrange equation.
 With Hamiltonian $H:=\bv\cdot\partial_{\bv}L-L\in\R$, the chain rule gives
 \begin{align}
- \frac{\dd}{\dd t}\partial_{\bv}L&=\pdr L, \label{eq:euler-lagrange}\\
- \frac{\dd H}{\dd t}
- &=\bv\cdot\left(\frac{\dd}{\dd t}\partial_{\bv}L-\pdr L\right)
+ \frac{\dd\left(\partial_{\bv}L\right)}{\dd t}&=\pdr L, \label{eq:euler-lagrange}\\
+ \dot{H}
+ &=\bv\cdot\left(\frac{\dd\left(\partial_{\bv}L\right)}{\dd t}-\pdr L\right)
    -\partial_tL=-\partial_tL. \label{eq:hamiltonian-energy-balance}
 \end{align}
 By \eqref{eq:euler-lagrange} and \eqref{eq:hamiltonian-energy-balance},
@@ -2628,7 +2785,7 @@ Define the partial paravector and its sigma conjugate by~\citeat{hestenes-spacet
  \label{eq:paravector-derivative}
 \end{equation}
 \begin{equation*}
- \pvpartial^*=\adj{\pvpartial}=\partial_t-\bsig\cdot\pdr.
+ \pvpartial^*=\operatorname{adj} \pvpartial=\partial_t-\bsig\cdot\pdr.
 \end{equation*}
 The sigma generators are constant.  Derivatives act from the left on
 everything to their right unless parentheses specify their scope.
@@ -2729,10 +2886,12 @@ and its vector part then gives $\dd\bv/\dd f=0$.  Therefore
 \end{equation*}
 The real constants $\bC_1,\bC_2\in\R^3$ are inertial velocity and
 position at inertial time $f=0$, with $\bC_1^2<1$.
-Overdots denote total derivatives along this curve with respect to $t$;
-wherever $\dot f\ne0$,
+Recall that overdots denote total derivatives along this curve with
+respect to the chart time $t$: $\dot f=\dd f/\dd t$ and
+$\ddot f=\dd^2f/\dd t^2$, with the same convention for $\bg$ and $\bv$.
+Wherever $\dot f\ne0$,
 \begin{equation*}
- \dot{\bv}=\frac{\ddot{\bg}\dot f-\dot{\bg}\ddot f}{(\dot f)^2}.
+ \dot{\bv}=\frac{\ddot{\bg}\dot f-\dot{\bg}\ddot f}{\dot f^2}.
 \end{equation*}
 
 \subsection{Varying frames and local bases}
@@ -3019,6 +3178,10 @@ $\bBf'=0$ and $\bE'=0$, respectively.
 
 \subsection{Lorentz force from the action}
 
+Recall that a dot is a total derivative along the particle's path with
+respect to coordinate time $t$, for example $\dot{\bp}=\dd\bp/\dd t$.
+The field derivatives $\partial_t$ are partial derivatives at fixed position.
+
 Recall the real four-velocity $\pU=\dd \pX/\dd s=\gamma(1+\bv\cdot\bsig)$,
 an \hyperref[eq:unit-paravector]{invertible paravector} with $\pU \pU^{-1}=1$.
 Let $q\in\R$ be charge and $m>0$ constant mass.  The real momentum is
@@ -3035,8 +3198,8 @@ Since $\scpart{\pA^*\pU}=\gamma(V-\bv\cdot\bA)$, the Lagrangian is
 Its Euler--Lagrange terms are
 \begin{align*}
  \partial_{\bv}L&=\bp+q\bA,\\
- \frac{\dd}{\dd t}\partial_{\bv}L
- &=\frac{\dd\bp}{\dd t}+q\partial_t\bA+q(\bv\cdot\pdr)\bA,\\
+ \frac{\dd\left(\partial_{\bv}L\right)}{\dd t}
+ &=\dot{\bp}+q\partial_t\bA+q(\bv\cdot\pdr)\bA,\\
  \pdr L&=-q\pdr V+q\pdr(\bv\cdot\bA).
 \end{align*}
 Here spatial differentiation holds the independent velocity argument fixed.
@@ -3044,7 +3207,7 @@ Using
 $\pdr(\bv\cdot\bA)-(\bv\cdot\pdr)\bA
 =\bv\times(\pdr\times\bA)$ gives~\citeat{tong-em}{Eq.~(5.32)}{page=124}
 \begin{equation}
- \frac{\dd\bp}{\dd t}=q(\bE+\bv\times\bBf).
+ \dot{\bp}=q(\bE+\bv\times\bBf).
  \label{eq:lorentz-momentum}
 \end{equation}
 Here \eqref{eq:electric-potential} and \eqref{eq:magnetic-potential}
@@ -3056,12 +3219,12 @@ The Hamiltonian is
 \end{equation}
 Using \eqref{eq:hamiltonian-energy-balance} in \eqref{eq:charged-hamiltonian},
 \begin{align*}
- \frac{\dd E}{\dd t}+q\partial_tV+q\bv\cdot\pdr V
+ \dot{E}+q\partial_tV+q\bv\cdot\pdr V
  &=-\partial_tL=q\partial_tV-q\bv\cdot\partial_t\bA.
 \end{align*}
 Canceling $q\partial_tV$ and using \eqref{eq:electric-potential} gives~\citeat{tong-em}{p.~116}{page=124}
 \begin{equation}
- \frac{\dd E}{\dd t}=q\bv\cdot\bE.
+ \dot{E}=q\bv\cdot\bE.
  \label{eq:lorentz-energy}
 \end{equation}
 This is the mechanical work rate. Thus $\bp+q\bA$ and $H=E+qV$ are
@@ -3100,7 +3263,7 @@ need not vanish for an electric charge.
 Recall the real four-velocity $\pU=\dd \pX/\dd s$, an
 \hyperref[eq:unit-paravector]{invertible paravector} with $\pU \pU^{-1}=1$ and
 $\pU^{-1}=\pU^*$, real momentum $\pP=m\pU$, and coordinate acceleration
-$\ba=\dd\bv/\dd t$.  Scalar-part cyclicity proves tangency to the mass shell:
+$\dot{\bv}=\dd\bv/\dd t$.  Scalar-part cyclicity proves tangency to the mass shell:
 \begin{align*}
  \scpart{\pU^*\dd \pP/\dd s}
  &=\frac q2\scpart{\pU^*\pF \pU+\pF^{\mathsf H}}\\
@@ -3111,13 +3274,13 @@ Section~\ref{sec:proper-acceleration}.
 Combining \eqref{eq:proper-acceleration-components} with the force components
 in \eqref{eq:force-product} gives
 \begin{align*}
- m\gamma^3\bv\cdot\ba&=q\bv\cdot\bE,\\
- m\gamma\left(\ba+\gamma^2(\bv\cdot\ba)\bv\right)
+ m\gamma^3\bv\cdot\dot{\bv}&=q\bv\cdot\bE,\\
+ m\gamma\left(\dot{\bv}+\gamma^2(\bv\cdot\dot{\bv})\bv\right)
  &=q(\bE+\bv\times\bBf).
 \end{align*}
-Eliminating $\bv\cdot\ba$ yields the coordinate acceleration
+Eliminating $\bv\cdot\dot{\bv}$ yields the coordinate acceleration
 \begin{equation*}
- \boxed{\ba=\frac{q}{m\gamma}
+ \boxed{\dot{\bv}=\frac{q}{m\gamma}
  \left(\bE+\bv\times\bBf-(\bv\cdot\bE)\bv\right).}
 \end{equation*}
 The magnetic term changes momentum without doing work.
@@ -3318,42 +3481,48 @@ factors, as derived in Section~\ref{sec:transformations}.
 \label{sec:quantum-energy-momentum}
 
 Recall $\pX=t+\br\cdot\bsig$, with real coordinates $(t,\br)\in\R^4$.
-Temporarily restore Planck's constant $h>0$ and $\hbar=h/(2\pi)$,
-keeping $c=1$.  For a free wave, let $\omega\in\R$ be angular frequency
-($2\pi$ times cycles per unit time), and let $\bk\in\R^3$ be its
-wavenumber vector in cycles per unit length.  For $\bk\ne0$, the wavelength
-$\lambda>0$ satisfies $\lVert\bk\rVert=1/\lambda$.
+Reverting to SI units for the following wave relations, retain Planck's
+constant $h>0$ and $\hbar=h/(2\pi)$. For a free wave, let
+$\omega\in\R$ be angular frequency in radians per second,
+and let $\bk\in\R^3$ be its wavenumber vector in cycles
+per metre. For $\bk\ne0$, the wavelength
+$\lambda>0$ satisfies
+$\lVert\bk\rVert=1/\lambda$.
 
 The physical input is the Planck--Einstein energy relation and de Broglie
 momentum relation~\citeat{debroglie1929}{p.~248}{page=5}\,\citeat{debroglie1929}{p.~249}{page=6}:
-\begin{align}
- E&=\hbar\omega,
+\begin{gather}
+ \boxed{E=\hbar\omega}_{\,\mathrm{SI}},
  \label{eq:planck-einstein}\\
- \bp&=h\bk=2\pi\hbar\bk.
+ \boxed{\bp=h\bk}_{\,\mathrm{SI}}.
  \label{eq:debroglie-momentum}
-\end{align}
-Here $E\in\R$ is total energy, including rest energy, and
-$\bp\in\R^3$ is momentum; its magnitude is $h/\lambda$.
+\end{gather}
+Here $E\in\R$ is total energy in joules, including rest
+energy, and $\bp\in\R^3$ is momentum in
+$\mathrm{kg\,m\,s^{-1}}$.
 Photoelectric measurements test the energy relation~\citeat{millikan1924}{p.~62}{page=9};
 electron diffraction tests the momentum relation~\citeat{debroglie1929}{p.~255}{page=12}.
 
-For the constant real four-momentum $\pP=E+\bp\cdot\bsig$, the
-complex scalar plane wave is
-\[
- \begin{aligned}
- f(\pX,\pP)&:=\exp\!\left(-\ii(\omega t-2\pi\bk\cdot\br)\right)\\
-       &=\exp\!\left(-\frac{\ii}{\hbar}(Et-\bp\cdot\br)\right).
- \end{aligned}
-\]
+For constant $E$ and $\bp$, with time
+$t$ in seconds and position $\br$ in metres,
+the complex scalar plane wave is
+\begin{gather*}
+ f(t,\br):=\exp\!\left(-\ii\left(\omega t
+             -2\pi\bk\cdot\br\right)\right),\\
+ \boxed{f(t,\br)=\exp\!\left(-\frac{\ii}{\hbar}\left(Et
+             -\bp\cdot\br\right)\right)}_{\,\mathrm{SI}}.
+\end{gather*}
 The second line substitutes \eqref{eq:planck-einstein} and
 \eqref{eq:debroglie-momentum}.  Differentiating gives
-\begin{align*}
- \ii\hbar\partial_t f&=Ef,\\
- -\ii\hbar\pdr f&=\bp f.
-\end{align*}
-Thus $\ii\hbar\partial_t$ and $-\ii\hbar\pdr$ represent energy and
-momentum on each mode, and extend to superpositions by linearity.
-Returning to $\hbar=1$ means $h=2\pi$, giving~\citeat{tong-qft}{Eq.~(4.104)}{page=106}
+\begin{gather*}
+ \boxed{+\ii\hbar\partial_t f=Ef}_{\,\mathrm{SI}},\\
+ \boxed{-\ii\hbar\pdr f=\bp f}_{\,\mathrm{SI}}.
+\end{gather*}
+These operators represent energy and momentum on each mode and extend
+to superpositions by linearity.
+Returning to natural units $\hbar=c=1$ gives $h=2\pi$. We use
+$\pX=t+\br\cdot\bsig$ and
+$\pP=E+\bp\cdot\bsig$, obtaining~\citeat{tong-qft}{Eq.~(4.104)}{page=106}
 \begin{equation}
  f(\pX,\pP)=\exp\!\left(-\ii(Et-\bp\cdot\br)\right).
  \label{eq:plane-wave}
@@ -3367,7 +3536,7 @@ The two eigenvalue equations combine into
 Define the canonical energy and momentum operators by
 \begin{equation}
  \begin{aligned}
- \hE&:=\ii\partial_t,\\
+ \hE&:=+\ii\partial_t,\\
  \hbp&:=-\ii\pdr,
  \end{aligned}
  \label{eq:canonical-operators}
@@ -3394,7 +3563,7 @@ $\pA:\R^4\to\R\oplus\R^3$.
 Within the coupling formulas, subscript $0$ labels the uncoupled
 operators of \eqref{eq:canonical-operators}:
 \begin{align*}
- \hE_0&:=\ii\partial_t,\\
+ \hE_0&:=+\ii\partial_t,\\
  \hbp_0&:=-\ii\pdr,\\
  \hP_0&:=\ii\pvpartial^*.
 \end{align*}
@@ -4513,7 +4682,7 @@ sigma conjugation of the vector part gives
 \end{equation*}
 Thus the transformed potentials and fields satisfy the same
 Maxwell equation~\eqref{eq:maxwell}; the scalar wave operator also obeys
-$\Box'=\det(\pvpartial')=\det(\pvpartial)=\Box$.
+$\Box'=\det \pvpartial'=\det \pvpartial=\Box$.
 
 \subsection{Wave phases and spinor covariance}
 
@@ -5128,7 +5297,7 @@ The basic operations are
    \tag*{\eqref{eq:algebra-H}}\\
  \pZ^*&=c^*-\bZ^*\cdot\bsig,
    \tag*{\eqref{eq:algebra-star}}\\
- \adj {\pZ}&=\pZ^{*\mathsf H}=c-\bZ\cdot\bsig,
+ \operatorname{adj} \pZ&=\pZ^{*\mathsf H}=c-\bZ\cdot\bsig,
    \tag*{\eqref{eq:adjugate}}\\
  \operatorname{tr}\pZ&=2\scpart {\pZ},
    \tag*{\eqref{eq:trace-scalar}}\\
