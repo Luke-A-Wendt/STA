@@ -1,14 +1,14 @@
 # Space–Time Algebra
 
-**[Complex scalars](https://en.wikipedia.org/wiki/Complex_number) and [three-vectors](https://en.wikipedia.org/wiki/Euclidean_vector) provide a common [paravector](https://en.wikipedia.org/wiki/Paravector) language for [quaternions](https://en.wikipedia.org/wiki/Quaternion), [rotations](https://en.wikipedia.org/wiki/Rotation_%28mathematics%29), [Lorentz boosts](https://en.wikipedia.org/wiki/Lorentz_transformation), [projections](https://en.wikipedia.org/wiki/Paravector#Null_paravectors_as_projectors), [spacetime geometry](https://en.wikipedia.org/wiki/Minkowski_space), [relativistic particle dynamics](https://en.wikipedia.org/wiki/Relativistic_mechanics), [Maxwell's equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations), [electromagnetic waves](https://en.wikipedia.org/wiki/Electromagnetic_radiation) and [forces](https://en.wikipedia.org/wiki/Lorentz_force), [gauge coupling](https://en.wikipedia.org/wiki/Minimal_coupling), the [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) equations, their [Schrödinger](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation) and [Pauli](https://en.wikipedia.org/wiki/Pauli_equation) low-energy limits, and [spin-one-half](https://en.wikipedia.org/wiki/Spin-1/2) [amplitudes](https://en.wikipedia.org/wiki/Probability_amplitude) and [measurement probabilities](https://en.wikipedia.org/wiki/Born_rule).**
+**A common [paravector](https://en.wikipedia.org/wiki/Paravector) language is provided by [complex scalars](https://en.wikipedia.org/wiki/Complex_number) and [three-vectors](https://en.wikipedia.org/wiki/Euclidean_vector) for [quaternions](https://en.wikipedia.org/wiki/Quaternion), [rotations](https://en.wikipedia.org/wiki/Rotation_%28mathematics%29), [Lorentz boosts](https://en.wikipedia.org/wiki/Lorentz_transformation), [projections](https://en.wikipedia.org/wiki/Paravector#Null_paravectors_as_projectors), [spacetime geometry](https://en.wikipedia.org/wiki/Minkowski_space), [relativistic particle dynamics](https://en.wikipedia.org/wiki/Relativistic_mechanics), [Maxwell's equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations), [electromagnetic waves](https://en.wikipedia.org/wiki/Electromagnetic_radiation) and [forces](https://en.wikipedia.org/wiki/Lorentz_force), [gauge coupling](https://en.wikipedia.org/wiki/Minimal_coupling), the [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) equations, their [Schrödinger](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation) and [Pauli](https://en.wikipedia.org/wiki/Pauli_equation) low-energy limits, and [spin-one-half](https://en.wikipedia.org/wiki/Spin-1/2) [amplitudes](https://en.wikipedia.org/wiki/Probability_amplitude) and [measurement probabilities](https://en.wikipedia.org/wiki/Born_rule).**
 
-[Read the paper](./sta_notes.pdf) · [LaTeX source](./sta_notes.tex)
+[Paper (PDF)](./sta_notes.pdf) · [LaTeX source](./sta_notes.tex)
 
-We use [natural units](https://en.wikipedia.org/wiki/Natural_units) $`\hbar=c=1`$, [rationalized electromagnetic units](https://en.wikipedia.org/wiki/Heaviside%E2%80%93Lorentz_units), and [signature](https://en.wikipedia.org/wiki/Metric_signature) $`(+,-,-,-)`$.
+[Natural units](https://en.wikipedia.org/wiki/Natural_units) $`\hbar=c=1`$, [rationalized electromagnetic units](https://en.wikipedia.org/wiki/Heaviside%E2%80%93Lorentz_units), and [signature](https://en.wikipedia.org/wiki/Metric_signature) $`(+,-,-,-)`$ are used.
 
 ## One complex [paravector](https://en.wikipedia.org/wiki/Paravector)
 
-We use the [algebra of physical space](https://en.wikipedia.org/wiki/Algebra_of_physical_space) isomorphic to the even subalgebra of [spacetime algebra](https://en.wikipedia.org/wiki/Spacetime_algebra). The sigma generators define its general complex paravector:
+The [algebra of physical space](https://en.wikipedia.org/wiki/Algebra_of_physical_space) is used, with its isomorphism to the even subalgebra of [spacetime algebra](https://en.wikipedia.org/wiki/Spacetime_algebra). Its general complex paravector is defined by the sigma generators:
 
 ```math
 \boxed{
@@ -24,7 +24,7 @@ We use the [algebra of physical space](https://en.wikipedia.org/wiki/Algebra_of_
 \end{aligned}}
 ```
 
-These eight real components form a complex scalar and a complex vector:
+These eight real components are grouped into a complex scalar and a complex vector:
 
 ```math
 \begin{aligned}
@@ -47,18 +47,18 @@ The component extractions are:
 \end{aligned}
 ```
 
-The complex scalar part combines scalar and pseudoscalar grades; the complex vector term combines vector and bivector grades.
+Scalar and pseudoscalar grades are combined in the complex scalar part; vector and bivector grades are combined in the complex vector term.
 
 ## Product
 
-The product carries both the [dot](https://en.wikipedia.org/wiki/Dot_product) and [cross](https://en.wikipedia.org/wiki/Cross_product) products:
+Both the [dot](https://en.wikipedia.org/wiki/Dot_product) and [cross](https://en.wikipedia.org/wiki/Cross_product) products are included in the product:
 
 ```math
 (𝐗\cdot𝝈)(𝐘\cdot𝝈)
 =𝐗\cdot𝐘+\mathrm{i}(𝐗\times𝐘)\cdot𝝈.
 ```
 
-Here we use the convention $`𝐗^2:=𝐗\cdot𝐗`$.
+The convention $`𝐗^2:=𝐗\cdot𝐗`$ is used.
 
 The [commutator](https://en.wikipedia.org/wiki/Commutator) is:
 
@@ -68,11 +68,11 @@ The [commutator](https://en.wikipedia.org/wiki/Commutator) is:
 
 ## Core operations
 
-Write $`\mathcal{Z}=c+𝐙\cdot𝝈`$, where $`c\in\mathbb C`$ is a complex scalar and $`𝐙\in\mathbb C^3`$ is a complex vector.
+The decomposition $`\mathcal{Z}=c+𝐙\cdot𝝈`$ is used, where $`c\in\mathbb C`$ is a complex scalar and $`𝐙\in\mathbb C^3`$ is a complex vector.
 
-Sigma conjugation (the [grade involution](https://en.wikipedia.org/wiki/Clifford_algebra#Grade_involution)) $`(\,)^{*}`$ applies [complex conjugation](https://en.wikipedia.org/wiki/Complex_conjugate) to the coefficients and reverses the sign of $`𝝈`$.
+Under sigma conjugation (the [grade involution](https://en.wikipedia.org/wiki/Clifford_algebra#Grade_involution)) $`(\,)^{*}`$, [complex conjugation](https://en.wikipedia.org/wiki/Complex_conjugate) is applied to the coefficients and the sign of $`𝝈`$ is reversed.
 
-Since $`\mathrm{i}=\sigma_1\sigma_2\sigma_3`$, preserving product order and reversing each generator gives:
+Since $`\mathrm{i}=\sigma_1\sigma_2\sigma_3`$, the following is obtained by preserving product order and reversing each generator:
 
 ```math
 \mathrm{i}^{*}
@@ -81,9 +81,9 @@ Since $`\mathrm{i}=\sigma_1\sigma_2\sigma_3`$, preserving product order and reve
 =-\mathrm{i}.
 ```
 
-[Hermitian conjugation](https://en.wikipedia.org/wiki/Conjugate_transpose) $`(\,)^{\mathsf H}`$ is [reversion](https://en.wikipedia.org/wiki/Clifford_algebra#Reversion) in this algebra: it reverses the order of multiplied $`\sigma_k`$.
+[Hermitian conjugation](https://en.wikipedia.org/wiki/Conjugate_transpose) $`(\,)^{\mathsf H}`$ is [reversion](https://en.wikipedia.org/wiki/Clifford_algebra#Reversion) in this algebra: the order of multiplied $`\sigma_k`$ is reversed.
 
-Applying these conjugation operators to a paravector gives:
+The following conjugates are obtained:
 
 ```math
 \begin{aligned}
@@ -113,7 +113,7 @@ The paravector [trace](https://en.wikipedia.org/wiki/Trace_%28linear_algebra%29)
 
 ## [Quaternions](https://en.wikipedia.org/wiki/Quaternion)
 
-Define the three imaginary quaternion units:
+The three imaginary quaternion units are defined by:
 
 ```math
 \begin{gathered}
@@ -143,13 +143,13 @@ Nonzero quaternions are normalized with:
 \mathcal{Q}\leftarrow\frac{\mathcal{Q}}{\sqrt{\mathcal{Q}\mathcal{Q}^{\mathsf H}}},
 ```
 
-which, with $`\lVert𝐐\rVert^2=𝐐^2`$ for real $`𝐐`$, gives:
+Thus, with $`\lVert𝐐\rVert^2=𝐐^2`$ for real $`𝐐`$, the normalization is expressed as:
 
 ```math
 \mathcal{Q}\mathcal{Q}^{\mathsf H}=a^2+\lVert𝐐\rVert^2=1.
 ```
 
-For a unit quaternion with $`𝐐\ne0`$, the rotation axis and angle satisfy:
+For a unit quaternion with $`𝐐\ne0`$, the rotation axis and angle are specified by:
 
 ```math
 𝐮=\frac{𝐐}{\lVert𝐐\rVert},\qquad
@@ -157,7 +157,7 @@ a=\cos\frac{\theta}{2},\qquad
 𝐐=𝐮\sin\frac{\theta}{2}.
 ```
 
-Rotate $`𝐫\in\mathbb R^3`$ about $`𝐮`$ by angle $`\theta`$ with:
+A rotation of $`𝐫\in\mathbb R^3`$ about $`𝐮`$ by angle $`\theta`$ is expressed by:
 
 ```math
 \mathcal{X}'=𝐫'\cdot𝝂, \qquad
@@ -167,7 +167,7 @@ Rotate $`𝐫\in\mathbb R^3`$ about $`𝐮`$ by angle $`\theta`$ with:
 
 ## Rotations and boosts
 
-For real spacetime $`\mathcal{X}`$ and a real [unit axis](https://en.wikipedia.org/wiki/Unit_vector) $`𝐮`$, write the transformation as:
+For real spacetime $`\mathcal{X}`$ and a real [unit axis](https://en.wikipedia.org/wiki/Unit_vector) $`𝐮`$, the transformation is written as:
 
 ```math
 \mathcal{X}:=t+𝐫\cdot𝝈,
@@ -187,9 +187,9 @@ t'&=t,\\
 \end{aligned}
 ```
 
-For $`\mathcal{T}=\mathcal{L}`$, consider a [Lorentz boost](https://en.wikipedia.org/wiki/Lorentz_transformation) to a frame moving at $`+\beta𝐮`$, with [rapidity](https://en.wikipedia.org/wiki/Rapidity) $`\theta`$, $`\beta:=\tanh\theta`$, and [Lorentz factor](https://en.wikipedia.org/wiki/Lorentz_factor) $`\gamma:=\cosh\theta`$.
+For $`\mathcal{T}=\mathcal{L}`$, a [Lorentz boost](https://en.wikipedia.org/wiki/Lorentz_transformation) to a frame moving at $`+\beta𝐮`$, with [rapidity](https://en.wikipedia.org/wiki/Rapidity) $`\theta`$, $`\beta:=\tanh\theta`$, and [Lorentz factor](https://en.wikipedia.org/wiki/Lorentz_factor) $`\gamma:=\cosh\theta`$ is considered.
 
-To compute the boost, define the parallel and perpendicular components:
+The parallel and perpendicular components are defined by:
 
 ```math
 𝐫_\parallel:=(𝐮\cdot𝐫)𝐮,
@@ -211,7 +211,7 @@ t'&=\gamma(t-\beta𝐮\cdot𝐫),\\
 
 ## Projections and spectral decomposition
 
-Consider a paravector of the form:
+A paravector of the following form is considered:
 
 ```math
 \mathcal{Z}=c+z𝐮\cdot𝝈,
@@ -228,7 +228,7 @@ The eigenvalues and complementary [projectors](https://en.wikipedia.org/wiki/Par
 \end{gathered}
 ```
 
-For real $`𝐮`$, these are also Hermitian projectors. For $`f`$ analytic near $`\lambda_\pm`$, spectral decomposition gives:
+For real $`𝐮`$, these are also Hermitian projectors. For $`f`$ analytic near $`\lambda_\pm`$, the following spectral decomposition is obtained:
 
 ```math
 \begin{aligned}
@@ -239,7 +239,7 @@ f(\mathcal{Z})&=f(\lambda_-)\Pi_-+f(\lambda_+)\Pi_+.
 
 ## Spacetime from the [determinant](https://en.wikipedia.org/wiki/Determinant)
 
-For a future-directed massive particle, proper time and four-momentum follow from a real paravector, with four-velocity $`\mathcal{U}`$.
+For a future-directed massive particle, proper time and four-momentum are obtained from a real paravector, with four-velocity $`\mathcal{U}`$.
 
 The spacetime increment and its determinant are:
 
@@ -250,13 +250,13 @@ The spacetime increment and its determinant are:
 \end{aligned}
 ```
 
-Choose positive [proper time](https://en.wikipedia.org/wiki/Proper_time) along the future-directed path $`\mathrm dt>0`$:
+Positive [proper time](https://en.wikipedia.org/wiki/Proper_time) is chosen along the future-directed path $`\mathrm dt>0`$:
 
 ```math
 \mathrm ds:=\sqrt{\mathrm dt^2-\mathrm d𝐫^2}=\sqrt{\det(\mathrm d\mathcal{X})}.
 ```
 
-The coordinate velocity determines the proper-time rate:
+The proper-time rate is determined by the coordinate velocity:
 
 ```math
 \begin{aligned}
@@ -286,7 +286,7 @@ The [four-velocity](https://en.wikipedia.org/wiki/Four-velocity) is:
 \end{aligned}
 ```
 
-Proper-time normalization gives:
+Proper-time normalization is obtained:
 
 ```math
 \det \mathcal{U}=\det\!\left(\frac{\mathrm d\mathcal{X}}{\mathrm ds}\right)
@@ -299,7 +299,7 @@ For energy $`E`$ and momentum $`𝐏`$, the [four-momentum](https://en.wikipedia
 \mathcal{P}:=m\mathcal{U}=E+𝐏\cdot𝝈.
 ```
 
-For constant mass $`m>0`$, the determinant scales quadratically:
+For constant mass $`m>0`$, the determinant is scaled quadratically:
 
 ```math
 \det \mathcal{P}=\det(m\mathcal{U})=m^2\det \mathcal{U}=m^2.
@@ -313,19 +313,19 @@ The [mass-shell](https://en.wikipedia.org/wiki/On_shell_and_off_shell#Mass_shell
 
 ## [Maxwell](https://en.wikipedia.org/wiki/Maxwell%27s_equations) in one equation
 
-Combine the [electric field](https://en.wikipedia.org/wiki/Electric_field) $`𝐄`$ and [magnetic field](https://en.wikipedia.org/wiki/Magnetic_field) $`𝐁`$ into the complex electromagnetic field $`𝐅`$ and its paravector $`\mathcal{F}`$:
+The [electric field](https://en.wikipedia.org/wiki/Electric_field) $`𝐄`$ and [magnetic field](https://en.wikipedia.org/wiki/Magnetic_field) $`𝐁`$ are combined into the complex electromagnetic field $`𝐅`$ and its paravector $`\mathcal{F}`$:
 
 ```math
 𝐅:=𝐄+\mathrm{i}𝐁,\qquad \mathcal{F}:=𝐅\cdot𝝈.
 ```
 
-Combine the [charge density](https://en.wikipedia.org/wiki/Charge_density) $`\rho`$ and [current density](https://en.wikipedia.org/wiki/Current_density) $`𝐉`$ into the [four-current](https://en.wikipedia.org/wiki/Four-current) $`\mathcal{J}`$:
+The [charge density](https://en.wikipedia.org/wiki/Charge_density) $`\rho`$ and [current density](https://en.wikipedia.org/wiki/Current_density) $`𝐉`$ are combined into the [four-current](https://en.wikipedia.org/wiki/Four-current) $`\mathcal{J}`$:
 
 ```math
 \mathcal{J}:=\rho+𝐉\cdot𝝈,\qquad \mathcal{J}^*=\rho-𝐉\cdot𝝈.
 ```
 
-Define the [paravector derivative](https://en.wikipedia.org/wiki/Paravector#Paragradient), with [gradient](https://en.wikipedia.org/wiki/Gradient) $`\partial_{𝐫}`$:
+The [paravector derivative](https://en.wikipedia.org/wiki/Paravector#Paragradient), with [gradient](https://en.wikipedia.org/wiki/Gradient) $`\partial_{𝐫}`$, is defined by:
 
 ```math
 𝝏:=\partial_t+\partial_{𝐫}\cdot𝝈,\qquad
@@ -349,7 +349,7 @@ with components:
 \end{aligned}
 ```
 
-Applying $`𝝏^{*}`$ gives the [d'Alembertian](https://en.wikipedia.org/wiki/D%27Alembert_operator) and the [sourced wave equations](https://en.wikipedia.org/wiki/Inhomogeneous_electromagnetic_wave_equation):
+By application of $`𝝏^{*}`$, the [d'Alembertian](https://en.wikipedia.org/wiki/D%27Alembert_operator) and the [sourced wave equations](https://en.wikipedia.org/wiki/Inhomogeneous_electromagnetic_wave_equation) are obtained:
 
 ```math
 \begin{aligned}
@@ -364,7 +364,7 @@ Equivalently:
 \boxed{\Box \mathcal{F}^*=𝝏 \mathcal{J}}.
 ```
 
-This boxed equation gives [charge conservation](https://en.wikipedia.org/wiki/Charge_conservation) and the field wave equations component by component:
+From this boxed equation, [charge conservation](https://en.wikipedia.org/wiki/Charge_conservation) and the field wave equations are obtained component by component:
 
 ```math
 \begin{aligned}
@@ -380,20 +380,20 @@ In source-free vacuum, $`\mathcal{J}=0`$ and $`\Box \mathcal{F}=0`$.
 
 ## [Electromagnetic potentials](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) and [gauge invariance](https://en.wikipedia.org/wiki/Electromagnetic_four-potential#Gauge_freedom)
 
-Define the real [four-potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) from the [scalar potential](https://en.wikipedia.org/wiki/Electric_potential) $`V`$ and [vector potential](https://en.wikipedia.org/wiki/Magnetic_vector_potential) $`𝐀`$, with four-divergence $`S`$:
+The real [four-potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) is defined from the [scalar potential](https://en.wikipedia.org/wiki/Electric_potential) $`V`$ and [vector potential](https://en.wikipedia.org/wiki/Magnetic_vector_potential) $`𝐀`$, with four-divergence $`S`$:
 
 ```math
 \mathcal{A}:=V+𝐀\cdot𝝈,
 \qquad S:=\mathrm{sc}(𝝏 \mathcal{A}).
 ```
 
-The potential gives the field:
+The field is obtained from the potential:
 
 ```math
 \boxed{\mathcal{F}^{*}=𝝏 \mathcal{A}-S}.
 ```
 
-Its components give:
+In components:
 
 ```math
 \begin{aligned}
@@ -404,7 +404,7 @@ Its components give:
 \end{aligned}
 ```
 
-Applying $`𝝏^*`$ gives the source equations in any [gauge](https://en.wikipedia.org/wiki/Gauge_fixing):
+The source equations are obtained in any [gauge](https://en.wikipedia.org/wiki/Gauge_fixing) by application of $`𝝏^*`$:
 
 ```math
 \Box \mathcal{A}=𝝏^{*}(𝝏 \mathcal{A})
@@ -412,13 +412,13 @@ Applying $`𝝏^*`$ gives the source equations in any [gauge](https://en.wikiped
 =𝝏^{*}S+(𝝏 \mathcal{F})^{*}.
 ```
 
-Using [Maxwell’s equation](https://en.wikipedia.org/wiki/Maxwell%27s_equations) gives:
+By substitution of [Maxwell’s equation](https://en.wikipedia.org/wiki/Maxwell%27s_equations):
 
 ```math
 \boxed{\Box \mathcal{A}=𝝏^{*}S+\mathcal{J}}.
 ```
 
-Its components give:
+In components:
 
 ```math
 \begin{aligned}
@@ -429,7 +429,7 @@ Its components give:
 \end{aligned}
 ```
 
-A [gauge transformation](https://en.wikipedia.org/wiki/Electromagnetic_four-potential#Gauge_freedom), with real scalar function $`\lambda`$, leaves the field unchanged:
+Under a [gauge transformation](https://en.wikipedia.org/wiki/Electromagnetic_four-potential#Gauge_freedom), with real scalar function $`\lambda`$, the field is left unchanged:
 
 ```math
 \begin{aligned}
@@ -439,7 +439,7 @@ S'&=S+\Box\lambda,\\
 \end{aligned}
 ```
 
-In the [Lorenz gauge](https://en.wikipedia.org/wiki/Lorenz_gauge_condition), $`S=0`$ gives the [potential wave equations](https://en.wikipedia.org/wiki/Inhomogeneous_electromagnetic_wave_equation):
+In the [Lorenz gauge](https://en.wikipedia.org/wiki/Lorenz_gauge_condition), the [potential wave equations](https://en.wikipedia.org/wiki/Inhomogeneous_electromagnetic_wave_equation) are obtained with $`S=0`$:
 
 ```math
 \begin{aligned}
@@ -450,9 +450,9 @@ In the [Lorenz gauge](https://en.wikipedia.org/wiki/Lorenz_gauge_condition), $`S
 
 ## [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) from the [mass shell](https://en.wikipedia.org/wiki/On_shell_and_off_shell#Mass_shell)
 
-Hats mark named [energy](https://en.wikipedia.org/wiki/Energy_operator), [momentum](https://en.wikipedia.org/wiki/Momentum_operator), and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) operators; the derivative symbols $`𝝏`$ and $`\Box`$ remain unhatted.
+Hats are used for named [energy](https://en.wikipedia.org/wiki/Energy_operator), [momentum](https://en.wikipedia.org/wiki/Momentum_operator), and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) operators; the derivative symbols $`𝝏`$ and $`\Box`$ remain unhatted.
 
-On a complex scalar wavefunction $`\psi`$, use the canonical [energy](https://en.wikipedia.org/wiki/Energy_operator) and [momentum](https://en.wikipedia.org/wiki/Momentum_operator) operators:
+On a complex scalar wavefunction $`\psi`$, the canonical [energy](https://en.wikipedia.org/wiki/Energy_operator) and [momentum](https://en.wikipedia.org/wiki/Momentum_operator) operators are defined by:
 
 ```math
 \begin{aligned}
@@ -461,13 +461,13 @@ On a complex scalar wavefunction $`\psi`$, use the canonical [energy](https://en
 \end{aligned}
 ```
 
-Together, they form the canonical four-momentum operator:
+The canonical four-momentum operator is formed by:
 
 ```math
 \hat{\mathcal{P}}:=\mathrm{i}𝝏^*=\hat E+\hat{𝐏}\cdot𝝈.
 ```
 
-Commutativity of the free operators gives:
+By commutativity of the free operators:
 
 ```math
 \hat{\mathcal{P}}\,\mathrm{adj}\,\hat{\mathcal{P}}
@@ -476,7 +476,7 @@ Commutativity of the free operators gives:
 =-\Box.
 ```
 
-Imposing the [mass shell](https://en.wikipedia.org/wiki/On_shell_and_off_shell#Mass_shell) on $`\psi`$ gives:
+With the [mass shell](https://en.wikipedia.org/wiki/On_shell_and_off_shell#Mass_shell) imposed on $`\psi`$:
 
 ```math
 \begin{aligned}
@@ -494,9 +494,9 @@ Thus the free [Klein–Gordon equation](https://en.wikipedia.org/wiki/Klein%E2%8
 
 ## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) as a first-order wave equation
 
-In the [Weyl representation](https://en.wikipedia.org/wiki/Gamma_matrices#Weyl_%28chiral%29_basis), write $`𝝍:=(𝝍_+,𝝍_-)^{\mathsf T}`$, with two complex components in each entry. Let $`𝐈`$ be the block identity.
+In the [Weyl representation](https://en.wikipedia.org/wiki/Gamma_matrices#Weyl_%28chiral%29_basis), the notation $`𝝍:=(𝝍_+,𝝍_-)^{\mathsf T}`$ is used, with two complex components in each entry. The block identity is denoted by $`𝐈`$.
 
-Using the free momentum operator above, define:
+The following operators are defined using the free momentum operator above:
 
 ```math
 \begin{aligned}
@@ -521,7 +521,7 @@ Equivalently:
 (\hat E\pm\hat{𝐏}\cdot𝝈)𝝍_\pm=m𝝍_\mp.
 ```
 
-Using $`𝐖(\hat{\mathcal{P}})^2=(\det\hat{\mathcal{P}})𝐈`$ gives the [Klein–Gordon factorization](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation):
+By $`𝐖(\hat{\mathcal{P}})^2=(\det\hat{\mathcal{P}})𝐈`$, the [Klein–Gordon factorization](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) is obtained:
 
 ```math
 \begin{aligned}
@@ -531,11 +531,11 @@ Using $`𝐖(\hat{\mathcal{P}})^2=(\det\hat{\mathcal{P}})𝐈`$ gives the [Klein
 \end{aligned}
 ```
 
-Hence every free [Dirac solution](https://en.wikipedia.org/wiki/Dirac_equation) satisfies [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation).
+Hence [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) is satisfied by every free [Dirac solution](https://en.wikipedia.org/wiki/Dirac_equation).
 
 ## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) with an electromagnetic potential
 
-Here, subscript $`0`$ labels the uncoupled operators defined above:
+Here, the uncoupled operators defined above are labeled by subscript $`0`$:
 
 ```math
 \begin{aligned}
@@ -545,9 +545,9 @@ Here, subscript $`0`$ labels the uncoupled operators defined above:
 \end{aligned}
 ```
 
-Take constant mass $`m>0`$, [charge](https://en.wikipedia.org/wiki/Electric_charge) $`q`$, and a real [potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) $`\mathcal{A}=V+𝐀\cdot𝝈`$.
+The following are assumed: constant mass $`m>0`$, [charge](https://en.wikipedia.org/wiki/Electric_charge) $`q`$, and a real [potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) $`\mathcal{A}=V+𝐀\cdot𝝈`$.
 
-[Minimal coupling](https://en.wikipedia.org/wiki/Minimal_coupling) gives the [gauge-covariant energy](https://en.wikipedia.org/wiki/Gauge_covariant_derivative) and [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Definition_(position_space)) operators:
+By [minimal coupling](https://en.wikipedia.org/wiki/Minimal_coupling), the [gauge-covariant energy](https://en.wikipedia.org/wiki/Gauge_covariant_derivative) and [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Definition_(position_space)) operators are obtained:
 
 ```math
 \begin{aligned}
@@ -556,15 +556,15 @@ Take constant mass $`m>0`$, [charge](https://en.wikipedia.org/wiki/Electric_char
 \end{aligned}
 ```
 
-Together, they form the [kinetic four-momentum](https://en.wikipedia.org/wiki/Minimal_coupling) operator:
+The [kinetic four-momentum](https://en.wikipedia.org/wiki/Minimal_coupling) operator is formed by:
 
 ```math
 \hat{\mathcal{P}}_q:=\hat{\mathcal{P}}_0-q\mathcal{A}=\hat E_q+\hat{𝐏}_q\cdot𝝈.
 ```
 
-Here, $`\hat E_q`$ includes rest energy and excludes the potential energy $`qV`$.
+In $`\hat E_q`$, rest energy is included and the potential energy $`qV`$ is excluded.
 
-For operator arguments, $`\mathrm{adj}`$ reverses the spatial vector part while preserving derivative order.
+For operator arguments, the spatial vector part is reversed by $`\mathrm{adj}`$ while derivative order is preserved.
 
 The coupled [Dirac operator](https://en.wikipedia.org/wiki/Dirac_equation) is:
 
@@ -590,7 +590,7 @@ Equivalently:
 (\hat E_q\pm\hat{𝐏}_q\cdot𝝈)𝝍_\pm=m𝝍_\mp.
 ```
 
-The coupled operators obey these field identities:
+The following field identities are satisfied by the coupled operators:
 
 ```math
 \begin{aligned}
@@ -604,7 +604,7 @@ The coupled operators obey these field identities:
 \end{aligned}
 ```
 
-When derivatives act on the potentials as well as the wavefunction, the opposite-mass product becomes:
+With derivatives applied to the potentials as well as the wavefunction, the opposite-mass product is obtained:
 
 ```math
 \hat{𝐃}_q(-m)\hat{𝐃}_q(m)
@@ -612,11 +612,11 @@ When derivatives act on the potentials as well as the wavefunction, the opposite
 -\mathrm{i}q\begin{pmatrix}\mathcal{F}^{*}&0\\0&\mathcal{F}\end{pmatrix}.
 ```
 
-Every [Dirac solution](https://en.wikipedia.org/wiki/Dirac_equation) satisfies $`\hat{𝐃}_q(-m)\hat{𝐃}_q(m)𝝍=0`$. Setting $`q=0`$ recovers the free [Klein–Gordon equation](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation).
+For every [Dirac solution](https://en.wikipedia.org/wiki/Dirac_equation), $`\hat{𝐃}_q(-m)\hat{𝐃}_q(m)𝝍=0`$ is satisfied. With $`q=0`$, the free [Klein–Gordon equation](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) is recovered.
 
-## Low-energy [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) recovers [Schrödinger](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation)
+## Low-energy [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) to [Schrödinger](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation)
 
-For constant $`m>0`$, write the full scalar field as $`\psi'=e^{-\mathrm{i}mt}\psi`$, where $`\psi`$ is the envelope with the rest-energy phase removed. The product rule gives:
+For constant $`m>0`$, the full scalar field is written as $`\psi'=e^{-\mathrm{i}mt}\psi`$, where $`\psi`$ is the envelope with the rest-energy phase removed. By the product rule:
 
 ```math
 \begin{aligned}
@@ -628,7 +628,7 @@ For constant $`m>0`$, write the full scalar field as $`\psi'=e^{-\mathrm{i}mt}\p
 \end{aligned}
 ```
 
-Substitute into [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation):
+By substitution into [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation):
 
 ```math
 \begin{aligned}
@@ -638,42 +638,42 @@ Substitute into [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gor
 \end{aligned}
 ```
 
-On the envelope $`\psi`$, $`\hat E_q`$ measures energy above rest, excluding $`qV`$. For any $`q`$ and constant $`m>0`$, canceling the phase gives the exact recursion:
+On the envelope $`\psi`$, energy above rest, excluding $`qV`$, is measured by $`\hat E_q`$. For any $`q`$ and constant $`m>0`$, the exact recursion is obtained by canceling the phase:
 
 ```math
 \hat E_q\psi=\frac{\hat{𝐏}_q^2-\hat E_q^2}{2m}\psi.
 ```
 
-If $`\hat E_q`$ and $`\hat{𝐏}_q^2`$ commute, iteration on the positive-energy branch gives:
+If $`\hat E_q`$ and $`\hat{𝐏}_q^2`$ commute, the following is obtained by iteration on the positive-energy branch:
 
 ```math
 \hat E_q\psi=\left(\frac{\hat{𝐏}_q^2}{2m}
 -\frac{\hat{𝐏}_q^4}{8m^3}+\cdots\right)\psi.
 ```
 
-For weak, slowly varying fields, neglect $`\hat E_q^2\psi`$ relative to $`2m\hat E_q\psi`$ to obtain [Schrödinger’s equation](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation):
+For weak, slowly varying fields, $`\hat E_q^2\psi`$ is neglected relative to $`2m\hat E_q\psi`$, and the following is obtained for [Schrödinger’s equation](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation):
 
 ```math
 \boxed{\mathrm{i}\partial_t\psi=
 \left(\frac{(-\mathrm{i}\partial_{𝐫}-q𝐀)^2}{2m}+qV\right)\psi.}
 ```
 
-With $`𝐀=0`$ (hence $`𝐁=0`$), this recovers the conventional [Schrödinger equation](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation):
+With $`𝐀=0`$ (hence $`𝐁=0`$), the following is obtained for the conventional [Schrödinger equation](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation):
 
 ```math
 \mathrm{i}\partial_t\psi=
 \left(-\frac{\partial_{𝐫}^2}{2m}+qV\right)\psi.
 ```
 
-## Low-energy [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) recovers [Pauli](https://en.wikipedia.org/wiki/Pauli_equation)
+## Low-energy [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) to [Pauli](https://en.wikipedia.org/wiki/Pauli_equation)
 
-Remove the rest-energy phase from the full Dirac components $`𝝍_\pm`$ by defining the envelopes $`𝝍_\pm':=e^{\mathrm{i}mt}𝝍_\pm`$. This gives:
+The rest-energy phase is removed from the full Dirac components $`𝝍_\pm`$ by defining the envelopes $`𝝍_\pm':=e^{\mathrm{i}mt}𝝍_\pm`$. The following is obtained:
 
 ```math
 (m+\hat E_q\pm\hat{𝐏}_q\cdot𝝈)𝝍_\pm'=m𝝍_\mp'.
 ```
 
-Define the large and small components for the positive-energy branch:
+The large and small components for the positive-energy branch are defined by:
 
 ```math
 \begin{aligned}
@@ -682,7 +682,7 @@ Define the large and small components for the positive-energy branch:
 \end{aligned}
 ```
 
-Adding and subtracting the envelope equations gives:
+By addition and subtraction of the envelope equations:
 
 ```math
 \begin{aligned}
@@ -691,7 +691,7 @@ Adding and subtracting the envelope equations gives:
 \end{aligned}
 ```
 
-In the same nonrelativistic limit, neglect $`\hat E_q𝝓_-`$ relative to $`2m𝝓_-`$. Substitute the resulting small component into the first equation and use the field identity above:
+In the same nonrelativistic limit, $`\hat E_q𝝓_-`$ is neglected relative to $`2m𝝓_-`$. The resulting small component is substituted into the first equation, and the field identity above is applied:
 
 ```math
 \begin{aligned}
@@ -701,7 +701,7 @@ In the same nonrelativistic limit, neglect $`\hat E_q𝝓_-`$ relative to $`2m�
 \end{aligned}
 ```
 
-Restoring $`\hat E_q=\mathrm{i}\partial_t-qV`$ gives the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation), retaining the kinetic and spin terms through order $`1/m`$:
+With $`\hat E_q=\mathrm{i}\partial_t-qV`$ restored, the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation) is obtained, with kinetic and spin terms retained through order $`1/m`$:
 
 ```math
 \boxed{\mathrm{i}\partial_t𝝓_+=
@@ -711,14 +711,14 @@ Restoring $`\hat E_q=\mathrm{i}\partial_t-qV`$ gives the [Pauli equation](https:
 
 ## [Spin up and spin down](https://en.wikipedia.org/wiki/Spin-1/2#Observables) in a uniform magnetic field
 
-For a constant nonzero field $`𝐁`$, define its unit direction and [spin projectors](https://en.wikipedia.org/wiki/Pauli_matrices#Eigenvectors_and_eigenvalues):
+For a constant nonzero field $`𝐁`$, its unit direction and [spin projectors](https://en.wikipedia.org/wiki/Pauli_matrices#Eigenvectors_and_eigenvalues) are defined by:
 
 ```math
 𝐮:=\frac{𝐁}{\lVert𝐁\rVert},
 \qquad \Pi_\pm:=\frac12(1\pm𝐮\cdot𝝈).
 ```
 
-[Spectral decomposition](#projections-and-spectral-decomposition) gives:
+By [spectral decomposition](#projections-and-spectral-decomposition):
 
 ```math
 𝐁\cdot𝝈
@@ -728,7 +728,7 @@ For a constant nonzero field $`𝐁`$, define its unit direction and [spin proje
 =\pm\lVert𝐁\rVert\Pi_\pm.
 ```
 
-Encode the two spin amplitudes $`\phi_{++},\phi_{+-}`$ in a paravector $`𝝓_+`$ aligned with $`𝐮`$:
+The two spin amplitudes $`\phi_{++},\phi_{+-}`$ are encoded in a paravector $`𝝓_+`$ aligned with $`𝐮`$:
 
 ```math
 \begin{aligned}
@@ -737,7 +737,7 @@ Encode the two spin amplitudes $`\phi_{++},\phi_{+-}`$ in a paravector $`𝝓_+`
 \end{aligned}
 ```
 
-Constant $`\Pi_\pm`$ commute with $`\hat E_q`$ and $`\hat{𝐏}_q^2`$, so the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation) gives:
+Constant $`\Pi_\pm`$ commute with $`\hat E_q`$ and $`\hat{𝐏}_q^2`$, so the following is obtained from the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation):
 
 ```math
 \begin{aligned}
@@ -748,18 +748,18 @@ Constant $`\Pi_\pm`$ commute with $`\hat E_q`$ and $`\hat{𝐏}_q^2`$, so the [P
 \end{aligned}
 ```
 
-Since $`\Pi_\pm\ne0`$, the scalar coefficients vanish. Restoring $`\hat E_q=\mathrm{i}\partial_t-qV`$ gives:
+Since $`\Pi_\pm\ne0`$, the scalar coefficients vanish. With $`\hat E_q=\mathrm{i}\partial_t-qV`$ restored:
 
 ```math
 \boxed{\mathrm{i}\partial_t\phi_{+\pm}=
 \left(\frac{\hat{𝐏}_q^2\mp q\lVert𝐁\rVert}{2m}+qV\right)\phi_{+\pm}.}
 ```
 
-States with [spin projections](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ along $`𝐮`$ have opposite [Zeeman shifts](https://en.wikipedia.org/wiki/Zeeman_effect). The [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Definition_(position_space)) $`\hat{𝐏}_q=-\mathrm{i}\partial_{𝐫}-q𝐀`$ retains the orbital coupling.
+For states with [spin projections](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ along $`𝐮`$, opposite [Zeeman shifts](https://en.wikipedia.org/wiki/Zeeman_effect) are obtained. In the [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Definition_(position_space)) $`\hat{𝐏}_q=-\mathrm{i}\partial_{𝐫}-q𝐀`$, the orbital coupling is retained.
 
-This representation applies to uniform-field [Pauli evolution](https://en.wikipedia.org/wiki/Pauli_equation); the full [Dirac equation](https://en.wikipedia.org/wiki/Dirac_equation) and spin measurements use the fixed spinor space.
+This representation is used for uniform-field [Pauli evolution](https://en.wikipedia.org/wiki/Pauli_equation); the fixed spinor space is used for the full [Dirac equation](https://en.wikipedia.org/wiki/Dirac_equation) and spin measurements.
 
-Arrange the four complex amplitudes of the [Dirac spinor](https://en.wikipedia.org/wiki/Dirac_spinor), after removing the rest-energy phase, as:
+The four complex amplitudes of the [Dirac spinor](https://en.wikipedia.org/wiki/Dirac_spinor), after removal of the rest-energy phase, are arranged as:
 
 ```math
 𝝓:=\left(\,\begin{matrix}
@@ -768,13 +768,13 @@ Arrange the four complex amplitudes of the [Dirac spinor](https://en.wikipedia.o
 \end{matrix}\,\right).
 ```
 
-Rows label [Dirac blocks](https://en.wikipedia.org/wiki/Dirac_spinor), columns spin projections; the [Pauli limit](https://en.wikipedia.org/wiki/Pauli_equation) governs the upper row.
+[Dirac blocks](https://en.wikipedia.org/wiki/Dirac_spinor) are indexed by rows and spin projections by columns; the upper row is governed by the [Pauli limit](https://en.wikipedia.org/wiki/Pauli_equation).
 
 ## [Spin measurement](https://en.wikipedia.org/wiki/Spin-1/2#Rotations_and_Spinors) probabilities
 
-Let $`𝐮',𝐮`$ be real unit preparation and measurement axes, with $`\cos\theta:=𝐮\cdot𝐮'`$.
+Real unit preparation and measurement axes are denoted by $`𝐮',𝐮`$, with $`\cos\theta:=𝐮\cdot𝐮'`$.
 
-Prepare $`𝝍=\Pi_+'𝝍\ne0`$ using projectors with the following overlap:
+The state $`𝝍=\Pi_+'𝝍\ne0`$ is prepared using projectors with the following overlap:
 
 ```math
 \begin{gathered}
@@ -813,4 +813,4 @@ The [Born probabilities](https://en.wikipedia.org/wiki/Born_rule) for [spin proj
 \end{gathered}
 ```
 
-Aligned axes give certain spin up; perpendicular axes give equal odds. Reversing the prepared spin swaps the probabilities.
+For aligned axes, spin up is obtained with certainty; for perpendicular axes, equal probabilities are obtained. The probabilities are exchanged by reversal of the prepared spin.
