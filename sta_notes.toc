@@ -1,6 +1,6 @@
 \contentsline {section}{\numberline {1}Algebra and paravectors}{1}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Notation and physical conventions}{1}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Sigma generators and ordered multiplication}{1}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.2}Sigmas and ordered multiplication}{1}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Hermitian and sigma conjugation}{2}{subsection.1.3}%
 \contentsline {subsection}{\numberline {1.4}Complex paravectors and their components}{3}{subsection.1.4}%
 \contentsline {subsection}{\numberline {1.5}Conjugates, determinant, and inverse}{4}{subsection.1.5}%
@@ -120,7 +120,7 @@
 \contentsline {subsection}{\numberline {15.3}Wave phases and spinor covariance}{66}{subsection.15.3}%
 \contentsline {subsection}{\numberline {15.4}Boosted fields and energy flux}{66}{subsection.15.4}%
 \contentsline {section}{\numberline {A}Pauli-matrix representation}{68}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Generators and products}{68}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.1}Sigmas and products}{68}{subsection.A.1}%
 \contentsline {subsection}{\numberline {A.2}Conjugations and product order}{68}{subsection.A.2}%
 \contentsline {subsection}{\numberline {A.3}Scalar part, determinant, and norm}{69}{subsection.A.3}%
 \contentsline {subsection}{\numberline {A.4}Boost and rotation matrices}{70}{subsection.A.4}%
@@ -140,12 +140,13 @@
 \contentsline {paragraph}{Low-energy limits.}{76}{section*.122}%
 \contentsline {paragraph}{Spin and probabilities.}{77}{section*.125}%
 \contentsline {section}{\numberline {C}Conventions}{78}{appendix.C}%
-\contentsline {paragraph}{Mapping to the literature.}{78}{section*.137}%
-\contentsline {paragraph}{Source comparisons for the cited equations.}{80}{section*.138}%
-\contentsline {paragraph}{Translating the physical comparisons.}{81}{section*.139}%
-\contentsline {paragraph}{Exponent sign and sandwich order.}{82}{section*.140}%
-\contentsline {paragraph}{Hamilton quaternions fix the basis orientation.}{82}{section*.141}%
-\contentsline {paragraph}{Rotating a state versus changing the measured observable.}{83}{section*.142}%
-\contentsline {paragraph}{Fields and wave amplitudes under either notation.}{83}{section*.143}%
-\contentsline {paragraph}{Preserved quantities.}{84}{section*.144}%
-\contentsline {section}{References}{85}{section*.145}%
+\contentsline {paragraph}{Names and algebra classifications.}{78}{section*.137}%
+\contentsline {paragraph}{Mapping to the literature.}{78}{section*.138}%
+\contentsline {paragraph}{Source comparisons for the cited equations.}{80}{section*.139}%
+\contentsline {paragraph}{Translating the physical comparisons.}{81}{section*.140}%
+\contentsline {paragraph}{Exponent sign and sandwich order.}{82}{section*.141}%
+\contentsline {paragraph}{Hamilton quaternions fix the basis orientation.}{82}{section*.142}%
+\contentsline {paragraph}{Rotating a state versus changing the measured observable.}{83}{section*.143}%
+\contentsline {paragraph}{Fields and wave amplitudes under either notation.}{83}{section*.144}%
+\contentsline {paragraph}{Preserved quantities.}{84}{section*.145}%
+\contentsline {section}{References}{85}{section*.146}%

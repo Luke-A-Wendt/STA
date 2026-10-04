@@ -189,7 +189,7 @@ Natural units $\hbar=c=1$, rationalized electromagnetic units,
 and signature $(+,-,-,-)$ are used. Passages reverting to SI units are marked
 explicitly. The corresponding equations are boxed with a subscript $\mathrm{SI}$
 on the box; the usual quantity symbols are retained inside.
-Vectors, ordered generator triples, and, where specified, matrices
+Vectors, the ordered sigma triple, and, where specified, matrices
 are denoted by bold symbols.
 
 Latin paravectors and paravector operators are denoted by bold calligraphic capitals.
@@ -202,16 +202,17 @@ By these styles, a boost $\pL$ is distinguished from a scalar
 Lagrangian $L$, and the paravector momentum $\pP$ from its vector part $\bp$.
 
 
-The algebra of physical space (APS), $\mathrm{Cl}_{3,0}$, is used,
-isomorphic to the even subalgebra of spacetime algebra,
-$\mathrm{Cl}_{1,3}^{+}$~\citeat{baylis2004}{pp.~1--2}{page=1}.
+Space--time algebra is developed here using complex paravectors.
+Comparisons with terminology in the literature are collected in
+Appendix~\ref{sec:conventions}.
 
 $c+\bZ\cdot\bsig$ is identified with its coefficient pair
 $(c,\bZ)\in\C\oplus\C^3$. Real paravectors lie in $\R\oplus\R^3$;
 mixed sums specify the two coefficient spaces separately.
 Values are specified by the direct sum; multiplication is defined by the sigma rules.
-The generators $\pvsigma_k$ are algebra elements; $\bsig$ is their ordered
-triple, not a numerical vector in $\R^3$.
+The sigmas $\pvsigma_k$ are algebraic objects with order-dependent
+multiplication rules; $\bsig$ is their ordered triple, not a numerical
+vector in $\R^3$.
 
 Domains persist within a section unless a specialization is stated.
 Primes and subscripts inherit the declared type unless explicitly redefined.
@@ -219,11 +220,11 @@ For fields, membership states the value at each real spacetime point;
 function notation specifies the independent variables.
 The required regularity is assumed for all differentiations.
 
-\subsection{Sigma generators and ordered multiplication}
+\subsection{Sigmas and ordered multiplication}
 
-The generators $\pvsigma_n$, $n=1,2,3$, obey ordered multiplication rules.
-Their products generally do not commute.  The panel gives their defining
-relations and the general complex element~\citeat{baylis2004}{pp.~4--5}{page=4}:
+The sigmas $\pvsigma_n$, $n=1,2,3$, are defined by the multiplication
+rules below. The general complex paravector is expressed in terms of
+these sigmas~\citeat{baylis2004}{pp.~4--5}{page=4}:
 
 \begin{center}
 \setlength{\fboxsep}{1.2em}
@@ -261,21 +262,19 @@ The elementary Cartesian vectors used below are the real vectors
 Thus $\bm e_k\cdot\bsig=\pvsigma_k$; the scalar basis element is $1$.
 Unindexed $e$ denotes only Euler's number.
 
-These eight elements form a complete basis, displayed by type as
+A basis over $\R$ is provided by the eight elements
 \[
- \underbrace{1}_{\text{scalar}}\qquad
- \underbrace{\pvsigma_1,\pvsigma_2,\pvsigma_3}_{\text{vectors}}\qquad
- \underbrace{\ii\pvsigma_1,\ii\pvsigma_2,\ii\pvsigma_3}_{\text{bivectors}}\qquad
- \underbrace{\ii}_{\text{pseudoscalar}}.
+ 1,\quad \pvsigma_1,\pvsigma_2,\pvsigma_3,\quad
+ \ii\pvsigma_1,\ii\pvsigma_2,\ii\pvsigma_3,\quad \ii.
 \]
 By anticommutation,
-$\ii^2=-\pvsigma_1^2\pvsigma_2^2\pvsigma_3^2=-1$.  The pseudoscalar is central:
-moving $\pvsigma_n$ through the other two generators produces two sign
-changes, so
+$\ii^2=-\pvsigma_1^2\pvsigma_2^2\pvsigma_3^2=-1$.
+Two sign changes are introduced when $\pvsigma_n$ is moved through the
+other two sigmas, so
 \begin{equation*}
  \ii\pvsigma_n=\pvsigma_n\ii.
 \end{equation*}
-Thus its order of multiplication does not matter.
+Thus $\ii$ commutes with every sigma and hence with every paravector.
 
 For $\pX,\pY\in\C\oplus\C^3$, the commutator is
 \begin{gather*}
@@ -309,36 +308,35 @@ For $n,m=1,2,3$, the ordered multiplication rule and commutator are~\citeat{bayl
 \subsection{Hermitian and sigma conjugation}
 \label{sec:conjugate-operators}
 
-\emph{Hermitian conjugation} (reversion in APS) is defined by
-\eqref{eq:hermitian-definition} and \emph{sigma conjugation} (grade involution)
+\emph{Hermitian conjugation} is defined by
+\eqref{eq:hermitian-definition}, and \emph{sigma conjugation}
 is defined by \eqref{eq:sigma-conjugation-definition}~\citeat{chappell-functions}{Eq.~(3)}{page=2}:
 \begin{align}
  (\,\cdot\,)^{\mathsf H}
- &:=\text{the order of every product of sigma generators is reversed},
+ &:=\text{the multiplication order of the sigmas is reversed},
  \label{eq:hermitian-definition}\\
  (\,\cdot\,)^*
  &:=\text{every $\pvsigma_n$ is replaced by $-\pvsigma_n$ with product order preserved}.
  \label{eq:sigma-conjugation-definition}
 \end{align}
-Thus, for two generators,
+Thus, for two sigmas,
 \begin{align*}
  (\pvsigma_m\pvsigma_n)^{\mathsf H}&=\pvsigma_n\pvsigma_m,\\
  (\pvsigma_m\pvsigma_n)^*&=(-\pvsigma_m)(-\pvsigma_n).
 \end{align*}
-Both operations act term by term on sums and leave real coefficients fixed.
-Since $\ii=\pvsigma_1\pvsigma_2\pvsigma_3$, sigma conjugation preserves product
-order and reverses each generator:
+Both operations are applied term by term to sums, with real coefficients left unchanged.
+Since $\ii=\pvsigma_1\pvsigma_2\pvsigma_3$, under sigma conjugation each
+sigma is negated and multiplication order is preserved:
 \[
  \ii^*=(-\pvsigma_1)(-\pvsigma_2)(-\pvsigma_3)
  =-\pvsigma_1\pvsigma_2\pvsigma_3=-\ii.
 \]
-It therefore complex conjugates the scalar coefficients while reversing
-the sign of $\bsig$. Their actions on the four basis types are
+Complex coefficients are therefore conjugated, and the sign of $\bsig$
+is reversed. The resulting signs on the basis elements are
 \begin{center}
 \begin{tabular}{c c c c c}
   \toprule
-  type & scalar & vector & bivector & pseudoscalar\\
-  representative & $1$ & $\pvsigma_n$ & $\ii\pvsigma_n$ & $\ii$\\
+  element & $1$ & $\pvsigma_n$ & $\ii\pvsigma_n$ & $\ii$\\
   \midrule
   $(\cdot)^*$ & $+$ & $-$ & $+$ & $-$\\
   $(\cdot)^{\mathsf H}$ & $+$ & $+$ & $-$ & $-$\\
@@ -346,7 +344,7 @@ the sign of $\bsig$. Their actions on the four basis types are
   \bottomrule
 \end{tabular}
 \end{center}
-For example, on a bivector the signs follow directly:
+For $\ii\pvsigma_n$, the signs are obtained directly:
 \begin{align*}
  (\ii\pvsigma_n)^*&=\ii^*\pvsigma_n^*=\ii\pvsigma_n,\\
  (\ii\pvsigma_n)^{\mathsf H}
@@ -389,9 +387,7 @@ The complex scalar and vector extractions are defined by
  \scpart {\pZ}&:=c=a+\ii b,\\
  \vecpart {\pZ}&:=\bZ=\bX+\ii\bY.
 \end{align*}
-The complex scalar part combines scalar and pseudoscalar grades; the
-complex vector term combines vector and bivector grades. This notation
-applies throughout the algebra unless a real specialization is stated.
+This notation is used throughout unless a real specialization is stated.
 
 \subsection{Conjugates, determinant, and inverse}
 \label{sec:algebra-operations}
@@ -538,10 +534,8 @@ has $\bu^2=\lVert\bu\rVert^2=1$.  For complex vectors, specify which holds.
  \pZ \pZ^{-1}=\pZ^{-1}\pZ=1.
  \label{eq:unit-paravector}
 \end{equation}
-Equivalently, $\det(\pZ)\ne0$. In algebra, an invertible element is
-also called an \emph{algebraic unit}. This terminology does not impose
-unit norm or determinant one; \emph{invertible} is used here to avoid
-confusion with those normalization conditions.
+Equivalently, $\det(\pZ)\ne0$. Neither unit norm nor determinant one is
+required.
 \item \textbf{Unitary paravector.} Its Hermitian conjugate is its inverse:
 \begin{equation}
  \pZ^{\mathsf H}\pZ=1.
@@ -874,8 +868,8 @@ gives the spectral rule~\citeat{higham-functions}{p.~3}{page=4}
  \label{eq:complex-function-projectors}
 \end{equation}
 The same rule defines chosen analytic branches at the two eigenvalues.
-Its proof uses only complementary idempotents and therefore applies to
-any decomposition with these projector identities.
+Only the complementary projector identities are used in the proof, so
+the result is valid for any decomposition with these identities.
 
 Adjugation exchanges the eigenvalues, so
 \begin{align*}
@@ -1180,8 +1174,8 @@ Thus the quotient is the full-rapidity exponential
  \label{eq:cayley-exponential}
 \end{equation}
 Equation~\eqref{eq:cayley-exponential} is $\pL(\theta,\bu)^{-2}$ from
-\eqref{eq:boost-square}.  Its real generator
-vector is $\bX=\theta\bu$, while the Cayley vector obeys
+\eqref{eq:boost-square}. Its real exponent is written using
+$\bX=\theta\bu$, while the Cayley vector is determined by
 \begin{equation*}
  \bY=b\tanh\!\left(\frac{\lVert\bX\rVert}{2}\right)
        \frac{\bX}{\lVert\bX\rVert}.
@@ -1205,8 +1199,8 @@ Notation: $\pL(\theta,\bu)=\exp(-\theta\bu\cdot\bsig/2)$ and
 $\pR(\theta,\bu)=\exp(-\ii\theta\bu\cdot\bsig/2)$ from
 \eqref{eq:boost-exponential} and \eqref{eq:rotation-exponential}.
 For a fixed \hyperref[def:real-unit-vector]{real unit direction} $\bu$
-and real parameters $\theta,\theta'$, the
-generators commute, so their parameters add:
+and real parameters $\theta,\theta'$, the parameters can be added
+because the exponents commute:
 \begin{equation}
  \pL(\theta,\bu)\pL(\theta',\bu)=\pL(\theta+\theta',\bu),
  \label{eq:boost-composition}
@@ -1215,7 +1209,7 @@ generators commute, so their parameters add:
  \pR(\theta,\bu)\pR(\theta',\bu)&=\pR(\theta+\theta',\bu),\\
  \pL(\theta,\bu)\pR(\theta',\bu)&=\pR(\theta',\bu)\pL(\theta,\bu).
 \end{align*}
-For the aligned real and imaginary generator, the following is defined:
+For a common axis, the following complex parameter is defined:
 $w=-(\theta+\ii\theta')/2\in\C$.  Its exponential is
 \[
  \exp(w\bu\cdot\bsig)
@@ -1229,8 +1223,8 @@ By expansion of the complex scalar coefficients,
  \sinh w&=-\sinh\frac\theta2\cos\frac{\theta'}2
  -\ii\cosh\frac\theta2\sin\frac{\theta'}2.
 \end{align*}
-This aligned factorization requires parallel real and imaginary generator
-vectors.  For different \hyperref[def:real-unit-vector]{real unit directions}
+This factorization is valid when the real and imaginary vector parts of
+the exponent are parallel.  For different \hyperref[def:real-unit-vector]{real unit directions}
 $\bu,\bv$, the vector product
 instead gives
 \begin{equation}
@@ -1238,8 +1232,8 @@ instead gives
  =\tfrac\ii2(\bu\times\bv)\cdot\bsig.
  \label{eq:boost-generator-commutator}
 \end{equation}
-This commutator is a rotation generator:
-boosts along nonparallel directions do not commute.
+This commutator has the imaginary-vector form used in the exponent of a
+rotation; boosts along nonparallel directions cannot be interchanged.
 
 \subsection{Logarithm}
 For complex $\pZ=c+\bZ\cdot\bsig$ with $\bZ^2\ne0$, the following notation is retained:
@@ -1522,8 +1516,8 @@ In the decomposition $\pZ=(a'+b'\ii)+(\bX+\ii\bY)\cdot\bsig$, with
 scalar part $c'=a'+b'\ii$, this selects $a'=a$, $b'=0$, $\bX=0$,
 and $\bY=-\bQ$: equivalently, $c'=a$ and $\bZ=-\ii\bQ$.
 Thus $\pQ,\pQ'\in\R\oplus\ii\R^3$: a real scalar coefficient and purely
-imaginary vector coefficients.  Their four real components
-form a subalgebra of the eight-real-component complex paravectors.
+imaginary vector coefficients. This four-real-component form is
+preserved under addition and multiplication.
 Indeed, for $\pQ'=a'+\bQ'\cdot\bquatbasis$, the paravector product becomes~\citeat{lounesto-intro}{p.~9}{page=22}
 \begin{equation}
  \pQ \pQ'=(aa'-\bQ\cdot\bQ')
@@ -1919,6 +1913,7 @@ At rest, $\gamma=1$ and $\dd\pU/\dd s=\dot{\bv}\cdot\bsig$, so the
  determinant is $-\dot{\bv}^2$ and the proper acceleration has magnitude $\lVert\dot{\bv}\rVert$.
 
 \subsubsection{Energy and inertia}
+\label{sec:energy-inertia}
 For constant invariant mass $m>0$, four-momentum is $\pP=m\pU$,
 so $\dot{\pP}=m\,\dot{\pU}$. Its scalar and spatial parts are
 $E=m\gamma$ and $\bp=m\gamma\bv$.
@@ -1939,7 +1934,7 @@ At rest the force is $m\dot{\bv}$. Reverting to SI units,
  \boxed{E=\gamma mc^2}_{\,\mathrm{SI}},\qquad
  \boxed{E/c^2=\gamma m}_{\,\mathrm{SI}}.
 \]
-The mass equivalent in the second relation is sometimes called \emph{relativistic mass}. In the natural units used elsewhere,
+In the natural units used elsewhere,
 invariant $m$ is retained: the longitudinal and transverse inertia in
 \eqref{eq:relativistic-inertia} differ.
 
@@ -2787,7 +2782,7 @@ The partial paravector and its sigma conjugate are defined by~\citeat{hestenes-s
 \begin{equation*}
  \pvpartial^*=\operatorname{adj} \pvpartial=\partial_t-\bsig\cdot\pdr.
 \end{equation*}
-The sigma generators are constant.  Derivatives act from the left on
+The sigmas are constant.  Derivatives act from the left on
 everything to their right unless parentheses specify their scope.
 For fields with commuting second derivatives, anticommutation cancels
 all mixed spatial terms:
@@ -2902,7 +2897,7 @@ $\pT(s)$ is taken to be a smooth complex \hyperref[eq:unit-paravector]{invertibl
 of \hyperref[eq:unit-determinant-paravector]{determinant one} along a real parameter $s$.  When $s$ is proper time,
 the following notation is retained: the real tangent $\pU=\dd \pX/\dd s$, an
 \hyperref[eq:unit-paravector]{invertible paravector} with $\pU \pU^{-1}=1$.
-Here $\pT(s),\pZ(s)\in\C\oplus\C^3$. The generator
+Here $\pT(s),\pZ(s)\in\C\oplus\C^3$. The paravector
 $\pvOmega(s):=(\dd \pT/\dd s)\pT^{-1}\in\{0\}\oplus\C^3$ is defined.
 Its scalar part vanishes because
 $\dd(\det \pT)/\dd s=2\scpart\pvOmega=0$.
@@ -2952,7 +2947,7 @@ $\pvsigma_k'=\pT\pvsigma_k\pT^{-1}$, with
 \begin{equation*}
  \frac{\dd\pvsigma_k'}{\dd s}=[\pvOmega,\pvsigma_k'],\qquad k=1,2,3.
 \end{equation*}
-This evolution preserves all generator products.  A general complex local basis
+All sigma multiplication rules are preserved by this evolution.  A general complex local basis
 is nevertheless distinct from a real spacetime frame, whose vectors require
 the congruence law.
 
@@ -3228,8 +3223,7 @@ Canceling $q\partial_tV$ and using \eqref{eq:electric-potential} gives~\citeat{t
  \label{eq:lorentz-energy}
 \end{equation}
 This is the mechanical work rate. Thus $\bp+q\bA$ and $H=E+qV$ are
-canonical momentum and energy. The momentum $\bp$ is kinetic (also called
-mechanical); the particle energy $E$ includes rest energy and excludes
+canonical momentum and energy. The momentum $\bp$ is kinetic; the particle energy $E$ includes rest energy and excludes
 the potential energy $qV$.
 Canonical energy is conserved for static potentials in the chosen gauge.
 A time-dependent gauge transformation can change $H$ while leaving $E$
@@ -3380,11 +3374,11 @@ Here $c_+,c_-:\R^4\to\C$, and pointwise
 \[
  \pvpsi\in\mathrm{span}_{\C}\{\pvpsi_+,\pvpsi_-\}\subset\C\oplus\C^3.
 \]
-This fixed two-dimensional complex subspace is a left ideal: left
-multiplication by any paravector preserves it. It is represented by $\C^2$,
+This fixed two-dimensional complex subspace is preserved by left
+multiplication by any paravector. Its coordinates are in $\C^2$,
 not the full four-complex-dimensional paravector space.
 Here $\pvpsi_\pm$ denote constant basis elements; in the Dirac sections they
-denote fields taking values in this same ideal.
+denote fields taking values in this same subspace.
 Left multiplication by $\bu\cdot\bsig$ or $\ba\cdot\bsig$ preserves
 this two-component form; these generate all paravector left actions.
 The matrix verification is in Appendix~\ref{sec:matrix-spinors}.
@@ -3552,7 +3546,7 @@ operator. These act on fields, not elements of the numerical coefficient
 spaces. On a smooth scalar field $\psi$, the pointwise outputs satisfy
 $\hE\psi\in\C$, $\hbp\psi\in\C^3$, and
 $\hP\psi\in\C\oplus\C^3$.
-On spinor fields, $\hP$ preserves the fixed ideal of
+On spinor fields, $\hP$ preserves the fixed subspace of
 \eqref{eq:axis-ideal-components}. The coupled operators have the same types.
 
 In a field, the following notation is retained: the real potential paravector
@@ -3787,7 +3781,7 @@ In the Weyl representation, a Dirac field is the two-entry block
 \begin{equation*}
  \bpsi(t,\br)=\begin{Bmatrix}\pvpsi_+(t,\br)\\\pvpsi_-(t,\br)\end{Bmatrix}.
 \end{equation*}
-Each entry takes values in the same fixed two-dimensional complex left ideal
+Each entry takes values in the same fixed two-dimensional complex subspace
 of $\C\oplus\C^3$ from \eqref{eq:axis-ideal-components}.
 Each has coordinates in $\C^2$, so the block has coordinates in $\C^4$.
 On blocks, Hermitian conjugation also transposes entries; sigma
@@ -3949,7 +3943,7 @@ Each coefficient is exposed by the decomposition
 $\pvpsi_\pm=a_\pm+\bb_\pm\cdot\bsig$, with complex scalar
 functions $a_\pm:\R^4\to\C$ and vector functions
 $\bb_\pm:\R^4\to\C^3$. Their pairs $(a_\pm,\bb_\pm)$ are restricted to
-the fixed spinor ideal, so their four complex coefficients per entry are
+the fixed spinor space, so their four complex coefficients per entry are
 not independent. By sigma multiplication,
 \begin{align*}
  \hEq a_--\hbpq\cdot\bb_-&=ma_+,\\
@@ -4076,7 +4070,7 @@ Consequently~\citeat{tong-qft}{Eqs.~(6.68)--(6.69)}{page=143}
 Equation~\eqref{eq:gauge-operator-covariance} preserves the Dirac equation;
 the phase sign is fixed by the potential shift.
 The factor $e^{-\ii q\lambda}\in\C$ has modulus one and preserves the
-spinor ideal, so the norm is unchanged.  The same product rules
+spinor space, so the norm is unchanged.  The same product rules
 preserve the KG and Pauli equations.
 
 \section{Low-energy limits}
@@ -4152,7 +4146,7 @@ Schr\"odinger equation.
 \label{sec:pauli-limit}
 
 The fields $\pvpsi_\pm,\pvpsi_\pm',\pvphi_\pm$ all take values in the same fixed
-two-dimensional complex left ideal of $\C\oplus\C^3$, with coordinate
+two-dimensional complex subspace of $\C\oplus\C^3$, with coordinate
 columns in $\C^2$. The phase and change of blocks below preserve this domain.
 
 The Dirac envelopes are defined by the same rest-energy phase shift~\citeat{gurtler-hestenes}{Eq.~(2.1)}{page=4}:
@@ -4280,7 +4274,7 @@ Dirac blocks are indexed by rows and spin projections by columns; the upper row 
 
 In a basis diagonalizing $\bm u\cdot\bsig$, the aligned paravector is
 $\mathrm{diag}(\phi_{++},\phi_{+-})$. The corresponding spinor in the
-fixed ideal of \eqref{eq:axis-ideal-components} is
+fixed subspace of \eqref{eq:axis-ideal-components} is
 $\phi_{++}\pZ_++\phi_{+-}\pZ_-$, where constant orthonormal $\pZ_\pm$ satisfy
 $\pvPi_\pm \pZ_\pm=\pZ_\pm$ and $\pvPi_\pm \pZ_\mp=0$.
 Both representations give the same scalar Pauli equations.
@@ -4398,7 +4392,7 @@ compared with $m$.
 \label{sec:spin-and-probability}
 \label{sec:paravector-spin-content}
 
-Here $\pvpsi$ takes values in the fixed spinor ideal of
+Here $\pvpsi$ takes values in the fixed spinor space of
 \eqref{eq:axis-ideal-components}, with coordinates in $\C^2$.
 Axes and polarizations $\bu,\bu',\ba\in\R^3$ are unit vectors;
 angles $\theta,\varphi\in\R$, projectors $\pvPi_\pm,\pvPi_\pm'\in\R\oplus\R^3$,
@@ -4417,7 +4411,7 @@ free Dirac components also satisfy KG.
 Notation: the complex paravector amplitude $\pvpsi(t,\br)$ of
 \eqref{eq:axis-ideal-components}.  For a
 \hyperref[def:real-unit-vector]{real unit axis} $\bu$ and real angle
-$\theta$, the following unitary rotor is used:
+$\theta$, the following unitary rotation factor is used:
 $\pR=\exp(-\ii\theta\bu\cdot\bsig/2)$ of
 \eqref{eq:rotation-exponential}.  The spinor law is~\citeat{baylis-spin}{p.~4}{page=4}
 \begin{equation}
@@ -4623,7 +4617,7 @@ At corresponding events, the domains are
 \]
 Here $\bu^2=1$, $|\beta|<1$, $\gamma\ge1$, and $\rho$ is charge density.
 Transformed quantities retain their types. Scalar KG fields take values in
-$\C$; Dirac entries remain in their fixed two-dimensional complex spinor ideal.
+$\C$; Dirac entries remain in their fixed two-dimensional complex spinor space.
 
 The algebraic actions of Section~\ref{sec:preserved-quantities}
 are now applied to the physical variables already defined.  Appendix~\ref{sec:conventions}
@@ -4816,15 +4810,15 @@ real four-force in the moving frame; the Hermitian extraction is preserved.
 \label{sec:matrix}
 
 The paravector formulas are verified in matrix form in this appendix.  The decomposition $\pZ=c+\bZ\cdot\bsig$ is used, with $c\in\C$ and $\bZ\in\C^3$.
-The representation is an algebra isomorphism
+The matrix map is
 $\operatorname{mat}:\C\oplus\C^3\to\C^{2\times2}$.
 The notation $\bM=\operatorname{mat}(\pZ)\in\C^{2\times2}$ is used.
 Real paravectors map to Hermitian matrices, not necessarily real matrices.
 The identity matrices are $\bI_2$ and $\bI_4$ in their stated dimensions.
 
-\subsection{Generators and products}
+\subsection{Sigmas and products}
 
-The Pauli images of the generators are~\citeat{lounesto-intro}{p.~11}{page=24}
+The sigmas are represented by the Pauli matrices~\citeat{lounesto-intro}{p.~11}{page=24}
 \[
  \operatorname{mat}(\pvsigma_1)=\begin{Bmatrix}0&1\\1&0\end{Bmatrix},\quad
  \operatorname{mat}(\pvsigma_2)=\begin{Bmatrix}0&-\ii\\\ii&0\end{Bmatrix},\quad
@@ -4836,7 +4830,7 @@ Consequently,
  \begin{Bmatrix}c+Z_3&Z_1-\ii Z_2\\Z_1+\ii Z_2&c-Z_3\end{Bmatrix}.
  \label{eq:matrix}
 \end{equation}
-The generator images obey the sigma product rule and are linearly independent over
+The sigma product rule is satisfied by these matrices, which are linearly independent over
 $\C$ together with $\bI_2$.  Thus every complex $2\times2$ matrix corresponds to exactly one paravector.
 The map preserves addition, sends $1$ to $\bI_2$, and satisfies
 \begin{equation*}
@@ -5445,7 +5439,7 @@ Notation: $m\in\R_{>0}$, $q,V\in\R$, $\bA\in\R^3$, and
 $\pA=V+\bA\cdot\bsig\in\R\oplus\R^3$.
 Here $\hEq$ is a scalar differential operator and $\hbpq$ a triple of them;
 $\psi:\R^4\to\C$ is a KG field.
-The Dirac field $\bpsi$ has two entries in the same fixed spinor ideal,
+The Dirac field $\bpsi$ has two entries in the same fixed spinor space,
 hence four complex coordinates.
 Here, subscript $0$ labels the uncoupled operators of
 \eqref{eq:canonical-operators}. The operators and wave equations are
@@ -5502,7 +5496,7 @@ Schr\"odinger's equation to leading order:
  \ii\partial_t\psi=\left(qV+\frac{\hbpq^2}{2m}\right)\psi.
  \tag*{\eqref{eq:schrodinger}}
 \end{equation*}
-The envelope $\pvphi_+$ in the fixed two-dimensional complex spinor ideal
+The envelope $\pvphi_+$ in the fixed two-dimensional complex spinor space
 of $\C\oplus\C^3$ obeys Pauli's equation:
 \begin{equation*}
  \ii\partial_t\pvphi_+=\left(qV+
@@ -5515,7 +5509,7 @@ for scalar and spinor amplitudes respectively.
 
 \Needspace{10\baselineskip}
 \paragraph{Spin and probabilities.}
-Notation: a nonzero $\pvpsi$ in the fixed spinor ideal, $\rho\in\R_{>0}$,
+Notation: a nonzero $\pvpsi$ in the fixed spinor space, $\rho\in\R_{>0}$,
 and polarization and measurement axes $\bu',\bu\in\R^3$ of unit norm.
 The real observable $\pZ\in\R\oplus\R^3$ acts from the left.  A rotation uses
 \begin{equation*}
@@ -5555,9 +5549,45 @@ $\pF\in\{0\}\oplus\C^3$.
 Physical factors $\pG$ have determinant one; spinor amplitudes lie in the
 fixed ideal of \eqref{eq:axis-ideal-components}.
 
+\paragraph{Names and algebra classifications.}
+The name \emph{space--time algebra} is used in this paper for the
+formulation in complex paravectors defined by the sigma multiplication rules.
+In Clifford-algebra terminology, this eight-real-dimensional algebra is
+classified as $\mathrm{Cl}_{3,0}$ and is commonly called the
+\emph{algebra of physical space} (APS). It is isomorphic to the even
+subalgebra $\mathrm{Cl}_{1,3}^{+}$ of the sixteen-real-dimensional algebra
+$\mathrm{Cl}_{1,3}$, for which the name \emph{spacetime algebra} (STA) is
+used by Hestenes~\citeat{baylis2004}{pp.~1--2}{page=1}.
+In $\mathrm{Cl}_{p,q}$, $p$ positive and $q$ negative basis-vector squares are
+specified; the signature $(+,-,-,-)$ is denoted by $(1,3)$, and the
+opposite signature by $(3,1)$.
+
+In this terminology, the sigmas are called \emph{generators}.
+The basis elements $1$, $\pvsigma_k$, $\ii\pvsigma_k$, and $\ii$ are
+assigned grades $0$, $1$, $2$, and $3$, respectively, and are called
+scalars, vectors, bivectors, and pseudoscalars.
+Thus scalar and pseudoscalar grades are combined in the complex scalar
+part, and vector and bivector grades in the complex vector term.
+Hermitian conjugation is called \emph{reversion} in APS; sigma conjugation
+is called \emph{grade involution}; and adjugation is called
+\emph{Clifford conjugation}~\citeat{baylis2004}{pp.~4--6}{page=4}.
+These correspondences depend on the algebra: the four-dimensional
+comparison is given below.
+
+A rotation factor is also called a \emph{rotor}, a projector an
+\emph{idempotent}, and an invertible element an \emph{algebraic unit};
+neither unit norm nor determinant one is implied by the last name.
+The fixed two-dimensional complex spinor space of
+\eqref{eq:axis-ideal-components} is called a \emph{minimal left ideal}:
+it is preserved by left multiplication by every paravector.
+In particle dynamics, \emph{mechanical momentum} is another name for
+kinetic momentum. The mass equivalent in the second SI relation of
+Section~\ref{sec:energy-inertia} is sometimes called \emph{relativistic mass};
+invariant mass is used throughout this paper.
+
 \paragraph{Mapping to the literature.}
-The algebra of physical space (APS), $\mathrm{Cl}_{3,0}$, is used here,
-with the conventions of Baylis and Sobczyk~\citeat{baylis2004}{pp.~4--6}{page=4}.
+The conventions of Baylis and Sobczyk are compared below
+\citeat{baylis2004}{pp.~4--6}{page=4}.
 The table translates the notation of the \href{https://en.wikipedia.org/w/index.php?title=Paravector&oldid=1318953844\#The_three-dimensional_Euclidean_space}{\emph{Paravector} article}; $A$ denotes a general element and $x$ a real paravector.
 \begin{center}
 \begin{tabular}{@{}lll@{}}

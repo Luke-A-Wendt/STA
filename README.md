@@ -8,7 +8,7 @@
 
 ## One complex [paravector](https://en.wikipedia.org/wiki/Paravector)
 
-The [algebra of physical space](https://en.wikipedia.org/wiki/Algebra_of_physical_space) is used, with its isomorphism to the even subalgebra of [spacetime algebra](https://en.wikipedia.org/wiki/Spacetime_algebra). Its general complex paravector is defined by the sigma generators:
+Space-time algebra is developed using complex paravectors. The sigmas are algebraic objects with order-dependent multiplication rules. The sigmas and the general complex paravector are defined by:
 
 ```math
 \boxed{
@@ -47,8 +47,6 @@ The component extractions are:
 \end{aligned}
 ```
 
-Scalar and pseudoscalar grades are combined in the complex scalar part; vector and bivector grades are combined in the complex vector term.
-
 ## Product
 
 Both the [dot](https://en.wikipedia.org/wiki/Dot_product) and [cross](https://en.wikipedia.org/wiki/Cross_product) products are included in the product:
@@ -66,31 +64,58 @@ The [commutator](https://en.wikipedia.org/wiki/Commutator) is:
 [\mathcal{X},\mathcal{Y}]:=\mathcal{X}\mathcal{Y}-\mathcal{Y}\mathcal{X}.
 ```
 
-## Core operations
-
-The decomposition $`\mathcal{Z}=c+𝐙\cdot𝝈`$ is used, where $`c\in\mathbb C`$ is a complex scalar and $`𝐙\in\mathbb C^3`$ is a complex vector.
-
-Under sigma conjugation (the [grade involution](https://en.wikipedia.org/wiki/Clifford_algebra#Grade_involution)) $`(\,)^{*}`$, [complex conjugation](https://en.wikipedia.org/wiki/Complex_conjugate) is applied to the coefficients and the sign of $`𝝈`$ is reversed.
-
-Since $`\mathrm{i}=\sigma_1\sigma_2\sigma_3`$, the following is obtained by preserving product order and reversing each generator:
-
-```math
-\mathrm{i}^{*}
-=(-\sigma_1)(-\sigma_2)(-\sigma_3)
-=-\sigma_1\sigma_2\sigma_3
-=-\mathrm{i}.
-```
-
-[Hermitian conjugation](https://en.wikipedia.org/wiki/Conjugate_transpose) $`(\,)^{\mathsf H}`$ is [reversion](https://en.wikipedia.org/wiki/Clifford_algebra#Reversion) in this algebra: the order of multiplied $`\sigma_k`$ is reversed.
-
-The following conjugates are obtained:
+For $`n,m,k\in\{1,2,3\}`$, $`\delta_{nm}`$ is defined to be $`1`$ if $`n=m`$ and $`0`$ otherwise. The value of $`\epsilon_{nmk}`$ is defined to be $`+1`$ for even permutations of $`(1,2,3)`$, $`-1`$ for odd permutations, and $`0`$ if any indices repeat. The ordered multiplication rule and commutator are then expressed as:
 
 ```math
 \begin{aligned}
-\mathcal{Z}^{*}&=c^{*}-𝐙^{*}\cdot𝝈,\\[4pt]
-\mathcal{Z}^{\mathsf H}&=c^{*}+𝐙^{*}\cdot𝝈.
+\sigma_n\sigma_m&=\delta_{nm}
++\sum_{k=1}^{3}\epsilon_{nmk}\,\mathrm{i}\sigma_k,\\[6pt]
+[\sigma_n,\sigma_m]&=2\sum_{k=1}^{3}\epsilon_{nmk}\,\mathrm{i}\sigma_k.
 \end{aligned}
 ```
+
+## Hermitian and sigma conjugation
+
+**Hermitian conjugation** $`(\,\cdot\,)^{\mathsf H}`$ and **sigma conjugation** $`(\,\cdot\,)^{*}`$ are defined by:
+
+```math
+\begin{aligned}
+(\,\cdot\,)^{\mathsf H}
+&:=\text{the multiplication order of the sigmas is reversed},\\[6pt]
+(\,\cdot\,)^{*}
+&:=\text{every }\sigma_n\text{ is replaced by }-\sigma_n
+\text{ with product order preserved}.
+\end{aligned}
+```
+
+Both operations are applied term by term, with real coefficients left unchanged. For two sigmas:
+
+```math
+\begin{aligned}
+(\sigma_m\sigma_n)^{\mathsf H}&=\sigma_n\sigma_m,\\[4pt]
+(\sigma_m\sigma_n)^{*}&=(-\sigma_m)(-\sigma_n).
+\end{aligned}
+```
+
+Since $`\mathrm{i}=\sigma_1\sigma_2\sigma_3`$, the sign of $`\mathrm{i}`$ is reversed by both operations:
+
+```math
+\begin{aligned}
+\mathrm{i}^{\mathsf H}&=\sigma_3\sigma_2\sigma_1=-\mathrm{i},\\[4pt]
+\mathrm{i}^{*}&=(-\sigma_1)(-\sigma_2)(-\sigma_3)=-\mathrm{i}.
+\end{aligned}
+```
+
+For $`\mathcal{Z}=c+𝐙\cdot𝝈`$, with $`c\in\mathbb C`$ and $`𝐙\in\mathbb C^3`$, the complex coefficients are therefore conjugated by both operations, while the vector sign is reversed only by sigma conjugation:
+
+```math
+\begin{aligned}
+\mathcal{Z}^{\mathsf H}&=c^{*}+𝐙^{*}\cdot𝝈,\\[4pt]
+\mathcal{Z}^{*}&=c^{*}-𝐙^{*}\cdot𝝈.
+\end{aligned}
+```
+
+## Core operations
 
 The paravector [adjugate](https://en.wikipedia.org/wiki/Adjugate_matrix), [determinant](https://en.wikipedia.org/wiki/Determinant), and [inverse](https://en.wikipedia.org/wiki/Invertible_matrix) are given by:
 
@@ -814,3 +839,7 @@ The [Born probabilities](https://en.wikipedia.org/wiki/Born_rule) for [spin proj
 ```
 
 For aligned axes, spin up is obtained with certainty; for perpendicular axes, equal probabilities are obtained. The probabilities are exchanged by reversal of the prepared spin.
+
+## Conventions
+
+Alternative names and comparisons with the literature are collected in [Appendix C: Conventions](./sta_notes.pdf#nameddest=appendix.C) of the paper.
