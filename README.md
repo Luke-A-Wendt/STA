@@ -84,7 +84,7 @@ The [commutator](https://en.wikipedia.org/wiki/Commutator) is:
 \end{aligned}
 ```
 
-Both operations are applied term by term, with real coefficients left unchanged. For two sigmas:
+Both are applied termwise; real coefficients are unchanged:
 
 ```math
 \begin{aligned}
@@ -93,7 +93,7 @@ Both operations are applied term by term, with real coefficients left unchanged.
 \end{aligned}
 ```
 
-Since $`\mathrm{i}=\sigma_1\sigma_2\sigma_3`$, the sign of $`\mathrm{i}`$ is reversed by both operations:
+With $`\mathrm{i}=\sigma_1\sigma_2\sigma_3`$:
 
 ```math
 \begin{aligned}
@@ -102,7 +102,7 @@ Since $`\mathrm{i}=\sigma_1\sigma_2\sigma_3`$, the sign of $`\mathrm{i}`$ is rev
 \end{aligned}
 ```
 
-For $`\mathcal{Z}=c+𝐙\cdot𝝈`$, with $`c\in\mathbb C`$ and $`𝐙\in\mathbb C^3`$, the complex coefficients are therefore conjugated by both operations, while the vector sign is reversed only by sigma conjugation:
+For $`\mathcal{Z}=c+𝐙\cdot𝝈`$, $`c\in\mathbb C`$, $`𝐙\in\mathbb C^3`$, the complex coefficients are conjugated:
 
 ```math
 \begin{aligned}
@@ -260,9 +260,9 @@ f(\mathcal{Z})&=f(\lambda_-)\Pi_-+f(\lambda_+)\Pi_+.
 
 ## Spacetime from the [determinant](https://en.wikipedia.org/wiki/Determinant)
 
-For a future-directed massive particle, $`t`$ is coordinate time in the chosen inertial frame. The carried clock’s proper time, often denoted $`\tau`$, is represented here by $`s`$ in natural units. This identification applies along a time-like path normalized by $`\mathrm ds^2=\det(\mathrm d\mathcal{X})>0`$.
+In natural units, inertial coordinate time is denoted by $`t`$ and onboard proper time (often $`\tau`$) by $`s`$.
 
-The spacetime increment and its determinant are:
+The spacetime increment and interval are:
 
 ```math
 \begin{aligned}
@@ -271,13 +271,13 @@ The spacetime increment and its determinant are:
 \end{aligned}
 ```
 
-Positive [proper time](https://en.wikipedia.org/wiki/Proper_time) is chosen along the future-directed path $`\mathrm dt>0`$:
+For a future-directed time-like path ($`\mathrm dt>0`$), positive [proper time](https://en.wikipedia.org/wiki/Proper_time) is defined by:
 
 ```math
 \mathrm ds:=\sqrt{\mathrm dt^2-\mathrm d𝐫^2}=\sqrt{\det(\mathrm d\mathcal{X})}.
 ```
 
-The proper-time rate is determined by the coordinate velocity:
+Dividing by coordinate time gives:
 
 ```math
 \begin{aligned}
@@ -307,7 +307,7 @@ The [four-velocity](https://en.wikipedia.org/wiki/Four-velocity) is:
 \end{aligned}
 ```
 
-Proper-time normalization is obtained:
+Thus:
 
 ```math
 \det \mathcal{U}=\det\!\left(\frac{\mathrm d\mathcal{X}}{\mathrm ds}\right)
@@ -320,110 +320,17 @@ For energy $`E`$ and momentum $`𝐏`$, the [four-momentum](https://en.wikipedia
 \mathcal{P}:=m\mathcal{U}=E+𝐏\cdot𝝈.
 ```
 
-For constant mass $`m>0`$, the determinant is scaled quadratically:
+For constant mass $`m>0`$:
 
 ```math
 \det \mathcal{P}=\det(m\mathcal{U})=m^2\det \mathcal{U}=m^2.
 ```
 
-The [mass-shell](https://en.wikipedia.org/wiki/On_shell_and_off_shell#Mass_shell) relation is therefore:
+The [mass-shell](https://en.wikipedia.org/wiki/On_shell_and_off_shell#Mass_shell) relation follows:
 
 ```math
 \det \mathcal{P}=E^2-𝐏^2=m^2.
 ```
-
-## Velocity, acceleration, and jerk in a Frenet frame
-
-For a smooth spatial path in a chosen inertial frame, speed and arc length are defined by $`v:=\lVert𝐯\rVert\in(0,1)`$ and $`\dot\ell=v`$. Dots denote $`t`$ derivatives. The unit tangent, principal normal, and binormal are:
-
-```math
-𝐮:=\frac{𝐯}{v},\qquad
-k:=\left\lVert\frac{\mathrm d𝐮}{\mathrm d\ell}\right\rVert
-=\frac{\lVert\dot{𝐮}\rVert}{v}>0,\qquad
-𝐮':=\frac{\dot{𝐮}}{vk},\qquad
-𝐮'':=𝐮\times𝐮'.
-```
-
-Here $`𝐮,𝐮',𝐮''\in\mathbb R^3`$ are orthonormal; primes are frame labels. Turning per unit distance is measured by **spatial curvature** $`k`$, with local radius $`1/k`$. Rotation of the $`𝐮,𝐮'`$ plane is described by signed torsion $`\tau\in\mathbb R`$; here $`\tau`$ denotes torsion, while $`s`$ remains proper time and $`\ell`$ is spatial arc length. The [Frenet equations](https://ocw.mit.edu/courses/2-158j-computational-geometry-spring-2003/dd2e0ef6278218b74dd1709065814109_lecnotes2.pdf#page=14) are:
-
-```math
-\begin{aligned}
-\dot{𝐮}&=vk𝐮',\\
-\dot{𝐮}'&=-vk𝐮+v\tau𝐮'',\\
-\dot{𝐮}''&=-v\tau𝐮'.
-\end{aligned}
-```
-
-By differentiating $`𝐯=v𝐮`$:
-
-```math
-\begin{aligned}
-𝐯&=v𝐮,\\
-\dot{𝐯}&=\underbrace{\dot v𝐮}_{\dot{𝐯}_{\parallel}:\ \text{tangential}}
- +\underbrace{v^2k𝐮'}_{\dot{𝐯}_{\perp}:\ \text{perpendicular}},\\
-\ddot{𝐯}&=(\ddot v-v^3k^2)𝐮
- +(3v\dot vk+v^2\dot k)𝐮'
- +v^3k\tau𝐮''.
-\end{aligned}
-```
-
-Speed is changed by tangential acceleration; direction is changed by perpendicular acceleration. Curvature is therefore $`k=\lVert\dot{𝐯}_{\perp}\rVert/v^2`$. Acceleration is confined to the tangent–normal plane; a binormal component is introduced in jerk through torsion. At zero speed or curvature, the Frenet frame is not fully determined; the unsplit formulas remain valid.
-
-For spacetime derivatives, the longitudinal rest direction is defined alongside four-velocity:
-
-```math
-\mathcal{U}=\gamma(1+v𝐮\cdot𝝈),\qquad
-\mathcal{N}:=\gamma(v+𝐮\cdot𝝈),\qquad
-\mathcal{U},\mathcal{N}\in\mathbb R\oplus\mathbb R^3.
-```
-
-The directions $`\mathcal{N},𝐮'\cdot𝝈,𝐮''\cdot𝝈`$ form an orthonormal basis of the instantaneous rest space. With $`\dot\gamma=\gamma^3v\dot v`$, coordinate derivatives are obtained first:
-
-```math
-\begin{aligned}
-\dot{\mathcal{U}}&=\dot\gamma
- +(\dot\gamma𝐯+\gamma\dot{𝐯})\cdot𝝈,\\
-\ddot{\mathcal{U}}&=\ddot\gamma
- +(\ddot\gamma𝐯+2\dot\gamma\dot{𝐯}+\gamma\ddot{𝐯})\cdot𝝈.
-\end{aligned}
-```
-
-Four-acceleration and unprojected four-jerk follow by $`\mathrm d/\mathrm ds=\gamma\,\mathrm d/\mathrm dt`$:
-
-```math
-\begin{aligned}
-\frac{\mathrm d\mathcal{U}}{\mathrm ds}
-&=\gamma\dot{\mathcal{U}}
-=\gamma^3\dot v\mathcal{N}+\gamma^2v^2k𝐮'\cdot𝝈,\\
-\frac{\mathrm d^2\mathcal{U}}{\mathrm ds^2}
-&=\gamma^2\ddot{\mathcal{U}}+\gamma\dot\gamma\dot{\mathcal{U}}.
-\end{aligned}
-```
-
-In the instantaneous rest frame, the tangential and perpendicular acceleration components are scaled by $`\gamma^3`$ and $`\gamma^2`$, respectively, relative to their coordinate values.
-
-Proper jerk is obtained by removing the component along $`\mathcal{U}`$:
-
-```math
-\begin{aligned}
-&\frac{\mathrm d^2\mathcal{U}}{\mathrm ds^2}
- +\det\!\left(\frac{\mathrm d\mathcal{U}}{\mathrm ds}\right)\mathcal{U}\\
-&\quad=\bigl(\gamma^4(\ddot v-v^3k^2)+3\gamma^6v\dot v^2\bigr)\mathcal{N}\\
-&\qquad+\bigl(3\gamma^5v\dot vk+\gamma^3v^2\dot k\bigr)𝐮'\cdot𝝈
- +\gamma^3v^3k\tau𝐮''\cdot𝝈.
-\end{aligned}
-```
-
-The **worldline curvature** is Lorentz invariant and equals the proper-acceleration magnitude in natural units:
-
-```math
-\sqrt{-\det\!\left(\frac{\mathrm d\mathcal{U}}{\mathrm ds}\right)}
-=\sqrt{\gamma^6\dot v^2+\gamma^4v^4k^2}.
-```
-
-Both changing speed and turning are included. A straight spatial path has $`k=0`$ but nonzero worldline curvature when speed changes. These are curvatures of paths in flat spacetime.
-
-For uniform circular motion, $`v,k`$ are constant and $`\tau=0`$: proper acceleration has constant magnitude $`\gamma^2v^2k`$, but proper jerk is $`-\gamma^4v^3k^2\mathcal{N}\ne0`$ because the acceleration direction changes. The full derivation is given in [the paper](./sta_notes.pdf#nameddest=subsection.6.6).
 
 ## [Maxwell](https://en.wikipedia.org/wiki/Maxwell%27s_equations) in one equation
 
@@ -730,7 +637,7 @@ For every [Dirac solution](https://en.wikipedia.org/wiki/Dirac_equation), $`\hat
 
 ## Low-energy [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) to [Schrödinger](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation)
 
-For constant $`m>0`$, the full scalar field is written as $`\psi'=e^{-\mathrm{i}mt}\psi`$, where $`\psi`$ is the envelope with the rest-energy phase removed. By the product rule:
+For constant $`m>0`$, the rest-energy phase is factored out as $`\psi'=e^{-\mathrm{i}mt}\psi`$. By the product rule:
 
 ```math
 \begin{aligned}
@@ -752,27 +659,27 @@ By substitution into [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%
 \end{aligned}
 ```
 
-On the envelope $`\psi`$, energy above rest, excluding $`qV`$, is measured by $`\hat E_q`$. For any $`q`$ and constant $`m>0`$, the exact recursion is obtained by canceling the phase:
+On the envelope $`\psi`$, energy above rest, excluding $`qV`$, is measured by $`\hat E_q`$. After phase cancellation:
 
 ```math
 \hat E_q\psi=\frac{\hat{𝐏}_q^2-\hat E_q^2}{2m}\psi.
 ```
 
-If $`\hat E_q`$ and $`\hat{𝐏}_q^2`$ commute, the following is obtained by iteration on the positive-energy branch:
+For commuting $`\hat E_q`$ and $`\hat{𝐏}_q^2`$, the positive-energy expansion is:
 
 ```math
 \hat E_q\psi=\left(\frac{\hat{𝐏}_q^2}{2m}
 -\frac{\hat{𝐏}_q^4}{8m^3}+\cdots\right)\psi.
 ```
 
-For weak, slowly varying fields, $`\hat E_q^2\psi`$ is neglected relative to $`2m\hat E_q\psi`$, and the following is obtained for [Schrödinger’s equation](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation):
+For weak, slowly varying fields, [Schrödinger’s equation](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation) is obtained by neglecting $`\hat E_q^2\psi`$ relative to $`2m\hat E_q\psi`$:
 
 ```math
 \boxed{\mathrm{i}\partial_t\psi=
 \left(\frac{(-\mathrm{i}\partial_{𝐫}-q𝐀)^2}{2m}+qV\right)\psi.}
 ```
 
-With $`𝐀=0`$ (hence $`𝐁=0`$), the following is obtained for the conventional [Schrödinger equation](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation):
+With $`𝐀=0`$ (hence $`𝐁=0`$):
 
 ```math
 \mathrm{i}\partial_t\psi=
@@ -781,13 +688,13 @@ With $`𝐀=0`$ (hence $`𝐁=0`$), the following is obtained for the convention
 
 ## Low-energy [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) to [Pauli](https://en.wikipedia.org/wiki/Pauli_equation)
 
-The rest-energy phase is removed from the full Dirac components $`\psi_\pm`$ by defining the envelopes $`\psi_\pm':=e^{\mathrm{i}mt}\psi_\pm`$. The following is obtained:
+With the rest-energy phase removed by $`\psi_\pm':=e^{\mathrm{i}mt}\psi_\pm`$:
 
 ```math
 (m+\hat E_q\pm\hat{𝐏}_q\cdot𝝈)\psi_\pm'=m\psi_\mp'.
 ```
 
-The large and small components for the positive-energy branch are defined by:
+The positive-energy large and small components are defined by:
 
 ```math
 \begin{aligned}
@@ -796,7 +703,7 @@ The large and small components for the positive-energy branch are defined by:
 \end{aligned}
 ```
 
-By addition and subtraction of the envelope equations:
+By addition and subtraction:
 
 ```math
 \begin{aligned}
@@ -805,7 +712,7 @@ By addition and subtraction of the envelope equations:
 \end{aligned}
 ```
 
-In the same nonrelativistic limit, $`\hat E_q\phi_-`$ is neglected relative to $`2m\phi_-`$. The resulting small component is substituted into the first equation, and the field identity above is applied:
+In the nonrelativistic limit, $`\hat E_q\phi_-`$ is neglected relative to $`2m\phi_-`$. By substitution and the field identity:
 
 ```math
 \begin{aligned}
@@ -815,7 +722,7 @@ In the same nonrelativistic limit, $`\hat E_q\phi_-`$ is neglected relative to $
 \end{aligned}
 ```
 
-With $`\hat E_q=\mathrm{i}\partial_t-qV`$ restored, the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation) is obtained, with kinetic and spin terms retained through order $`1/m`$:
+With $`\hat E_q=\mathrm{i}\partial_t-qV`$, the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation) is obtained through order $`1/m`$:
 
 ```math
 \boxed{\mathrm{i}\partial_t\phi_+=
@@ -862,18 +769,18 @@ Constant $`\Pi_\pm`$ commute with $`\hat E_q`$ and $`\hat{𝐏}_q^2`$, so the fo
 \end{aligned}
 ```
 
-Since $`\Pi_\pm\ne0`$, the scalar coefficients vanish. With $`\hat E_q=\mathrm{i}\partial_t-qV`$ restored:
+With $`\Pi_\pm\ne0`$ and $`\hat E_q=\mathrm{i}\partial_t-qV`$:
 
 ```math
 \boxed{\mathrm{i}\partial_t\phi_{+\pm}=
 \left(\frac{\hat{𝐏}_q^2\mp q\lVert𝐁\rVert}{2m}+qV\right)\phi_{+\pm}.}
 ```
 
-For states with [spin projections](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ along $`𝐮`$, opposite [Zeeman shifts](https://en.wikipedia.org/wiki/Zeeman_effect) are obtained. In the [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Definition_(position_space)) $`\hat{𝐏}_q=-\mathrm{i}\partial_{𝐫}-q𝐀`$, the orbital coupling is retained.
+Opposite [Zeeman shifts](https://en.wikipedia.org/wiki/Zeeman_effect) are obtained for [spin projections](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ along $`𝐮`$. Orbital coupling is retained in [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Definition_(position_space)) $`\hat{𝐏}_q=-\mathrm{i}\partial_{𝐫}-q𝐀`$.
 
-This representation is used for uniform-field [Pauli evolution](https://en.wikipedia.org/wiki/Pauli_equation); the fixed spinor space is used for the full [Dirac equation](https://en.wikipedia.org/wiki/Dirac_equation) and spin measurements.
+This encoding is used for uniform-field [Pauli evolution](https://en.wikipedia.org/wiki/Pauli_equation); the fixed spinor space is retained for [Dirac dynamics](https://en.wikipedia.org/wiki/Dirac_equation) and measurements.
 
-The four complex amplitudes of the [Dirac spinor](https://en.wikipedia.org/wiki/Dirac_spinor), after removal of the rest-energy phase, are arranged as:
+With the rest-energy phase removed, the four complex [Dirac amplitudes](https://en.wikipedia.org/wiki/Dirac_spinor) are arranged as:
 
 ```math
 𝝓:=\left(\,\begin{matrix}
@@ -882,7 +789,7 @@ The four complex amplitudes of the [Dirac spinor](https://en.wikipedia.org/wiki/
 \end{matrix}\,\right).
 ```
 
-[Dirac blocks](https://en.wikipedia.org/wiki/Dirac_spinor) are indexed by rows and spin projections by columns; the upper row is governed by the [Pauli limit](https://en.wikipedia.org/wiki/Pauli_equation).
+Rows are [Dirac blocks](https://en.wikipedia.org/wiki/Dirac_spinor); columns are spin projections. The upper row is governed by the [Pauli limit](https://en.wikipedia.org/wiki/Pauli_equation).
 
 ## [Spin measurement](https://en.wikipedia.org/wiki/Spin-1/2#Rotations_and_Spinors) probabilities
 
