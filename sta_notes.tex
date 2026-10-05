@@ -27,7 +27,6 @@
 \newcommand{\pvOmega}{\pvGreek{\Omega}}
 \newcommand{\pvPi}{\pvGreek{\Pi}}
 \newcommand{\pveta}{\pvGreek{\eta}}
-\newcommand{\pvnu}{\pvGreek{\nu}}
 \newcommand{\pvpartial}{\pvGreek{\partial}}
 \newcommand{\pvphi}{\pvGreek{\phi}}
 \newcommand{\pvpsi}{\pvGreek{\psi}}
@@ -84,7 +83,6 @@
 \newcommand{\bk}{\bm{k}}
 \newcommand{\bg}{\bm{g}}
 \newcommand{\bb}{\bm{b}}
-\newcommand{\bquatbasis}{\bm{\nu}}
 \newcommand{\bQ}{\bm{Q}}
 \newcommand{\bS}{\bm{S}}
 \newcommand{\bF}{\bm{F}}
@@ -1499,41 +1497,41 @@ parts by the same real rotation.  The sign change in
 \subsection{Quaternions as paravectors}
 \label{sec:quaternions}
 
-The quaternion units are already present in the complex vector part of
-the algebra. The following units are defined:
-\[
- \pvnu_k:=-\ii\pvsigma_k\quad(k=1,2,3),\qquad
- \bquatbasis:=-\ii\bsig=\{\pvnu_1,\pvnu_2,\pvnu_3\}.
-\]
-The sigma product gives $\pvnu_1^2=\pvnu_2^2=\pvnu_3^2=-1$,
-$\pvnu_1\pvnu_2=\pvnu_3$, $\pvnu_2\pvnu_3=\pvnu_1$, and $\pvnu_3\pvnu_1=\pvnu_2$; reversing any
-of these distinct pairs changes its sign.  Thus $\pvnu_1\pvnu_2\pvnu_3=-1$.
-These are the three quaternion units, distinct from the commuting
-complex scalar $\ii$.
+The quaternion multiplication rules are satisfied by $(-\ii\pvsigma_k)$:
+\begin{gather*}
+ (-\ii\pvsigma_k)^2=-1\quad(k=1,2,3),\\
+ (-\ii\pvsigma_1)(-\ii\pvsigma_2)=(-\ii\pvsigma_3),\qquad
+ (-\ii\pvsigma_2)(-\ii\pvsigma_3)=(-\ii\pvsigma_1),\qquad
+ (-\ii\pvsigma_3)(-\ii\pvsigma_1)=(-\ii\pvsigma_2),\\
+ (-\ii\pvsigma_1)(-\ii\pvsigma_2)(-\ii\pvsigma_3)=-1.
+\end{gather*}
+The sign is reversed when two distinct factors are exchanged.
+Here $\ii$ remains the commuting complex scalar.
 
 For $a\in\R$ and $\bQ\in\R^3$, the quaternion representation is~\citeat{baylis-applications}{p.~92}{page=103}
 \begin{equation}
- \boxed{\pQ:=a+\bQ\cdot\bquatbasis=a-\ii\bQ\cdot\bsig.}
+ \boxed{\pQ:=a+\bQ\cdot(-\ii\bsig)=a-\ii\bQ\cdot\bsig.}
  \label{eq:quaternion-paravector}
 \end{equation}
-Here $\bQ\cdot\bquatbasis=Q_1\pvnu_1+Q_2\pvnu_2+Q_3\pvnu_3$.
+Here $\bQ\cdot(-\ii\bsig)=Q_1(-\ii\pvsigma_1)+Q_2(-\ii\pvsigma_2)+Q_3(-\ii\pvsigma_3)$.
 In the decomposition $\pZ=(a'+b'\ii)+(\bX+\ii\bY)\cdot\bsig$, with
 scalar part $c'=a'+b'\ii$, this selects $a'=a$, $b'=0$, $\bX=0$,
 and $\bY=-\bQ$: equivalently, $c'=a$ and $\bZ=-\ii\bQ$.
 Thus $\pQ,\pQ'\in\R\oplus\ii\R^3$: a real scalar coefficient and purely
 imaginary vector coefficients. This four-real-component form is
 preserved under addition and multiplication.
-Indeed, for $\pQ'=a'+\bQ'\cdot\bquatbasis$, the paravector product becomes~\citeat{lounesto-intro}{p.~9}{page=22}
+Indeed, for $\pQ'=a'+\bQ'\cdot(-\ii\bsig)$, the paravector product becomes~\citeat{lounesto-intro}{p.~9}{page=22}
 \begin{equation}
  \pQ \pQ'=(aa'-\bQ\cdot\bQ')
- +(a\bQ'+a'\bQ+\bQ\times\bQ')\cdot\bquatbasis.
+ +(a\bQ'+a'\bQ+\bQ\times\bQ')\cdot(-\ii\bsig).
  \label{eq:quaternion-product}
 \end{equation}
 
-Since $\pvnu_k^{\mathsf H}=-\pvnu_k$ and $\pvnu_k^*=\pvnu_k$, quaternion conjugation
+Since $(-\ii\pvsigma_k)^{\mathsf H}=-(-\ii\pvsigma_k)$ and
+$(-\ii\pvsigma_k)^*=(-\ii\pvsigma_k)$, quaternion conjugation
 is the existing Hermitian conjugation:
 \begin{align}
- \pQ^{\mathsf H}&=a-\bQ\cdot\bquatbasis
+ \pQ^{\mathsf H}&=a-\bQ\cdot(-\ii\bsig)
  =a+\ii\bQ\cdot\bsig,\notag\\
  \pQ^*&=\pQ,\qquad \operatorname{adj} \pQ=\pQ^{\mathsf H},\notag\\
  \pQ \pQ^{\mathsf H}&=\pQ^{\mathsf H}\pQ=a^2+\bQ^2
@@ -1553,10 +1551,10 @@ which, with $\lVert\bQ\rVert^2=\bQ^2$ for real $\bQ$, gives
 Thus a unit quaternion has $\pQ^{-1}=\pQ^{\mathsf H}$.
 
 For rotation, $\br\in\R^3$ is represented by the pure quaternion
-$\br\cdot\bquatbasis=-\ii\br\cdot\bsig$.
-For a unit quaternion $\pQ=a+\bQ\cdot\bquatbasis$, the quaternion sandwich is used:
+$\br\cdot(-\ii\bsig)=-\ii\br\cdot\bsig$.
+For a unit quaternion $\pQ=a+\bQ\cdot(-\ii\bsig)$, the quaternion sandwich is used:
 \begin{equation}
- \br'\cdot\bquatbasis=\pQ(\br\cdot\bquatbasis)\pQ^{\mathsf H},
+ \br'\cdot(-\ii\bsig)=\pQ(\br\cdot(-\ii\bsig))\pQ^{\mathsf H},
  \qquad
  \br'\cdot\bsig=\pQ(\br\cdot\bsig)\pQ^{\mathsf H}.
  \label{eq:quaternion-rotation}
@@ -1564,11 +1562,11 @@ For a unit quaternion $\pQ=a+\bQ\cdot\bquatbasis$, the quaternion sandwich is us
 The two forms agree because $-\ii$ commutes with every paravector.
 Applying \eqref{eq:quaternion-product} twice gives
 \begin{align*}
- \pQ(\br\cdot\bquatbasis)
- &=-\bQ\cdot\br+(a\br+\bQ\times\br)\cdot\bquatbasis,\\
- \pQ(\br\cdot\bquatbasis)\pQ^{\mathsf H}
+ \pQ(\br\cdot(-\ii\bsig))
+ &=-\bQ\cdot\br+(a\br+\bQ\times\br)\cdot(-\ii\bsig),\\
+ \pQ(\br\cdot(-\ii\bsig))\pQ^{\mathsf H}
  &=\bigl((a^2-\bQ^2)\br+2(\bQ\cdot\br)\bQ
-          +2a\bQ\times\br\bigr)\cdot\bquatbasis.
+          +2a\bQ\times\br\bigr)\cdot(-\ii\bsig).
 \end{align*}
 The scalar part cancels. For a unit quaternion with $\bQ\ne0$, its
 real unit axis $\bu$ and rotation angle $\theta$ satisfy
@@ -5643,7 +5641,7 @@ The two couplings are $-q\bBf\cdot\bsig\pm\ii q\bE\cdot\bsig$.
 \subsection{Quaternion matrix image}
 \label{sec:quaternion-matrix}
 
-For the quaternion $\pQ=a+\bQ\cdot\bquatbasis=a-\ii\bQ\cdot\bsig$
+For the quaternion $\pQ=a+\bQ\cdot(-\ii\bsig)=a-\ii\bQ\cdot\bsig$
 of Section~\ref{sec:quaternions}, with $a\in\R$, $\bQ\in\R^3$, and
 $\pQ\in\R\oplus\ii\R^3$, the explicit
 matrix image is~\citeat{lounesto-intro}{p.~10}{page=23}
@@ -5654,7 +5652,7 @@ matrix image is~\citeat{lounesto-intro}{p.~10}{page=23}
  \label{eq:quaternion-matrix}
 \end{equation}
 Here
-$\operatorname{mat}(\pvnu_k)=-\ii\operatorname{mat}(\pvsigma_k)$.
+$\operatorname{mat}((-\ii\pvsigma_k))=-\ii\operatorname{mat}(\pvsigma_k)$.
 The conjugation and norm identities become
 \begin{align*}
  \operatorname{mat}(\pQ^{\mathsf H})&=\operatorname{mat}(\pQ)^{\mathsf H},\\
@@ -6147,7 +6145,7 @@ For the quaternion basis, the Hamilton units are identified by Baylis with
 $\mathbf e_{32},\mathbf e_{13},\mathbf e_{21}$, respectively
 \citeat{baylis-applications}{p.~92}{page=103}.  With
 $\mathbf e_k\leftrightarrow\pvsigma_k$, the units are represented here by
-$-\ii\pvsigma_1,-\ii\pvsigma_2,-\ii\pvsigma_3$.
+$(-\ii\pvsigma_1),(-\ii\pvsigma_2),(-\ii\pvsigma_3)$.
 Higham's spectral and repeated-root formulas apply through the faithful
 matrix image in Appendix~\ref{sec:matrix}; no change of the intrinsic
 product is required~\citeat{higham-functions}{pp.~3--4}{page=4}.
@@ -6260,25 +6258,24 @@ $+\beta\bu$ in fixed coordinates.
 With the sigma orientation held fixed, the two uniform sign choices obey
 \[
  \begin{aligned}
- \pvnu_k=-\ii\pvsigma_k&:\quad \pvnu_j\pvnu_k=-\delta_{jk}+\epsilon_{jkl}\pvnu_l,\\
- \widetilde \pvnu_k=+\ii\pvsigma_k&:\quad
- \widetilde \pvnu_j\widetilde \pvnu_k=-\delta_{jk}-\epsilon_{jkl}\widetilde \pvnu_l.
+ (-\ii\pvsigma_j)(-\ii\pvsigma_k)&=-\delta_{jk}+\epsilon_{jkl}(-\ii\pvsigma_l),\\
+ (+\ii\pvsigma_j)(+\ii\pvsigma_k)&=-\delta_{jk}-\epsilon_{jkl}(+\ii\pvsigma_l).
  \end{aligned}
 \]
-Repeated $l$ is summed.  Thus $\pvnu_1\pvnu_2=\pvnu_3$ is Hamilton's convention,
-whereas $\widetilde \pvnu_1\widetilde \pvnu_2=-\widetilde \pvnu_3$ has opposite orientation.
+Repeated $l$ is summed. Hamilton's orientation is obtained with
+$(-\ii\pvsigma_k)$, and the opposite orientation with $(+\ii\pvsigma_k)$.
 For the Hamilton basis, Section~\ref{sec:quaternions} gives
 \[
- \pQ=e^{\theta\bu\cdot\bquatbasis/2}=\pR_-,\qquad
+ \pQ=e^{\theta\bu\cdot(-\ii\bsig)/2}=\pR_-,\qquad
  \pQ^{\mathsf H}=\pQ^{-1},\qquad
- \br'\cdot\bquatbasis=\pQ(\br\cdot\bquatbasis)\pQ^{\mathsf H}.
+ \br'\cdot(-\ii\bsig)=\pQ(\br\cdot(-\ii\bsig))\pQ^{\mathsf H}.
 \]
-Since $\br\cdot\bquatbasis=-\ii\br\cdot\bsig$ and $\ii$ commutes with $\pQ$,
+Since $\br\cdot(-\ii\bsig)=-\ii\br\cdot\bsig$ and $\ii$ commutes with $\pQ$,
 the same sandwich rotates $\br\cdot\bsig$, with no extra sign.
 For example, $\pQ=(1-\ii\pvsigma_3)/\sqrt2$ sends $\pvsigma_1$ to $\pvsigma_2$.
 
-Using $\widetilde \pvnu_k$ with
-$\widetilde {\pQ}=e^{\theta\bu\cdot\widetilde{\bquatbasis}/2}=\pR_+$ and the right-adjoint
+Using $(+\ii\pvsigma_k)$ with
+$\widetilde {\pQ}=e^{\theta\bu\cdot(+\ii\bsig)/2}=\pR_+$ and the right-adjoint
 sandwich instead gives $-\theta$.  $+\theta$ is recovered by reversing either
 the exponent or the sandwich.  Reflecting the basis also restores Hamilton
 multiplication, but changes its identification with the physical axes.

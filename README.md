@@ -134,21 +134,24 @@ The paravector [trace](https://en.wikipedia.org/wiki/Trace_%28linear_algebra%29)
 
 ## [Quaternions](https://en.wikipedia.org/wiki/Quaternion)
 
-The three imaginary quaternion units are defined by:
+The quaternion multiplication rules are satisfied by $`(-\mathrm{i}\sigma_k)`$:
 
 ```math
 \begin{gathered}
-\nu_k:=-\mathrm{i}\sigma_k,\qquad 𝝂:=-\mathrm{i}𝝈=\{\nu_1,\nu_2,\nu_3\},\\
-\nu_1^2=\nu_2^2=\nu_3^2=\nu_1\nu_2\nu_3=-1.
+(-\mathrm{i}\sigma_k)^2=-1\quad(k=1,2,3),\\
+(-\mathrm{i}\sigma_1)(-\mathrm{i}\sigma_2)=(-\mathrm{i}\sigma_3),\qquad
+(-\mathrm{i}\sigma_2)(-\mathrm{i}\sigma_3)=(-\mathrm{i}\sigma_1),\qquad
+(-\mathrm{i}\sigma_3)(-\mathrm{i}\sigma_1)=(-\mathrm{i}\sigma_2),\\
+(-\mathrm{i}\sigma_1)(-\mathrm{i}\sigma_2)(-\mathrm{i}\sigma_3)=-1.
 \end{gathered}
 ```
 
-For $`a\in\mathbb R`$ and $`𝐐\in\mathbb R^3`$, the quaternion and its conjugate are:
+The sign is reversed when two distinct factors are exchanged. For $`a\in\mathbb R`$ and $`𝐐\in\mathbb R^3`$, the quaternion and its conjugate are:
 
 ```math
 \begin{aligned}
-\mathcal{Q}&:=a+𝐐\cdot𝝂=a-\mathrm{i}𝐐\cdot𝝈,\\
-\mathcal{Q}^{\mathsf H}&:=a-𝐐\cdot𝝂=a+\mathrm{i}𝐐\cdot𝝈,
+\mathcal{Q}&:=a+𝐐\cdot(-\mathrm{i}𝝈)=a-\mathrm{i}𝐐\cdot𝝈,\\
+\mathcal{Q}^{\mathsf H}&:=a-𝐐\cdot(-\mathrm{i}𝝈)=a+\mathrm{i}𝐐\cdot𝝈,
 \end{aligned}
 ```
 
@@ -181,8 +184,8 @@ a=\cos\frac{\theta}{2},\qquad
 A rotation of $`𝐫\in\mathbb R^3`$ about $`𝐮`$ by angle $`\theta`$ is expressed by:
 
 ```math
-\mathcal{X}'=𝐫'\cdot𝝂, \qquad
-\mathcal{X}=𝐫\cdot𝝂, \qquad
+\mathcal{X}'=𝐫'\cdot(-\mathrm{i}𝝈), \qquad
+\mathcal{X}=𝐫\cdot(-\mathrm{i}𝝈), \qquad
 \mathcal{X}'=\mathcal{Q}\mathcal{X}\mathcal{Q}^{\mathsf H}.
 ```
 
