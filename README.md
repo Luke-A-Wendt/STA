@@ -260,7 +260,7 @@ f(\mathcal{Z})&=f(\lambda_-)\Pi_-+f(\lambda_+)\Pi_+.
 
 ## Spacetime from the [determinant](https://en.wikipedia.org/wiki/Determinant)
 
-For a future-directed massive particle, proper time and four-momentum are obtained from a real paravector, with four-velocity $`\mathcal{U}`$.
+For a future-directed massive particle, $`t`$ is coordinate time in the chosen inertial frame. The carried clock’s proper time, often denoted $`\tau`$, is represented here by $`s`$ in natural units. This identification applies along a time-like path normalized by $`\mathrm ds^2=\det(\mathrm d\mathcal{X})>0`$.
 
 The spacetime increment and its determinant are:
 
@@ -331,6 +331,99 @@ The [mass-shell](https://en.wikipedia.org/wiki/On_shell_and_off_shell#Mass_shell
 ```math
 \det \mathcal{P}=E^2-𝐏^2=m^2.
 ```
+
+## Velocity, acceleration, and jerk in a Frenet frame
+
+For a smooth spatial path in a chosen inertial frame, speed and arc length are defined by $`v:=\lVert𝐯\rVert\in(0,1)`$ and $`\dot\ell=v`$. Dots denote $`t`$ derivatives. The unit tangent, principal normal, and binormal are:
+
+```math
+𝐮:=\frac{𝐯}{v},\qquad
+k:=\left\lVert\frac{\mathrm d𝐮}{\mathrm d\ell}\right\rVert
+=\frac{\lVert\dot{𝐮}\rVert}{v}>0,\qquad
+𝐮':=\frac{\dot{𝐮}}{vk},\qquad
+𝐮'':=𝐮\times𝐮'.
+```
+
+Here $`𝐮,𝐮',𝐮''\in\mathbb R^3`$ are orthonormal; primes are frame labels. Turning per unit distance is measured by **spatial curvature** $`k`$, with local radius $`1/k`$. Rotation of the $`𝐮,𝐮'`$ plane is described by signed torsion $`\tau\in\mathbb R`$; here $`\tau`$ denotes torsion, while $`s`$ remains proper time and $`\ell`$ is spatial arc length. The [Frenet equations](https://ocw.mit.edu/courses/2-158j-computational-geometry-spring-2003/dd2e0ef6278218b74dd1709065814109_lecnotes2.pdf#page=14) are:
+
+```math
+\begin{aligned}
+\dot{𝐮}&=vk𝐮',\\
+\dot{𝐮}'&=-vk𝐮+v\tau𝐮'',\\
+\dot{𝐮}''&=-v\tau𝐮'.
+\end{aligned}
+```
+
+By differentiating $`𝐯=v𝐮`$:
+
+```math
+\begin{aligned}
+𝐯&=v𝐮,\\
+\dot{𝐯}&=\underbrace{\dot v𝐮}_{\dot{𝐯}_{\parallel}:\ \text{tangential}}
+ +\underbrace{v^2k𝐮'}_{\dot{𝐯}_{\perp}:\ \text{perpendicular}},\\
+\ddot{𝐯}&=(\ddot v-v^3k^2)𝐮
+ +(3v\dot vk+v^2\dot k)𝐮'
+ +v^3k\tau𝐮''.
+\end{aligned}
+```
+
+Speed is changed by tangential acceleration; direction is changed by perpendicular acceleration. Curvature is therefore $`k=\lVert\dot{𝐯}_{\perp}\rVert/v^2`$. Acceleration is confined to the tangent–normal plane; a binormal component is introduced in jerk through torsion. At zero speed or curvature, the Frenet frame is not fully determined; the unsplit formulas remain valid.
+
+For spacetime derivatives, the longitudinal rest direction is defined alongside four-velocity:
+
+```math
+\mathcal{U}=\gamma(1+v𝐮\cdot𝝈),\qquad
+\mathcal{N}:=\gamma(v+𝐮\cdot𝝈),\qquad
+\mathcal{U},\mathcal{N}\in\mathbb R\oplus\mathbb R^3.
+```
+
+The directions $`\mathcal{N},𝐮'\cdot𝝈,𝐮''\cdot𝝈`$ form an orthonormal basis of the instantaneous rest space. With $`\dot\gamma=\gamma^3v\dot v`$, coordinate derivatives are obtained first:
+
+```math
+\begin{aligned}
+\dot{\mathcal{U}}&=\dot\gamma
+ +(\dot\gamma𝐯+\gamma\dot{𝐯})\cdot𝝈,\\
+\ddot{\mathcal{U}}&=\ddot\gamma
+ +(\ddot\gamma𝐯+2\dot\gamma\dot{𝐯}+\gamma\ddot{𝐯})\cdot𝝈.
+\end{aligned}
+```
+
+Four-acceleration and unprojected four-jerk follow by $`\mathrm d/\mathrm ds=\gamma\,\mathrm d/\mathrm dt`$:
+
+```math
+\begin{aligned}
+\frac{\mathrm d\mathcal{U}}{\mathrm ds}
+&=\gamma\dot{\mathcal{U}}
+=\gamma^3\dot v\mathcal{N}+\gamma^2v^2k𝐮'\cdot𝝈,\\
+\frac{\mathrm d^2\mathcal{U}}{\mathrm ds^2}
+&=\gamma^2\ddot{\mathcal{U}}+\gamma\dot\gamma\dot{\mathcal{U}}.
+\end{aligned}
+```
+
+In the instantaneous rest frame, the tangential and perpendicular acceleration components are scaled by $`\gamma^3`$ and $`\gamma^2`$, respectively, relative to their coordinate values.
+
+Proper jerk is obtained by removing the component along $`\mathcal{U}`$:
+
+```math
+\begin{aligned}
+&\frac{\mathrm d^2\mathcal{U}}{\mathrm ds^2}
+ +\det\!\left(\frac{\mathrm d\mathcal{U}}{\mathrm ds}\right)\mathcal{U}\\
+&\quad=\bigl(\gamma^4(\ddot v-v^3k^2)+3\gamma^6v\dot v^2\bigr)\mathcal{N}\\
+&\qquad+\bigl(3\gamma^5v\dot vk+\gamma^3v^2\dot k\bigr)𝐮'\cdot𝝈
+ +\gamma^3v^3k\tau𝐮''\cdot𝝈.
+\end{aligned}
+```
+
+The **worldline curvature** is Lorentz invariant and equals the proper-acceleration magnitude in natural units:
+
+```math
+\sqrt{-\det\!\left(\frac{\mathrm d\mathcal{U}}{\mathrm ds}\right)}
+=\sqrt{\gamma^6\dot v^2+\gamma^4v^4k^2}.
+```
+
+Both changing speed and turning are included. A straight spatial path has $`k=0`$ but nonzero worldline curvature when speed changes. These are curvatures of paths in flat spacetime.
+
+For uniform circular motion, $`v,k`$ are constant and $`\tau=0`$: proper acceleration has constant magnitude $`\gamma^2v^2k`$, but proper jerk is $`-\gamma^4v^3k^2\mathcal{N}\ne0`$ because the acceleration direction changes. The full derivation is given in [the paper](./sta_notes.pdf#nameddest=subsection.6.6).
 
 ## [Maxwell](https://en.wikipedia.org/wiki/Maxwell%27s_equations) in one equation
 

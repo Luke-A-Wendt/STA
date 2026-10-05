@@ -147,6 +147,8 @@
 \sourceurl{feynman-spacetime}{https://www.feynmanlectures.caltech.edu/I_17.html}
 \sourceurl{russo-townsend}{https://arxiv.org/pdf/0902.4243}
 
+\sourceurl{frenet-curves}{https://ocw.mit.edu/courses/2-158j-computational-geometry-spring-2003/dd2e0ef6278218b74dd1709065814109_lecnotes2.pdf}
+
 \title{\textbf{Space--Time Algebra}\\[0.35em]
   \large A compact development of paravectors and their physical applications}
 \author{Dr. Luke A. Wendt}
@@ -200,6 +202,7 @@ The usual non-bold glyphs are retained for Greek paravector symbols, including
 $\pvpsi$, $\pvphi$, and $\pvvarphi$, and for the paravector derivative $\pvpartial$.
 Derivatives such as $\partial_t$ and $\pdr$ retain bold vector subscripts.
 Scalar quantities and coefficient components remain unadorned.
+Distance $d$ is placed last in products to distinguish it from the differential $\dd$.
 By these styles, a boost $\pL$ is distinguished from a scalar
 Lagrangian $L$, and the paravector momentum $\pP$ from its vector part $\bp$.
 
@@ -1668,29 +1671,21 @@ $\pZ=z\bu\cdot\bsig$ for any nonzero $z\in\C$.
 
 In an inertial frame, an event is $\pX=t+\br\cdot\bsig\in\R\oplus\R^3$.
 A massive particle is described by a future-directed time-like path $\br(t)$,
-with coordinate velocity $\bv=\dot{\br}$, $\bv^2<1$, and proper time $s$.
-Dots are used for total coordinate-time derivatives: $\dot{\bv}=\dd\bv/\dd t$
-and $\ddot{\bv}=\dd^2\bv/\dd t^2$, with the same convention for
-scalars and paravectors. Natural units are used except in the explicitly
-marked SI equations.
+with coordinate velocity $\bv=\dot\br$ and $\bv^2<1$.
+Coordinate time is denoted by $t$; the carried clock's proper time is
+represented by $s$ in the natural units used here.
+Dots denote total $t$ derivatives: coordinate acceleration is $\dot\bv$
+and coordinate jerk is $\ddot\bv$. The same convention is applied to
+scalars and paravectors, even when a path is parametrized by $s$.
 
-\subsection{Overview: velocity, acceleration, and jerk}
-\label{sec:kinematics-overview}
-
-Velocity $\bv$, acceleration $\dot{\bv}$, and jerk $\ddot{\bv}$ are
-measured in an inertial frame using coordinate time $t$; proper time $s$
-is measured by a carried clock. No accelerometer reading is produced
-by uniform velocity. Proper acceleration is measured by an accelerometer;
-proper jerk is obtained from its vector rate of change per unit proper
-time, referred to nonrotating carried axes. With a steady push along a fixed axis, proper jerk is zero despite
-changing coordinate acceleration.
-
-Four-acceleration is obtained by differentiating four-velocity with respect
-to proper time. On further differentiation, a contribution from the
-changing rest frame is included; proper jerk is obtained by projection
-into the instantaneous rest space.
+Proper acceleration is measured by an accelerometer. Proper jerk is its
+vector rate of change per unit proper time, referred to nonrotating
+carried axes. Four-velocity and its derivatives are developed below from
+the invariant interval; proper jerk is obtained by projection into the
+instantaneous rest space.
 
 \subsection{Intervals, light cones, and proper time}
+\label{sec:proper-time}
 
 The displacement and its Minkowski interval are~\citeat{baylis-intro}{Eq.~(7)}{page=8}
 \begin{align}
@@ -1743,9 +1738,23 @@ Its endpoints therefore satisfy \eqref{eq:future-light-cone}; a space-like
 separation cannot carry a causal signal
 \citeat{tong-relativity}{p.~118}{page=124}.
 
-\paragraph{Proper time.}
-Along a future-directed time-like path, $\dd t>0$ and
-$\dd s=\sqrt{\det(\dd\pX)}>0$ are chosen. Dividing by $\dd t$ gives
+\paragraph{Coordinate time and proper time.}
+The coordinate $t$ is read from synchronized clocks of the chosen inertial
+frame. Along a future-directed time-like path, $\dd t>0$ and the positive
+spacetime arc-length increment $\dd s=\sqrt{\det(\dd\pX)}$ are chosen.
+Proper time is commonly denoted by $\tau$. Reverting to SI units, with
+$s$ measured in metres and $\tau$ in seconds,
+\[
+ \boxed{\dd s=c\,\dd\tau}_{\,\mathrm{SI}}.
+\]
+With $c=1$, the same elapsed quantity is represented by $s$ and $\tau$;
+only $s$ is used for proper time below. This interpretation is fixed by
+the positive interval normalization, not by an arbitrary choice of path
+parameter. Null paths have $\dd s=0$ and no proper-time parametrization;
+space-like paths have no real proper-time increment
+\citeat{tong-relativity}{pp.~133--134}{page=139}.
+
+Dividing by $\dd t$ gives
 \begin{align*}
  \dot{s}=\frac{\dd s}{\dd t}
  &=\frac{\sqrt{\dd t^2-\dd\br^2}}{\dd t}\\
@@ -1760,8 +1769,42 @@ The Lorentz factor and the derivative conversion are therefore~\citeat{tong-rela
  \frac{\dd}{\dd s}&=\gamma\frac{\dd}{\dd t}.
  \label{eq:proper-time-derivative}
 \end{align}
+The coordinate-time and proper-time rates coincide only at rest in the
+chosen frame.
 
-\subsection{Four-velocity and the mass shell}
+\paragraph{Elapsed time and clock comparison.}
+Between coordinate times $t_0$ and $t$ the clock records~\citeat{tong-relativity}{Eq.~(7.19)}{page=140}
+\begin{equation}
+ s(t)-s(t_0)=\int_{t_0}^{t}\frac{\dd t'}{\gamma(t')}
+ =\int_{t_0}^{t}\sqrt{1-\bv(t')^2}\dd t'.
+ \label{eq:elapsed-proper-time}
+\end{equation}
+Fixed, time-like separated events are denoted by $\pX_0=\pX(s_0)$ and $\pX_1=\pX(s_1)$, with $\pX_1$ to the future of $\pX_0$.
+The decomposition $\pX_k=t_k+\br_k\cdot\bsig$ is used for $k=0,1$.
+In their separation's rest frame, $\br_1=\br_0$ and
+$t_1-t_0=\sqrt{\det(\pX_1-\pX_0)}$.  Since $\sqrt{1-\bv^2}\le1$,
+\eqref{eq:elapsed-proper-time} gives~\citeat{tong-em}{p.~122}{page=130}
+\begin{equation}
+ s_1-s_0\le\sqrt{\det(\pX_1-\pX_0)}.
+ \label{eq:maximum-proper-time}
+\end{equation}
+Equality requires the straight inertial path.  The determinant of a finite
+displacement therefore does not generally equal the squared elapsed
+proper time of an accelerated clock.
+
+For a return trip lasting real coordinate time $T>0$, velocities
+$+\beta\bu$ and $-\beta\bu$ are maintained for $T/2$ each, with
+\hyperref[def:real-unit-vector]{real unit vector} $\bu$ and
+$0<\beta<1$.  The ideal instantaneous reversal is the limit of a short
+smooth turn.  By the traveling clock, the following interval is recorded:
+\[
+ s(T)-s(0)=T\sqrt{1-\beta^2},
+\]
+while $T$ is recorded by the clock at rest.  This is the twin-clock comparison
+\citeat{tong-relativity}{p.~121}{page=127}.
+
+\subsection{Four-velocity and worldlines}
+\label{sec:worldlines}
 
 The real four-velocity is the proper-time tangent~\citeat{baylis-intro}{Eq.~(8)}{page=8}:
 \begin{equation}
@@ -1790,29 +1833,18 @@ $\theta=\tanh^{-1}\beta$ are used.  Equation~\eqref{eq:boost-square} gives $\pU=
 $\pL=\exp(-\theta\bu\cdot\bsig/2)$: the direct boost $\pL \pU \pL=1$
 takes this tangent to rest.
 
-For constant real mass $m>0$, the real four-momentum is defined by~\citeat{tong-relativity}{Eq.~(7.24)}{page=142}
+\paragraph{Integrating four-velocity.}
+Integrating $\pU=\dd\pX/\dd s$ between $s_0<s_1$ gives
 \begin{equation}
- \pP:=m\pU=E+\bp\cdot\bsig.
- \label{eq:four-momentum}
+ \pX(s_1)-\pX(s_0)=\int_{s_0}^{s_1}\pU(s)\dd s.
+ \label{eq:worldline-integral}
 \end{equation}
-The energy, momentum, and inverse are
+Its real components are
 \begin{align*}
- E&=\scpart {\pP}=m\gamma,\\
- \bp&=\vecpart {\pP}=m\gamma\bv,\\
- \pP^{-1}&=\frac{E-\bp\cdot\bsig}{m^2}.
+ t(s_1)-t(s_0)&=\int_{s_0}^{s_1}\gamma(s)\dd s,\\
+ \br(s_1)-\br(s_0)&=\int_{s_0}^{s_1}\gamma(s)\bv(s)\dd s.
 \end{align*}
-Since $\det\pU=1$, scalar scaling gives the mass shell~\citeat{tong-relativity}{Eq.~(7.30)}{page=143}:
-\begin{equation}
- E^2-\bp^2=\det\pP=m^2,\qquad E>0.
- \label{eq:mass-shell}
-\end{equation}
-For a massive particle of finite energy,
-\[
- \bv^2=\frac{\bp^2}{E^2}=1-\frac{m^2}{E^2}<1.
-\]
-Approaching light speed requires unbounded energy.
-A massless particle has no proper-time four-velocity. Its momentum is
-defined directly by $\pP=E+\bp\cdot\bsig$, with $E>0$ and $E^2=\bp^2$.
+The path is determined by the velocity history; an endpoint boost alone is insufficient.
 
 \subsection{Four-acceleration and proper acceleration}
 \label{sec:proper-acceleration}
@@ -1826,8 +1858,8 @@ $\dd\pU/\dd s$. Coordinate-time derivatives are first obtained:
  \frac{\dd\left(\gamma\bv\right)}{\dd t}
  &=\gamma\dot{\bv}+\dot{\gamma}\bv.
 \end{align*}
-For $\bv\ne0$, the coordinate acceleration is resolved into components
-parallel and perpendicular to the velocity:
+For $\bv\ne0$, the coordinate acceleration is resolved into tangential
+(parallel to the velocity) and perpendicular components:
 \[
  \dot{\bv}_{\parallel}:=\frac{(\bv\cdot\dot{\bv})\bv}{\bv^2},
  \qquad \dot{\bv}_{\perp}:=\dot{\bv}-\dot{\bv}_{\parallel},
@@ -1913,32 +1945,6 @@ the squared magnitude of the acceleration measured in the instantaneous
 rest frame, called the proper acceleration.
 At rest, $\gamma=1$ and $\dd\pU/\dd s=\dot{\bv}\cdot\bsig$, so the
  determinant is $-\dot{\bv}^2$ and the proper acceleration has magnitude $\lVert\dot{\bv}\rVert$.
-
-\subsubsection{Energy and inertia}
-\label{sec:energy-inertia}
-For constant invariant mass $m>0$, four-momentum is $\pP=m\pU$,
-so $\dot{\pP}=m\,\dot{\pU}$. Its scalar and spatial parts are
-$E=m\gamma$ and $\bp=m\gamma\bv$.
-Multiplying the spatial part of
-\eqref{eq:four-velocity-coordinate-derivative} by $m$ therefore gives
-\begin{equation}
- \dot{\bp}=m\gamma\dot{\bv}_{\perp}+m\gamma^3\dot{\bv}_{\parallel}.
- \label{eq:relativistic-inertia}
-\end{equation}
-Taking its dot product with $\bv$ gives the work rate
-\begin{equation}
- \dot{E}=m\gamma^3\bv\cdot\dot{\bv}
- =\bv\cdot\dot{\bp}.
- \label{eq:relativistic-work}
-\end{equation}
-At rest the force is $m\dot{\bv}$. Reverting to SI units,
-\[
- \boxed{E=\gamma mc^2}_{\,\mathrm{SI}},\qquad
- \boxed{E/c^2=\gamma m}_{\,\mathrm{SI}}.
-\]
-In the natural units used elsewhere,
-invariant $m$ is retained: the longitudinal and transverse inertia in
-\eqref{eq:relativistic-inertia} differ.
 
 \subsection{Jerk and proper-time derivatives}
 \label{sec:jerk}
@@ -2057,6 +2063,14 @@ so its projection vanishes. Hence~\citeat{russo-townsend}{Eq.~(2.14)}{page=7}
  \label{eq:zero-proper-jerk}
 \end{equation}
 Zero proper jerk therefore need not mean zero coordinate jerk.
+An equivalent first integral is
+\[
+ \frac{\dd\left(\gamma^3\dot{\bv}\right)}{\dd t}=0,
+ \qquad \gamma^3\dot{\bv}=\gamma_0^3\dot{\bv}_0.
+\]
+Here subscript $0$ denotes any reference event. Any nonzero coordinate
+acceleration therefore retains a fixed direction, although the velocity need not be parallel
+to it; the spatial trajectory is confined to a plane.
 Also, differentiating the acceleration determinant gives
 \[
  \frac{\dd}{\dd s}\det\left(\frac{\dd\pU}{\dd s}\right)
@@ -2069,7 +2083,8 @@ Consequently, zero projected jerk implies constant proper-acceleration
 magnitude. The converse does not hold in general: the direction can still
 change, as in uniform circular motion.
 
-\subsubsection{Fixed-axis motion and rapidity}
+\subsection{Fixed-axis motion and rapidity}
+\label{sec:fixed-axis}
 For a fixed real unit vector $\bu$, the following representations are used:
 \[
  \pU=\cosh\theta+\sinh\theta\bu\cdot\bsig,\qquad
@@ -2171,7 +2186,7 @@ $\dd^2\theta/\dd s^2=0$. Thus $\gamma\dot{\theta}$ is constant and rapidity
 is affine in proper time. The unprojected four-jerk remains nonzero
 whenever that constant proper acceleration is nonzero.
 
-\subsubsection{Null combinations and the constant-acceleration pattern}
+\paragraph{Null combinations and constant acceleration.}
 The symmetry of the paired derivatives becomes especially simple on
 adding or subtracting $\pU$ and $\pN$:
 \[
@@ -2210,57 +2225,173 @@ The constant-proper-acceleration worldline in
 Section~\ref{sec:constant-proper-acceleration} realizes this pattern;
 Section~\ref{sec:constant-jerk} treats nonzero constant proper jerk.
 
-\subsection{World lines and model motions}
-\label{sec:worldlines}
+\subsection{Velocity, acceleration, and jerk in a Frenet frame}
+\label{sec:frenet-kinematics}
 
-Dots are still used for coordinate-time derivatives even when a path is
-parametrized by $s$. The integration limits $s_0,s_1$ below are arbitrary;
-in the constant-motion examples, subscript $0$ denotes the initial event
-$t=s=0$.
-
-\subsubsection{Integrating four-velocity}
-Integrating $\pU=\dd\pX/\dd s$ between $s_0<s_1$ gives
-\begin{equation}
- \pX(s_1)-\pX(s_0)=\int_{s_0}^{s_1}\pU(s)\dd s.
- \label{eq:worldline-integral}
-\end{equation}
-Its real components are
-\begin{align*}
- t(s_1)-t(s_0)&=\int_{s_0}^{s_1}\gamma(s)\dd s,\\
- \br(s_1)-\br(s_0)&=\int_{s_0}^{s_1}\gamma(s)\bv(s)\dd s.
-\end{align*}
-Thus between coordinate times $t_0$ and $t$ the clock records~\citeat{tong-relativity}{Eq.~(7.19)}{page=140}
-\begin{equation}
- s(t)-s(t_0)=\int_{t_0}^{t}\frac{\dd t'}{\gamma(t')}
- =\int_{t_0}^{t}\sqrt{1-\bv(t')^2}\dd t'.
- \label{eq:elapsed-proper-time}
-\end{equation}
-The path is determined by the velocity history, not by an endpoint boost alone.
-
-\subsubsection{Clock comparison}
-Fixed, time-like separated events are denoted by $\pX_0=\pX(s_0)$ and $\pX_1=\pX(s_1)$, with $\pX_1$ to the future of $\pX_0$.
-The decomposition $\pX_k=t_k+\br_k\cdot\bsig$ is used for $k=0,1$.
-In their separation's rest frame, $\br_1=\br_0$ and
-$t_1-t_0=\sqrt{\det(\pX_1-\pX_0)}$.  Since $\sqrt{1-\bv^2}\le1$,
-\eqref{eq:elapsed-proper-time} gives~\citeat{tong-em}{p.~122}{page=130}
-\begin{equation}
- s_1-s_0\le\sqrt{\det(\pX_1-\pX_0)}.
- \label{eq:maximum-proper-time}
-\end{equation}
-Equality requires the straight inertial path.  The determinant of a finite
-displacement therefore does not generally equal the squared elapsed
-proper time of an accelerated clock.
-
-For a return trip lasting real coordinate time $T>0$, velocities
-$+\beta\bu$ and $-\beta\bu$ are maintained for $T/2$ each, with
-\hyperref[def:real-unit-vector]{real unit vector} $\bu$ and
-$0<\beta<1$.  The ideal instantaneous reversal is the limit of a short
-smooth turn.  By the traveling clock, the following interval is recorded:
+\subsubsection{Spatial frame and curvature}
+In the chosen inertial frame, the speed is $v:=\lVert\bv\rVert\in(0,1)$
+and spatial arc length is $\ell$, with $\dot\ell=v$.
+Dots denote $t$ derivatives. On a curved portion of the spatial path,
+the real unit tangent, principal normal, and binormal are defined by
 \[
- s(T)-s(0)=T\sqrt{1-\beta^2},
+ \bu:=\frac{\bv}{v},\qquad
+ k:=\left\lVert\frac{\dd\bu}{\dd\ell}\right\rVert
+ =\frac{\lVert\dot\bu\rVert}{v}>0,\qquad
+ \bu':=\frac{\dot\bu}{vk},\qquad
+ \bu'':=\bu\times\bu'.
 \]
-while $T$ is recorded by the clock at rest.  This is the twin-clock comparison
-\citeat{tong-relativity}{p.~121}{page=127}.
+Here $\bu,\bu',\bu''\in\R^3$ form a right-handed orthonormal frame.
+The primes are frame labels; derivatives are indicated by dots or fractions.
+The instantaneous plane of curvature is spanned by $\bu,\bu'$.
+Spatial curvature $k$ is the turning angle per unit distance along
+the path; the radius of its local osculating circle is $1/k$.
+The signed torsion $\tau\in\R$ is defined by
+\[
+ \tau:=-\frac{\dd\bu''}{\dd\ell}\cdot\bu'
+ =-\frac{\dot{\bu}''\cdot\bu'}{v}.
+\]
+Here $\tau$ denotes spatial torsion; proper time remains $s$.
+The turning of the curvature plane per unit distance is described by
+$\tau$; for a planar curved path, $\tau=0$.
+
+By differentiating the orthonormality relations and using
+$\dd/\dd t=v\,\dd/\dd\ell$, the Frenet equations are obtained
+\citeat{frenet-curves}{Secs.~2.4--2.6}{page=10}:
+\begin{equation}
+ \dot\bu=vk\bu',\qquad
+ \dot{\bu}'=-vk\bu+v\tau\bu'',\qquad
+ \dot{\bu}''=-v\tau\bu'.
+ \label{eq:frenet-frame}
+\end{equation}
+At $v=0$ the tangent is undefined; at $k=0$ the principal normal
+and binormal are not fixed by the path. The unsplit kinematic formulas
+remain valid there. On a straight segment, fixed transverse axes may be
+chosen and the turning terms set to zero.
+
+\subsubsection{Coordinate velocity, acceleration, and jerk}
+Differentiating $\bv=v\bu$ and applying \eqref{eq:frenet-frame} gives
+\begin{align}
+ \bv&=v\bu,\notag\\
+ \dot{\bv}&=\underbrace{\dot v\bu}_{\dot{\bv}_{\parallel}:\ \text{tangential}}
+ +\underbrace{v^2k\bu'}_{\dot{\bv}_{\perp}:\ \text{perpendicular}},\notag\\
+ \ddot{\bv}&=(\ddot v-v^3k^2)\bu
+ +(3v\dot vk+v^2\dot k)\bu'
+ +v^3k\tau\bu''.
+ \label{eq:frenet-coordinate-kinematics}
+\end{align}
+Speed is changed by tangential acceleration; direction is changed by
+perpendicular acceleration. Acceleration is confined to the tangent--normal
+plane; a binormal component is introduced in jerk through torsion.
+Curvature is therefore the perpendicular-acceleration magnitude divided
+by speed squared. Both geometric quantities are recovered from
+coordinate derivatives as
+\begin{align}
+ k&=\frac{\lVert\dot{\bv}_{\perp}\rVert}{v^2}
+ =\frac{\lVert\bv\times\dot{\bv}\rVert}{v^3},\notag\\
+ \tau&=\frac{(\bv\times\dot{\bv})\cdot\ddot{\bv}}
+ {\lVert\bv\times\dot{\bv}\rVert^2}.
+ \label{eq:frenet-curvature-torsion}
+\end{align}
+
+\subsubsection{Spacetime derivatives in the moving frame}
+The earlier longitudinal rest direction $\pN$ is extended to the varying
+tangent $\bu(t)$:
+\[
+ \pU=\gamma(1+v\bu\cdot\bsig),\qquad
+ \pN:=\gamma(v+\bu\cdot\bsig),\qquad
+ \pU,\pN\in\R\oplus\R^3.
+\]
+The four directions $\pU,\pN,\bu'\cdot\bsig,\bu''\cdot\bsig$ are
+Minkowski-orthogonal, with determinants $1,-1,-1,-1$.
+Thus a spatial Frenet frame is used to resolve spacetime quantities;
+$\pU$ is the spacetime tangent, while $\bu$ is the spatial tangent.
+The three rest directions generally rotate relative to nonrotating
+carried axes.
+
+With $\dot\gamma=\gamma^3v\dot v$ and
+$\bu\cdot\bsig=\gamma(\pN-v\pU)$, the complete frame evolution is
+\begin{align*}
+ \dot\pU&=\gamma^2\dot v\pN+\gamma v^2k\bu'\cdot\bsig,\\
+ \dot\pN&=\gamma^2\dot v\pU+\gamma vk\bu'\cdot\bsig,\\
+ \dot{\bu}'\cdot\bsig
+ &=\gamma v^2k\pU-\gamma vk\pN+v\tau\bu''\cdot\bsig,\\
+ \dot{\bu}''\cdot\bsig&=-v\tau\bu'\cdot\bsig.
+\end{align*}
+Coefficients are paired with the same sign between time and spatial directions,
+and with opposite signs between spatial directions. Thus Minkowski orthonormality is
+preserved. Differentiating the first row gives
+\begin{align*}
+ \ddot\pU
+ &=(\gamma^4\dot v^2+\gamma^2v^4k^2)\pU\\
+ &\quad+\bigl(\gamma^2(\ddot v-v^3k^2)
+                  +2\gamma\dot\gamma\dot v\bigr)\pN\\
+ &\quad+\bigl(3\gamma v\dot vk+2\dot\gamma v^2k
+                  +\gamma v^2\dot k\bigr)\bu'\cdot\bsig
+       +\gamma v^3k\tau\bu''\cdot\bsig.
+\end{align*}
+The proper-time derivatives follow by $\dd/\dd s=\gamma\dd/\dd t$:
+\begin{align}
+ \frac{\dd\pU}{\dd s}
+ &=\gamma\dot\pU
+ =\gamma^3\dot v\pN+\gamma^2v^2k\bu'\cdot\bsig,
+ \label{eq:frenet-four-acceleration}\\
+ \frac{\dd^2\pU}{\dd s^2}
+ &=\gamma^2\ddot\pU+\gamma\dot\gamma\dot\pU.
+ \notag
+\end{align}
+The first is four-acceleration and the second is unprojected four-jerk.
+In the instantaneous rest frame, the tangential and perpendicular
+acceleration components are scaled by $\gamma^3$ and $\gamma^2$,
+respectively, relative to their coordinate values.
+By orthogonality, the projection of four-jerk as in \eqref{eq:projected-jerk} is
+\begin{align}
+ &\frac{\dd^2\pU}{\dd s^2}
+ +\det\left(\frac{\dd\pU}{\dd s}\right)\pU\notag\\
+ &\quad=\bigl(\gamma^4(\ddot v-v^3k^2)
+                 +3\gamma^6v\dot v^2\bigr)\pN\notag\\
+ &\qquad+\bigl(3\gamma^5v\dot vk+\gamma^3v^2\dot k\bigr)
+               \bu'\cdot\bsig
+        +\gamma^3v^3k\tau\bu''\cdot\bsig.
+ \label{eq:frenet-proper-jerk}
+\end{align}
+The squared proper-jerk magnitude is the sum of the squares of these
+three rest-space coefficients. In particular, differentiating only the
+acceleration coefficients would omit the rotation of the frame.
+
+\paragraph{Spatial curvature versus worldline curvature.}
+The invariant curvature of the spacetime worldline is the magnitude of
+its proper-time tangent's derivative:
+\begin{equation}
+ \sqrt{-\det\left(\frac{\dd\pU}{\dd s}\right)}
+ =\sqrt{\gamma^6\dot v^2+\gamma^4v^4k^2}.
+ \label{eq:frenet-worldline-curvature}
+\end{equation}
+In the natural units used here, this is the proper-acceleration magnitude.
+Both changing speed and changing spatial direction contribute. Spatial
+curvature $k$ depends on the inertial frame; worldline curvature is
+Lorentz invariant. A spatially straight accelerated path has $k=0$
+but nonzero worldline curvature. In both cases the curvature is that of
+a path in flat spacetime; no curvature of spacetime itself is implied.
+
+For uniform circular motion, $v$ and $k$ are constant and $\tau=0$.
+The coordinate derivatives reduce to
+\[
+ \dot{\bv}=v^2k\bu',\qquad
+ \ddot{\bv}=-v^3k^2\bu.
+\]
+The proper-acceleration magnitude is the constant $\gamma^2v^2k$,
+while \eqref{eq:frenet-proper-jerk} reduces to
+\[
+ \frac{\dd^2\pU}{\dd s^2}
+ +\det\left(\frac{\dd\pU}{\dd s}\right)\pU
+ =-\gamma^4v^3k^2\pN\ne0.
+\]
+Thus constant acceleration magnitude is compatible with nonzero proper
+jerk: the acceleration direction is changing.
+
+\subsection{Constant velocity and acceleration}
+In the following examples, subscript $0$ denotes the initial event $t=s=0$.
+Coordinate derivatives are still indicated by dots.
 
 \subsubsection{Constant velocity}
 \label{sec:constant-velocity}
@@ -2376,14 +2507,135 @@ Here $\gamma(t)=\sqrt{1+\dot{v}_0^2t^2}$, so
 $\gamma^3\lVert\dot{\bv}(t)\rVert=\dot{v}_0$ is constant while the coordinate
 acceleration decreases as the particle gains speed.
 
-\subsubsection{Constant jerk}
+\subsubsection{A trip with midpoint braking}
+\label{sec:rocket-trip}
+Departure and destination are at rest in one inertial frame, separated by
+$d>0$ along a fixed real unit vector $\bu$. Flat spacetime and initial
+conditions $t=s=0$, $\br=0$, $\bv=0$ are assumed. Two equal burns at
+constant proper-acceleration magnitude $\dot v_0>0$ are joined by an
+instantaneous thrust reversal; arrival is at rest. This is a prescribed trajectory;
+fuel consumption and the duration of the reversal are not modeled.
+
+\paragraph{Rapidity and derivatives.}
+The reversal times are denoted by $s_m$ and $t_m$; arrival occurs at
+$2s_m$ and $2t_m$. With $\dd\theta/\dd s=+\dot v_0$ during acceleration
+and $-\dot v_0$ during braking, integration gives
+\begin{equation}
+ \theta(s)=\begin{cases}
+  \dot v_0s,&0\le s\le s_m,\\
+  \dot v_0(2s_m-s),&s_m\le s\le2s_m.
+ \end{cases}
+ \label{eq:rocket-rapidity}
+\end{equation}
+Throughout the trip,
+\[
+ v=\tanh\theta,\qquad \bv=v\bu,\qquad
+ \gamma=\cosh\theta,\qquad \dot s=\gamma^{-1}.
+\]
+On the open burn intervals, the upper sign denotes acceleration and the
+lower sign braking. The derivatives are obtained directly:
+\begin{align}
+ \pU&=\cosh\theta+\sinh\theta\,\bu\cdot\bsig,\notag\\
+ \frac{\dd\pU}{\dd s}
+ &=\pm\dot v_0(\sinh\theta+\cosh\theta\,\bu\cdot\bsig),\notag\\
+ \dot\pU&=\frac{1}{\gamma}\frac{\dd\pU}{\dd s}
+ =\pm\dot v_0(v+\bu\cdot\bsig),\notag\\
+ \dot v&=\pm\frac{\dot v_0}{\gamma^3},\qquad
+ \dot{\bv}=\dot v\bu,\qquad
+ \dot\gamma=\pm\dot v_0v.
+ \label{eq:rocket-derivatives}
+\end{align}
+The acceleration is entirely tangential; the perpendicular component
+vanishes. Although $\lVert\dot{\bv}\rVert$ varies, the proper-acceleration
+magnitude is fixed:
+\[
+ \det\pU=1,\qquad
+ \sqrt{-\det\left(\frac{\dd\pU}{\dd s}\right)}
+ =\gamma^3\lVert\dot{\bv}\rVert=\dot v_0.
+\]
+The spatial path is straight, with $k=0$, while the worldline curvature
+is $\dot v_0$ on each burn.
+
+\paragraph{Position, clocks, and arrival.}
+By integrating $\dd t/\dd s=\cosh\theta$ and
+$\dd\br/\dd s=\sinh\theta\,\bu$, the continuous worldline is obtained:
+\begin{align}
+ t(s)&=\begin{cases}
+  \sinh\theta(s)/\dot v_0,&0\le s\le s_m,\\
+  2t_m-\sinh\theta(s)/\dot v_0,&s_m\le s\le2s_m,
+ \end{cases}\notag\\
+ \br(s)&=\begin{cases}
+  \bigl(\cosh\theta(s)-1\bigr)\bu/\dot v_0,&0\le s\le s_m,\\
+  \bu\bigl[d-\bigl(\cosh\theta(s)-1\bigr)/\dot v_0\bigr],
+    &s_m\le s\le2s_m.
+ \end{cases}
+ \label{eq:rocket-worldline}
+\end{align}
+Continuity at the reversal fixes the midpoint and burn durations:
+\begin{align}
+ \br(s_m)&=\tfrac12\bu d,\qquad
+ \gamma_m:=\cosh(\dot v_0s_m)=1+\frac{\dot v_0d}{2},\notag\\
+ s_m&=\frac{\operatorname{arcosh}(1+\dot v_0d/2)}{\dot v_0},\qquad
+ t_m=\sqrt{\frac{d}{\dot v_0}+\frac{d^2}{4}},\notag\\
+ v_{\max}&=\sqrt{1-\gamma_m^{-2}}.
+ \label{eq:rocket-trip-times}
+\end{align}
+Thus $\br(2s_m)=\bu d$ and $\pU(0)=\pU(2s_m)=1$.
+For evaluation in coordinate time, the same expressions are used with
+\[
+ \theta(t)=\begin{cases}
+  \operatorname{arsinh}(\dot v_0t),&0\le t\le t_m,\\
+  \operatorname{arsinh}\bigl(\dot v_0(2t_m-t)\bigr),&t_m\le t\le2t_m.
+ \end{cases}
+\]
+In particular, $\lVert\dot{\bv}\rVert$ decreases to
+$\dot v_0/\gamma_m^3$ before the reversal and increases back to
+$\dot v_0$ during braking.
+
+\paragraph{The reversal and jerk.}
+Position, both clocks, velocity, and four-velocity are continuous at the
+midpoint. The one-sided values of $\dot{\bv}$, $\dot\pU$, and
+$\dd\pU/\dd s$ are opposite; these derivatives are undefined at the ideal
+instantaneous reversal. Away from it,
+\[
+ \frac{\dd^2\pU}{\dd s^2}=\dot v_0^2\pU,\qquad
+ \ddot{\bv}=-\frac{3\dot v_0^2v}{\gamma^4}\bu.
+\]
+Hence the projected proper jerk is zero during each burn, even though
+coordinate jerk is generally nonzero. A finite reversal must instead
+be described by a transition with nonzero proper jerk. The thrust is
+reversed, not the direction of travel.
+
+\paragraph{Trip parameters in SI units.}
+In the following SI formulas, $\dot v_0$ is the initial acceleration in
+metres per second squared, also equal to the constant proper-acceleration
+magnitude. The distance $d$ is in metres, $t_{\mathrm{trip}}$ is
+the elapsed departure-frame time in seconds, and $\tau_{\mathrm{trip}}$
+is the elapsed onboard proper time in seconds. Restoring units in
+\eqref{eq:rocket-trip-times} gives
+\begin{align*}
+ &\boxed{t_{\mathrm{trip}}
+ =\sqrt{\frac{d^2}{c^2}+\frac{4d}{\dot v_0}}}_{\,\mathrm{SI}},\\
+ &\boxed{\tau_{\mathrm{trip}}
+ =\frac{2c}{\dot v_0}\operatorname{arcosh}\left(1+\frac{\dot v_0d}{2c^2}\right)}_{\,\mathrm{SI}},\\
+ &\boxed{v_{\max}
+ =c\sqrt{1-\left(1+\frac{\dot v_0d}{2c^2}\right)^{-2}}}_{\,\mathrm{SI}}.
+\end{align*}
+For a specified onboard duration and peak speed, the required proper
+acceleration is fixed by the midpoint rapidity:
+\[
+ \boxed{\dot v_0=\frac{2c}{\tau_{\mathrm{trip}}}
+ \operatorname{artanh}\!\left(\frac{v_{\max}}{c}\right)}_{\,\mathrm{SI}}.
+\]
+
+\subsection{Constant jerk}
 \label{sec:constant-jerk}
 A distinction is made between constant coordinate jerk in a chosen inertial frame,
 constant signed proper jerk along a fixed axis, and constant components
 of the unprojected four-jerk. The last condition is preserved by constant
 Lorentz transformations.
 
-\paragraph{Constant coordinate jerk.}
+\subsubsection{Constant coordinate jerk}
 For $\ddot{\bv}=\ddot{\bv}_0$ in a chosen inertial frame, integration gives
 \begin{align}
  \dot{\bv}(t)&=\dot{\bv}_0+\ddot{\bv}_0\,t,\notag\\
@@ -2409,7 +2661,7 @@ Here $\dot{\beta}=\ddot{v}_0t$ and $\beta=\ddot{v}_0t^2/2$, so
 $\dd^2\theta/\dd s^2=\gamma^4\ddot{v}_0+3\gamma^6\beta\left(\ddot{v}_0t\right)^2$.
 Thus constant coordinate jerk does not give constant proper jerk.
 
-\paragraph{Constant proper jerk.}
+\subsubsection{Constant proper jerk}
 For fixed-axis motion, the signed quantity $\dd^2\theta/\dd s^2$ is held constant. Its value and the initial signed
 proper acceleration are expressed in coordinate-time data using
 $\gamma_0=\cosh\theta_0$ and $\dot{\gamma}_0=\sinh\theta_0\dot{\theta}_0$.
@@ -2445,14 +2697,14 @@ coordinate-time trajectory. Its velocity, acceleration, and jerk are
  \left(\frac{\dd^2\theta}{\dd s^2}-3\left(\frac{\dd\theta}{\dd s}\right)^2\tanh\theta(s)\right)\bu.
 \end{align*}
 The projected jerk is $(\dd^2\theta/\dd s^2)\pN$, as derived in
-Section~\ref{sec:jerk}. Its magnitude is constant, while its inertial-frame
+Section~\ref{sec:fixed-axis}. Its magnitude is constant, while its inertial-frame
 components change with $\pN$. The unprojected derivative also contains
 the changing component $(\dd\theta/\dd s)^2\pU$.
 Setting $\theta_0=0$, $\ddot{\theta}_0=0$, and
 $\dot{\theta}_0=\dot{v}_0>0$ recovers the preceding
 constant-proper-acceleration example.
 
-\paragraph{Constant unprojected four-jerk.}
+\subsubsection{Constant unprojected four-jerk}
 If the components of $\dd^2\pU/\dd s^2$ are constant in an inertial frame,
 its value is determined by the initial coordinate-time derivatives:
 \[
@@ -2483,6 +2735,11 @@ using the metric pairing in \eqref{eq:lorentz-pairing} gives
 In particular, a nonzero constant $\dd^2\pU/\dd s^2$ must be null.
 If it is zero, the normalization conditions force $\dot{\pU}_0=0$,
 so the motion is inertial.
+Thus a constant four-acceleration paravector must vanish; constant proper
+acceleration does not mean constant inertial-frame components.
+The same conditions imply constant $\det(\dd\pU/\dd s)$.
+By \eqref{eq:proper-jerk-determinant}, the proper-jerk magnitude is then
+the square of the proper-acceleration magnitude for this entire class.
 
 For a concrete example~\citeat{russo-townsend}{Eq.~(3.40)}{page=15},
 an initial rest state at the origin is chosen, with nonzero initial coordinate
@@ -2523,12 +2780,10 @@ fixed-axis constant-proper-jerk example.
 \section{Inertial frames and particle dynamics}
 \label{sec:inertial-frames}
 
-A dot is used for a total derivative with respect to coordinate
-time $t$, for example $\dot{\br}=\dd\br/\dd t$.
-
-Constant Lorentz transformations relate coordinates and measured quantities in
-inertial frames. The invariant mass and proper time retain the meanings
-established in Section~\ref{sec:kinematics}.
+Constant Lorentz transformations are applied to coordinates, clocks, and
+particle quantities. The proper time $s$ defined in
+Section~\ref{sec:proper-time} is invariant; $t,t'$ are frame-dependent
+coordinate times. Dots continue to denote total $t$ derivatives.
 
 \subsection{Coordinates, intervals, and light cones}
 \label{sec:boosts}
@@ -2553,8 +2808,6 @@ $\br_{\perp}=\br-\br_{\parallel}$.
 In particular, $\br=\beta t\bu$ maps to $\br'=0$, fixing the physical
 meaning of the sign.  Reversing $\theta$ as in \eqref{eq:boost-inverse}
 gives $\pX=\pL^{-1}\pX'\pL^{-1}$.
-
-
 
 Specializing \eqref{eq:boost-null-components} to the real event $\pX$ gives~\citeat{tong-relativity}{p.~154}{page=160}
 \begin{equation}
@@ -2620,13 +2873,8 @@ By interval invariance,
  \label{eq:velocity-causal-bound}
 \end{equation}
 Thus \eqref{eq:velocity-boost} preserves subluminal motion and light speed.
-For two real proper times $s_1,s_2$, the constant-factor
-law~\eqref{eq:boost-worldline-step} also integrates to
-\begin{equation*}
- \pX'(s_2)-\pX'(s_1)
- =\pL\left(\int_{s_1}^{s_2}\pU(s)\dd s\right)\pL.
-\end{equation*}
-This is the transformed world-line integral~\eqref{eq:worldline-integral}.
+Since $\pL$ is constant, the same transformation applies to the integrated
+worldline in \eqref{eq:worldline-integral}.
 
 \subsection{Clock rates and measured lengths}
 For a clock at rest in the primed frame, \eqref{eq:lorentz-time} uses
@@ -2636,7 +2884,7 @@ $\dd\br=\beta\bu\dd t$, hence~\citeat{tong-relativity}{p.~119}{page=125}
  \label{eq:time-dilation}
 \end{equation}
 Here $\dd t'=\dd s$; finite elapsed time follows from
-\eqref{eq:elapsed-proper-time} .
+\eqref{eq:elapsed-proper-time}.
 
 For a rod at rest in the unprimed frame, the fixed endpoint separation is
 denoted by $\Delta\br\in\R^3$.  A simultaneous measurement in the primed
@@ -2680,7 +2928,33 @@ These are the collinear velocity and clock-factor composition laws.
 Noncollinear boosts instead have the rotation commutator
 \eqref{eq:boost-generator-commutator}, producing the Thomas--Wigner rotation.
 
-\subsection{Energy and momentum}
+\subsection{Four-momentum and the mass shell}
+\label{sec:four-momentum}
+
+For constant invariant mass $m>0$, the real four-momentum $\pP\in\R\oplus\R^3$ is defined by~\citeat{tong-relativity}{Eq.~(7.24)}{page=142}
+\begin{equation}
+ \pP:=m\pU=E+\bp\cdot\bsig.
+ \label{eq:four-momentum}
+\end{equation}
+Energy and momentum are
+\begin{align*}
+ E&=\scpart {\pP}=m\frac{\dd t}{\dd s}=\frac{m}{\sqrt{1-\bv^2}},\\
+ \bp&=\vecpart {\pP}=E\bv.
+\end{align*}
+Since $\det\pU=1$, scalar scaling gives the mass shell~\citeat{tong-relativity}{Eq.~(7.30)}{page=143}:
+\begin{equation}
+ E^2-\bp^2=\det\pP=m^2,\qquad E>0.
+ \label{eq:mass-shell}
+\end{equation}
+The inverse and speed follow directly:
+\[
+ \pP^{-1}=\frac{E-\bp\cdot\bsig}{m^2},\qquad
+ \bv^2=\frac{\bp^2}{E^2}=1-\frac{m^2}{E^2}<1.
+\]
+For fixed $m>0$, approaching light speed requires unbounded energy.
+A massless particle has no proper-time four-velocity. Its momentum is
+defined directly by $\pP=E+\bp\cdot\bsig$, with $E>0$ and $E^2=\bp^2$.
+
 For the real momentum $\pP=E+\bp\cdot\bsig$, the same congruence gives~\citeat{feynman-spacetime}{Eq.~(17.12)}{Eq:I:17:12}
 \begin{align}
  E'&=\gamma(E-\beta\bu\cdot\bp),
@@ -2689,6 +2963,15 @@ For the real momentum $\pP=E+\bp\cdot\bsig$, the same congruence gives~\citeat{f
  \label{eq:momentum-boost}
 \end{align}
 Here the projections are along $\bu$.
+The factor $\gamma=\cosh\theta$ belongs to the frame boost.
+Since $\bp=E\bv$, energy and coordinate-time increments acquire the same
+factor along a massive particle's path:
+\begin{equation}
+ \frac{E'}{E}=\frac{\dd t'}{\dd t}
+ =\gamma(1-\beta\bu\cdot\bv).
+ \label{eq:energy-clock-factor}
+\end{equation}
+This is also the time factor used to obtain the velocity transformation.
 Determinant invariance gives $E'^2-\bp'^2=E^2-\bp^2=m^2$ for a
 particle of rest mass $m>0$.  The energy increase is obtained directly
 from $\pP'=m$ in the rest frame by inversion of the boost:
@@ -2697,12 +2980,40 @@ from $\pP'=m$ in the rest frame by inversion of the boost:
 \end{equation*}
 Thus $E=m\gamma$ and $\bp=m\gamma\beta\bu$, while $m$ remains unchanged
 \citeat{tong-relativity}{Eqs.~(7.25), (7.28)}{page=142}.
-The force response is derived in
-\eqref{eq:relativistic-inertia}--\eqref{eq:relativistic-work}.
+
+\subsection{Force, work, and inertia}
+\label{sec:energy-inertia}
+Here $\gamma=(1-\bv^2)^{-1/2}$ is the particle Lorentz factor.
+For constant invariant mass $m>0$, four-momentum is $\pP=m\pU$,
+so $\dot{\pP}=m\,\dot{\pU}$. Its scalar and spatial parts are
+$E=m\gamma$ and $\bp=m\gamma\bv$.
+The acceleration projections are parallel and perpendicular to $\bv$,
+as in Section~\ref{sec:proper-acceleration}.
+Multiplying the spatial part of
+\eqref{eq:four-velocity-coordinate-derivative} by $m$ therefore gives
+\begin{equation}
+ \dot{\bp}=m\gamma\dot{\bv}_{\perp}+m\gamma^3\dot{\bv}_{\parallel}.
+ \label{eq:relativistic-inertia}
+\end{equation}
+Taking its dot product with $\bv$ gives the work rate
+\begin{equation}
+ \dot{E}=m\gamma^3\bv\cdot\dot{\bv}
+ =\bv\cdot\dot{\bp}.
+ \label{eq:relativistic-work}
+\end{equation}
+At rest the force is $m\dot{\bv}$. Reverting to SI units,
+\[
+ \boxed{E=\gamma mc^2}_{\,\mathrm{SI}},\qquad
+ \boxed{E/c^2=\gamma m}_{\,\mathrm{SI}}.
+\]
+In the natural units used elsewhere,
+invariant $m$ is retained: the longitudinal and transverse inertia in
+\eqref{eq:relativistic-inertia} differ.
 
 \subsection{Free-particle action}
 
-Notation: real $m>0$, $\bv=\dot{\br}$, and $\dd s=\dd t/\gamma$.
+Notation: real $m>0$, $\bv=\dot{\br}$, particle factor
+$\gamma=(1-\bv^2)^{-1/2}$, and $\dd s=\dd t/\gamma$.
 Here $L:\R\times\R^3\times\{\bv\in\R^3:\bv^2<1\}\to\R$
 is the particle Lagrangian; the boost factor is $\pL\in\R\oplus\R^3$.
 $\partial_{\bv}$ denotes its vector derivative with respect to the three
@@ -2746,9 +3057,9 @@ by a constant times $v^n$ as $v\to0$.  The binomial series gives
  L&=-m+\tfrac12mv^2+O(mv^4),\\
  H&=m+\tfrac12mv^2+O(mv^4).
 \end{align*}
-The exact kinetic energy above rest is
+By the mass shell, the exact kinetic energy above rest is
 \begin{equation*}
- K:=H-m=m(\gamma-1)\in\R_{\ge0}.
+ K:=H-m=m(\gamma-1)=\frac{\bp^2}{E+m}\in\R_{\ge0}.
 \end{equation*}
 This and both expansions recover $mv^2/2$
 at low speed after removal of the constant rest term.
@@ -2767,7 +3078,8 @@ so even a real input may have a complex output.
 
 \subsection{Paravector differential operators}
 
-Real coordinates are denoted by $t\in\R$ and $\br=\{r_1,r_2,r_3\}\in\R^3$.
+Cartesian inertial coordinates are denoted by $t\in\R$ and
+$\br=\{r_1,r_2,r_3\}\in\R^3$.
 The scalar and vector derivatives are defined by
 \[
  \partial_t:=\frac{\partial}{\partial t},\qquad
@@ -2838,67 +3150,118 @@ any factors are reordered:
  ={}&(\pvpartial \pZ)\pZ'+\pZ(\pvpartial \pZ')
     +\sum_{n=1}^{3}[\pvsigma_n,\pZ]\frac{\partial \pZ'}{\partial r_n}.
 \end{align*}
+For a complex scalar first factor, the commutators vanish and the usual
+product rule is recovered.
 
-\subsection{Flat spacetime in generalized coordinates}
+Partial derivatives are taken at fixed remaining coordinates. Along a
+path $\br(t)$ with $\bv=\dot\br$, the total derivative is instead
+\[
+ \dot\pZ=\partial_t\pZ
+ +\sum_{n=1}^{3}\dot r_n\frac{\partial\pZ}{\partial r_n}
+ =(\partial_t+\bv\cdot\pdr)\pZ.
+\]
+All fields and partial derivatives are evaluated at $(t,\br(t))$.
+
+\subsection{Generalized coordinates and clock rates}
 \label{sec:generalized}
 
-Here $(t,\br)$ denote generalized real chart coordinates.  Smooth functions $f:\R^4\to\R$ and $\bg:\R^4\to\R^3$,
-restricted to a coordinate region, specify inertial coordinates
-through $\pX\in\R\oplus\R^3$:
+Here $(t,\br)$ are real chart coordinates. Smooth functions
+$f:\R^4\to\R$ and $\bg:\R^4\to\R^3$, restricted to an open region
+with nonsingular Jacobian, specify inertial coordinates:
 \[
- \pX=f(t,\br)+\bg(t,\br)\cdot\bsig.
+ \pX=f(t,\br)+\bg(t,\br)\cdot\bsig\in\R\oplus\R^3.
 \]
-Along a future timelike path with proper time $s$, the following notation is retained: the real
-$\pU=\dd \pX/\dd s$, an \hyperref[eq:unit-paravector]{invertible paravector}
-with $\pU \pU^{-1}=1$.
-The Jacobian of $(f,\bg)$ is required to be nonsingular.  By differentiation,
+Thus $f$ is inertial time and $\bg$ is inertial position; chart time $t$
+and chart position $\br$ need not be clock readings and Cartesian distances.
+
+\paragraph{Interval and differential operators.}
+By differentiation,
 \begin{align*}
- \dd \pX&=(\partial_tf+\partial_t\bg\cdot\bsig)\dd t
+ \dd\pX&=(\partial_tf+\partial_t\bg\cdot\bsig)\dd t
  +\sum_{k=1}^3(\partial_{r_k}f+\partial_{r_k}\bg\cdot\bsig)\dd r_k,\\
- \dd s^2&=\dd \pX\,\dd \pX^*=\dd f^2-\dd\bg^2.
+ \det(\dd\pX)&=\dd f^2-\dd\bg^2.
 \end{align*}
 With $x_0=t$, $x_k=r_k$ and $\partial_k=\partial/\partial x_k$, the
-interval is $\dd s^2=\sum_{j,k=0}^3 g_{jk}\dd x_j\dd x_k$, with
-$x_j,g_{jk}\in\R$ and metric matrix $(g_{jk})\in\R^{4\times4}$:
-\begin{equation*}
+interval is $\det(\dd\pX)=\sum_{j,k=0}^3 g_{jk}\dd x_j\dd x_k$, where
+\[
  g_{jk}=\partial_jf\,\partial_kf-\partial_j\bg\cdot\partial_k\bg,
- \qquad j,k=0,1,2,3.
-\end{equation*}
+ \qquad (g_{jk})\in\R^{4\times4}.
+\]
 This is the flat Minkowski metric in changed coordinates; varying
-coefficients do not imply curvature.
+coefficients alone do not imply spacetime curvature.
+The inverse matrix is denoted by $(g^{jk}):=(g_{jk})^{-1}$.
+By the chain rule, the inertial derivative operators are represented in
+the chart by
+\begin{equation}
+ \pvpartial=\sum_{j,k=0}^3 g^{jk}(\partial_j\pX)^*\partial_k,
+ \qquad
+ \pvpartial^*=\sum_{j,k=0}^3 g^{jk}(\partial_j\pX)\partial_k.
+ \label{eq:chart-derivatives}
+\end{equation}
+Their coefficients are fixed by
+$\sum_jg^{jk}\scpart{(\partial_j\pX)^*\partial_l\pX}=\delta_{kl}$.
+In Cartesian inertial coordinates, \eqref{eq:paravector-derivative} is
+recovered. In a general chart, these coefficients must also be
+differentiated when operators are composed: $\Box=\pvpartial\pvpartial^*$
+remains valid, but its Cartesian form
+$\partial_t^2-\pdr\cdot\pdr$ cannot be used unchanged.
 
-Along this future timelike curve, $\dd f>0$.
-The real inertial three-velocity $\bv=\dd\bg/\dd f$ and
-$\gamma=\frac{1}{\sqrt{1-\bv^2}}$ are defined, with $\bv^2<1$.  Then
-\begin{align*}
- \dd s&=\sqrt{1-\bv^2}\,\dd f,\\
- \pU=\frac{\dd \pX}{\dd s}&=\gamma(1+\bv\cdot\bsig).
-\end{align*}
-Equation~\eqref{eq:proper-acceleration-components} is applied with inertial time $f$
-and coordinate acceleration $\dd\bv/\dd f$.
-For inertial motion, the scalar part gives $\bv\cdot\dd\bv/\dd f=0$,
-and its vector part then gives $\dd\bv/\dd f=0$.  Therefore
-\begin{equation*}
- \bg=\bC_1f+\bC_2.
-\end{equation*}
-The real constants $\bC_1,\bC_2\in\R^3$ are inertial velocity and
-position at inertial time $f=0$, with $\bC_1^2<1$.
-Overdots are used for total derivatives along this curve with
-respect to the chart time $t$: $\dot f=\dd f/\dd t$ and
-$\ddot f=\dd^2f/\dd t^2$, with the same convention for $\bg$ and $\bv$.
-Wherever $\dot f\ne0$,
-\begin{equation*}
- \dot{\bv}=\frac{\ddot{\bg}\dot f-\dot{\bg}\ddot f}{\dot f^2}.
-\end{equation*}
+\paragraph{Motion and clock rates.}
+Along a future-directed time-like path, $s$ is proper time,
+$\dd s^2=\det(\dd\pX)>0$, and $\dd f>0$.
+On a segment parametrized by increasing chart time $t$, overdots denote
+total $t$ derivatives. The inertial velocity and particle Lorentz factor are
+\[
+ \bv:=\frac{\dd\bg}{\dd f}=\frac{\dot\bg}{\dot f}\in\R^3,
+ \qquad \bv^2<1,\qquad
+ \gamma:=\frac{1}{\sqrt{1-\bv^2}}=\frac{\dd f}{\dd s}.
+\]
+Consequently,
+\begin{equation}
+ \dot s=\sqrt{\dot f^2-\dot\bg^2}=\frac{\dot f}{\gamma},\qquad
+ \frac{\dd}{\dd s}=\frac{\gamma}{\dot f}\frac{\dd}{\dd t},\qquad
+ \pU=\gamma(1+\bv\cdot\bsig).
+ \label{eq:chart-clock-rate}
+\end{equation}
+Here $\dot f>0$. The earlier rule $\dd/\dd s=\gamma\dd/\dd t$ is
+recovered when $t=f$. The two acceleration derivatives are related by
+\[
+ \dot{\bv}=\frac{\ddot\bg\dot f-\dot\bg\ddot f}{\dot f^2},
+ \qquad \frac{\dd\bv}{\dd f}=\frac{\dot\bv}{\dot f}.
+\]
+Equation~\eqref{eq:proper-acceleration-components} is applied with inertial
+time $f$ and acceleration $\dd\bv/\dd f$.
+For inertial motion, $\dd\pU/\dd s=0$ implies $\dd\bv/\dd f=0$, hence
+\[
+ \bg=\bg_0+\bv_0f,\qquad
+ \bg_0,\bv_0\in\R^3,\quad \bv_0^2<1.
+\]
+The reference inertial time is $f=0$; the same path may be nonlinear in
+chart coordinates.
+
+\paragraph{An accelerated coordinate chart.}
+For $r_1>0$ and dimensionless chart time $t$, the choice
+\[
+ f=r_1\sinh t,\qquad
+ \bg=\{r_1\cosh t,r_2,r_3\}
+\]
+gives, by direct substitution,
+\[
+ \det(\dd\pX)=r_1^2\dd t^2-\dd r_1^2-\dd r_2^2-\dd r_3^2.
+\]
+At fixed $\br$, $\dd s=r_1\dd t$ and the inertial worldline is the
+hyperbola $g_1^2-f^2=r_1^2$. Its proper-acceleration magnitude is
+$1/r_1$, as in Section~\ref{sec:constant-proper-acceleration}.
+Thus nonzero physical acceleration is compatible with fixed chart
+coordinates, even though spacetime remains flat.
 
 \subsection{Varying frames and local bases}
 \label{sec:varying-transformations}
 
-A fixed coordinate chart is used, with a local frame varied along a curve.
-$\pT(s)$ is taken to be a smooth complex \hyperref[eq:unit-paravector]{invertible paravector}
-of \hyperref[eq:unit-determinant-paravector]{determinant one} along a real parameter $s$.  When $s$ is proper time,
-the following notation is retained: the real tangent $\pU=\dd \pX/\dd s$, an
-\hyperref[eq:unit-paravector]{invertible paravector} with $\pU \pU^{-1}=1$.
+A coordinate chart is held fixed while the local frame is varied along a
+curve. In this subsection, $s$ is any real curve parameter; it is
+specialized to proper time in Section~\ref{sec:carried-derivatives}.
+A smooth complex paravector $\pT(s)$ with $\det\pT=1$ is chosen.
 Here $\pT(s),\pZ(s)\in\C\oplus\C^3$. The paravector
 $\pvOmega(s):=(\dd \pT/\dd s)\pT^{-1}\in\{0\}\oplus\C^3$ is defined.
 Its scalar part vanishes because
@@ -2939,11 +3302,6 @@ with real $\theta(s)$ and \hyperref[def:real-unit-vector]{real unit vector} $\bu
 $\pvOmega^{\mathsf H}=-\pvOmega$ and $\pvOmega\in\{0\}\oplus\ii\R^3$,
 so both formulas agree.
 
-When $s$ is proper time, the physical four-acceleration in the local frame is
-$\pT(\dd \pU/\dd s)\pT^{\mathsf H}$.
-In \eqref{eq:varying-congruence}, $\dd \pU'/\dd s$ also differentiates the
-frame; the two $\pvOmega$ terms account for this change.  Likewise,
-differentiating the transformed event $\pX'$ adds frame terms to its tangent.
 The similarity formula also gives the local algebra-basis law
 $\pvsigma_k'=\pT\pvsigma_k\pT^{-1}$, with
 \begin{equation*}
@@ -2952,6 +3310,49 @@ $\pvsigma_k'=\pT\pvsigma_k\pT^{-1}$, with
 All sigma multiplication rules are preserved by this evolution.  A general complex local basis
 is nevertheless distinct from a real spacetime frame, whose vectors require
 the congruence law.
+
+\subsection{Physical derivatives in a carried frame}
+\label{sec:carried-derivatives}
+
+Here $s$ is proper time along a future-directed time-like worldline,
+$\pU=\dd\pX/\dd s\in\R\oplus\R^3$, and $\det\pU=1$.
+From \eqref{eq:varying-congruence}, the physical four-acceleration expressed
+in the local frame is
+\begin{equation}
+ \pT\frac{\dd\pU}{\dd s}\pT^{\mathsf H}
+ =\frac{\dd\pU'}{\dd s}-\pvOmega\pU'-\pU'\pvOmega^{\mathsf H}.
+ \label{eq:carried-acceleration}
+\end{equation}
+The derivative of the transformed components includes motion of the
+frame; its contribution is removed by the two $\pvOmega$ terms.
+Similarly, $\dd\pX'/\dd s$ includes frame terms and generally differs
+from the transformed tangent $\pU'$.
+
+If the frame is kept instantaneously at rest with the particle, then
+$\pU'=\pT\pU\pT^{\mathsf H}=1$ along the curve, so
+\[
+ \pT\frac{\dd\pU}{\dd s}\pT^{\mathsf H}
+ =-(\pvOmega+\pvOmega^{\mathsf H})=-2\repart{\pvOmega}.
+\]
+A constant rest-frame four-velocity therefore does not imply zero
+physical acceleration. Its components are encoded in the Hermitian
+part of $\pvOmega$.
+
+Differentiating this expression, removing the frame terms, and applying
+the projection in \eqref{eq:projected-jerk} gives
+\begin{equation}
+ \pT\left(\frac{\dd^2\pU}{\dd s^2}
+ +\det\left(\frac{\dd\pU}{\dd s}\right)\pU\right)\pT^{\mathsf H}
+ =-\frac{\dd(\pvOmega+\pvOmega^{\mathsf H})}{\dd s}
+ +[\pvOmega,\pvOmega^{\mathsf H}].
+ \label{eq:carried-jerk}
+\end{equation}
+Rotation of the carried axes is accounted for by the commutator. For axes
+kept aligned with ideal torque-free gyroscopes,
+$\pvOmega=\pvOmega^{\mathsf H}$, so the proper jerk is
+$-2\dd\pvOmega/\dd s$: the proper-time rate of the measured acceleration.
+The fixed-axis results of Section~\ref{sec:fixed-axis} are recovered with
+$\pT=\exp(-\theta\bu\cdot\bsig/2)$ and fixed $\bu$.
 
 \section{Electromagnetism}
 \label{sec:electromagnetism}
@@ -5376,7 +5777,8 @@ The kinematic identities are
  E^2-\bp^2&=m^2.
    \tag*{\eqref{eq:mass-shell}}
 \end{align*}
-Here $\gamma=\dd t/\dd s=\frac{1}{\sqrt{1-\bv^2}}$.  Four-velocity is real,
+Here $t$ is coordinate time, $s$ is proper time along the time-like path,
+and $\gamma=\dd t/\dd s=\frac{1}{\sqrt{1-\bv^2}}$. Four-velocity is real,
 with \hyperref[eq:unit-determinant-paravector]{determinant one}; Hermitian unitarity is the separate condition
 \eqref{eq:unitary-transform}.
 For real proper times $s_0<s_1$ and coordinate times $t_0<t$,
@@ -6128,6 +6530,12 @@ J.~G. Russo and P.~K. Townsend,
 \emph{J. Phys. A: Math. Theor.}, vol.~42, 445402, 2009,
 doi: \href{https://doi.org/10.1088/1751-8113/42/44/445402}{10.1088/1751-8113/42/44/445402}.
 [Online]. Available: \url{https://arxiv.org/pdf/0902.4243}.
+
+\bibitem{frenet-curves}
+K.~Ko, T.~Maekawa, and N.~M. Patrikalakis,
+``Differential geometry of curves,'' \emph{Computational Geometry},
+Lecture~2, Massachusetts Institute of Technology, 2003.
+[Online]. Available: \url{https://ocw.mit.edu/courses/2-158j-computational-geometry-spring-2003/dd2e0ef6278218b74dd1709065814109_lecnotes2.pdf}.
 
 \end{thebibliography}
 
