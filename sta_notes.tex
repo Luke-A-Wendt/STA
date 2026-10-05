@@ -2020,9 +2020,9 @@ With the signature $(+,-,-,-)$, its orthogonality is
 \end{equation}
 At an instant of rest, $\pU=1$ and
 \begin{align*}
- \frac{\dd^2\pU}{\dd s^2}&=\dot{\bv}^2+\ddot{\bv}\cdot\bsig,\\
- \frac{\dd^2\pU}{\dd s^2}
- +\det\left(\frac{\dd\pU}{\dd s}\right)\pU&=\ddot{\bv}\cdot\bsig.
+ \frac{\dd^2\pU}{\dd s^2}&=\dot{\bv}^2+\ddot{\bv}\cdot\bsig\\
+ &=-\det\left(\frac{\dd\pU}{\dd s}\right)\pU
+ +\ddot{\bv}\cdot\bsig.
 \end{align*}
 Here the coordinate derivatives are evaluated in the inertial frame
 in which the particle is instantaneously at rest.
@@ -2036,7 +2036,7 @@ Expanding the determinant using the metric pairing and
  \det\left(\frac{\dd^2\pU}{\dd s^2}
  +\det\left(\frac{\dd\pU}{\dd s}\right)\pU\right)
  =\det\left(\frac{\dd^2\pU}{\dd s^2}\right)
- -\left(\det\left(\frac{\dd\pU}{\dd s}\right)\right)^2
+ -\det\left(\frac{\dd\pU}{\dd s}\right)^2
  \le0.
  \label{eq:proper-jerk-determinant}
 \end{equation}
@@ -2107,7 +2107,7 @@ the $\ddot{\theta}$ terms come from differentiating its rate of change.
 Their determinants follow directly from the orthogonal unit pair:
 \[
  \det\dot{\pU}=-\dot{\theta}^2,\qquad
- \det\ddot{\pU}=-\det\left(\ddot{\pN}\right)
+ \det\ddot{\pU}=-\det\ddot{\pN}
  =\dot{\theta}^4-\ddot{\theta}^2.
 \]
 For the velocity along the axis, $\beta=\tanh\theta$ is defined, so
