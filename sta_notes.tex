@@ -5,8 +5,10 @@
 \usepackage{booktabs,array}
 \usepackage{graphicx}
 \usepackage[dvipsnames]{xcolor}
-% Paravectors: calligraphic Latin letters; Greek exceptions retain their glyphs.
-\newcommand{\pv}[1]{{\mathcal{#1}}}
+% Central paravector styles; change these definitions to restyle all aliases.
+% Usage: \pv{X} for Latin symbols; \pvGreek{\psi} for Greek symbols/operators.
+% Paravectors use ordinary, non-bold mathematical lettering.
+\newcommand{\pv}[1]{{#1}}
 \newcommand{\pvGreek}[1]{{#1}}
 \newcommand{\pA}{\pv{A}}
 \newcommand{\pB}{\pv{B}}
@@ -98,7 +100,7 @@
 \newcommand{\hD}{\hat{\bm{D}}}
 \newcommand{\hE}{\hat E}
 \newcommand{\hbp}{\hat{\bp}}
-\newcommand{\hP}{{\hat{\mathcal{P}}}}
+\newcommand{\hP}{{\hat{\pP}}}
 \newcommand{\hDq}{\hat{\bm{D}}_q}
 \newcommand{\hEq}{\hat E_q}
 \newcommand{\hbpq}{\hat{\bp}_q}
@@ -190,19 +192,16 @@ and signature $(+,-,-,-)$ are used. Passages reverting to SI units are marked
 explicitly. The corresponding equations are boxed with a subscript $\mathrm{SI}$
 on the box; the usual quantity symbols are retained inside.
 Bold mathematical symbols are reserved for vectors and matrices of objects,
-including paravectors. Calligraphic lettering is reserved for paravectors
-and paravector operators. No meaning is assigned by convention to uppercase
+including paravectors. Ordinary non-bold lettering is used for individual
+paravectors and paravector operators. No meaning is assigned by convention to uppercase
 or lowercase letters. The ordered sigma triple $\bsig$ is bold;
 each individual sigma $\pvsigma_k$ is non-bold.
 
-Latin paravectors and paravector operators are denoted by non-bold calligraphic letters.
-The usual non-bold glyphs are retained for Greek paravector symbols, including
-$\pvpsi$, $\pvphi$, and $\pvvarphi$, and for the paravector derivative $\pvpartial$.
 Derivatives such as $\partial_t$ and $\pdr$ retain bold vector subscripts.
 Scalar quantities and coefficient components remain unadorned.
 Distance $d$ is placed last in products to distinguish it from the differential $\dd$.
-By these styles, a boost $\pL$ is distinguished from a scalar
-Lagrangian $L$, and the paravector momentum $\pP$ from its vector part $\bp$.
+Scalar and paravector quantities are distinguished by their stated domains.
+The paravector momentum $\pP$ is distinguished from its vector part $\bp$ by boldface.
 
 
 Space--time algebra is developed here using complex paravectors.

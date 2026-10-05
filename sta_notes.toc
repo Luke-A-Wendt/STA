@@ -1,15 +1,15 @@
 \contentsline {section}{\numberline {1}Algebra and paravectors}{1}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Notation and physical conventions}{1}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Sigmas and ordered multiplication}{1}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Hermitian and sigma conjugation}{3}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.3}Hermitian and sigma conjugation}{2}{subsection.1.3}%
 \contentsline {subsection}{\numberline {1.4}Complex paravectors and their components}{3}{subsection.1.4}%
 \contentsline {subsection}{\numberline {1.5}Conjugates, determinant, and inverse}{4}{subsection.1.5}%
 \contentsline {subsection}{\numberline {1.6}Real and imaginary extractions}{5}{subsection.1.6}%
 \contentsline {section}{\numberline {2}Products and normalizations}{5}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Invertibility and normalization}{5}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Products and quadratic forms}{7}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.2}Products and quadratic forms}{6}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Real products}{7}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Complex products}{8}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.4}Complex products}{7}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Norm and determinant}{8}{subsection.2.5}%
 \contentsline {section}{\numberline {3}Projectors and spectral functions}{9}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Quadratic identity and eigenvalues}{9}{subsection.3.1}%
@@ -17,25 +17,25 @@
 \contentsline {subsection}{\numberline {3.3}Spectral rule}{10}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Square roots and repeated eigenvalues}{11}{subsection.3.4}%
 \contentsline {subsubsection}{\numberline {3.4.1}Real paravectors and direct square roots}{11}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Coalescing eigenvalues}{12}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.2}Coalescing eigenvalues}{11}{subsubsection.3.4.2}%
 \contentsline {section}{\numberline {4}Exponentials and elementary functions}{12}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Exponential: projection and series derivations}{12}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Rotation and boost factors}{13}{subsection.4.2}%
 \contentsline {paragraph}{Gamma form.}{14}{section*.3}%
-\contentsline {subsection}{\numberline {4.3}Cayley transform}{15}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Composing the factors}{16}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.3}Cayley transform}{14}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Composing the factors}{15}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}Logarithm}{16}{subsection.4.5}%
-\contentsline {section}{\numberline {5}Transformations and invariants}{17}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Similarity, determinant, and norm}{17}{subsection.5.1}%
+\contentsline {section}{\numberline {5}Transformations and invariants}{16}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Similarity, determinant, and norm}{16}{subsection.5.1}%
 \contentsline {subsubsection}{\numberline {5.1.1}Determinant one is not Hermitian unitarity}{17}{subsubsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.2}Real paravectors and the Lorentz metric}{18}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.2}Real paravectors and the Lorentz metric}{17}{subsection.5.2}%
 \contentsline {paragraph}{Why the scalar exponent vanishes.}{18}{section*.4}%
 \contentsline {paragraph}{Why the squared norm is different.}{18}{section*.5}%
-\contentsline {paragraph}{Every factor separates into a boost and a rotation.}{19}{section*.6}%
+\contentsline {paragraph}{Every factor separates into a boost and a rotation.}{18}{section*.6}%
 \contentsline {subsection}{\numberline {5.3}Rotation action and Rodrigues' formula}{19}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Quaternions as paravectors}{20}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Boost action and its sign convention}{21}{subsection.5.5}%
-\contentsline {paragraph}{Similarity action of the boost factor.}{22}{section*.7}%
+\contentsline {subsection}{\numberline {5.4}Quaternions as paravectors}{19}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Boost action and its sign convention}{20}{subsection.5.5}%
+\contentsline {paragraph}{Similarity action of the boost factor.}{21}{section*.7}%
 \contentsline {section}{\numberline {6}Space--time kinematics}{22}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Intervals, light cones, and proper time}{22}{subsection.6.1}%
 \contentsline {paragraph}{Light cones.}{22}{section*.8}%
@@ -43,42 +43,42 @@
 \contentsline {paragraph}{Elapsed time and clock comparison.}{23}{section*.10}%
 \contentsline {subsection}{\numberline {6.2}Four-velocity and worldlines}{24}{subsection.6.2}%
 \contentsline {paragraph}{Integrating four-velocity.}{24}{section*.11}%
-\contentsline {subsection}{\numberline {6.3}Four-acceleration and proper acceleration}{25}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.3}Four-acceleration and proper acceleration}{24}{subsection.6.3}%
 \contentsline {paragraph}{Orthogonality and determinant.}{25}{section*.12}%
-\contentsline {paragraph}{Conversion to proper time.}{26}{section*.13}%
+\contentsline {paragraph}{Conversion to proper time.}{25}{section*.13}%
 \contentsline {subsection}{\numberline {6.4}Jerk and proper-time derivatives}{26}{subsection.6.4}%
 \contentsline {subsubsection}{\numberline {6.4.1}Coordinate derivatives, then proper-time derivatives}{26}{subsubsection.6.4.1}%
 \contentsline {subsubsection}{\numberline {6.4.2}Projection into the instantaneous rest space}{27}{subsubsection.6.4.2}%
 \contentsline {paragraph}{Invariant magnitude.}{27}{section*.14}%
-\contentsline {paragraph}{When proper jerk vanishes.}{28}{section*.15}%
+\contentsline {paragraph}{When proper jerk vanishes.}{27}{section*.15}%
 \contentsline {subsection}{\numberline {6.5}Fixed-axis motion and rapidity}{28}{subsection.6.5}%
 \contentsline {paragraph}{Coordinate-time derivatives.}{28}{section*.16}%
-\contentsline {paragraph}{Conversion to proper time.}{29}{section*.17}%
-\contentsline {paragraph}{Null combinations and constant acceleration.}{30}{section*.18}%
+\contentsline {paragraph}{Conversion to proper time.}{28}{section*.17}%
+\contentsline {paragraph}{Null combinations and constant acceleration.}{29}{section*.18}%
 \contentsline {subsection}{\numberline {6.6}Velocity, acceleration, and jerk in a Frenet frame}{30}{subsection.6.6}%
 \contentsline {subsubsection}{\numberline {6.6.1}Spatial frame and curvature}{30}{subsubsection.6.6.1}%
 \contentsline {subsubsection}{\numberline {6.6.2}Coordinate velocity, acceleration, and jerk}{31}{subsubsection.6.6.2}%
 \contentsline {subsubsection}{\numberline {6.6.3}Spacetime derivatives in the moving frame}{31}{subsubsection.6.6.3}%
 \contentsline {paragraph}{Spatial curvature versus worldline curvature.}{32}{section*.19}%
-\contentsline {subsection}{\numberline {6.7}Constant velocity and acceleration}{33}{subsection.6.7}%
-\contentsline {subsubsection}{\numberline {6.7.1}Constant velocity}{33}{subsubsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.7}Constant velocity and acceleration}{32}{subsection.6.7}%
+\contentsline {subsubsection}{\numberline {6.7.1}Constant velocity}{32}{subsubsection.6.7.1}%
 \contentsline {subsubsection}{\numberline {6.7.2}Constant coordinate acceleration}{33}{subsubsection.6.7.2}%
 \contentsline {subsubsection}{\numberline {6.7.3}Constant proper acceleration}{34}{subsubsection.6.7.3}%
 \contentsline {subsubsection}{\numberline {6.7.4}A trip with midpoint braking}{34}{subsubsection.6.7.4}%
-\contentsline {paragraph}{Rapidity and derivatives.}{35}{section*.20}%
+\contentsline {paragraph}{Rapidity and derivatives.}{34}{section*.20}%
 \contentsline {paragraph}{Position, clocks, and arrival.}{35}{section*.21}%
-\contentsline {paragraph}{The reversal and jerk.}{36}{section*.22}%
+\contentsline {paragraph}{The reversal and jerk.}{35}{section*.22}%
 \contentsline {paragraph}{Trip parameters in SI units.}{36}{section*.23}%
 \contentsline {subsection}{\numberline {6.8}Constant jerk}{36}{subsection.6.8}%
 \contentsline {subsubsection}{\numberline {6.8.1}Constant coordinate jerk}{36}{subsubsection.6.8.1}%
 \contentsline {subsubsection}{\numberline {6.8.2}Constant proper jerk}{37}{subsubsection.6.8.2}%
 \contentsline {subsubsection}{\numberline {6.8.3}Constant unprojected four-jerk}{37}{subsubsection.6.8.3}%
-\contentsline {section}{\numberline {7}Inertial frames and particle dynamics}{39}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Coordinates, intervals, and light cones}{39}{subsection.7.1}%
+\contentsline {section}{\numberline {7}Inertial frames and particle dynamics}{38}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Coordinates, intervals, and light cones}{38}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Spacetime increments and velocity}{39}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Clock rates and measured lengths}{40}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}Composing frames}{40}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Four-momentum and the mass shell}{41}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.5}Four-momentum and the mass shell}{40}{subsection.7.5}%
 \contentsline {subsection}{\numberline {7.6}Force, work, and inertia}{41}{subsection.7.6}%
 \contentsline {subsection}{\numberline {7.7}Free-particle action}{42}{subsection.7.7}%
 \contentsline {section}{\numberline {8}Coordinates, frames, and differentiation}{43}{section.8}%
@@ -88,33 +88,33 @@
 \contentsline {paragraph}{Interval and differential operators.}{44}{section*.24}%
 \contentsline {paragraph}{Motion and clock rates.}{45}{section*.25}%
 \contentsline {paragraph}{An accelerated coordinate chart.}{45}{section*.26}%
-\contentsline {subsection}{\numberline {8.4}Varying frames and local bases}{46}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.4}Varying frames and local bases}{45}{subsection.8.4}%
 \contentsline {subsection}{\numberline {8.5}Physical derivatives in a carried frame}{46}{subsection.8.5}%
 \contentsline {section}{\numberline {9}Electromagnetism}{47}{section.9}%
 \contentsline {subsection}{\numberline {9.1}Maxwell's equations and wave propagation}{47}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}Potentials and gauge freedom}{48}{subsection.9.2}%
 \contentsline {subsection}{\numberline {9.3}The electromagnetic field action}{49}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Field invariants}{50}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.4}Field invariants}{49}{subsection.9.4}%
 \contentsline {subsection}{\numberline {9.5}Lorentz force from the action}{50}{subsection.9.5}%
 \contentsline {subsection}{\numberline {9.6}Acceleration and the mass shell}{51}{subsection.9.6}%
 \contentsline {subsection}{\numberline {9.7}Energy and momentum flux}{52}{subsection.9.7}%
 \contentsline {section}{\numberline {10}Quantum amplitudes and differential operators}{52}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Spinor amplitudes and probability density}{53}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.1}Spinor amplitudes and probability density}{52}{subsection.10.1}%
 \contentsline {subsection}{\numberline {10.2}Weighted densities and local expectations}{53}{subsection.10.2}%
-\contentsline {paragraph}{Local expectations.}{54}{section*.27}%
+\contentsline {paragraph}{Local expectations.}{53}{section*.27}%
 \contentsline {paragraph}{Transforming the amplitude.}{54}{section*.28}%
 \contentsline {subsection}{\numberline {10.3}Energy and momentum as differential operators}{54}{subsection.10.3}%
 \contentsline {subsection}{\numberline {10.4}Field strength from noncommuting derivatives}{56}{subsection.10.4}%
-\contentsline {section}{\numberline {11}The Klein--Gordon equation}{57}{section.11}%
-\contentsline {subsection}{\numberline {11.1}The mass shell as a wave equation}{57}{subsection.11.1}%
+\contentsline {section}{\numberline {11}The Klein--Gordon equation}{56}{section.11}%
+\contentsline {subsection}{\numberline {11.1}The mass shell as a wave equation}{56}{subsection.11.1}%
 \contentsline {subsection}{\numberline {11.2}Positive and negative frequency}{57}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Square roots from Fourier series}{58}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.3}Square roots from Fourier series}{57}{subsection.11.3}%
 \contentsline {subsection}{\numberline {11.4}Electromagnetic coupling}{58}{subsection.11.4}%
 \contentsline {section}{\numberline {12}The Dirac equation}{59}{section.12}%
 \contentsline {subsection}{\numberline {12.1}Block form and free factorization}{59}{subsection.12.1}%
 \contentsline {subsection}{\numberline {12.2}Reconstructing free solutions from Klein--Gordon}{60}{subsection.12.2}%
 \contentsline {subsection}{\numberline {12.3}Potential and paravector components}{61}{subsection.12.3}%
-\contentsline {subsection}{\numberline {12.4}Interacting factorization and reconstruction}{62}{subsection.12.4}%
+\contentsline {subsection}{\numberline {12.4}Interacting factorization and reconstruction}{61}{subsection.12.4}%
 \contentsline {subsection}{\numberline {12.5}Gauge phase}{63}{subsection.12.5}%
 \contentsline {section}{\numberline {13}Low-energy limits}{63}{section.13}%
 \contentsline {subsection}{\numberline {13.1}Klein--Gordon to Schr\"odinger}{63}{subsection.13.1}%
