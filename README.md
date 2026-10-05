@@ -138,11 +138,11 @@ The quaternion multiplication rules are satisfied by $`(-\mathrm{i}\sigma_k)`$:
 
 ```math
 \begin{gathered}
-(-\mathrm{i}\sigma_k)^2=-1\quad(k=1,2,3),\\
-(-\mathrm{i}\sigma_1)(-\mathrm{i}\sigma_2)=(-\mathrm{i}\sigma_3),\qquad
-(-\mathrm{i}\sigma_2)(-\mathrm{i}\sigma_3)=(-\mathrm{i}\sigma_1),\qquad
-(-\mathrm{i}\sigma_3)(-\mathrm{i}\sigma_1)=(-\mathrm{i}\sigma_2),\\
-(-\mathrm{i}\sigma_1)(-\mathrm{i}\sigma_2)(-\mathrm{i}\sigma_3)=-1.
+(-\mathrm{i}\sigma_1)^2=(-\mathrm{i}\sigma_2)^2=(-\mathrm{i}\sigma_3)^2
+=(-\mathrm{i}\sigma_1)(-\mathrm{i}\sigma_2)(-\mathrm{i}\sigma_3)=-1,\\[1em]
+(-\mathrm{i}\sigma_1)(-\mathrm{i}\sigma_2)=(-\mathrm{i}\sigma_3),\\
+(-\mathrm{i}\sigma_2)(-\mathrm{i}\sigma_3)=(-\mathrm{i}\sigma_1),\\
+(-\mathrm{i}\sigma_3)(-\mathrm{i}\sigma_1)=(-\mathrm{i}\sigma_2).
 \end{gathered}
 ```
 
