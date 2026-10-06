@@ -5459,36 +5459,66 @@ illustrate the construction.
 \subsection{The basis and its interval}
 \label{sec:matrix-basis}
 
-Let $\bM(t,\br)$ be a smooth real invertible $4\times4$ matrix, with
+Let $\bM(t,\br)$ be a smooth real invertible $4\times4$ matrix, partitioned as
+\[
+ \bM=\begin{Bmatrix}M_{tt}&\bM_{tr}\\\bM_{rt}&\bM_{rr}\end{Bmatrix}.
+\]
+Here $M_{tt}$ is a scalar, $\bM_{tr}$ a $1\times3$ row,
+$\bM_{rt}$ a $3\times1$ column, and $\bM_{rr}$ a $3\times3$ matrix.
+The blocks are independent: no symmetry of $\bM$ is assumed, and
+$\bM_{rt}=\bM_{tr}^{\mathsf T}$ is not required.
+Let $\bI$ be the $3\times3$ identity and $\vstyle{0}$ the zero
+three-vector. The signature matrix is
+\[
+ \begin{Bmatrix}1&\vstyle{0}^{\mathsf T}\\\vstyle{0}&-\bI\end{Bmatrix}.
+\]
+The local basis is
 \begin{equation}
  \begin{Bmatrix}\pSigmaTPrime\\\bsigRPrime\end{Bmatrix}
  =\bM\begin{Bmatrix}1\\\bsig\end{Bmatrix}.
  \label{eq:spacetime-matrix-basis}
 \end{equation}
 Here $\pSigmaTPrime$ is one real paravector and $\bsigRPrime$ is a
-triple of real paravectors. Sigma conjugation acts componentwise and
-leaves scalar coefficients unchanged:
+triple of real paravectors. Their scalar and vector parts are
+\[
+ \pSigmaTPrime=M_{tt}+\bM_{tr}^{\mathsf T}\dotprod\bsig,
+ \qquad \bsigRPrime=\bM_{rt}+\bM_{rr}\bsig.
+\]
+In the second expression, $\bM_{rt}$ collects the three scalar parts
+and each row of $\bM_{rr}$ gives the corresponding vector part.
+The labels $t,r$ identify basis entries, not algebraic scalar and vector grades.
+Sigma conjugation acts componentwise and
+leaves the real entries of $\bM$ unchanged:
 \begin{equation}
  \begin{aligned}
  \begin{Bmatrix}\pSigmaTPrime\\\bsigRPrime\end{Bmatrix}^{*}
  &=\bM\begin{Bmatrix}1\\\bsig\end{Bmatrix}^{*}
   =\bM\begin{Bmatrix}1\\-\bsig\end{Bmatrix}\\
- &=\bM\operatorname{diag}(1,-1,-1,-1)
+ &=\bM\begin{Bmatrix}1&\vstyle{0}^{\mathsf T}\\\vstyle{0}&-\bI\end{Bmatrix}
        \begin{Bmatrix}1\\\bsig\end{Bmatrix}.
  \end{aligned}
  \label{eq:spacetime-basis-conjugation}
 \end{equation}
-Assigning the local displacement
-$\dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime$ gives
+Write the local displacement as
+$\dd\pX=\dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime$.
+Here $\dd\pX$ need not be the exact differential of a global
+paravector coordinate $\pX$. Its interval is
 \begin{equation}
  \boxed{\dd s^2
  =\det(\dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime).}
  \label{eq:spacetime-basis-interval}
 \end{equation}
-Its original scalar--vector coefficient column is
-$\bM^{\mathsf T}\{\dd t,\dd\br\}^{\mathsf T}$. With the metric matrix
+The displacement itself has the scalar--vector form
 \[
- \bg=\bM\operatorname{diag}(1,-1,-1,-1)\bM^{\mathsf T}
+ \dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime
+ =\left(M_{tt}\dd t+\bM_{rt}\dotprod\dd\br\right)
+ +\left(\dd t\,\bM_{tr}^{\mathsf T}
+             +\bM_{rr}^{\mathsf T}\dd\br\right)\dotprod\bsig.
+\]
+Its determinant is the scalar part squared minus the vector part squared.
+With the metric matrix
+\[
+ \bg=\bM\begin{Bmatrix}1&\vstyle{0}^{\mathsf T}\\\vstyle{0}&-\bI\end{Bmatrix}\bM^{\mathsf T}
  =\begin{Bmatrix}
   g_{tt}&\bg_{tr}\\
   \bg_{tr}^{\mathsf T}&\bg_{rr}
@@ -5505,6 +5535,14 @@ $\bM^{\mathsf T}\{\dd t,\dd\br\}^{\mathsf T}$. With the metric matrix
 \end{equation*}
 Here $g_{tt}$ is a real scalar, $\bg_{tr}$ a real $1\times3$ row,
 and $\bg_{rr}$ a real symmetric $3\times3$ matrix.
+Explicitly,
+\[
+ \begin{aligned}
+ g_{tt}&=M_{tt}^2-\bM_{tr}\bM_{tr}^{\mathsf T},\\
+ \bg_{tr}&=M_{tt}\bM_{rt}^{\mathsf T}-\bM_{tr}\bM_{rr}^{\mathsf T},\\
+ \bg_{rr}&=\bM_{rt}\bM_{rt}^{\mathsf T}-\bM_{rr}\bM_{rr}^{\mathsf T}.
+ \end{aligned}
+\]
 The metric has signature $(+,-,-,-)$ and can represent any smooth
 Lorentzian metric locally~\citeat{carroll-gr}{Eq.~(3.119)}{page=95}.
 Along a time-like path with $\dd t/\dd s>0$,
@@ -5526,65 +5564,95 @@ so its position dependence alone gives no curvature. A general
 $\bM$ need not preserve this interval. Curvature is determined by the
 metric-compatible, torsion-free transport of the resulting metric.
 
+\Needspace{20\baselineskip}
 \subsection{Algebra and differentiation}
 
-For $\pZ=c\pSigmaTPrime+\bZ\dotprod\bsigRPrime$, with
-$c\in\C$ and $\bZ\in\C^3$, the coefficient row multiplies the
-basis column. Substituting \eqref{eq:spacetime-matrix-basis} gives
+For the real local displacement
+$\dd\pX=\dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime$,
+the coefficient row multiplies the basis column.
+Substituting \eqref{eq:spacetime-matrix-basis} gives
 \[
  \begin{aligned}
- \pZ
- &=\begin{Bmatrix}c\\\bZ\end{Bmatrix}^{\mathsf T}
+ \dd\pX
+ &=\begin{Bmatrix}\dd t\\\dd\br\end{Bmatrix}^{\mathsf T}
    \begin{Bmatrix}\pSigmaTPrime\\\bsigRPrime\end{Bmatrix}\\
- &=\begin{Bmatrix}c\\\bZ\end{Bmatrix}^{\mathsf T}
+ &=\begin{Bmatrix}\dd t\\\dd\br\end{Bmatrix}^{\mathsf T}
    \bM\begin{Bmatrix}1\\\bsig\end{Bmatrix}
- =\left(\bM^{\mathsf T}\begin{Bmatrix}c\\\bZ\end{Bmatrix}\right)^{\mathsf T}
+ =\left(\bM^{\mathsf T}\begin{Bmatrix}\dd t\\\dd\br\end{Bmatrix}\right)^{\mathsf T}
    \begin{Bmatrix}1\\\bsig\end{Bmatrix}.
  \end{aligned}
 \]
-Thus $\bM$ transforms the basis column, while $\bM^{\mathsf T}$
-maps the primed coefficient column to the original coefficient column:
+Thus the basis transforms by $\bM$ and its coefficient column by $\bM^{\mathsf T}$.
+Transposition swaps and transposes the off-diagonal blocks; it does not equate them:
 \begin{equation}
- \begin{Bmatrix}\scpart{\pZ}\\\vecpart{\pZ}\end{Bmatrix}
- =\bM^{\mathsf T}\begin{Bmatrix}c\\\bZ\end{Bmatrix}.
+ \begin{Bmatrix}\scpart{\dd\pX}\\\vecpart{\dd\pX}\end{Bmatrix}
+ =\begin{Bmatrix}M_{tt}&\bM_{rt}^{\mathsf T}\\
+                  \bM_{tr}^{\mathsf T}&\bM_{rr}^{\mathsf T}\end{Bmatrix}
+   \begin{Bmatrix}\dd t\\\dd\br\end{Bmatrix}
+ .
  \label{eq:spacetime-basis-coefficients}
 \end{equation}
+Equivalently, the paravector is
+\[
+ \dd\pX=\left(M_{tt}\dd t+\bM_{rt}\dotprod\dd\br\right)
+      +\left(\dd t\,\bM_{tr}^{\mathsf T}
+                    +\bM_{rr}^{\mathsf T}\dd\br\right)\dotprod\bsig.
+\]
+The first term is $\scpart{\dd\pX}$; the coefficient of $\bsig$ is
+$\vecpart{\dd\pX}$. In general these are not $\dd t$ and $\dd\br$.
 Products follow by applying \eqref{eq:para-product} to these
 coefficients and returning with $\bM^{-\mathsf T}$.
-By \eqref{eq:spacetime-basis-conjugation},
-\[
- \pZ^*=c\pvsigma_t^{\prime *}+\bZ\dotprod\bsig_r^{\prime *}.
-\]
-Determinant and inversion retain their original definitions.
-The same metric blocks give the determinant:
+
+\paragraph{Conjugations.}
+Since $\bM$ is real, the basis elements are Hermitian:
 \begin{equation}
- \det\pZ=g_{tt}c^2+2c\,\bg_{tr}\bZ
-                      +\bZ^{\mathsf T}\bg_{rr}\bZ.
+ \pvsigma_t^{\prime\mathsf H}=\pSigmaTPrime,
+ \qquad \bsig_r^{\prime\mathsf H}=\bsigRPrime.
+ \label{eq:local-basis-conjugations}
+\end{equation}
+
+\paragraph{Determinant and inverse.}
+Using \eqref{eq:det}, the same metric blocks give
+\begin{equation}
+ \begin{aligned}
+ \dd s^2=\det(\dd\pX)&=\scpart{\dd\pX}^2-\vecpart{\dd\pX}^2\\
+        &=g_{tt}\dd t^2+2\dd t\,\bg_{tr}\dd\br
+                      +\dd\br^{\mathsf T}\bg_{rr}\dd\br.
+ \end{aligned}
  \label{eq:metric-block-determinant}
 \end{equation}
+For $\dd s^2\ne0$, $(\dd\pX)^{-1}=\operatorname{adj}(\dd\pX)/\dd s^2$.
 The transpose introduces no complex conjugation.
 
-Differentiating the original coefficients and returning to the local
-basis gives the compact rule
+\paragraph{Differentiation.}
+Holding the coordinate increments $\dd t,\dd\br$ fixed while
+varying the base point gives
+\[
+ \begin{aligned}
+ \partial_t(\dd\pX)
+ &=\left((\partial_t M_{tt})\dd t
+            +(\partial_t\bM_{rt})\dotprod\dd\br\right)\\
+ &\quad+\left(\dd t\,\partial_t\bM_{tr}^{\mathsf T}
+            +(\partial_t\bM_{rr}^{\mathsf T})\dd\br\right)\dotprod\bsig.
+ \end{aligned}
+\]
+Refactoring into the local basis gives
 \begin{equation}
- \partial_t\pZ
+ \partial_t(\dd\pX)
  =\begin{Bmatrix}\pSigmaTPrime&\bsig_r^{\prime\mathsf T}\end{Bmatrix}
- \bM^{-\mathsf T}
- \partial_t\left(\bM^{\mathsf T}
-                   \begin{Bmatrix}c\\\bZ\end{Bmatrix}\right).
+ \bM^{-\mathsf T}(\partial_t\bM^{\mathsf T})
+ \begin{Bmatrix}\dd t\\\dd\br\end{Bmatrix}.
  \label{eq:spacetime-basis-field-derivative}
 \end{equation}
-The derivative acts on both $\bM$ and the coefficient fields.
-Replacing $\partial_t$ by any coordinate or directional spatial
-derivative gives the corresponding rule; products obey Leibniz's rule.
-This is ordinary differentiation of the paravector representation.
-Metric parallel transport must also account for the assigned interval.
+The same rule holds for coordinate and directional spatial derivatives;
+products obey Leibniz's rule. These are ordinary derivatives of the
+representation; metric parallel transport also depends on the assigned interval.
 
 \subsection{A curved example}
 
 For a positive scalar $a(t)$, choose
 \begin{equation}
- \bM=\operatorname{diag}(1,a,a,a),\qquad
+ \bM=\operatorname{diag}(1,a\bI),\qquad
  \pSigmaTPrime=1,\qquad \bsigRPrime=a\bsig.
  \label{eq:matrix-basis}
 \end{equation}
@@ -5594,7 +5662,7 @@ The metric blocks are
  \bg_{rr}=-a(t)^2\bI.
  \label{eq:expansion-metric-blocks}
 \end{equation}
-Here $\bI$ is the $3\times3$ identity. The algebra gives
+The algebra gives
 \begin{align*}
  (\bX\dotprod\bsigRPrime)(\bY\dotprod\bsigRPrime)
  &=a^2\bX\dotprod\bY+\ii a(\bX\times\bY)\dotprod\bsigRPrime,\\
@@ -5631,18 +5699,18 @@ with fixed endpoints gives
 Here $\dot a=\dd a/\dd t$. For time-like paths, $s$ is proper time
 when $(\dd t/\dd s)^2-a^2(\dd\br/\dd s)^2=1$.
 Polarizing the quadratic tangent terms gives parallel transport of
-a real $c+\bZ\dotprod\bsigRPrime$ along any path:
+a real $\pY=b\pSigmaTPrime+\bY\dotprod\bsigRPrime$, with $b\in\R$ and $\bY\in\R^3$, along any path:
 \begin{equation}
- \frac{\dd c}{\dd s}
- =-a\dot a\frac{\dd\br}{\dd s}\dotprod\bZ,
+ \frac{\dd b}{\dd s}
+ =-a\dot a\frac{\dd\br}{\dd s}\dotprod\bY,
  \qquad
- \frac{\dd\bZ}{\dd s}
+ \frac{\dd\bY}{\dd s}
  =-\frac{\dot a}{a}\left(
-       \frac{\dd t}{\dd s}\bZ+c\frac{\dd\br}{\dd s}\right).
+       \frac{\dd t}{\dd s}\bY+b\frac{\dd\br}{\dd s}\right).
  \label{eq:matrix-basis-parallel-transport}
 \end{equation}
-This preserves $c^2-a^2\bZ^2$. Setting $c=\dd t/\dd s$ and
-$\bZ=\dd\br/\dd s$ recovers free fall.
+This preserves $b^2-a^2\bY^2$. Setting $b=\dd t/\dd s$ and
+$\bY=\dd\br/\dd s$ recovers free fall.
 
 \paragraph{Curvature.}
 Fixed-coordinate observers follow geodesics with $s=t$ up to a
@@ -5679,8 +5747,11 @@ $f(t,\br)\in\R$ be a smooth dimensionless scalar field and
 $\bu(t,\br)\in\R^3$ a smooth unit vector field, $\bu^2=1$.
 Here $f(t,\br)$ is a scalar multiplier. Writing $\bu$ for $\bu(t,\br)$, choose
 \begin{equation}
- \pSigmaTPrime=1-(1-\bu\dotprod\bsig)f(t,\br),\qquad
- \bsigRPrime=\bsig-\bu(1-\bu\dotprod\bsig)f(t,\br).
+ \begin{aligned}
+ \pSigmaTPrime&=1-f(t,\br)+f(t,\br)\bu\dotprod\bsig,\\
+ \bsigRPrime&=-f(t,\br)\bu
+              +\left(\bI+f(t,\br)\bu\bu^{\mathsf T}\right)\bsig.
+ \end{aligned}
  \label{eq:kerr-schild-basis}
 \end{equation}
 Juxtaposition denotes multiplication; products on the sigma triple act
@@ -5773,33 +5844,81 @@ The weak-field acceleration is
 
 \Needspace{24\baselineskip}
 \paragraph{Kerr.}
-Let the constant real vector $\ba$ be the source's angular momentum
-per unit mass. The scalar $r>0$ now denotes an ellipsoidal radius,
-determined by
+Let the constant real vector $\vstyle{\omega}$ be the outer horizon's
+angular velocity relative to a nonrotating observer at infinity. For
+$2Gm\lVert\vstyle{\omega}\rVert\le1$, define the positive scalar
+\[
+ \rho=\frac{4(Gm)^2}{1+4(Gm)^2\vstyle{\omega}^2}.
+\]
+The angular momentum per unit mass is $\rho\vstyle{\omega}$;
+$\rho$ has dimensions of length squared. This scaling follows from
+the Kerr horizon angular-velocity relation
+\citeat{heinicke-hehl}{Eq.~(145)}{page=57}.
+The ellipsoidal radius $\epsilon>0$ is determined by $\br$ and the spin,
+and generally differs from $\lVert\br\rVert$:
 \begin{equation}
- r^4-r^2(\br^2-\ba^2)-(\ba\dotprod\br)^2=0.
+ \epsilon^4-\epsilon^2(\br^2-\rho^2\vstyle{\omega}^2)
+ -\rho^2(\vstyle{\omega}\dotprod\br)^2=0.
  \label{eq:kerr-radius}
 \end{equation}
-The standard Kerr vacuum solution is represented by
+The standard Kerr black-hole solution is represented by
 \begin{equation}
- \bu=
- \frac{r\br-\ba\times\br+\ba(\ba\dotprod\br)/r}
-      {r^2+\ba^2},\qquad
- f(t,\br)=\frac{Gm\,r^3}{r^4+(\ba\dotprod\br)^2}.
+ \begin{aligned}
+ \bu&=\frac{\epsilon\br-\rho\vstyle{\omega}\times\br
+       +\rho^2\vstyle{\omega}(\vstyle{\omega}\dotprod\br)/\epsilon}
+      {\epsilon^2+\rho^2\vstyle{\omega}^2},\\
+ f(t,\br)&=\frac{Gm\,\epsilon^3}
+       {\epsilon^4+\rho^2(\vstyle{\omega}\dotprod\br)^2}.
+ \end{aligned}
  \label{eq:kerr-fields}
 \end{equation}
-Equation~\eqref{eq:kerr-radius} gives $\bu^2=1$.
-Substitution into \eqref{eq:kerr-schild-blocks} supplies
-$g_{tt},\bg_{tr},\bg_{rr}$ for the Kerr metric
-\citeat{bini-kerr-schild}{Eqs.~(5)--(6)}{page=2}; the basis and interval
-follow from \eqref{eq:kerr-schild-basis} and
-\eqref{eq:kerr-schild-interval}.
-Setting $\ba=\vstyle{0}$ recovers Schwarzschild. The black-hole spin
-bound and outer horizon are~\citeat{heinicke-hehl}{p.~53}{page=53}
+The radius equation verifies the unit direction:
 \[
- \lVert\ba\rVert\le Gm,\qquad
- r=Gm+\sqrt{(Gm)^2-\ba^2}.
+ \bu^2=
+ \frac{\br^2+\rho^2(\vstyle{\omega}\dotprod\br)^2/\epsilon^2}
+      {\epsilon^2+\rho^2\vstyle{\omega}^2}=1.
 \]
+Substituting into \eqref{eq:kerr-schild-blocks} gives the explicit metric blocks
+\begin{equation}
+ \begin{aligned}
+ g_{tt}&=1-\frac{2Gm\,\epsilon^3}
+                   {\epsilon^4+\rho^2(\vstyle{\omega}\dotprod\br)^2},\\
+ \bg_{tr}&=-\frac{2Gm\,\epsilon^3}
+                   {\epsilon^4+\rho^2(\vstyle{\omega}\dotprod\br)^2}
+                   \bu^{\mathsf T},\\
+ \bg_{rr}&=-\bI-\frac{2Gm\,\epsilon^3}
+                   {\epsilon^4+\rho^2(\vstyle{\omega}\dotprod\br)^2}
+                   \bu\bu^{\mathsf T},
+ \end{aligned}
+ \label{eq:kerr-metric-blocks}
+\end{equation}
+where $\bu$ is given explicitly in \eqref{eq:kerr-fields}.
+Thus the scalar--vector determinant gives
+\begin{equation}
+ \begin{aligned}
+ \dd s^2=\det(\dd\pX)
+ &=g_{tt}\dd t^2+2\dd t\,\bg_{tr}\dd\br
+       +\dd\br^{\mathsf T}\bg_{rr}\dd\br\\
+ &=\dd t^2-\dd\br^2
+  -\frac{2Gm\,\epsilon^3}
+        {\epsilon^4+\rho^2(\vstyle{\omega}\dotprod\br)^2}
+       (\dd t+\bu\dotprod\dd\br)^2.
+ \end{aligned}
+ \label{eq:kerr-interval}
+\end{equation}
+This is the Cartesian Kerr--Schild metric with signature $(+,-,-,-)$
+\citeat{bini-kerr-schild}{Eqs.~(5)--(6)}{page=2}.
+Its determinant is $\det\bg=-1$, including at the horizon.
+Setting $\vstyle{\omega}=\vstyle{0}$ gives
+$\epsilon=\lVert\br\rVert$ and recovers Schwarzschild.
+The outer horizon is
+\[
+ \epsilon=\frac{\rho}{2Gm}
+ =\frac{2Gm}{1+4(Gm)^2\vstyle{\omega}^2}.
+\]
+At this radius, the tangent displacement
+$\dd\br=(\vstyle{\omega}\times\br)\dd t$ gives $\dd s^2=0$,
+verifying that $\vstyle{\omega}$ is the horizon's angular velocity.
 These substitutions express the known solution within the paravector
 algebra. Deriving the Kerr fields from Einstein's equation, and
 formulating its general relation to matter in this algebra, remain

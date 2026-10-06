@@ -1,8 +1,8 @@
 """Independent checks for the matrix bases in the closing variable-basis section.
 
 Run: python3 verify_matrix_basis.py (standard library only).
-Pauli matrices and finite differences check algebra and derivatives for real
-nonorthogonal frames of either orientation. Coordinate metric calculations
+Pauli matrices and finite differences check algebra, all three conjugations,
+and derivatives for real and complex nonorthogonal frames. Coordinate metric calculations
 check the wave and geodesic formulas. Exact rational calculations check the
 Robertson--Walker tidal terms and squared Riemann curvature.
 Kerr--Schild checks cover the basis, rotating metric, Schwarzschild limit,
@@ -10,7 +10,7 @@ and an independent finite-difference vacuum Ricci calculation.
 """
 
 from fractions import Fraction as Q
-from itertools import product
+from itertools import permutations, product
 from math import sqrt
 from random import Random
 
@@ -267,8 +267,9 @@ def coefficients(matrix):
             (matrix[0][0]-matrix[1][1])/2)
 
 
-for case in range(32):
-    frame = tuple(tuple(2*int(i == j)+real() for j in range(4)) for i in range(4))
+for case in range(64):
+    entry = real if case < 32 else scalar
+    frame = tuple(tuple(2*int(i == j)+entry() for j in range(4)) for i in range(4))
     if case % 2:
         frame = (scale(-1, frame[0]),) + frame[1:]
     ft, inv = transpose(frame), inverse(frame)
@@ -287,10 +288,46 @@ for case in range(32):
     check('full-basis determinant metric', (determinant,), (dot(q, mv(metric, q)),))
     check('coefficient extraction', mv(inv_ft, coefficients(value)), q)
     check_matrix('true algebra identity', full_represent(mv(inv_ft, (1, 0, 0, 0))), eye(2))
-    conjugated_q = mv(inv_ft, mv(signature, original_q))
-    conjugate_direct = ((value[1][1], -value[0][1]), (-value[1][0], value[0][0]))
-    check_matrix('full-basis sigma conjugation', full_represent(conjugated_q), conjugate_direct)
-    check_matrix('full-basis inverse', full_represent(scale(1/determinant, conjugated_q)), inverse(value))
+    adjugate_q = mv(inv_ft, mv(signature, original_q))
+    adjugate_direct = ((value[1][1], -value[0][1]), (-value[1][0], value[0][0]))
+    check_matrix('full-basis adjugation', full_represent(adjugate_q), adjugate_direct)
+    check_matrix('full-basis inverse', full_represent(scale(1/determinant, adjugate_q)), inverse(value))
+    sigma_q = mv(inv_ft, mv(signature, tuple(z.conjugate() for z in original_q)))
+    s_matrix = ((0, 1), (-1, 0))
+    conjugated_matrix = tuple(tuple(z.conjugate() for z in row) for row in value)
+    sigma_direct = mm(mm(ms(-1, s_matrix), conjugated_matrix), s_matrix)
+    check_matrix('full-basis sigma conjugation', full_represent(sigma_q), sigma_direct)
+    hermitian_direct = transpose(conjugated_matrix)
+    hermitian_q = mv(inv_ft, tuple(z.conjugate() for z in original_q))
+    check_matrix('full-basis Hermitian conjugation', full_represent(hermitian_q), hermitian_direct)
+    check_matrix('sigma then Hermitian is adjugation',
+                 transpose(tuple(tuple(z.conjugate() for z in row) for row in sigma_direct)),
+                 adjugate_direct)
+    # Compare the three basis-column laws to direct 2x2 matrix operations.
+    # Sigma and Hermitian conjugation also conjugate the field coefficients;
+    # adjugation is complex-linear.
+    sigma_from_basis = ((0j, 0j), (0j, 0j))
+    hermitian_from_basis = ((0j, 0j), (0j, 0j))
+    adjugate_from_basis = ((0j, 0j), (0j, 0j))
+    for coefficient, unit, row in zip(q, eye(4), frame):
+        basis = full_represent(unit)
+        conjugated_basis = tuple(tuple(z.conjugate() for z in row) for row in basis)
+        conjugated_row = tuple(z.conjugate() for z in row)
+        sigma_basis = paravector(conjugated_row[0], scale(-1, conjugated_row[1:]))
+        hermitian_basis = paravector(conjugated_row[0], conjugated_row[1:])
+        adjugate_basis = paravector(row[0], scale(-1, row[1:]))
+        check_matrix('basis-column sigma conjugation', sigma_basis,
+                     mm(mm(ms(-1, s_matrix), conjugated_basis), s_matrix))
+        check_matrix('basis-column Hermitian conjugation', hermitian_basis,
+                     transpose(conjugated_basis))
+        check_matrix('basis-column adjugation', adjugate_basis,
+                     ((basis[1][1], -basis[0][1]), (-basis[1][0], basis[0][0])))
+        sigma_from_basis = ma(sigma_from_basis, ms(coefficient.conjugate(), sigma_basis))
+        hermitian_from_basis = ma(hermitian_from_basis, ms(coefficient.conjugate(), hermitian_basis))
+        adjugate_from_basis = ma(adjugate_from_basis, ms(coefficient, adjugate_basis))
+    check_matrix('field sigma conjugation in local basis', sigma_from_basis, sigma_direct)
+    check_matrix('field Hermitian conjugation in local basis', hermitian_from_basis, hermitian_direct)
+    check_matrix('field adjugation in local basis', adjugate_from_basis, adjugate_direct)
 
     product_scalar = original_q[0]*original_p[0] + dot(original_q[1:], original_p[1:])
     product_vector = add(add(scale(original_q[0], original_p[1:]), scale(original_p[0], original_q[1:])),
@@ -303,16 +340,17 @@ for case in range(32):
     increment = tuple(real() for _ in range(4))
     temporal = full_represent((1, 0, 0, 0))
     spatial = full_represent((0,)+increment[1:])
-    temporal_star = ((temporal[1][1], -temporal[0][1]), (-temporal[1][0], temporal[0][0]))
-    mixed = coefficients(mm(temporal_star, spatial))[0]
+    temporal_adjugate = ((temporal[1][1], -temporal[0][1]), (-temporal[1][0], temporal[0][0]))
+    mixed = coefficients(mm(temporal_adjugate, spatial))[0]
     dt_det = temporal[0][0]*temporal[1][1]-temporal[0][1]*temporal[1][0]
     dr_det = spatial[0][0]*spatial[1][1]-spatial[0][1]*spatial[1][0]
     check('mixed temporal-spatial interval', (dt_det*increment[0]**2+2*mixed*increment[0]+dr_det,),
           (dot(increment, mv(metric, increment)),))
 
     for direction in range(4):
-        rate = tuple(tuple(real() for _ in range(4)) for _ in range(4))
-        q_rate = tuple(scalar() for _ in range(4))
+        rate = tuple(tuple(entry() for _ in range(4)) for _ in range(4))
+        # Include fixed coordinate increments as well as varying fields.
+        q_rate = (0, 0, 0, 0) if direction % 2 == 0 else tuple(scalar() for _ in range(4))
         actual_column = add(mv(transpose(rate), q), mv(ft, q_rate))
         primed_column = add(q_rate, mv(transpose(mm(rate, inv)), q))
         check('full-basis time/spatial derivative', mv(inv_ft, actual_column), primed_column)
@@ -370,7 +408,7 @@ for a, ap, app in ((1, 0, 0), (2, 3, 5), (1, 1, 1), (3, 0, 2), (2, 1, 0)):
         assert riemann(i, 0, j, 0) == -(app/a)*int(i == j)
 
 print(f'PASS: {checks} algebra, derivative, wave, geodesic, and transport checks '
-      'in 48 spatial and 32 full spacetime matrix frames; '
+      'in 48 spatial and 32 real and 32 complex full spacetime matrix frames; '
       'exact transport, tidal, and curvature checks in 5 Robertson-Walker cases.')
 
 
@@ -391,7 +429,117 @@ def kerr_metric(event, spin, mass_length):
                        for j in range(4)) for i in range(4))
 
 
+def omega_kerr_fields(position, omega, mass_length):
+    rho = 4*mass_length**2/(1+4*mass_length**2*dot(omega, omega))
+    omega2, projection = dot(omega, omega), dot(omega, position)
+    radial_term = dot(position, position)-rho**2*omega2
+    epsilon = sqrt((radial_term+sqrt(radial_term**2+4*rho**2*projection**2))/2)
+    direction = scale(1/(epsilon**2+rho**2*omega2),
+        add(add(scale(epsilon, position), scale(-rho, cross(omega, position))),
+            scale(rho**2*projection/epsilon, omega)))
+    profile = mass_length*epsilon**3/(epsilon**4+rho**2*projection**2)
+    return rho, epsilon, direction, profile
+
+
+def omega_kerr_metric(event, omega, mass_length):
+    _, _, direction, profile = omega_kerr_fields(event[1:], omega, mass_length)
+    mixed = scale(-2*profile, direction)
+    spatial = tuple(tuple(-int(i == j)-2*profile*direction[i]*direction[j]
+                          for j in range(3)) for i in range(3))
+    return ((1-2*profile,)+mixed,)+tuple((mixed[i],)+spatial[i] for i in range(3))
+
+
+def determinant(matrix):
+    # Independent permutation expansion, used only for 2x2 and 4x4 checks.
+    total = 0
+    for ordering in permutations(range(len(matrix))):
+        term = (-1)**sum(ordering[i] > ordering[j]
+                         for i in range(len(matrix)) for j in range(i+1, len(matrix)))
+        for i, j in enumerate(ordering):
+            term *= matrix[i][j]
+        total += term
+    return total
+
+
 ks_start = checks
+# Reparameterize Kerr by its outer-horizon angular velocity, including
+# the Schwarzschild and extremal endpoints.
+for fraction in (0, .01, .2, .8, .99, 1):
+    mass_length = .7
+    omega = scale(fraction/(2*mass_length), (2/3, -1/3, 2/3))
+    rho = 4*mass_length**2/(1+4*mass_length**2*dot(omega, omega))
+    spin = scale(rho, omega)
+    horizon = rho/(2*mass_length)
+    check('Kerr horizon angular velocity', scale(1/(2*mass_length*horizon), spin), omega)
+    check('Kerr horizon quadratic',
+          (horizon**2-2*mass_length*horizon+dot(spin, spin),), (0,))
+    assert horizon >= mass_length-1e-12
+    expected_horizon = mass_length if fraction == 1 else (
+        mass_length+sqrt(mass_length**2-dot(spin, spin)))
+    check('Kerr outer horizon branch', (horizon,), (expected_horizon,))
+    position = (2.3, -.8, 1.2)
+    radius, direction, profile = kerr_fields(position, spin, mass_length)
+    projection = dot(omega, position)
+    check('angular-velocity ellipsoidal radius',
+          (radius**4-radius**2*(dot(position, position)-rho**2*dot(omega, omega))
+           -rho**2*projection**2,), (0,))
+    new_direction = scale(1/(radius**2+rho**2*dot(omega, omega)),
+        add(add(scale(radius, position), scale(-rho, cross(omega, position))),
+            scale(rho**2*projection/radius, omega)))
+    new_profile = mass_length*radius**3/(radius**4+rho**2*projection**2)
+    check('angular-velocity Kerr direction', new_direction, direction)
+    check('angular-velocity Kerr profile', (new_profile,), (profile,))
+
+# Verify the displayed omega-based blocks against the paravector basis,
+# without constructing the reference metric from the same block formula.
+axis = (2/3, -1/3, 2/3)
+transverse = cross(axis, (0, 0, 1))
+transverse = scale(1/sqrt(dot(transverse, transverse)), transverse)
+for fraction, radial_factor, (sine, cosine) in product(
+        (0, .01, .2, .8, .99, 1), (.8, 1, 2), ((0, 1), (1, 0), (.8, .6))):
+    mass_length = .7
+    omega = scale(fraction/(2*mass_length), axis)
+    rho = 4*mass_length**2/(1+fraction**2)
+    horizon = rho/(2*mass_length)
+    epsilon = radial_factor*horizon
+    spin = scale(rho, omega)
+    position = add(scale(sine*sqrt(epsilon**2+dot(spin, spin)), transverse),
+                   scale(cosine*epsilon, axis))
+    actual_rho, actual_epsilon, direction, profile = omega_kerr_fields(position, omega, mass_length)
+    check('omega radius on oblate surfaces', (actual_rho, actual_epsilon), (rho, epsilon))
+    unit_formula = (dot(position, position)+rho**2*dot(omega, position)**2/epsilon**2)/(
+        epsilon**2+rho**2*dot(omega, omega))
+    check('omega unit-direction identity', (dot(direction, direction), unit_formula), (1, 1))
+    basis = (paravector(1-profile, scale(profile, direction)),)+tuple(
+        paravector(-profile*direction[i], add(eye(3)[i], scale(profile*direction[i], direction)))
+        for i in range(3))
+    # Polarize the 2x2 Pauli determinant to extract all four metric blocks.
+    from_basis = tuple(tuple((determinant(ma(left, right))-determinant(left)-determinant(right))/2
+                            for right in basis) for left in basis)
+    event = (0,)+position
+    metric = omega_kerr_metric(event, omega, mass_length)
+    check('omega g_tt from Pauli determinant', (metric[0][0],), (from_basis[0][0],))
+    check('omega g_tr from Pauli determinant', metric[0][1:], from_basis[0][1:])
+    check_matrix('omega g_rr from Pauli determinant', tuple(row[1:] for row in metric[1:]),
+                 tuple(row[1:] for row in from_basis[1:]))
+    check_matrix('omega blocks equal standard Kerr metric', metric, kerr_metric(event, spin, mass_length))
+    check('Kerr metric determinant', (determinant(metric),), (-1,))
+    increment = (.4, -.3, .2, .1)
+    displacement = ((0j, 0j), (0j, 0j))
+    for component, element in zip(increment, basis):
+        displacement = ma(displacement, ms(component, element))
+    interval = increment[0]**2-dot(increment[1:], increment[1:])-2*profile*(
+        increment[0]+dot(direction, increment[1:]))**2
+    check('omega ds squared from determinant and blocks',
+          (determinant(displacement), dot(increment, mv(metric, increment))), (interval, interval))
+    if radial_factor == 1:
+        generator = (1,)+cross(omega, position)
+        check('horizon angular-velocity generator is null', (dot(generator, mv(metric, generator)),), (0,))
+        gradient = scale(1/(epsilon*(2*epsilon**2-dot(position, position)+dot(spin, spin))),
+                         add(scale(epsilon**2, position), scale(dot(spin, position), spin)))
+        normal = (0,)+gradient
+        check('outer horizon normal is null', (dot(normal, mv(inverse(metric), normal)),), (0,))
+
 for case in range(80):
     position = (2+real(), 1+real(), .7+real())
     spin = (0, 0, real()) if case % 2 else tuple(real() for _ in range(3))
@@ -475,6 +623,14 @@ for spin, position in (((0, 0, 0), (3, 1, 2)), ((0, 0, .4), (2, -1, .8)),
     _, fine = finite_difference_geometry(metric_at, event, .001)
     extrapolated = ms(1/3, ma(ms(4, fine), ms(-1, coarse)))
     check('Kerr/Schwarzschild vacuum Ricci', flatten(extrapolated), (0,)*16, tolerance=3e-7)
+
+for fraction in (0, .6, 1):
+    omega = scale(fraction/(2*.7), axis)
+    metric_at = lambda event: omega_kerr_metric(event, omega, .7)
+    _, coarse = finite_difference_geometry(metric_at, (0, 2, -1, .8), .002)
+    _, fine = finite_difference_geometry(metric_at, (0, 2, -1, .8), .001)
+    extrapolated = ms(1/3, ma(ms(4, fine), ms(-1, coarse)))
+    check('omega metric vacuum Ricci', flatten(extrapolated), (0,)*16, tolerance=3e-7)
 
 # A non-vacuum radial profile must not pass the same Ricci check.
 def constant_profile_metric(event):
