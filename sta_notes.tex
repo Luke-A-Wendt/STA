@@ -848,11 +848,11 @@ For $\pvPi_\pm'=(1\pm\bu'\dotprod\bsig)/2\in\R\oplus\R^3$, all four products lie
 
 \subsection{Spectral rule}
 The decomposition $\pZ=c+\bZ\dotprod\bsig$ is used, with $c\in\C$, $\bZ\in\C^3$, and
-$\bZ^2\ne0$.  The complex scalars $w,\lambda_\pm$, complex vector $\bu$, and
+$\bZ^2\ne0$.  The complex scalars $z,\lambda_\pm$, complex vector $\bu$, and
 projectors $\pvPi_\pm\in\R\oplus\C^3$ are defined by
 \begin{align*}
- w&:=+\sqrt{\bZ^2},& z&:=w,\\
- \bu&:=\bZ/w,& \pZ&=c+z\bu\dotprod\bsig,\\
+ z&:=+\sqrt{\bZ^2},\\
+ \bu&:=\bZ/z,& \pZ&=c+z\bu\dotprod\bsig,\\
  \lambda_\pm&:=c\pm z,& \pvPi_\pm&:=\tfrac12(1\pm\bu\dotprod\bsig).
 \end{align*}
 The root is the principal scalar root.  Thus $\bu$ is a
@@ -863,10 +863,10 @@ By squaring,
  \pvPi_\pm^2&=\tfrac14(1\pm2\bu\dotprod\bsig+1)=\pvPi_\pm,\\
  \pvPi_+\pvPi_-&=\tfrac14(1-(\bu\dotprod\bsig)^2)=0,\\
  \pvPi_++\pvPi_-&=1,\\
- \pZ&=c(\pvPi_++\pvPi_-)+w(\pvPi_+-\pvPi_-)
+ \pZ&=c(\pvPi_++\pvPi_-)+z(\pvPi_+-\pvPi_-)
    =\lambda_+\pvPi_++\lambda_-\pvPi_-.
 \end{align*}
-Here $w,\lambda_\pm\in\C$, $\bu\in\C^3$, and
+Here $z,\lambda_\pm\in\C$, $\bu\in\C^3$, and
 $\pZ,f(\pZ)\in\C\oplus\C^3$ for the analytic functions below.
 These projectors are Hermitian when $\bu$ is real; in general they need
 not be. The same formulas apply directly to any given
@@ -904,7 +904,7 @@ the signs of their principal square roots gives
  \sqrt {\pZ}=\pm\sqrt{\lambda_+}\pvPi_+\pm\sqrt{\lambda_-}\pvPi_-.
 \end{equation*}
 There are four distinct roots when both eigenvalues are nonzero, and two
-when one vanishes.  Changing $w$ to $-w$ exchanges the eigenvalue--projector
+when one vanishes.  Changing $z$ to $-z$ exchanges the eigenvalue--projector
 pairs and leaves the function unchanged when its branch choices are
 exchanged with them.
 
@@ -914,11 +914,11 @@ exchanged with them.
 For real $\pX=a+\bX\dotprod\bsig$, with $a\in\R$, $\bX\in\R^3$, and
 $\bX\ne0$, the spectral quantities above reduce to
 \[
- w=\lVert\bX\rVert,\qquad
+ z=\lVert\bX\rVert,\qquad
  \bu=\bX/\lVert\bX\rVert,\qquad
  \lambda_\pm=a\pm\lVert\bX\rVert.
 \]
-Here $\pX,\pvPi_\pm\in\R\oplus\R^3$, $w,\lambda_\pm\in\R$,
+Here $\pX,\pvPi_\pm\in\R\oplus\R^3$, $z,\lambda_\pm\in\R$,
 and $\bu\in\R^3$. The projectors are now Hermitian; complex-valued
 functions or square roots may still give $f(\pX)\in\C\oplus\C^3$.  In particular, for a
 \hyperref[def:real-unit-vector]{real unit vector} $\bu$,
@@ -990,33 +990,33 @@ geometric transformations through composition and logarithms.
 
 \subsection{Exponential: projection and series derivations}
 For complex $\pZ=c+\bZ\dotprod\bsig$ with $\bZ^2\ne0$, the following notation is retained:
-$w=+\sqrt{\bZ^2}$, the \hyperref[eq:bilinear-unit-vector]{vector of square one}
-$\bu=\bZ/w$, and $\lambda_\pm=c\pm w$.
+$z=+\sqrt{\bZ^2}$, the \hyperref[eq:bilinear-unit-vector]{vector of square one}
+$\bu=\bZ/z$, and $\lambda_\pm=c\pm z$.
 The spectral rule~\eqref{eq:complex-function-projectors} gives
 \begin{align*}
  \exp(\pZ)
- &=\tfrac12e^{c+w}(1+\bu\dotprod\bsig)
-  +\tfrac12e^{c-w}(1-\bu\dotprod\bsig)\\
- &=e^c\left(\frac{e^w+e^{-w}}2
-      +\frac{e^w-e^{-w}}2\bu\dotprod\bsig\right).
+ &=\tfrac12e^{c+z}(1+\bu\dotprod\bsig)
+  +\tfrac12e^{c-z}(1-\bu\dotprod\bsig)\\
+ &=e^c\left(\frac{e^z+e^{-z}}2
+      +\frac{e^z-e^{-z}}2\bu\dotprod\bsig\right).
 \end{align*}
 Independently, $c$ commutes with the vector part and
-$(w\bu\dotprod\bsig)^{2n}=w^{2n}$,
-$(w\bu\dotprod\bsig)^{2n+1}=w^{2n+1}\bu\dotprod\bsig$.  Separating the
+$(z\bu\dotprod\bsig)^{2n}=z^{2n}$,
+$(z\bu\dotprod\bsig)^{2n+1}=z^{2n+1}\bu\dotprod\bsig$.  Separating the
 defining series therefore gives
 \begin{align*}
  \exp(\pZ)&=e^c\sum_{n=0}^{\infty}
-      \frac{(w\bu\dotprod\bsig)^n}{n!}\\
- &=e^c\left(\sum_{n=0}^{\infty}\frac{w^{2n}}{(2n)!}
-       +\sum_{n=0}^{\infty}\frac{w^{2n+1}}{(2n+1)!}\bu\dotprod\bsig\right).
+      \frac{(z\bu\dotprod\bsig)^n}{n!}\\
+ &=e^c\left(\sum_{n=0}^{\infty}\frac{z^{2n}}{(2n)!}
+       +\sum_{n=0}^{\infty}\frac{z^{2n+1}}{(2n+1)!}\bu\dotprod\bsig\right).
 \end{align*}
 Both derivations give~\citeat{chappell-functions}{Eq.~(52)}{page=12}
 \begin{equation}
- \exp(\pZ)=e^c(\cosh w+\sinh w\,\bu\dotprod\bsig).
+ \exp(\pZ)=e^c(\cosh z+\sinh z\,\bu\dotprod\bsig).
  \label{eq:paravector-exponential}
 \end{equation}
-This is independent of the choice $w$ or $-w$: $\cosh$ is even, while
-both $\sinh w$ and $\bu$ change sign.  When $\bZ^2=0$,
+This is independent of the choice $z$ or $-z$: $\cosh$ is even, while
+both $\sinh z$ and $\bu$ change sign.  When $\bZ^2=0$,
 \eqref{eq:coalescing-function} instead gives
 \[
  \exp(c+\bZ\dotprod\bsig)=e^c(1+\bZ\dotprod\bsig).
@@ -1030,13 +1030,13 @@ The defining series also gives
 For the real components $a,b,\bX,\bY$ of
 $\pZ=(a+b\ii)+(\bX+\ii\bY)\dotprod\bsig$, the following form is used:
 \[
- w=+\sqrt{\bX^2-\bY^2+2\ii\bX\dotprod\bY}.
+ z=+\sqrt{\bX^2-\bY^2+2\ii\bX\dotprod\bY}.
 \]
-Substituting $\bu=(\bX+\ii\bY)/w$ into
+Substituting $\bu=(\bX+\ii\bY)/z$ into
 \eqref{eq:paravector-exponential} gives the component form
 \begin{equation*}
  \exp(\pZ)=e^a(\cos b+\ii\sin b)
- \left(\cosh w+\frac{\sinh w}{w}(\bX+\ii\bY)\dotprod\bsig\right).
+ \left(\cosh z+\frac{\sinh z}{z}(\bX+\ii\bY)\dotprod\bsig\right).
 \end{equation*}
 Its real and imaginary specializations are
 \begin{align}
@@ -1230,17 +1230,17 @@ because the exponents commute:
  \pL(\theta,\bu)\pR(\theta',\bu)&=\pR(\theta',\bu)\pL(\theta,\bu).
 \end{align*}
 For a common axis, the following complex parameter is defined:
-$w=-(\theta+\ii\theta')/2\in\C$.  Its exponential is
+$z=-(\theta+\ii\theta')/2\in\C$.  Its exponential is
 \[
- \exp(w\bu\dotprod\bsig)
+ \exp(z\bu\dotprod\bsig)
  =\pL(\theta,\bu)\pR(\theta',\bu)
- =\cosh w+\sinh w\,\bu\dotprod\bsig.
+ =\cosh z+\sinh z\,\bu\dotprod\bsig.
 \]
 By expansion of the complex scalar coefficients,
 \begin{align*}
- \cosh w&=+\cosh\frac\theta2\cos\frac{\theta'}2
+ \cosh z&=+\cosh\frac\theta2\cos\frac{\theta'}2
  +\ii\sinh\frac\theta2\sin\frac{\theta'}2,\\
- \sinh w&=-\sinh\frac\theta2\cos\frac{\theta'}2
+ \sinh z&=-\sinh\frac\theta2\cos\frac{\theta'}2
  -\ii\cosh\frac\theta2\sin\frac{\theta'}2.
 \end{align*}
 This factorization is valid when the real and imaginary vector parts of
@@ -1257,8 +1257,8 @@ rotation; boosts along nonparallel directions cannot be interchanged.
 
 \subsection{Logarithm}
 For complex $\pZ=c+\bZ\dotprod\bsig$ with $\bZ^2\ne0$, the following notation is retained:
-$w=+\sqrt{\bZ^2}$, the \hyperref[eq:bilinear-unit-vector]{vector of square one}
-$\bu=\bZ/w$, $\lambda_\pm=c\pm w$, and
+$z=+\sqrt{\bZ^2}$, the \hyperref[eq:bilinear-unit-vector]{vector of square one}
+$\bu=\bZ/z$, $\lambda_\pm=c\pm z$, and
 $\pvPi_\pm=(1\pm\bu\dotprod\bsig)/2$.  Both eigenvalues are assumed to be nonzero.
 For a nonzero complex scalar $\lambda$ and any integer $n$, the scalar branches are
 \[
@@ -1273,7 +1273,7 @@ One branch is chosen for each eigenvalue. By the spectral rule,
  \end{aligned}
  \label{eq:paravector-logarithm}
 \end{equation}
-Exchanging $w$ and $-w$ exchanges both eigenvalue--projector pairs and
+Exchanging $z$ and $-z$ exchanges both eigenvalue--projector pairs and
 preserves the same chosen logarithm.  Independent scalar branches give
 the different logarithms.
 
