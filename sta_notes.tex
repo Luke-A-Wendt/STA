@@ -4,6 +4,17 @@
 \usepackage{amsmath,amssymb,mathtools,bm}
 \usepackage{booktabs,array}
 \usepackage{graphicx}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,skins}
+% All SI definitions, prose, and equations stay within this environment.
+\newtcolorbox{SIunits}[1]{
+  enhanced,breakable,sharp corners,
+  colback=white,colframe=black,boxrule=0.4pt,
+  colbacktitle=white,coltitle=black,fonttitle=\bfseries,
+  title={SI units: #1},title after break={SI units: #1 (continued)},
+  left=8pt,right=8pt,top=6pt,bottom=6pt,
+  before skip=0.8em,after skip=0.8em
+}
 \usepackage[dvipsnames]{xcolor}
 % Central paravector styles; change these definitions to restyle all aliases.
 % Usage: \pv{X} for Latin symbols; \pvGreek{\psi} for Greek symbols/operators.
@@ -192,9 +203,10 @@ probabilities are obtained from the same products and projectors.
 \subsection{Notation and physical conventions}
 
 Natural units $\hbar=c=1$, rationalized electromagnetic units,
-and signature $(+,-,-,-)$ are used. Passages reverting to SI units are marked
-explicitly. The corresponding equations are boxed with a subscript $\mathrm{SI}$
-on the box; the usual quantity symbols are retained inside.
+and signature $(+,-,-,-)$ are used. SI conversions, including their unit
+assignments and explanations, appear in boxes labeled SI units. Within
+these boxes, the usual symbols carry the stated SI units; outside them,
+natural units apply.
 Vectors and matrices of objects are \textcolor{cyan}{\textbf{bold cyan}}; paravectors are \textcolor{magenta}{\textbf{bold magenta}}.
 Bold calligraphic Latin lettering is reserved for paravectors and paravector operators; Greek glyphs are retained and bold.
 No meaning is assigned by convention to uppercase
@@ -1754,11 +1766,16 @@ separation cannot carry a causal signal
 The coordinate $t$ is read from synchronized clocks of the chosen inertial
 frame. Along a future-directed time-like path, $\dd t>0$ and the positive
 spacetime arc-length increment $\dd s=\sqrt{\det(\dd\pX)}$ are chosen.
-Proper time is commonly denoted by $\tau$. Reverting to SI units, with
+Proper time is commonly denoted by $\tau$.
+
+\begin{SIunits}{Proper time}
+Reverting to SI units, with
 $s$ measured in metres and $\tau$ in seconds,
 \[
- \boxed{\dd s=c\,\dd\tau}_{\,\mathrm{SI}}.
+ \dd s=c\,\dd\tau.
 \]
+\end{SIunits}
+
 With $c=1$, the same elapsed quantity is represented by $s$ and $\tau$;
 only $s$ is used for proper time below. This interpretation is fixed by
 the positive interval normalization, not by an arbitrary choice of path
@@ -2077,7 +2094,18 @@ Since $\det\pU=1$, scalar scaling gives the mass shell~\citeat{tong-relativity}{
  E^2-\bp^2=\det\pP=m^2,\qquad E>0.
  \label{eq:mass-shell}
 \end{equation}
-The inverse and speed follow directly:
+\begin{SIunits}{Momentum}
+With dimensionless four-velocity $\pU$, mass $m$ in kilograms, energy $E$
+in joules, and momentum $\bp$ in $\mathrm{kg\,m\,s^{-1}}$,
+\begin{gather*}
+ \pP=mc\pU=\frac{E}{c}+\bp\cdot\bsig,\\
+ \det\pP=m^2c^2,\qquad
+ E^2=m^2c^4+c^2\bp^2.
+\end{gather*}
+The scalar and vector coefficients of $\pP$ now both have momentum units.
+\end{SIunits}
+
+Returning to natural units, the inverse and speed follow directly:
 \[
  \pP^{-1}=\frac{E-\bp\cdot\bsig}{m^2},\qquad
  \bv^2=\frac{\bp^2}{E^2}=1-\frac{m^2}{E^2}<1.
@@ -2271,6 +2299,22 @@ rest frame, called the proper acceleration.
 At rest, $\gamma=1$ and $\dd\pU/\dd s=\dot{\bv}\cdot\bsig$, so the
  determinant is $-\dot{\bv}^2$ and the proper acceleration has magnitude $\lVert\dot{\bv}\rVert$.
 
+\begin{SIunits}{Proper acceleration}
+Here $t,\tau$ are measured in seconds, $s=c\tau$ and $\br$ in metres,
+and $\bv=\dd\br/\dd t$ in metres per second. Dots denote derivatives
+with respect to this SI time. With $\pX=ct+\br\cdot\bsig$,
+\begin{gather*}
+ \gamma=\frac1{\sqrt{1-\bv^2/c^2}},\qquad
+ \pU=\frac{\dd\pX}{\dd s}
+ =\gamma\left(1+\frac{\bv}{c}\cdot\bsig\right),\\
+ c^2\sqrt{-\det\left(\frac{\dd\pU}{\dd s}\right)}
+ =\sqrt{\gamma^6\dot{\bv}_{\parallel}^2
+       +\gamma^4\dot{\bv}_{\perp}^2}.
+\end{gather*}
+Four-velocity remains dimensionless; both sides of the last equation give
+the accelerometer magnitude in $\mathrm{m\,s^{-2}}$.
+\end{SIunits}
+
 \subsection{Force, work, and inertia}
 \label{sec:energy-inertia}
 Here $\gamma=(1-\bv^2)^{-1/2}$ is the particle Lorentz factor.
@@ -2291,11 +2335,19 @@ Taking its dot product with $\bv$ gives the work rate
  =\bv\cdot\dot{\bp}.
  \label{eq:relativistic-work}
 \end{equation}
-At rest the force is $m\dot{\bv}$. Reverting to SI units,
-\[
- \boxed{E=\gamma mc^2}_{\,\mathrm{SI}},\qquad
- \boxed{E/c^2=\gamma m}_{\,\mathrm{SI}}.
-\]
+At rest the force is $m\dot{\bv}$.
+
+\begin{SIunits}{Force and energy}
+In the following SI formulas,
+$t$ is in seconds, $\bv$ in metres per second, and $\dot{\bp}$ in newtons:
+\begin{gather*}
+ \frac{\dd\bp}{\dd t}
+ =m\gamma^3\dot{\bv}_{\parallel}
+ +m\gamma\dot{\bv}_{\perp},\\
+ E=\gamma mc^2.
+\end{gather*}
+\end{SIunits}
+
 In the natural units used elsewhere,
 invariant $m$ is retained: the longitudinal and transverse inertia in
 \eqref{eq:relativistic-inertia} differ.
@@ -2512,7 +2564,7 @@ instantaneous reversal. The thrust is reversed, not the direction of travel.
 The jerk during each burn and through a finite reversal is discussed in
 Section~\ref{sec:reversal-jerk}.
 
-\paragraph{Trip parameters in SI units.}
+\begin{SIunits}{Trip parameters}
 In the following SI formulas, $\dot v_0$ is the initial acceleration in
 metres per second squared, also equal to the constant proper-acceleration
 magnitude. The distance $d$ is in metres, $t_{\mathrm{trip}}$ is
@@ -2520,19 +2572,20 @@ the elapsed departure-frame time in seconds, and $\tau_{\mathrm{trip}}$
 is the elapsed onboard proper time in seconds. Restoring units in
 \eqref{eq:rocket-trip-times} gives
 \begin{align*}
- &\boxed{t_{\mathrm{trip}}
- =\sqrt{\frac{d^2}{c^2}+\frac{4d}{\dot v_0}}}_{\,\mathrm{SI}},\\
- &\boxed{\tau_{\mathrm{trip}}
- =\frac{2c}{\dot v_0}\operatorname{arcosh}\left(1+\frac{\dot v_0d}{2c^2}\right)}_{\,\mathrm{SI}},\\
- &\boxed{v_{\max}
- =c\sqrt{1-\left(1+\frac{\dot v_0d}{2c^2}\right)^{-2}}}_{\,\mathrm{SI}}.
+ &t_{\mathrm{trip}}
+ =\sqrt{\frac{d^2}{c^2}+\frac{4d}{\dot v_0}},\\
+ &\tau_{\mathrm{trip}}
+ =\frac{2c}{\dot v_0}\operatorname{arcosh}\left(1+\frac{\dot v_0d}{2c^2}\right),\\
+ &v_{\max}
+ =c\sqrt{1-\left(1+\frac{\dot v_0d}{2c^2}\right)^{-2}}.
 \end{align*}
 For a specified onboard duration and peak speed, the required proper
 acceleration is fixed by the midpoint rapidity:
 \[
- \boxed{\dot v_0=\frac{2c}{\tau_{\mathrm{trip}}}
- \operatorname{artanh}\!\left(\frac{v_{\max}}{c}\right)}_{\,\mathrm{SI}}.
+ \dot v_0=\frac{2c}{\tau_{\mathrm{trip}}}
+ \operatorname{artanh}\!\left(\frac{v_{\max}}{c}\right).
 \]
+\end{SIunits}
 
 \section{Jerk}
 \label{sec:jerk}
@@ -3473,7 +3526,23 @@ Equating the four parts gives~\citeat{tong-em}{Eqs.~(1.4)--(1.7)}{page=14}:
 \end{align}
 These are Gauss' electric and magnetic laws, Amp\`ere--Maxwell's law,
 and Faraday's law.
-Applying $\pvpartial^*$ gives the sourced wave equation:
+
+\begin{SIunits}{Maxwell's equation}
+With $t$ in seconds, $\br$ in metres, electric field in volts per metre,
+magnetic field in teslas, charge density in coulombs per cubic metre,
+and current density in amperes per square metre,
+\begin{gather*}
+ \pF=(\bE+\ii c\bBf)\cdot\bsig,\qquad
+ \pvpartial=\frac1c\partial_t+\pdr\cdot\bsig,\\
+ \pvpartial\pF=\frac1{\epsilon_0}
+ \left(\rho-\frac{\bJ}{c}\cdot\bsig\right).
+\end{gather*}
+The electric and magnetic terms now have the same units. By separating
+the scalar and vector parts, the four SI Maxwell equations are recovered;
+the vacuum constants satisfy $\epsilon_0\mu_0c^2=1$.
+\end{SIunits}
+
+In natural units, applying $\pvpartial^*$ gives the sourced wave equation:
 \[
  \pvpartial^*(\pvpartial \pF)=\Box \pF=\pvpartial^*\pJ^*.
 \]
@@ -3767,7 +3836,20 @@ Notation: $\pF=(\bE+\ii\bBf)\cdot\bsig$.  Its Hermitian product is~\citeat{heste
 The energy density $u=(\bE^2+\bBf^2)/2\in\R_{\ge0}$ and Poynting
 vector $\bS=\bE\times\bBf\in\R^3$ are defined.  These coefficients are frame-dependent,
 whereas $\pF^2$ contains the Lorentz invariants.
-The full stress--energy tensor is represented by the real linear map~\citeat{hestenes-spacetime}{Eq.~(167)}{page=28}
+
+\begin{SIunits}{Field energy and flux}
+Using the SI field $\pF=(\bE+\ii c\bBf)\cdot\bsig$,
+\begin{gather*}
+ u=\frac{\epsilon_0}{2}(\bE^2+c^2\bBf^2),\qquad
+ \bS=\frac1{\mu_0}\bE\times\bBf,\\
+ \frac{\epsilon_0}{2}\pF\pF^{\mathsf H}
+ =u+\frac{\bS}{c}\cdot\bsig.
+\end{gather*}
+Here $u$ is energy per unit volume in $\mathrm{J\,m^{-3}}$, and
+$\bS$ is energy flux in $\mathrm{W\,m^{-2}}$.
+\end{SIunits}
+
+In natural units, the full stress--energy tensor is represented by the real linear map~\citeat{hestenes-spacetime}{Eq.~(167)}{page=28}
 \begin{equation}
  T(\pN):=\tfrac12\pF \pN \pF^{\mathsf H},
  \label{eq:electromagnetic-stress-map}
@@ -3778,7 +3860,19 @@ $T(1)=u+\bS\cdot\bsig$.  It is future causal because $u\geq0$ and
 \begin{equation*}
  \det(T(1))=u^2-\bS^2=\tfrac14\lVert\det \pF\rVert^2\geq0.
 \end{equation*}
-Equality holds for null fields.  By reversal of the order,
+Hence $\lVert\bS\rVert\le u$, with equality for null fields.
+
+\begin{SIunits}{Field determinant and flux bound}
+In SI units, the determinant and flux bound are
+\begin{gather*}
+ u^2-\frac{\bS^2}{c^2}
+ =\frac{\epsilon_0^2}{4}\lVert\det\pF\rVert^2\ge0,\\
+ \lVert\bS\rVert\le cu.
+\end{gather*}
+Equality holds for null fields.
+\end{SIunits}
+
+Returning to natural units, reversal of the order gives
 $\pF^{\mathsf H}\pF=(\pF \pF^{\mathsf H})^*$: the same energy density and opposite
 flux.  The transformation of the full map is derived in
 Section~\ref{sec:transformations}.
@@ -3949,6 +4043,7 @@ factors, as derived in Section~\ref{sec:transformations}.
 \label{sec:quantum-energy-momentum}
 
 Notation: $\pX=t+\br\cdot\bsig$, with real coordinates $(t,\br)\in\R^4$.
+\begin{SIunits}{Wave energy and momentum}
 In the following wave relations, SI units are restored and Planck's
 constant $h>0$ and $\hbar=h/(2\pi)$ are retained. For a free wave,
 angular frequency in radians per second is denoted by $\omega\in\R$,
@@ -3959,9 +4054,9 @@ $\lVert\bk\rVert=1/\lambda$.
 The physical input is the Planck--Einstein energy relation and de Broglie
 momentum relation~\citeat{debroglie1929}{p.~248}{page=5}\,\citeat{debroglie1929}{p.~249}{page=6}:
 \begin{gather}
- \boxed{E=\hbar\omega}_{\,\mathrm{SI}},
+ E=\hbar\omega,
  \label{eq:planck-einstein}\\
- \boxed{\bp=h\bk}_{\,\mathrm{SI}}.
+ \bp=h\bk.
  \label{eq:debroglie-momentum}
 \end{gather}
 Here $E\in\R$ is total energy in joules, including rest
@@ -3976,17 +4071,19 @@ the complex scalar plane wave is
 \begin{gather*}
  f(t,\br):=\exp\!\left(-\ii\left(\omega t
              -2\pi\bk\cdot\br\right)\right),\\
- \boxed{f(t,\br)=\exp\!\left(-\frac{\ii}{\hbar}\left(Et
-             -\bp\cdot\br\right)\right)}_{\,\mathrm{SI}}.
+ f(t,\br)=\exp\!\left(-\frac{\ii}{\hbar}\left(Et
+             -\bp\cdot\br\right)\right).
 \end{gather*}
 The second line substitutes \eqref{eq:planck-einstein} and
 \eqref{eq:debroglie-momentum}.  By differentiation,
 \begin{gather*}
- \boxed{+\ii\hbar\partial_t f=Ef}_{\,\mathrm{SI}},\\
- \boxed{-\ii\hbar\pdr f=\bp f}_{\,\mathrm{SI}}.
+ +\ii\hbar\partial_t f=Ef,\\
+ -\ii\hbar\pdr f=\bp f.
 \end{gather*}
 These operators represent energy and momentum on each mode and extend
 to superpositions by linearity.
+\end{SIunits}
+
 Returning to natural units $\hbar=c=1$ gives $h=2\pi$. With
 $\pX=t+\br\cdot\bsig$ and
 $\pP=E+\bp\cdot\bsig$, the following is obtained~\citeat{tong-qft}{Eq.~(4.104)}{page=106}
@@ -4669,7 +4766,20 @@ $1/m$~\citeat{gurtler-hestenes}{Eq.~(2.13)}{page=6}:
   -\frac{q}{2m}\bBf\cdot\bsig\right)\pvphi_+.}
  \label{eq:pauli}
 \end{equation}
-The change of entries preserves the density exactly:
+
+\begin{SIunits}{Pauli's equation}
+With $m$ in kilograms, $q$ in coulombs, $V$ in volts, $\bA$ in
+$\mathrm{T\,m}$, and $\bBf$ in teslas, restoring $\hbar$ gives
+\[
+ \ii\hbar\partial_t\pvphi_+
+ =\left(\frac{(-\ii\hbar\pdr-q\bA)^2}{2m}+qV
+ -\frac{q\hbar}{2m}\bBf\cdot\bsig\right)\pvphi_+.
+\]
+Each term in parentheses has energy units. The same nonrelativistic
+approximation as in \eqref{eq:pauli} is retained.
+\end{SIunits}
+
+Returning to natural units, the change of entries preserves the density exactly:
 \begin{equation*}
  \lVert\bpsi\rVert^2=\lVert\pvphi_+\rVert^2+\lVert\pvphi_-\rVert^2.
 \end{equation*}
@@ -4732,6 +4842,20 @@ States with \hyperref[sec:spin-half]{spin projections} $\pm\tfrac12$ along $\bm 
 \hyperref[sec:uniform-spin]{Zeeman shifts}. The
 \hyperref[eq:mechanical-momentum-operator]{kinetic momentum}
 $\hbpq=-\ii\partial_{\bm r}-q\bm A$ retains the orbital coupling.
+
+The separation $\Delta E$ of the two spin-energy contributions, excluding
+orbital energy, is
+\[
+ \Delta E=\frac{|q|}{m}\lVert\bBf\rVert.
+\]
+\begin{SIunits}{Zeeman splitting}
+Restoring SI units gives
+\[
+ \Delta E=\frac{|q|\hbar}{m}\lVert\bBf\rVert.
+\]
+This is the splitting from the derived Dirac magnetic coupling; anomalous
+magnetic-moment corrections are not included.
+\end{SIunits}
 
 This representation applies to uniform-field Pauli evolution; the full
 Dirac equation and spin measurements use the fixed spinor space.
@@ -6056,7 +6180,7 @@ The fixed two-dimensional complex spinor space of
 \eqref{eq:axis-ideal-components} is called a \emph{minimal left ideal}:
 it is preserved by left multiplication by every paravector.
 In particle dynamics, \emph{mechanical momentum} is another name for
-kinetic momentum. The mass equivalent in the second SI relation of
+kinetic momentum. The quantity $\gamma m$ in
 Section~\ref{sec:energy-inertia} is sometimes called \emph{relativistic mass};
 invariant mass is used throughout this paper.
 
@@ -6202,8 +6326,12 @@ Spin amplitudes and probabilities
 
 \clearpage
 \paragraph{Translating the physical comparisons.}
+\begin{SIunits}{Comparison with Tong}
 SI units are used in Tong's component electrodynamics;
-$c=\epsilon_0=\mu_0=1$ is used here.  Tong's gauge parameter in Eq.~(5.13) is
+$c=\epsilon_0=\mu_0=1$ is used outside these boxes.
+\end{SIunits}
+
+Tong's gauge parameter in Eq.~(5.13) is
 $\chi=-\lambda$, whereas Eq.~(6.2) is written with the same plus-sign convention
 \citeat{tong-em}{Eq.~(5.13)}{page=114}\,\citeat{tong-em}{Eq.~(6.2)}{page=142}.  Tong's positive-exponent spatial rotation is a passive
 axis rotation; the negative-exponent boost is identified with the passive boost used here
