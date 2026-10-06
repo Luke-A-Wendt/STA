@@ -29,7 +29,6 @@ PREAMBLE = r"""\documentclass[11pt,border=3pt]{standalone}
 \pgfplotsset{compat=1.18}
 \colorlet{metriccyan}{cyan}
 \colorlet{framemagenta}{magenta}
-\colorlet{ergoyellow}{yellow}
 \pgfplotsset{
  every axis/.append style={
   width=7.65cm,height=6.8cm,
@@ -199,7 +198,7 @@ def kerr():
  legend style={at={(0.5,-0.21)},anchor=north},
 ]
 """
-    tex += curve(stationary_surface(), "ergoyellow,fill=ergoyellow!30,line width=1.8pt")
+    tex += curve(stationary_surface(), "metriccyan,fill=metriccyan!30,line width=1.8pt")
     tex += r"\addlegendentry{Outer stationary limit: $g_{tt}=0$}" + "\n"
     tex += curve(ellipse(HORIZON), "framemagenta,fill=framemagenta!6,line width=1.2pt")
     tex += r"\addlegendentry{Horizon: $\epsilon/(Gm)=1.6$}" + "\n"
@@ -218,8 +217,8 @@ def kerr():
  legend style={at={(0.5,-0.21)},anchor=north},
 ]
 """
-    tex += curve(circle(sqrt(4 + SPIN**2)), "ergoyellow,fill=ergoyellow!30,line width=1.8pt")
-    tex += r"\addlegendentry{Ergoregion (yellow)}" + "\n"
+    tex += curve(circle(sqrt(4 + SPIN**2)), "metriccyan,fill=metriccyan!30,line width=1.8pt")
+    tex += r"\addlegendentry{Ergoregion (cyan)}" + "\n"
     tex += curve(circle(sqrt(HORIZON**2 + SPIN**2)), "framemagenta,fill=framemagenta!6,line width=1.2pt,forget plot")
     tex += curve(circle(sqrt(9 + SPIN**2)), "metriccyan,dashed,forget plot")
     tex += note(-2.28, 2.1, r"$\lambda=1/3$")
