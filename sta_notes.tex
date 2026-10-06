@@ -217,7 +217,7 @@ each individual sigma $\pvsigma_k$ is non-bold.
 
 Derivatives such as $\partial_t$ and $\pdr$ retain bold vector subscripts.
 Scalar quantities and coefficient components remain unadorned.
-Distance $d$ is placed last in products to distinguish it from the differential $\dd$.
+The scalar trip distance $\ell$ is distinguished from the position vector $\br$.
 Scalar and paravector quantities are distinguished by their stated domains.
 The paravector momentum $\pP$ is distinguished from its vector part $\bp$ by calligraphic lettering and color.
 
@@ -2469,7 +2469,7 @@ acceleration decreases as the particle gains speed.
 \subsection{A trip with midpoint braking}
 \label{sec:rocket-trip}
 Departure and destination are at rest in one inertial frame, separated by
-$d>0$ along a fixed real unit vector $\bu$. Flat spacetime and initial
+$\ell>0$ along a fixed real unit vector $\bu$. Flat spacetime and initial
 conditions $t=s=0$, $\br=0$, $\bv=0$ are assumed. Two equal burns at
 constant proper-acceleration magnitude $\dot v_0>0$ are joined by an
 instantaneous thrust reversal; arrival is at rest. This is a prescribed trajectory;
@@ -2523,21 +2523,21 @@ $\dd\br/\dd s=\sinh\theta\,\bu$, the continuous worldline is obtained:
  \end{cases}\notag\\
  \br(s)&=\begin{cases}
   \bigl(\cosh\theta(s)-1\bigr)\bu/\dot v_0,&0\le s\le s_m,\\
-  \bu\bigl(d-\bigl(\cosh\theta(s)-1\bigr)/\dot v_0\bigr),
+  \bu\bigl(\ell-\bigl(\cosh\theta(s)-1\bigr)/\dot v_0\bigr),
     &s_m\le s\le2s_m.
  \end{cases}
  \label{eq:rocket-worldline}
 \end{align}
 Continuity at the reversal fixes the midpoint and burn durations:
 \begin{align}
- \br(s_m)&=\tfrac12\bu d,\qquad
- \gamma_m:=\cosh(\dot v_0s_m)=1+\frac{\dot v_0d}{2},\notag\\
- s_m&=\frac{\operatorname{arcosh}(1+\dot v_0d/2)}{\dot v_0},\qquad
- t_m=\sqrt{\frac{d}{\dot v_0}+\frac{d^2}{4}},\notag\\
+ \br(s_m)&=\tfrac12\bu \ell,\qquad
+ \gamma_m:=\cosh(\dot v_0s_m)=1+\frac{\dot v_0\ell}{2},\notag\\
+ s_m&=\frac{\operatorname{arcosh}(1+\dot v_0\ell/2)}{\dot v_0},\qquad
+ t_m=\sqrt{\frac{\ell}{\dot v_0}+\frac{\ell^2}{4}},\notag\\
  v_{\max}&=\sqrt{1-\gamma_m^{-2}}.
  \label{eq:rocket-trip-times}
 \end{align}
-Thus $\br(2s_m)=\bu d$ and $\pU(0)=\pU(2s_m)=1$.
+Thus $\br(2s_m)=\bu \ell$ and $\pU(0)=\pU(2s_m)=1$.
 For evaluation in coordinate time, the same expressions are used with
 \[
  \theta(t)=\begin{cases}
@@ -2560,17 +2560,17 @@ Section~\ref{sec:reversal-jerk}.
 \begin{SIunits}{Trip parameters}
 In the following SI formulas, $\dot v_0$ is the initial acceleration in
 metres per second squared, also equal to the constant proper-acceleration
-magnitude. The distance $d$ is in metres, $t_{\mathrm{trip}}$ is
+magnitude. The distance $\ell$ is in metres, $t_{\mathrm{trip}}$ is
 the elapsed departure-frame time in seconds, and $\tau_{\mathrm{trip}}$
 is the elapsed onboard proper time in seconds. Restoring units in
 \eqref{eq:rocket-trip-times} gives
 \begin{align*}
  &t_{\mathrm{trip}}
- =\sqrt{\frac{d^2}{c^2}+\frac{4d}{\dot v_0}},\\
+ =\sqrt{\frac{\ell^2}{c^2}+\frac{4\ell}{\dot v_0}},\\
  &\tau_{\mathrm{trip}}
- =\frac{2c}{\dot v_0}\operatorname{arcosh}\left(1+\frac{\dot v_0d}{2c^2}\right),\\
+ =\frac{2c}{\dot v_0}\operatorname{arcosh}\left(1+\frac{\dot v_0\ell}{2c^2}\right),\\
  &v_{\max}
- =c\sqrt{1-\left(1+\frac{\dot v_0d}{2c^2}\right)^{-2}}.
+ =c\sqrt{1-\left(1+\frac{\dot v_0\ell}{2c^2}\right)^{-2}}.
 \end{align*}
 For a specified onboard duration and peak speed, the required proper
 acceleration is fixed by the midpoint rapidity:
