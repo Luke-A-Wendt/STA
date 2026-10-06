@@ -1431,23 +1431,32 @@ Normalizing $\pL$ to $\lVert \pL\rVert=1$ would change its determinant
 and lose the Lorentz metric.
 
 \paragraph{Every factor separates into a boost and a rotation.}
-For a determinant-one complex $\pT$, the paravector $\pT \pT^{\mathsf H}$
-is real, has determinant one, and has positive scalar part
+For any complex $\pT$, the Hermitian product rule gives
+\[
+ (\pT\pT^{\mathsf H})^{\mathsf H}
+ =(\pT^{\mathsf H})^{\mathsf H}\pT^{\mathsf H}
+ =\pT\pT^{\mathsf H}.
+\]
+By \eqref{eq:algebra-H}, a paravector equals its Hermitian conjugate
+exactly when its scalar and vector coefficients are real. Thus
+$\pT\pT^{\mathsf H}\in\R\oplus\R^3$, without any determinant constraint.
+For a determinant-one complex $\pT$, i.e., $\det(\pT)=1$,
+this real paravector also has determinant one and positive scalar part
 $\lVert \pT\rVert^2$.  Both eigenvalues are therefore positive.
 Using the positive real square root, the following factors are defined:
 \[
- \pN:=\sqrt{\pT \pT^{\mathsf H}},\qquad \pR:=\pN^{-1}\pT.
+ \pL=\sqrt{\pT \pT^{\mathsf H}},\qquad \pR=\pL^{-1}\pT.
 \]
-Then $\det \pN=1$,
-$\pR^{\mathsf H}\pR=1$, $\det \pR=1$, and $\pT=\pN \pR$, with
-$\pN\in\R\oplus\R^3$ and $\pR\in\R\oplus\ii\R^3$.
-The real logarithm of $\pN$ has zero scalar part by
-\eqref{eq:exponential-determinant}, so $\pN$ is a real vector exponential.
+Then $\det \pL=1$,
+$\pR^{\mathsf H}\pR=1$, $\det \pR=1$, and $\pT=\pL \pR$, with
+$\pL\in\R\oplus\R^3$ and $\pR\in\R\oplus\ii\R^3$.
+The real logarithm of $\pL$ has zero scalar part by
+\eqref{eq:exponential-determinant}, so $\pL$ is a real vector exponential.
 For $\pR$, the identity $\pR^{\mathsf H}=\pR^{-1}=\adj {\pR}$ makes its scalar
 coefficient real and its vector coefficient imaginary; determinant one
 then gives $\pR=\cos(\theta/2)-\ii\sin(\theta/2)\bu\cdot\bsig$
 for some real $\theta$ and real unit $\bu$.
-Consequently $\pT \pX \pT^{\mathsf H}=\pN \pR \pX \pR^{\mathsf H}\pN$: the rotation is
+Consequently $\pT \pX \pT^{\mathsf H}=\pL \pR \pX \pR^{\mathsf H}\pL$: the rotation is
 followed by the boost.  Their component actions follow next.
 
 \subsection{Rotation action and Rodrigues' formula}
@@ -1698,7 +1707,7 @@ acts on $\br$ by Rodrigues' formula~\eqref{eq:rodrigues}.
 For real displacements, the product also gives
 \begin{align*}
  [\dd \pX,\dd \pX']&=2\ii(\dd\br\times\dd\br')\cdot\bsig,\\
- (\dd \pX)^{-1}&=\frac{\dd \pX^*}{\det(\dd\pX)}\qquad\left(\det(\dd\pX)\ne0\right).
+ (\dd \pX)^{-1}&=\frac{\dd \pX^*}{\det(\dd\pX)},\quad\mathrm{if}\quad\det(\dd\pX)\ne0.
 \end{align*}
 A null interval has no inverse.
 
