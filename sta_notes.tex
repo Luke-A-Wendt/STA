@@ -7,9 +7,9 @@
 \usepackage[dvipsnames]{xcolor}
 % Central paravector styles; change these definitions to restyle all aliases.
 % Usage: \pv{X} for Latin symbols; \pvGreek{\psi} for Greek symbols/operators.
-% Latin paravectors use bold calligraphic magenta lettering; Greek glyphs are retained.
+% Latin paravectors use bold calligraphic magenta lettering; Greek glyphs are retained and bold.
 \newcommand{\pv}[1]{{\color{magenta}\bm{\mathcal{#1}}}}
-\newcommand{\pvGreek}[1]{{\color{magenta}#1}}
+\newcommand{\pvGreek}[1]{{\color{magenta}\bm{#1}}}
 \newcommand{\vstyle}[1]{{\color{cyan}\bm{#1}}}
 \newcommand{\pA}{\pv{A}}
 \newcommand{\pB}{\pv{B}}
@@ -195,8 +195,8 @@ Natural units $\hbar=c=1$, rationalized electromagnetic units,
 and signature $(+,-,-,-)$ are used. Passages reverting to SI units are marked
 explicitly. The corresponding equations are boxed with a subscript $\mathrm{SI}$
 on the box; the usual quantity symbols are retained inside.
-Vectors and matrices of objects are bold cyan; paravectors are magenta.
-Bold calligraphic Latin lettering is reserved for paravectors and paravector operators; Greek glyphs are retained.
+Vectors and matrices of objects are bold cyan; paravectors are bold magenta.
+Bold calligraphic Latin lettering is reserved for paravectors and paravector operators; Greek glyphs are retained and bold.
 No meaning is assigned by convention to uppercase
 or lowercase letters. The ordered sigma triple $\bsig$ is bold;
 each individual sigma $\pvsigma_k$ is non-bold.
@@ -1445,22 +1445,32 @@ exactly when its scalar and vector coefficients are real. Thus
 $\pT\pT^{\mathsf H}\in\R\oplus\R^3$, without any determinant constraint.
 For a determinant-one complex $\pT$, i.e., $\det(\pT)=1$,
 this real paravector also has determinant one and positive scalar part
-$\lVert \pT\rVert^2$.  Both eigenvalues are therefore positive.
-Using the positive real square root, the following factors are defined:
+$\lVert\pT\rVert^2$. Both eigenvalues are therefore positive.
+Using the positive real square root,
 \[
- \pL=\sqrt{\pT \pT^{\mathsf H}},\qquad \pR=\pL^{-1}\pT.
+ \pL=\sqrt{\pT\pT^{\mathsf H}},\qquad
+ \pR=\pL^{-1}\pT,\qquad \pT=\pL\pR.
 \]
-Then $\det \pL=1$,
-$\pR^{\mathsf H}\pR=1$, $\det \pR=1$, and $\pT=\pL \pR$, with
-$\pL\in\R\oplus\R^3$ and $\pR\in\R\oplus\ii\R^3$.
+The factors satisfy
+\[
+ \det\pL=\det\pR=1,\qquad
+ \pL^{\mathsf H}=\pL,\qquad
+ \pR^{\mathsf H}=\pR^{-1},
+\]
+with $\pL\in\R\oplus\R^3$ and $\pR\in\R\oplus\ii\R^3$.
 The real logarithm of $\pL$ has zero scalar part by
 \eqref{eq:exponential-determinant}, so $\pL$ is a real vector exponential.
 For $\pR$, the identity $\pR^{\mathsf H}=\pR^{-1}=\adj {\pR}$ makes its scalar
 coefficient real and its vector coefficient imaginary; determinant one
 then gives $\pR=\cos(\theta/2)-\ii\sin(\theta/2)\bu\cdot\bsig$
 for some real $\theta$ and real unit $\bu$.
-Consequently $\pT \pX \pT^{\mathsf H}=\pL \pR \pX \pR^{\mathsf H}\pL$: the rotation is
-followed by the boost.  Their component actions follow next.
+Consequently,
+\[
+ \pX'=\pT\pX\pT^{\mathsf H}
+ =\pL\pR\pX\pR^{\mathsf H}\pL,\qquad
+ \det\pX'=\det\pX.
+\]
+The rotation is followed by the boost. Their component actions follow next.
 
 \subsection{Rotation action and Rodrigues' formula}
 \label{sec:algebra-rotation-action}
@@ -3539,7 +3549,7 @@ With scalar and vector parts separated,
  \text{Real scalar:}\quad &\Box V-\partial_tS=\rho,\\
  \text{Imaginary scalar:}\quad &0=0,\\
  \text{Real vector:}\quad &\Box\bA+\pdr S=\bJ,\\
- \text{Imaginary vector:}\quad &\bm 0=\bm 0.
+ \text{Imaginary vector:}\quad &\vstyle{0}=\vstyle{0}.
 \end{align*}
 These source equations hold before gauge fixing.
 For a real gauge function $\lambda:\R^4\to\R$, the transformation is defined by~\citeat{tong-em}{Eq.~(6.2)}{page=142}:
@@ -3814,15 +3824,22 @@ Two entries separated by a vertical bar denote this inner product;
 one entry in angle brackets denotes a normalized expectation below.
 
 For arbitrary constant perpendicular \hyperref[def:real-unit-vector]{real unit vectors}
-$\bu,\ba$, a constant complex paravector $\pvpsi_+$ of unit norm
-with $(\bu\cdot\bsig)\pvpsi_+=\pvpsi_+$ is chosen, and $\pvpsi_-=(\ba\cdot\bsig)\pvpsi_+$ is defined.
+$\bu,\bu'$, a constant complex paravector $\pvpsi_+$ of unit norm
+with $(\bu\cdot\bsig)\pvpsi_+=\pvpsi_+$ is chosen, and $\pvpsi_-=(\bu'\cdot\bsig)\pvpsi_+$ is defined.
 Then
 \begin{equation}
  (\bu\cdot\bsig)\pvpsi_\pm=\pm\pvpsi_\pm.
  \label{eq:axis-ideal-basis}
 \end{equation}
-The pair is orthonormal: $\scpart{\pvpsi_a^{\mathsf H}\pvpsi_b}=\delta_{ab}$
-for $a,b=+,-$.  A Pauli amplitude or either Dirac entry is~\citeat{baylis-spin}{Eq.~(69a)}{page=13}
+The pair is orthonormal:
+\begin{align*}
+ \scpart{\pvpsi_+^{\mathsf H}\pvpsi_+}&=1,\\
+ \scpart{\pvpsi_-^{\mathsf H}\pvpsi_-}&=1,\\
+ \scpart{\pvpsi_+^{\mathsf H}\pvpsi_-}
+ &=\scpart{\pvpsi_-^{\mathsf H}\pvpsi_+}=0.
+\end{align*}
+The two cross terms are complex conjugates.
+A Pauli amplitude or either Dirac entry is~\citeat{baylis-spin}{Eq.~(69a)}{page=13}
 \begin{equation}
  \pvpsi(t,\br)=c_+(t,\br)\pvpsi_++c_-(t,\br)\pvpsi_-.
  \label{eq:axis-ideal-components}
@@ -3836,7 +3853,7 @@ multiplication by any paravector. Its coordinates are in $\C^2$,
 not the full four-complex-dimensional paravector space.
 Here $\pvpsi_\pm$ denote constant basis elements; in the Dirac sections they
 denote fields taking values in this same subspace.
-Left multiplication by $\bu\cdot\bsig$ or $\ba\cdot\bsig$ preserves
+Left multiplication by $\bu\cdot\bsig$ or $\bu'\cdot\bsig$ preserves
 this two-component form; these generate all paravector left actions.
 The matrix verification is in Appendix~\ref{sec:matrix-spinors}.
 
