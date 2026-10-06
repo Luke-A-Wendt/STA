@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.9.30)  5 OCT 2026 20:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.9.30)  5 OCT 2026 21:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -571,13 +571,13 @@ Package microtype Info: Loading generic protrusion settings for font family
 ] [88
 
 ] [89] [90]
-Underfull \hbox (badness 4505) in paragraph at lines 6438--6443
+Underfull \hbox (badness 4505) in paragraph at lines 6450--6455
 []\OT1/cmr/m/n/10.95 (+20) W. E. Baylis and G. Sobczyk, ``Rel-a-tiv-ity in Clif
 -ford's ge-o-met-ric al-ge-bras of
  []
 
 
-Underfull \hbox (badness 2359) in paragraph at lines 6438--6443
+Underfull \hbox (badness 2359) in paragraph at lines 6450--6455
 \OT1/cmr/m/n/10.95 (+20) space and space-time,'' \OT1/cmr/m/it/10.95 (+20) Int.
  J. Theor. Phys.\OT1/cmr/m/n/10.95 (+20) , vol. 43, pp. 2061--2079, 2004, doi:
  []
@@ -595,7 +595,7 @@ Package rerunfilecheck Info: File `sta_notes.out' has not changed.
 Here is how much of TeX's memory you used:
  15416 strings out of 469514
  238590 string characters out of 5470072
- 728516 words of memory out of 5000000
+ 728726 words of memory out of 5000000
  43048 multiletter control sequences out of 15000+600000
  652914 words of font info for 221 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -623,7 +623,7 @@ nts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/symbols/msbm10.pfb>
-Output written on sta_notes.pdf (96 pages, 713597 bytes).
+Output written on sta_notes.pdf (96 pages, 714263 bytes).
 PDF statistics:
  2457 PDF objects out of 2487 (max. 8388607)
  2238 compressed objects within 23 object streams

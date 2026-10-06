@@ -2312,7 +2312,7 @@ These are ordinary derivatives of the same rapidity along the path.
 The signed proper acceleration is $\dd\theta/\dd s$.
 By scaling the coordinate derivatives,
 \[
- \frac{\dd\pU}{\dd s}=\gamma\dot{\theta}\pN,\qquad
+ \frac{\dd\pU}{\dd s}=\frac{\dd\theta}{\dd s}\pN=\gamma\dot{\theta}\pN,\qquad
  \frac{\dd\pN}{\dd s}=\gamma\dot{\theta}\pU,\qquad
  \det\left(\frac{\dd\pU}{\dd s}\right)=-\gamma^2\dot{\theta}^2.
 \]
@@ -2760,9 +2760,21 @@ The proper-time derivatives follow by the same conversion:
  \pm\left(\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta}\right)\right)
  \left(\pU\pm\pN\right).
 \end{align*}
-For constant signed proper acceleration $\dd\theta/\dd s=\gamma\dot{\theta}$,
-every proper-time differentiation multiplies each null combination by the
-same constant factor. For integers $n\ge0$,
+These formulas allow varying acceleration. If the signed proper acceleration
+$\dd\theta/\dd s=\gamma\dot{\theta}$ is constant, then
+\[
+ \frac{\dd^2\theta}{\dd s^2}
+ =\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta}=0.
+\]
+The second-derivative formula therefore reduces to
+\[
+ \frac{\dd^2\left(\pU\pm\pN\right)}{\dd s^2}
+ =\gamma^2\dot{\theta}^2\left(\pU\pm\pN\right)
+ =\left(\pm\gamma\dot{\theta}\right)^2\left(\pU\pm\pN\right).
+\]
+Only under this constant-acceleration assumption is each null combination
+multiplied by the same constant factor at every proper-time differentiation.
+For integers $n\ge0$, the $n=2$ case above is included in
 \[
  \frac{\dd^n\left(\pU\pm\pN\right)}{\dd s^n}
  =\left(\pm\gamma\dot{\theta}\right)^n\left(\pU\pm\pN\right).
