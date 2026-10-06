@@ -6,7 +6,7 @@
 
 [Natural units](https://en.wikipedia.org/wiki/Natural_units) $`\hbar=c=1`$, [rationalized electromagnetic units](https://en.wikipedia.org/wiki/Heaviside%E2%80%93Lorentz_units), and [signature](https://en.wikipedia.org/wiki/Metric_signature) $`(+,-,-,-)`$ are used.
 
-Vectors and matrices are bold; bold calligraphic Latin letters are reserved for paravectors and paravector operators. Greek glyphs are retained; letter case is unrestricted.
+Vectors and matrices are bold cyan; paravectors and paravector operators are magenta, with bold calligraphic Latin letters. Greek glyphs are retained; letter case is unrestricted.
 
 ## One complex [paravector](https://en.wikipedia.org/wiki/Paravector)
 
@@ -19,10 +19,10 @@ Complex paravectors are formed from sigmas—algebraic objects with order-depend
 &\sigma_n\sigma_m&=-\sigma_m\sigma_n\quad(n\ne m),\\
 \mathrm{i}&:=\sigma_1\sigma_2\sigma_3,
 &\mathrm{i}^2&=-1,\\
-𝝈&:=\{\sigma_1,\sigma_2,\sigma_3\},
-&\mathrm{i}𝝈&=\{\sigma_2\sigma_3,\sigma_3\sigma_1,\sigma_1\sigma_2\},\\
-\boldsymbol{\mathcal{Z}}&:=(a+b\mathrm{i})+(𝐗+\mathrm{i}𝐘)\cdot𝝈,
-&a,b&\in\mathbb R,\quad𝐗,𝐘\in\mathbb R^3.
+{\color{cyan}𝝈}&:=\{\sigma_1,\sigma_2,\sigma_3\},
+&\mathrm{i}{\color{cyan}𝝈}&=\{\sigma_2\sigma_3,\sigma_3\sigma_1,\sigma_1\sigma_2\},\\
+{\color{magenta}\boldsymbol{\mathcal{Z}}}&:=(a+b\mathrm{i})+({\color{cyan}𝐗}+\mathrm{i}{\color{cyan}𝐘})\cdot{\color{cyan}𝝈},
+&a,b&\in\mathbb R,\quad{\color{cyan}𝐗},{\color{cyan}𝐘}\in\mathbb R^3.
 \end{aligned}}
 ```
 
@@ -30,11 +30,11 @@ The eight real components are grouped into a complex scalar and vector:
 
 ```math
 \begin{aligned}
-\boldsymbol{\mathcal{X}}:&=a+𝐗\cdot𝝈,\\
-\boldsymbol{\mathcal{Y}}:&=b+𝐘\cdot𝝈,\\[4pt]
-\boldsymbol{\mathcal{Z}}&=\boldsymbol{\mathcal{X}}+\mathrm{i}\boldsymbol{\mathcal{Y}}\\
-&=(a+b\mathrm{i})+(𝐗+\mathrm{i}𝐘)\cdot𝝈\\
-&=c+𝐙\cdot𝝈.
+{\color{magenta}\boldsymbol{\mathcal{X}}}:&=a+{\color{cyan}𝐗}\cdot{\color{cyan}𝝈},\\
+{\color{magenta}\boldsymbol{\mathcal{Y}}}:&=b+{\color{cyan}𝐘}\cdot{\color{cyan}𝝈},\\[4pt]
+{\color{magenta}\boldsymbol{\mathcal{Z}}}&={\color{magenta}\boldsymbol{\mathcal{X}}}+\mathrm{i}{\color{magenta}\boldsymbol{\mathcal{Y}}}\\
+&=(a+b\mathrm{i})+({\color{cyan}𝐗}+\mathrm{i}{\color{cyan}𝐘})\cdot{\color{cyan}𝝈}\\
+&=c+{\color{cyan}𝐙}\cdot{\color{cyan}𝝈}.
 \end{aligned}
 ```
 
@@ -42,10 +42,10 @@ The component extractions are:
 
 ```math
 \begin{aligned}
-\mathrm{re}(\boldsymbol{\mathcal{Z}})&:=\boldsymbol{\mathcal{X}},\\
-\mathrm{im}(\boldsymbol{\mathcal{Z}})&:=\boldsymbol{\mathcal{Y}},\\
-\mathrm{sc}(\boldsymbol{\mathcal{Z}})&:=c=a+\mathrm{i}b,\\
-\mathrm{vec}(\boldsymbol{\mathcal{Z}})&:=𝐙=𝐗+\mathrm{i}𝐘.
+\mathrm{re}({\color{magenta}\boldsymbol{\mathcal{Z}}})&:={\color{magenta}\boldsymbol{\mathcal{X}}},\\
+\mathrm{im}({\color{magenta}\boldsymbol{\mathcal{Z}}})&:={\color{magenta}\boldsymbol{\mathcal{Y}}},\\
+\mathrm{sc}({\color{magenta}\boldsymbol{\mathcal{Z}}})&:=c=a+\mathrm{i}b,\\
+\mathrm{vec}({\color{magenta}\boldsymbol{\mathcal{Z}}})&:={\color{cyan}𝐙}={\color{cyan}𝐗}+\mathrm{i}{\color{cyan}𝐘}.
 \end{aligned}
 ```
 
@@ -54,20 +54,20 @@ The component extractions are:
 Both the [dot](https://en.wikipedia.org/wiki/Dot_product) and [cross](https://en.wikipedia.org/wiki/Cross_product) products are included in the product:
 
 ```math
-(𝐗\cdot𝝈)(𝐘\cdot𝝈)
-=𝐗\cdot𝐘+\mathrm{i}(𝐗\times𝐘)\cdot𝝈.
+({\color{cyan}𝐗}\cdot{\color{cyan}𝝈})({\color{cyan}𝐘}\cdot{\color{cyan}𝝈})
+={\color{cyan}𝐗}\cdot{\color{cyan}𝐘}+\mathrm{i}({\color{cyan}𝐗}\times{\color{cyan}𝐘})\cdot{\color{cyan}𝝈}.
 ```
 
-The convention $`𝐗^2:=𝐗\cdot𝐗`$ is used.
+The convention $`{\color{cyan}𝐗}^2:={\color{cyan}𝐗}\cdot{\color{cyan}𝐗}`$ is used.
 
 The [commutator](https://en.wikipedia.org/wiki/Commutator) is:
 
 ```math
-[\boldsymbol{\mathcal{X}},\boldsymbol{\mathcal{Y}}]:=\boldsymbol{\mathcal{X}}\boldsymbol{\mathcal{Y}}-\boldsymbol{\mathcal{Y}}\boldsymbol{\mathcal{X}}.
+[{\color{magenta}\boldsymbol{\mathcal{X}}},{\color{magenta}\boldsymbol{\mathcal{Y}}}]:={\color{magenta}\boldsymbol{\mathcal{X}}}{\color{magenta}\boldsymbol{\mathcal{Y}}}-{\color{magenta}\boldsymbol{\mathcal{Y}}}{\color{magenta}\boldsymbol{\mathcal{X}}}.
 ```
 
 ```math
-[𝐗\cdot𝝈,𝐘\cdot𝝈]=2\mathrm{i}(𝐗\times𝐘)\cdot𝝈.
+[{\color{cyan}𝐗}\cdot{\color{cyan}𝝈},{\color{cyan}𝐘}\cdot{\color{cyan}𝝈}]=2\mathrm{i}({\color{cyan}𝐗}\times{\color{cyan}𝐘})\cdot{\color{cyan}𝝈}.
 ```
 
 ## Hermitian and sigma conjugation
@@ -102,12 +102,12 @@ With $`\mathrm{i}=\sigma_1\sigma_2\sigma_3`$:
 \end{aligned}
 ```
 
-For $`\boldsymbol{\mathcal{Z}}=c+𝐙\cdot𝝈`$, $`c\in\mathbb C`$, $`𝐙\in\mathbb C^3`$, the complex coefficients are conjugated:
+For $`{\color{magenta}\boldsymbol{\mathcal{Z}}}=c+{\color{cyan}𝐙}\cdot{\color{cyan}𝝈}`$, $`c\in\mathbb C`$, $`{\color{cyan}𝐙}\in\mathbb C^3`$, the complex coefficients are conjugated:
 
 ```math
 \begin{aligned}
-\boldsymbol{\mathcal{Z}}^{\mathsf H}&=c^{*}+𝐙^{*}\cdot𝝈,\\[4pt]
-\boldsymbol{\mathcal{Z}}^{*}&=c^{*}-𝐙^{*}\cdot𝝈.
+{\color{magenta}\boldsymbol{\mathcal{Z}}}^{\mathsf H}&=c^{*}+{\color{cyan}𝐙}^{*}\cdot{\color{cyan}𝝈},\\[4pt]
+{\color{magenta}\boldsymbol{\mathcal{Z}}}^{*}&=c^{*}-{\color{cyan}𝐙}^{*}\cdot{\color{cyan}𝝈}.
 \end{aligned}
 ```
 
@@ -117,9 +117,9 @@ The paravector [adjugate](https://en.wikipedia.org/wiki/Adjugate_matrix), [deter
 
 ```math
 \begin{aligned}
-\mathrm{adj}\,\boldsymbol{\mathcal{Z}}&:=c-𝐙\cdot𝝈=\boldsymbol{\mathcal{Z}}^{*\mathsf H},\\[4pt]
-\det \boldsymbol{\mathcal{Z}}&:=c^2-𝐙^2=\boldsymbol{\mathcal{Z}}\,\mathrm{adj}\,\boldsymbol{\mathcal{Z}},\\[6pt]
-\boldsymbol{\mathcal{Z}}^{-1}&=\frac{\mathrm{adj}\,\boldsymbol{\mathcal{Z}}}{\det \boldsymbol{\mathcal{Z}}}\qquad\text{if }\det \boldsymbol{\mathcal{Z}}\ne0.
+\mathrm{adj}\,{\color{magenta}\boldsymbol{\mathcal{Z}}}&:=c-{\color{cyan}𝐙}\cdot{\color{cyan}𝝈}={\color{magenta}\boldsymbol{\mathcal{Z}}}^{*\mathsf H},\\[4pt]
+\det {\color{magenta}\boldsymbol{\mathcal{Z}}}&:=c^2-{\color{cyan}𝐙}^2={\color{magenta}\boldsymbol{\mathcal{Z}}}\,\mathrm{adj}\,{\color{magenta}\boldsymbol{\mathcal{Z}}},\\[6pt]
+{\color{magenta}\boldsymbol{\mathcal{Z}}}^{-1}&=\frac{\mathrm{adj}\,{\color{magenta}\boldsymbol{\mathcal{Z}}}}{\det {\color{magenta}\boldsymbol{\mathcal{Z}}}}\qquad\text{if }\det {\color{magenta}\boldsymbol{\mathcal{Z}}}\ne0.
 \end{aligned}
 ```
 
@@ -127,8 +127,8 @@ The paravector [trace](https://en.wikipedia.org/wiki/Trace_%28linear_algebra%29)
 
 ```math
 \begin{aligned}
-\mathrm{tr}\,\boldsymbol{\mathcal{Z}}&:=2c=\boldsymbol{\mathcal{Z}}+\mathrm{adj}\,\boldsymbol{\mathcal{Z}},\\[4pt]
-\lVert \boldsymbol{\mathcal{Z}}\rVert^2&:=cc^{*}+𝐙\cdot𝐙^{*}=\mathrm{sc}(\boldsymbol{\mathcal{Z}}\boldsymbol{\mathcal{Z}}^{\mathsf H}).
+\mathrm{tr}\,{\color{magenta}\boldsymbol{\mathcal{Z}}}&:=2c={\color{magenta}\boldsymbol{\mathcal{Z}}}+\mathrm{adj}\,{\color{magenta}\boldsymbol{\mathcal{Z}}},\\[4pt]
+\lVert {\color{magenta}\boldsymbol{\mathcal{Z}}}\rVert^2&:=cc^{*}+{\color{cyan}𝐙}\cdot{\color{cyan}𝐙}^{*}=\mathrm{sc}({\color{magenta}\boldsymbol{\mathcal{Z}}}{\color{magenta}\boldsymbol{\mathcal{Z}}}^{\mathsf H}).
 \end{aligned}
 ```
 
@@ -146,90 +146,90 @@ The quaternion multiplication rules are satisfied by $`(-\mathrm{i}\sigma_k)`$:
 \end{gathered}
 ```
 
-The sign is reversed when two distinct factors are exchanged. For $`a\in\mathbb R`$ and $`𝐐\in\mathbb R^3`$, the quaternion and its conjugate are:
+The sign is reversed when two distinct factors are exchanged. For $`a\in\mathbb R`$ and $`{\color{cyan}𝐐}\in\mathbb R^3`$, the quaternion and its conjugate are:
 
 ```math
 \begin{aligned}
-\boldsymbol{\mathcal{Q}}&:=a+𝐐\cdot(-\mathrm{i}𝝈)=a-\mathrm{i}𝐐\cdot𝝈,\\
-\boldsymbol{\mathcal{Q}}^{\mathsf H}&:=a-𝐐\cdot(-\mathrm{i}𝝈)=a+\mathrm{i}𝐐\cdot𝝈,
+{\color{magenta}\boldsymbol{\mathcal{Q}}}&:=a+{\color{cyan}𝐐}\cdot(-\mathrm{i}{\color{cyan}𝝈})=a-\mathrm{i}{\color{cyan}𝐐}\cdot{\color{cyan}𝝈},\\
+{\color{magenta}\boldsymbol{\mathcal{Q}}}^{\mathsf H}&:=a-{\color{cyan}𝐐}\cdot(-\mathrm{i}{\color{cyan}𝝈})=a+\mathrm{i}{\color{cyan}𝐐}\cdot{\color{cyan}𝝈},
 \end{aligned}
 ```
 
 with
 
 ```math
-\boldsymbol{\mathcal{Q}}\boldsymbol{\mathcal{Q}}^{\mathsf H}=\det \boldsymbol{\mathcal{Q}}=a^2+𝐐^2.
+{\color{magenta}\boldsymbol{\mathcal{Q}}}{\color{magenta}\boldsymbol{\mathcal{Q}}}^{\mathsf H}=\det {\color{magenta}\boldsymbol{\mathcal{Q}}}=a^2+{\color{cyan}𝐐}^2.
 ```
 
 Nonzero quaternions are normalized with:
 
 ```math
-\boldsymbol{\mathcal{Q}}\leftarrow\frac{\boldsymbol{\mathcal{Q}}}{\sqrt{\boldsymbol{\mathcal{Q}}\boldsymbol{\mathcal{Q}}^{\mathsf H}}},
+{\color{magenta}\boldsymbol{\mathcal{Q}}}\leftarrow\frac{{\color{magenta}\boldsymbol{\mathcal{Q}}}}{\sqrt{{\color{magenta}\boldsymbol{\mathcal{Q}}}{\color{magenta}\boldsymbol{\mathcal{Q}}}^{\mathsf H}}},
 ```
 
-Thus, with $`\lVert𝐐\rVert^2=𝐐^2`$ for real $`𝐐`$, the normalization is expressed as:
+Thus, with $`\lVert{\color{cyan}𝐐}\rVert^2={\color{cyan}𝐐}^2`$ for real $`{\color{cyan}𝐐}`$, the normalization is expressed as:
 
 ```math
-\boldsymbol{\mathcal{Q}}\boldsymbol{\mathcal{Q}}^{\mathsf H}=a^2+\lVert𝐐\rVert^2=1.
+{\color{magenta}\boldsymbol{\mathcal{Q}}}{\color{magenta}\boldsymbol{\mathcal{Q}}}^{\mathsf H}=a^2+\lVert{\color{cyan}𝐐}\rVert^2=1.
 ```
 
-For a unit quaternion with $`𝐐\ne0`$, the rotation axis and angle are specified by:
+For a unit quaternion with $`{\color{cyan}𝐐}\ne0`$, the rotation axis and angle are specified by:
 
 ```math
-𝐮=\frac{𝐐}{\lVert𝐐\rVert},\qquad
+{\color{cyan}𝐮}=\frac{{\color{cyan}𝐐}}{\lVert{\color{cyan}𝐐}\rVert},\qquad
 a=\cos\frac{\theta}{2},\qquad
-𝐐=𝐮\sin\frac{\theta}{2}.
+{\color{cyan}𝐐}={\color{cyan}𝐮}\sin\frac{\theta}{2}.
 ```
 
-A rotation of $`𝐫\in\mathbb R^3`$ about $`𝐮`$ by angle $`\theta`$ is expressed by:
+A rotation of $`{\color{cyan}𝐫}\in\mathbb R^3`$ about $`{\color{cyan}𝐮}`$ by angle $`\theta`$ is expressed by:
 
 ```math
-\boldsymbol{\mathcal{X}}'=𝐫'\cdot(-\mathrm{i}𝝈), \qquad
-\boldsymbol{\mathcal{X}}=𝐫\cdot(-\mathrm{i}𝝈), \qquad
-\boldsymbol{\mathcal{X}}'=\boldsymbol{\mathcal{Q}}\boldsymbol{\mathcal{X}}\boldsymbol{\mathcal{Q}}^{\mathsf H}.
+{\color{magenta}\boldsymbol{\mathcal{X}}}'={\color{cyan}𝐫}'\cdot(-\mathrm{i}{\color{cyan}𝝈}), \qquad
+{\color{magenta}\boldsymbol{\mathcal{X}}}={\color{cyan}𝐫}\cdot(-\mathrm{i}{\color{cyan}𝝈}), \qquad
+{\color{magenta}\boldsymbol{\mathcal{X}}}'={\color{magenta}\boldsymbol{\mathcal{Q}}}{\color{magenta}\boldsymbol{\mathcal{X}}}{\color{magenta}\boldsymbol{\mathcal{Q}}}^{\mathsf H}.
 ```
 
 ## Rotations and boosts
 
-For real spacetime $`\boldsymbol{\mathcal{X}}`$ and a real [unit axis](https://en.wikipedia.org/wiki/Unit_vector) $`𝐮`$, the transformation is written as:
+For real spacetime $`{\color{magenta}\boldsymbol{\mathcal{X}}}`$ and a real [unit axis](https://en.wikipedia.org/wiki/Unit_vector) $`{\color{cyan}𝐮}`$, the transformation is written as:
 
 ```math
-\boldsymbol{\mathcal{X}}:=t+𝐫\cdot𝝈,
-\qquad \boldsymbol{\mathcal{X}}':=\boldsymbol{\mathcal{T}}\boldsymbol{\mathcal{X}}\boldsymbol{\mathcal{T}}^{\mathsf H}=t'+𝐫'\cdot𝝈.
+{\color{magenta}\boldsymbol{\mathcal{X}}}:=t+{\color{cyan}𝐫}\cdot{\color{cyan}𝝈},
+\qquad {\color{magenta}\boldsymbol{\mathcal{X}}}':={\color{magenta}\boldsymbol{\mathcal{T}}}{\color{magenta}\boldsymbol{\mathcal{X}}}{\color{magenta}\boldsymbol{\mathcal{T}}}^{\mathsf H}=t'+{\color{cyan}𝐫}'\cdot{\color{cyan}𝝈}.
 ```
 
-For $`\boldsymbol{\mathcal{T}}=\boldsymbol{\mathcal{R}}`$, a [Rodrigues rotation](https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula) through $`\theta`$, with [unit quaternion](https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation) $`\boldsymbol{\mathcal{Q}}=\boldsymbol{\mathcal{R}}`$, is given by:
+For $`{\color{magenta}\boldsymbol{\mathcal{T}}}={\color{magenta}\boldsymbol{\mathcal{R}}}`$, a [Rodrigues rotation](https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula) through $`\theta`$, with [unit quaternion](https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation) $`{\color{magenta}\boldsymbol{\mathcal{Q}}}={\color{magenta}\boldsymbol{\mathcal{R}}}`$, is given by:
 
 ```math
 \begin{aligned}
-\boldsymbol{\mathcal{R}}&:=e^{-\mathrm{i}\theta𝐮\cdot𝝈/2}
-=\cos\frac\theta2-\mathrm{i}𝐮\cdot𝝈\sin\frac\theta2,\\
-\boldsymbol{\mathcal{X}}'&=\boldsymbol{\mathcal{R}}\boldsymbol{\mathcal{X}}\boldsymbol{\mathcal{R}}^{\mathsf H},\\
+{\color{magenta}\boldsymbol{\mathcal{R}}}&:=e^{-\mathrm{i}\theta{\color{cyan}𝐮}\cdot{\color{cyan}𝝈}/2}
+=\cos\frac\theta2-\mathrm{i}{\color{cyan}𝐮}\cdot{\color{cyan}𝝈}\sin\frac\theta2,\\
+{\color{magenta}\boldsymbol{\mathcal{X}}}'&={\color{magenta}\boldsymbol{\mathcal{R}}}{\color{magenta}\boldsymbol{\mathcal{X}}}{\color{magenta}\boldsymbol{\mathcal{R}}}^{\mathsf H},\\
 t'&=t,\\
-𝐫'&=𝐫\cos\theta+(𝐮\times𝐫)\sin\theta
-+(𝐮\cdot𝐫)(1-\cos\theta)𝐮.
+{\color{cyan}𝐫}'&={\color{cyan}𝐫}\cos\theta+({\color{cyan}𝐮}\times{\color{cyan}𝐫})\sin\theta
++({\color{cyan}𝐮}\cdot{\color{cyan}𝐫})(1-\cos\theta){\color{cyan}𝐮}.
 \end{aligned}
 ```
 
-For $`\boldsymbol{\mathcal{T}}=\boldsymbol{\mathcal{L}}`$, a [Lorentz boost](https://en.wikipedia.org/wiki/Lorentz_transformation) to a frame moving at $`+\beta𝐮`$, with [rapidity](https://en.wikipedia.org/wiki/Rapidity) $`\theta`$, $`\beta:=\tanh\theta`$, and [Lorentz factor](https://en.wikipedia.org/wiki/Lorentz_factor) $`\gamma:=\cosh\theta`$ is considered.
+For $`{\color{magenta}\boldsymbol{\mathcal{T}}}={\color{magenta}\boldsymbol{\mathcal{L}}}`$, a [Lorentz boost](https://en.wikipedia.org/wiki/Lorentz_transformation) to a frame moving at $`+\beta{\color{cyan}𝐮}`$, with [rapidity](https://en.wikipedia.org/wiki/Rapidity) $`\theta`$, $`\beta:=\tanh\theta`$, and [Lorentz factor](https://en.wikipedia.org/wiki/Lorentz_factor) $`\gamma:=\cosh\theta`$ is considered.
 
 The parallel and perpendicular components are defined by:
 
 ```math
-𝐫_\parallel:=(𝐮\cdot𝐫)𝐮,
-\qquad 𝐫_\perp:=𝐫-𝐫_\parallel.
+{\color{cyan}𝐫}_\parallel:=({\color{cyan}𝐮}\cdot{\color{cyan}𝐫}){\color{cyan}𝐮},
+\qquad {\color{cyan}𝐫}_\perp:={\color{cyan}𝐫}-{\color{cyan}𝐫}_\parallel.
 ```
 
 The boost and transformed coordinates are:
 
 ```math
 \begin{aligned}
-\boldsymbol{\mathcal{L}}&:=e^{-\theta𝐮\cdot𝝈/2}
-=\cosh\frac\theta2-𝐮\cdot𝝈\sinh\frac\theta2
-=\boldsymbol{\mathcal{L}}^{\mathsf H},\\
-\boldsymbol{\mathcal{X}}'&=\boldsymbol{\mathcal{L}}\boldsymbol{\mathcal{X}}\boldsymbol{\mathcal{L}}^{\mathsf H},\\
-t'&=\gamma(t-\beta𝐮\cdot𝐫),\\
-𝐫'&=𝐫_\perp+\gamma(𝐫_\parallel-\beta t𝐮).
+{\color{magenta}\boldsymbol{\mathcal{L}}}&:=e^{-\theta{\color{cyan}𝐮}\cdot{\color{cyan}𝝈}/2}
+=\cosh\frac\theta2-{\color{cyan}𝐮}\cdot{\color{cyan}𝝈}\sinh\frac\theta2
+={\color{magenta}\boldsymbol{\mathcal{L}}}^{\mathsf H},\\
+{\color{magenta}\boldsymbol{\mathcal{X}}}'&={\color{magenta}\boldsymbol{\mathcal{L}}}{\color{magenta}\boldsymbol{\mathcal{X}}}{\color{magenta}\boldsymbol{\mathcal{L}}}^{\mathsf H},\\
+t'&=\gamma(t-\beta{\color{cyan}𝐮}\cdot{\color{cyan}𝐫}),\\
+{\color{cyan}𝐫}'&={\color{cyan}𝐫}_\perp+\gamma({\color{cyan}𝐫}_\parallel-\beta t{\color{cyan}𝐮}).
 \end{aligned}
 ```
 
@@ -238,8 +238,8 @@ t'&=\gamma(t-\beta𝐮\cdot𝐫),\\
 A paravector of the following form is considered:
 
 ```math
-\boldsymbol{\mathcal{Z}}=c+z𝐮\cdot𝝈,
-\qquad c,z\in\mathbb C,\quad 𝐮\in\mathbb C^3,\quad 𝐮^2=1.
+{\color{magenta}\boldsymbol{\mathcal{Z}}}=c+z{\color{cyan}𝐮}\cdot{\color{cyan}𝝈},
+\qquad c,z\in\mathbb C,\quad {\color{cyan}𝐮}\in\mathbb C^3,\quad {\color{cyan}𝐮}^2=1.
 ```
 
 The eigenvalues and complementary [projectors](https://en.wikipedia.org/wiki/Paravector#Null_paravectors_as_projectors) are:
@@ -247,17 +247,17 @@ The eigenvalues and complementary [projectors](https://en.wikipedia.org/wiki/Par
 ```math
 \begin{gathered}
 \lambda_\pm:=c\pm z,
-\qquad \Pi_\pm:=\frac12(1\pm𝐮\cdot𝝈),\\[4pt]
-\Pi_\pm^2=\Pi_\pm,\qquad \Pi_+\Pi_-=0,\qquad \Pi_-+\Pi_+=1.
+\qquad {\color{magenta}\Pi}_\pm:=\frac12(1\pm{\color{cyan}𝐮}\cdot{\color{cyan}𝝈}),\\[4pt]
+{\color{magenta}\Pi}_\pm^2={\color{magenta}\Pi}_\pm,\qquad {\color{magenta}\Pi}_+{\color{magenta}\Pi}_-=0,\qquad {\color{magenta}\Pi}_-+{\color{magenta}\Pi}_+=1.
 \end{gathered}
 ```
 
-For real $`𝐮`$, these are also Hermitian projectors. For $`f`$ analytic near $`\lambda_\pm`$, the following spectral decomposition is obtained:
+For real $`{\color{cyan}𝐮}`$, these are also Hermitian projectors. For $`f`$ analytic near $`\lambda_\pm`$, the following spectral decomposition is obtained:
 
 ```math
 \begin{aligned}
-\boldsymbol{\mathcal{Z}}&=\lambda_-\Pi_-+\lambda_+\Pi_+,\\[4pt]
-f(\boldsymbol{\mathcal{Z}})&=f(\lambda_-)\Pi_-+f(\lambda_+)\Pi_+.
+{\color{magenta}\boldsymbol{\mathcal{Z}}}&=\lambda_-{\color{magenta}\Pi}_-+\lambda_+{\color{magenta}\Pi}_+,\\[4pt]
+f({\color{magenta}\boldsymbol{\mathcal{Z}}})&=f(\lambda_-){\color{magenta}\Pi}_-+f(\lambda_+){\color{magenta}\Pi}_+.
 \end{aligned}
 ```
 
@@ -269,15 +269,15 @@ The spacetime increment and interval are:
 
 ```math
 \begin{aligned}
-\mathrm d\boldsymbol{\mathcal{X}}&=\mathrm dt+\mathrm d𝐫\cdot𝝈,\\
-\det(\mathrm d\boldsymbol{\mathcal{X}})&=\mathrm dt^2-\mathrm d𝐫^2.
+\mathrm d{\color{magenta}\boldsymbol{\mathcal{X}}}&=\mathrm dt+\mathrm d{\color{cyan}𝐫}\cdot{\color{cyan}𝝈},\\
+\det(\mathrm d{\color{magenta}\boldsymbol{\mathcal{X}}})&=\mathrm dt^2-\mathrm d{\color{cyan}𝐫}^2.
 \end{aligned}
 ```
 
 For a future-directed time-like path ($`\mathrm dt>0`$), positive [proper time](https://en.wikipedia.org/wiki/Proper_time) is defined by:
 
 ```math
-\mathrm ds:=\sqrt{\mathrm dt^2-\mathrm d𝐫^2}=\sqrt{\det(\mathrm d\boldsymbol{\mathcal{X}})}.
+\mathrm ds:=\sqrt{\mathrm dt^2-\mathrm d{\color{cyan}𝐫}^2}=\sqrt{\det(\mathrm d{\color{magenta}\boldsymbol{\mathcal{X}}})}.
 ```
 
 Dividing by coordinate time gives:
@@ -285,161 +285,161 @@ Dividing by coordinate time gives:
 ```math
 \begin{aligned}
 \frac{\mathrm ds}{\mathrm dt}
-&=\sqrt{\frac{\mathrm dt^2-\mathrm d𝐫^2}{\mathrm dt^2}}\\
-&=\sqrt{1-\left(\frac{\mathrm d𝐫}{\mathrm dt}\right)^2}
-=\sqrt{1-𝐯^2},
-\qquad 𝐯:=\frac{\mathrm d𝐫}{\mathrm dt}.
+&=\sqrt{\frac{\mathrm dt^2-\mathrm d{\color{cyan}𝐫}^2}{\mathrm dt^2}}\\
+&=\sqrt{1-\left(\frac{\mathrm d{\color{cyan}𝐫}}{\mathrm dt}\right)^2}
+=\sqrt{1-{\color{cyan}𝐯}^2},
+\qquad {\color{cyan}𝐯}:=\frac{\mathrm d{\color{cyan}𝐫}}{\mathrm dt}.
 \end{aligned}
 ```
 
 The [Lorentz factor](https://en.wikipedia.org/wiki/Lorentz_factor) is:
 
 ```math
-\gamma:=\frac{\mathrm dt}{\mathrm ds}=\frac{1}{\sqrt{1-𝐯^2}}.
+\gamma:=\frac{\mathrm dt}{\mathrm ds}=\frac{1}{\sqrt{1-{\color{cyan}𝐯}^2}}.
 ```
 
 The [four-velocity](https://en.wikipedia.org/wiki/Four-velocity) is:
 
 ```math
 \begin{aligned}
-\boldsymbol{\mathcal{U}}:=\frac{\mathrm d\boldsymbol{\mathcal{X}}}{\mathrm ds}
-&=\frac{\mathrm dt+\mathrm d𝐫\cdot𝝈}{\mathrm ds}\\
-&=\left(1+\frac{\mathrm d𝐫}{\mathrm dt}\cdot𝝈\right)
+{\color{magenta}\boldsymbol{\mathcal{U}}}:=\frac{\mathrm d{\color{magenta}\boldsymbol{\mathcal{X}}}}{\mathrm ds}
+&=\frac{\mathrm dt+\mathrm d{\color{cyan}𝐫}\cdot{\color{cyan}𝝈}}{\mathrm ds}\\
+&=\left(1+\frac{\mathrm d{\color{cyan}𝐫}}{\mathrm dt}\cdot{\color{cyan}𝝈}\right)
 \frac{\mathrm dt}{\mathrm ds}\\
-&=\gamma(1+𝐯\cdot𝝈).
+&=\gamma(1+{\color{cyan}𝐯}\cdot{\color{cyan}𝝈}).
 \end{aligned}
 ```
 
 Thus:
 
 ```math
-\det \boldsymbol{\mathcal{U}}=\det\!\left(\frac{\mathrm d\boldsymbol{\mathcal{X}}}{\mathrm ds}\right)
-=\frac{\det(\mathrm d\boldsymbol{\mathcal{X}})}{\mathrm ds^2}=1.
+\det {\color{magenta}\boldsymbol{\mathcal{U}}}=\det\!\left(\frac{\mathrm d{\color{magenta}\boldsymbol{\mathcal{X}}}}{\mathrm ds}\right)
+=\frac{\det(\mathrm d{\color{magenta}\boldsymbol{\mathcal{X}}})}{\mathrm ds^2}=1.
 ```
 
-For energy $`E`$ and momentum $`𝐏`$, the [four-momentum](https://en.wikipedia.org/wiki/Four-momentum) is:
+For energy $`E`$ and momentum $`{\color{cyan}𝐏}`$, the [four-momentum](https://en.wikipedia.org/wiki/Four-momentum) is:
 
 ```math
-\boldsymbol{\mathcal{P}}:=m\boldsymbol{\mathcal{U}}=E+𝐏\cdot𝝈.
+{\color{magenta}\boldsymbol{\mathcal{P}}}:=m{\color{magenta}\boldsymbol{\mathcal{U}}}=E+{\color{cyan}𝐏}\cdot{\color{cyan}𝝈}.
 ```
 
 For constant mass $`m>0`$:
 
 ```math
-\det \boldsymbol{\mathcal{P}}=\det(m\boldsymbol{\mathcal{U}})=m^2\det \boldsymbol{\mathcal{U}}=m^2.
+\det {\color{magenta}\boldsymbol{\mathcal{P}}}=\det(m{\color{magenta}\boldsymbol{\mathcal{U}}})=m^2\det {\color{magenta}\boldsymbol{\mathcal{U}}}=m^2.
 ```
 
 The [mass-shell](https://en.wikipedia.org/wiki/On_shell_and_off_shell#Mass_shell) relation follows:
 
 ```math
-\det \boldsymbol{\mathcal{P}}=E^2-𝐏^2=m^2.
+\det {\color{magenta}\boldsymbol{\mathcal{P}}}=E^2-{\color{cyan}𝐏}^2=m^2.
 ```
 
 ## [Maxwell](https://en.wikipedia.org/wiki/Maxwell%27s_equations) in one equation
 
-The [electric field](https://en.wikipedia.org/wiki/Electric_field) $`𝐄`$ and [magnetic field](https://en.wikipedia.org/wiki/Magnetic_field) $`𝐁`$ are combined into the complex electromagnetic field $`𝐅`$ and its paravector $`\boldsymbol{\mathcal{F}}`$:
+The [electric field](https://en.wikipedia.org/wiki/Electric_field) $`{\color{cyan}𝐄}`$ and [magnetic field](https://en.wikipedia.org/wiki/Magnetic_field) $`{\color{cyan}𝐁}`$ are combined into the complex electromagnetic field $`{\color{cyan}𝐅}`$ and its paravector $`{\color{magenta}\boldsymbol{\mathcal{F}}}`$:
 
 ```math
-𝐅:=𝐄+\mathrm{i}𝐁,\qquad \boldsymbol{\mathcal{F}}:=𝐅\cdot𝝈.
+{\color{cyan}𝐅}:={\color{cyan}𝐄}+\mathrm{i}{\color{cyan}𝐁},\qquad {\color{magenta}\boldsymbol{\mathcal{F}}}:={\color{cyan}𝐅}\cdot{\color{cyan}𝝈}.
 ```
 
-The [charge density](https://en.wikipedia.org/wiki/Charge_density) $`\rho`$ and [current density](https://en.wikipedia.org/wiki/Current_density) $`𝐉`$ are combined into the [four-current](https://en.wikipedia.org/wiki/Four-current) $`\boldsymbol{\mathcal{J}}`$:
+The [charge density](https://en.wikipedia.org/wiki/Charge_density) $`\rho`$ and [current density](https://en.wikipedia.org/wiki/Current_density) $`{\color{cyan}𝐉}`$ are combined into the [four-current](https://en.wikipedia.org/wiki/Four-current) $`{\color{magenta}\boldsymbol{\mathcal{J}}}`$:
 
 ```math
-\boldsymbol{\mathcal{J}}:=\rho+𝐉\cdot𝝈,\qquad \boldsymbol{\mathcal{J}}^*=\rho-𝐉\cdot𝝈.
+{\color{magenta}\boldsymbol{\mathcal{J}}}:=\rho+{\color{cyan}𝐉}\cdot{\color{cyan}𝝈},\qquad {\color{magenta}\boldsymbol{\mathcal{J}}}^*=\rho-{\color{cyan}𝐉}\cdot{\color{cyan}𝝈}.
 ```
 
-The [paravector derivative](https://en.wikipedia.org/wiki/Paravector#Paragradient), with [gradient](https://en.wikipedia.org/wiki/Gradient) $`\partial_{𝐫}`$, is defined by:
+The [paravector derivative](https://en.wikipedia.org/wiki/Paravector#Paragradient), with [gradient](https://en.wikipedia.org/wiki/Gradient) $`\partial_{{\color{cyan}𝐫}}`$, is defined by:
 
 ```math
-\partial:=\partial_t+\partial_{𝐫}\cdot𝝈,\qquad
-\partial^*=\partial_t-\partial_{𝐫}\cdot𝝈.
+{\color{magenta}\partial}:=\partial_t+\partial_{{\color{cyan}𝐫}}\cdot{\color{cyan}𝝈},\qquad
+{\color{magenta}\partial}^*=\partial_t-\partial_{{\color{cyan}𝐫}}\cdot{\color{cyan}𝝈}.
 ```
 
 [Maxwell's equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations) are given by:
 
 ```math
-\boxed{\partial \boldsymbol{\mathcal{F}}=\boldsymbol{\mathcal{J}}^*},
+\boxed{{\color{magenta}\partial} {\color{magenta}\boldsymbol{\mathcal{F}}}={\color{magenta}\boldsymbol{\mathcal{J}}}^*},
 ```
 
 with components:
 
 ```math
 \begin{aligned}
-\text{Real scalar:}\quad &\partial_{𝐫}\cdot𝐄=\rho,\\
-\text{Imaginary scalar:}\quad &\partial_{𝐫}\cdot𝐁=0,\\
-\text{Real vector:}\quad &\partial_t𝐄-\partial_{𝐫}\times𝐁=-𝐉,\\
-\text{Imaginary vector:}\quad &\partial_t𝐁+\partial_{𝐫}\times𝐄=0.
+\text{Real scalar:}\quad &\partial_{{\color{cyan}𝐫}}\cdot{\color{cyan}𝐄}=\rho,\\
+\text{Imaginary scalar:}\quad &\partial_{{\color{cyan}𝐫}}\cdot{\color{cyan}𝐁}=0,\\
+\text{Real vector:}\quad &\partial_t{\color{cyan}𝐄}-\partial_{{\color{cyan}𝐫}}\times{\color{cyan}𝐁}=-{\color{cyan}𝐉},\\
+\text{Imaginary vector:}\quad &\partial_t{\color{cyan}𝐁}+\partial_{{\color{cyan}𝐫}}\times{\color{cyan}𝐄}=0.
 \end{aligned}
 ```
 
-By application of $`\partial^{*}`$, the [d'Alembertian](https://en.wikipedia.org/wiki/D%27Alembert_operator) and the [sourced wave equations](https://en.wikipedia.org/wiki/Inhomogeneous_electromagnetic_wave_equation) are obtained:
+By application of $`{\color{magenta}\partial}^{*}`$, the [d'Alembertian](https://en.wikipedia.org/wiki/D%27Alembert_operator) and the [sourced wave equations](https://en.wikipedia.org/wiki/Inhomogeneous_electromagnetic_wave_equation) are obtained:
 
 ```math
 \begin{aligned}
-\Box&:=\partial^{*}\partial=\partial_t^2-\partial_{𝐫}^2,\\
-\partial^{*}(\partial \boldsymbol{\mathcal{F}})&=\Box \boldsymbol{\mathcal{F}}=\partial^{*}\boldsymbol{\mathcal{J}}^*.
+\Box&:={\color{magenta}\partial}^{*}{\color{magenta}\partial}=\partial_t^2-\partial_{{\color{cyan}𝐫}}^2,\\
+{\color{magenta}\partial}^{*}({\color{magenta}\partial} {\color{magenta}\boldsymbol{\mathcal{F}}})&=\Box {\color{magenta}\boldsymbol{\mathcal{F}}}={\color{magenta}\partial}^{*}{\color{magenta}\boldsymbol{\mathcal{J}}}^*.
 \end{aligned}
 ```
 
 Equivalently:
 
 ```math
-\boxed{\Box \boldsymbol{\mathcal{F}}^*=\partial \boldsymbol{\mathcal{J}}}.
+\boxed{\Box {\color{magenta}\boldsymbol{\mathcal{F}}}^*={\color{magenta}\partial} {\color{magenta}\boldsymbol{\mathcal{J}}}}.
 ```
 
 From this boxed equation, [charge conservation](https://en.wikipedia.org/wiki/Charge_conservation) and the field wave equations are obtained component by component:
 
 ```math
 \begin{aligned}
-\text{Real scalar:}\quad &0=\partial_t\rho+\partial_{𝐫}\cdot𝐉
+\text{Real scalar:}\quad &0=\partial_t\rho+\partial_{{\color{cyan}𝐫}}\cdot{\color{cyan}𝐉}
 &&\text{(charge conservation)},\\
 \text{Imaginary scalar:}\quad &0=0,\\
-\text{Real vector:}\quad &\Box𝐄=-\partial_t𝐉-\partial_{𝐫}\rho,\\
-\text{Imaginary vector:}\quad &\Box𝐁=\partial_{𝐫}\times𝐉.
+\text{Real vector:}\quad &\Box{\color{cyan}𝐄}=-\partial_t{\color{cyan}𝐉}-\partial_{{\color{cyan}𝐫}}\rho,\\
+\text{Imaginary vector:}\quad &\Box{\color{cyan}𝐁}=\partial_{{\color{cyan}𝐫}}\times{\color{cyan}𝐉}.
 \end{aligned}
 ```
 
-In source-free vacuum, $`\boldsymbol{\mathcal{J}}=0`$ and $`\Box \boldsymbol{\mathcal{F}}=0`$.
+In source-free vacuum, $`{\color{magenta}\boldsymbol{\mathcal{J}}}=0`$ and $`\Box {\color{magenta}\boldsymbol{\mathcal{F}}}=0`$.
 
 ## [Electromagnetic potentials](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) and [gauge invariance](https://en.wikipedia.org/wiki/Electromagnetic_four-potential#Gauge_freedom)
 
-The real [four-potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) is defined from the [scalar potential](https://en.wikipedia.org/wiki/Electric_potential) $`V`$ and [vector potential](https://en.wikipedia.org/wiki/Magnetic_vector_potential) $`𝐀`$, with four-divergence $`S`$:
+The real [four-potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) is defined from the [scalar potential](https://en.wikipedia.org/wiki/Electric_potential) $`V`$ and [vector potential](https://en.wikipedia.org/wiki/Magnetic_vector_potential) $`{\color{cyan}𝐀}`$, with four-divergence $`S`$:
 
 ```math
-\boldsymbol{\mathcal{A}}:=V+𝐀\cdot𝝈,
-\qquad S:=\mathrm{sc}(\partial \boldsymbol{\mathcal{A}}).
+{\color{magenta}\boldsymbol{\mathcal{A}}}:=V+{\color{cyan}𝐀}\cdot{\color{cyan}𝝈},
+\qquad S:=\mathrm{sc}({\color{magenta}\partial} {\color{magenta}\boldsymbol{\mathcal{A}}}).
 ```
 
 The field is obtained from the potential:
 
 ```math
-\boxed{\boldsymbol{\mathcal{F}}^{*}=\partial \boldsymbol{\mathcal{A}}-S}.
+\boxed{{\color{magenta}\boldsymbol{\mathcal{F}}}^{*}={\color{magenta}\partial} {\color{magenta}\boldsymbol{\mathcal{A}}}-S}.
 ```
 
 In components:
 
 ```math
 \begin{aligned}
-\text{Real scalar:}\quad &S=\partial_tV+\partial_{𝐫}\cdot𝐀,\\
+\text{Real scalar:}\quad &S=\partial_tV+\partial_{{\color{cyan}𝐫}}\cdot{\color{cyan}𝐀},\\
 \text{Imaginary scalar:}\quad &0=0,\\
-\text{Real vector:}\quad &𝐄=-\partial_t𝐀-\partial_{𝐫}V,\\
-\text{Imaginary vector:}\quad &𝐁=\partial_{𝐫}\times𝐀.
+\text{Real vector:}\quad &{\color{cyan}𝐄}=-\partial_t{\color{cyan}𝐀}-\partial_{{\color{cyan}𝐫}}V,\\
+\text{Imaginary vector:}\quad &{\color{cyan}𝐁}=\partial_{{\color{cyan}𝐫}}\times{\color{cyan}𝐀}.
 \end{aligned}
 ```
 
-The source equations are obtained in any [gauge](https://en.wikipedia.org/wiki/Gauge_fixing) by application of $`\partial^*`$:
+The source equations are obtained in any [gauge](https://en.wikipedia.org/wiki/Gauge_fixing) by application of $`{\color{magenta}\partial}^*`$:
 
 ```math
-\Box \boldsymbol{\mathcal{A}}=\partial^{*}(\partial \boldsymbol{\mathcal{A}})
-=\partial^{*}(S+\boldsymbol{\mathcal{F}}^{*})
-=\partial^{*}S+(\partial \boldsymbol{\mathcal{F}})^{*}.
+\Box {\color{magenta}\boldsymbol{\mathcal{A}}}={\color{magenta}\partial}^{*}({\color{magenta}\partial} {\color{magenta}\boldsymbol{\mathcal{A}}})
+={\color{magenta}\partial}^{*}(S+{\color{magenta}\boldsymbol{\mathcal{F}}}^{*})
+={\color{magenta}\partial}^{*}S+({\color{magenta}\partial} {\color{magenta}\boldsymbol{\mathcal{F}}})^{*}.
 ```
 
 By substitution of [Maxwell’s equation](https://en.wikipedia.org/wiki/Maxwell%27s_equations):
 
 ```math
-\boxed{\Box \boldsymbol{\mathcal{A}}=\partial^{*}S+\boldsymbol{\mathcal{J}}}.
+\boxed{\Box {\color{magenta}\boldsymbol{\mathcal{A}}}={\color{magenta}\partial}^{*}S+{\color{magenta}\boldsymbol{\mathcal{J}}}}.
 ```
 
 In components:
@@ -448,8 +448,8 @@ In components:
 \begin{aligned}
 \text{Real scalar:}\quad &\Box V-\partial_tS=\rho,\\
 \text{Imaginary scalar:}\quad &0=0,\\
-\text{Real vector:}\quad &\Box𝐀+\partial_{𝐫}S=𝐉,\\
-\text{Imaginary vector:}\quad &𝟎=𝟎.
+\text{Real vector:}\quad &\Box{\color{cyan}𝐀}+\partial_{{\color{cyan}𝐫}}S={\color{cyan}𝐉},\\
+\text{Imaginary vector:}\quad &{\color{cyan}𝟎}={\color{cyan}𝟎}.
 \end{aligned}
 ```
 
@@ -457,9 +457,9 @@ Under a [gauge transformation](https://en.wikipedia.org/wiki/Electromagnetic_fou
 
 ```math
 \begin{aligned}
-\boldsymbol{\mathcal{A}}'&:=\boldsymbol{\mathcal{A}}+\partial^{*}\lambda,\\
+{\color{magenta}\boldsymbol{\mathcal{A}}}'&:={\color{magenta}\boldsymbol{\mathcal{A}}}+{\color{magenta}\partial}^{*}\lambda,\\
 S'&=S+\Box\lambda,\\
-\boldsymbol{\mathcal{F}}'&=\boldsymbol{\mathcal{F}}.
+{\color{magenta}\boldsymbol{\mathcal{F}}}'&={\color{magenta}\boldsymbol{\mathcal{F}}}.
 \end{aligned}
 ```
 
@@ -468,35 +468,35 @@ In the [Lorenz gauge](https://en.wikipedia.org/wiki/Lorenz_gauge_condition), the
 ```math
 \begin{aligned}
 \text{Real scalar:}\quad &\Box V=\rho,\\
-\text{Real vector:}\quad &\Box𝐀=𝐉.
+\text{Real vector:}\quad &\Box{\color{cyan}𝐀}={\color{cyan}𝐉}.
 \end{aligned}
 ```
 
 ## [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) from the [mass shell](https://en.wikipedia.org/wiki/On_shell_and_off_shell#Mass_shell)
 
-Hats are used for named [energy](https://en.wikipedia.org/wiki/Energy_operator), [momentum](https://en.wikipedia.org/wiki/Momentum_operator), and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) operators; the derivative symbols $`\partial`$ and $`\Box`$ remain unhatted.
+Hats are used for named [energy](https://en.wikipedia.org/wiki/Energy_operator), [momentum](https://en.wikipedia.org/wiki/Momentum_operator), and [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) operators; the derivative symbols $`{\color{magenta}\partial}`$ and $`\Box`$ remain unhatted.
 
 On a complex scalar wavefunction $`\psi`$, the canonical [energy](https://en.wikipedia.org/wiki/Energy_operator) and [momentum](https://en.wikipedia.org/wiki/Momentum_operator) operators are defined by:
 
 ```math
 \begin{aligned}
 \hat E&:=\mathrm{i}\partial_t,\\
-\hat{𝐏}&:=-\mathrm{i}\partial_{𝐫},
+\hat{{\color{cyan}𝐏}}&:=-\mathrm{i}\partial_{{\color{cyan}𝐫}},
 \end{aligned}
 ```
 
 The canonical four-momentum operator is formed by:
 
 ```math
-\hat{\boldsymbol{\mathcal{P}}}:=\mathrm{i}\partial^*=\hat E+\hat{𝐏}\cdot𝝈.
+\hat{{\color{magenta}\boldsymbol{\mathcal{P}}}}:=\mathrm{i}{\color{magenta}\partial}^*=\hat E+\hat{{\color{cyan}𝐏}}\cdot{\color{cyan}𝝈}.
 ```
 
 By commutativity of the free operators:
 
 ```math
-\hat{\boldsymbol{\mathcal{P}}}\,\mathrm{adj}\,\hat{\boldsymbol{\mathcal{P}}}
-=\det\hat{\boldsymbol{\mathcal{P}}}
-=\hat E^2-\hat{𝐏}^2
+\hat{{\color{magenta}\boldsymbol{\mathcal{P}}}}\,\mathrm{adj}\,\hat{{\color{magenta}\boldsymbol{\mathcal{P}}}}
+=\det\hat{{\color{magenta}\boldsymbol{\mathcal{P}}}}
+=\hat E^2-\hat{{\color{cyan}𝐏}}^2
 =-\Box.
 ```
 
@@ -504,8 +504,8 @@ With the [mass shell](https://en.wikipedia.org/wiki/On_shell_and_off_shell#Mass_
 
 ```math
 \begin{aligned}
-0&=(\det\hat{\boldsymbol{\mathcal{P}}}-m^2)\psi\\
-&=(\hat E^2-\hat{𝐏}^2-m^2)\psi\\
+0&=(\det\hat{{\color{magenta}\boldsymbol{\mathcal{P}}}}-m^2)\psi\\
+&=(\hat E^2-\hat{{\color{cyan}𝐏}}^2-m^2)\psi\\
 &=-(\Box+m^2)\psi.
 \end{aligned}
 ```
@@ -518,40 +518,40 @@ Thus the free [Klein–Gordon equation](https://en.wikipedia.org/wiki/Klein%E2%8
 
 ## [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) as a first-order wave equation
 
-In the [Weyl representation](https://en.wikipedia.org/wiki/Gamma_matrices#Weyl_%28chiral%29_basis), the notation $`𝝍:=(\psi_+,\psi_-)^{\mathsf T}`$ is used, with two complex components in each entry. The block identity is denoted by $`𝐈`$.
+In the [Weyl representation](https://en.wikipedia.org/wiki/Gamma_matrices#Weyl_%28chiral%29_basis), the notation $`{\color{cyan}𝝍}:=({\color{magenta}\psi}_+,{\color{magenta}\psi}_-)^{\mathsf T}`$ is used, with two complex components in each entry. The block identity is denoted by $`{\color{cyan}𝐈}`$.
 
 The following operators are defined using the free momentum operator above:
 
 ```math
 \begin{aligned}
-𝐖(\hat{\boldsymbol{\mathcal{P}}})&:=
+{\color{cyan}𝐖}(\hat{{\color{magenta}\boldsymbol{\mathcal{P}}}})&:=
 \begin{pmatrix}
-0 & \mathrm{adj}\,\hat{\boldsymbol{\mathcal{P}}} \\
-\hat{\boldsymbol{\mathcal{P}}} & 0
+0 & \mathrm{adj}\,\hat{{\color{magenta}\boldsymbol{\mathcal{P}}}} \\
+\hat{{\color{magenta}\boldsymbol{\mathcal{P}}}} & 0
 \end{pmatrix},\\
-\hat{𝐃}(m)&:=𝐖(\hat{\boldsymbol{\mathcal{P}}})-m𝐈.
+\hat{{\color{cyan}𝐃}}(m)&:={\color{cyan}𝐖}(\hat{{\color{magenta}\boldsymbol{\mathcal{P}}}})-m{\color{cyan}𝐈}.
 \end{aligned}
 ```
 
 The [Dirac equation](https://en.wikipedia.org/wiki/Dirac_equation) is:
 
 ```math
-\boxed{\hat{𝐃}(m)𝝍=0.}
+\boxed{\hat{{\color{cyan}𝐃}}(m){\color{cyan}𝝍}=0.}
 ```
 
 Equivalently:
 
 ```math
-(\hat E\pm\hat{𝐏}\cdot𝝈)\psi_\pm=m\psi_\mp.
+(\hat E\pm\hat{{\color{cyan}𝐏}}\cdot{\color{cyan}𝝈}){\color{magenta}\psi}_\pm=m{\color{magenta}\psi}_\mp.
 ```
 
-By $`𝐖(\hat{\boldsymbol{\mathcal{P}}})^2=(\det\hat{\boldsymbol{\mathcal{P}}})𝐈`$, the [Klein–Gordon factorization](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) is obtained:
+By $`{\color{cyan}𝐖}(\hat{{\color{magenta}\boldsymbol{\mathcal{P}}}})^2=(\det\hat{{\color{magenta}\boldsymbol{\mathcal{P}}}}){\color{cyan}𝐈}`$, the [Klein–Gordon factorization](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) is obtained:
 
 ```math
 \begin{aligned}
-\hat{𝐃}(m)\hat{𝐃}(-m)&=\hat{𝐃}(-m)\hat{𝐃}(m)\\
-&=𝐖(\hat{\boldsymbol{\mathcal{P}}})^2-m^2𝐈
-=-(\Box+m^2)𝐈.
+\hat{{\color{cyan}𝐃}}(m)\hat{{\color{cyan}𝐃}}(-m)&=\hat{{\color{cyan}𝐃}}(-m)\hat{{\color{cyan}𝐃}}(m)\\
+&={\color{cyan}𝐖}(\hat{{\color{magenta}\boldsymbol{\mathcal{P}}}})^2-m^2{\color{cyan}𝐈}
+=-(\Box+m^2){\color{cyan}𝐈}.
 \end{aligned}
 ```
 
@@ -564,26 +564,26 @@ Here, the uncoupled operators defined above are labeled by subscript $`0`$:
 ```math
 \begin{aligned}
 \hat E_0&:=\mathrm{i}\partial_t,\\
-\hat{𝐏}_0&:=-\mathrm{i}\partial_{𝐫},\\
-\hat{\boldsymbol{\mathcal{P}}}_0&:=\mathrm{i}\partial^*.
+\hat{{\color{cyan}𝐏}}_0&:=-\mathrm{i}\partial_{{\color{cyan}𝐫}},\\
+\hat{{\color{magenta}\boldsymbol{\mathcal{P}}}}_0&:=\mathrm{i}{\color{magenta}\partial}^*.
 \end{aligned}
 ```
 
-The following are assumed: constant mass $`m>0`$, [charge](https://en.wikipedia.org/wiki/Electric_charge) $`q`$, and a real [potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) $`\boldsymbol{\mathcal{A}}=V+𝐀\cdot𝝈`$.
+The following are assumed: constant mass $`m>0`$, [charge](https://en.wikipedia.org/wiki/Electric_charge) $`q`$, and a real [potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) $`{\color{magenta}\boldsymbol{\mathcal{A}}}=V+{\color{cyan}𝐀}\cdot{\color{cyan}𝝈}`$.
 
 By [minimal coupling](https://en.wikipedia.org/wiki/Minimal_coupling), the [gauge-covariant energy](https://en.wikipedia.org/wiki/Gauge_covariant_derivative) and [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Definition_(position_space)) operators are obtained:
 
 ```math
 \begin{aligned}
 \hat E_q&:=\hat E_0-qV,\\
-\hat{𝐏}_q&:=\hat{𝐏}_0-q𝐀.
+\hat{{\color{cyan}𝐏}}_q&:=\hat{{\color{cyan}𝐏}}_0-q{\color{cyan}𝐀}.
 \end{aligned}
 ```
 
 The [kinetic four-momentum](https://en.wikipedia.org/wiki/Minimal_coupling) operator is formed by:
 
 ```math
-\hat{\boldsymbol{\mathcal{P}}}_q:=\hat{\boldsymbol{\mathcal{P}}}_0-q\boldsymbol{\mathcal{A}}=\hat E_q+\hat{𝐏}_q\cdot𝝈.
+\hat{{\color{magenta}\boldsymbol{\mathcal{P}}}}_q:=\hat{{\color{magenta}\boldsymbol{\mathcal{P}}}}_0-q{\color{magenta}\boldsymbol{\mathcal{A}}}=\hat E_q+\hat{{\color{cyan}𝐏}}_q\cdot{\color{cyan}𝝈}.
 ```
 
 In $`\hat E_q`$, rest energy is included and the potential energy $`qV`$ is excluded.
@@ -594,10 +594,10 @@ The coupled [Dirac operator](https://en.wikipedia.org/wiki/Dirac_equation) is:
 
 ```math
 \begin{aligned}
-\hat{𝐃}_q(m)&:=𝐖(\hat{\boldsymbol{\mathcal{P}}}_q)-m𝐈\\
+\hat{{\color{cyan}𝐃}}_q(m)&:={\color{cyan}𝐖}(\hat{{\color{magenta}\boldsymbol{\mathcal{P}}}}_q)-m{\color{cyan}𝐈}\\
 &=\begin{pmatrix}
--m & \mathrm{adj}\,\hat{\boldsymbol{\mathcal{P}}}_q\\
-\hat{\boldsymbol{\mathcal{P}}}_q & -m
+-m & \mathrm{adj}\,\hat{{\color{magenta}\boldsymbol{\mathcal{P}}}}_q\\
+\hat{{\color{magenta}\boldsymbol{\mathcal{P}}}}_q & -m
 \end{pmatrix}.
 \end{aligned}
 ```
@@ -605,38 +605,38 @@ The coupled [Dirac operator](https://en.wikipedia.org/wiki/Dirac_equation) is:
 The coupled [Dirac equation](https://en.wikipedia.org/wiki/Dirac_equation) is:
 
 ```math
-\boxed{\hat{𝐃}_q(m)𝝍=0.}
+\boxed{\hat{{\color{cyan}𝐃}}_q(m){\color{cyan}𝝍}=0.}
 ```
 
 Equivalently:
 
 ```math
-(\hat E_q\pm\hat{𝐏}_q\cdot𝝈)\psi_\pm=m\psi_\mp.
+(\hat E_q\pm\hat{{\color{cyan}𝐏}}_q\cdot{\color{cyan}𝝈}){\color{magenta}\psi}_\pm=m{\color{magenta}\psi}_\mp.
 ```
 
 The following field identities are satisfied by the coupled operators:
 
 ```math
 \begin{aligned}
-{}[\hat{𝐏}_q\cdot𝝈,\hat E_q]
-&=-\mathrm{i}q𝐄\cdot𝝈,\\
-(\hat{𝐏}_q\cdot𝝈)^2
-&=\hat{𝐏}_q^2-q𝐁\cdot𝝈,\\
-\hat{𝐏}_q^2+\mathrm{i}q\boldsymbol{\mathcal{F}}
-&=(\hat{𝐏}_q\cdot𝝈)^2
--[\hat{𝐏}_q\cdot𝝈,\hat E_q].
+{}[\hat{{\color{cyan}𝐏}}_q\cdot{\color{cyan}𝝈},\hat E_q]
+&=-\mathrm{i}q{\color{cyan}𝐄}\cdot{\color{cyan}𝝈},\\
+(\hat{{\color{cyan}𝐏}}_q\cdot{\color{cyan}𝝈})^2
+&=\hat{{\color{cyan}𝐏}}_q^2-q{\color{cyan}𝐁}\cdot{\color{cyan}𝝈},\\
+\hat{{\color{cyan}𝐏}}_q^2+\mathrm{i}q{\color{magenta}\boldsymbol{\mathcal{F}}}
+&=(\hat{{\color{cyan}𝐏}}_q\cdot{\color{cyan}𝝈})^2
+-[\hat{{\color{cyan}𝐏}}_q\cdot{\color{cyan}𝝈},\hat E_q].
 \end{aligned}
 ```
 
 With derivatives applied to the potentials as well as the wavefunction, the opposite-mass product is obtained:
 
 ```math
-\hat{𝐃}_q(-m)\hat{𝐃}_q(m)
-=(\hat E_q^2-\hat{𝐏}_q^2-m^2)𝐈
--\mathrm{i}q\begin{pmatrix}\boldsymbol{\mathcal{F}}^{*}&0\\0&\boldsymbol{\mathcal{F}}\end{pmatrix}.
+\hat{{\color{cyan}𝐃}}_q(-m)\hat{{\color{cyan}𝐃}}_q(m)
+=(\hat E_q^2-\hat{{\color{cyan}𝐏}}_q^2-m^2){\color{cyan}𝐈}
+-\mathrm{i}q\begin{pmatrix}{\color{magenta}\boldsymbol{\mathcal{F}}}^{*}&0\\0&{\color{magenta}\boldsymbol{\mathcal{F}}}\end{pmatrix}.
 ```
 
-For every [Dirac solution](https://en.wikipedia.org/wiki/Dirac_equation), $`\hat{𝐃}_q(-m)\hat{𝐃}_q(m)𝝍=0`$ is satisfied. With $`q=0`$, the free [Klein–Gordon equation](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) is recovered.
+For every [Dirac solution](https://en.wikipedia.org/wiki/Dirac_equation), $`\hat{{\color{cyan}𝐃}}_q(-m)\hat{{\color{cyan}𝐃}}_q(m){\color{cyan}𝝍}=0`$ is satisfied. With $`q=0`$, the free [Klein–Gordon equation](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) is recovered.
 
 ## Low-energy [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) to [Schrödinger](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation)
 
@@ -648,7 +648,7 @@ For constant $`m>0`$, the rest-energy phase is factored out as $`\psi'=e^{-\math
 &=(\mathrm{i}\partial_t-qV)(e^{-\mathrm{i}mt}\psi)\\
 &=e^{-\mathrm{i}mt}(m\psi+\mathrm{i}\partial_t\psi-qV\psi)\\
 &=e^{-\mathrm{i}mt}(m+\hat E_q)\psi,\\[6pt]
-\hat{𝐏}_q\psi'&=e^{-\mathrm{i}mt}\hat{𝐏}_q\psi.
+\hat{{\color{cyan}𝐏}}_q\psi'&=e^{-\mathrm{i}mt}\hat{{\color{cyan}𝐏}}_q\psi.
 \end{aligned}
 ```
 
@@ -656,53 +656,53 @@ By substitution into [Klein–Gordon](https://en.wikipedia.org/wiki/Klein%E2%80%
 
 ```math
 \begin{aligned}
-0&=(\hat E_q^2-\hat{𝐏}_q^2-m^2)\psi'\\
-&=e^{-\mathrm{i}mt}\bigl((m+\hat E_q)^2-\hat{𝐏}_q^2-m^2\bigr)\psi\\
-&=e^{-\mathrm{i}mt}\bigl(2m\hat E_q+\hat E_q^2-\hat{𝐏}_q^2\bigr)\psi.
+0&=(\hat E_q^2-\hat{{\color{cyan}𝐏}}_q^2-m^2)\psi'\\
+&=e^{-\mathrm{i}mt}\bigl((m+\hat E_q)^2-\hat{{\color{cyan}𝐏}}_q^2-m^2\bigr)\psi\\
+&=e^{-\mathrm{i}mt}\bigl(2m\hat E_q+\hat E_q^2-\hat{{\color{cyan}𝐏}}_q^2\bigr)\psi.
 \end{aligned}
 ```
 
 On the envelope $`\psi`$, energy above rest, excluding $`qV`$, is measured by $`\hat E_q`$. After phase cancellation:
 
 ```math
-\hat E_q\psi=\frac{\hat{𝐏}_q^2-\hat E_q^2}{2m}\psi.
+\hat E_q\psi=\frac{\hat{{\color{cyan}𝐏}}_q^2-\hat E_q^2}{2m}\psi.
 ```
 
-For commuting $`\hat E_q`$ and $`\hat{𝐏}_q^2`$, the positive-energy expansion is:
+For commuting $`\hat E_q`$ and $`\hat{{\color{cyan}𝐏}}_q^2`$, the positive-energy expansion is:
 
 ```math
-\hat E_q\psi=\left(\frac{\hat{𝐏}_q^2}{2m}
--\frac{\hat{𝐏}_q^4}{8m^3}+\cdots\right)\psi.
+\hat E_q\psi=\left(\frac{\hat{{\color{cyan}𝐏}}_q^2}{2m}
+-\frac{\hat{{\color{cyan}𝐏}}_q^4}{8m^3}+\cdots\right)\psi.
 ```
 
 For weak, slowly varying fields, [Schrödinger’s equation](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation) is obtained by neglecting $`\hat E_q^2\psi`$ relative to $`2m\hat E_q\psi`$:
 
 ```math
 \boxed{\mathrm{i}\partial_t\psi=
-\left(\frac{(-\mathrm{i}\partial_{𝐫}-q𝐀)^2}{2m}+qV\right)\psi.}
+\left(\frac{(-\mathrm{i}\partial_{{\color{cyan}𝐫}}-q{\color{cyan}𝐀})^2}{2m}+qV\right)\psi.}
 ```
 
-With $`𝐀=0`$ (hence $`𝐁=0`$):
+With $`{\color{cyan}𝐀}=0`$ (hence $`{\color{cyan}𝐁}=0`$):
 
 ```math
 \mathrm{i}\partial_t\psi=
-\left(-\frac{\partial_{𝐫}^2}{2m}+qV\right)\psi.
+\left(-\frac{\partial_{{\color{cyan}𝐫}}^2}{2m}+qV\right)\psi.
 ```
 
 ## Low-energy [Dirac](https://en.wikipedia.org/wiki/Dirac_equation) to [Pauli](https://en.wikipedia.org/wiki/Pauli_equation)
 
-With the rest-energy phase removed by $`\psi_\pm':=e^{\mathrm{i}mt}\psi_\pm`$:
+With the rest-energy phase removed by $`{\color{magenta}\psi}_\pm':=e^{\mathrm{i}mt}{\color{magenta}\psi}_\pm`$:
 
 ```math
-(m+\hat E_q\pm\hat{𝐏}_q\cdot𝝈)\psi_\pm'=m\psi_\mp'.
+(m+\hat E_q\pm\hat{{\color{cyan}𝐏}}_q\cdot{\color{cyan}𝝈}){\color{magenta}\psi}_\pm'=m{\color{magenta}\psi}_\mp'.
 ```
 
 The positive-energy large and small components are defined by:
 
 ```math
 \begin{aligned}
-\phi_+&:=\frac{\psi_+'+\psi_-'}{\sqrt2},\\
-\phi_-&:=\frac{\psi_-'-\psi_+'}{\sqrt2}.
+{\color{magenta}\phi}_+&:=\frac{{\color{magenta}\psi}_+'+{\color{magenta}\psi}_-'}{\sqrt2},\\
+{\color{magenta}\phi}_-&:=\frac{{\color{magenta}\psi}_-'-{\color{magenta}\psi}_+'}{\sqrt2}.
 \end{aligned}
 ```
 
@@ -710,83 +710,83 @@ By addition and subtraction:
 
 ```math
 \begin{aligned}
-\hat E_q\phi_+&=(\hat{𝐏}_q\cdot𝝈)\phi_-,\\
-(2m+\hat E_q)\phi_-&=(\hat{𝐏}_q\cdot𝝈)\phi_+.
+\hat E_q{\color{magenta}\phi}_+&=(\hat{{\color{cyan}𝐏}}_q\cdot{\color{cyan}𝝈}){\color{magenta}\phi}_-,\\
+(2m+\hat E_q){\color{magenta}\phi}_-&=(\hat{{\color{cyan}𝐏}}_q\cdot{\color{cyan}𝝈}){\color{magenta}\phi}_+.
 \end{aligned}
 ```
 
-In the nonrelativistic limit, $`\hat E_q\phi_-`$ is neglected relative to $`2m\phi_-`$. By substitution and the field identity:
+In the nonrelativistic limit, $`\hat E_q{\color{magenta}\phi}_-`$ is neglected relative to $`2m{\color{magenta}\phi}_-`$. By substitution and the field identity:
 
 ```math
 \begin{aligned}
-\phi_-&\simeq\frac{\hat{𝐏}_q\cdot𝝈}{2m}\phi_+,\\
-\hat E_q\phi_+&\simeq\frac{(\hat{𝐏}_q\cdot𝝈)^2}{2m}\phi_+
-=\frac{\hat{𝐏}_q^2-q𝐁\cdot𝝈}{2m}\phi_+.
+{\color{magenta}\phi}_-&\simeq\frac{\hat{{\color{cyan}𝐏}}_q\cdot{\color{cyan}𝝈}}{2m}{\color{magenta}\phi}_+,\\
+\hat E_q{\color{magenta}\phi}_+&\simeq\frac{(\hat{{\color{cyan}𝐏}}_q\cdot{\color{cyan}𝝈})^2}{2m}{\color{magenta}\phi}_+
+=\frac{\hat{{\color{cyan}𝐏}}_q^2-q{\color{cyan}𝐁}\cdot{\color{cyan}𝝈}}{2m}{\color{magenta}\phi}_+.
 \end{aligned}
 ```
 
 With $`\hat E_q=\mathrm{i}\partial_t-qV`$, the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation) is obtained through order $`1/m`$:
 
 ```math
-\boxed{\mathrm{i}\partial_t\phi_+=
-\left(\frac{\hat{𝐏}_q^2}{2m}
-+qV-\frac{q}{2m}𝐁\cdot𝝈\right)\phi_+.}
+\boxed{\mathrm{i}\partial_t{\color{magenta}\phi}_+=
+\left(\frac{\hat{{\color{cyan}𝐏}}_q^2}{2m}
++qV-\frac{q}{2m}{\color{cyan}𝐁}\cdot{\color{cyan}𝝈}\right){\color{magenta}\phi}_+.}
 ```
 
 ## [Spin up and spin down](https://en.wikipedia.org/wiki/Spin-1/2#Observables) in a uniform magnetic field
 
-For a constant nonzero field $`𝐁`$, its unit direction and [spin projectors](https://en.wikipedia.org/wiki/Pauli_matrices#Eigenvectors_and_eigenvalues) are defined by:
+For a constant nonzero field $`{\color{cyan}𝐁}`$, its unit direction and [spin projectors](https://en.wikipedia.org/wiki/Pauli_matrices#Eigenvectors_and_eigenvalues) are defined by:
 
 ```math
-𝐮:=\frac{𝐁}{\lVert𝐁\rVert},
-\qquad \Pi_\pm:=\frac12(1\pm𝐮\cdot𝝈).
+{\color{cyan}𝐮}:=\frac{{\color{cyan}𝐁}}{\lVert{\color{cyan}𝐁}\rVert},
+\qquad {\color{magenta}\Pi}_\pm:=\frac12(1\pm{\color{cyan}𝐮}\cdot{\color{cyan}𝝈}).
 ```
 
 By [spectral decomposition](#projections-and-spectral-decomposition):
 
 ```math
-𝐁\cdot𝝈
-=\lVert𝐁\rVert(\Pi_+-\Pi_-),
+{\color{cyan}𝐁}\cdot{\color{cyan}𝝈}
+=\lVert{\color{cyan}𝐁}\rVert({\color{magenta}\Pi}_+-{\color{magenta}\Pi}_-),
 \qquad
-\Pi_\pm(𝐁\cdot𝝈)
-=\pm\lVert𝐁\rVert\Pi_\pm.
+{\color{magenta}\Pi}_\pm({\color{cyan}𝐁}\cdot{\color{cyan}𝝈})
+=\pm\lVert{\color{cyan}𝐁}\rVert{\color{magenta}\Pi}_\pm.
 ```
 
-The two spin amplitudes $`\phi_{++},\phi_{+-}`$ are encoded in a paravector $`\phi_+`$ aligned with $`𝐮`$:
+The two spin amplitudes $`\phi_{++},\phi_{+-}`$ are encoded in a paravector $`{\color{magenta}\phi}_+`$ aligned with $`{\color{cyan}𝐮}`$:
 
 ```math
 \begin{aligned}
-\phi_+&=\phi_{++}\Pi_++\phi_{+-}\Pi_-,\\
-\Pi_\pm\phi_+&=\phi_+\Pi_\pm=\phi_{+\pm}\Pi_\pm.
+{\color{magenta}\phi}_+&=\phi_{++}{\color{magenta}\Pi}_++\phi_{+-}{\color{magenta}\Pi}_-,\\
+{\color{magenta}\Pi}_\pm{\color{magenta}\phi}_+&={\color{magenta}\phi}_+{\color{magenta}\Pi}_\pm=\phi_{+\pm}{\color{magenta}\Pi}_\pm.
 \end{aligned}
 ```
 
-Constant $`\Pi_\pm`$ commute with $`\hat E_q`$ and $`\hat{𝐏}_q^2`$, so the following is obtained from the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation):
+Constant $`{\color{magenta}\Pi}_\pm`$ commute with $`\hat E_q`$ and $`\hat{{\color{cyan}𝐏}}_q^2`$, so the following is obtained from the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation):
 
 ```math
 \begin{aligned}
-0&=\Pi_\pm\left(2m\hat E_q-\hat{𝐏}_q^2
-+q𝐁\cdot𝝈\right)\phi_+\\
-&=\left(\left(2m\hat E_q-\hat{𝐏}_q^2
-\pm q\lVert𝐁\rVert\right)\phi_{+\pm}\right)\Pi_\pm.
+0&={\color{magenta}\Pi}_\pm\left(2m\hat E_q-\hat{{\color{cyan}𝐏}}_q^2
++q{\color{cyan}𝐁}\cdot{\color{cyan}𝝈}\right){\color{magenta}\phi}_+\\
+&=\left(\left(2m\hat E_q-\hat{{\color{cyan}𝐏}}_q^2
+\pm q\lVert{\color{cyan}𝐁}\rVert\right)\phi_{+\pm}\right){\color{magenta}\Pi}_\pm.
 \end{aligned}
 ```
 
-With $`\Pi_\pm\ne0`$ and $`\hat E_q=\mathrm{i}\partial_t-qV`$:
+With $`{\color{magenta}\Pi}_\pm\ne0`$ and $`\hat E_q=\mathrm{i}\partial_t-qV`$:
 
 ```math
 \boxed{\mathrm{i}\partial_t\phi_{+\pm}=
-\left(\frac{\hat{𝐏}_q^2\mp q\lVert𝐁\rVert}{2m}+qV\right)\phi_{+\pm}.}
+\left(\frac{\hat{{\color{cyan}𝐏}}_q^2\mp q\lVert{\color{cyan}𝐁}\rVert}{2m}+qV\right)\phi_{+\pm}.}
 ```
 
-Opposite [Zeeman shifts](https://en.wikipedia.org/wiki/Zeeman_effect) are obtained for [spin projections](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ along $`𝐮`$. Orbital coupling is retained in [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Definition_(position_space)) $`\hat{𝐏}_q=-\mathrm{i}\partial_{𝐫}-q𝐀`$.
+Opposite [Zeeman shifts](https://en.wikipedia.org/wiki/Zeeman_effect) are obtained for [spin projections](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ along $`{\color{cyan}𝐮}`$. Orbital coupling is retained in [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Definition_(position_space)) $`\hat{{\color{cyan}𝐏}}_q=-\mathrm{i}\partial_{{\color{cyan}𝐫}}-q{\color{cyan}𝐀}`$.
 
 This encoding is used for uniform-field [Pauli evolution](https://en.wikipedia.org/wiki/Pauli_equation); the fixed spinor space is retained for [Dirac dynamics](https://en.wikipedia.org/wiki/Dirac_equation) and measurements.
 
 With the rest-energy phase removed, the four complex [Dirac amplitudes](https://en.wikipedia.org/wiki/Dirac_spinor) are arranged as:
 
 ```math
-𝝓:=\left(\,\begin{matrix}
+{\color{cyan}𝝓}:=\left(\,\begin{matrix}
 \phi_{++}&\phi_{+-}\\
 \phi_{-+}&\phi_{--}
 \end{matrix}\,\right).
@@ -796,42 +796,42 @@ Rows are [Dirac blocks](https://en.wikipedia.org/wiki/Dirac_spinor); columns are
 
 ## [Spin measurement](https://en.wikipedia.org/wiki/Spin-1/2#Rotations_and_Spinors) probabilities
 
-Real unit preparation and measurement axes are denoted by $`𝐮',𝐮`$, with $`\cos\theta:=𝐮\cdot𝐮'`$.
+Real unit preparation and measurement axes are denoted by $`{\color{cyan}𝐮}',{\color{cyan}𝐮}`$, with $`\cos\theta:={\color{cyan}𝐮}\cdot{\color{cyan}𝐮}'`$.
 
-The state $`\psi=\Pi_+'\psi\ne0`$ is prepared using projectors with the following overlap:
+The state $`{\color{magenta}\psi}={\color{magenta}\Pi}_+'{\color{magenta}\psi}\ne0`$ is prepared using projectors with the following overlap:
 
 ```math
 \begin{gathered}
-\Pi_+':=\frac12(1+𝐮'\cdot𝝈),\qquad
-\Pi_\pm:=\frac12(1\pm𝐮\cdot𝝈),\\[4pt]
-\Pi_+'\Pi_\pm\Pi_+'=\frac{1\pm\cos\theta}{2}\Pi_+'.
+{\color{magenta}\Pi}_+':=\frac12(1+{\color{cyan}𝐮}'\cdot{\color{cyan}𝝈}),\qquad
+{\color{magenta}\Pi}_\pm:=\frac12(1\pm{\color{cyan}𝐮}\cdot{\color{cyan}𝝈}),\\[4pt]
+{\color{magenta}\Pi}_+'{\color{magenta}\Pi}_\pm{\color{magenta}\Pi}_+'=\frac{1\pm\cos\theta}{2}{\color{magenta}\Pi}_+'.
 \end{gathered}
 ```
 
-Using the squared norm, $`\lVert \boldsymbol{\mathcal{Z}}\rVert^2=\mathrm{sc}(\boldsymbol{\mathcal{Z}}\boldsymbol{\mathcal{Z}}^{\mathsf H})`$, the denominator is:
+Using the squared norm, $`\lVert {\color{magenta}\boldsymbol{\mathcal{Z}}}\rVert^2=\mathrm{sc}({\color{magenta}\boldsymbol{\mathcal{Z}}}{\color{magenta}\boldsymbol{\mathcal{Z}}}^{\mathsf H})`$, the denominator is:
 
 ```math
-\lVert\psi\rVert^2=\mathrm{sc}(\psi\psi^{\mathsf H})>0.
+\lVert{\color{magenta}\psi}\rVert^2=\mathrm{sc}({\color{magenta}\psi}{\color{magenta}\psi}^{\mathsf H})>0.
 ```
 
 For the [prepared state](https://en.wikipedia.org/wiki/Spin-1/2#Bloch_Representation), the projected squared norm is:
 
 ```math
 \begin{aligned}
-\lVert\Pi_\pm\psi\rVert^2
-&=\mathrm{sc}\bigl((\Pi_\pm\psi)(\Pi_\pm\psi)^{\mathsf H}\bigr)\\
-&=\mathrm{sc}(\Pi_\pm\psi\psi^{\mathsf H})\\
-&=\mathrm{sc}(\Pi_+'\Pi_\pm\Pi_+'\psi\psi^{\mathsf H})\\
-&=\frac{1\pm\cos\theta}{2}\mathrm{sc}(\psi\psi^{\mathsf H})
-=\frac{1\pm\cos\theta}{2}\lVert\psi\rVert^2.
+\lVert{\color{magenta}\Pi}_\pm{\color{magenta}\psi}\rVert^2
+&=\mathrm{sc}\bigl(({\color{magenta}\Pi}_\pm{\color{magenta}\psi})({\color{magenta}\Pi}_\pm{\color{magenta}\psi})^{\mathsf H}\bigr)\\
+&=\mathrm{sc}({\color{magenta}\Pi}_\pm{\color{magenta}\psi}{\color{magenta}\psi}^{\mathsf H})\\
+&=\mathrm{sc}({\color{magenta}\Pi}_+'{\color{magenta}\Pi}_\pm{\color{magenta}\Pi}_+'{\color{magenta}\psi}{\color{magenta}\psi}^{\mathsf H})\\
+&=\frac{1\pm\cos\theta}{2}\mathrm{sc}({\color{magenta}\psi}{\color{magenta}\psi}^{\mathsf H})
+=\frac{1\pm\cos\theta}{2}\lVert{\color{magenta}\psi}\rVert^2.
 \end{aligned}
 ```
 
-The [Born probabilities](https://en.wikipedia.org/wiki/Born_rule) for [spin projections](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ along $`𝐮`$ are:
+The [Born probabilities](https://en.wikipedia.org/wiki/Born_rule) for [spin projections](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ along $`{\color{cyan}𝐮}`$ are:
 
 ```math
 \begin{gathered}
-\mathrm{prob}(\pm)=\frac{\lVert\Pi_\pm\psi\rVert^2}{\lVert\psi\rVert^2}
+\mathrm{prob}(\pm)=\frac{\lVert{\color{magenta}\Pi}_\pm{\color{magenta}\psi}\rVert^2}{\lVert{\color{magenta}\psi}\rVert^2}
 =\frac{1\pm\cos\theta}{2},\\[6pt]
 \boxed{\mathrm{prob}(+)=\cos^2\frac\theta2,\quad \mathrm{prob}(-)=\sin^2\frac\theta2.}
 \end{gathered}

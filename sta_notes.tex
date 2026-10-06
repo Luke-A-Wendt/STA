@@ -8,8 +8,9 @@
 % Central paravector styles; change these definitions to restyle all aliases.
 % Usage: \pv{X} for Latin symbols; \pvGreek{\psi} for Greek symbols/operators.
 % Latin paravectors use bold calligraphic lettering; Greek symbols retain their glyphs.
-\newcommand{\pv}[1]{{\bm{\mathcal{#1}}}}
-\newcommand{\pvGreek}[1]{{#1}}
+\newcommand{\pv}[1]{{\color{magenta}\bm{\mathcal{#1}}}}
+\newcommand{\pvGreek}[1]{{\color{magenta}#1}}
+\newcommand{\vstyle}[1]{{\color{cyan}\bm{#1}}}
 \newcommand{\pA}{\pv{A}}
 \newcommand{\pB}{\pv{B}}
 \newcommand{\pF}{\pv{F}}
@@ -32,7 +33,7 @@
 \newcommand{\pvpartial}{\pvGreek{\partial}}
 \newcommand{\pvphi}{\pvGreek{\phi}}
 \newcommand{\pvpsi}{\pvGreek{\psi}}
-\newcommand{\pvsigma}{\pvGreek{\sigma}}
+\newcommand{\pvsigma}{{\sigma}}
 \newcommand{\pvvarphi}{\pvGreek{\varphi}}
 
 \usepackage{microtype}
@@ -70,38 +71,38 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\ii}{\mathrm{i}}
-\newcommand{\bsig}{\bm{\sigma}}
-\newcommand{\bA}{\bm{A}}
-\newcommand{\bB}{\bm{B}}
-\newcommand{\bC}{\bm{C}}
-\newcommand{\bX}{\bm{X}}
-\newcommand{\bY}{\bm{Y}}
-\newcommand{\bZ}{\bm{Z}}
-\newcommand{\br}{\bm{r}}
-\newcommand{\bv}{\bm{v}}
-\newcommand{\bu}{\bm{u}}
-\newcommand{\bn}{\bm{n}}
-\newcommand{\ba}{\bm{a}}
-\newcommand{\bk}{\bm{k}}
-\newcommand{\bg}{\bm{g}}
-\newcommand{\bb}{\bm{b}}
-\newcommand{\bQ}{\bm{Q}}
-\newcommand{\bS}{\bm{S}}
-\newcommand{\bF}{\bm{F}}
-\newcommand{\bE}{\bm{E}}
-\newcommand{\bBf}{\bm{B}}
-\newcommand{\bJ}{\bm{J}}
-\newcommand{\bp}{\bm{P}}
-\newcommand{\bM}{\bm{M}}
-\newcommand{\bN}{\bm{N}}
-\newcommand{\bI}{\bm{I}}
-\newcommand{\bpsi}{\bm{\psi}}
-\newcommand{\bNm}{\bm{N}}
-\newcommand{\hD}{\hat{\bm{D}}}
+\newcommand{\bsig}{\vstyle{\sigma}}
+\newcommand{\bA}{\vstyle{A}}
+\newcommand{\bB}{\vstyle{B}}
+\newcommand{\bC}{\vstyle{C}}
+\newcommand{\bX}{\vstyle{X}}
+\newcommand{\bY}{\vstyle{Y}}
+\newcommand{\bZ}{\vstyle{Z}}
+\newcommand{\br}{\vstyle{r}}
+\newcommand{\bv}{\vstyle{v}}
+\newcommand{\bu}{\vstyle{u}}
+\newcommand{\bn}{\vstyle{n}}
+\newcommand{\ba}{\vstyle{a}}
+\newcommand{\bk}{\vstyle{k}}
+\newcommand{\bg}{\vstyle{g}}
+\newcommand{\bb}{\vstyle{b}}
+\newcommand{\bQ}{\vstyle{Q}}
+\newcommand{\bS}{\vstyle{S}}
+\newcommand{\bF}{\vstyle{F}}
+\newcommand{\bE}{\vstyle{E}}
+\newcommand{\bBf}{\vstyle{B}}
+\newcommand{\bJ}{\vstyle{J}}
+\newcommand{\bp}{\vstyle{P}}
+\newcommand{\bM}{\vstyle{M}}
+\newcommand{\bN}{\vstyle{N}}
+\newcommand{\bI}{\vstyle{I}}
+\newcommand{\bpsi}{\vstyle{\psi}}
+\newcommand{\bNm}{\vstyle{N}}
+\newcommand{\hD}{\hat{\vstyle{D}}}
 \newcommand{\hE}{\hat E}
 \newcommand{\hbp}{\hat{\bp}}
 \newcommand{\hP}{{\hat{\pP}}}
-\newcommand{\hDq}{\hat{\bm{D}}_q}
+\newcommand{\hDq}{\hat{\vstyle{D}}_q}
 \newcommand{\hEq}{\hat E_q}
 \newcommand{\hbpq}{\hat{\bp}_q}
 \newcommand{\hPq}{\hP_q}
@@ -117,7 +118,7 @@
 \newcommand{\repart}[1]{\operatorname{re}\!\left(#1\right)}
 \newcommand{\impart}[1]{\operatorname{im}\!\left(#1\right)}
 \newcommand{\Det}[1]{\det\left(#1\right)}
-\newcommand{\Wop}{\bm{W}}
+\newcommand{\Wop}{\vstyle{W}}
 \newcommand{\dd}{\,\mathrm d}
 % Source locators use printed equation/page numbers; PDF links use physical pages.
 \newcommand{\sourceurl}[2]{\expandafter\edef\csname staurl@#1\endcsname{\detokenize{#2}}}
@@ -191,7 +192,7 @@ Natural units $\hbar=c=1$, rationalized electromagnetic units,
 and signature $(+,-,-,-)$ are used. Passages reverting to SI units are marked
 explicitly. The corresponding equations are boxed with a subscript $\mathrm{SI}$
 on the box; the usual quantity symbols are retained inside.
-Vectors and matrices of objects, including paravectors, are bold.
+Vectors and matrices of objects are bold cyan; paravectors are magenta.
 Bold calligraphic Latin lettering is reserved for paravectors
 and paravector operators; Greek symbols retain their usual glyphs.
 No meaning is assigned by convention to uppercase
@@ -202,7 +203,7 @@ Derivatives such as $\partial_t$ and $\pdr$ retain bold vector subscripts.
 Scalar quantities and coefficient components remain unadorned.
 Distance $d$ is placed last in products to distinguish it from the differential $\dd$.
 Scalar and paravector quantities are distinguished by their stated domains.
-The paravector momentum $\pP$ is distinguished from its vector part $\bp$ by boldface.
+The paravector momentum $\pP$ is distinguished from its vector part $\bp$ by calligraphic lettering and color.
 
 
 Space--time algebra is developed here using complex paravectors.
@@ -4644,18 +4645,18 @@ or longer, gives $\pvphi_-=O(v\pvphi_+)$ and omitted energy terms of order $mv^4
 For a constant field $\bm B\in\R^3\setminus\{0\}$, its \hyperref[def:real-unit-vector]{unit direction} and \hyperref[sec:algebra-projectors]{spin projectors} are defined by:
 
 \[
-\bm{u}:=\frac{\bm{B}}{\lVert\bm{B}\rVert}\in\R^3,
-\qquad \pvPi_\pm:=\frac12(1\pm\bm{u}\cdot\bsig)\in\R\oplus\R^3.
+\vstyle{u}:=\frac{\vstyle{B}}{\lVert\vstyle{B}\rVert}\in\R^3,
+\qquad \pvPi_\pm:=\frac12(1\pm\vstyle{u}\cdot\bsig)\in\R\oplus\R^3.
 \]
 
 \hyperref[sec:spectral]{Spectral decomposition} gives
 
 \[
-\bm{B}\cdot\bsig
-=\lVert\bm{B}\rVert(\pvPi_+-\pvPi_-),
+\vstyle{B}\cdot\bsig
+=\lVert\vstyle{B}\rVert(\pvPi_+-\pvPi_-),
 \qquad
-\pvPi_\pm(\bm{B}\cdot\bsig)
-=\pm\lVert\bm{B}\rVert\pvPi_\pm.
+\pvPi_\pm(\vstyle{B}\cdot\bsig)
+=\pm\lVert\vstyle{B}\rVert\pvPi_\pm.
 \]
 
 The two spin amplitudes $\phi_{++},\phi_{+-}:\R^4\to\C$ are encoded in an aligned paravector
@@ -4696,7 +4697,7 @@ Dirac equation and spin measurements use the fixed spinor space.
 The four complex amplitudes of the Dirac spinor, after removal of
 the rest-energy phase, are arranged as:
 \[
-\bm{\phi}:=\left(\,\begin{matrix}
+\vstyle{\phi}:=\left(\,\begin{matrix}
 \phi_{++}&\phi_{+-}\\
 \phi_{-+}&\phi_{--}
 \end{matrix}\,\right)\in\C^{2\times2}.
@@ -5487,12 +5488,12 @@ Dividing by $\rho=\bpsi^{\mathsf H}\bpsi>0$ gives
 $\langle \pZ\rangle_\pvpsi$, the ordinary finite-component expectation.
 Left action $\pT\pvpsi$ maps to $\operatorname{mat}(\pT)\bpsi$ for any complex paravector $\pT$.
 
-$\bm C\in\C^{2\times2}$ is defined as the matrix with columns
-$\bpsi_+,\bpsi_-$.  Then $\bm C^{\mathsf H}\bm C=\bI_2$ and
-$\bpsi=\bm C\{c_+,c_-\}^{\mathsf T}$.
+$\vstyle{C}\in\C^{2\times2}$ is defined as the matrix with columns
+$\bpsi_+,\bpsi_-$.  Then $\vstyle{C}^{\mathsf H}\vstyle{C}=\bI_2$ and
+$\bpsi=\vstyle{C}\{c_+,c_-\}^{\mathsf T}$.
 For a complex paravector $\pZ=c+\bZ\cdot\bsig$, its matrix in this basis is
 \begin{equation}
- \operatorname{mat}'(\pZ):=\bm C^{\mathsf H}\operatorname{mat}(\pZ)\bm C
+ \operatorname{mat}'(\pZ):=\vstyle{C}^{\mathsf H}\operatorname{mat}(\pZ)\vstyle{C}
  =\begin{Bmatrix}
  c+\bu\cdot\bZ&(\ba-\ii\bu\times\ba)\cdot\bZ\\
  (\ba+\ii\bu\times\ba)\cdot\bZ&c-\bu\cdot\bZ
@@ -5516,17 +5517,17 @@ spin expectation and Born rule.
 \label{sec:matrix-dirac-columns}
 
 For a Dirac block $\bpsi=\{\pvpsi_+,\pvpsi_-\}^{\mathsf T}$, the corresponding columns
-are denoted by $\bm{c}_+,\bm{c}_-\in\C^2$.  Then
+are denoted by $\vstyle{c}_+,\vstyle{c}_-\in\C^2$.  Then
 \[
  \Wop(\pZ)\bpsi\quad\longleftrightarrow\quad
  \begin{Bmatrix}0&\operatorname{mat}(\adj {\pZ})\\
  \operatorname{mat}(\pZ)&0\end{Bmatrix}
- \begin{Bmatrix}\bm{c}_+\\\bm{c}_-\end{Bmatrix}.
+ \begin{Bmatrix}\vstyle{c}_+\\\vstyle{c}_-\end{Bmatrix}.
 \]
 The block squared norm in \eqref{eq:dirac-norm} becomes the squared norm
 of a four-component column:
 \begin{equation*}
- \rho=\bm{c}_+^{\mathsf H}\bm{c}_++\bm{c}_-^{\mathsf H}\bm{c}_-.
+ \rho=\vstyle{c}_+^{\mathsf H}\vstyle{c}_++\vstyle{c}_-^{\mathsf H}\vstyle{c}_-.
 \end{equation*}
 
 \paragraph{Characteristic polynomial.}
@@ -5556,9 +5557,9 @@ $\pveta_\pm\in\C\oplus\C^3$. Both entries are expressed in this complex span:
 $\pvpsi_+=a\pveta_++b\pveta_-$ and $\pvpsi_-=c'\pveta_++d\pveta_-$,
 where $a,b,c',d:\R^4\to\C$ are the four scalar components,
 forming a column in $\C^4$ at each event.
-Their columns are $\bm{c}_+'=\{a,b\}^{\mathsf T}$ and
-$\bm{c}_-'=\{c',d\}^{\mathsf T}$; the primes on the columns denote the basis change
-$\bm{c}_\pm'=\bm C^{\mathsf H}\bm{c}_\pm$.
+Their columns are $\vstyle{c}_+'=\{a,b\}^{\mathsf T}$ and
+$\vstyle{c}_-'=\{c',d\}^{\mathsf T}$; the primes on the columns denote the basis change
+$\vstyle{c}_\pm'=\vstyle{C}^{\mathsf H}\vstyle{c}_\pm$.
 Notation: real mass $m>0$, real charge $q$, and
 real potentials $V:\R^4\to\R$ and $\bA:\R^4\to\R^3$.
 The gauge-covariant energy and kinetic momentum operators are $\hEq=\ii\partial_t-qV$ and
@@ -5626,7 +5627,7 @@ Together they define the envelope columns
  \begin{Bmatrix}\bm\phi_+\\\bm\phi_-\end{Bmatrix}
  =\frac{e^{\ii mt}}{\sqrt2}
  \begin{Bmatrix}\bI_2&\bI_2\\-\bI_2&\bI_2\end{Bmatrix}
- \begin{Bmatrix}\bm{c}_+'\\\bm{c}_-'\end{Bmatrix}.
+ \begin{Bmatrix}\vstyle{c}_+'\\\vstyle{c}_-'\end{Bmatrix}.
  \label{eq:matrix-envelope-map}
 \end{equation}
 Here $\bm\phi_+,\bm\phi_-\in\C^2$ are the coefficient columns in the same
