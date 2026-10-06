@@ -27,9 +27,9 @@ PREAMBLE = r"""\documentclass[11pt,border=3pt]{standalone}
 \usepgfplotslibrary{groupplots}
 \usetikzlibrary{arrows.meta}
 \pgfplotsset{compat=1.18}
-\definecolor{metricblue}{HTML}{007C99}
-\definecolor{framepink}{HTML}{AD2871}
-\definecolor{ergogold}{HTML}{B27600}
+\colorlet{metriccyan}{cyan}
+\colorlet{framemagenta}{magenta}
+\colorlet{ergoyellow}{yellow}
 \pgfplotsset{
  every axis/.append style={
   width=7.65cm,height=6.8cm,
@@ -85,10 +85,10 @@ def line(start, end, options):
 def cone(x, t, left_speed, right_speed, dt):
     left = (x + left_speed * dt, t + dt)
     right = (x + right_speed * dt, t + dt)
-    tex = (rf"\fill[metricblue!12] (axis cs:{x},{t}) -- "
+    tex = (rf"\fill[metriccyan!12] (axis cs:{x},{t}) -- "
            rf"(axis cs:{xy(left)}) -- (axis cs:{xy(right)}) -- cycle;" + "\n")
     for endpoint in (left, right):
-        tex += line((x, t), endpoint, "metricblue,line width=0.9pt,-{Stealth[length=3pt]}")
+        tex += line((x, t), endpoint, "metriccyan,line width=0.9pt,-{Stealth[length=3pt]}")
     return tex
 
 
@@ -102,13 +102,13 @@ def expansion():
 ]
 """
     for x in (-1.5, -0.75, 0.75, 1.5):
-        tex += line((x, 0), (x, 2.05), "black!30,densely dotted")
-    tex += curve([(0, 0), (0, 2.05)], "framepink,line width=1.2pt")
+        tex += line((x, 0), (x, 2.05), "metriccyan!40,densely dotted")
+    tex += curve([(0, 0), (0, 2.05)], "framemagenta,line width=1.2pt")
     tex += "\\addlegendentry{Comoving observer}\n"
     for t in (0.15, 0.75, 1.35):
         for x in (-1.25, 0, 1.25):
             tex += cone(x, t, -1 / (1 + t), 1 / (1 + t), 0.38)
-    tex += r"\addlegendimage{metricblue,-{Stealth[length=3pt]}}" + "\n"
+    tex += r"\addlegendimage{metriccyan,-{Stealth[length=3pt]}}" + "\n"
     tex += "\\addlegendentry{Local light directions}\n"
     tex += note(0, 1.92, r"$\lambda(t)=1+t/t_0$")
     tex += r"""\nextgroupplot[
@@ -119,9 +119,9 @@ def expansion():
  legend style={at={(0.5,-0.21)},anchor=north},
 ]
 """
-    tex += curve([(t, 1+t) for t in samples(0, 2)], "metricblue,line width=1.2pt")
+    tex += curve([(t, 1+t) for t in samples(0, 2)], "metriccyan,line width=1.2pt")
     tex += r"\addlegendentry{Separation $\ell/\ell_0=\lambda$}" + "\n"
-    tex += curve([(t, 1/(1+t)) for t in samples(0, 2)], "framepink,dashed,line width=1.2pt")
+    tex += curve([(t, 1/(1+t)) for t in samples(0, 2)], "framemagenta,dashed,line width=1.2pt")
     tex += r"\addlegendentry{Momentum $P/P_0=1/\lambda$}" + "\n"
     return tex
 
@@ -135,14 +135,14 @@ def schwarzschild():
  legend style={at={(0.5,-0.21)},anchor=north},
 ]
 """
-    tex += curve(circle(2), "black,line width=1.2pt,fill=black!7")
+    tex += curve(circle(2), "framemagenta,line width=1.2pt,fill=framemagenta!6")
     tex += r"\addlegendentry{Horizon $r=2Gm$}" + "\n"
     for radius, label, angle in ((3, r"$\lambda=1/3$", pi/3),
                                  (4, r"$\lambda=1/4$", 3*pi/4),
                                  (5, r"$\lambda=1/5$", pi/4)):
-        tex += curve(circle(radius), "metricblue")
+        tex += curve(circle(radius), "metriccyan")
         tex += note(radius*cos(angle), radius*sin(angle), label)
-    tex += note(0, 0, r"\shortstack{Inside the\\horizon}", "fill=black!7")
+    tex += note(0, 0, r"\shortstack{Inside the\\horizon}", "fill=framemagenta!6")
     tex += r"""\nextgroupplot[
  title={Radial light cones},
  xlabel={$r/(Gm)$},ylabel={$t/(Gm)$},
@@ -150,21 +150,21 @@ def schwarzschild():
  xtick={1,2,3,4,5},ytick={0,1,2,3,4,5},axis equal image,
  legend style={at={(0.5,-0.21)},anchor=north},
 ]
-\fill[black!7] (axis cs:0.3,0) rectangle (axis cs:2,5.25);
+\fill[framemagenta!6] (axis cs:0.3,0) rectangle (axis cs:2,5.25);
 """
-    tex += line((2, 0), (2, 5.25), "black,line width=1.2pt")
+    tex += line((2, 0), (2, 5.25), "framemagenta,line width=1.2pt")
     for t in (0.45, 2.05, 3.65):
         for r in (1.1, 2, 3.45, 4.95):
             tex += cone(r, t, -1, (r-2)/(r+2), 0.62)
-    tex += r"\addlegendimage{metricblue,-{Stealth[length=3pt]}}" + "\n"
+    tex += r"\addlegendimage{metriccyan,-{Stealth[length=3pt]}}" + "\n"
     tex += "\\addlegendentry{Local light directions}\n"
     # Exact solution of dr/dt = -1/(r+1), starting at r=3 when t=0.
     observer = lambda t: -1 + sqrt(16 - 2*t)
-    tex += curve([(observer(t), t) for t in samples(0, 5.2)], "framepink,dashed,line width=1.2pt")
+    tex += curve([(observer(t), t) for t in samples(0, 5.2)], "framemagenta,dashed,line width=1.2pt")
     tex += r"\addlegendentry{Frame observer: $d\boldsymbol r'=0$}" + "\n"
     for t in (1.1, 4.4):
         tex += line((observer(t), t), (observer(t+0.2), t+0.2),
-                    "framepink,line width=1.2pt,-{Stealth[length=4pt]}")
+                    "framemagenta,line width=1.2pt,-{Stealth[length=4pt]}")
     tex += note(2.12, 4.94, "Horizon", "anchor=west")
     return tex
 
@@ -199,17 +199,17 @@ def kerr():
  legend style={at={(0.5,-0.21)},anchor=north},
 ]
 """
-    tex += curve(stationary_surface(), "ergogold,fill=ergogold!17,line width=1.2pt")
+    tex += curve(stationary_surface(), "ergoyellow,fill=ergoyellow!30,line width=1.8pt")
     tex += r"\addlegendentry{Outer stationary limit: $g_{tt}=0$}" + "\n"
-    tex += curve(ellipse(HORIZON), "black,fill=black!7,line width=1.2pt")
+    tex += curve(ellipse(HORIZON), "framemagenta,fill=framemagenta!6,line width=1.2pt")
     tex += r"\addlegendentry{Horizon: $\epsilon/(Gm)=1.6$}" + "\n"
     for epsilon, theta in ((2.4, 0.65), (3.2, -0.65)):
-        tex += curve(ellipse(epsilon), "metricblue,dashed,forget plot")
+        tex += curve(ellipse(epsilon), "metriccyan,dashed,forget plot")
         tex += note(sqrt(epsilon**2+SPIN**2)*sin(theta), epsilon*cos(theta),
                     rf"$\epsilon={epsilon}\,Gm$")
-    tex += line((0, 2.5), (0, 3.35), "black!60,-{Stealth[length=4pt]}")
+    tex += line((0, 2.5), (0, 3.35), "framemagenta,-{Stealth[length=4pt]}")
     tex += note(0.15, 2.95, r"$\boldsymbol\omega$", "anchor=west")
-    tex += note(0, -0.3, r"\shortstack{Inside the\\horizon}", "fill=black!7")
+    tex += note(0, -0.3, r"\shortstack{Inside the\\horizon}", "fill=framemagenta!6")
     tex += r"""\nextgroupplot[
  title={Kerr: equatorial slice},
  xlabel={$r_1/(Gm)$},ylabel={$r_2/(Gm)$},
@@ -218,10 +218,10 @@ def kerr():
  legend style={at={(0.5,-0.21)},anchor=north},
 ]
 """
-    tex += curve(circle(sqrt(4 + SPIN**2)), "ergogold,fill=ergogold!17,line width=1.2pt")
-    tex += r"\addlegendentry{Ergoregion (gold)}" + "\n"
-    tex += curve(circle(sqrt(HORIZON**2 + SPIN**2)), "black,fill=black!7,line width=1.2pt,forget plot")
-    tex += curve(circle(sqrt(9 + SPIN**2)), "metricblue,dashed,forget plot")
+    tex += curve(circle(sqrt(4 + SPIN**2)), "ergoyellow,fill=ergoyellow!30,line width=1.8pt")
+    tex += r"\addlegendentry{Ergoregion (yellow)}" + "\n"
+    tex += curve(circle(sqrt(HORIZON**2 + SPIN**2)), "framemagenta,fill=framemagenta!6,line width=1.2pt,forget plot")
+    tex += curve(circle(sqrt(9 + SPIN**2)), "metriccyan,dashed,forget plot")
     tex += note(-2.28, 2.1, r"$\lambda=1/3$")
     # Equal-length arrows show directions only, for the paper's frame observers.
     for radius in (2.0, 2.65, 3.3):
@@ -231,10 +231,10 @@ def kerr():
             wx, wy = (-lam*u[0]/(1+lam), -lam*u[1]/(1+lam))
             norm = hypot(wx, wy)
             tex += line((x, y), (x+0.34*wx/norm, y+0.34*wy/norm),
-                        "framepink,line width=0.9pt,-{Stealth[length=3.5pt]}")
-    tex += r"\addlegendimage{framepink,-{Stealth[length=3.5pt]}}" + "\n"
+                        "framemagenta,line width=0.9pt,-{Stealth[length=3.5pt]}")
+    tex += r"\addlegendimage{framemagenta,-{Stealth[length=3.5pt]}}" + "\n"
     tex += r"\addlegendentry{Frame observer directions}" + "\n"
-    tex += note(0, 0, r"\shortstack{Spin points\\out of the page}", "fill=black!7")
+    tex += note(0, 0, r"\shortstack{Spin points\\out of the page}", "fill=framemagenta!6")
     return tex
 
 
