@@ -5584,6 +5584,55 @@ The earlier similarity basis $\bsigRPrime=\pT\bsig\pT^{-1}$ preserves
 so it retains the flat interval. The general real matrix $\bM$ allows
 the metric blocks above to vary independently of that similarity law.
 
+\paragraph{Local measurements and velocity.}
+The primed basis represents coordinate directions; it is generally not
+an observer's orthonormal time and space basis. The matrix $\bM$ converts
+coordinate increments to components in an orthonormal local frame
+\citeat{carroll-gr}{Eqs.~(3.119)--(3.123)}{page=96}:
+\begin{equation}
+ \begin{aligned}
+ \begin{Bmatrix}\dd t'\\\dd\br'\end{Bmatrix}
+ &=\bM^{\mathsf T}\begin{Bmatrix}\dd t\\\dd\br\end{Bmatrix},\\
+ \dd\pX&=\dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime
+        =\dd t'+\dd\br'\dotprod\bsig.
+ \end{aligned}
+ \label{eq:local-frame-increments}
+\end{equation}
+Here $\dd t',\dd\br'$ denote local measurement increments. They need not
+be exact differentials of coordinate functions $t',\br'$ on a region.
+The fixed algebraic symbols $1,\bsig$ describe orthonormal axes at each
+point, not a single global inertial frame. Their interval is
+\[
+ \dd s^2=\dd t'^2-\dd\br'^2.
+\]
+The observer at rest in this frame has $\dd\br'=\vstyle{0}$ and
+$\dd t'=\dd s$. Choose the time orientation so that future-directed
+time-like displacements have $\dd t'>0$. For a massive particle with
+proper time $s$, the earlier four-velocity relation becomes
+\begin{equation}
+ \begin{gathered}
+ \pU=\frac{\dd\pX}{\dd s}=\gamma(1+\bv\dotprod\bsig),\\
+ \boxed{\bv=\frac{\dd\br'}{\dd t'},\qquad
+ \gamma=\frac{\dd t'}{\dd s}=\frac{1}{\sqrt{1-\bv^2}}.}
+ \end{gathered}
+ \label{eq:local-frame-velocity}
+\end{equation}
+These are measurements relative to that observer. Writing
+$\dot\br=\dd\br/\dd t$ and $\dot s=\dd s/\dd t>0$, with $\dot s$
+given by \eqref{eq:metric-block-clock}, gives
+\begin{equation}
+ \boxed{\begin{aligned}
+ \gamma&=\frac{M_{tt}+\bM_{rt}\dotprod\dot\br}{\dot s},\\
+ \bv&=\frac{\bM_{tr}^{\mathsf T}+\bM_{rr}^{\mathsf T}\dot\br}
+               {M_{tt}+\bM_{rt}\dotprod\dot\br}.
+ \end{aligned}}
+ \label{eq:coordinate-local-velocity}
+\end{equation}
+Thus $\gamma$ is generally not $\dd t/\dd s$, and $\bv$ is generally
+not $\dot\br$. A local Lorentz change of observer preserves $\bg$ but
+changes these measurements; the metric alone does not select an observer.
+Nor does choosing a frame imply that its observers are in free fall.
+
 \subsection{Algebra and differentiation}
 
 For the real local displacement
@@ -5605,7 +5654,7 @@ Thus expansion in the fixed basis uses $\bM^{\mathsf T}$ on the
 coefficient column. The transpose introduces no complex conjugation.
 Transposition swaps and transposes the off-diagonal blocks; it does not equate them:
 \begin{equation}
- \begin{Bmatrix}\scpart{\dd\pX}\\\vecpart{\dd\pX}\end{Bmatrix}
+ \begin{Bmatrix}\dd t'\\\dd\br'\end{Bmatrix}
  =\bM^{\mathsf T}\begin{Bmatrix}\dd t\\\dd\br\end{Bmatrix}
  =\begin{Bmatrix}M_{tt}&\bM_{rt}^{\mathsf T}\\
                   \bM_{tr}^{\mathsf T}&\bM_{rr}^{\mathsf T}\end{Bmatrix}
@@ -5619,8 +5668,8 @@ Equivalently, the paravector is
       +\left(\dd t\,\bM_{tr}^{\mathsf T}
                     +\bM_{rr}^{\mathsf T}\dd\br\right)\dotprod\bsig.
 \]
-The first term is $\scpart{\dd\pX}$; the coefficient of $\bsig$ is
-$\vecpart{\dd\pX}$. In general these are not $\dd t$ and $\dd\br$.
+The first term is $\dd t'$; the coefficient of $\bsig$ is $\dd\br'$.
+In general these are not $\dd t$ and $\dd\br$.
 To multiply paravectors, apply the existing rule~\eqref{eq:para-product}
 to their scalar--vector parts, then apply $\bM^{-\mathsf T}$ to the
 resulting coefficient column to return to the local basis.
@@ -5687,6 +5736,9 @@ Its constant-time spatial slices are flat; its spacetime need not be.
 \paragraph{Free fall in an expanding universe.}
 Observers at fixed $\br$ are comoving: their clocks measure $t$, and
 the scale factor $\lambda(t)$ converts coordinate separations into physical distances.
+Here \eqref{eq:local-frame-increments} reduces to
+$\dd t'=\dd t$ and $\dd\br'=\lambda\dd\br$, so the local frame's
+rest observers are exactly the comoving observers.
 For this metric, the quadratic geodesic action reduces to
 \[
  \frac12\int\left(
@@ -5762,6 +5814,24 @@ Photon energy and frequency scale as $1/\lambda$: expansion produces the familia
 cosmological redshift~\citeat{carroll-gr}{Eq.~(8.66)}{page=236}.
 Both results follow from the assigned metric for any smooth positive
 $\lambda(t)$; determining $\lambda(t)$ from matter requires Einstein's field equation.
+Figure~\ref{fig:metric-expansion} illustrates the local light directions
+and these scalings for one simple choice of $\lambda(t)$.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\textwidth]{figures/metric_expansion.pdf}
+ \caption{Expansion with $\lambda(t)=1+t/t_0$, where $t_0>0$.
+ Left: a comoving coordinate slice, with the other spatial coordinates
+ fixed. Cyan arrows are tangent light directions,
+ $\dd r_1/\dd t=\pm1/\lambda$; the magenta line is a comoving observer.
+ Narrowing coordinate cones do not change the locally measured speed of
+ light, which remains one. Right: the physical separation of comoving
+ observers grows as $\ell/\ell_0=\lambda$, while a freely moving particle's
+ momentum magnitude $P=\lVert\bp\rVert$ scales as $P/P_0=1/\lambda$.
+ Subscript zero denotes $t=0$. This illustrative scale factor is not
+ selected by a matter model.}
+ \label{fig:metric-expansion}
+\end{figure}
 
 \Needspace{12\baselineskip}
 \paragraph{Tidal acceleration and curvature.}
@@ -5857,16 +5927,15 @@ The assigned displacement is therefore
  -\lambda(\dd t+\bu\dotprod\dd\br)(1-\bu\dotprod\bsig).
  \end{aligned}
 \]
-Separating its scalar and vector parts gives
-\[
+Its scalar and vector parts give the local measurement increments:
+\begin{equation}
  \begin{aligned}
- \dd\pX
- &=\left(\dd t-\lambda(\dd t+\bu\dotprod\dd\br)\right)\\
- &\quad+\left(\dd\br
-       +\lambda(\dd t+\bu\dotprod\dd\br)\bu\right)\dotprod\bsig.
+ \dd t'&=\dd t-\lambda(\dd t+\bu\dotprod\dd\br),\\
+ \dd\br'&=\dd\br+\lambda(\dd t+\bu\dotprod\dd\br)\bu.
  \end{aligned}
-\]
-Subtracting the squared vector part from the squared scalar part,
+ \label{eq:kerr-schild-local-increments}
+\end{equation}
+Taking $\det(\dd\pX)=\dd t'^2-\dd\br'^2$,
 the terms quadratic in $\lambda$ cancel because $\bu^2=1$.
 The resulting metric blocks are
 \begin{equation}
@@ -5897,14 +5966,41 @@ is the additional physical law that constrains those fields for a given
 source; the basis identities alone do not determine the Schwarzschild
 or Kerr solutions.
 
-\paragraph{Newtonian limit.}
-For stationary $\lambda,\bu$, substituting
-\eqref{eq:kerr-schild-blocks} into \eqref{eq:metric-block-clock} gives
+\paragraph{Local velocity and observer.}
+For a future-directed time-like path parametrized by $t$, the metric gives
+\begin{equation}
+ \dot s=\sqrt{1-\dot\br^2-2\lambda(1+\bu\dotprod\dot\br)^2}.
+ \label{eq:kerr-schild-clock}
+\end{equation}
+Equations~\eqref{eq:kerr-schild-local-increments} and
+\eqref{eq:local-frame-velocity} then give
+\begin{equation}
+ \boxed{\begin{aligned}
+ \gamma&=\frac{1-\lambda(1+\bu\dotprod\dot\br)}{\dot s},\\
+ \bv&=\frac{\dot\br+\lambda(1+\bu\dotprod\dot\br)\bu}
+               {1-\lambda(1+\bu\dotprod\dot\br)}.
+ \end{aligned}}
+ \label{eq:kerr-schild-local-velocity}
+\end{equation}
+The observer at rest in this frame has $\dd\br'=\vstyle{0}$. For the
+black-hole examples below, $\lambda\geq0$, and this observer follows
 \[
- \frac{\dd s}{\dd t}
- =\sqrt{1-\dot\br^2-2\lambda(1+\bu\dotprod\dot\br)^2}.
+ \frac{\dd\br_{\mathrm{obs}}}{\dd t}
+ =-\frac{\lambda}{1+\lambda}\bu,\qquad
+ \frac{\dd t}{\dd s}=1+\lambda.
 \]
-For $|\lambda|\ll1$ and $\lVert\dot\br\rVert\ll1$, retain terms
+Substitution gives $\bv=\vstyle{0}$ and $\gamma=1$, as required.
+This observer moves in the coordinate chart and need not be freely falling.
+Substituting the Schwarzschild or Kerr fields below into the basis
+therefore supplies both their exact metric and this choice of local
+measurement frame wherever the fields are regular. The increments
+$\dd t',\dd\br'$ do not generally integrate to a coordinate system on a
+region. Their Minkowski-form interval expresses local measurements;
+the varying metric still determines curved-spacetime free fall and curvature.
+
+\paragraph{Newtonian limit.}
+For stationary $\lambda,\bu$ with $|\lambda|\ll1$ and
+$\lVert\dot\br\rVert\ll1$, expand \eqref{eq:kerr-schild-clock}, retaining terms
 linear in $\lambda$ and quadratic in velocity, dropping their
 products. The free-particle action per unit mass becomes
 \[
@@ -5953,6 +6049,32 @@ The weak-field acceleration is
 \[
  \ddot\br\simeq-\frac{Gm}{r^3}\br.
 \]
+For radial light, setting $\dd s^2=0$ gives the two coordinate velocities
+\[
+ \frac{\dd r}{\dd t}=-1,
+ \qquad
+ \frac{\dd r}{\dd t}=\frac{r-2Gm}{r+2Gm}.
+\]
+The outward branch has zero radial velocity at the horizon; inside,
+both future-directed radial light directions point toward smaller $r$.
+Figure~\ref{fig:metric-schwarzschild} shows these directions alongside
+the scalar-field contours.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\textwidth]{figures/metric_schwarzschild.pdf}
+ \caption{Schwarzschild in the coordinates of
+ \eqref{eq:schwarzschild-kerr-schild}, with lengths and times in units
+ of $Gm$. Left: constant-$\lambda$ circles in the $r_3=0$ plane;
+ the black circle is the horizon, and its interior is gray.
+ Right: future radial light cones, drawn as local tangent directions,
+ with time increasing upward. The dashed magenta curve follows the
+ chosen frame observer, $\dd r/\dd t=-Gm/(r+Gm)$, starting at $r=3Gm$
+ when $t=0$; it is not a free-fall trajectory.
+ The spatial panel shows coordinate contours, not proper distances or
+ an isometric embedding.}
+ \label{fig:metric-schwarzschild}
+\end{figure}
 
 \Needspace{24\baselineskip}
 \paragraph{Kerr.}
@@ -6033,6 +6155,31 @@ The metric remains regular there, with $\det\bg=-1$.
 At this radius, the tangent displacement
 $\dd\br=(\vstyle{\omega}\times\br)\dd t$ gives $\dd s^2=0$,
 verifying that $\vstyle{\omega}$ is the horizon's angular velocity.
+The outer stationary limit is instead the outer surface $g_{tt}=0$,
+or $\lambda=1/2$. Between it and the horizon lies the exterior
+ergoregion: observers cannot remain at fixed $\br$, since that direction
+has $\dd s^2=g_{tt}\dd t^2<0$
+\citeat{heinicke-hehl}{Sec.~3.5}{page=56}.
+Figure~\ref{fig:metric-kerr} distinguishes these surfaces and shows the
+directions of our chosen frame observers.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\textwidth]{figures/metric_kerr.pdf}
+ \caption{Kerr coordinate slices with spin along $+r_3$ and
+ $Gm\lVert\vstyle{\omega}\rVert=1/4$, so
+ $\rho\lVert\vstyle{\omega}\rVert=0.8Gm$ and the horizon is
+ $\epsilon=1.6Gm$. Left: the $r_2=0$ slice, with dashed cyan contours
+ of the ellipsoidal radius $\epsilon$. Right: the $r_3=0$ slice,
+ with a dashed constant-$\lambda$ contour and equal-length arrows
+ showing the direction of $\dd\br/\dd t=-\lambda\bu/(1+\lambda)$.
+ Black marks the horizon; gold marks the outer stationary limit, with
+ the exterior ergoregion shaded gold. Gray marks the horizon's interior.
+ The arrows describe the chosen frame observers, not general free fall;
+ the coordinate shapes are not an isometric embedding.}
+ \label{fig:metric-kerr}
+\end{figure}
+
 These substitutions reproduce the known Kerr solution. A general
 paravector construction of transport, curvature, and Einstein's field
 equation remains to be developed.
