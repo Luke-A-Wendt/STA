@@ -2355,6 +2355,8 @@ $t$ is in seconds, $\bv$ in metres per second, and $\dot{\bp}$ in newtons:
 In the natural units used elsewhere,
 invariant $m$ is retained: the longitudinal and transverse inertia in
 \eqref{eq:relativistic-inertia} differ.
+For the Lorentz force, the corresponding acceleration components are
+derived in \eqref{eq:lorentz-acceleration-projections}.
 
 \subsection{Fixed-axis acceleration}
 \label{sec:fixed-axis-acceleration}
@@ -3818,6 +3820,38 @@ The coordinate acceleration is obtained by eliminating $\bv\dotprod\dot{\bv}$
  \left(\bE+\bv\times\bBf-(\bv\dotprod\bE)\bv\right).}
 \end{equation*}
 The magnetic term changes momentum without doing work.
+
+\paragraph{Parallel and perpendicular components.}
+For $\bv\ne0$, all projections here are relative to the instantaneous
+velocity, as in Section~\ref{sec:proper-acceleration}:
+\[
+ \bE_{\parallel}=\frac{(\bv\dotprod\bE)\bv}{\bv^2},\qquad
+ \bE_{\perp}=\bE-\bE_{\parallel}.
+\]
+Since $\bv\dotprod(\bv\times\bBf)=0$, projecting
+\eqref{eq:lorentz-momentum} and using \eqref{eq:relativistic-inertia} gives
+\begin{align*}
+ \dot{\bp}_{\parallel}
+ &=m\gamma^3\dot{\bv}_{\parallel}=q\bE_{\parallel},\\
+ \dot{\bp}_{\perp}
+ &=m\gamma\dot{\bv}_{\perp}=q(\bE_{\perp}+\bv\times\bBf).
+\end{align*}
+The subscripts denote projections of the force along the instantaneous
+velocity axis. Thus
+\begin{equation}
+ \boxed{\begin{aligned}
+ \dot{\bv}_{\parallel}&=\frac{q}{m\gamma^3}\bE_{\parallel},\\
+ \dot{\bv}_{\perp}&=\frac{q}{m\gamma}
+ (\bE_{\perp}+\bv\times\bBf).
+ \end{aligned}}
+ \label{eq:lorentz-acceleration-projections}
+\end{equation}
+The parallel component changes speed; the perpendicular component changes
+direction. The magnetic force contributes only to the latter.
+At $\bv=0$, the velocity axis is undefined and the unsplit equation gives
+$\dot{\bv}=q\bE/m$.
+
+\paragraph{Proper acceleration and the rest-frame field.}
 Taking the determinant of the real force gives
 \begin{equation*}
  \begin{aligned}
@@ -3827,8 +3861,62 @@ Taking the determinant of the real force gives
  \end{aligned}
 \end{equation*}
 The invariant squared proper acceleration is obtained by division by $m^2$.
-The factor $\gamma^2((\bE+\bv\times\bBf)^2-(\bv\dotprod\bE)^2)$
-is the squared electric field in the particle's instantaneous rest frame.
+For $\bv\ne0$, orthogonality gives
+\[
+ (\bE+\bv\times\bBf)^2-(\bv\dotprod\bE)^2
+ =\gamma^{-2}\bE_{\parallel}^2
+  +\lVert\bE_{\perp}+\bv\times\bBf\rVert^2.
+\]
+Equivalently, substituting \eqref{eq:lorentz-acceleration-projections}
+into the acceleration determinant from Section~\ref{sec:proper-acceleration}
+gives
+\begin{equation}
+ \begin{aligned}
+ -\det\left(\frac{\dd\pU}{\dd s}\right)
+ &=\gamma^6\dot{\bv}_{\parallel}^2
+   +\gamma^4\dot{\bv}_{\perp}^2\\
+ &=\frac{q^2}{m^2}\left(\bE_{\parallel}^2
+   +\gamma^2\lVert\bE_{\perp}+\bv\times\bBf\rVert^2\right).
+ \end{aligned}
+ \label{eq:lorentz-proper-acceleration-projections}
+\end{equation}
+The boost into the instantaneous rest frame gives
+$\bE'=\bE_{\parallel}+\gamma(\bE_{\perp}+\bv\times\bBf)$,
+as derived in \eqref{eq:electric-boost}. Thus the squared proper
+acceleration is $q^2\lVert\bE'\rVert^2/m^2$: the particle experiences
+only electric force at that instant in its rest frame.
+
+\begin{SIunits}{Lorentz force and acceleration}
+Here $t$ is in seconds, $\bv$ in metres per second, $m$ in kilograms,
+$q$ in coulombs, $\bE$ in volts per metre, and $\bBf$ in teslas.
+Dots denote derivatives with respect to this $t$, and
+$\gamma=(1-\bv^2/c^2)^{-1/2}$. For $\bv\ne0$, the same projections give
+\begin{align*}
+ \dot{\bp}_{\parallel}&=q\bE_{\parallel},&
+ \dot{\bp}_{\perp}&=q(\bE_{\perp}+\bv\times\bBf),\\
+ \dot{\bv}_{\parallel}&=\frac{q}{m\gamma^3}\bE_{\parallel},&
+ \dot{\bv}_{\perp}&=\frac{q}{m\gamma}(\bE_{\perp}+\bv\times\bBf).
+\end{align*}
+The force is in newtons and acceleration in $\mathrm{m\,s^{-2}}$.
+The unsplit form, also valid at rest, is
+\[
+ \dot{\bv}=\frac{q}{m\gamma}
+ \left(\bE+\bv\times\bBf
+       -\frac{\bv\dotprod\bE}{c^2}\bv\right).
+\]
+With $\tau$ in seconds, $\br$ in metres, $s=c\tau$,
+$\pX=ct+\br\dotprod\bsig$, and dimensionless
+$\pU=\dd\pX/\dd s$, the squared proper-acceleration magnitude is
+\begin{align*}
+ -c^4\det\left(\frac{\dd\pU}{\dd s}\right)
+ &=\gamma^6\dot{\bv}_{\parallel}^2
+   +\gamma^4\dot{\bv}_{\perp}^2\\
+ &=\frac{q^2}{m^2}\left(\bE_{\parallel}^2
+   +\gamma^2\lVert\bE_{\perp}+\bv\times\bBf\rVert^2\right),
+\end{align*}
+in $\mathrm{m^2\,s^{-4}}$. At rest it reduces to
+$q^2\lVert\bE\rVert^2/m^2$ without choosing a projection axis.
+\end{SIunits}
 
 \subsection{Energy and momentum flux}
 
