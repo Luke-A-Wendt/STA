@@ -30,8 +30,8 @@ The eight real components are grouped into a complex scalar and vector:
 
 ```math
 \begin{aligned}
-{\color{magenta}\boldsymbol{\mathcal X}}:&=a+{\color{cyan}𝐗}\cdot{\color{cyan}𝝈},\\
-{\color{magenta}\boldsymbol{\mathcal Y}}:&=b+{\color{cyan}𝐘}\cdot{\color{cyan}𝝈},\\[4pt]
+{\color{magenta}\boldsymbol{\mathcal X}}&=a+{\color{cyan}𝐗}\cdot{\color{cyan}𝝈},\\
+{\color{magenta}\boldsymbol{\mathcal Y}}&=b+{\color{cyan}𝐘}\cdot{\color{cyan}𝝈},\\[4pt]
 {\color{magenta}\boldsymbol{\mathcal Z}}&={\color{magenta}\boldsymbol{\mathcal X}}+\mathrm i{\color{magenta}\boldsymbol{\mathcal Y}}\\
 &=(a+b\mathrm i)+({\color{cyan}𝐗}+\mathrm i{\color{cyan}𝐘})\cdot{\color{cyan}𝝈}\\
 &=c+{\color{cyan}𝐙}\cdot{\color{cyan}𝝈}.

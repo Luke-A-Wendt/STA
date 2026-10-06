@@ -85,6 +85,8 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\ii}{\mathrm{i}}
+% Standard centered dot for vector contractions.
+\newcommand{\dotprod}{\cdot}
 \newcommand{\bsig}{\vstyle{\sigma}}
 \newcommand{\bA}{\vstyle{A}}
 \newcommand{\bB}{\vstyle{B}}
@@ -224,7 +226,7 @@ Space--time algebra is developed here using complex paravectors.
 Comparisons with terminology in the literature are collected in
 Appendix~\ref{sec:conventions}.
 
-$c+\bZ\cdot\bsig$ is identified with its coefficient pair
+$c+\bZ\dotprod\bsig$ is identified with its coefficient pair
 $(c,\bZ)\in\C\oplus\C^3$. Real paravectors lie in $\R\oplus\R^3$;
 mixed sums specify the two coefficient spaces separately.
 Values are specified by the direct sum; multiplication is defined by the sigma rules.
@@ -255,7 +257,7 @@ these sigmas~\citeat{baylis2004}{pp.~4--5}{page=4}:
  &\ii^2&=-1,\\
  \bsig&=\{\pvsigma_1,\pvsigma_2,\pvsigma_3\},
  &\ii\bsig&=\{\pvsigma_2\pvsigma_3,\pvsigma_3\pvsigma_1,\pvsigma_1\pvsigma_2\},\\
- \pZ&=(a+b\ii)+(\bX+\bY\ii)\cdot\bsig,
+ \pZ&=(a+b\ii)+(\bX+\bY\ii)\dotprod\bsig,
  &a,b&\in\R,\quad \bX,\bY\in\R^3.
 \end{align*}
 \end{minipage}}
@@ -263,10 +265,10 @@ these sigmas~\citeat{baylis2004}{pp.~4--5}{page=4}:
 
 Ordinary three-vector operations are defined by
 \begin{align*}
- \bX\cdot\bY&=X_1Y_1+X_2Y_2+X_3Y_3,\\
+ \bX\dotprod\bY&=X_1Y_1+X_2Y_2+X_3Y_3,\\
  \bX\times\bY&=\{X_2Y_3-X_3Y_2,
  X_3Y_1-X_1Y_3,X_1Y_2-X_2Y_1\},\\
- \bX^2&:=\bX\cdot\bX.
+ \bX^2&:=\bX\dotprod\bX.
 \end{align*}
 Thus the square of a vector always denotes its self dot product.
 For complex vectors, the same formulas are used for dot and cross products,
@@ -277,7 +279,7 @@ The elementary Cartesian vectors used below are the real vectors
  \bm e_2=\{0,1,0\},\qquad
  \bm e_3=\{0,0,1\}.
 \]
-Thus $\bm e_k\cdot\bsig=\pvsigma_k$; the scalar basis element is $1$.
+Thus $\bm e_k\dotprod\bsig=\pvsigma_k$; the scalar basis element is $1$.
 Unindexed $e$ denotes only Euler's number.
 
 A basis over $\R$ is provided by the eight elements
@@ -387,11 +389,11 @@ $a,b\in\R$ and $\bX,\bY\in\R^3$ are assumed. The two real paravectors
 $\pX,\pY\in\R\oplus\R^3$ are combined into the general complex paravector
 $\pZ\in\C\oplus\C^3$:
 \begin{align*}
- \pX:&=a+\bX\cdot\bsig,\\
- \pY:&=b+\bY\cdot\bsig,\\[4pt]
+ \pX&=a+\bX\dotprod\bsig,\\
+ \pY&=b+\bY\dotprod\bsig,\\[4pt]
  \pZ&=\pX+\ii \pY\\
-  &=(a+b\ii)+(\bX+\ii\bY)\cdot\bsig\\
-  &=c+\bZ\cdot\bsig.
+  &=(a+b\ii)+(\bX+\ii\bY)\dotprod\bsig\\
+  &=c+\bZ\dotprod\bsig.
 \end{align*}
 Here $c=a+b\ii\in\C$ and $\bZ=\bX+\ii\bY\in\C^3$ are its
 complex scalar and vector coefficients.
@@ -415,16 +417,16 @@ $c^*=c^{\mathsf H}=a-b\ii$ and
 $\bZ^*=\bZ^{\mathsf H}=\bX-\ii\bY$; on the paravector, the two
 conjugations differ in the vector sign~\citeat{chappell-functions}{Eq.~(45)}{page=11}:
 \begin{align}
- \pZ^*&=c^*-\bZ^*\cdot\bsig
- =(a-b\ii)+(-\bX+\ii\bY)\cdot\bsig,
+ \pZ^*&=c^*-\bZ^*\dotprod\bsig
+ =(a-b\ii)+(-\bX+\ii\bY)\dotprod\bsig,
  \label{eq:algebra-star}\\
- \pZ^{\mathsf H}&=c^*+\bZ^*\cdot\bsig
- =(a-b\ii)+(\bX-\ii\bY)\cdot\bsig.
+ \pZ^{\mathsf H}&=c^*+\bZ^*\dotprod\bsig
+ =(a-b\ii)+(\bX-\ii\bY)\dotprod\bsig.
  \label{eq:algebra-H}
 \end{align}
 Their composition defines the adjugate~\citeat{chappell-functions}{Eq.~(39)}{page=10}
 \begin{equation}
- \operatorname{adj} \pZ:=\pZ^{*\mathsf H}=c-\bZ\cdot\bsig.
+ \operatorname{adj} \pZ:=\pZ^{*\mathsf H}=c-\bZ\dotprod\bsig.
  \label{eq:adjugate}
 \end{equation}
 The trace is twice the scalar part:
@@ -455,10 +457,10 @@ unchanged by reordering its factors.  For a scalar $z\in\C$,
 When $\det(\pZ)\ne0$, the inverse is~\citeat{chappell-functions}{Eq.~(47)}{page=11}
 \begin{equation}
  \pZ^{-1}=\frac{\adj {\pZ}}{\det(\pZ)}
-       =\frac{c-\bZ\cdot\bsig}{c^2-\bZ^2}.
+       =\frac{c-\bZ\dotprod\bsig}{c^2-\bZ^2}.
  \label{eq:inverse}
 \end{equation}
-For $\pZ'=c'+\bZ'\cdot\bsig$, with $c'\in\C$, $\bZ'\in\C^3$, division is
+For $\pZ'=c'+\bZ'\dotprod\bsig$, with $c'\in\C$, $\bZ'\in\C^3$, division is
 order-sensitive.  An unambiguous quotient exists when $\pZ$ is invertible
 and the factors commute:
 \begin{equation*}
@@ -492,7 +494,7 @@ Adjugation evaluates the scalar and vector extractions explicitly~\citeat{baylis
 \begin{align*}
  \scpart {\pZ}&=\tfrac12(\pZ+\adj {\pZ})=c,
  \\
- \vecpart {\pZ}\cdot\bsig&=\tfrac12(\pZ-\adj {\pZ})=\bZ\cdot\bsig.
+ \vecpart {\pZ}\dotprod\bsig&=\tfrac12(\pZ-\adj {\pZ})=\bZ\dotprod\bsig.
 \end{align*}
 The functions $\operatorname{re}$ and $\operatorname{im}$ also act on
 complex coefficients.  Composing extractions recovers all four real parts:
@@ -511,16 +513,16 @@ matrices.
 \subsection{Invertibility and normalization}
 \label{sec:unit-forms}
 
-Notation: $\pZ=c+\bZ\cdot\bsig$, with $c\in\C$ and $\bZ\in\C^3$.
+Notation: $\pZ=c+\bZ\dotprod\bsig$, with $c\in\C$ and $\bZ\in\C^3$.
 For $\bZ\in\C^3$, the bilinear square and squared norm are distinguished:
 \begin{align*}
- \bZ^2&:=\bZ\cdot\bZ,\\
- \lVert\bZ\rVert^2&:=\bZ\cdot\bZ^*.
+ \bZ^2&:=\bZ\dotprod\bZ,\\
+ \lVert\bZ\rVert^2&:=\bZ\dotprod\bZ^*.
 \end{align*}
 For $c\in\C$, $\lVert c\rVert^2:=cc^*$ is defined.  The squared paravector norm is~\citeat{chappell-functions}{Eq.~(46)}{page=11}
 \begin{equation}
  \lVert \pZ\rVert^2:=\lVert c\rVert^2+\lVert\bZ\rVert^2
- =cc^*+\bZ\cdot\bZ^*.
+ =cc^*+\bZ\dotprod\bZ^*.
  \label{eq:coefficient-norm}
 \end{equation}
 All norms take values in $\R_{\ge0}$ and denote nonnegative real square roots.
@@ -531,7 +533,7 @@ Each name below specifies a condition; a letter alone implies none.
 \begin{itemize}
 \item \textbf{Vector of square one.} $\bu$ satisfies
 \begin{equation}
- \bu^2=\bu\cdot\bu=1.
+ \bu^2=\bu\dotprod\bu=1.
  \label{eq:bilinear-unit-vector}
 \end{equation}
 For $\bZ^2\ne0$, $\bu=\bZ/\sqrt{\bZ^2}$ is defined with either square root.
@@ -539,7 +541,7 @@ Its norm need not be one.  A nonzero vector with $\bZ^2=0$
 cannot be normalized this way.
 \item \textbf{Vector of unit norm.} $\bu$ satisfies
 \begin{equation*}
- \lVert\bu\rVert^2=\bu\cdot\bu^*=1.
+ \lVert\bu\rVert^2=\bu\dotprod\bu^*=1.
 \end{equation*}
 For any $\bZ\ne0$, $\bu=\bZ/\lVert\bZ\rVert$ is defined; then
 $\bu^2=\bZ^2/\lVert\bZ\rVert^2$ need not be one.
@@ -574,7 +576,7 @@ This equivalence need not hold for complex $\pZ$.
  \label{eq:unit-norm-paravector}
 \end{equation}
 For $\pZ\ne0$, $\pZ'=\pZ/\lVert \pZ\rVert$ has unit norm.
-It need not have an inverse: $(1+\bu\cdot\bsig)/\sqrt2$ has norm one
+It need not have an inverse: $(1+\bu\dotprod\bsig)/\sqrt2$ has norm one
 and determinant zero for any real unit vector $\bu$.
 Unitarity implies unit norm by \eqref{eq:hermitian-norm}.
 \item \textbf{Self-inverse paravector.} $\pZ$ is its own inverse:
@@ -584,7 +586,7 @@ Unitarity implies unit norm by \eqref{eq:hermitian-norm}.
 \end{equation}
 Then $\pZ^{-1}=\pZ$; it is unitary exactly when $\pZ^{\mathsf H}=\pZ$.
 Its parts obey $c^2+\bZ^2=1$ and $2c\bZ=0$:
-thus $\pZ=\pm1$ or $\pZ=\bu\cdot\bsig$ with $\bu^2=1$.
+thus $\pZ=\pm1$ or $\pZ=\bu\dotprod\bsig$ with $\bu^2=1$.
 \end{itemize}
 
 \Needspace{9\baselineskip}
@@ -610,56 +612,56 @@ both products are complex bilinear, with no conjugation.
 The sigma rule~\eqref{eq:sigma-product} gives the dot--cross identity~\citeat{chappell-functions}{Eq.~(38)}{page=10}
 \begin{equation}
  \begin{aligned}
- (\bX\cdot\bsig)(\bY\cdot\bsig)
+ (\bX\dotprod\bsig)(\bY\dotprod\bsig)
  &=\sum_{n=1}^{3}\sum_{m=1}^{3}
    X_nY_m\pvsigma_n\pvsigma_m\\
  &=\sum_{n=1}^{3}\sum_{m=1}^{3}X_nY_m\delta_{nm}
    +\sum_{n=1}^{3}\sum_{m=1}^{3}\sum_{k=1}^{3}
    X_nY_m\epsilon_{nmk}\ii\pvsigma_k\\
- &=\bX\cdot\bY+\ii(\bX\times\bY)\cdot\bsig.
+ &=\bX\dotprod\bY+\ii(\bX\times\bY)\dotprod\bsig.
  \end{aligned}
  \label{eq:vector-product}
 \end{equation}
 For real $\bX,\bY$, the product lies in $\R\oplus\ii\R^3$.
 Adding the product with $\bX$ and $\bY$ interchanged gives
 \begin{equation*}
- 2(\bX\cdot\bY)
- =(\bX\cdot\bsig)(\bY\cdot\bsig)
- +(\bY\cdot\bsig)(\bX\cdot\bsig).
+ 2(\bX\dotprod\bY)
+ =(\bX\dotprod\bsig)(\bY\dotprod\bsig)
+ +(\bY\dotprod\bsig)(\bX\dotprod\bsig).
 \end{equation*}
 Consequently, for every nonnegative integer $n$,
 \begin{align*}
- (\bX\cdot\bsig)^2&=\bX^2,\\
- (\bX\cdot\bsig)^{2n}&=(\bX^2)^n,\\
- (\bX\cdot\bsig)^{2n+1}&=(\bX^2)^n\bX\cdot\bsig.
+ (\bX\dotprod\bsig)^2&=\bX^2,\\
+ (\bX\dotprod\bsig)^{2n}&=(\bX^2)^n,\\
+ (\bX\dotprod\bsig)^{2n+1}&=(\bX^2)^n\bX\dotprod\bsig.
 \end{align*}
 Also,
 \begin{equation*}
- (\bX\cdot\bsig)\bsig=\bX-\ii\bX\times\bsig.
+ (\bX\dotprod\bsig)\bsig=\bX-\ii\bX\times\bsig.
 \end{equation*}
 Subtracting the two orders gives
 \begin{equation*}
- [\bX\cdot\bsig,\bY\cdot\bsig]
- =2\ii(\bX\times\bY)\cdot\bsig.
+ [\bX\dotprod\bsig,\bY\dotprod\bsig]
+ =2\ii(\bX\times\bY)\dotprod\bsig.
 \end{equation*}
 Hence
 \begin{align*}
- [\bX\cdot\bsig,\bsig]&=-2\ii\bX\times\bsig,\\
- [\bX\cdot\ii\bsig,\bsig]&=2\bX\times\bsig,\\
- [\bX\cdot\bsig,\bsig]\cdot\bY
- &=2\ii(\bX\times\bY)\cdot\bsig.
+ [\bX\dotprod\bsig,\bsig]&=-2\ii\bX\times\bsig,\\
+ [\bX\dotprod\ii\bsig,\bsig]&=2\bX\times\bsig,\\
+ [\bX\dotprod\bsig,\bsig]\dotprod\bY
+ &=2\ii(\bX\times\bY)\dotprod\bsig.
 \end{align*}
 
 \subsection{Real products}
 
-For real $\pX=a+\bX\cdot\bsig$ and $\pY=b+\bY\cdot\bsig$, with
+For real $\pX=a+\bX\dotprod\bsig$ and $\pY=b+\bY\dotprod\bsig$, with
 $a,b\in\R$ and $\bX,\bY\in\R^3$, \eqref{eq:vector-product} gives
 \begin{align*}
- \pX \pY&=(ab+\bX\cdot\bY)
- +(a\bY+b\bX+\ii\bX\times\bY)\cdot\bsig,
+ \pX \pY&=(ab+\bX\dotprod\bY)
+ +(a\bY+b\bX+\ii\bX\times\bY)\dotprod\bsig,
  \\
- [\pX,\pY]&=2\ii(\bX\times\bY)\cdot\bsig, \\
- \pX^2&=(a^2+\bX^2)+2a\bX\cdot\bsig.
+ [\pX,\pY]&=2\ii(\bX\times\bY)\dotprod\bsig, \\
+ \pX^2&=(a^2+\bX^2)+2a\bX\dotprod\bsig.
 \end{align*}
 Thus $\pX \pY\in\R\oplus\C^3$, $[\pX,\pY]\in\{0\}\oplus\ii\R^3$, and
 $\pX^2\in\R\oplus\R^3$. Real paravectors are not closed under multiplication.
@@ -669,19 +671,19 @@ $\pX^{-1}\pY=\pY \pX^{-1}$.
 
 \subsection{Complex products}
 
-The decompositions $\pZ=c+\bZ\cdot\bsig$ and $\pZ'=c'+\bZ'\cdot\bsig$ are used, where
+The decompositions $\pZ=c+\bZ\dotprod\bsig$ and $\pZ'=c'+\bZ'\dotprod\bsig$ are used, where
 $c,c'\in\C$ and $\bZ,\bZ'\in\C^3$.  Complex bilinearity extends
 \eqref{eq:vector-product} to the general product
 \begin{equation}
- \pZ \pZ'=(cc'+\bZ\cdot\bZ')+
- \bigl(c\bZ'+c'\bZ+\ii\bZ\times\bZ'\bigr)\cdot\bsig.
+ \pZ \pZ'=(cc'+\bZ\dotprod\bZ')+
+ \bigl(c\bZ'+c'\bZ+\ii\bZ\times\bZ'\bigr)\dotprod\bsig.
  \label{eq:para-product}
 \end{equation}
 
 The result $\pZ \pZ'\in\C\oplus\C^3$ has a complex scalar and complex vector part.
 Thus
 \begin{align*}
- \scpart{\pZ \pZ'}&=cc'+\bZ\cdot\bZ',\\
+ \scpart{\pZ \pZ'}&=cc'+\bZ\dotprod\bZ',\\
  \vecpart{\pZ \pZ'}&=c\bZ'+c'\bZ+\ii\bZ\times\bZ'.
 \end{align*}
 Equivalently, $\pZ=\pX+\ii \pY$ and $\pZ'=\pX'+\ii \pY'$ are used with all four
@@ -690,12 +692,12 @@ factors real.  Their products need not be real, but distributivity gives
  \pZ \pZ'=(\pX \pX'-\pY \pY')+\ii(\pX \pY'+\pY \pX').
 \end{equation*}
 
-The decomposition $\pZ=(a+b\ii)+(\bX+\ii\bY)\cdot\bsig$ is used with real
+The decomposition $\pZ=(a+b\ii)+(\bX+\ii\bY)\dotprod\bsig$ is used with real
 $a,b,\bX,\bY$, and primes are used for the second paravector's real parts.  The real and imaginary
 scalar and vector parts of $\pZ \pZ'$ are
 \begin{align*}
- \text{real scalar: }&aa'-bb'+\bX\cdot\bX'-\bY\cdot\bY',\\
- \text{imaginary scalar: }&ab'+ba'+\bX\cdot\bY'+\bY\cdot\bX',\\
+ \text{real scalar: }&aa'-bb'+\bX\dotprod\bX'-\bY\dotprod\bY',\\
+ \text{imaginary scalar: }&ab'+ba'+\bX\dotprod\bY'+\bY\dotprod\bX',\\
  \text{real vector: }&a\bX'-b\bY'+a'\bX-b'\bY
                     -\bX\times\bY'-\bY\times\bX',\\
  \text{imaginary vector: }&a\bY'+b\bX'+a'\bY+b'\bX
@@ -704,26 +706,26 @@ scalar and vector parts of $\pZ \pZ'$ are
 Specializing \eqref{eq:para-product} gives the quadratic products:
 \begin{align}
  \pZ^2&=(a^2-b^2+\bX^2-\bY^2)
- +2\ii(ab+\bX\cdot\bY) \notag\\
- &\quad+2(a\bX-b\bY)\cdot\bsig
- +2\ii(a\bY+b\bX)\cdot\bsig, \notag\\
+ +2\ii(ab+\bX\dotprod\bY) \notag\\
+ &\quad+2(a\bX-b\bY)\dotprod\bsig
+ +2\ii(a\bY+b\bX)\dotprod\bsig, \notag\\
  \pZ \pZ^*&=(a^2+b^2-\bX^2-\bY^2)
- -2(\bX\times\bY)\cdot\bsig
- +2\ii(a\bY-b\bX)\cdot\bsig,
+ -2(\bX\times\bY)\dotprod\bsig
+ +2\ii(a\bY-b\bX)\dotprod\bsig,
  \label{eq:star-product-left}\\
  \pZ^*\pZ&=(a^2+b^2-\bX^2-\bY^2)
- +2(\bX\times\bY)\cdot\bsig
- +2\ii(a\bY-b\bX)\cdot\bsig,
+ +2(\bX\times\bY)\dotprod\bsig
+ +2\ii(a\bY-b\bX)\dotprod\bsig,
  \label{eq:star-product-right}\\
  \pZ \pZ^{\mathsf H}&=a^2+b^2+\bX^2+\bY^2
- +2(a\bX+b\bY+\bX\times\bY)\cdot\bsig,
+ +2(a\bX+b\bY+\bX\times\bY)\dotprod\bsig,
  \label{eq:hermitian-product-left}\\
  \pZ^{\mathsf H}\pZ&=a^2+b^2+\bX^2+\bY^2
- +2(a\bX+b\bY-\bX\times\bY)\cdot\bsig,
+ +2(a\bX+b\bY-\bX\times\bY)\dotprod\bsig,
  \label{eq:hermitian-product-right}\\
  \pZ \pZ^{*\mathsf H}&=\det \pZ
  =a^2-b^2-\bX^2+\bY^2
- +2\ii(ab-\bX\cdot\bY). \notag
+ +2\ii(ab-\bX\dotprod\bY). \notag
 \end{align}
 Equations~\eqref{eq:star-product-left} and \eqref{eq:star-product-right}
 have values in $\R\oplus\C^3$ and show $\pZ \pZ^*=\pZ^*\pZ$ exactly when
@@ -768,9 +770,9 @@ the norm loses it by \eqref{eq:norm-scalar-scaling}.
 
 \subsection{Quadratic identity and eigenvalues}
 
-Notation: $\pZ=c+\bZ\cdot\bsig$, with $c\in\C$ and $\bZ\in\C^3$.
-Since $\pZ-c=\bZ\cdot\bsig$ and
-$(\bZ\cdot\bsig)^2=\bZ^2$,
+Notation: $\pZ=c+\bZ\dotprod\bsig$, with $c\in\C$ and $\bZ\in\C^3$.
+Since $\pZ-c=\bZ\dotprod\bsig$ and
+$(\bZ\dotprod\bsig)^2=\bZ^2$,
 \begin{align*}
  (\pZ-c)^2&=\bZ^2,\\
  \pZ^2-2c\pZ+(c^2-\bZ^2)&=0.
@@ -790,7 +792,7 @@ the scalar quadratic corresponding to \eqref{eq:minimal}.  Its roots are
  \pm\sqrt{\operatorname{tr}(\pZ)^2-4\det(\pZ)}}{2}
  =c\pm\sqrt{\bZ^2}.
 \end{equation*}
-Because $\bZ$ is generally complex, $\bZ^2=\bZ\cdot\bZ$ and its square
+Because $\bZ$ is generally complex, $\bZ^2=\bZ\dotprod\bZ$ and its square
 root may also be complex.
 The quadratic identity therefore factors as
 \begin{equation*}
@@ -801,65 +803,65 @@ The quadratic identity therefore factors as
 \label{sec:algebra-projectors}
 
 For a \hyperref[def:real-unit-vector]{real unit vector} $\bu$, the
-paravector $\bu\cdot\bsig\in\{0\}\oplus\R^3$ is Hermitian and
+paravector $\bu\dotprod\bsig\in\{0\}\oplus\R^3$ is Hermitian and
 \hyperref[eq:involutory-paravector]{self-inverse}.  Its two orthogonal projectors are defined by~\citeat{baylis-applications}{p.~121}{page=132}
 \begin{equation}
- \pvPi_\pm:=\tfrac12(1\pm\bu\cdot\bsig).
+ \pvPi_\pm:=\tfrac12(1\pm\bu\dotprod\bsig).
  \label{eq:projectors}
 \end{equation}
 
 Here $\pvPi_\pm\in\R\oplus\R^3$ with scalar part $1/2$.
-Since $(\bu\cdot\bsig)^2=1$,
+Since $(\bu\dotprod\bsig)^2=1$,
 \begin{align*}
  \pvPi_\pm^2&=\pvPi_\pm,\\
  \pvPi_+\pvPi_-&=0,\\
  \pvPi_++\pvPi_-&=1,\\
  \pvPi_\pm^{\mathsf H}&=\pvPi_\pm,\\
  \pvPi_\pm^*&=\pvPi_\mp,\\
- (\bu\cdot\bsig)\pvPi_\pm&=\pm \pvPi_\pm.
+ (\bu\dotprod\bsig)\pvPi_\pm&=\pm \pvPi_\pm.
 \end{align*}
-Thus $\bu\cdot\bsig=\pvPi_+-\pvPi_-$.  For a second
+Thus $\bu\dotprod\bsig=\pvPi_+-\pvPi_-$.  For a second
 \hyperref[def:real-unit-vector]{real unit vector} $\bu'$,
 \begin{align*}
- (\bu\cdot\bsig)(\bu'\cdot\bsig)
- &=\bu\cdot\bu'+\ii(\bu\times\bu')\cdot\bsig,\\
- [\bu\cdot\bsig,\bu'\cdot\bsig]
- &=2\ii(\bu\times\bu')\cdot\bsig,\\
- (\bu\cdot\bsig)(\bu'\cdot\bsig)(\bu\cdot\bsig)
- &=\left(2(\bu\cdot\bu')\bu-\bu'\right)\cdot\bsig.
+ (\bu\dotprod\bsig)(\bu'\dotprod\bsig)
+ &=\bu\dotprod\bu'+\ii(\bu\times\bu')\dotprod\bsig,\\
+ [\bu\dotprod\bsig,\bu'\dotprod\bsig]
+ &=2\ii(\bu\times\bu')\dotprod\bsig,\\
+ (\bu\dotprod\bsig)(\bu'\dotprod\bsig)(\bu\dotprod\bsig)
+ &=\left(2(\bu\dotprod\bu')\bu-\bu'\right)\dotprod\bsig.
 \end{align*}
-The projections $\bu'_{\parallel}=(\bu'\cdot\bu)\bu$ and
+The projections $\bu'_{\parallel}=(\bu'\dotprod\bu)\bu$ and
 $\bu'_{\perp}=\bu'-\bu'_{\parallel}$ are defined in $\R^3$.  Then
 \begin{align*}
- \pvPi_\pm(\bu'\cdot\bsig)\pvPi_\pm
- &=\pm(\bu\cdot\bu')\pvPi_\pm,\\
- \pvPi_\pm(\bu'\cdot\bsig)\pvPi_\mp
- &=\tfrac12(\bu'_{\perp}\pm\ii(\bu\times\bu'))\cdot\bsig.
+ \pvPi_\pm(\bu'\dotprod\bsig)\pvPi_\pm
+ &=\pm(\bu\dotprod\bu')\pvPi_\pm,\\
+ \pvPi_\pm(\bu'\dotprod\bsig)\pvPi_\mp
+ &=\tfrac12(\bu'_{\perp}\pm\ii(\bu\times\bu'))\dotprod\bsig.
 \end{align*}
-For $\pvPi_\pm'=(1\pm\bu'\cdot\bsig)/2\in\R\oplus\R^3$, all four products lie in $\R\oplus\C^3$:
+For $\pvPi_\pm'=(1\pm\bu'\dotprod\bsig)/2\in\R\oplus\R^3$, all four products lie in $\R\oplus\C^3$:
 \begin{align*}
- \pvPi_\pm\pvPi_\pm'&=\tfrac14(1+\bu\cdot\bu')
- +\tfrac14(\pm\bu\pm\bu'+\ii\bu\times\bu')\cdot\bsig,\\
- \pvPi_\pm\pvPi_\mp'&=\tfrac14(1-\bu\cdot\bu')
- +\tfrac14(\pm\bu\mp\bu'-\ii\bu\times\bu')\cdot\bsig.
+ \pvPi_\pm\pvPi_\pm'&=\tfrac14(1+\bu\dotprod\bu')
+ +\tfrac14(\pm\bu\pm\bu'+\ii\bu\times\bu')\dotprod\bsig,\\
+ \pvPi_\pm\pvPi_\mp'&=\tfrac14(1-\bu\dotprod\bu')
+ +\tfrac14(\pm\bu\mp\bu'-\ii\bu\times\bu')\dotprod\bsig.
 \end{align*}
 
 \subsection{Spectral rule}
-The decomposition $\pZ=c+\bZ\cdot\bsig$ is used, with $c\in\C$, $\bZ\in\C^3$, and
+The decomposition $\pZ=c+\bZ\dotprod\bsig$ is used, with $c\in\C$, $\bZ\in\C^3$, and
 $\bZ^2\ne0$.  The complex scalars $w,\lambda_\pm$, complex vector $\bu$, and
 projectors $\pvPi_\pm\in\R\oplus\C^3$ are defined by
 \begin{align*}
  w&:=+\sqrt{\bZ^2},& z&:=w,\\
- \bu&:=\bZ/w,& \pZ&=c+z\bu\cdot\bsig,\\
- \lambda_\pm&:=c\pm z,& \pvPi_\pm&:=\tfrac12(1\pm\bu\cdot\bsig).
+ \bu&:=\bZ/w,& \pZ&=c+z\bu\dotprod\bsig,\\
+ \lambda_\pm&:=c\pm z,& \pvPi_\pm&:=\tfrac12(1\pm\bu\dotprod\bsig).
 \end{align*}
 The root is the principal scalar root.  Thus $\bu$ is a
 \hyperref[eq:bilinear-unit-vector]{vector of square one};
-$\bu\cdot\bsig$ is \hyperref[eq:involutory-paravector]{self-inverse}.
+$\bu\dotprod\bsig$ is \hyperref[eq:involutory-paravector]{self-inverse}.
 By squaring,
 \begin{align*}
- \pvPi_\pm^2&=\tfrac14(1\pm2\bu\cdot\bsig+1)=\pvPi_\pm,\\
- \pvPi_+\pvPi_-&=\tfrac14(1-(\bu\cdot\bsig)^2)=0,\\
+ \pvPi_\pm^2&=\tfrac14(1\pm2\bu\dotprod\bsig+1)=\pvPi_\pm,\\
+ \pvPi_+\pvPi_-&=\tfrac14(1-(\bu\dotprod\bsig)^2)=0,\\
  \pvPi_++\pvPi_-&=1,\\
  \pZ&=c(\pvPi_++\pvPi_-)+w(\pvPi_+-\pvPi_-)
    =\lambda_+\pvPi_++\lambda_-\pvPi_-.
@@ -868,7 +870,7 @@ Here $w,\lambda_\pm\in\C$, $\bu\in\C^3$, and
 $\pZ,f(\pZ)\in\C\oplus\C^3$ for the analytic functions below.
 These projectors are Hermitian when $\bu$ is real; in general they need
 not be. The same formulas apply directly to any given
-$\pZ=c+z\bu\cdot\bsig$, with $c,z\in\C$ and $\bu^2=1$.
+$\pZ=c+z\bu\dotprod\bsig$, with $c,z\in\C$ and $\bu^2=1$.
 If $z=0$, $\pZ=c$ is scalar and $f(\pZ)=f(c)$.
 The complementary-projector
 identities give, for every
@@ -876,7 +878,7 @@ nonnegative integer $n$,
 \[
  \pZ^n=\lambda_+^n\pvPi_++\lambda_-^n\pvPi_-
  =\tfrac12(\lambda_+^n+\lambda_-^n)
- +\tfrac12(\lambda_+^n-\lambda_-^n)\bu\cdot\bsig.
+ +\tfrac12(\lambda_+^n-\lambda_-^n)\bu\dotprod\bsig.
 \]
 For a scalar power series $f(z)=\sum_{n=0}^\infty c_nz^n$ converging at
 both eigenvalues, with $c_n\in\C$, inserting these powers into $f(\pZ)=\sum_n c_n\pZ^n$
@@ -909,7 +911,7 @@ exchanged with them.
 \subsection{Square roots and repeated eigenvalues}
 
 \subsubsection{Real paravectors and direct square roots}
-For real $\pX=a+\bX\cdot\bsig$, with $a\in\R$, $\bX\in\R^3$, and
+For real $\pX=a+\bX\dotprod\bsig$, with $a\in\R$, $\bX\in\R^3$, and
 $\bX\ne0$, the spectral quantities above reduce to
 \[
  w=\lVert\bX\rVert,\qquad
@@ -921,19 +923,19 @@ and $\bu\in\R^3$. The projectors are now Hermitian; complex-valued
 functions or square roots may still give $f(\pX)\in\C\oplus\C^3$.  In particular, for a
 \hyperref[def:real-unit-vector]{real unit vector} $\bu$,
 \begin{align*}
- f(\bu\cdot\bsig)
+ f(\bu\dotprod\bsig)
  &=f(1)\pvPi_++f(-1)\pvPi_-\\
  &=\tfrac12(f(1)+f(-1))
-  +\tfrac12(f(1)-f(-1))\bu\cdot\bsig,\\
- \sqrt{\bu\cdot\bsig}&=\pm\pvPi_+\pm\ii\pvPi_-.
+  +\tfrac12(f(1)-f(-1))\bu\dotprod\bsig,\\
+ \sqrt{\bu\dotprod\bsig}&=\pm\pvPi_+\pm\ii\pvPi_-.
 \end{align*}
 The two root signs are independent.  For a fixed analytic branch,
 $f(\pX)\to f(a)$ as $\bX\to0$; independent root choices require the
 scalar case below.
 
 A direct component derivation also determines all \emph{real} roots.
-$\pY=b+\bY\cdot\bsig$ is taken to be real, with $b\in\R$, $\bY\in\R^3$,
-and real roots $\pX=a+\bX\cdot\bsig$ are sought such that $\pX^2=\pY$.  By equating parts,
+$\pY=b+\bY\dotprod\bsig$ is taken to be real, with $b\in\R$, $\bY\in\R^3$,
+and real roots $\pX=a+\bX\dotprod\bsig$ are sought such that $\pX^2=\pY$.  By equating parts,
 \begin{align*}
  a^2+\bX^2&=b,\\
  2a\bX&=\bY.
@@ -951,29 +953,29 @@ $b>\lVert\bY\rVert$, two when $b=\lVert\bY\rVert>0$, and none when
 $b<\lVert\bY\rVert$.
 
 If $\bY=0$, the equations instead give the scalar roots
-$\pX=\pm\sqrt b$ and the pure-vector roots $\pX=\bX\cdot\bsig$ with
+$\pX=\pm\sqrt b$ and the pure-vector roots $\pX=\bX\dotprod\bsig$ with
 $\bX^2=b$ for $b>0$.  For $b=0$ only $\pX=0$ is real; for $b<0$ there
 is no real root.
 
 \subsubsection{Coalescing eigenvalues}
-For complex $\pZ=c+\bZ\cdot\bsig$ with $\bZ^2=0$,
-$\pN=\bZ\cdot\bsig\in\{0\}\oplus\C^3$ is defined, so $\pN^2=0$.  A scalar function analytic at $c$
+For complex $\pZ=c+\bZ\dotprod\bsig$ with $\bZ^2=0$,
+$(\bZ\dotprod\bsig)^2=0$. A scalar function analytic at $c$
 has the terminating Taylor expansion~\citeat{higham-functions}{p.~4}{page=5}
 \begin{equation}
- f(\pZ)=f(c)+f'(c)\pN.
+ f(\pZ)=f(c)+f'(c)\bZ\dotprod\bsig.
  \label{eq:coalescing-function}
 \end{equation}
 For $c\ne0$, the chosen square root and logarithm are
 \begin{align*}
- \sqrt {\pZ}&=r+\frac{\pN}{2r},
+ \sqrt {\pZ}&=r+\frac{\bZ\dotprod\bsig}{2r},
  \\
- \log \pZ&=\log c+\frac{\pN}{c}.
+ \log \pZ&=\log c+\frac{\bZ\dotprod\bsig}{c}.
 \end{align*}
 Here $r\in\C$ is a chosen scalar root of $c$ ($r^2=c$); a consistent
-logarithm branch is used.  A nonzero $\pN$ with $c=0$ has no square
+logarithm branch is used.  A nonzero $\bZ\dotprod\bsig$ with $c=0$ has no square
 root: such a root would have only zero eigenvalues, and its quadratic
 identity would force its square to vanish.  It has no logarithm because
-it is not invertible.  If $\pN=0$, a fixed analytic
+it is not invertible.  If $\bZ\dotprod\bsig=0$, a fixed analytic
 branch gives $f(c)$; non-scalar square roots of a scalar must instead be
 found from the component equations $a^2+\bX^2=c$, $2a\bX=0$, now allowing
 $a\in\C$ and $\bX\in\C^3$.  Independent branch choices need not remain
@@ -987,37 +989,37 @@ obtained from the spectral rule. Algebraic functions are connected to
 geometric transformations through composition and logarithms.
 
 \subsection{Exponential: projection and series derivations}
-For complex $\pZ=c+\bZ\cdot\bsig$ with $\bZ^2\ne0$, the following notation is retained:
+For complex $\pZ=c+\bZ\dotprod\bsig$ with $\bZ^2\ne0$, the following notation is retained:
 $w=+\sqrt{\bZ^2}$, the \hyperref[eq:bilinear-unit-vector]{vector of square one}
 $\bu=\bZ/w$, and $\lambda_\pm=c\pm w$.
 The spectral rule~\eqref{eq:complex-function-projectors} gives
 \begin{align*}
  \exp(\pZ)
- &=\tfrac12e^{c+w}(1+\bu\cdot\bsig)
-  +\tfrac12e^{c-w}(1-\bu\cdot\bsig)\\
+ &=\tfrac12e^{c+w}(1+\bu\dotprod\bsig)
+  +\tfrac12e^{c-w}(1-\bu\dotprod\bsig)\\
  &=e^c\left(\frac{e^w+e^{-w}}2
-      +\frac{e^w-e^{-w}}2\bu\cdot\bsig\right).
+      +\frac{e^w-e^{-w}}2\bu\dotprod\bsig\right).
 \end{align*}
 Independently, $c$ commutes with the vector part and
-$(w\bu\cdot\bsig)^{2n}=w^{2n}$,
-$(w\bu\cdot\bsig)^{2n+1}=w^{2n+1}\bu\cdot\bsig$.  Separating the
+$(w\bu\dotprod\bsig)^{2n}=w^{2n}$,
+$(w\bu\dotprod\bsig)^{2n+1}=w^{2n+1}\bu\dotprod\bsig$.  Separating the
 defining series therefore gives
 \begin{align*}
  \exp(\pZ)&=e^c\sum_{n=0}^{\infty}
-      \frac{(w\bu\cdot\bsig)^n}{n!}\\
+      \frac{(w\bu\dotprod\bsig)^n}{n!}\\
  &=e^c\left(\sum_{n=0}^{\infty}\frac{w^{2n}}{(2n)!}
-       +\sum_{n=0}^{\infty}\frac{w^{2n+1}}{(2n+1)!}\bu\cdot\bsig\right).
+       +\sum_{n=0}^{\infty}\frac{w^{2n+1}}{(2n+1)!}\bu\dotprod\bsig\right).
 \end{align*}
 Both derivations give~\citeat{chappell-functions}{Eq.~(52)}{page=12}
 \begin{equation}
- \exp(\pZ)=e^c(\cosh w+\sinh w\,\bu\cdot\bsig).
+ \exp(\pZ)=e^c(\cosh w+\sinh w\,\bu\dotprod\bsig).
  \label{eq:paravector-exponential}
 \end{equation}
 This is independent of the choice $w$ or $-w$: $\cosh$ is even, while
 both $\sinh w$ and $\bu$ change sign.  When $\bZ^2=0$,
 \eqref{eq:coalescing-function} instead gives
 \[
- \exp(c+\bZ\cdot\bsig)=e^c(1+\bZ\cdot\bsig).
+ \exp(c+\bZ\dotprod\bsig)=e^c(1+\bZ\dotprod\bsig).
 \]
 The defining series also gives
 \begin{align*}
@@ -1026,25 +1028,25 @@ The defining series also gives
 \end{align*}
 
 For the real components $a,b,\bX,\bY$ of
-$\pZ=(a+b\ii)+(\bX+\ii\bY)\cdot\bsig$, the following form is used:
+$\pZ=(a+b\ii)+(\bX+\ii\bY)\dotprod\bsig$, the following form is used:
 \[
- w=+\sqrt{\bX^2-\bY^2+2\ii\bX\cdot\bY}.
+ w=+\sqrt{\bX^2-\bY^2+2\ii\bX\dotprod\bY}.
 \]
 Substituting $\bu=(\bX+\ii\bY)/w$ into
 \eqref{eq:paravector-exponential} gives the component form
 \begin{equation*}
  \exp(\pZ)=e^a(\cos b+\ii\sin b)
- \left(\cosh w+\frac{\sinh w}{w}(\bX+\ii\bY)\cdot\bsig\right).
+ \left(\cosh w+\frac{\sinh w}{w}(\bX+\ii\bY)\dotprod\bsig\right).
 \end{equation*}
 Its real and imaginary specializations are
 \begin{align}
- \exp(a+\bX\cdot\bsig)
+ \exp(a+\bX\dotprod\bsig)
  &=e^a\left(\cosh\lVert\bX\rVert
-  +\frac{\sinh\lVert\bX\rVert}{\lVert\bX\rVert}\bX\cdot\bsig\right),
+  +\frac{\sinh\lVert\bX\rVert}{\lVert\bX\rVert}\bX\dotprod\bsig\right),
  \label{eq:real-exponential}\\
- \exp\!\left(\ii(b+\bY\cdot\bsig)\right)
+ \exp\!\left(\ii(b+\bY\dotprod\bsig)\right)
  &=(\cos b+\ii\sin b)\left(\cos\lVert\bY\rVert
-  +\ii\frac{\sin\lVert\bY\rVert}{\lVert\bY\rVert}\bY\cdot\bsig\right).
+  +\ii\frac{\sin\lVert\bY\rVert}{\lVert\bY\rVert}\bY\dotprod\bsig\right).
  \label{eq:imaginary-exponential}
 \end{align}
 Setting $a=0$ in \eqref{eq:real-exponential} or $b=0$ in
@@ -1053,10 +1055,10 @@ Every quotient uses its analytic limit at a zero argument.
 
 \subsection{Rotation and boost factors}
 \label{sec:algebra-rotation-boost}
-For a general real exponent $a+\bX\cdot\bsig$, where $a\in\R$ and
+For a general real exponent $a+\bX\dotprod\bsig$, where $a\in\R$ and
 $\bX\in\R^3$, \eqref{eq:real-exponential} gives
 \begin{equation}
- \det\!\left(\exp(a+\bX\cdot\bsig)\right)=e^{2a}.
+ \det\!\left(\exp(a+\bX\dotprod\bsig)\right)=e^{2a}.
  \label{eq:exponential-determinant}
 \end{equation}
 Thus a real exponential has determinant one exactly when its scalar
@@ -1069,13 +1071,13 @@ $\bu^2=1$.  The two special exponentials just derived define the complex
 rotation factor $\pR\in\R\oplus\ii\R^3$ and the real boost factor
 $\pL\in\R\oplus\R^3$~\citeat{baylis2004}{Eq.~(6)}{page=4}\,\citeat{baylis-intro}{p.~23}{page=23}:
 \begin{equation}
- \pR(\theta,\bu):=\exp\!\left(-\ii\frac\theta2\bu\cdot\bsig\right)
- =\cos\frac\theta2-\ii\sin\frac\theta2\bu\cdot\bsig,
+ \pR(\theta,\bu):=\exp\!\left(-\ii\frac\theta2\bu\dotprod\bsig\right)
+ =\cos\frac\theta2-\ii\sin\frac\theta2\bu\dotprod\bsig,
  \label{eq:rotation-exponential}
 \end{equation}
 \begin{equation}
- \pL(\theta,\bu):=\exp\!\left(-\frac\theta2\bu\cdot\bsig\right)
- =\cosh\frac\theta2-\sinh\frac\theta2\bu\cdot\bsig.
+ \pL(\theta,\bu):=\exp\!\left(-\frac\theta2\bu\dotprod\bsig\right)
+ =\cosh\frac\theta2-\sinh\frac\theta2\bu\dotprod\bsig.
  \label{eq:boost-exponential}
 \end{equation}
 In \eqref{eq:rotation-exponential} and \eqref{eq:boost-exponential},
@@ -1085,14 +1087,14 @@ Their actions on a general paravector are derived in
 Section~\ref{sec:preserved-quantities}; their physical applications follow in
 Sections~\ref{sec:inertial-frames} and~\ref{sec:transformations}.
 
-Because $(\bu\cdot\bsig)^2=1$, reversing the parameter gives the
+Because $(\bu\dotprod\bsig)^2=1$, reversing the parameter gives the
 inverses
 \begin{align}
  \pR^{-1}&=\pR(-\theta,\bu)
- =\cos\frac\theta2+\ii\sin\frac\theta2\bu\cdot\bsig,
+ =\cos\frac\theta2+\ii\sin\frac\theta2\bu\dotprod\bsig,
  \notag\\
  \pL^{-1}&=\pL(-\theta,\bu)
- =\cosh\frac\theta2+\sinh\frac\theta2\bu\cdot\bsig.
+ =\cosh\frac\theta2+\sinh\frac\theta2\bu\dotprod\bsig.
  \label{eq:boost-inverse}
 \end{align}
 Sigma conjugation changes both $\ii$ and $\bsig$ in sign; Hermitian
@@ -1128,7 +1130,7 @@ unitary for nonzero $\theta$.  The half-angle gives the sign and period:
 \end{align}
 
 \paragraph{Gamma form.}
-Notation: $\pL=\exp(-\theta\bu\cdot\bsig/2)$ from
+Notation: $\pL=\exp(-\theta\bu\dotprod\bsig/2)$ from
 \eqref{eq:boost-exponential}.  Its real velocity parameter and
 Lorentz factor are defined by
 \begin{align*}
@@ -1145,13 +1147,13 @@ By the half-angle identities,
 Hence the boost factor itself is
 \begin{equation}
  \pL=\sqrt{\frac{\gamma+1}{2}}
- \left(1-\frac{\gamma\beta}{\gamma+1}\bu\cdot\bsig\right).
+ \left(1-\frac{\gamma\beta}{\gamma+1}\bu\dotprod\bsig\right).
  \label{eq:boost-gamma-form}
 \end{equation}
 Squaring doubles the exponent, so the full-rapidity paravector is
 \begin{equation}
- \pL^2=\exp(-\theta\bu\cdot\bsig)
- =\gamma(1-\beta\bu\cdot\bsig).
+ \pL^2=\exp(-\theta\bu\dotprod\bsig)
+ =\gamma(1-\beta\bu\dotprod\bsig).
  \label{eq:boost-square}
 \end{equation}
 Equation~\eqref{eq:boost-square} has prefactor $\gamma$; $\pL$ has the half-angle
@@ -1159,21 +1161,21 @@ prefactor in \eqref{eq:boost-gamma-form}.  Equivalently, for any real vector
 $\bX\ne0$, $\bv=\tanh\lVert\bX\rVert\,\bX/\lVert\bX\rVert$ and
 $\gamma=\cosh\lVert\bX\rVert$ are defined.  Then
 \[
- \exp(\bX\cdot\bsig)=\gamma(1+\bv\cdot\bsig).
+ \exp(\bX\dotprod\bsig)=\gamma(1+\bv\dotprod\bsig).
 \]
 The zero-vector case follows by continuity.  This last real paravector has
 \hyperref[eq:unit-determinant-paravector]{determinant one} and represents four-velocity in
 Section~\ref{sec:kinematics}.
 
 \subsection{Cayley transform}
-$\pY=b+\bY\cdot\bsig$ is taken to be real, with $b\in\R$, $\bY\in\R^3$, and
+$\pY=b+\bY\dotprod\bsig$ is taken to be real, with $b\in\R$, $\bY\in\R^3$, and
 $0<\lVert\bY\rVert<b$.  The \hyperref[def:real-unit-vector]{real unit vector}
 $\bu=\bY/\lVert\bY\rVert$ is used, with
-$\pvPi_\pm=(1\pm\bu\cdot\bsig)/2$.  Its sigma conjugate
-$\pY^*=b-\bY\cdot\bsig=\adj {\pY}$ commutes with $\pY$, so
+$\pvPi_\pm=(1\pm\bu\dotprod\bsig)/2$.  Its sigma conjugate
+$\pY^*=b-\bY\dotprod\bsig=\adj {\pY}$ commutes with $\pY$, so
 \[
  \frac{\pY}{\pY^*}=\frac{\pY^2}{\det(\pY)}
- =\frac{b^2+\bY^2+2b\bY\cdot\bsig}{b^2-\bY^2}.
+ =\frac{b^2+\bY^2+2b\bY\dotprod\bsig}{b^2-\bY^2}.
 \]
 The real parameter $\theta=2\tanh^{-1}(\lVert\bY\rVert/b)$ is defined.
 By the double-angle identities,
@@ -1184,9 +1186,9 @@ By the double-angle identities,
 Thus the quotient is the full-rapidity exponential
 \begin{equation}
  \begin{aligned}
- \frac{b+\bY\cdot\bsig}{b-\bY\cdot\bsig}
- &=\cosh\theta+\sinh\theta\,\bu\cdot\bsig\\
- &=\exp(\theta\bu\cdot\bsig)
+ \frac{b+\bY\dotprod\bsig}{b-\bY\dotprod\bsig}
+ &=\cosh\theta+\sinh\theta\,\bu\dotprod\bsig\\
+ &=\exp(\theta\bu\dotprod\bsig)
  =e^\theta\pvPi_++e^{-\theta}\pvPi_-.
  \end{aligned}
  \label{eq:cayley-exponential}
@@ -1206,15 +1208,15 @@ parameter.  The corresponding real Lorentz factor and velocity vector are
 \end{align*}
 They give the equivalent forms
 \[
- \exp(\bX\cdot\bsig)=\gamma(1+\bv\cdot\bsig)
- =\frac{b+\bY\cdot\bsig}{b-\bY\cdot\bsig}=\frac{\pY}{\pY^*}.
+ \exp(\bX\dotprod\bsig)=\gamma(1+\bv\dotprod\bsig)
+ =\frac{b+\bY\dotprod\bsig}{b-\bY\dotprod\bsig}=\frac{\pY}{\pY^*}.
 \]
 Choosing $b=1$ normalizes the scalar part of $\pY$ to one; $\bY=0$ follows by
 continuity.
 
 \subsection{Composing the factors}
-Notation: $\pL(\theta,\bu)=\exp(-\theta\bu\cdot\bsig/2)$ and
-$\pR(\theta,\bu)=\exp(-\ii\theta\bu\cdot\bsig/2)$ from
+Notation: $\pL(\theta,\bu)=\exp(-\theta\bu\dotprod\bsig/2)$ and
+$\pR(\theta,\bu)=\exp(-\ii\theta\bu\dotprod\bsig/2)$ from
 \eqref{eq:boost-exponential} and \eqref{eq:rotation-exponential}.
 For a fixed \hyperref[def:real-unit-vector]{real unit direction} $\bu$
 and real parameters $\theta,\theta'$, the parameters can be added
@@ -1230,9 +1232,9 @@ because the exponents commute:
 For a common axis, the following complex parameter is defined:
 $w=-(\theta+\ii\theta')/2\in\C$.  Its exponential is
 \[
- \exp(w\bu\cdot\bsig)
+ \exp(w\bu\dotprod\bsig)
  =\pL(\theta,\bu)\pR(\theta',\bu)
- =\cosh w+\sinh w\,\bu\cdot\bsig.
+ =\cosh w+\sinh w\,\bu\dotprod\bsig.
 \]
 By expansion of the complex scalar coefficients,
 \begin{align*}
@@ -1246,18 +1248,18 @@ the exponent are parallel.  For different \hyperref[def:real-unit-vector]{real u
 $\bu,\bv$, the vector product
 instead gives
 \begin{equation}
- \left[-\tfrac12\bu\cdot\bsig,-\tfrac12\bv\cdot\bsig\right]
- =\tfrac\ii2(\bu\times\bv)\cdot\bsig.
+ \left[-\tfrac12\bu\dotprod\bsig,-\tfrac12\bv\dotprod\bsig\right]
+ =\tfrac\ii2(\bu\times\bv)\dotprod\bsig.
  \label{eq:boost-generator-commutator}
 \end{equation}
 This commutator has the imaginary-vector form used in the exponent of a
 rotation; boosts along nonparallel directions cannot be interchanged.
 
 \subsection{Logarithm}
-For complex $\pZ=c+\bZ\cdot\bsig$ with $\bZ^2\ne0$, the following notation is retained:
+For complex $\pZ=c+\bZ\dotprod\bsig$ with $\bZ^2\ne0$, the following notation is retained:
 $w=+\sqrt{\bZ^2}$, the \hyperref[eq:bilinear-unit-vector]{vector of square one}
 $\bu=\bZ/w$, $\lambda_\pm=c\pm w$, and
-$\pvPi_\pm=(1\pm\bu\cdot\bsig)/2$.  Both eigenvalues are assumed to be nonzero.
+$\pvPi_\pm=(1\pm\bu\dotprod\bsig)/2$.  Both eigenvalues are assumed to be nonzero.
 For a nonzero complex scalar $\lambda$ and any integer $n$, the scalar branches are
 \[
  \log\lambda=\log\lVert\lambda\rVert+\ii(\arg\lambda+2n\pi).
@@ -1267,7 +1269,7 @@ One branch is chosen for each eigenvalue. By the spectral rule,
  \begin{aligned}
  \log \pZ&=\log(\lambda_+)\pvPi_++\log(\lambda_-)\pvPi_-\\
  &=\tfrac12\bigl(\log\lambda_++\log\lambda_-\bigr)
- +\tfrac12\bigl(\log\lambda_+-\log\lambda_-\bigr)\bu\cdot\bsig.
+ +\tfrac12\bigl(\log\lambda_+-\log\lambda_-\bigr)\bu\dotprod\bsig.
  \end{aligned}
  \label{eq:paravector-logarithm}
 \end{equation}
@@ -1279,16 +1281,16 @@ For a \hyperref[def:real-unit-vector]{real unit vector} $\bu$,
 \eqref{eq:paravector-logarithm} uses
 eigenvalues $1$ and $-1$, giving, for integers $n,m$,
 \begin{equation*}
- \log(\bu\cdot\bsig)
+ \log(\bu\dotprod\bsig)
  =2n\pi\ii\pvPi_++(2m+1)\pi\ii\pvPi_-.
 \end{equation*}
-For real $\pY=b+\bY\cdot\bsig$, with $b\in\R$, $\bY\in\R^3$, and
+For real $\pY=b+\bY\dotprod\bsig$, with $b\in\R$, $\bY\in\R^3$, and
 $b>\lVert\bY\rVert$, both eigenvalues are positive.  Combining their real
 logarithms yields
 \begin{equation*}
  \log \pY=\tfrac12\log(b^2-\bY^2)
  +\tanh^{-1}\!\left(\frac{\lVert\bY\rVert}{b}\right)
-       \frac{\bY}{\lVert\bY\rVert}\cdot\bsig.
+       \frac{\bY}{\lVert\bY\rVert}\dotprod\bsig.
 \end{equation*}
 The vector term vanishes at $\bY=0$; the general coalescing case
 was treated above.
@@ -1296,7 +1298,7 @@ was treated above.
 \section{Transformations and invariants}
 \label{sec:preserved-quantities}
 
-Here $\pZ=c+\bZ\cdot\bsig$ is a complex paravector: $c\in\C$ and
+Here $\pZ=c+\bZ\dotprod\bsig$ is a complex paravector: $c\in\C$ and
 $\bZ\in\C^3$, hence $\pZ\in\C\oplus\C^3$.
 Transformation factors $\pT,\pT'\in\C\oplus\C^3$ are constant.
 A distinction is made between the scalar part $\scpart {\pZ}=c=\tfrac12\operatorname{tr}\pZ$
@@ -1354,16 +1356,16 @@ only that the determinant equals one. It does not mean unit norm or
 Hermitian unitarity.
 
 Determinant one implies invertibility, but does not imply Hermitian unitarity.
-For comparison, a real paravector $\pX=a+\bX\cdot\bsig$
+For comparison, a real paravector $\pX=a+\bX\dotprod\bsig$
 with $a\in\R$, $\bX\in\R^3$, and $a^2-\bX^2=1$ is considered.  Then
 \[
  \pX^*\pX=\det\pX=1,\qquad
- \pX^{-1}=\pX^*=a-\bX\cdot\bsig.
+ \pX^{-1}=\pX^*=a-\bX\dotprod\bsig.
 \]
 Thus determinant one implies invertibility.  Hermitian conjugation fixes
 $\pX$, whereas sigma conjugation reverses its vector part, so
 \begin{align*}
- \pX^{\mathsf H}\pX&=\pX^2=a^2+\bX^2+2a\bX\cdot\bsig,\\
+ \pX^{\mathsf H}\pX&=\pX^2=a^2+\bX^2+2a\bX\dotprod\bsig,\\
  \lVert\pX\rVert^2&=a^2+\bX^2=1+2\bX^2.
 \end{align*}
 Both equal $1$ only when $\bX=0$, in which case $\pX=\pm1$.
@@ -1374,7 +1376,7 @@ letter used for the paravector.
 
 \subsection{Real paravectors and the Lorentz metric}
 
-$\pX=a+\bX\cdot\bsig$ is taken to be real, with $a\in\R$ and
+$\pX=a+\bX\dotprod\bsig$ is taken to be real, with $a\in\R$ and
 $\bX\in\R^3$.  The determinant and squared norm give different quadratic forms:
 \begin{align*}
  \det \pX&=a^2-\bX^2,\\
@@ -1395,10 +1397,10 @@ Hermitian conjugation and determinant multiplication give
  \pX'^{\mathsf H}&=\pT \pX^{\mathsf H}\pT^{\mathsf H}=\pX',\\
  \det \pX'&=\det(\pT)\det(\pX)\det \pT^{\mathsf H}=\det(\pX).
 \end{align*}
-For a second real paravector $\pY=b+\bY\cdot\bsig$, with $b\in\R$
+For a second real paravector $\pY=b+\bY\dotprod\bsig$, with $b\in\R$
 and $\bY\in\R^3$, the associated metric pairing is~\citeat{baylis2004}{Eq.~(15)}{page=6}
 \begin{equation}
- \scpart{\pX^*\pY}=ab-\bX\cdot\bY
+ \scpart{\pX^*\pY}=ab-\bX\dotprod\bY
  =\tfrac12\bigl(\det(\pX+\pY)-\det(\pX)-\det(\pY)\bigr).
  \label{eq:lorentz-pairing}
 \end{equation}
@@ -1416,7 +1418,7 @@ preserving that cone; $\pT$ and $-\pT$ give the same map.
 
 \paragraph{Why the scalar exponent vanishes.}
 More generally, the congruence multiplies $\det(\pX)$ by
-$\lVert\det(\pT)\rVert^2$.  For real $\pT=\exp(a+\bX\cdot\bsig)$,
+$\lVert\det(\pT)\rVert^2$.  For real $\pT=\exp(a+\bX\dotprod\bsig)$,
 \eqref{eq:exponential-determinant} therefore gives
 \[
  \det(\pT \pX \pT^{\mathsf H})=e^{4a}\det(\pX).
@@ -1428,10 +1430,10 @@ Requiring $\det \pT=1$ removes this continuous phase freedom.
 Thus a pure boost needs only a real vector exponent.
 
 \paragraph{Why the squared norm is different.}
-For $\pL=\exp(-\theta\bu\cdot\bsig/2)$, with real $\theta$ and real unit
+For $\pL=\exp(-\theta\bu\dotprod\bsig/2)$, with real $\theta$ and real unit
 $\bu$, applying \eqref{eq:general-lorentz-congruence} to $\pX=1$ gives
 \begin{align*}
- \pX'&=\pL^2=\cosh\theta-\sinh\theta\bu\cdot\bsig,\\
+ \pX'&=\pL^2=\cosh\theta-\sinh\theta\bu\dotprod\bsig,\\
  \det \pX'&=1,\\
  \scpart{\pX'}&=\cosh\theta,\\
  \lVert \pX'\rVert^2&=\cosh(2\theta).
@@ -1474,7 +1476,7 @@ The real logarithm of $\pL$ has zero scalar part by
 \eqref{eq:exponential-determinant}, so $\pL$ is a real vector exponential.
 For $\pR$, the identity $\pR^{\mathsf H}=\pR^{-1}=\adj {\pR}$ makes its scalar
 coefficient real and its vector coefficient imaginary; determinant one
-then gives $\pR=\cos(\theta/2)-\ii\sin(\theta/2)\bu\cdot\bsig$
+then gives $\pR=\cos(\theta/2)-\ii\sin(\theta/2)\bu\dotprod\bsig$
 for some real $\theta$ and real unit $\bu$.
 Consequently,
 \[
@@ -1488,10 +1490,10 @@ The rotation is followed by the boost. Their component actions follow next.
 \label{sec:algebra-rotation-action}
 
 Notation: the unitary factor
-$\pR=\exp(-\ii\theta\bu\cdot\bsig/2)$ from
+$\pR=\exp(-\ii\theta\bu\dotprod\bsig/2)$ from
 \eqref{eq:rotation-exponential}, with real angle $\theta$ and
 \hyperref[def:real-unit-vector]{real unit axis} $\bu$.
-For the complex paravector $\pZ=c+\bZ\cdot\bsig$, the following Hermitian congruence is used~\citeat{baylis2004}{Eq.~(5)}{page=4}
+For the complex paravector $\pZ=c+\bZ\dotprod\bsig$, the following Hermitian congruence is used~\citeat{baylis2004}{Eq.~(5)}{page=4}
 \begin{equation}
  \boxed{\pZ'=\pR \pZ \pR^{\mathsf H}.}
  \label{eq:rotation-action}
@@ -1500,24 +1502,24 @@ Since $\pR^{\mathsf H}=\pR^{-1}$ by \eqref{eq:rotation-H}, this keeps $c'=c$.
 The vector product
 \eqref{eq:vector-product} gives
 \begin{align*}
- (\bu\cdot\bsig)(\bZ\cdot\bsig)(\bu\cdot\bsig)
- &=2(\bu\cdot\bZ)\bu\cdot\bsig-\bZ\cdot\bsig,\\
- [\bZ\cdot\bsig,\bu\cdot\bsig]
- &=-2\ii(\bu\times\bZ)\cdot\bsig.
+ (\bu\dotprod\bsig)(\bZ\dotprod\bsig)(\bu\dotprod\bsig)
+ &=2(\bu\dotprod\bZ)\bu\dotprod\bsig-\bZ\dotprod\bsig,\\
+ [\bZ\dotprod\bsig,\bu\dotprod\bsig]
+ &=-2\ii(\bu\times\bZ)\dotprod\bsig.
 \end{align*}
 Inserting the sine and cosine forms of $\pR$ and $\pR^{\mathsf H}$ therefore yields
 \begin{align*}
- \bZ'\cdot\bsig
- &={}\cos^2\frac\theta2\,\bZ\cdot\bsig
+ \bZ'\dotprod\bsig
+ &={}\cos^2\frac\theta2\,\bZ\dotprod\bsig
  +2\sin\frac\theta2\cos\frac\theta2
-       (\bu\times\bZ)\cdot\bsig\\
+       (\bu\times\bZ)\dotprod\bsig\\
  &\quad+\sin^2\frac\theta2
- \left(2(\bu\cdot\bZ)\bu\cdot\bsig-\bZ\cdot\bsig\right).
+ \left(2(\bu\dotprod\bZ)\bu\dotprod\bsig-\bZ\dotprod\bsig\right).
 \end{align*}
 Rodrigues' formula is obtained by collecting terms~\citeat{baylis-intro}{p.~14}{page=14}:
 \begin{equation}
  \boxed{\bZ'=\bZ\cos\theta+(\bu\times\bZ)\sin\theta
- +(\bu\cdot\bZ)(1-\cos\theta)\bu.}
+ +(\bu\dotprod\bZ)(1-\cos\theta)\bu.}
  \label{eq:rodrigues}
 \end{equation}
 This is the active right-handed rotation through $+\theta$ about $\bu$.
@@ -1544,19 +1546,19 @@ Here $\ii$ remains the commuting complex scalar.
 
 For $a\in\R$ and $\bQ\in\R^3$, the quaternion representation is~\citeat{baylis-applications}{p.~92}{page=103}
 \begin{equation}
- \boxed{\pQ:=a+\bQ\cdot(-\ii\bsig)=a-\ii\bQ\cdot\bsig.}
+ \boxed{\pQ:=a+\bQ\dotprod(-\ii\bsig)=a-\ii\bQ\dotprod\bsig.}
  \label{eq:quaternion-paravector}
 \end{equation}
-Here $\bQ\cdot(-\ii\bsig)=Q_1(-\ii\pvsigma_1)+Q_2(-\ii\pvsigma_2)+Q_3(-\ii\pvsigma_3)$.
-In the decomposition $\pZ=(a+b\ii)+(\bX+\ii\bY)\cdot\bsig$,
+Here $\bQ\dotprod(-\ii\bsig)=Q_1(-\ii\pvsigma_1)+Q_2(-\ii\pvsigma_2)+Q_3(-\ii\pvsigma_3)$.
+In the decomposition $\pZ=(a+b\ii)+(\bX+\ii\bY)\dotprod\bsig$,
 $b=0$, $\bX=0$, and $\bY=-\bQ$ are selected.
 Thus $\pQ,\pQ'\in\R\oplus\ii\R^3$: a real scalar coefficient and purely
 imaginary vector coefficients. This four-real-component form is
 preserved under addition and multiplication.
-Indeed, for $\pQ'=a'+\bQ'\cdot(-\ii\bsig)$, the paravector product becomes~\citeat{lounesto-intro}{p.~9}{page=22}
+Indeed, for $\pQ'=a'+\bQ'\dotprod(-\ii\bsig)$, the paravector product becomes~\citeat{lounesto-intro}{p.~9}{page=22}
 \begin{equation}
- \pQ \pQ'=(aa'-\bQ\cdot\bQ')
- +(a\bQ'+a'\bQ+\bQ\times\bQ')\cdot(-\ii\bsig).
+ \pQ \pQ'=(aa'-\bQ\dotprod\bQ')
+ +(a\bQ'+a'\bQ+\bQ\times\bQ')\dotprod(-\ii\bsig).
  \label{eq:quaternion-product}
 \end{equation}
 
@@ -1564,8 +1566,8 @@ Since $(-\ii\pvsigma_k)^{\mathsf H}=-(-\ii\pvsigma_k)$ and
 $(-\ii\pvsigma_k)^*=(-\ii\pvsigma_k)$, quaternion conjugation
 is the existing Hermitian conjugation:
 \begin{align}
- \pQ^{\mathsf H}&=a-\bQ\cdot(-\ii\bsig)
- =a+\ii\bQ\cdot\bsig,\notag\\
+ \pQ^{\mathsf H}&=a-\bQ\dotprod(-\ii\bsig)
+ =a+\ii\bQ\dotprod\bsig,\notag\\
  \pQ^*&=\pQ,\qquad \operatorname{adj} \pQ=\pQ^{\mathsf H},\notag\\
  \pQ \pQ^{\mathsf H}&=\pQ^{\mathsf H}\pQ=a^2+\bQ^2
  =\det \pQ=\lVert \pQ\rVert^2.
@@ -1584,22 +1586,22 @@ which, with $\lVert\bQ\rVert^2=\bQ^2$ for real $\bQ$, gives
 Thus a unit quaternion has $\pQ^{-1}=\pQ^{\mathsf H}$.
 
 For rotation, $\br\in\R^3$ is represented by the pure quaternion
-$\br\cdot(-\ii\bsig)=-\ii\br\cdot\bsig$.
-For a unit quaternion $\pQ=a+\bQ\cdot(-\ii\bsig)$, the quaternion sandwich is used:
+$\br\dotprod(-\ii\bsig)=-\ii\br\dotprod\bsig$.
+For a unit quaternion $\pQ=a+\bQ\dotprod(-\ii\bsig)$, the quaternion sandwich is used:
 \begin{equation}
- \br'\cdot(-\ii\bsig)=\pQ(\br\cdot(-\ii\bsig))\pQ^{\mathsf H},
+ \br'\dotprod(-\ii\bsig)=\pQ(\br\dotprod(-\ii\bsig))\pQ^{\mathsf H},
  \qquad
- \br'\cdot\bsig=\pQ(\br\cdot\bsig)\pQ^{\mathsf H}.
+ \br'\dotprod\bsig=\pQ(\br\dotprod\bsig)\pQ^{\mathsf H}.
  \label{eq:quaternion-rotation}
 \end{equation}
 The two forms agree because $-\ii$ commutes with every paravector.
 Applying \eqref{eq:quaternion-product} twice gives
 \begin{align*}
- \pQ(\br\cdot(-\ii\bsig))
- &=-\bQ\cdot\br+(a\br+\bQ\times\br)\cdot(-\ii\bsig),\\
- \pQ(\br\cdot(-\ii\bsig))\pQ^{\mathsf H}
- &=\bigl((a^2-\bQ^2)\br+2(\bQ\cdot\br)\bQ
-          +2a\bQ\times\br\bigr)\cdot(-\ii\bsig).
+ \pQ(\br\dotprod(-\ii\bsig))
+ &=-\bQ\dotprod\br+(a\br+\bQ\times\br)\dotprod(-\ii\bsig),\\
+ \pQ(\br\dotprod(-\ii\bsig))\pQ^{\mathsf H}
+ &=\bigl((a^2-\bQ^2)\br+2(\bQ\dotprod\br)\bQ
+          +2a\bQ\times\br\bigr)\dotprod(-\ii\bsig).
 \end{align*}
 The scalar part cancels. For a unit quaternion with $\bQ\ne0$, its
 real unit axis $\bu$ and rotation angle $\theta$ satisfy
@@ -1609,25 +1611,25 @@ real unit axis $\bu$ and rotation angle $\theta$ satisfy
 \]
 Thus the quaternion is the rotation factor
 \[
- \pQ=\cos\frac\theta2-\ii\bu\cdot\bsig\sin\frac\theta2=\pR.
+ \pQ=\cos\frac\theta2-\ii\bu\dotprod\bsig\sin\frac\theta2=\pR.
 \]
 Then $a^2-\bQ^2=\cos\theta$,
 $2a\bQ=\bu\sin\theta$, and
-$2(\bQ\cdot\br)\bQ=(1-\cos\theta)(\bu\cdot\br)\bu$.
+$2(\bQ\dotprod\br)\bQ=(1-\cos\theta)(\bu\dotprod\br)\bu$.
 Consequently \eqref{eq:quaternion-rotation} recovers
 \[
  \boxed{\br'=\br\cos\theta+(\bu\times\br)\sin\theta
-       +(\bu\cdot\br)(1-\cos\theta)\bu.}
+       +(\bu\dotprod\br)(1-\cos\theta)\bu.}
 \]
 This is precisely Rodrigues' formula~\eqref{eq:rodrigues} for
 $\bZ=\br$.  Thus $\pR=\pQ$, and the quaternion sandwich is exactly
-$\pR(\br\cdot\bsig)\pR^{\mathsf H}$ from \eqref{eq:rotation-action}.
-The reversed sandwich $\pQ^{\mathsf H}(\br\cdot\bsig)\pQ$ gives the inverse rotation.
+$\pR(\br\dotprod\bsig)\pR^{\mathsf H}$ from \eqref{eq:rotation-action}.
+The reversed sandwich $\pQ^{\mathsf H}(\br\dotprod\bsig)\pQ$ gives the inverse rotation.
 
 \subsection{Boost action and its sign convention}
 \label{sec:algebra-boost-action}
 
-Notation: $\pL=\exp(-\theta\bu\cdot\bsig/2)$ from
+Notation: $\pL=\exp(-\theta\bu\dotprod\bsig/2)$ from
 \eqref{eq:boost-exponential}; $\theta\in\R$, $\bu\in\R^3$, $\bu^2=1$,
 $\beta=\tanh\theta$, and $\gamma=\cosh\theta$.
 The same congruence is used with $\pT=\pL$ and $\pL^{\mathsf H}=\pL$ from \eqref{eq:boost-H}~\citeat{baylis-intro}{Eq.~(24)}{page=20}:
@@ -1635,26 +1637,26 @@ The same congruence is used with $\pT=\pL$ and $\pL^{\mathsf H}=\pL$ from \eqref
  \boxed{\pZ'=\pL \pZ \pL.}
  \label{eq:boost-action}
 \end{equation}
-The paravector $\pZ=c+\bZ\cdot\bsig\in\C\oplus\C^3$ may be complex;
+The paravector $\pZ=c+\bZ\dotprod\bsig\in\C\oplus\C^3$ may be complex;
 the congruence also preserves its real subspace.
 $\bZ\in\C^3$ is resolved into parallel and perpendicular parts in $\C^3$:
 \begin{align*}
- \bZ_{\parallel}&:=(\bu\cdot\bZ)\bu,\\
+ \bZ_{\parallel}&:=(\bu\dotprod\bZ)\bu,\\
  \bZ_{\perp}&:=\bZ-\bZ_{\parallel}.
 \end{align*}
-The parallel term commutes with $\bu\cdot\bsig$; the perpendicular term
+The parallel term commutes with $\bu\dotprod\bsig$; the perpendicular term
 anticommutes with it.  Consequently,
 \begin{align*}
- \pL(c+\bZ_{\parallel}\cdot\bsig)\pL
- &=(c+\bZ_{\parallel}\cdot\bsig)\pL^2,\\
- \pL(\bZ_{\perp}\cdot\bsig)\pL
- &=\bZ_{\perp}\cdot\bsig.
+ \pL(c+\bZ_{\parallel}\dotprod\bsig)\pL
+ &=(c+\bZ_{\parallel}\dotprod\bsig)\pL^2,\\
+ \pL(\bZ_{\perp}\dotprod\bsig)\pL
+ &=\bZ_{\perp}\dotprod\bsig.
 \end{align*}
 \Needspace{7\baselineskip}
-Using $\pL^2=\gamma(1-\beta\bu\cdot\bsig)$ from
+Using $\pL^2=\gamma(1-\beta\bu\dotprod\bsig)$ from
 \eqref{eq:boost-square}, multiplication gives~\citeat{tong-em}{Eq.~(5.1)}{page=104}
 \begin{equation}
- \boxed{c'=\gamma(c-\beta\bu\cdot\bZ),}
+ \boxed{c'=\gamma(c-\beta\bu\dotprod\bZ),}
  \label{eq:boost-scalar-component}
 \end{equation}
 \begin{equation}
@@ -1663,24 +1665,26 @@ Using $\pL^2=\gamma(1-\beta\bu\cdot\bsig)$ from
 \end{equation}
 The equivalent longitudinal combinations expose the invariant directly:
 \begin{equation}
- c'\pm\bu\cdot\bZ'=e^{\mp\theta}(c\pm\bu\cdot\bZ).
+ c'\pm\bu\dotprod\bZ'=e^{\mp\theta}(c\pm\bu\dotprod\bZ).
  \label{eq:boost-null-components}
 \end{equation}
-Their product is $c^2-(\bu\cdot\bZ)^2$; the transverse part is unchanged.
+Their product is $c^2-(\bu\dotprod\bZ)^2$; the transverse part is unchanged.
 Thus \eqref{eq:boost-null-components} preserves $c^2-\bZ^2$ and, for real
 $\pZ$, the null cone $c^2-\bZ^2=0$.
 
 The inverse map is $\pZ=\pL^{-1}\pZ'\pL^{-1}$, obtained by reversing $\theta$.
-Generally $\pL \pX\ne \pX \pL$: the scalar and parallel parts commute with $\pL$,
+Generally $\pL \pZ\ne \pZ \pL$: the scalar and parallel parts commute with $\pL$,
 while a nonzero perpendicular part does not for a nonzero boost.
-For example, with $\bu\cdot\bsig=\pvsigma_3$ and $\pX=\pvsigma_1$,
+For any transverse vector $\bZ_\perp$ with $\bu\dotprod\bZ_\perp=0$,
 \[
- \pL \pX=\cosh(\theta/2)\pvsigma_1-\ii\sinh(\theta/2)\pvsigma_2,
- \qquad \pL \pX \pL=\pvsigma_1.
+ \pL(\bZ_\perp\dotprod\bsig)
+ =(\bZ_\perp\dotprod\bsig)\pL^{-1},\qquad
+ \pL(\bZ_\perp\dotprod\bsig)\pL=\bZ_\perp\dotprod\bsig.
 \]
-The second factor cancels the imaginary transverse term.  Defining a
-full-rapidity factor cannot make a single left product boost every real $\pX$;
-it would merely replace the two factors by their square roots.
+Thus the two-sided action leaves every transverse component unchanged.
+For real inputs, the right factor cancels the imaginary transverse term
+introduced by the left factor. A single left factor, even at full rapidity,
+cannot represent the boost of every real paravector.
 
 \paragraph{Similarity action of the boost factor.}
 For $\pZ'=\pL \pZ \pL^{-1}$, the same commutation rules give $c'=c$ and
@@ -1695,12 +1699,12 @@ as the congruence does in
 \eqref{eq:boost-scalar-component}--\eqref{eq:boost-vector-component}.
 In particular, similarity preserves the scalar-free subspace;
 a nonzero boost congruence gives a nonzero scalar part to
-$\pZ=z\bu\cdot\bsig$ for any nonzero $z\in\C$.
+$\pZ=z\bu\dotprod\bsig$ for any nonzero $z\in\C$.
 
 \section{Space--time kinematics}
 \label{sec:kinematics}
 
-In an inertial frame, an event is $\pX=t+\br\cdot\bsig\in\R\oplus\R^3$.
+In an inertial frame, an event is $\pX=t+\br\dotprod\bsig\in\R\oplus\R^3$.
 A massive particle is described by a future-directed time-like path $\br(t)$,
 with coordinate velocity $\bv=\dot\br$ and $\bv^2<1$.
 Coordinate time is denoted by $t$; the carried clock's proper time is
@@ -1713,7 +1717,7 @@ even when a path is parametrized by $s$.
 
 The displacement and its Minkowski interval are~\citeat{baylis-intro}{Eq.~(7)}{page=8}
 \begin{align}
- \dd\pX&=\dd t+\dd\br\cdot\bsig,\notag\\
+ \dd\pX&=\dd t+\dd\br\dotprod\bsig,\notag\\
  \det(\dd\pX)&=\dd\pX\,\dd\pX^*=\dd t^2-\dd\br^2.
  \label{eq:interval}
 \end{align}
@@ -1731,13 +1735,13 @@ For a rotation, $\pX'=\pR\pX\pR^{\mathsf H}$ leaves $t'=t$ and
 acts on $\br$ by Rodrigues' formula~\eqref{eq:rodrigues}.
 For real displacements, the product also gives
 \begin{align*}
- [\dd \pX,\dd \pX']&=2\ii(\dd\br\times\dd\br')\cdot\bsig,\\
+ [\dd \pX,\dd \pX']&=2\ii(\dd\br\times\dd\br')\dotprod\bsig,\\
  (\dd \pX)^{-1}&=\frac{\dd \pX^*}{\det(\dd\pX)},\quad\mathrm{if}\quad\det(\dd\pX)\ne0.
 \end{align*}
 A null interval has no inverse.
 
 \paragraph{Light cones.}
-For a finite real event separation $\Delta \pX=\Delta t+\Delta\br\cdot\bsig$,
+For a finite real event separation $\Delta \pX=\Delta t+\Delta\br\dotprod\bsig$,
 the eigenvalues are $\Delta t\pm\lVert\Delta\br\rVert$.
 Both are nonnegative precisely in the future causal cone:
 \begin{equation}
@@ -1747,7 +1751,7 @@ Both are nonnegative precisely in the future causal cone:
 The future null boundary has $\det(\Delta \pX)=0$ and $\Delta t\ge0$; for a
 \hyperref[def:real-unit-vector]{real unit vector} $\bu$, its nonzero future rays are
 \[
- \Delta \pX=\Delta t(1+\bu\cdot\bsig),
+ \Delta \pX=\Delta t(1+\bu\dotprod\bsig),
  \qquad \Delta t>0,\quad\bu^2=1.
 \]
 The Hermitian congruence~\eqref{eq:general-lorentz-congruence} preserves
@@ -1809,7 +1813,7 @@ Between coordinate times $t_0$ and $t$ the clock records~\citeat{tong-relativity
  \label{eq:elapsed-proper-time}
 \end{equation}
 Fixed, time-like separated events are denoted by $\pX_0=\pX(s_0)$ and $\pX_1=\pX(s_1)$, with $\pX_1$ to the future of $\pX_0$.
-The decomposition $\pX_k=t_k+\br_k\cdot\bsig$ is used for $k=0,1$.
+The decomposition $\pX_k=t_k+\br_k\dotprod\bsig$ is used for $k=0,1$.
 In their separation's rest frame, $\br_1=\br_0$ and
 $t_1-t_0=\sqrt{\det(\pX_1-\pX_0)}$.  Since $\sqrt{1-\bv^2}\le1$,
 \eqref{eq:elapsed-proper-time} gives~\citeat{tong-em}{p.~122}{page=130}
@@ -1838,28 +1842,28 @@ while $T$ is recorded by the clock at rest.  This is the twin-clock comparison
 The real four-velocity is the proper-time tangent~\citeat{baylis-intro}{Eq.~(8)}{page=8}:
 \begin{equation}
  \pU:=\frac{\dd\pX}{\dd s}
- =\frac{\dd t}{\dd s}\left(1+\dot{\br}\cdot\bsig\right)
- =\gamma\left(1+\bv\cdot\bsig\right).
+ =\frac{\dd t}{\dd s}\left(1+\dot{\br}\dotprod\bsig\right)
+ =\gamma\left(1+\bv\dotprod\bsig\right).
  \label{eq:proper-velocity}
 \end{equation}
 Its normalization and conjugates are
 \begin{equation}
  \pU^*\pU=\det\pU=\frac{\det(\dd\pX)}{\dd s^2}=1,
  \qquad \pU^{\mathsf H}=\pU,\qquad
- \pU^{-1}=\pU^*=\gamma\left(1-\bv\cdot\bsig\right).
+ \pU^{-1}=\pU^*=\gamma\left(1-\bv\dotprod\bsig\right).
  \label{eq:proper-velocity-star-normalization}
 \end{equation}
 Determinant one is distinct from Hermitian unitarity:
 \[
  \pU^{\mathsf H}\pU=\pU^2
- =2\gamma^2-1+2\gamma^2\bv\cdot\bsig,\qquad
+ =2\gamma^2-1+2\gamma^2\bv\dotprod\bsig,\qquad
  \lVert\pU\rVert^2=2\gamma^2-1.
 \]
 Both equal $1$ only at rest. Thus four-velocity has determinant one in
 every inertial frame but is Hermitian unitary only in its rest frame.
 For a \hyperref[def:real-unit-vector]{real unit direction} $\bu$, $\bv=\beta\bu$ and
 $\theta=\tanh^{-1}\beta$ are used.  Equation~\eqref{eq:boost-square} gives $\pU=\pL^{-2}$ for
-$\pL=\exp(-\theta\bu\cdot\bsig/2)$: the direct boost $\pL \pU \pL=1$
+$\pL=\exp(-\theta\bu\dotprod\bsig/2)$: the direct boost $\pL \pU \pL=1$
 takes this tangent to rest.
 
 \paragraph{Integrating four-velocity.}
@@ -1881,8 +1885,8 @@ For a fixed real unit vector $\bu$, the signed velocity along the axis
 is $\beta=\tanh\theta$, with $\bv=\beta\bu$ and $\gamma=\cosh\theta$.
 The four-velocity and longitudinal rest direction are represented by
 \[
- \pU=\cosh\theta+\sinh\theta\bu\cdot\bsig,\qquad
- \pN=\sinh\theta+\cosh\theta\bu\cdot\bsig.
+ \pU=\cosh\theta+\sinh\theta\bu\dotprod\bsig,\qquad
+ \pN=\sinh\theta+\cosh\theta\bu\dotprod\bsig.
 \]
 Here $\det\pU=1$, $\det\pN=-1$, and $\scpart{\pU^*\pN}=0$.
 The pair is an orthonormal time and spatial basis in the plane of motion.
@@ -1895,12 +1899,12 @@ Subscript $0$ denotes the initial event $t=s=0$.
 For $\bv(t)=\bv_0$, $\bv_0^2<1$, and $\br(0)=\br_0$,
 \[
  \gamma_0=\frac{1}{\sqrt{1-\bv_0^2}},\qquad
- \pX(t)=t+\left(\br_0+\bv_0t\right)\cdot\bsig.
+ \pX(t)=t+\left(\br_0+\bv_0t\right)\dotprod\bsig.
 \]
 With $s(0)=0$, the clock integral gives $s=t/\gamma_0$. Hence
 \begin{equation}
- \pX(s)=\br_0\cdot\bsig+s\pU_0,\qquad
- \pU_0=\gamma_0\left(1+\bv_0\cdot\bsig\right).
+ \pX(s)=\br_0\dotprod\bsig+s\pU_0,\qquad
+ \pU_0=\gamma_0\left(1+\bv_0\dotprod\bsig\right).
  \label{eq:constant-velocity-worldline}
 \end{equation}
 This straight time-like worldline has $\dot{\bv}=0$ and
@@ -1923,22 +1927,22 @@ coordinate times. Dots continue to denote total $t$ derivatives.
 \subsection{Coordinates, intervals, and light cones}
 \label{sec:boosts}
 
-Notation: $\pL=\exp(-\theta\bu\cdot\bsig/2)$, with real rapidity $\theta$,
+Notation: $\pL=\exp(-\theta\bu\dotprod\bsig/2)$, with real rapidity $\theta$,
 \hyperref[def:real-unit-vector]{real unit vector} $\bu$, $\beta=\tanh\theta$, and $\gamma=\cosh\theta$.
 Here $\gamma$ is the factor for frame velocity $\beta\bu$.
 The gamma form~\eqref{eq:boost-gamma-form} and its square
 \eqref{eq:boost-square} are the same exponential at half and full rapidity.
-For real $\pX=t+\br\cdot\bsig$, coincident inertial origins are chosen at
+For real $\pX=t+\br\dotprod\bsig$, coincident inertial origins are chosen at
 $t=t'=0$.  Equation~\eqref{eq:general-lorentz-congruence} with $\pT=\pL$
 gives $\pX'=\pL \pX \pL$: the primed frame moves at $+\beta\bu$.
 Equations~\eqref{eq:boost-scalar-component}--\eqref{eq:boost-vector-component}
 become~\citeat{tong-em}{Eq.~(5.1)}{page=104}
 \begin{align}
- t'&=\gamma(t-\beta\bu\cdot\br), \label{eq:lorentz-time}\\
+ t'&=\gamma(t-\beta\bu\dotprod\br), \label{eq:lorentz-time}\\
  \br'&=\br_{\perp}+\gamma(\br_{\parallel}-\beta t\bu),
  \label{eq:lorentz-position}
 \end{align}
-where $\br_{\parallel}=(\bu\cdot\br)\bu$ and
+where $\br_{\parallel}=(\bu\dotprod\br)\bu$ and
 $\br_{\perp}=\br-\br_{\parallel}$.
 In particular, $\br=\beta t\bu$ maps to $\br'=0$, fixing the physical
 meaning of the sign.  Reversing $\theta$ as in \eqref{eq:boost-inverse}
@@ -1946,14 +1950,14 @@ gives $\pX=\pL^{-1}\pX'\pL^{-1}$.
 
 Specializing \eqref{eq:boost-null-components} to the real event $\pX$ gives~\citeat{tong-relativity}{p.~154}{page=160}
 \begin{equation}
- t'\pm\bu\cdot\br'=e^{\mp\theta}(t\pm\bu\cdot\br).
+ t'\pm\bu\dotprod\br'=e^{\mp\theta}(t\pm\bu\dotprod\br).
  \label{eq:boost-null-coordinates}
 \end{equation}
 Multiplying the two signs in \eqref{eq:boost-null-coordinates} and using
 $\br'_{\perp}=\br_{\perp}$ gives
 \begin{equation*}
  t'^2-\br'^2
- =(t'+\bu\cdot\br')(t'-\bu\cdot\br')-\br_{\perp}'^2
+ =(t'+\bu\dotprod\br')(t'-\bu\dotprod\br')-\br_{\perp}'^2
  =t^2-\br^2.
 \end{equation*}
 Thus the exponential stretches one light-cone coordinate and compresses
@@ -1966,7 +1970,7 @@ in particular,
 \end{equation}
 Equation~\eqref{eq:boost-interval} preserves the interval~\eqref{eq:interval}
 and light cones in every direction.  Future causal increments stay future
-because $\dd t'=\gamma(\dd t-\beta\bu\cdot\dd\br)>0$ when
+because $\dd t'=\gamma(\dd t-\beta\bu\dotprod\dd\br)>0$ when
 $\dd t>0$ and $\dd t\geq\lVert\dd\br\rVert$
 \citeat{tong-relativity}{p.~118}{page=124}.
 
@@ -2002,22 +2006,22 @@ along a real world line $\pX(s)$.  For constant $\pL$, differentiation gives
  \label{eq:boost-worldline-step}
 \end{equation}
 Because $\dd s$ is invariant, $\pU'=\pL \pU \pL$.  At a point where
-$\pU=\pL^{-2}=\gamma(1+\beta\bu\cdot\bsig)$, this gives $\pU'=1$ and
+$\pU=\pL^{-2}=\gamma(1+\beta\bu\dotprod\bsig)$, this gives $\pU'=1$ and
 $\dd \pX'=\dd s$: the boost takes the particle's instantaneous tangent
 to rest.  For varying velocity, a different $\pL$ is needed at each point;
 Section~\ref{sec:varying-transformations} supplies its derivative terms.
 
 The particle velocity $\bv=\dot{\br}$ is resolved along
 $\bu$.  Dividing the spatial increment by
-$\dd t'=\gamma(1-\beta\bu\cdot\bv)\dd t$ gives~\citeat{tong-relativity}{Eq.~(7.22)}{page=141}
+$\dd t'=\gamma(1-\beta\bu\dotprod\bv)\dd t$ gives~\citeat{tong-relativity}{Eq.~(7.22)}{page=141}
 \begin{equation}
  \boxed{\bv'=\frac{\bv_{\perp}/\gamma+\bv_{\parallel}-\beta\bu}
-                       {1-\beta\bu\cdot\bv}.}
+                       {1-\beta\bu\dotprod\bv}.}
  \label{eq:velocity-boost}
 \end{equation}
 By interval invariance,
 \begin{equation}
- 1-\bv'^2=\frac{1-\bv^2}{\gamma^2(1-\beta\bu\cdot\bv)^2}.
+ 1-\bv'^2=\frac{1-\bv^2}{\gamma^2(1-\beta\bu\dotprod\bv)^2}.
  \label{eq:velocity-causal-bound}
 \end{equation}
 Thus \eqref{eq:velocity-boost} preserves subluminal motion and light speed.
@@ -2037,7 +2041,7 @@ Here $\dd t'=\dd s$; finite elapsed time follows from
 For a rod at rest in the unprimed frame, the fixed endpoint separation is
 denoted by $\Delta\br\in\R^3$.  A simultaneous measurement in the primed
 frame requires $\Delta t'=0$, so
-$\Delta t=\beta\bu\cdot\Delta\br$.  Substituting in
+$\Delta t=\beta\bu\dotprod\Delta\br$.  Substituting in
 \eqref{eq:lorentz-position} gives~\citeat{tong-relativity}{p.~123}{page=129}
 \begin{equation}
  \Delta\br'_{\parallel}=\Delta\br_{\parallel}/\gamma.
@@ -2052,7 +2056,7 @@ The transverse separation stays unchanged; thus a rod of any orientation has
 Longitudinal contraction~\eqref{eq:length-contraction} therefore compares
 endpoint events at equal primed times.
 Equal unprimed times instead give
-$\Delta t'=-\gamma\beta\bu\cdot\Delta\br$; simultaneity is frame-dependent.
+$\Delta t'=-\gamma\beta\bu\dotprod\Delta\br$; simultaneity is frame-dependent.
 The reciprocal statement follows by exchanging primes and reversing $\beta$.
 
 \subsection{Composing frames}
@@ -2081,7 +2085,7 @@ Noncollinear boosts instead have the rotation commutator
 
 For constant invariant mass $m>0$, the real four-momentum $\pP\in\R\oplus\R^3$ is defined by~\citeat{tong-relativity}{Eq.~(7.24)}{page=142}
 \begin{equation}
- \pP:=m\pU=E+\bp\cdot\bsig.
+ \pP:=m\pU=E+\bp\dotprod\bsig.
  \label{eq:four-momentum}
 \end{equation}
 Energy and momentum are
@@ -2098,7 +2102,7 @@ Since $\det\pU=1$, scalar scaling gives the mass shell~\citeat{tong-relativity}{
 With dimensionless four-velocity $\pU$, mass $m$ in kilograms, energy $E$
 in joules, and momentum $\bp$ in $\mathrm{kg\,m\,s^{-1}}$,
 \begin{gather*}
- \pP=mc\pU=\frac{E}{c}+\bp\cdot\bsig,\\
+ \pP=mc\pU=\frac{E}{c}+\bp\dotprod\bsig,\\
  \det\pP=m^2c^2,\qquad
  E^2=m^2c^4+c^2\bp^2.
 \end{gather*}
@@ -2107,16 +2111,16 @@ The scalar and vector coefficients of $\pP$ now both have momentum units.
 
 Returning to natural units, the inverse and speed follow directly:
 \[
- \pP^{-1}=\frac{E-\bp\cdot\bsig}{m^2},\qquad
+ \pP^{-1}=\frac{E-\bp\dotprod\bsig}{m^2},\qquad
  \bv^2=\frac{\bp^2}{E^2}=1-\frac{m^2}{E^2}<1.
 \]
 For fixed $m>0$, approaching light speed requires unbounded energy.
 A massless particle has no proper-time four-velocity. Its momentum is
-defined directly by $\pP=E+\bp\cdot\bsig$, with $E>0$ and $E^2=\bp^2$.
+defined directly by $\pP=E+\bp\dotprod\bsig$, with $E>0$ and $E^2=\bp^2$.
 
-For the real momentum $\pP=E+\bp\cdot\bsig$, the same congruence gives~\citeat{feynman-spacetime}{Eq.~(17.12)}{Eq:I:17:12}
+For the real momentum $\pP=E+\bp\dotprod\bsig$, the same congruence gives~\citeat{feynman-spacetime}{Eq.~(17.12)}{Eq:I:17:12}
 \begin{align}
- E'&=\gamma(E-\beta\bu\cdot\bp),
+ E'&=\gamma(E-\beta\bu\dotprod\bp),
  \label{eq:energy-boost}\\
  \bp'&=\bp_{\perp}+\gamma(\bp_{\parallel}-\beta E\bu).
  \label{eq:momentum-boost}
@@ -2127,7 +2131,7 @@ Since $\bp=E\bv$, energy and coordinate-time increments acquire the same
 factor along a massive particle's path:
 \begin{equation}
  \frac{E'}{E}=\frac{\dd t'}{\dd t}
- =\gamma(1-\beta\bu\cdot\bv).
+ =\gamma(1-\beta\bu\dotprod\bv).
  \label{eq:energy-clock-factor}
 \end{equation}
 This is also the time factor used to obtain the velocity transformation.
@@ -2135,7 +2139,7 @@ Determinant invariance gives $E'^2-\bp'^2=E^2-\bp^2=m^2$ for a
 particle of rest mass $m>0$.  The energy increase is obtained directly
 from $\pP'=m$ in the rest frame by inversion of the boost:
 \begin{equation*}
- \pP=\pL^{-1}m\pL^{-1}=m\gamma(1+\beta\bu\cdot\bsig).
+ \pP=\pL^{-1}m\pL^{-1}=m\gamma(1+\beta\bu\dotprod\bsig).
 \end{equation*}
 Thus $E=m\gamma$ and $\bp=m\gamma\beta\bu$, while $m$ remains unchanged
 \citeat{tong-relativity}{Eqs.~(7.25), (7.28)}{page=142}.
@@ -2162,14 +2166,14 @@ Lagrangian and integrating by parts gives
 \[
  \delta\int L\dd t
  =\int\left(\pdr L-\frac{\dd\left(\partial_{\bv}L\right)}{\dd t}\right)
- \cdot\delta\br\dd t.
+ \dotprod\delta\br\dd t.
 \]
 The Euler--Lagrange equation is obtained from stationarity for every variation.
-With Hamiltonian $H:=\bv\cdot\partial_{\bv}L-L\in\R$, the chain rule gives
+With Hamiltonian $H:=\bv\dotprod\partial_{\bv}L-L\in\R$, the chain rule gives
 \begin{align}
  \frac{\dd\left(\partial_{\bv}L\right)}{\dd t}&=\pdr L, \label{eq:euler-lagrange}\\
  \dot{H}
- &=\bv\cdot\left(\frac{\dd\left(\partial_{\bv}L\right)}{\dd t}-\pdr L\right)
+ &=\bv\dotprod\left(\frac{\dd\left(\partial_{\bv}L\right)}{\dd t}-\pdr L\right)
    -\partial_tL=-\partial_tL. \label{eq:hamiltonian-energy-balance}
 \end{align}
 By \eqref{eq:euler-lagrange} and \eqref{eq:hamiltonian-energy-balance},
@@ -2205,21 +2209,21 @@ $\dd\pU/\dd s$. Proper acceleration is measured by an accelerometer.
 
 Coordinate-time derivatives are first obtained:
 \begin{align*}
- \dot{\gamma}&=\gamma^3\left(\bv\cdot\dot{\bv}\right),\\
+ \dot{\gamma}&=\gamma^3\left(\bv\dotprod\dot{\bv}\right),\\
  \dot{\pU}&=\dot{\gamma}
- +\frac{\dd\left(\gamma\bv\right)}{\dd t}\cdot\bsig,\\
+ +\frac{\dd\left(\gamma\bv\right)}{\dd t}\dotprod\bsig,\\
  \frac{\dd\left(\gamma\bv\right)}{\dd t}
  &=\gamma\dot{\bv}+\dot{\gamma}\bv.
 \end{align*}
 For $\bv\ne0$, the coordinate acceleration is resolved into tangential
 (parallel to the velocity) and perpendicular components:
 \[
- \dot{\bv}_{\parallel}:=\frac{(\bv\cdot\dot{\bv})\bv}{\bv^2},
+ \dot{\bv}_{\parallel}:=\frac{(\bv\dotprod\dot{\bv})\bv}{\bv^2},
  \qquad \dot{\bv}_{\perp}:=\dot{\bv}-\dot{\bv}_{\parallel},
  \qquad \dot{\bv}=\dot{\bv}_{\perp}+\dot{\bv}_{\parallel}.
 \]
 The projections of $\dot{\bv}$ are indicated by these subscripts; at $\bv=0$, the unsplit formulas are used.
-Since $(\bv\cdot\dot{\bv})\bv=\bv^2\dot{\bv}_{\parallel}$ and
+Since $(\bv\dotprod\dot{\bv})\bv=\bv^2\dot{\bv}_{\parallel}$ and
 $1+\gamma^2\bv^2=\gamma^2$, the spatial derivative becomes
 \begin{align*}
  \frac{\dd\left(\gamma\bv\right)}{\dd t}
@@ -2230,8 +2234,8 @@ $1+\gamma^2\bv^2=\gamma^2$, the spatial derivative becomes
 Thus the full coordinate-time derivative of four-velocity is
 \begin{equation}
  \dot{\pU}
- =\gamma^3(\bv\cdot\dot{\bv})
-  +\left(\gamma\dot{\bv}_{\perp}+\gamma^3\dot{\bv}_{\parallel}\right)\cdot\bsig.
+ =\gamma^3(\bv\dotprod\dot{\bv})
+  +\left(\gamma\dot{\bv}_{\perp}+\gamma^3\dot{\bv}_{\parallel}\right)\dotprod\bsig.
  \label{eq:four-velocity-coordinate-derivative}
 \end{equation}
 \paragraph{Orthogonality and determinant.}
@@ -2253,26 +2257,26 @@ Multiplication on the right by $\pU^*$ also gives
 By expansion of the commutator and the product,
 \begin{align*}
  [\pU,\dot{\pU}]
- &=2\ii\gamma^2\left(\bv\times\dot{\bv}\right)\cdot\bsig,\\
+ &=2\ii\gamma^2\left(\bv\times\dot{\bv}\right)\dotprod\bsig,\\
  \pU^*\dot{\pU}
- &=\gamma^2\left(\dot{\bv}-\ii\bv\times\dot{\bv}\right)\cdot\bsig.
+ &=\gamma^2\left(\dot{\bv}-\ii\bv\times\dot{\bv}\right)\dotprod\bsig.
 \end{align*}
 The cross product depends only on acceleration perpendicular to $\bv$.
 Since $\det\pU^*=1$, multiplying by $\pU^*$ preserves the determinant.
 The determinant of a scalar-free paravector is the negative of its square.
-Using $\dot{\bv}\cdot\left(\bv\times\dot{\bv}\right)=0$ therefore gives
+Using $\dot{\bv}\dotprod\left(\bv\times\dot{\bv}\right)=0$ therefore gives
 \begin{align*}
  \det \dot{\pU}
  &=-\left(\pU^*\dot{\pU}\right)^2\\
  &=-\gamma^4\left(\dot{\bv}^2-\left(\bv\times\dot{\bv}\right)^2\right)\\
- &=-\gamma^2\left(\dot{\bv}^2+\gamma^2\left(\bv\cdot\dot{\bv}\right)^2\right).
+ &=-\gamma^2\left(\dot{\bv}^2+\gamma^2\left(\bv\dotprod\dot{\bv}\right)^2\right).
 \end{align*}
 The last equality uses
-$\left(\bv\times\dot{\bv}\right)^2=\bv^2\dot{\bv}^2-\left(\bv\cdot\dot{\bv}\right)^2$ and
+$\left(\bv\times\dot{\bv}\right)^2=\bv^2\dot{\bv}^2-\left(\bv\dotprod\dot{\bv}\right)^2$ and
 $1-\bv^2=\gamma^{-2}$.
 Using the parallel and perpendicular components defined above,
 $\dot{\bv}^2=\dot{\bv}_{\perp}^2+\dot{\bv}_{\parallel}^2$ and
-$\left(\bv\cdot\dot{\bv}\right)^2=\bv^2\dot{\bv}_{\parallel}^2$ give
+$\left(\bv\dotprod\dot{\bv}\right)^2=\bv^2\dot{\bv}_{\parallel}^2$ give
 \[
  \det \dot{\pU}
  =-\gamma^2\dot{\bv}_{\perp}^2-\gamma^4\dot{\bv}_{\parallel}^2.
@@ -2281,8 +2285,8 @@ $\left(\bv\cdot\dot{\bv}\right)^2=\bv^2\dot{\bv}_{\parallel}^2$ give
 Multiplying $\dot{\pU}$ by $\gamma$ gives~\citeat{tong-relativity}{p.~141}{page=147}
 \begin{equation}
  \frac{\dd\pU}{\dd s}=\gamma\dot{\pU}
- =\gamma^4\left(\bv\cdot\dot{\bv}\right)
- +\left(\gamma^2\dot{\bv}+\gamma^4\left(\bv\cdot\dot{\bv}\right)\bv\right)\cdot\bsig.
+ =\gamma^4\left(\bv\dotprod\dot{\bv}\right)
+ +\left(\gamma^2\dot{\bv}+\gamma^4\left(\bv\dotprod\dot{\bv}\right)\bv\right)\dotprod\bsig.
  \label{eq:proper-acceleration-components}
 \end{equation}
 The determinant is quadratic, so
@@ -2296,17 +2300,17 @@ four-velocity and four-acceleration are Minkowski-orthogonal.
 Nonzero four-acceleration is space-like. Its negative determinant is
 the squared magnitude of the acceleration measured in the instantaneous
 rest frame, called the proper acceleration.
-At rest, $\gamma=1$ and $\dd\pU/\dd s=\dot{\bv}\cdot\bsig$, so the
+At rest, $\gamma=1$ and $\dd\pU/\dd s=\dot{\bv}\dotprod\bsig$, so the
  determinant is $-\dot{\bv}^2$ and the proper acceleration has magnitude $\lVert\dot{\bv}\rVert$.
 
 \begin{SIunits}{Proper acceleration}
 Here $t,\tau$ are measured in seconds, $s=c\tau$ and $\br$ in metres,
 and $\bv=\dd\br/\dd t$ in metres per second. Dots denote derivatives
-with respect to this SI time. With $\pX=ct+\br\cdot\bsig$,
+with respect to this SI time. With $\pX=ct+\br\dotprod\bsig$,
 \begin{gather*}
  \gamma=\frac1{\sqrt{1-\bv^2/c^2}},\qquad
  \pU=\frac{\dd\pX}{\dd s}
- =\gamma\left(1+\frac{\bv}{c}\cdot\bsig\right),\\
+ =\gamma\left(1+\frac{\bv}{c}\dotprod\bsig\right),\\
  c^2\sqrt{-\det\left(\frac{\dd\pU}{\dd s}\right)}
  =\sqrt{\gamma^6\dot{\bv}_{\parallel}^2
        +\gamma^4\dot{\bv}_{\perp}^2}.
@@ -2331,8 +2335,8 @@ Multiplying the spatial part of
 \end{equation}
 Taking its dot product with $\bv$ gives the work rate
 \begin{equation}
- \dot{E}=m\gamma^3\bv\cdot\dot{\bv}
- =\bv\cdot\dot{\bp}.
+ \dot{E}=m\gamma^3\bv\dotprod\dot{\bv}
+ =\bv\dotprod\dot{\bp}.
  \label{eq:relativistic-work}
 \end{equation}
 At rest the force is $m\dot{\bv}$.
@@ -2388,7 +2392,7 @@ is a fixed real vector in a chosen inertial frame. With initial position
 $\br(0)=\br_0$ and velocity $\bv(0)=\bv_0$, integration gives
 \begin{align}
  \bv(t)&=\bv_0+\dot{\bv}_0t,\\
- \pX(t)&=t+\left(\br_0+\bv_0t+\tfrac12\dot{\bv}_0t^2\right)\cdot\bsig.
+ \pX(t)&=t+\left(\br_0+\bv_0t+\tfrac12\dot{\bv}_0t^2\right)\dotprod\bsig.
  \label{eq:constant-coordinate-acceleration-worldline}
 \end{align}
 These familiar coordinate-time formulas also describe a relativistic
@@ -2401,7 +2405,7 @@ where $\dot{v}_0>0$ is the scalar acceleration along the fixed real unit
 vector $\bu$. Then
 \[
  \bv(t)=\dot{v}_0t\bu,\qquad
- \pX(t)=t+\tfrac12\dot{v}_0t^2\bu\cdot\bsig,\qquad
+ \pX(t)=t+\tfrac12\dot{v}_0t^2\bu\dotprod\bsig,\qquad
  \gamma(t)=\frac{1}{\sqrt{1-\dot{v}_0^2t^2}},
  \qquad 0\le t<\frac{1}{\dot{v}_0}.
 \]
@@ -2414,10 +2418,10 @@ in \eqref{eq:elapsed-proper-time} gives
 \end{equation}
 Four-velocity and four-acceleration follow by differentiating the world line:
 \begin{align*}
- \pU(t)&=\gamma(t)(1+\dot{v}_0t\bu\cdot\bsig),\\
+ \pU(t)&=\gamma(t)(1+\dot{v}_0t\bu\dotprod\bsig),\\
  \frac{\dd\pU}{\dd s}
  &=\gamma\dot{\pU}
- =\gamma^4\dot{v}_0^2t+\gamma^4\dot{v}_0\bu\cdot\bsig.
+ =\gamma^4\dot{v}_0^2t+\gamma^4\dot{v}_0\bu\dotprod\bsig.
 \end{align*}
 Consequently,
 \[
@@ -2443,7 +2447,7 @@ At rest $\gamma_0=1$ and $\dot{\theta}_0=\dot{v}_0$. Holding the signed
 proper acceleration along this axis constant gives
 $\theta(s)=\dot{v}_0s$, and hence
 \[
- \pU(s)=\pL(\dot{v}_0s,\bu)^{-2}=\cosh(\dot{v}_0s)+\sinh(\dot{v}_0s)\bu\cdot\bsig.
+ \pU(s)=\pL(\dot{v}_0s,\bu)^{-2}=\cosh(\dot{v}_0s)+\sinh(\dot{v}_0s)\bu\dotprod\bsig.
 \]
 The stated acceleration is verified by differentiation:
 \[
@@ -2453,13 +2457,13 @@ The stated acceleration is verified by differentiation:
 Integrating \eqref{eq:worldline-integral} yields~\citeat{tong-relativity}{Eq.~(7.33), pp.~142--143}{page=148}
 \begin{equation}
  \pX(s)=\frac{\sinh(\dot{v}_0s)}{\dot{v}_0}
-       +\frac{\cosh(\dot{v}_0s)-1}{\dot{v}_0}\bu\cdot\bsig.
+       +\frac{\cosh(\dot{v}_0s)-1}{\dot{v}_0}\bu\dotprod\bsig.
  \label{eq:hyperbolic-worldline}
 \end{equation}
 In components,
 \begin{align*}
  \bv(t(s))&=\tanh(\dot{v}_0s)\bu,\\
- \bigl(1+\dot{v}_0\bu\cdot\br\bigr)^2-(\dot{v}_0t)^2&=1.
+ \bigl(1+\dot{v}_0\bu\dotprod\br\bigr)^2-(\dot{v}_0t)^2&=1.
 \end{align*}
 Thus \eqref{eq:hyperbolic-worldline} is the usual hyperbolic motion, with
 speed below light speed at every finite $s$.
@@ -2501,11 +2505,11 @@ Throughout the trip,
 On the open burn intervals, the upper sign denotes acceleration and the
 lower sign braking. The derivatives are obtained directly:
 \begin{align}
- \pU&=\cosh\theta+\sinh\theta\,\bu\cdot\bsig,\notag\\
+ \pU&=\cosh\theta+\sinh\theta\,\bu\dotprod\bsig,\notag\\
  \frac{\dd\pU}{\dd s}
- &=\pm\dot v_0(\sinh\theta+\cosh\theta\,\bu\cdot\bsig),\notag\\
+ &=\pm\dot v_0(\sinh\theta+\cosh\theta\,\bu\dotprod\bsig),\notag\\
  \dot\pU&=\frac{1}{\gamma}\frac{\dd\pU}{\dd s}
- =\pm\dot v_0(v+\bu\cdot\bsig),\notag\\
+ =\pm\dot v_0(v+\bu\dotprod\bsig),\notag\\
  \dot v&=\pm\frac{\dot v_0}{\gamma^3},\qquad
  \dot{\bv}=\dot v\bu,\qquad
  \dot\gamma=\pm\dot v_0v.
@@ -2600,18 +2604,18 @@ The expressions for $\dot{\gamma}$ and $\dot{\pU}$ in
 Section~\ref{sec:proper-acceleration} are differentiated once more with respect to $t$.
 Using
 \[
- \frac{\dd\left(\bv\cdot\dot{\bv}\right)}{\dd t}
- =\dot{\bv}^2+\bv\cdot\ddot{\bv},
+ \frac{\dd\left(\bv\dotprod\dot{\bv}\right)}{\dd t}
+ =\dot{\bv}^2+\bv\dotprod\ddot{\bv},
 \]
 the following is obtained by a second differentiation:
 \begin{align*}
  \ddot{\gamma}
- &=\gamma^3\left(\dot{\bv}^2+\bv\cdot\ddot{\bv}\right)
+ &=\gamma^3\left(\dot{\bv}^2+\bv\dotprod\ddot{\bv}\right)
    +\frac{3\dot{\gamma}^2}{\gamma},\\
  \ddot{\pU}
  &=\ddot{\gamma}
  +\left(\gamma\ddot{\bv}+2\dot{\gamma}\dot{\bv}
-       +\ddot{\gamma}\bv\right)\cdot\bsig.
+       +\ddot{\gamma}\bv\right)\dotprod\bsig.
 \end{align*}
 The conversion $\dd/\dd s=\gamma\dd/\dd t$ is now applied. The first derivative is
 $\dd\pU/\dd s=\gamma\dot{\pU}$, and the second is
@@ -2629,7 +2633,7 @@ or paravector along the worldline. In particular,
  \frac{\dd^2\pU}{\dd s^2}
  &=\frac{\dd^2\gamma}{\dd s^2}+
  \left(\gamma^3\ddot{\bv}+3\gamma^2\dot{\gamma}\dot{\bv}
- +\frac{\dd^2\gamma}{\dd s^2}\bv\right)\cdot\bsig.
+ +\frac{\dd^2\gamma}{\dd s^2}\bv\right)\dotprod\bsig.
  \label{eq:four-jerk-components}
 \end{align}
 This derivative of four-acceleration is the \emph{unprojected four-jerk}:
@@ -2669,9 +2673,9 @@ With the signature $(+,-,-,-)$, its orthogonality is
 \end{equation}
 At an instant of rest, $\pU=1$ and
 \begin{align*}
- \frac{\dd^2\pU}{\dd s^2}&=\dot{\bv}^2+\ddot{\bv}\cdot\bsig\\
+ \frac{\dd^2\pU}{\dd s^2}&=\dot{\bv}^2+\ddot{\bv}\dotprod\bsig\\
  &=-\det\left(\frac{\dd\pU}{\dd s}\right)\pU
- +\ddot{\bv}\cdot\bsig.
+ +\ddot{\bv}\dotprod\bsig.
 \end{align*}
 Here the coordinate derivatives are evaluated in the inertial frame
 in which the particle is instantaneously at rest.
@@ -2803,7 +2807,7 @@ whenever that constant proper acceleration is nonzero.
 The symmetry of the paired derivatives becomes especially simple on
 adding or subtracting $\pU$ and $\pN$:
 \[
- \pU\pm\pN=e^{\pm\theta}\left(1\pm\bu\cdot\bsig\right),\qquad
+ \pU\pm\pN=e^{\pm\theta}\left(1\pm\bu\dotprod\bsig\right),\qquad
  \det\left(\pU\pm\pN\right)=0.
 \]
 These two null directions are fixed; only their scalar factors change.
@@ -2875,7 +2879,7 @@ For $\ddot{\bv}=\ddot{\bv}_0$ in a chosen inertial frame, integration gives
  \dot{\bv}(t)&=\dot{\bv}_0+\ddot{\bv}_0\,t,\notag\\
  \bv(t)&=\bv_0+\dot{\bv}_0t+\tfrac12\ddot{\bv}_0\,t^2,\notag\\
  \pX(t)&=t+
- \left(\br_0+\bv_0t+\tfrac12\dot{\bv}_0t^2+\tfrac16\ddot{\bv}_0\,t^3\right)\cdot\bsig.
+ \left(\br_0+\bv_0t+\tfrac12\dot{\bv}_0t^2+\tfrac16\ddot{\bv}_0\,t^3\right)\dotprod\bsig.
  \label{eq:constant-coordinate-jerk}
 \end{align}
 These formulas apply on the interval where $\bv(t)^2<1$.
@@ -2917,7 +2921,7 @@ The corresponding world line, with $t(0)=0$, is
 \begin{align}
  t(s)&=\int_0^s\cosh\theta(s')\,\dd s',\notag\\
  \br(s)&=\br_0+\bu\int_0^s\sinh\theta(s')\,\dd s',\qquad
- \pX(s)=t(s)+\br(s)\cdot\bsig.
+ \pX(s)=t(s)+\br(s)\dotprod\bsig.
  \label{eq:constant-proper-jerk-worldline}
 \end{align}
 The trajectory is specified exactly by these integrals; a related derivation is given in
@@ -2979,24 +2983,24 @@ For a concrete example~\citeat{russo-townsend}{Eq.~(3.40)}{page=15},
 an initial rest state at the origin is chosen, with nonzero initial coordinate
 acceleration $\dot{\bv}_0$ and jerk $\ddot{\bv}_0$ constrained by
 \[
- \dot{\bv}_0\cdot\ddot{\bv}_0=0,\qquad
+ \dot{\bv}_0\dotprod\ddot{\bv}_0=0,\qquad
  \ddot{\bv}_0^2=\left(\dot{\bv}_0^2\right)^2.
 \]
 Here $\gamma_0=1$ and $\dot{\gamma}_0=0$, so the initial paravector data are
 \[
  \pX_0=0,\qquad \pU_0=1,\qquad
- \dot{\pU}_0=\dot{\bv}_0\cdot\bsig,\qquad
- \ddot{\pU}_0=\dot{\bv}_0^2+\ddot{\bv}_0\cdot\bsig.
+ \dot{\pU}_0=\dot{\bv}_0\dotprod\bsig,\qquad
+ \ddot{\pU}_0=\dot{\bv}_0^2+\ddot{\bv}_0\dotprod\bsig.
 \]
 The resulting world line is
 \begin{equation}
  \pX(s)=s+\tfrac16\dot{\bv}_0^2s^3
- +\left(\tfrac12\dot{\bv}_0s^2+\tfrac16\ddot{\bv}_0s^3\right)\cdot\bsig.
+ +\left(\tfrac12\dot{\bv}_0s^2+\tfrac16\ddot{\bv}_0s^3\right)\dotprod\bsig.
  \label{eq:constant-four-jerk-worldline}
 \end{equation}
 By differentiation, the following is verified:
 \[
- \frac{\dd^2\pU}{\dd s^2}=\dot{\bv}_0^2+\ddot{\bv}_0\cdot\bsig,\qquad
+ \frac{\dd^2\pU}{\dd s^2}=\dot{\bv}_0^2+\ddot{\bv}_0\dotprod\bsig,\qquad
  \det\pU=1.
 \]
 Its invariants are
@@ -3037,8 +3041,8 @@ Spatial curvature $k$ is the turning angle per unit distance along
 the path; the radius of its local osculating circle is $1/k$.
 The signed torsion $\tau\in\R$ is defined by
 \[
- \tau:=-\frac{\dd\bu''}{\dd\ell}\cdot\bu'
- =-\frac{\dot{\bu}''\cdot\bu'}{v}.
+ \tau:=-\frac{\dd\bu''}{\dd\ell}\dotprod\bu'
+ =-\frac{\dot{\bu}''\dotprod\bu'}{v}.
 \]
 Here $\tau$ denotes spatial torsion; proper time remains $s$.
 The turning of the curvature plane per unit distance is described by
@@ -3078,7 +3082,7 @@ coordinate derivatives as
 \begin{align}
  k&=\frac{\lVert\dot{\bv}_{\perp}\rVert}{v^2}
  =\frac{\lVert\bv\times\dot{\bv}\rVert}{v^3},\notag\\
- \tau&=\frac{(\bv\times\dot{\bv})\cdot\ddot{\bv}}
+ \tau&=\frac{(\bv\times\dot{\bv})\dotprod\ddot{\bv}}
  {\lVert\bv\times\dot{\bv}\rVert^2}.
  \label{eq:frenet-curvature-torsion}
 \end{align}
@@ -3087,11 +3091,11 @@ coordinate derivatives as
 The earlier longitudinal rest direction $\pN$ is extended to the varying
 tangent $\bu(t)$:
 \[
- \pU=\gamma(1+v\bu\cdot\bsig),\qquad
- \pN:=\gamma(v+\bu\cdot\bsig),\qquad
+ \pU=\gamma(1+v\bu\dotprod\bsig),\qquad
+ \pN:=\gamma(v+\bu\dotprod\bsig),\qquad
  \pU,\pN\in\R\oplus\R^3.
 \]
-The four directions $\pU,\pN,\bu'\cdot\bsig,\bu''\cdot\bsig$ are
+The four directions $\pU,\pN,\bu'\dotprod\bsig,\bu''\dotprod\bsig$ are
 Minkowski-orthogonal, with determinants $1,-1,-1,-1$.
 Thus a spatial Frenet frame is used to resolve spacetime quantities;
 $\pU$ is the spacetime tangent, while $\bu$ is the spatial tangent.
@@ -3099,13 +3103,13 @@ The three rest directions generally rotate relative to nonrotating
 carried axes.
 
 With $\dot\gamma=\gamma^3v\dot v$ and
-$\bu\cdot\bsig=\gamma(\pN-v\pU)$, the complete frame evolution is
+$\bu\dotprod\bsig=\gamma(\pN-v\pU)$, the complete frame evolution is
 \begin{align*}
- \dot\pU&=\gamma^2\dot v\pN+\gamma v^2k\bu'\cdot\bsig,\\
- \dot\pN&=\gamma^2\dot v\pU+\gamma vk\bu'\cdot\bsig,\\
- \dot{\bu}'\cdot\bsig
- &=\gamma v^2k\pU-\gamma vk\pN+v\tau\bu''\cdot\bsig,\\
- \dot{\bu}''\cdot\bsig&=-v\tau\bu'\cdot\bsig.
+ \dot\pU&=\gamma^2\dot v\pN+\gamma v^2k\bu'\dotprod\bsig,\\
+ \dot\pN&=\gamma^2\dot v\pU+\gamma vk\bu'\dotprod\bsig,\\
+ \dot{\bu}'\dotprod\bsig
+ &=\gamma v^2k\pU-\gamma vk\pN+v\tau\bu''\dotprod\bsig,\\
+ \dot{\bu}''\dotprod\bsig&=-v\tau\bu'\dotprod\bsig.
 \end{align*}
 Coefficients are paired with the same sign between time and spatial directions,
 and with opposite signs between spatial directions. Thus Minkowski orthonormality is
@@ -3116,14 +3120,14 @@ preserved. Differentiating the first row gives
  &\quad+\bigl(\gamma^2(\ddot v-v^3k^2)
                   +2\gamma\dot\gamma\dot v\bigr)\pN\\
  &\quad+\bigl(3\gamma v\dot vk+2\dot\gamma v^2k
-                  +\gamma v^2\dot k\bigr)\bu'\cdot\bsig
-       +\gamma v^3k\tau\bu''\cdot\bsig.
+                  +\gamma v^2\dot k\bigr)\bu'\dotprod\bsig
+       +\gamma v^3k\tau\bu''\dotprod\bsig.
 \end{align*}
 The proper-time derivatives follow by $\dd/\dd s=\gamma\dd/\dd t$:
 \begin{align}
  \frac{\dd\pU}{\dd s}
  &=\gamma\dot\pU
- =\gamma^3\dot v\pN+\gamma^2v^2k\bu'\cdot\bsig,
+ =\gamma^3\dot v\pN+\gamma^2v^2k\bu'\dotprod\bsig,
  \label{eq:frenet-four-acceleration}\\
  \frac{\dd^2\pU}{\dd s^2}
  &=\gamma^2\ddot\pU+\gamma\dot\gamma\dot\pU.
@@ -3140,8 +3144,8 @@ By orthogonality, the projection of four-jerk as in \eqref{eq:projected-jerk} is
  &\quad=\bigl(\gamma^4(\ddot v-v^3k^2)
                  +3\gamma^6v\dot v^2\bigr)\pN\notag\\
  &\qquad+\bigl(3\gamma^5v\dot vk+\gamma^3v^2\dot k\bigr)
-               \bu'\cdot\bsig
-        +\gamma^3v^3k\tau\bu''\cdot\bsig.
+               \bu'\dotprod\bsig
+        +\gamma^3v^3k\tau\bu''\dotprod\bsig.
  \label{eq:frenet-proper-jerk}
 \end{align}
 The squared proper-jerk magnitude is the sum of the squares of these
@@ -3206,29 +3210,29 @@ The scalar and vector derivatives are defined by
 \]
 The partial paravector and its sigma conjugate are defined by~\citeat{hestenes-spacetime}{Eq.~(176)}{page=29}
 \begin{equation}
- \pvpartial:=\partial_t+\bsig\cdot\pdr
+ \pvpartial:=\partial_t+\bsig\dotprod\pdr
  =\partial_t+\sum_{n=1}^{3}\pvsigma_n\frac{\partial}{\partial r_n},
  \label{eq:paravector-derivative}
 \end{equation}
 \begin{equation*}
- \pvpartial^*=\operatorname{adj} \pvpartial=\partial_t-\bsig\cdot\pdr.
+ \pvpartial^*=\operatorname{adj} \pvpartial=\partial_t-\bsig\dotprod\pdr.
 \end{equation*}
 The sigmas are constant.  Derivatives act from the left on
 everything to their right unless parentheses specify their scope.
 For fields with commuting second derivatives, anticommutation cancels
 all mixed spatial terms:
 \begin{align*}
- (\bsig\cdot\pdr)^2
+ (\bsig\dotprod\pdr)^2
  &=\sum_{n=1}^{3}\frac{\partial^2}{\partial r_n^2}
  +\sum_{n<m}(\pvsigma_n\pvsigma_m+\pvsigma_m\pvsigma_n)
            \frac{\partial^2}{\partial r_n\partial r_m}\\
- &=\pdr\cdot\pdr.
+ &=\pdr\dotprod\pdr.
 \end{align*}
 The mixed time--space terms likewise cancel.  Both orders therefore give
 the scalar d'Alembertian~\citeat{hestenes-spacetime}{Eq.~(178)}{page=30}
 \begin{equation}
  \pvpartial\pvpartial^*=\pvpartial^*\pvpartial
- =\partial_t^2-\pdr\cdot\pdr=:\Box.
+ =\partial_t^2-\pdr\dotprod\pdr=:\Box.
  \label{eq:dalembertian}
 \end{equation}
 These are operator identities: $\pvpartial\pvpartial^*\pZ$ means
@@ -3240,15 +3244,15 @@ Real scalar functions $a,b:\R^4\to\R$ and
 real vector functions $\bX,\bY:\R^4\to\R^3$ are combined into the complex
 paravector field
 \[
- \pZ(t,\br)=(a+b\ii)+(\bX+\ii\bY)\cdot\bsig.
+ \pZ(t,\br)=(a+b\ii)+(\bX+\ii\bY)\dotprod\bsig.
 \]
 Ordered vector multiplication gives the real and imaginary scalar and vector parts of $\pvpartial \pZ$:
 \begin{equation*}
  \begin{aligned}
- \pvpartial \pZ={}&(\partial_ta+\pdr\cdot\bX)
- +\ii(\partial_tb+\pdr\cdot\bY)\\
- &+(\pdr a+\partial_t\bX-\pdr\times\bY)\cdot\bsig\\
- &+\ii(\pdr b+\pdr\times\bX+\partial_t\bY)\cdot\bsig.
+ \pvpartial \pZ={}&(\partial_ta+\pdr\dotprod\bX)
+ +\ii(\partial_tb+\pdr\dotprod\bY)\\
+ &+(\pdr a+\partial_t\bX-\pdr\times\bY)\dotprod\bsig\\
+ &+\ii(\pdr b+\pdr\times\bX+\partial_t\bY)\dotprod\bsig.
  \end{aligned}
 \end{equation*}
 Multiplication by $\ii$ exchanges real and imaginary parts, with the
@@ -3275,7 +3279,7 @@ path $\br(t)$ with $\bv=\dot\br$, the total derivative is instead
 \[
  \dot\pZ=\partial_t\pZ
  +\sum_{n=1}^{3}\dot r_n\frac{\partial\pZ}{\partial r_n}
- =(\partial_t+\bv\cdot\pdr)\pZ.
+ =(\partial_t+\bv\dotprod\pdr)\pZ.
 \]
 All fields and partial derivatives are evaluated at $(t,\br(t))$.
 
@@ -3286,7 +3290,7 @@ Here $(t,\br)$ are real chart coordinates. Smooth functions
 $f:\R^4\to\R$ and $\bg:\R^4\to\R^3$, restricted to an open region
 with nonsingular Jacobian, specify inertial coordinates:
 \[
- \pX=f(t,\br)+\bg(t,\br)\cdot\bsig\in\R\oplus\R^3.
+ \pX=f(t,\br)+\bg(t,\br)\dotprod\bsig\in\R\oplus\R^3.
 \]
 Thus $f$ is inertial time and $\bg$ is inertial position; chart time $t$
 and chart position $\br$ need not be clock readings and Cartesian distances.
@@ -3294,14 +3298,14 @@ and chart position $\br$ need not be clock readings and Cartesian distances.
 \paragraph{Interval and differential operators.}
 By differentiation,
 \begin{align*}
- \dd\pX&=(\partial_tf+\partial_t\bg\cdot\bsig)\dd t
- +\sum_{k=1}^3(\partial_{r_k}f+\partial_{r_k}\bg\cdot\bsig)\dd r_k,\\
+ \dd\pX&=(\partial_tf+\partial_t\bg\dotprod\bsig)\dd t
+ +\sum_{k=1}^3(\partial_{r_k}f+\partial_{r_k}\bg\dotprod\bsig)\dd r_k,\\
  \det(\dd\pX)&=\dd f^2-\dd\bg^2.
 \end{align*}
 With $x_0=t$, $x_k=r_k$ and $\partial_k=\partial/\partial x_k$, the
 interval is $\det(\dd\pX)=\sum_{j,k=0}^3 g_{jk}\dd x_j\dd x_k$, where
 \[
- g_{jk}=\partial_jf\,\partial_kf-\partial_j\bg\cdot\partial_k\bg,
+ g_{jk}=\partial_jf\,\partial_kf-\partial_j\bg\dotprod\partial_k\bg,
  \qquad (g_{jk})\in\R^{4\times4}.
 \]
 This is the flat Minkowski metric in changed coordinates; varying
@@ -3321,7 +3325,7 @@ In Cartesian inertial coordinates, \eqref{eq:paravector-derivative} is
 recovered. In a general chart, these coefficients must also be
 differentiated when operators are composed: $\Box=\pvpartial\pvpartial^*$
 remains valid, but its Cartesian form
-$\partial_t^2-\pdr\cdot\pdr$ cannot be used unchanged.
+$\partial_t^2-\pdr\dotprod\pdr$ cannot be used unchanged.
 
 \paragraph{Motion and clock rates.}
 Along a future-directed time-like path, $s$ is proper time,
@@ -3337,7 +3341,7 @@ Consequently,
 \begin{equation}
  \dot s=\sqrt{\dot f^2-\dot\bg^2}=\frac{\dot f}{\gamma},\qquad
  \frac{\dd}{\dd s}=\frac{\gamma}{\dot f}\frac{\dd}{\dd t},\qquad
- \pU=\gamma(1+\bv\cdot\bsig).
+ \pU=\gamma(1+\bv\dotprod\bsig).
  \label{eq:chart-clock-rate}
 \end{equation}
 Here $\dot f>0$. The earlier rule $\dd/\dd s=\gamma\dd/\dd t$ is
@@ -3414,7 +3418,7 @@ $\pZ'=\pT \pZ \pT^{\mathsf H}$, the same rule gives
 \end{equation}
 Equations~\eqref{eq:varying-similarity} and \eqref{eq:varying-congruence}
 include the frame terms omitted by a constant-factor transformation.
-For a varying rotation $\pT=\pR=\exp(-\ii\theta(s)\bu(s)\cdot\bsig/2)$,
+For a varying rotation $\pT=\pR=\exp(-\ii\theta(s)\bu(s)\dotprod\bsig/2)$,
 with real $\theta(s)$ and \hyperref[def:real-unit-vector]{real unit vector} $\bu(s)$, unitarity gives
 $\pvOmega^{\mathsf H}=-\pvOmega$ and $\pvOmega\in\{0\}\oplus\ii\R^3$,
 so both formulas agree.
@@ -3469,7 +3473,7 @@ kept aligned with ideal torque-free gyroscopes,
 $\pvOmega=\pvOmega^{\mathsf H}$, so the proper jerk is
 $-2\dd\pvOmega/\dd s$: the proper-time rate of the measured acceleration.
 The fixed-axis results of Section~\ref{sec:fixed-axis-jerk} are recovered with
-$\pT=\exp(-\theta\bu\cdot\bsig/2)$ and fixed $\bu$.
+$\pT=\exp(-\theta\bu\dotprod\bsig/2)$ and fixed $\bu$.
 
 \section{Electromagnetism}
 \label{sec:electromagnetism}
@@ -3479,14 +3483,14 @@ The electric and magnetic fields $\bE,\bBf:\R^4\to\R^3$
 are combined into the complex field vector $\bF:\R^4\to\C^3$ and its scalar-free
 paravector $\pF\in\{0\}\oplus\C^3$~\citeat{baylis-intro}{Eq.~(23)}{page=19}:
 \begin{equation}
- \bF:=\bE+\ii\bBf,\qquad \pF:=\bF\cdot\bsig.
+ \bF:=\bE+\ii\bBf,\qquad \pF:=\bF\dotprod\bsig.
  \label{eq:em-field-definition}
 \end{equation}
 The charge density $\rho:\R^4\to\R$ and current density
 $\bJ:\R^4\to\R^3$ are combined into the real four-current paravector:
 \[
- \pJ:=\rho+\bJ\cdot\bsig\in\R\oplus\R^3,
- \qquad \pJ^*=\rho-\bJ\cdot\bsig.
+ \pJ:=\rho+\bJ\dotprod\bsig\in\R\oplus\R^3,
+ \qquad \pJ^*=\rho-\bJ\dotprod\bsig.
 \]
 The paravector derivative of \eqref{eq:paravector-derivative} is used,
 with spatial gradient $\pdr$ and d'Alembertian
@@ -3508,16 +3512,16 @@ Maxwell's four equations are the single field law~\citeat{hestenes-spacetime}{Eq
 \end{equation}
 The product rule expands its left side into
 \begin{align*}
- \pvpartial \pF={}&\underbrace{\pdr\cdot\bE}_{\text{real scalar}}
- +\underbrace{\ii\pdr\cdot\bBf}_{\text{imaginary scalar}}\\
- &+\underbrace{(\partial_t\bE-\pdr\times\bBf)\cdot\bsig}_{\text{real vector}}\\
- &+\underbrace{\ii(\partial_t\bBf+\pdr\times\bE)\cdot\bsig}_{\text{imaginary vector}}.
+ \pvpartial \pF={}&\underbrace{\pdr\dotprod\bE}_{\text{real scalar}}
+ +\underbrace{\ii\pdr\dotprod\bBf}_{\text{imaginary scalar}}\\
+ &+\underbrace{(\partial_t\bE-\pdr\times\bBf)\dotprod\bsig}_{\text{real vector}}\\
+ &+\underbrace{\ii(\partial_t\bBf+\pdr\times\bE)\dotprod\bsig}_{\text{imaginary vector}}.
 \end{align*}
 Equating the four parts gives~\citeat{tong-em}{Eqs.~(1.4)--(1.7)}{page=14}:
 \begin{align}
- \text{Real scalar:}\quad &\pdr\cdot\bE=\rho,
+ \text{Real scalar:}\quad &\pdr\dotprod\bE=\rho,
  \label{eq:gauss-electric}\\
- \text{Imaginary scalar:}\quad &\pdr\cdot\bBf=0,
+ \text{Imaginary scalar:}\quad &\pdr\dotprod\bBf=0,
  \label{eq:gauss-magnetic}\\
  \text{Real vector:}\quad &\partial_t\bE-\pdr\times\bBf=-\bJ,
  \label{eq:ampere-maxwell}\\
@@ -3532,10 +3536,10 @@ With $t$ in seconds, $\br$ in metres, electric field in volts per metre,
 magnetic field in teslas, charge density in coulombs per cubic metre,
 and current density in amperes per square metre,
 \begin{gather*}
- \pF=(\bE+\ii c\bBf)\cdot\bsig,\qquad
- \pvpartial=\frac1c\partial_t+\pdr\cdot\bsig,\\
+ \pF=(\bE+\ii c\bBf)\dotprod\bsig,\qquad
+ \pvpartial=\frac1c\partial_t+\pdr\dotprod\bsig,\\
  \pvpartial\pF=\frac1{\epsilon_0}
- \left(\rho-\frac{\bJ}{c}\cdot\bsig\right).
+ \left(\rho-\frac{\bJ}{c}\dotprod\bsig\right).
 \end{gather*}
 The electric and magnetic terms now have the same units. By separating
 the scalar and vector parts, the four SI Maxwell equations are recovered;
@@ -3554,13 +3558,13 @@ Taking its star yields~\citeat{hestenes-spacetime}{Eq.~(152)}{page=26}:
 By expansion of the source derivative,
 \[
  \pvpartial \pJ
- =(\partial_t\rho+\pdr\cdot\bJ)
- +(\partial_t\bJ+\pdr\rho+\ii\pdr\times\bJ)\cdot\bsig.
+ =(\partial_t\rho+\pdr\dotprod\bJ)
+ +(\partial_t\bJ+\pdr\rho+\ii\pdr\times\bJ)\dotprod\bsig.
 \]
 Because $\pF$ is scalar-free, its real and imaginary scalar parts vanish.
 Matching all four parts gives~\citeat{tong-em}{Eq.~(1.1)}{page=12}:
 \begin{align}
- \text{Real scalar:}\quad &0=\partial_t\rho+\pdr\cdot\bJ,
+ \text{Real scalar:}\quad &0=\partial_t\rho+\pdr\dotprod\bJ,
  \label{eq:charge-continuity}\\
  \text{Imaginary scalar:}\quad &0=0,\notag\\
  \text{Real vector:}\quad &\Box\bE=-\partial_t\bJ-\pdr\rho,
@@ -3577,14 +3581,14 @@ In source-free vacuum, $\pJ=0$ and $\Box \pF=0$: both fields obey the free wave 
 The scalar potential $V:\R^4\to\R$ and vector potential
 $\bA:\R^4\to\R^3$ are combined into the real four-potential; its four-divergence is also defined:
 \[
- \pA:=V+\bA\cdot\bsig\in\R\oplus\R^3,
+ \pA:=V+\bA\dotprod\bsig\in\R\oplus\R^3,
  \qquad S:=\scpart{\pvpartial \pA}\in\R.
 \]
 By the product rule,
 \begin{align*}
- \pvpartial \pA={}&(\partial_tV+\pdr\cdot\bA)
- +(\partial_t\bA+\pdr V)\cdot\bsig
- +\ii(\pdr\times\bA)\cdot\bsig.
+ \pvpartial \pA={}&(\partial_tV+\pdr\dotprod\bA)
+ +(\partial_t\bA+\pdr V)\dotprod\bsig
+ +\ii(\pdr\times\bA)\dotprod\bsig.
 \end{align*}
 Subtracting its scalar part gives the field~\citeat{tong-em}{p.~105}{page=113}:
 \begin{equation}
@@ -3593,7 +3597,7 @@ Subtracting its scalar part gives the field~\citeat{tong-em}{p.~105}{page=113}:
 \end{equation}
 Thus $\pvpartial \pA=S+\pF^*\in\R\oplus\C^3$, with components:
 \begin{align}
- \text{Real scalar:}\quad &S=\partial_tV+\pdr\cdot\bA,\notag\\
+ \text{Real scalar:}\quad &S=\partial_tV+\pdr\dotprod\bA,\notag\\
  \text{Imaginary scalar:}\quad &0=0,\notag\\
  \text{Real vector:}\quad &\bE=-\partial_t\bA-\pdr V,
  \label{eq:electric-potential}\\
@@ -3640,13 +3644,13 @@ In the Lorenz gauge $S=0$, the potential wave equations are~\citeat{tong-em}{Eq.
 \label{sec:maxwell-action}
 
 For real scalar potential $V(t,\br)$ and vector potential
-$\bA(t,\br)$, the notation $\pA=V+\bA\cdot\bsig$ is used.  With prescribed conserved
-current $\pJ=\rho+\bJ\cdot\bsig$,
+$\bA(t,\br)$, the notation $\pA=V+\bA\dotprod\bsig$ is used.  With prescribed conserved
+current $\pJ=\rho+\bJ\dotprod\bsig$,
 Maxwell dynamics follows from the scalar Lagrangian density
 $L:\R^4\to\R$~\citeat{tong-em}{Eq.~(5.42)}{page=133}\,\citeat{tong-em}{Eq.~(5.43)}{page=134}
 \begin{equation}
  L=\tfrac12\repart{\pF^2}-\scpart{\pA^*\pJ}
-  =\tfrac12(\bE^2-\bBf^2)-\rho V+\bJ\cdot\bA.
+  =\tfrac12(\bE^2-\bBf^2)-\rho V+\bJ\dotprod\bA.
  \label{eq:maxwell-lagrangian}
 \end{equation}
 For boundary-vanishing variations $\delta V\in\R$ and $\delta\bA\in\R^3$,
@@ -3658,8 +3662,8 @@ the induced field variations $\delta\bE,\delta\bBf\in\R^3$ satisfy
 By integration by parts,
 \begin{equation*}
  \delta\int L\dd t\dd^3\br
- =\int\left((\pdr\cdot\bE-\rho)\delta V
- +(\partial_t\bE-\pdr\times\bBf+\bJ)\cdot\delta\bA\right)\dd t\dd^3\br.
+ =\int\left((\pdr\dotprod\bE-\rho)\delta V
+ +(\partial_t\bE-\pdr\times\bBf+\bJ)\dotprod\delta\bA\right)\dd t\dd^3\br.
 \end{equation*}
 From independent variations,
 \eqref{eq:gauss-electric} and \eqref{eq:ampere-maxwell}; the potential
@@ -3671,14 +3675,14 @@ Together they recover \eqref{eq:maxwell}.
 Since $\pF\in\{0\}\oplus\C^3$, its adjugate is $-\pF$.
 Its square is a complex scalar, $\pF^2\in\C$~\citeat{baylis-applications}{p.~106}{page=117}
 \begin{equation}
- \pF^2=-\det \pF=\bE^2-\bBf^2+2\ii\bE\cdot\bBf.
+ \pF^2=-\det \pF=\bE^2-\bBf^2+2\ii\bE\dotprod\bBf.
  \label{eq:field-invariants}
 \end{equation}
 For a complex \hyperref[eq:unit-paravector]{invertible paravector} $\pT$, the field similarity
 $\pF'=\pT \pF \pT^{-1}$ preserves this scalar by \eqref{eq:det-similarity}.
 Physical rotations and boosts use
-$\pR=\exp(-\ii\theta\bu\cdot\bsig/2)$ and
-$\pL=\exp(-\theta\bu\cdot\bsig/2)$, respectively, with
+$\pR=\exp(-\ii\theta\bu\dotprod\bsig/2)$ and
+$\pL=\exp(-\theta\bu\dotprod\bsig/2)$, respectively, with
 \hyperref[def:real-unit-vector]{real unit vector} $\bu$
 and real angle or rapidity $\theta$; their field laws are derived in
 Section~\ref{sec:transformations}.
@@ -3690,10 +3694,10 @@ At a point with a nonzero field, they give the classification
 \toprule
 Condition & Consequence\\
 \midrule
-$\bE\cdot\bBf=0$, $\bE^2>\bBf^2$ & Some frame has $\bBf'=0$.\\
-$\bE\cdot\bBf=0$, $\bE^2<\bBf^2$ & Some frame has $\bE'=0$.\\
-$\bE\cdot\bBf\ne0$ & Neither field can be eliminated.\\
-$\bE\cdot\bBf=0$, $\bE^2=\bBf^2$ & Null field: equal, perpendicular fields.\\
+$\bE\dotprod\bBf=0$, $\bE^2>\bBf^2$ & Some frame has $\bBf'=0$.\\
+$\bE\dotprod\bBf=0$, $\bE^2<\bBf^2$ & Some frame has $\bE'=0$.\\
+$\bE\dotprod\bBf\ne0$ & Neither field can be eliminated.\\
+$\bE\dotprod\bBf=0$, $\bE^2=\bBf^2$ & Null field: equal, perpendicular fields.\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -3713,29 +3717,29 @@ A dot is used for a total derivative along the particle's path with
 respect to coordinate time $t$, for example $\dot{\bp}=\dd\bp/\dd t$.
 The field derivatives $\partial_t$ are partial derivatives at fixed position.
 
-Notation: the real four-velocity $\pU=\dd \pX/\dd s=\gamma(1+\bv\cdot\bsig)$,
+Notation: the real four-velocity $\pU=\dd \pX/\dd s=\gamma(1+\bv\dotprod\bsig)$,
 an \hyperref[eq:unit-paravector]{invertible paravector} with $\pU \pU^{-1}=1$.
 Charge and constant mass are denoted by $q\in\R$ and $m>0$, respectively.  The real momentum is
-$\pP=m\pU=E+\bp\cdot\bsig$, with $E=m\gamma$ and $\bp=m\gamma\bv$.
+$\pP=m\pU=E+\bp\dotprod\bsig$, with $E=m\gamma$ and $\bp=m\gamma\bv$.
 The real particle Lagrangian $L$ is fixed by the action~\citeat{tong-em}{Eq.~(5.41)}{page=132}
 \begin{equation}
  \int L\dd t=-m\int\dd s-q\int\scpart{\pA^*\pU}\dd s.
  \label{eq:charged-particle-action}
 \end{equation}
-Since $\scpart{\pA^*\pU}=\gamma(V-\bv\cdot\bA)$, the Lagrangian is
+Since $\scpart{\pA^*\pU}=\gamma(V-\bv\dotprod\bA)$, the Lagrangian is
 \begin{equation*}
- L=-m/\gamma-qV+q\bv\cdot\bA.
+ L=-m/\gamma-qV+q\bv\dotprod\bA.
 \end{equation*}
 Its Euler--Lagrange terms are
 \begin{align*}
  \partial_{\bv}L&=\bp+q\bA,\\
  \frac{\dd\left(\partial_{\bv}L\right)}{\dd t}
- &=\dot{\bp}+q\partial_t\bA+q(\bv\cdot\pdr)\bA,\\
- \pdr L&=-q\pdr V+q\pdr(\bv\cdot\bA).
+ &=\dot{\bp}+q\partial_t\bA+q(\bv\dotprod\pdr)\bA,\\
+ \pdr L&=-q\pdr V+q\pdr(\bv\dotprod\bA).
 \end{align*}
 Here spatial differentiation holds the independent velocity argument fixed.
 Using
-$\pdr(\bv\cdot\bA)-(\bv\cdot\pdr)\bA
+$\pdr(\bv\dotprod\bA)-(\bv\dotprod\pdr)\bA
 =\bv\times(\pdr\times\bA)$ gives~\citeat{tong-em}{Eq.~(5.32)}{page=124}
 \begin{equation}
  \dot{\bp}=q(\bE+\bv\times\bBf).
@@ -3745,17 +3749,17 @@ Here \eqref{eq:electric-potential} and \eqref{eq:magnetic-potential}
 turn the potential derivatives into the fields.
 The Hamiltonian is
 \begin{equation}
- H=\bv\cdot(\bp+q\bA)-L=E+qV.
+ H=\bv\dotprod(\bp+q\bA)-L=E+qV.
  \label{eq:charged-hamiltonian}
 \end{equation}
 Using \eqref{eq:hamiltonian-energy-balance} in \eqref{eq:charged-hamiltonian},
 \begin{align*}
- \dot{E}+q\partial_tV+q\bv\cdot\pdr V
- &=-\partial_tL=q\partial_tV-q\bv\cdot\partial_t\bA.
+ \dot{E}+q\partial_tV+q\bv\dotprod\pdr V
+ &=-\partial_tL=q\partial_tV-q\bv\dotprod\partial_t\bA.
 \end{align*}
 Canceling $q\partial_tV$ and using \eqref{eq:electric-potential} gives~\citeat{tong-em}{p.~116}{page=124}
 \begin{equation}
- \dot{E}=q\bv\cdot\bE.
+ \dot{E}=q\bv\dotprod\bE.
  \label{eq:lorentz-energy}
 \end{equation}
 This is the mechanical work rate. Thus $\bp+q\bA$ and $H=E+qV$ are
@@ -3768,10 +3772,10 @@ and the force unchanged.
 The complex product of the field and four-velocity is expanded:
 \begin{equation}
  \begin{aligned}
- \frac{\pF \pU}{\gamma}={}&\bv\cdot\bE
-   +(\bE+\bv\times\bBf)\cdot\bsig\\
- &+\ii\left(\bv\cdot\bBf
-   +(\bBf-\bv\times\bE)\cdot\bsig\right).
+ \frac{\pF \pU}{\gamma}={}&\bv\dotprod\bE
+   +(\bE+\bv\times\bBf)\dotprod\bsig\\
+ &+\ii\left(\bv\dotprod\bBf
+   +(\bBf-\bv\times\bE)\dotprod\bsig\right).
  \end{aligned}
  \label{eq:force-product}
 \end{equation}
@@ -3804,14 +3808,14 @@ Section~\ref{sec:proper-acceleration}.
 Combining \eqref{eq:proper-acceleration-components} with the force components
 in \eqref{eq:force-product} gives
 \begin{align*}
- m\gamma^3\bv\cdot\dot{\bv}&=q\bv\cdot\bE,\\
- m\gamma\left(\dot{\bv}+\gamma^2(\bv\cdot\dot{\bv})\bv\right)
+ m\gamma^3\bv\dotprod\dot{\bv}&=q\bv\dotprod\bE,\\
+ m\gamma\left(\dot{\bv}+\gamma^2(\bv\dotprod\dot{\bv})\bv\right)
  &=q(\bE+\bv\times\bBf).
 \end{align*}
-The coordinate acceleration is obtained by eliminating $\bv\cdot\dot{\bv}$
+The coordinate acceleration is obtained by eliminating $\bv\dotprod\dot{\bv}$
 \begin{equation*}
  \boxed{\dot{\bv}=\frac{q}{m\gamma}
- \left(\bE+\bv\times\bBf-(\bv\cdot\bE)\bv\right).}
+ \left(\bE+\bv\times\bBf-(\bv\dotprod\bE)\bv\right).}
 \end{equation*}
 The magnetic term changes momentum without doing work.
 Taking the determinant of the real force gives
@@ -3819,31 +3823,31 @@ Taking the determinant of the real force gives
  \begin{aligned}
  -\det\left(\frac{\dd \pP}{\dd s}\right)
  &=-m^2\det\left(\frac{\dd \pU}{\dd s}\right)\\
- &=q^2\gamma^2\left((\bE+\bv\times\bBf)^2-(\bv\cdot\bE)^2\right).
+ &=q^2\gamma^2\left((\bE+\bv\times\bBf)^2-(\bv\dotprod\bE)^2\right).
  \end{aligned}
 \end{equation*}
 The invariant squared proper acceleration is obtained by division by $m^2$.
-The factor $\gamma^2((\bE+\bv\times\bBf)^2-(\bv\cdot\bE)^2)$
+The factor $\gamma^2((\bE+\bv\times\bBf)^2-(\bv\dotprod\bE)^2)$
 is the squared electric field in the particle's instantaneous rest frame.
 
 \subsection{Energy and momentum flux}
 
-Notation: $\pF=(\bE+\ii\bBf)\cdot\bsig$.  Its Hermitian product is~\citeat{hestenes-spacetime}{Eq.~(180)}{page=30}
+Notation: $\pF=(\bE+\ii\bBf)\dotprod\bsig$.  Its Hermitian product is~\citeat{hestenes-spacetime}{Eq.~(180)}{page=30}
 \begin{equation*}
  \tfrac12\pF \pF^{\mathsf H}
- =\tfrac12(\bE^2+\bBf^2)+(\bE\times\bBf)\cdot\bsig.
+ =\tfrac12(\bE^2+\bBf^2)+(\bE\times\bBf)\dotprod\bsig.
 \end{equation*}
 The energy density $u=(\bE^2+\bBf^2)/2\in\R_{\ge0}$ and Poynting
 vector $\bS=\bE\times\bBf\in\R^3$ are defined.  These coefficients are frame-dependent,
 whereas $\pF^2$ contains the Lorentz invariants.
 
 \begin{SIunits}{Field energy and flux}
-Using the SI field $\pF=(\bE+\ii c\bBf)\cdot\bsig$,
+Using the SI field $\pF=(\bE+\ii c\bBf)\dotprod\bsig$,
 \begin{gather*}
  u=\frac{\epsilon_0}{2}(\bE^2+c^2\bBf^2),\qquad
  \bS=\frac1{\mu_0}\bE\times\bBf,\\
  \frac{\epsilon_0}{2}\pF\pF^{\mathsf H}
- =u+\frac{\bS}{c}\cdot\bsig.
+ =u+\frac{\bS}{c}\dotprod\bsig.
 \end{gather*}
 Here $u$ is energy per unit volume in $\mathrm{J\,m^{-3}}$, and
 $\bS$ is energy flux in $\mathrm{W\,m^{-2}}$.
@@ -3851,12 +3855,12 @@ $\bS$ is energy flux in $\mathrm{W\,m^{-2}}$.
 
 In natural units, the full stress--energy tensor is represented by the real linear map~\citeat{hestenes-spacetime}{Eq.~(167)}{page=28}
 \begin{equation}
- T(\pN):=\tfrac12\pF \pN \pF^{\mathsf H},
+ T(\pX):=\tfrac12\pF \pX \pF^{\mathsf H},
  \label{eq:electromagnetic-stress-map}
 \end{equation}
 Here $T:\R\oplus\R^3\to\R\oplus\R^3$ is a real-linear map, with
-$\pN\in\R\oplus\R^3$; $T$ denotes the stress map, not a frame factor.  Its time-direction value is
-$T(1)=u+\bS\cdot\bsig$.  It is future causal because $u\geq0$ and
+$\pX\in\R\oplus\R^3$; $T$ denotes the stress map, not a frame factor.  Its time-direction value is
+$T(1)=u+\bS\dotprod\bsig$.  It is future causal because $u\geq0$ and
 \begin{equation*}
  \det(T(1))=u^2-\bS^2=\tfrac14\lVert\det \pF\rVert^2\geq0.
 \end{equation*}
@@ -3880,27 +3884,27 @@ Section~\ref{sec:transformations}.
 Using Maxwell's vector equations,
 \begin{align*}
  \partial_tu
- &=\bE\cdot(\pdr\times\bBf-\bJ)-\bBf\cdot(\pdr\times\bE)\\
- &=-\pdr\cdot\bS-\bJ\cdot\bE,
+ &=\bE\dotprod(\pdr\times\bBf-\bJ)-\bBf\dotprod(\pdr\times\bE)\\
+ &=-\pdr\dotprod\bS-\bJ\dotprod\bE,
 \end{align*}
 where
-$\pdr\cdot(\bE\times\bBf)
-=\bBf\cdot(\pdr\times\bE)-\bE\cdot(\pdr\times\bBf)$.
+$\pdr\dotprod(\bE\times\bBf)
+=\bBf\dotprod(\pdr\times\bE)-\bE\dotprod(\pdr\times\bBf)$.
 Thus Poynting's energy-balance law is~\citeat{tong-em}{Eq.~(5.45)}{page=136}
 \begin{equation}
- \partial_tu+\pdr\cdot\bS=-\bJ\cdot\bE.
+ \partial_tu+\pdr\dotprod\bS=-\bJ\dotprod\bE.
  \label{eq:poynting}
 \end{equation}
 Equivalently, the left side is
 $\tfrac12\partial_t\scpart{\pF \pF^{\mathsf H}}
-+\tfrac12\pdr\cdot\vecpart{\pF \pF^{\mathsf H}}$.
-The term $\bJ\cdot\bE$ is the power delivered to matter per unit
++\tfrac12\pdr\dotprod\vecpart{\pF \pF^{\mathsf H}}$.
+The term $\bJ\dotprod\bE$ is the power delivered to matter per unit
 volume.
 
 \section{Quantum amplitudes and differential operators}
 \label{sec:waves}
 
-Here $\pX=t+\br\cdot\bsig$ has real coordinates $(t,\br)\in\R^4$,
+Here $\pX=t+\br\dotprod\bsig$ has real coordinates $(t,\br)\in\R^4$,
 $m>0$ is mass, $q\in\R$ is charge, and $\hbar=c=1$.
 Amplitudes are complex functions of these real coordinates;
 their scalar or paravector type is specified below.
@@ -3919,10 +3923,10 @@ one entry in angle brackets denotes a normalized expectation below.
 
 For arbitrary constant perpendicular \hyperref[def:real-unit-vector]{real unit vectors}
 $\bu,\bu'$, a constant complex paravector $\pvpsi_+$ of unit norm
-with $(\bu\cdot\bsig)\pvpsi_+=\pvpsi_+$ is chosen, and $\pvpsi_-=(\bu'\cdot\bsig)\pvpsi_+$ is defined.
+with $(\bu\dotprod\bsig)\pvpsi_+=\pvpsi_+$ is chosen, and $\pvpsi_-=(\bu'\dotprod\bsig)\pvpsi_+$ is defined.
 Then
 \begin{equation}
- (\bu\cdot\bsig)\pvpsi_\pm=\pm\pvpsi_\pm.
+ (\bu\dotprod\bsig)\pvpsi_\pm=\pm\pvpsi_\pm.
  \label{eq:axis-ideal-basis}
 \end{equation}
 The pair is orthonormal:
@@ -3947,7 +3951,7 @@ multiplication by any paravector. Its coordinates are in $\C^2$,
 not the full four-complex-dimensional paravector space.
 Here $\pvpsi_\pm$ denote constant basis elements; in the Dirac sections they
 denote fields taking values in this same subspace.
-Left multiplication by $\bu\cdot\bsig$ or $\bu'\cdot\bsig$ preserves
+Left multiplication by $\bu\dotprod\bsig$ or $\bu'\dotprod\bsig$ preserves
 this two-component form; these generate all paravector left actions.
 The matrix verification is in Appendix~\ref{sec:matrix-spinors}.
 
@@ -3965,11 +3969,11 @@ Total spatial normalization is separate from the pointwise norm.
 This probability interpretation does not apply to an arbitrary scalar KG field.
 
 \subsection{Weighted densities and local expectations}
-$\pZ=c+\bZ\cdot\bsig$ is taken to be real ($\pZ^{\mathsf H}=\pZ$),
+$\pZ=c+\bZ\dotprod\bsig$ is taken to be real ($\pZ^{\mathsf H}=\pZ$),
 with $c\in\R$ and $\bZ\in\R^3$.
 It acts by multiplication, not differentiation.
 For $\bZ\ne0$, the real unit vector $\bu=\bZ/\lVert\bZ\rVert$ is used
-with the projectors $\pvPi_\pm=(1\pm\bu\cdot\bsig)/2$ from
+with the projectors $\pvPi_\pm=(1\pm\bu\dotprod\bsig)/2$ from
 Section~\ref{sec:algebra-projectors}.  Their spectral decomposition gives
 \begin{equation}
  \scpart{\pvpsi^{\mathsf H}\pZ\pvpsi}
@@ -4029,10 +4033,10 @@ any complex $\pZ$.  With $\rho'=\lVert\pvpsi'\rVert^2>0$, it gives
    \langle \pT^{\mathsf H}\pZ \pT\rangle_\pvpsi.}
  \label{eq:amplitude-pullback}
 \end{equation}
-For $\pT=\pR=\exp(-\ii\theta\bu\cdot\bsig/2)$, with real angle $\theta$
+For $\pT=\pR=\exp(-\ii\theta\bu\dotprod\bsig/2)$, with real angle $\theta$
 and real unit $\bu$, unitarity preserves both
 $\rho'=\rho$ and $\langle\pvvarphi'\mid\pvpsi'\rangle=\langle\pvvarphi\mid\pvpsi\rangle$.
-For $\pT=\pL=\exp(-\theta\bu\cdot\bsig/2)$, with real rapidity $\theta$,
+For $\pT=\pL=\exp(-\theta\bu\dotprod\bsig/2)$, with real rapidity $\theta$,
 this one-sided law instead gives
 $\rho'=\lVert\pvpsi\rVert_{\pL^2}^2$; the norm and inner product
 are generally not invariant.  The two Dirac entries use opposite boost
@@ -4042,7 +4046,7 @@ factors, as derived in Section~\ref{sec:transformations}.
 \subsection{Energy and momentum as differential operators}
 \label{sec:quantum-energy-momentum}
 
-Notation: $\pX=t+\br\cdot\bsig$, with real coordinates $(t,\br)\in\R^4$.
+Notation: $\pX=t+\br\dotprod\bsig$, with real coordinates $(t,\br)\in\R^4$.
 \begin{SIunits}{Wave energy and momentum}
 In the following wave relations, SI units are restored and Planck's
 constant $h>0$ and $\hbar=h/(2\pi)$ are retained. For a free wave,
@@ -4070,9 +4074,9 @@ $t$ in seconds and position $\br$ in metres,
 the complex scalar plane wave is
 \begin{gather*}
  f(t,\br):=\exp\!\left(-\ii\left(\omega t
-             -2\pi\bk\cdot\br\right)\right),\\
+             -2\pi\bk\dotprod\br\right)\right),\\
  f(t,\br)=\exp\!\left(-\frac{\ii}{\hbar}\left(Et
-             -\bp\cdot\br\right)\right).
+             -\bp\dotprod\br\right)\right).
 \end{gather*}
 The second line substitutes \eqref{eq:planck-einstein} and
 \eqref{eq:debroglie-momentum}.  By differentiation,
@@ -4085,10 +4089,10 @@ to superpositions by linearity.
 \end{SIunits}
 
 Returning to natural units $\hbar=c=1$ gives $h=2\pi$. With
-$\pX=t+\br\cdot\bsig$ and
-$\pP=E+\bp\cdot\bsig$, the following is obtained~\citeat{tong-qft}{Eq.~(4.104)}{page=106}
+$\pX=t+\br\dotprod\bsig$ and
+$\pP=E+\bp\dotprod\bsig$, the following is obtained~\citeat{tong-qft}{Eq.~(4.104)}{page=106}
 \begin{equation}
- f(\pX,\pP)=\exp\!\left(-\ii(Et-\bp\cdot\br)\right).
+ f(\pX,\pP)=\exp\!\left(-\ii(Et-\bp\dotprod\br)\right).
  \label{eq:plane-wave}
 \end{equation}
 The two eigenvalue equations combine into
@@ -4107,7 +4111,7 @@ The canonical energy and momentum operators are defined by
 \end{equation}
 which combine to form the canonical four-momentum operator:
 \begin{equation}
- \hP:=\ii\pvpartial^*=\hE+\hbp\cdot\bsig.
+ \hP:=\ii\pvpartial^*=\hE+\hbp\dotprod\bsig.
  \label{eq:canonical-paravector}
 \end{equation}
 
@@ -4121,7 +4125,7 @@ On spinor fields, $\hP$ preserves the fixed subspace of
 \eqref{eq:axis-ideal-components}. The coupled operators have the same types.
 
 In a field, the following notation is retained: the real potential paravector
-$\pA(t,\br)=V(t,\br)+\bA(t,\br)\cdot\bsig$:
+$\pA(t,\br)=V(t,\br)+\bA(t,\br)\dotprod\bsig$:
 $V:\R^4\to\R$, $\bA:\R^4\to\R^3$, and
 $\pA:\R^4\to\R\oplus\R^3$.
 Within the coupling formulas, subscript $0$ labels the uncoupled
@@ -4142,7 +4146,7 @@ operators defines the gauge-covariant energy and kinetic momentum operators~\cit
 \end{align}
 which combine to form the kinetic four-momentum operator:
 \begin{equation}
- \hPq:=\hP_0-q\pA=\hEq+\hbpq\cdot\bsig.
+ \hPq:=\hP_0-q\pA=\hEq+\hbpq\dotprod\bsig.
  \label{eq:mechanical-paravector}
 \end{equation}
 Here $\hEq$ includes rest energy and excludes the potential energy $qV$.
@@ -4163,9 +4167,9 @@ The same result is obtained by reversal of the order.
 \subsection{Field strength from noncommuting derivatives}
 Notation: the real electric and magnetic fields from
 \eqref{eq:electric-potential} and \eqref{eq:magnetic-potential}, and
-$S=\partial_tV+\pdr\cdot\bA$, the real scalar in
-\eqref{eq:potential-field}.  The real potential is $\pA=V+\bA\cdot\bsig$;
-$\pF=(\bE+\ii\bBf)\cdot\bsig$ is a complex vector paravector.
+$S=\partial_tV+\pdr\dotprod\bA$, the real scalar in
+\eqref{eq:potential-field}.  The real potential is $\pA=V+\bA\dotprod\bsig$;
+$\pF=(\bE+\ii\bBf)\dotprod\bsig$ is a complex vector paravector.
 
 The operators are applied to a differentiable complex amplitude.
 The product rule cancels all derivatives of the amplitude in the
@@ -4178,31 +4182,31 @@ $j,k=1,2,3$,
 \end{align*}
 Sigma multiplication and the energy commutator consequently give~\citeat{gurtler-hestenes}{Eq.~(2.13)}{page=6}\,\citeat{gurtler-hestenes}{p.~6}{page=6}
 \begin{equation}
- (\hbpq\cdot\bsig)^2=\hbpq^2-q\bBf\cdot\bsig,
+ (\hbpq\dotprod\bsig)^2=\hbpq^2-q\bBf\dotprod\bsig,
  \label{eq:kinetic-sigma-square}
 \end{equation}
 \begin{equation}
- [\hEq,\hbpq\cdot\bsig]=\ii q\bE\cdot\bsig.
+ [\hEq,\hbpq\dotprod\bsig]=\ii q\bE\dotprod\bsig.
  \label{eq:kinetic-electric-commutator}
 \end{equation}
 Here $E_j$ is an electric-field component. Reversing the commutator
 order and combining the electric and magnetic terms also gives
 \[
  \begin{aligned}
- [\hbpq\cdot\bsig,\hEq]&=-\ii q\bE\cdot\bsig,\\
+ [\hbpq\dotprod\bsig,\hEq]&=-\ii q\bE\dotprod\bsig,\\
  \hbpq^2+\ii q\pF
- &=(\hbpq\cdot\bsig)^2-[\hbpq\cdot\bsig,\hEq].
+ &=(\hbpq\dotprod\bsig)^2-[\hbpq\dotprod\bsig,\hEq].
  \end{aligned}
 \]
 Using \eqref{eq:kinetic-sigma-square} and
 \eqref{eq:kinetic-electric-commutator} in the ordered products gives
 \begin{align}
- (\hEq+\hbpq\cdot\bsig)(\hEq-\hbpq\cdot\bsig)
- &=\hEq^2-(\hbpq\cdot\bsig)^2-[\hEq,\hbpq\cdot\bsig]\notag\\
+ (\hEq+\hbpq\dotprod\bsig)(\hEq-\hbpq\dotprod\bsig)
+ &=\hEq^2-(\hbpq\dotprod\bsig)^2-[\hEq,\hbpq\dotprod\bsig]\notag\\
  &=\hEq^2-\hbpq^2-\ii q\pF,
  \label{eq:covariant-product-plus}\\[0.35em]
- (\hEq-\hbpq\cdot\bsig)(\hEq+\hbpq\cdot\bsig)
- &=\hEq^2-(\hbpq\cdot\bsig)^2+[\hEq,\hbpq\cdot\bsig]\notag\\
+ (\hEq-\hbpq\dotprod\bsig)(\hEq+\hbpq\dotprod\bsig)
+ &=\hEq^2-(\hbpq\dotprod\bsig)^2+[\hEq,\hbpq\dotprod\bsig]\notag\\
  &=\hEq^2-\hbpq^2-\ii q\pF^*.
  \label{eq:covariant-product-minus}
 \end{align}
@@ -4245,7 +4249,7 @@ Here the branch fields $\psi_\pm:\R^4\to\C$ are scalars, not Dirac entries.
 The positive scalar operator is defined by
 \[
  \hOmega:=\sqrt{m^2-\pdr^2},\qquad
- \hOmega^2=\det(m+\pdr\cdot\bsig).
+ \hOmega^2=\det(m+\pdr\dotprod\bsig).
 \]
 Since $\hOmega$ commutes with $\partial_t$, KG factors as
 \begin{equation*}
@@ -4274,7 +4278,7 @@ The two initial data determine its complex branch fields by
 For spatially periodic free KG solutions, the following discrete Fourier series is used:
 \[
  \psi=\sum_n c_n f_n,\qquad
- f_n(t,\br)=\exp\!\left(\ii(\omega_n t+2\pi\bk_n\cdot\br)\right).
+ f_n(t,\br)=\exp\!\left(\ii(\omega_n t+2\pi\bk_n\dotprod\br)\right).
 \]
 Here $n$ labels modes, $c_n\in\C$ are constant coefficients,
 $\omega_n\in\R$ are signed angular phase frequencies, and $\bk_n\in\R^3$
@@ -4315,8 +4319,8 @@ its branch does not select the frequency sign.
 \subsection{Electromagnetic coupling}
 Notation: the real potentials $V,\bA$, charge $q$, and coupled operators
 $\hEq=\ii\partial_t-qV$, $\hbpq=-\ii\pdr-q\bA$.
-The real potential paravector is $\pA=V+\bA\cdot\bsig$, with real
-scalar $S=\partial_tV+\pdr\cdot\bA$.
+The real potential paravector is $\pA=V+\bA\dotprod\bsig$, with real
+scalar $S=\partial_tV+\pdr\dotprod\bA$.
 The scalar equation in a field is~\citeat{lenz-quantum}{Eq.~(299)}{page=59}
 \begin{equation}
  \boxed{(-\hEq^2+\hbpq^2+m^2)\psi=0.}
@@ -4329,15 +4333,15 @@ By the product rule,
  \hEq^2&=-\partial_t^2-\ii q(\partial_tV)
        -2\ii qV\partial_t+q^2V^2,
  \label{eq:energy-operator-square}\\
- \hbpq^2&=-\pdr^2+\ii q(\pdr\cdot\bA)
-       +2\ii q\bA\cdot\pdr+q^2\bA^2.
+ \hbpq^2&=-\pdr^2+\ii q(\pdr\dotprod\bA)
+       +2\ii q\bA\dotprod\pdr+q^2\bA^2.
  \label{eq:momentum-operator-square}
 \end{align}
 Substituting \eqref{eq:energy-operator-square} and
 \eqref{eq:momentum-operator-square} into \eqref{eq:kg-field} gives
 \begin{equation*}
  \boxed{\left(\Box+\ii qS-q^2\det \pA+m^2
- +2\ii q(V\partial_t+\bA\cdot\pdr)\right)\psi=0.}
+ +2\ii q(V\partial_t+\bA\dotprod\pdr)\right)\psi=0.}
 \end{equation*}
 
 All potential derivatives are retained.
@@ -4417,8 +4421,8 @@ $\det \pP=E^2-\bp^2=m^2$ in \eqref{eq:mass-shell}:
 \end{equation*}
 The original first-order constraint is the coupled pair~\citeat{tong-qft}{Eq.~(4.108)}{page=107}
 \begin{align}
- \ii\pvpartial\pvpsi_-&=(\hE-\hbp\cdot\bsig)\pvpsi_-=m\pvpsi_+,\label{eq:dirac-free-first}\\
- \ii\pvpartial^*\pvpsi_+&=(\hE+\hbp\cdot\bsig)\pvpsi_+=m\pvpsi_-.
+ \ii\pvpartial\pvpsi_-&=(\hE-\hbp\dotprod\bsig)\pvpsi_-=m\pvpsi_+,\label{eq:dirac-free-first}\\
+ \ii\pvpartial^*\pvpsi_+&=(\hE+\hbp\dotprod\bsig)\pvpsi_+=m\pvpsi_-.
  \label{eq:dirac-free-second}
 \end{align}
 
@@ -4476,7 +4480,7 @@ Conversely, every massive free solution has this form with $\pvpsi=\pvpsi_+$.
 Equation~\eqref{eq:kg-general-solution} evolves its two coefficients.
 
 \subsection{Potential and paravector components}
-Notation: the real $\pA=V+\bA\cdot\bsig$, real charge $q$, and
+Notation: the real $\pA=V+\bA\dotprod\bsig$, real charge $q$, and
 $\hEq=\ii\partial_t-qV$, $\hbpq=-\ii\pdr-q\bA$.
 The kinetic four-momentum is $\hPq=\hP_0-q\pA$ from
 \eqref{eq:mechanical-paravector}.
@@ -4496,14 +4500,14 @@ Minimal coupling gives~\citeat{hestenes-spacetime}{Eq.~(191)}{page=32}
 \end{equation}
 Its entries are
 \begin{align}
- (\hEq-\hbpq\cdot\bsig)\pvpsi_-&=m\pvpsi_+,\label{eq:dirac-entry-one}\\
- (\hEq+\hbpq\cdot\bsig)\pvpsi_+&=m\pvpsi_-.
+ (\hEq-\hbpq\dotprod\bsig)\pvpsi_-&=m\pvpsi_+,\label{eq:dirac-entry-one}\\
+ (\hEq+\hbpq\dotprod\bsig)\pvpsi_+&=m\pvpsi_-.
  \label{eq:dirac-entry-two}
 \end{align}
 With the time derivative isolated,
 $\ii\partial_t\bpsi=\hH\bpsi$, where the Hamiltonian is~\citeat{lenz-quantum}{Eq.~(412)}{page=75}
 \begin{equation}
- \hH:=qV\bI+\Wop(1)\bigl(m\bI-\Wop(\hbpq\cdot\bsig)\bigr).
+ \hH:=qV\bI+\Wop(1)\bigl(m\bI-\Wop(\hbpq\dotprod\bsig)\bigr).
  \label{eq:dirac-hamiltonian}
 \end{equation}
 For real potentials, the Dirac equation conserves total probability
@@ -4511,15 +4515,15 @@ when the spatial boundary flux vanishes.  The pointwise density
 \eqref{eq:dirac-norm} can still vary through probability flux.
 
 Each coefficient is exposed by the decomposition
-$\pvpsi_\pm=a_\pm+\bb_\pm\cdot\bsig$, with complex scalar
+$\pvpsi_\pm=a_\pm+\bb_\pm\dotprod\bsig$, with complex scalar
 functions $a_\pm:\R^4\to\C$ and vector functions
 $\bb_\pm:\R^4\to\C^3$. Their pairs $(a_\pm,\bb_\pm)$ are restricted to
 the fixed spinor space, so their four complex coefficients per entry are
 not independent. By sigma multiplication,
 \begin{align*}
- \hEq a_--\hbpq\cdot\bb_-&=ma_+,\\
+ \hEq a_--\hbpq\dotprod\bb_-&=ma_+,\\
  \hEq\bb_--\hbpq a_--\ii\hbpq\times\bb_-&=m\bb_+,\\
- \hEq a_++\hbpq\cdot\bb_+&=ma_-,\\
+ \hEq a_++\hbpq\dotprod\bb_+&=ma_-,\\
  \hEq\bb_++\hbpq a_++\ii\hbpq\times\bb_+&=m\bb_-.
 \end{align*}
 Every operator acts on the following coefficient.  Each entry still
@@ -4530,20 +4534,20 @@ the conventional four-component Dirac equation.
 \subsection{Interacting factorization and reconstruction}
 \label{sec:interacting-factorization}
 
-Notation: the real potential $\pA=V+\bA\cdot\bsig$, the complex field
-$\pF=(\bE+\ii\bBf)\cdot\bsig$, and
-$S=\partial_tV+\pdr\cdot\bA$.
+Notation: the real potential $\pA=V+\bA\dotprod\bsig$, the complex field
+$\pF=(\bE+\ii\bBf)\dotprod\bsig$, and
+$S=\partial_tV+\pdr\dotprod\bA$.
 For any field $\pvpsi:\R^4\to\C\oplus\C^3$, the product rule gives
 \begin{align}
  \pvpartial^*(\pA^*\pvpsi)+\pA\pvpartial\pvpsi
- &=(S+\pF)\pvpsi+2(V\partial_t+\bA\cdot\pdr)\pvpsi,
+ &=(S+\pF)\pvpsi+2(V\partial_t+\bA\dotprod\pdr)\pvpsi,
  \label{eq:potential-product-one}\\
  \pvpartial(\pA\pvpsi)+\pA^*\pvpartial^*\pvpsi
- &=(S+\pF^*)\pvpsi+2(V\partial_t+\bA\cdot\pdr)\pvpsi.
+ &=(S+\pF^*)\pvpsi+2(V\partial_t+\bA\dotprod\pdr)\pvpsi.
  \label{eq:potential-product-two}
 \end{align}
 The difference of \eqref{eq:potential-product-one} and
-\eqref{eq:potential-product-two} is $(\pF-\pF^*)\pvpsi=2(\bE\cdot\bsig)\pvpsi$.
+\eqref{eq:potential-product-two} is $(\pF-\pF^*)\pvpsi=2(\bE\dotprod\bsig)\pvpsi$.
 
 Applying the block map $\Wop$ twice gives
 \begin{align*}
@@ -4581,23 +4585,23 @@ The exact second-order equations are obtained by expansion~\citeat{feynman-gellm
  \label{eq:dirac-squared-field}
 \end{align}
 For the spin-term components, the notation $\bZ=\bE+\ii\bBf$ is used, with
-$\pvpsi=a+\bb\cdot\bsig$, with complex functions
+$\pvpsi=a+\bb\dotprod\bsig$, with complex functions
 $a:\R^4\to\C$ and $\bb,\bZ:\R^4\to\C^3$.
 Here $\bZ^*$ conjugates its scalar coefficients.  By sigma multiplication,
 \begin{align*}
  \ii q\pF\pvpsi
- &=\ii q\bZ\cdot\bb+
-   (\ii qa\bZ-q\bZ\times\bb)\cdot\bsig,
+ &=\ii q\bZ\dotprod\bb+
+   (\ii qa\bZ-q\bZ\times\bb)\dotprod\bsig,
  \\
  \ii q\pF^*\pvpsi
- &=-\ii q\bZ^*\cdot\bb+
-   (-\ii qa\bZ^*+q\bZ^*\times\bb)\cdot\bsig.
+ &=-\ii q\bZ^*\dotprod\bb+
+   (-\ii qa\bZ^*+q\bZ^*\times\bb)\dotprod\bsig.
 \end{align*}
 Solutions are constructed from a complex paravector amplitude $\pvpsi$ of
 \eqref{eq:axis-ideal-components} satisfying
 \eqref{eq:dirac-squared-field} with $\pvpsi$ in place of $\pvpsi_-$. The Dirac field is defined by
 \begin{equation}
- \boxed{\bpsi=\begin{Bmatrix}(\hEq-\hbpq\cdot\bsig)\pvpsi/m\\\pvpsi\end{Bmatrix}.}
+ \boxed{\bpsi=\begin{Bmatrix}(\hEq-\hbpq\dotprod\bsig)\pvpsi/m\\\pvpsi\end{Bmatrix}.}
  \label{eq:dirac-field-reconstruction}
 \end{equation}
 The first Dirac equation holds by construction; the second is the seed
@@ -4611,13 +4615,13 @@ Notation: the real scalar $\lambda:\R^4\to\R$ and gauge transformation
 $\pA'=\pA+\pvpartial^*\lambda$, or
 $V'=V+\partial_t\lambda$, $\bA'=\bA-\pdr\lambda$.
 For $\hEq':=\ii\partial_t-qV'$, $\hbpq':=-\ii\pdr-q\bA'$, and
-$\hPq':=\hEq'+\hbpq'\cdot\bsig$, the product rule gives
+$\hPq':=\hEq'+\hbpq'\dotprod\bsig$, the product rule gives
 \begin{align*}
- (\hEq+\hbpq\cdot\bsig)(e^{\ii q\lambda}\pvpsi_\pm')
+ (\hEq+\hbpq\dotprod\bsig)(e^{\ii q\lambda}\pvpsi_\pm')
  &=e^{\ii q\lambda}
-   (\hEq-q\partial_t\lambda+\hbpq\cdot\bsig
-      +q(\pdr\lambda)\cdot\bsig)\pvpsi_\pm'\\
- &=e^{\ii q\lambda}(\hEq'+\hbpq'\cdot\bsig)\pvpsi_\pm'.
+   (\hEq-q\partial_t\lambda+\hbpq\dotprod\bsig
+      +q(\pdr\lambda)\dotprod\bsig)\pvpsi_\pm'\\
+ &=e^{\ii q\lambda}(\hEq'+\hbpq'\dotprod\bsig)\pvpsi_\pm'.
 \end{align*}
 The adjugate block follows with the vector signs reversed.
 Thus the new amplitude is
@@ -4733,8 +4737,8 @@ On the envelopes, $\hEq$ measures energy above rest, excluding $qV$.
 The two rows of the Dirac equation, \eqref{eq:dirac-entry-one} and
 \eqref{eq:dirac-entry-two}, become
 \begin{align*}
- (m+\hEq-\hbpq\cdot\bsig)\pvpsi_-'&=m\pvpsi_+',\\
- (m+\hEq+\hbpq\cdot\bsig)\pvpsi_+'&=m\pvpsi_-'.
+ (m+\hEq-\hbpq\dotprod\bsig)\pvpsi_-'&=m\pvpsi_+',\\
+ (m+\hEq+\hbpq\dotprod\bsig)\pvpsi_+'&=m\pvpsi_-'.
 \end{align*}
 At free positive-energy rest, $\pvpsi_+'=\pvpsi_-'$.  The large and small components are defined by
 \begin{align}
@@ -4745,25 +4749,25 @@ At free positive-energy rest, $\pvpsi_+'=\pvpsi_-'$.  The large and small compon
 \end{align}
 The exact pair is obtained by addition and subtraction~\citeat{gurtler-hestenes}{Eqs.~(2.15)--(2.16)}{page=6}:
 \begin{align}
- \hEq\pvphi_+&=(\hbpq\cdot\bsig)\pvphi_-,
+ \hEq\pvphi_+&=(\hbpq\dotprod\bsig)\pvphi_-,
  \label{eq:dirac-large-component}\\
- (2m+\hEq)\pvphi_-&=(\hbpq\cdot\bsig)\pvphi_+.
+ (2m+\hEq)\pvphi_-&=(\hbpq\dotprod\bsig)\pvphi_+.
  \label{eq:dirac-small-recursion}
 \end{align}
 For nonrelativistic positive-energy states in weak, slowly varying fields,
 $\hEq\pvphi_-$ is neglected relative to $2m\pvphi_-$. The small component
 is substituted into the first equation, and \eqref{eq:kinetic-sigma-square} is applied:
 \begin{align*}
- \pvphi_-&\simeq\frac{\hbpq\cdot\bsig}{2m}\pvphi_+,\\
- \hEq\pvphi_+&\simeq\frac{(\hbpq\cdot\bsig)^2}{2m}\pvphi_+
- =\frac{\hbpq^2-q\bBf\cdot\bsig}{2m}\pvphi_+.
+ \pvphi_-&\simeq\frac{\hbpq\dotprod\bsig}{2m}\pvphi_+,\\
+ \hEq\pvphi_+&\simeq\frac{(\hbpq\dotprod\bsig)^2}{2m}\pvphi_+
+ =\frac{\hbpq^2-q\bBf\dotprod\bsig}{2m}\pvphi_+.
 \end{align*}
 Restoring $\hEq=\ii\partial_t-qV$ gives Pauli's equation through order
 $1/m$~\citeat{gurtler-hestenes}{Eq.~(2.13)}{page=6}:
 \begin{equation}
  \boxed{\ii\partial_t\pvphi_+=\left(
   \frac{(-\ii\pdr-q\bA)^2}{2m}+qV
-  -\frac{q}{2m}\bBf\cdot\bsig\right)\pvphi_+.}
+  -\frac{q}{2m}\bBf\dotprod\bsig\right)\pvphi_+.}
  \label{eq:pauli}
 \end{equation}
 
@@ -4773,7 +4777,7 @@ $\mathrm{T\,m}$, and $\bBf$ in teslas, restoring $\hbar$ gives
 \[
  \ii\hbar\partial_t\pvphi_+
  =\left(\frac{(-\ii\hbar\pdr-q\bA)^2}{2m}+qV
- -\frac{q\hbar}{2m}\bBf\cdot\bsig\right)\pvphi_+.
+ -\frac{q\hbar}{2m}\bBf\dotprod\bsig\right)\pvphi_+.
 \]
 Each term in parentheses has energy units. The same nonrelativistic
 approximation as in \eqref{eq:pauli} is retained.
@@ -4798,21 +4802,21 @@ For a constant field $\bm B\in\R^3\setminus\{0\}$, its \hyperref[def:real-unit-v
 
 \[
 \vstyle{u}:=\frac{\vstyle{B}}{\lVert\vstyle{B}\rVert}\in\R^3,
-\qquad \pvPi_\pm:=\frac12(1\pm\vstyle{u}\cdot\bsig)\in\R\oplus\R^3.
+\qquad \pvPi_\pm:=\frac12(1\pm\vstyle{u}\dotprod\bsig)\in\R\oplus\R^3.
 \]
 
 \hyperref[sec:spectral]{Spectral decomposition} gives
 
 \[
-\vstyle{B}\cdot\bsig
+\vstyle{B}\dotprod\bsig
 =\lVert\vstyle{B}\rVert(\pvPi_+-\pvPi_-),
 \qquad
-\pvPi_\pm(\vstyle{B}\cdot\bsig)
+\pvPi_\pm(\vstyle{B}\dotprod\bsig)
 =\pm\lVert\vstyle{B}\rVert\pvPi_\pm.
 \]
 
 The two spin amplitudes $\phi_{++},\phi_{+-}:\R^4\to\C$ are encoded in an aligned paravector
-$\pvphi_+:\R^4\to\mathrm{span}_{\C}\{1,\bm u\cdot\bsig\}\subset\C\oplus\C^3$
+$\pvphi_+:\R^4\to\mathrm{span}_{\C}\{1,\bm u\dotprod\bsig\}\subset\C\oplus\C^3$
 by spectral decomposition:
 \[
 \begin{aligned}
@@ -4825,7 +4829,7 @@ Constant $\pvPi_\pm$ commute with $\hEq$ and $\hbpq^2$,
 so the Pauli equation gives
 \[
 \begin{aligned}
-0&=\pvPi_\pm\left(2m\hEq-\hbpq^2+q\bm B\cdot\bsig\right)\pvphi_+\\
+0&=\pvPi_\pm\left(2m\hEq-\hbpq^2+q\bm B\dotprod\bsig\right)\pvphi_+\\
 &=\left(\left(2m\hEq-\hbpq^2
 \pm q\lVert\bm B\rVert\right)\phi_{+\pm}\right)\pvPi_\pm.
 \end{aligned}
@@ -4870,16 +4874,16 @@ the rest-energy phase, are arranged as:
 \]
 Dirac blocks are indexed by rows and spin projections by columns; the upper row is governed by the Pauli limit.
 
-In a basis diagonalizing $\bm u\cdot\bsig$, the aligned paravector is
+In a basis diagonalizing $\bm u\dotprod\bsig$, the aligned paravector is
 $\mathrm{diag}(\phi_{++},\phi_{+-})$. The corresponding spinor in the
 fixed subspace of \eqref{eq:axis-ideal-components} is
 $\phi_{++}\pZ_++\phi_{+-}\pZ_-$, where constant orthonormal $\pZ_\pm$ satisfy
 $\pvPi_\pm \pZ_\pm=\pZ_\pm$ and $\pvPi_\pm \pZ_\mp=0$.
 Both representations give the same scalar Pauli equations.
-The full Dirac coupling $\hbpq\cdot\bsig$ need not preserve alignment.
+The full Dirac coupling $\hbpq\dotprod\bsig$ need not preserve alignment.
 
 For the original spinor blocks, the lower block still satisfies
-$\pvphi_-\simeq(\hbpq\cdot\bsig)\pvphi_+/(2m)$.
+$\pvphi_-\simeq(\hbpq\dotprod\bsig)\pvphi_+/(2m)$.
 For a nonzero field with varying direction, its projectors depend on $(t,\br)$.
 With $\hH$ the Pauli Hamiltonian in \eqref{eq:pauli},
 the product rule for the original spinor gives
@@ -4901,8 +4905,8 @@ A constant unit vector $\bm u'\in\R^3$ and $0\le\theta\le\pi$ are chosen.
 Initial scalar wavefunctions $\phi_{++},\phi_{+-}:\R^3\to\C$ are chosen along this axis:
 \[
 \begin{gathered}
-\bm u'\cdot\bm u=\cos\theta,\qquad
-\pvPi_\pm':=\frac12(1\pm\bm u'\cdot\bsig)\in\R\oplus\R^3,\\
+\bm u'\dotprod\bm u=\cos\theta,\qquad
+\pvPi_\pm':=\frac12(1\pm\bm u'\dotprod\bsig)\in\R\oplus\R^3,\\
 \pvphi_+(0)=\phi_{++}\pvPi_+'+\phi_{+-}\pvPi_-'\in\C\oplus\C^3.
 \end{gathered}
 \]
@@ -4910,10 +4914,10 @@ Initial scalar wavefunctions $\phi_{++},\phi_{+-}:\R^3\to\C$ are chosen along th
 The magnetic term has both diagonal and off-diagonal parts in these projectors:
 \[
 \begin{aligned}
-\pvPi_\pm'(\bm u\cdot\bsig)\pvPi_\pm'
+\pvPi_\pm'(\bm u\dotprod\bsig)\pvPi_\pm'
 &=\pm\cos\theta\,\pvPi_\pm',\\
-\pvPi_\mp'(\bm u\cdot\bsig)\pvPi_\pm'
-&=\bigl((\bm u-\cos\theta\,\bm u')\cdot\bsig\bigr)\pvPi_\pm'.
+\pvPi_\mp'(\bm u\dotprod\bsig)\pvPi_\pm'
+&=\bigl((\bm u-\cos\theta\,\bm u')\dotprod\bsig\bigr)\pvPi_\pm'.
 \end{aligned}
 \]
 
@@ -4923,7 +4927,7 @@ By projection of the Pauli equation,
 2m\hEq\pvPi_\pm'\pvphi_+
 &=\left(\hbpq^2\mp q\lVert\bm B\rVert\cos\theta\right)\pvPi_\pm'\pvphi_+\\
 &\quad-q\lVert\bm B\rVert
-\pvPi_\pm'(\bm u\cdot\bsig)\pvPi_\mp'\pvphi_+.
+\pvPi_\pm'(\bm u\dotprod\bsig)\pvPi_\mp'\pvphi_+.
 \end{aligned}
 \]
 
@@ -4931,7 +4935,7 @@ Initially $\pvPi_\mp'\pvphi_+(0)\pvPi_\pm'=0$, but
 \[
 \left.\ii\partial_t\bigl(\pvPi_\mp'\pvphi_+\pvPi_\pm'\bigr)\right|_{t=0}
 =-\frac{q\lVert\bm B\rVert}{2m}\,
-\phi_{+\pm}\bigl((\bm u-\cos\theta\,\bm u')\cdot\bsig\bigr)\pvPi_\pm'.
+\phi_{+\pm}\bigl((\bm u-\cos\theta\,\bm u')\dotprod\bsig\bigr)\pvPi_\pm'.
 \]
 
 For $q\ne0$ and $\sin\theta\ne0$, evolution generates off-diagonal components:
@@ -4946,13 +4950,13 @@ The full Pauli evolution of this initial paravector is
 \begin{aligned}
 \pvphi_+(t)
 &=e^{-\ii t(\hbpq^2/(2m)+qV)}
-  e^{\,\ii q\lVert\bm B\rVert t\,\bm u\cdot\bsig/(2m)}\pvphi_+(0)\\
+  e^{\,\ii q\lVert\bm B\rVert t\,\bm u\dotprod\bsig/(2m)}\pvphi_+(0)\\
 &=e^{-\ii t(\hbpq^2/(2m)+qV)}
   \left(\cos\frac{q\lVert\bm B\rVert t}{2m}
-  +\ii\bm u\cdot\bsig\sin\frac{q\lVert\bm B\rVert t}{2m}\right)\pvphi_+(0).
+  +\ii\bm u\dotprod\bsig\sin\frac{q\lVert\bm B\rVert t}{2m}\right)\pvphi_+(0).
 \end{aligned}
 \]
-The exponential follows from $(\bm u\cdot\bsig)^2=1$.
+The exponential follows from $(\bm u\dotprod\bsig)^2=1$.
 Its transverse contribution produces the off-diagonal terms above.
 
 \subsection{The next free order}
@@ -5010,7 +5014,7 @@ Notation: the complex paravector amplitude $\pvpsi(t,\br)$ of
 \eqref{eq:axis-ideal-components}.  For a
 \hyperref[def:real-unit-vector]{real unit axis} $\bu$ and real angle
 $\theta$, the following unitary rotation factor is used:
-$\pR=\exp(-\ii\theta\bu\cdot\bsig/2)$ of
+$\pR=\exp(-\ii\theta\bu\dotprod\bsig/2)$ of
 \eqref{eq:rotation-exponential}.  The spinor law is~\citeat{baylis-spin}{p.~4}{page=4}
 \begin{equation}
  \boxed{\pvpsi'=\pR\pvpsi.}
@@ -5021,10 +5025,10 @@ $\pvpsi'=\pvpsi-\ii\theta \pS(\bu)\pvpsi+O(\theta^2)$ defines the spin
 operator along $\bu$, given by left multiplication by the real pure-vector
 paravector $\pS(\bu)\in\{0\}\oplus\R^3$~\citeat{sparks-quantum}{p.~62}{page=66}:
 \begin{equation}
- \pS(\bu)\pvpsi=\tfrac12(\bu\cdot\bsig)\pvpsi.
+ \pS(\bu)\pvpsi=\tfrac12(\bu\dotprod\bsig)\pvpsi.
  \label{eq:spin-half-generator}
 \end{equation}
-Since $(\bu\cdot\bsig)^2=1$, its two spin projections are
+Since $(\bu\dotprod\bsig)^2=1$, its two spin projections are
 $\pm1/2$ in units $\hbar=1$.  A $2\pi$ rotation gives $\pR=-1$,
 reversing the amplitude's sign; a $4\pi$ rotation restores it.
 Probabilities are unchanged by the overall sign, while a relative sign
@@ -5047,7 +5051,7 @@ $\langle \pZ'\rangle_{\pvpsi'}=\langle \pZ\rangle_\pvpsi$.
 Notation: a nonzero Pauli amplitude $\pvpsi$ of \eqref{eq:axis-ideal-components}.
 For a real unit measurement axis $\bu$, the real projectors are
 \begin{equation*}
- \pvPi_\pm=\tfrac12(1\pm\bu\cdot\bsig).
+ \pvPi_\pm=\tfrac12(1\pm\bu\dotprod\bsig).
 \end{equation*}
 Their algebra in Section~\ref{sec:algebra-projectors} gives
 \begin{align*}
@@ -5071,8 +5075,8 @@ Section~\ref{sec:algebra-projectors}.
 The real spin-polarization vector $\bu'\in\R^3$ is defined by its projection
 along every real unit measurement axis $\bu$:
 \begin{equation}
- \bu\cdot\bu'
-:=\frac{\scpart{\pvpsi^{\mathsf H}(\bu\cdot\bsig)\pvpsi}}{\rho}.
+ \bu\dotprod\bu'
+:=\frac{\scpart{\pvpsi^{\mathsf H}(\bu\dotprod\bsig)\pvpsi}}{\rho}.
  \label{eq:spin-state}
 \end{equation}
 The right side is real and linear in $\bu$, so it uniquely specifies
@@ -5093,20 +5097,20 @@ These three directions are orthonormal, hence
 \end{equation*}
 Thus $\bu'$ is a real unit vector, with mean spin $\bu'/2$.
 For any real unit measurement axis,
-inserting $\pvPi_\pm=(1\pm\bu\cdot\bsig)/2$ directly into the pairing gives
+inserting $\pvPi_\pm=(1\pm\bu\dotprod\bsig)/2$ directly into the pairing gives
 \[
  \lVert\pvPi_\pm\pvpsi\rVert^2
  =\scpart{\pvpsi^{\mathsf H}\pvPi_\pm\pvpsi}
- =\tfrac12\rho(1\pm\bu\cdot\bu').
+ =\tfrac12\rho(1\pm\bu\dotprod\bu').
 \]
 Therefore~\citeat{baylis-spin}{Eqs.~(66)--(67)}{page=12}
 \begin{equation}
  \boxed{\mathrm{prob}(\pm\mid\bu)=\frac{\lVert\pvPi_\pm\pvpsi\rVert^2}{\rho}
-                    =\tfrac12(1\pm\bu\cdot\bu').}
+                    =\tfrac12(1\pm\bu\dotprod\bu').}
  \label{eq:spin-probability-intrinsic}
 \end{equation}
 The mean spin along $\bu$ is
-$(\mathrm{prob}(+)-\mathrm{prob}(-))/2=\bu\cdot\bu'/2$.
+$(\mathrm{prob}(+)-\mathrm{prob}(-))/2=\bu\dotprod\bu'/2$.
 For a spatial wavefunction, \eqref{eq:spin-probability-intrinsic}
 is the spin probability conditional on position, not a position density.
 
@@ -5115,11 +5119,11 @@ is the spin probability conditional on position, not a position density.
 
 The prepared spin direction and measurement axis are denoted by the real
 unit vectors $\bu'$ and $\bu$, respectively. A nonzero spin-up amplitude
-$\pvpsi=\pvPi_+'\pvpsi$ is prepared, where $\pvPi_+'=(1+\bu'\cdot\bsig)/2$.
+$\pvpsi=\pvPi_+'\pvpsi$ is prepared, where $\pvPi_+'=(1+\bu'\dotprod\bsig)/2$.
 The angle between the axes is denoted by $0\le\theta\le\pi$, and the following notation is used:
 \[
- K':=\bu'\cdot\bsig,\qquad K:=\bu\cdot\bsig,\qquad
- c':=\bu\cdot\bu'=\cos\theta.
+ K':=\bu'\dotprod\bsig,\qquad K:=\bu\dotprod\bsig,\qquad
+ c':=\bu\dotprod\bu'=\cos\theta.
 \]
 
 Here $K,K'\in\{0\}\oplus\R^3$ and $-1\le c'\le1$.
@@ -5180,12 +5184,12 @@ at every position, integrating both norm densities gives the same result.
 
 \subsection{Rotating the polarization}
 
-For $\pR=\exp(-\ii\varphi\ba\cdot\bsig/2)$, with real unit rotation
+For $\pR=\exp(-\ii\varphi\ba\dotprod\bsig/2)$, with real unit rotation
 axis $\ba$ and real angle $\varphi$, the polarization
 of the rotated amplitude $\pvpsi'=\pR\pvpsi$ is denoted by $\bu''$. The amplitude law
 \eqref{eq:spin-half-law} gives
 \begin{equation*}
- \bu\cdot\bu''=\langle \pR^{\mathsf H}(\bu\cdot\bsig)\pR\rangle_\pvpsi.
+ \bu\dotprod\bu''=\langle \pR^{\mathsf H}(\bu\dotprod\bsig)\pR\rangle_\pvpsi.
 \end{equation*}
 This is the inverse of Rodrigues' rotation~\eqref{eq:rodrigues}:
 the measurement axis rotates through $-\varphi$, so $\bu''$ rotates
@@ -5193,10 +5197,10 @@ through $+\varphi$ about $\ba$.
 Thus the polarization rotates as a vector although its amplitude has
 spin one-half.  Its overlap with the original polarization is
 \[
- \bu'\cdot\bu''=(\ba\cdot\bu')^2
-   +\left(1-(\ba\cdot\bu')^2\right)\cos\varphi.
+ \bu'\dotprod\bu''=(\ba\dotprod\bu')^2
+   +\left(1-(\ba\dotprod\bu')^2\right)\cos\varphi.
 \]
-For $\ba\cdot\bu'=0$, the probability to retain the initial spin
+For $\ba\dotprod\bu'=0$, the probability to retain the initial spin
 is $\cos^2(\varphi/2)$.
 
 \section{Lorentz covariance and electromagnetic transformations}
@@ -5227,8 +5231,8 @@ varying factors are treated in Section~\ref{sec:varying-transformations}.
 
 $\pT$ is taken to be a complex \hyperref[eq:unit-paravector]{invertible paravector}
 with \hyperref[eq:unit-determinant-paravector]{$\det \pT=1$}.  It may be any ordered
-product of $\pR=\exp(-\ii\theta\bu\cdot\bsig/2)$ and
-$\pL=\exp(-\theta\bu\cdot\bsig/2)$, with
+product of $\pR=\exp(-\ii\theta\bu\dotprod\bsig/2)$ and
+$\pL=\exp(-\theta\bu\dotprod\bsig/2)$, with
 \hyperref[def:real-unit-vector]{real unit vector} $\bu$ and real angle
 or rapidity $\theta$.  Notation: the real event $\pX$, momentum $\pP$, potential
 $\pA$, and electric current $\pJ$.
@@ -5239,7 +5243,7 @@ Each transforms by~\citeat{baylis-intro}{Eq.~(24)}{page=20}
  \label{eq:physical-lorentz-congruence}
 \end{equation}
 Since $\det \pT=1$, sigma conjugation gives $\pT^*=(\pT^{-1})^{\mathsf H}$.
-The derivative and complex field $\pF=(\bE+\ii\bBf)\cdot\bsig$ use~\citeat{baylis-intro}{Eq.~(33)}{page=22}
+The derivative and complex field $\pF=(\bE+\ii\bBf)\dotprod\bsig$ use~\citeat{baylis-intro}{Eq.~(33)}{page=22}
 \begin{align}
  \pvpartial'&=\pT^*\pvpartial \pT^{-1},
  \label{eq:derivative-transformation}\\
@@ -5283,7 +5287,7 @@ is the wave phase.  Adjugation of $\pP'$ and cyclicity give
  =\scpart{\pT^*\pP^*\pX \pT^{\mathsf H}}
  =\scpart{\pP^*\pX}.
 \end{equation*}
-Consequently $E't'-\bp'\cdot\br'=Et-\bp\cdot\br$, and the
+Consequently $E't'-\bp'\dotprod\br'=Et-\bp\dotprod\br$, and the
 plane wave~\eqref{eq:plane-wave} satisfies $f(\pX',\pP')=f(\pX,\pP)$.
 
 A scalar Klein--Gordon field uses $\psi'(\pX')=\psi(\pX)$; the derivative
@@ -5297,16 +5301,16 @@ $\pX'=\pT \pX \pT^{\mathsf H}$ uses
 Primed coupled operators use the primed coordinates and potentials.
 The first interacting equation~\eqref{eq:dirac-entry-one} transforms by cancellation:
 \begin{equation*}
- (\hEq'-\hbpq'\cdot\bsig)\pvpsi_-'
- =\pT^*(\hEq-\hbpq\cdot\bsig)\pvpsi_-=m\pvpsi_+'.
+ (\hEq'-\hbpq'\dotprod\bsig)\pvpsi_-'
+ =\pT^*(\hEq-\hbpq\dotprod\bsig)\pvpsi_-=m\pvpsi_+'.
 \end{equation*}
 Equation~\eqref{eq:dirac-entry-two} transforms in the same way with left factor
 $\pT$; $q=0$ gives the free case.
-For $\pT=\pR=\exp(-\ii\theta\bu\cdot\bsig/2)$, both entries transform
+For $\pT=\pR=\exp(-\ii\theta\bu\dotprod\bsig/2)$, both entries transform
 by $\pR$, consistently with the active rotation
 \eqref{eq:spin-half-law}; the spatial argument also rotates.
 A passive rotation of axes uses the inverse factor $\pT=\pR^{-1}$.
-For $\pT=\pL=\exp(-\theta\bu\cdot\bsig/2)$, the two entries instead use
+For $\pT=\pL=\exp(-\theta\bu\dotprod\bsig/2)$, the two entries instead use
 $\pL^{-1}$ and $\pL$, respectively~\citeat{tong-qft}{Eq.~(4.31)}{page=92}.
 The factor $\pL$ already contains half the rapidity; no further square root
 is needed for either entry.
@@ -5317,17 +5321,17 @@ The full Dirac pair is used for boosts before the Pauli low-energy limit is take
 
 \subsection{Boosted fields and energy flux}
 
-For $\pL=\exp(-\theta\bu\cdot\bsig/2)$ with the parameters above,
+For $\pL=\exp(-\theta\bu\dotprod\bsig/2)$ with the parameters above,
 \eqref{eq:derivative-transformation} becomes
 $\pvpartial'=\pL^{-1}\pvpartial \pL^{-1}$.  Its scalar and vector parts are
 \begin{align*}
- \partial_{t'}&=\gamma(\partial_t+\beta\bu\cdot\pdr),\\
- \partial_{\br'}&=\pdr+(\gamma-1)\bu(\bu\cdot\pdr)
+ \partial_{t'}&=\gamma(\partial_t+\beta\bu\dotprod\pdr),\\
+ \partial_{\br'}&=\pdr+(\gamma-1)\bu(\bu\dotprod\pdr)
  +\gamma\beta\bu\partial_t.
 \end{align*}
 These inverse signs express the chain rule.
-The real potential $\pA=V+\bA\cdot\bsig$ and current
-$\pJ=\rho+\bJ\cdot\bsig$ follow the same component formulas as
+The real potential $\pA=V+\bA\dotprod\bsig$ and current
+$\pJ=\rho+\bJ\dotprod\bsig$ follow the same component formulas as
 \eqref{eq:energy-boost}--\eqref{eq:momentum-boost}, with $(E,\bp)$ replaced
 by $(V,\bA)$ or $(\rho,\bJ)$.
 
@@ -5365,22 +5369,22 @@ Similarity preserves $\pF'^2=\pL \pF^2\pL^{-1}=\pF^2$, since $\pF^2$ is scalar.
 Consequently \eqref{eq:field-invariants} gives
 \begin{align*}
  \bE'^2-\bBf'^2&=\bE^2-\bBf^2,\\
- \bE'\cdot\bBf'&=\bE\cdot\bBf.
+ \bE'\dotprod\bBf'&=\bE\dotprod\bBf.
 \end{align*}
 In contrast, $\lVert \pF\rVert^2=\bE^2+\bBf^2$ is twice the
 observer-dependent energy density.  For example, if $\bBf=0$ and
-$\bu\cdot\bE=0$, \eqref{eq:electric-boost} and \eqref{eq:magnetic-boost}
+$\bu\dotprod\bE=0$, \eqref{eq:electric-boost} and \eqref{eq:magnetic-boost}
 give $\lVert \pF'\rVert^2=\gamma^2(1+\beta^2)\bE^2$, while
 $\bE'^2-\bBf'^2=\bE^2$.
 
-Notation: the stress map $T(\pN)=\pF \pN \pF^{\mathsf H}/2$ from
-\eqref{eq:electromagnetic-stress-map}, with real paravector input $\pN$;
-here $T$ denotes this map.  Since $\pN'=\pL \pN \pL$,
+Notation: the stress map $T(\pX)=\pF \pX \pF^{\mathsf H}/2$ from
+\eqref{eq:electromagnetic-stress-map}, with real paravector input $\pX$;
+here $T$ denotes this map.  Since $\pX'=\pL \pX \pL$,
 \begin{equation*}
- T'(\pN')=\tfrac12\pF'\pN'\pF'^{\mathsf H}=\pL T(\pN)\pL.
+ T'(\pX')=\tfrac12\pF'\pX'\pF'^{\mathsf H}=\pL T(\pX)\pL.
 \end{equation*}
 Here $T'$ is the map formed from $\pF'$.  To measure the primed
-energy density and Poynting vector, $\pN'=1$ is used, hence $\pN=\pL^{-2}$:
+energy density and Poynting vector, $\pX'=1$ is used, hence $\pX=\pL^{-2}$:
 \begin{equation*}
  T'(1)=\pL T(\pL^{-2})\pL=\tfrac12\pF'\pF'^{\mathsf H}.
 \end{equation*}
@@ -5407,7 +5411,7 @@ real four-force in the moving frame; the Hermitian extraction is preserved.
 \section{Pauli-matrix representation}
 \label{sec:matrix}
 
-The paravector formulas are verified in matrix form in this appendix.  The decomposition $\pZ=c+\bZ\cdot\bsig$ is used, with $c\in\C$ and $\bZ\in\C^3$.
+The paravector formulas are verified in matrix form in this appendix.  The decomposition $\pZ=c+\bZ\dotprod\bsig$ is used, with $c\in\C$ and $\bZ\in\C^3$.
 The matrix map is
 $\operatorname{mat}:\C\oplus\C^3\to\C^{2\times2}$.
 The notation $\bM=\operatorname{mat}(\pZ)\in\C^{2\times2}$ is used.
@@ -5424,7 +5428,7 @@ The sigmas are represented by the Pauli matrices~\citeat{lounesto-intro}{p.~11}{
 \]
 Consequently,
 \begin{equation}
- \operatorname{mat}(c+\bZ\cdot\bsig)=
+ \operatorname{mat}(c+\bZ\dotprod\bsig)=
  \begin{Bmatrix}c+Z_3&Z_1-\ii Z_2\\Z_1+\ii Z_2&c-Z_3\end{Bmatrix}.
  \label{eq:matrix}
 \end{equation}
@@ -5513,7 +5517,7 @@ in the main text.  For $\bM'=\operatorname{mat}(\pZ')$,
 \]
 The remaining extraction and norm formulas are
 \begin{align}
- \operatorname{mat}(\vecpart {\pZ}\cdot\bsig)&=\bM-\scpart {\pZ}\,\bI_2,\notag\\
+ \operatorname{mat}(\vecpart {\pZ}\dotprod\bsig)&=\bM-\scpart {\pZ}\,\bI_2,\notag\\
  \operatorname{mat}(\repart {\pZ})&=\tfrac12(\bM+\bM^{\mathsf H}),
  \label{eq:matrix-real-part}\\
  \operatorname{mat}(\impart {\pZ})&=(\bM-\bM^{\mathsf H})/(2\ii),
@@ -5569,8 +5573,8 @@ Multiplication preserves the distinct spacetime and field laws:
  \operatorname{mat}(\pF')&=\operatorname{mat}(\pL)
                 \operatorname{mat}(\pF)\operatorname{mat}(\pL)^{-1}.
 \end{align*}
-Here $\pX=t+\br\cdot\bsig$ is real and
-$\pF=(\bE+\ii\bBf)\cdot\bsig$ is complex, with
+Here $\pX=t+\br\dotprod\bsig$ is real and
+$\pF=(\bE+\ii\bBf)\dotprod\bsig$ is complex, with
 $t\in\R$ and $\br,\bE,\bBf\in\R^3$.
 Extracting scalar and vector coefficients by \eqref{eq:matrix-scalar-part}
 and the preceding component rule gives
@@ -5603,20 +5607,20 @@ Matrix multiplication gives exactly the congruence identity
 Notation: the arbitrary constant perpendicular
 \hyperref[def:real-unit-vector]{real unit vectors}
 $\bu,\ba\in\R^3$ of \eqref{eq:axis-ideal-basis}.
-The projector $\pvPi_+=(1+\bu\cdot\bsig)/2$ is defined, and a constant complex
+The projector $\pvPi_+=(1+\bu\dotprod\bsig)/2$ is defined, and a constant complex
 paravector $\pvpsi'$ with $\pvPi_+\pvpsi'\ne0$ is chosen.  Then
 \begin{equation}
  \begin{Bmatrix}\pvpsi_+\\\pvpsi_-\end{Bmatrix}
 :=\frac1{\lVert\pvPi_+\pvpsi'\rVert}
- \begin{Bmatrix}\pvPi_+\pvpsi'\\(\ba\cdot\bsig)\pvPi_+\pvpsi'\end{Bmatrix}.
+ \begin{Bmatrix}\pvPi_+\pvpsi'\\(\ba\dotprod\bsig)\pvPi_+\pvpsi'\end{Bmatrix}.
  \label{eq:ideal-spin-basis}
 \end{equation}
 This constructs \eqref{eq:axis-ideal-basis} with
-$(\bu\cdot\bsig)\pvpsi_\pm=\pm\pvpsi_\pm$ and
+$(\bu\dotprod\bsig)\pvpsi_\pm=\pm\pvpsi_\pm$ and
 $\scpart{\pvpsi_s^{\mathsf H}\pvpsi_{s'}}=\delta_{ss'}$ for $s,s'=+,-$.
 The two complex scalar components give
 \begin{equation}
- \pvpsi=c_+\pvpsi_++c_-\pvpsi_-=(c_++c_-\ba\cdot\bsig)\pvpsi_+.
+ \pvpsi=c_+\pvpsi_++c_-\pvpsi_-=(c_++c_-\ba\dotprod\bsig)\pvpsi_+.
  \label{eq:ideal-components}
 \end{equation}
 For fields, $c_\pm:\R^4\to\C$, and
@@ -5625,7 +5629,7 @@ $\rho=\lVert c_+\rVert^2+\lVert c_-\rVert^2$.
 
 \paragraph{The two-component column.}
 Every column of $\bM_{\pvpsi_+}$ has eigenvalue $+1$ under
-$\operatorname{mat}(\bu\cdot\bsig)$, whose $+1$ eigenspace is
+$\operatorname{mat}(\bu\dotprod\bsig)$, whose $+1$ eigenspace is
 one-dimensional.  Since $\lVert\pvpsi_+\rVert=1$, its matrix therefore
 factors as $\bM_{\pvpsi_+}=\sqrt2\,\bpsi_+\bm v^{\mathsf H}$ for
 constant columns $\bpsi_+,\bm v\in\C^2$ satisfying
@@ -5634,7 +5638,7 @@ $\bpsi_+^{\mathsf H}\bpsi_+=\bm v^{\mathsf H}\bm v=1$.
 \Needspace{3\baselineskip}
 By left multiplication,
 \mbox{$\bM_{\pvpsi_-}=\sqrt2\,\bpsi_-\bm v^{\mathsf H}$}, where
-$\bpsi_-=\operatorname{mat}(\ba\cdot\bsig)\bpsi_+$.
+$\bpsi_-=\operatorname{mat}(\ba\dotprod\bsig)\bpsi_+$.
 The columns $\bpsi_+,\bpsi_-$ are orthonormal.  Thus every amplitude
 in \eqref{eq:ideal-components} has the conventional Pauli column
 \begin{equation*}
@@ -5657,21 +5661,21 @@ Left action $\pT\pvpsi$ maps to $\operatorname{mat}(\pT)\bpsi$ for any complex p
 $\vstyle{C}\in\C^{2\times2}$ is defined as the matrix with columns
 $\bpsi_+,\bpsi_-$.  Then $\vstyle{C}^{\mathsf H}\vstyle{C}=\bI_2$ and
 $\bpsi=\vstyle{C}\{c_+,c_-\}^{\mathsf T}$.
-For a complex paravector $\pZ=c+\bZ\cdot\bsig$, its matrix in this basis is
+For a complex paravector $\pZ=c+\bZ\dotprod\bsig$, its matrix in this basis is
 \begin{equation}
  \operatorname{mat}'(\pZ):=\vstyle{C}^{\mathsf H}\operatorname{mat}(\pZ)\vstyle{C}
  =\begin{Bmatrix}
- c+\bu\cdot\bZ&(\ba-\ii\bu\times\ba)\cdot\bZ\\
- (\ba+\ii\bu\times\ba)\cdot\bZ&c-\bu\cdot\bZ
+ c+\bu\dotprod\bZ&(\ba-\ii\bu\times\ba)\dotprod\bZ\\
+ (\ba+\ii\bu\times\ba)\dotprod\bZ&c-\bu\dotprod\bZ
  \end{Bmatrix}.
  \label{eq:matrix-arbitrary-axis}
 \end{equation}
 Here the prime denotes only this change of matrix basis.
 For nonzero squared norm $\rho=\bpsi^{\mathsf H}\bpsi$, the polarization
 \eqref{eq:spin-state} and probabilities for
-$\pvPi_\pm=(1\pm\bu\cdot\bsig)/2$ become
+$\pvPi_\pm=(1\pm\bu\dotprod\bsig)/2$ become
 \begin{align}
- \bu\cdot\bu'&=\bpsi^{\mathsf H}\operatorname{mat}(\bu\cdot\bsig)\bpsi/\rho,
+ \bu\dotprod\bu'&=\bpsi^{\mathsf H}\operatorname{mat}(\bu\dotprod\bsig)\bpsi/\rho,
  \label{eq:matrix-state}\\
  \mathrm{prob}(\pm\mid\bu)&=\bpsi^{\mathsf H}\operatorname{mat}(\pvPi_\pm)\bpsi/\rho.
  \label{eq:matrix-born}
@@ -5731,8 +5735,8 @@ real potentials $V:\R^4\to\R$ and $\bA:\R^4\to\R^3$.
 The gauge-covariant energy and kinetic momentum operators are $\hEq=\ii\partial_t-qV$ and
 $\hbpq=-\ii\pdr-q\bA$.  Their momentum components in this frame are
 \[
- \hat P_{q,1}=\ba\cdot\hbpq,\qquad \hat P_{q,2}=(\bu\times\ba)\cdot\hbpq,
- \qquad \hat P_{q,3}=\bu\cdot\hbpq.
+ \hat P_{q,1}=\ba\dotprod\hbpq,\qquad \hat P_{q,2}=(\bu\times\ba)\dotprod\hbpq,
+ \qquad \hat P_{q,3}=\bu\dotprod\hbpq.
 \]
 Using \eqref{eq:matrix-arbitrary-axis}, the coupled paravector equations give
 \begin{align}
@@ -5764,7 +5768,7 @@ Conventional gamma matrices are identified through
 $\bm\sigma_k=\operatorname{mat}(\pvsigma_k)$ for $k=1,2,3$.
 Here $\bm\sigma_k\in\C^{2\times2}$ and the gamma matrices below lie in
 $\C^{4\times4}$. The $\bm\sigma_k$ are also the images under $\operatorname{mat}'$ of
-$\ba\cdot\bsig$, $(\bu\times\ba)\cdot\bsig$, and $\bu\cdot\bsig$,
+$\ba\dotprod\bsig$, $(\bu\times\ba)\dotprod\bsig$, and $\bu\dotprod\bsig$,
 respectively.  Their numerical entries apply to every choice of $\bu,\ba$.
 The following matrices are defined~\citeat{tong-qft}{Eqs.~(4.16)--(4.17)}{page=89}
 \begin{align}
@@ -5783,7 +5787,7 @@ with signature $(+,-,-,-)$, is~
  \quad\longleftrightarrow\quad
  \gamma^0\hEq-\sum_{k=1}^3\gamma^k\hat P_{q,k}.
 \end{equation*}
-Here $\pA=V+\bA\cdot\bsig$ is the
+Here $\pA=V+\bA\dotprod\bsig$ is the
 real potential paravector.
 
 The unitary change to the standard Dirac basis commutes with the scalar
@@ -5833,12 +5837,12 @@ the squared Dirac field coupling has the explicit image
 \end{align*}
 The indexed $E_k$ are field components;
 whereas $\hEq$ is the gauge-covariant energy operator.
-The two couplings are $-q\bBf\cdot\bsig\pm\ii q\bE\cdot\bsig$.
+The two couplings are $-q\bBf\dotprod\bsig\pm\ii q\bE\dotprod\bsig$.
 
 \subsection{Quaternion matrix image}
 \label{sec:quaternion-matrix}
 
-For the quaternion $\pQ=a+\bQ\cdot(-\ii\bsig)=a-\ii\bQ\cdot\bsig$
+For the quaternion $\pQ=a+\bQ\dotprod(-\ii\bsig)=a-\ii\bQ\dotprod\bsig$
 of Section~\ref{sec:quaternions}, with $a\in\R$, $\bQ\in\R^3$, and
 $\pQ\in\R\oplus\ii\R^3$, the explicit
 matrix image is~\citeat{lounesto-intro}{p.~10}{page=23}
@@ -5872,22 +5876,22 @@ conditions.
 
 \Needspace{8\baselineskip}
 \paragraph{Algebra.}
-Notation: complex paravectors $\pZ=c+\bZ\cdot\bsig$ and $\pZ'=c'+\bZ'\cdot\bsig$,
+Notation: complex paravectors $\pZ=c+\bZ\dotprod\bsig$ and $\pZ'=c'+\bZ'\dotprod\bsig$,
 with $c,c'\in\C$, $\bZ,\bZ'\in\C^3$, and $\pZ,\pZ'\in\C\oplus\C^3$.
 The prime here labels a second element.  Their product is
 \begin{equation*}
  \begin{aligned}
- \pZ \pZ'={}&(cc'+\bZ\cdot\bZ')\\
- &+(c\bZ'+c'\bZ+\ii\bZ\times\bZ')\cdot\bsig.
+ \pZ \pZ'={}&(cc'+\bZ\dotprod\bZ')\\
+ &+(c\bZ'+c'\bZ+\ii\bZ\times\bZ')\dotprod\bsig.
  \end{aligned}\tag*{\eqref{eq:para-product}}
 \end{equation*}
 The basic operations are
 \begin{align*}
- \pZ^{\mathsf H}&=c^*+\bZ^*\cdot\bsig,
+ \pZ^{\mathsf H}&=c^*+\bZ^*\dotprod\bsig,
    \tag*{\eqref{eq:algebra-H}}\\
- \pZ^*&=c^*-\bZ^*\cdot\bsig,
+ \pZ^*&=c^*-\bZ^*\dotprod\bsig,
    \tag*{\eqref{eq:algebra-star}}\\
- \operatorname{adj} \pZ&=\pZ^{*\mathsf H}=c-\bZ\cdot\bsig,
+ \operatorname{adj} \pZ&=\pZ^{*\mathsf H}=c-\bZ\dotprod\bsig,
    \tag*{\eqref{eq:adjugate}}\\
  \operatorname{tr}\pZ&=2\scpart {\pZ},
    \tag*{\eqref{eq:trace-scalar}}\\
@@ -5918,16 +5922,16 @@ $\pR\in\R\oplus\ii\R^3$, and $\pL\in\R\oplus\R^3$;
 $\beta=\tanh\theta$ and $\gamma=\cosh\theta$ in the boost formulas.
 The factors and their actions are
 \begin{align*}
- \pR&=\exp(-\ii\theta\bu\cdot\bsig/2)
-   =\cos(\theta/2)-\ii\sin(\theta/2)\bu\cdot\bsig,
+ \pR&=\exp(-\ii\theta\bu\dotprod\bsig/2)
+   =\cos(\theta/2)-\ii\sin(\theta/2)\bu\dotprod\bsig,
    \tag*{\eqref{eq:rotation-exponential}}\\
- \pL&=\exp(-\theta\bu\cdot\bsig/2)
-   =\cosh(\theta/2)-\sinh(\theta/2)\bu\cdot\bsig,
+ \pL&=\exp(-\theta\bu\dotprod\bsig/2)
+   =\cosh(\theta/2)-\sinh(\theta/2)\bu\dotprod\bsig,
    \tag*{\eqref{eq:boost-exponential}}\\
  \pL&=\sqrt{\frac{\gamma+1}{2}}
-     \left(1-\frac{\gamma\beta}{\gamma+1}\bu\cdot\bsig\right),
+     \left(1-\frac{\gamma\beta}{\gamma+1}\bu\dotprod\bsig\right),
    \tag*{\eqref{eq:boost-gamma-form}}\\
- \pL^2&=\gamma(1-\beta\bu\cdot\bsig),
+ \pL^2&=\gamma(1-\beta\bu\dotprod\bsig),
    \tag*{\eqref{eq:boost-square}}\\
  \pZ'&=\pR \pZ \pR^{\mathsf H},
    \tag*{\eqref{eq:rotation-action}}\\
@@ -5957,17 +5961,17 @@ The real kinetic four-momentum $\pP$ has particle energy $E$ (including
 rest energy, excluding potential energy) and spatial kinetic momentum $\bp$.
 The kinematic identities are
 \begin{align*}
- \pvpartial&=\partial_t+\bsig\cdot\pdr,
+ \pvpartial&=\partial_t+\bsig\dotprod\pdr,
    \tag*{\eqref{eq:paravector-derivative}}\\
  \Box&=\pvpartial^*\pvpartial=\partial_t^2-\pdr^2,
    \tag*{\eqref{eq:dalembertian}}\\
  \dd s^2&=\det(\dd \pX)=\dd t^2-\dd\br^2,
    \tag*{\eqref{eq:interval}}\\
- \pU&=\dd \pX/\dd s=\gamma(1+\bv\cdot\bsig),
+ \pU&=\dd \pX/\dd s=\gamma(1+\bv\dotprod\bsig),
    \tag*{\eqref{eq:proper-velocity}}\\
  \pU^*\pU&=1,
    \tag*{\eqref{eq:proper-velocity-star-normalization}}\\
- \pP&=m\pU=E+\bp\cdot\bsig,
+ \pP&=m\pU=E+\bp\dotprod\bsig,
    \tag*{\eqref{eq:four-momentum}}\\
  E^2-\bp^2&=m^2.
    \tag*{\eqref{eq:mass-shell}}
@@ -6007,7 +6011,7 @@ Their boosted arguments and components are
 \eqref{eq:electric-boost}--\eqref{eq:magnetic-boost}.
 The field and particle equations are
 \begin{align*}
- \pF&=(\bE+\ii\bBf)\cdot\bsig,
+ \pF&=(\bE+\ii\bBf)\dotprod\bsig,
    \tag*{\eqref{eq:em-field-definition}}\\
  \pvpartial \pF&=\pJ^*,
    \tag*{\eqref{eq:maxwell}}\\
@@ -6015,17 +6019,17 @@ The field and particle equations are
    \tag*{\eqref{eq:maxwell-wave}}\\
  \pF^*&=\pvpartial \pA-S,
    \tag*{\eqref{eq:potential-field}}\\
- \pF^2&=\bE^2-\bBf^2+2\ii\bE\cdot\bBf,
+ \pF^2&=\bE^2-\bBf^2+2\ii\bE\dotprod\bBf,
    \tag*{\eqref{eq:field-invariants}}\\
  \frac{\dd \pP}{\dd s}&=q\repart{\pF \pU},
    \tag*{\eqref{eq:lorentz}}\\
- T(\pN)&=\tfrac12\pF \pN \pF^{\mathsf H},
+ T(\pX)&=\tfrac12\pF \pX \pF^{\mathsf H},
    \tag*{\eqref{eq:electromagnetic-stress-map}}\\
- \partial_tu+\pdr\cdot\bS&=-\bJ\cdot\bE.
+ \partial_tu+\pdr\dotprod\bS&=-\bJ\dotprod\bE.
    \tag*{\eqref{eq:poynting}}
 \end{align*}
 Here $T:\R\oplus\R^3\to\R\oplus\R^3$ is the stress map,
-$\pN\in\R\oplus\R^3$ its argument, $u\in\R_{\ge0}$ field energy
+$\pX\in\R\oplus\R^3$ its argument, $u\in\R_{\ge0}$ field energy
 density, and $\bS\in\R^3$ energy flux.
 Potential components are \eqref{eq:electric-potential}--\eqref{eq:magnetic-potential};
 force components are \eqref{eq:lorentz-momentum} and \eqref{eq:lorentz-energy}.
@@ -6035,7 +6039,7 @@ The action derivation uses \eqref{eq:maxwell-lagrangian} and
 \Needspace{8\baselineskip}
 \paragraph{Relativistic waves.}
 Notation: $m\in\R_{>0}$, $q,V\in\R$, $\bA\in\R^3$, and
-$\pA=V+\bA\cdot\bsig\in\R\oplus\R^3$.
+$\pA=V+\bA\dotprod\bsig\in\R\oplus\R^3$.
 Here $\hEq$ is a scalar differential operator and $\hbpq$ a triple of them;
 $\psi:\R^4\to\C$ is a KG field.
 The Dirac field $\bpsi$ has two entries in the same fixed spinor space,
@@ -6047,11 +6051,11 @@ Here, subscript $0$ labels the uncoupled operators of
    \tag*{\eqref{eq:mechanical-energy-operator}}\\
  \hbpq&=\hbp_0-q\bA=-\ii\pdr-q\bA,
    \tag*{\eqref{eq:mechanical-momentum-operator}}\\
- \hPq&=\hP_0-q\pA=\hEq+\hbpq\cdot\bsig,
+ \hPq&=\hP_0-q\pA=\hEq+\hbpq\dotprod\bsig,
    \tag*{\eqref{eq:mechanical-paravector}}\\
- (\hbpq\cdot\bsig)^2&=\hbpq^2-q\bBf\cdot\bsig,
+ (\hbpq\dotprod\bsig)^2&=\hbpq^2-q\bBf\dotprod\bsig,
    \tag*{\eqref{eq:kinetic-sigma-square}}\\
- [\hEq,\hbpq\cdot\bsig]&=\ii q\bE\cdot\bsig,
+ [\hEq,\hbpq\dotprod\bsig]&=\ii q\bE\dotprod\bsig,
    \tag*{\eqref{eq:kinetic-electric-commutator}}\\
  (-\hEq^2+\hbpq^2+m^2)\psi&=0,
    \tag*{\eqref{eq:kg-field}}\\
@@ -6099,7 +6103,7 @@ The envelope $\pvphi_+$ in the fixed two-dimensional complex spinor space
 of $\C\oplus\C^3$ obeys Pauli's equation:
 \begin{equation*}
  \ii\partial_t\pvphi_+=\left(qV+
- \frac{\hbpq^2-q\bBf\cdot\bsig}{2m}\right)\pvphi_+.
+ \frac{\hbpq^2-q\bBf\dotprod\bsig}{2m}\right)\pvphi_+.
  \tag*{\eqref{eq:pauli}}
 \end{equation*}
 The derivations and approximation conditions are in
@@ -6125,9 +6129,9 @@ from \eqref{eq:weighted-density}, the densities and measurements are
    \tag*{\eqref{eq:probability-density}}\\
  \lVert\pvpsi\rVert_\pZ^2&=\scpart{\pvpsi^{\mathsf H}\pZ\pvpsi},
    \tag*{\eqref{eq:weighted-density}}\\
- \bu\cdot\bu'&=\scpart{\pvpsi^{\mathsf H}(\bu\cdot\bsig)\pvpsi}/\rho,
+ \bu\dotprod\bu'&=\scpart{\pvpsi^{\mathsf H}(\bu\dotprod\bsig)\pvpsi}/\rho,
    \tag*{\eqref{eq:spin-state}}\\
- \mathrm{prob}(\pm\mid\bu)&=\tfrac12(1\pm\bu\cdot\bu'),
+ \mathrm{prob}(\pm\mid\bu)&=\tfrac12(1\pm\bu\dotprod\bu'),
    \tag*{\eqref{eq:spin-probability-intrinsic}}\\
  \langle \pZ\rangle_\pvpsi&=\scpart{\pvpsi^{\mathsf H}\pZ\pvpsi}/\rho.
    \tag*{\eqref{eq:paravector-expectation}}
@@ -6195,13 +6199,13 @@ Object or operation & This paper & APS notation\\
 \midrule
 Spatial basis & $\pvsigma_k$ & $\mathbf e_k$\\
 Central imaginary unit & $\ii=\pvsigma_1\pvsigma_2\pvsigma_3$ & $i=\mathbf e_{123}$\\
-Real paravector & $\pX=t+\br\cdot\bsig$ & $x=x^0+\mathbf x$\\
-General algebra element & $\pZ=c+\bZ\cdot\bsig$ & $A$ (complex paravector)\\
+Real paravector & $\pX=t+\br\dotprod\bsig$ & $x=x^0+\mathbf x$\\
+General algebra element & $\pZ=c+\bZ\dotprod\bsig$ & $A$ (complex paravector)\\
 Reversion & $\pZ^{\mathsf H}$ & $A^\dagger$\\
 Clifford conjugation & $\operatorname{adj}\pZ$ & $\bar A$\\
 Grade involution & $\pZ^*$ & $\bar A^\dagger$\\
 Complex scalar part & $\scpart {\pZ}$ & $\langle A\rangle_S$\\
-Complex vector part & $\vecpart {\pZ}\cdot\bsig$ & $\langle A\rangle_V$\\
+Complex vector part & $\vecpart {\pZ}\dotprod\bsig$ & $\langle A\rangle_V$\\
 Real part & $\repart {\pZ}$ & $\langle A\rangle_R$\\
 Imaginary part & $\ii\,\impart {\pZ}$ & $\langle A\rangle_I$\\
 Spacetime quadratic form & $\det \pX=t^2-\br^2$ & $x\bar x$\\
@@ -6215,9 +6219,9 @@ $\impart {\pZ}$ removes the imaginary part's factor $\ii$.
 
 In particular, the bar is represented here by the adjugate, not by sigma conjugation:
 \[
- \bar A\ \longleftrightarrow\ c-\bZ\cdot\bsig,
+ \bar A\ \longleftrightarrow\ c-\bZ\dotprod\bsig,
  \qquad
- \bar A^\dagger\ \longleftrightarrow\ c^*-\bZ^*\cdot\bsig.
+ \bar A^\dagger\ \longleftrightarrow\ c^*-\bZ^*\dotprod\bsig.
 \]
 They coincide only for real paravectors.  Complex coefficients are conjugated by sigma conjugation,
 which is identified with grade involution on the full algebra.
@@ -6231,7 +6235,7 @@ Wikipedia's \href{https://en.wikipedia.org/w/index.php?title=Paravector&oldid=13
 
 Baylis's rotor action $x'=GxG^\dagger$ is written here as $\pX'=\pG \pX \pG^{\mathsf H}$;
 Baylis's field $\mathbf E+i\mathbf B$ and law $F'=GF\bar G$ are written here as
-$\pF=(\bE+\ii\bBf)\cdot\bsig$ and $\pF'=\pG \pF \pG^{-1}$ for $\det \pG=1$
+$\pF=(\bE+\ii\bBf)\dotprod\bsig$ and $\pF'=\pG \pF \pG^{-1}$ for $\det \pG=1$
 ($c=1$)~\citeat{baylis-intro}{Eq.~(23)}{page=19}\,\citeat{baylis-intro}{Eq.~(24)}{page=20}\,\citeat{baylis-intro}{Eq.~(33)}{page=22}.
 Baylis's positively oriented spatial-plane generator is
 $\mathbf e_2\mathbf e_1=-i\mathbf e_3$, giving
@@ -6239,8 +6243,8 @@ $\pR=e^{-\ii\theta\pvsigma_3/2}$ about $+\pvsigma_3$
 \citeat{baylis-intro}{Eqs.~(17)--(19)}{page=14}.
 Baylis's positive-rapidity boost factor, denoted here by $\pB$, satisfies
 \[
- \pB=e^{+\theta\bu\cdot\bsig/2}=\pL^{-1},\qquad
- \pB^2=\gamma(1+\beta\bu\cdot\bsig),\qquad
+ \pB=e^{+\theta\bu\dotprod\bsig/2}=\pL^{-1},\qquad
+ \pB^2=\gamma(1+\beta\bu\dotprod\bsig),\qquad
  \pX'=\pB^{-1}\pX(\pB^{-1})^{\mathsf H}=\pL \pX \pL^{\mathsf H}.
 \]
 Thus the passive boost is obtained by inversion of Baylis's positive active boost
@@ -6338,7 +6342,7 @@ axis rotation; the negative-exponent boost is identified with the passive boost 
 \citeat{tong-relativity}{Eq.~(7.38)}{page=159}\,\citeat{tong-relativity}{Eq.~(7.39)}{page=160}.
 
 Chappell et al.'s scalar $Z$ is represented here by $c$, and the vector--bivector
-$F$ by $\bZ\cdot\bsig$, with $|F|^2=-\bZ^2$.
+$F$ by $\bZ\dotprod\bsig$, with $|F|^2=-\bZ^2$.
 Thus the trigonometric exponential is represented here by the hyperbolic form
 \citeat{chappell-functions}{Eq.~(52)}{page=12}.
 
@@ -6367,11 +6371,11 @@ STA embedding above,
 Hestenes's explicit spacetime split is represented here by the component equation
 \citeat{hestenes-spacetime}{Eqs.~(175)--(177)}{page=29}.
 For a real spacetime vector $n\in\R^{1,3}$,
-$\pN=n\gamma_0\in\R\oplus\R^3$ is used in the observer's paravector identification.  Hestenes's stress map
+$\pX=n\gamma_0\in\R\oplus\R^3$ is used in the observer's paravector identification.  Hestenes's stress map
 $T_{\mathrm{STA}}(n)=\tfrac12Fn\widetilde {F}$, with
 $F^{\mathsf H}=\gamma_0\widetilde {F}\gamma_0$, gives
 \[
- T_{\mathrm{STA}}(n)\gamma_0=\tfrac12\pF \pN \pF^{\mathsf H}=T(\pN),
+ T_{\mathrm{STA}}(n)\gamma_0=\tfrac12\pF \pX \pF^{\mathsf H}=T(\pX),
 \]
 including the energy and flux components in Eq.~(180) of that source
 \citeat{hestenes-spacetime}{Eq.~(167)}{page=28}\,\citeat{hestenes-spacetime}{Eq.~(180)}{page=30}.
@@ -6382,22 +6386,22 @@ by the spatial bivector $i\pvsigma_3$; it acts as ordinary $\ii$ in the correspo
 \citeat{hestenes-spacetime}{Eqs.~(187)--(188)}{page=31}\,\citeat{hestenes-spacetime}{Eqs.~(192)--(193)}{page=33}.
 With $e=q$ and $\hbar=c=1$, Gurtler--Hestenes's potential energy $V$
 is represented here by $qV$; after removal of rest energy, the operators
-$K$ and $p$ are identified with $\hEq$ and $\hbpq\cdot\bsig$.
+$K$ and $p$ are identified with $\hEq$ and $\hbpq\dotprod\bsig$.
 The same components are then obtained for the large/small equations and Pauli limit
 \citeat{gurtler-hestenes}{Eqs.~(2.11)--(2.19)}{page=6}.
 
 Charge is absorbed into the potential by Feynman--Gell-Mann. With charge restored,
 Eq.~(6) is identified with the first squared Dirac block because
 \[
- -\ii q\pF^*=q(\bBf+\ii\bE)\cdot\bsig,\qquad
- -\ii q\pF=q(\bBf-\ii\bE)\cdot\bsig.
+ -\ii q\pF^*=q(\bBf+\ii\bE)\dotprod\bsig,\qquad
+ -\ii q\pF=q(\bBf-\ii\bE)\dotprod\bsig.
 \]
 The two blocks therefore have the same magnetic sign and opposite
 electric signs~\citeat{feynman-gellmann}{Eq.~(6)}{page=2}.
 
 Baylis et al.'s $RP_3$ is a two-component minimal-ideal spinor; its
 rotations are represented by the left amplitude action. From the density-operator
-formula is obtained the same $(1+\bu\cdot\bu')/2$ probability after basis
+formula is obtained the same $(1+\bu\dotprod\bu')/2$ probability after basis
 normalization, extending to mixed states with $\lVert\bu'\rVert\le1$
 \citeat{baylis-spin}{Eqs.~(66)--(67)}{page=12}.
 Passive basis rotations are used in Feynman's spin chapter; its $2\pi$ sign and
@@ -6406,7 +6410,7 @@ rotation~\citeat{feynmanspin}{Eq.~(6.19)}{Eq:III:6:19}.
 
 \clearpage
 The right-handed sigma product is fixed, and the following notation is used:
-$\pN=\bu\cdot\bsig\in\{0\}\oplus\R^3$, with $\bu\in\R^3$,
+$\pN=\bu\dotprod\bsig\in\{0\}\oplus\R^3$, with $\bu\in\R^3$,
 $\bu^2=1$, and $\theta\in\R$.  The alternatives below change
 notation or transformation direction, not the underlying physics.
 The main text uses $\pR=\pR_-$ and $\pL=\pL_-$, with
@@ -6420,7 +6424,7 @@ Here $\pR_\pm\in\R\oplus\ii\R^3$, $\pL_\pm\in\R\oplus\R^3$, and
 $\theta$ is a rotation angle or rapidity respectively.
 
 \paragraph{Exponent sign and sandwich order.}
-For $\pX=t+\br\cdot\bsig$, the four choices for each kind of factor are
+For $\pX=t+\br\dotprod\bsig$, the four choices for each kind of factor are
 summarized by the two action columns:
 \begin{center}
 \begin{tabular}{@{}lll@{}}
@@ -6437,16 +6441,16 @@ $\pL_+$ & Frame velocity $-\beta\bu$ & Frame velocity $-\beta\bu$\\
 For rotations $t'=t$.  Both $+\theta$ entries give
 \[
  \br'=\br\cos\theta+(\bu\times\br)\sin\theta
-       +(1-\cos\theta)(\bu\cdot\br)\bu.
+       +(1-\cos\theta)(\bu\dotprod\br)\bu.
 \]
 This is the active right-handed Rodrigues formula~\eqref{eq:rodrigues};
 a passive rotation of axes uses the inverse map.
 
 For boosts, $\beta=\tanh\theta$ and $\gamma=\cosh\theta$.
-Writing $\br_\parallel=(\bu\cdot\br)\bu$ and
+Writing $\br_\parallel=(\bu\dotprod\br)\bu$ and
 $\br_\perp=\br-\br_\parallel$, both sandwiches with $\pL_\pm$ give
 \[
- t'=\gamma(t\pm\beta\bu\cdot\br),\qquad
+ t'=\gamma(t\pm\beta\bu\dotprod\br),\qquad
  \br'=\br_\perp+\gamma(\br_\parallel\pm\beta t\bu).
 \]
 The minus choice sends $\br=\beta t\bu$ to $\br'=0$, fixing its frame
@@ -6467,16 +6471,16 @@ Repeated $l$ is summed. Hamilton's orientation is obtained with
 $(-\ii\pvsigma_k)$, and the opposite orientation with $(+\ii\pvsigma_k)$.
 For the Hamilton basis, Section~\ref{sec:quaternions} gives
 \[
- \pQ=e^{\theta\bu\cdot(-\ii\bsig)/2}=\pR_-,\qquad
+ \pQ=e^{\theta\bu\dotprod(-\ii\bsig)/2}=\pR_-,\qquad
  \pQ^{\mathsf H}=\pQ^{-1},\qquad
- \br'\cdot(-\ii\bsig)=\pQ(\br\cdot(-\ii\bsig))\pQ^{\mathsf H}.
+ \br'\dotprod(-\ii\bsig)=\pQ(\br\dotprod(-\ii\bsig))\pQ^{\mathsf H}.
 \]
-Since $\br\cdot(-\ii\bsig)=-\ii\br\cdot\bsig$ and $\ii$ commutes with $\pQ$,
-the same sandwich rotates $\br\cdot\bsig$, with no extra sign.
+Since $\br\dotprod(-\ii\bsig)=-\ii\br\dotprod\bsig$ and $\ii$ commutes with $\pQ$,
+the same sandwich rotates $\br\dotprod\bsig$, with no extra sign.
 For example, $\pQ=(1-\ii\pvsigma_3)/\sqrt2$ sends $\pvsigma_1$ to $\pvsigma_2$.
 
 Using $(+\ii\pvsigma_k)$ with
-$\widetilde {\pQ}=e^{\theta\bu\cdot(+\ii\bsig)/2}=\pR_+$ and the right-adjoint
+$\widetilde {\pQ}=e^{\theta\bu\dotprod(+\ii\bsig)/2}=\pR_+$ and the right-adjoint
 sandwich instead gives $-\theta$.  $+\theta$ is recovered by reversing either
 the exponent or the sandwich.  Reflecting the basis also restores Hamilton
 multiplication, but changes its identification with the physical axes.
