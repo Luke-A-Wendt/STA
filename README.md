@@ -6,7 +6,7 @@
 
 [Natural units](https://en.wikipedia.org/wiki/Natural_units) $`\hbar=c=1`$, [rationalized electromagnetic units](https://en.wikipedia.org/wiki/Heaviside%E2%80%93Lorentz_units), and [signature](https://en.wikipedia.org/wiki/Metric_signature) $`(+,-,-,-)`$ are used.
 
-Vectors and matrices are bold cyan; paravectors and paravector operators are bold magenta, with calligraphic Latin letters and usual Greek glyphs; letter case is unrestricted.
+Vectors and matrices are $`\textcolor{cyan}{\textbf{bold cyan}}`$; paravectors are $`\textcolor{magenta}{\textbf{bold magenta}}`$.
 
 ## One complex [paravector](https://en.wikipedia.org/wiki/Paravector)
 
