@@ -11,8 +11,8 @@
 \contentsline {subsection}{\numberline {2.3}Real products}{7}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Complex products}{7}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Norm and determinant}{8}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Projectors and spectral functions}{9}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Quadratic identity and eigenvalues}{9}{subsection.3.1}%
+\contentsline {section}{\numberline {3}Projectors and spectral functions}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Quadratic identity and eigenvalues}{8}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Projection operators}{9}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Spectral rule}{10}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Square roots and repeated eigenvalues}{11}{subsection.3.4}%
