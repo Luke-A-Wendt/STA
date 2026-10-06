@@ -836,3 +836,20 @@ The [Born probabilities](https://en.wikipedia.org/wiki/Born_rule) for [spin proj
 \boxed{\mathrm{prob}(+)=\cos^2\frac\theta2,\quad \mathrm{prob}(-)=\sin^2\frac\theta2.}
 \end{gathered}
 ```
+
+## Building the paper and figures
+
+The vector figures use Python's standard library and PGFPlots/TikZ through
+`pdflatex`; no Python plotting packages are required. Each plotting script
+checks its mathematical data before writing PDFs into `figures/`.
+`figure_support.py` supplies the shared cyan and magenta styling for the
+explanatory figures.
+
+```sh
+python plot_relativity_examples.py
+python plot_frame_spin_examples.py
+python plot_field_coordinate_examples.py
+python plot_metric_examples.py
+pdflatex -interaction=nonstopmode -halt-on-error sta_notes.tex
+pdflatex -interaction=nonstopmode -halt-on-error sta_notes.tex
+```

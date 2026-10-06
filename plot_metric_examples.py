@@ -32,18 +32,19 @@ PREAMBLE = r"""\documentclass[11pt,border=3pt]{standalone}
 \pgfplotsset{
  every axis/.append style={
   width=7.65cm,height=6.8cm,
-  axis line style={black!65},tick style={black!60},
-  tick label style={font=\small},label style={font=\small},
-  title style={font=\small\bfseries},
-  grid=major,grid style={black!9},
+  axis line style={magenta},tick style={magenta},
+  tick label style={font=\small,text=magenta},label style={font=\small,text=magenta},
+  title style={font=\small\bfseries,text=magenta},
+  grid=major,grid style={cyan!18},
   axis background/.style={fill=white},
   every axis plot/.append style={line width=0.9pt},
-  legend style={font=\footnotesize,draw=none,fill=white,cells={anchor=west}},
+  legend style={font=\footnotesize,text=magenta,draw=none,fill=white,cells={anchor=west}},
   clip=true,
  }
 }
 \begin{document}
-\begin{tikzpicture}
+\color{magenta}
+\begin{tikzpicture}[every node/.style={text=magenta}]
 \begin{groupplot}[group style={group size=2 by 1,horizontal sep=1.25cm}]
 """
 END = "\\end{groupplot}\n\\end{tikzpicture}\n\\end{document}\n"
