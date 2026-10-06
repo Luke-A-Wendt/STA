@@ -64,6 +64,9 @@
 \AddToHook{cmd/subsection/before}{\Needspace{6\baselineskip}}
 \AddToHook{cmd/subsubsection/before}{\Needspace{5\baselineskip}}
 \makeatletter
+% Reserve printed square brackets for commutators, including in citations.
+\renewcommand{\@cite}[2]{(#1\if@tempswa , #2\fi)}
+\renewcommand{\@biblabel}[1]{(#1)}
 \let\sta@tocsection\l@section
 \renewcommand{\l@section}[2]{\Needspace{6\baselineskip}\sta@tocsection{#1}{#2}}
 \makeatother
@@ -2465,7 +2468,7 @@ $\dd\br/\dd s=\sinh\theta\,\bu$, the continuous worldline is obtained:
  \end{cases}\notag\\
  \br(s)&=\begin{cases}
   \bigl(\cosh\theta(s)-1\bigr)\bu/\dot v_0,&0\le s\le s_m,\\
-  \bu\bigl[d-\bigl(\cosh\theta(s)-1\bigr)/\dot v_0\bigr],
+  \bu\bigl(d-\bigl(\cosh\theta(s)-1\bigr)/\dot v_0\bigr),
     &s_m\le s\le2s_m.
  \end{cases}
  \label{eq:rocket-worldline}
@@ -2582,9 +2585,11 @@ The coordinate-time normalization identities are used:
  \scpart{\pU^*\dot{\pU}}=0,\qquad
  \scpart{\pU^*\ddot{\pU}}=-\det\left(\dot{\pU}\right).
 \]
-The second follows by differentiating the first. Substitution into
-\eqref{eq:jerk-time-conversion}, together with
-$\det\left(\dd\pU/\dd s\right)=\gamma^2\det\left(\dot{\pU}\right)$, gives
+The second follows by differentiating the first. Using
+\[
+ \det\left(\frac{\dd\pU}{\dd s}\right)=\gamma^2\det\dot{\pU},
+\]
+substitution into \eqref{eq:jerk-time-conversion} gives
 \[
  \scpart{\pU^*\frac{\dd^2\pU}{\dd s^2}}
  =-\det\left(\frac{\dd\pU}{\dd s}\right).
@@ -4739,7 +4744,7 @@ sectors; the magnetic term commutes with its own projectors.
 
 \subsection{Evolution about an alternate spin axis}
 \label{sec:alternate-spin-alignment}
-A constant unit vector $\bm u'\in\R^3$ and $\theta\in[0,\pi]$ are chosen.
+A constant unit vector $\bm u'\in\R^3$ and $0\le\theta\le\pi$ are chosen.
 Initial scalar wavefunctions $\phi_{++},\phi_{+-}:\R^3\to\C$ are chosen along this axis:
 \[
 \begin{gathered}
@@ -4836,7 +4841,7 @@ Here $\pvpsi$ takes values in the fixed spinor space of
 \eqref{eq:axis-ideal-components}, with coordinates in $\C^2$.
 Axes and polarizations $\bu,\bu',\ba\in\R^3$ are unit vectors;
 angles $\theta,\varphi\in\R$, projectors $\pvPi_\pm,\pvPi_\pm'\in\R\oplus\R^3$,
-and probabilities lie in $[0,1]\subset\R$.
+and probabilities lie between $0$ and $1$, inclusive.
 The density $\rho\in\R_{\ge0}$ is a probability density.
 
 Spin is specified by the intrinsic rotation of an amplitude.  Here the state is rotated
@@ -4964,7 +4969,7 @@ The angle between the axes is denoted by $0\le\theta\le\pi$, and the following n
  c':=\bu\cdot\bu'=\cos\theta.
 \]
 
-Here $K,K'\in\{0\}\oplus\R^3$ and $c'\in[-1,1]\subset\R$.
+Here $K,K'\in\{0\}\oplus\R^3$ and $-1\le c'\le1$.
 The Pauli product gives $(K')^2=1$ and $K'K+KK'=2c'$.
 Multiplication by $K'$ gives $K'KK'=2c'K'-K$, hence
 \[
@@ -6434,14 +6439,14 @@ W. E. Baylis and G. Sobczyk,
 ``Relativity in Clifford's geometric algebras of space and spacetime,''
 \emph{Int. J. Theor. Phys.}, vol.~43, pp.~2061--2079, 2004,
 doi: \href{https://doi.org/10.1023/B:IJTP.0000049010.53558.b7}{10.1023/B:IJTP.0000049010.53558.b7}.
-[Online]. Available: \url{https://arxiv.org/pdf/math-ph/0405026}.
+Online. Available: \url{https://arxiv.org/pdf/math-ph/0405026}.
 
 \bibitem{chappell-functions}
 J.~M. Chappell, A.~Iqbal, L.~J. Gunn, and D.~Abbott,
 ``Functions of multivector variables,'' \emph{PLoS ONE}, vol.~10, no.~3,
 e0116943, 2015,
 doi: \href{https://doi.org/10.1371/journal.pone.0116943}{10.1371/journal.pone.0116943}.
-[Online]. Available: \url{https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0116943}.
+Online. Available: \url{https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0116943}.
 
 \bibitem{baylis-applications}
 W.~E. Baylis, ``Applications of Clifford algebras in physics,''
@@ -6449,19 +6454,19 @@ in \emph{Lectures on Clifford (Geometric) Algebras and Applications},
 R.~Ab{\l}amowicz and G.~Sobczyk, Eds. Boston, MA, USA: Birkh{\"a}user,
 2004, pp.~91--133,
 doi: \href{https://doi.org/10.1007/978-0-8176-8190-6_4}{10.1007/978-0-8176-8190-6\_4}.
-[Online]. Published volume:
+Online. Published volume:
 \url{https://ndl.ethernet.edu.et/bitstream/123456789/32989/1/3.pdf.pdf}.
 
 \bibitem{higham-functions}
 N.~J. Higham, ``Functions of matrices,'' University of Manchester,
 MIMS EPrint 2005.21, Jun.~2006.
-[Online]. Available: \url{https://eprints.maths.manchester.ac.uk/310/1/fm_final.pdf}.
+Online. Available: \url{https://eprints.maths.manchester.ac.uk/310/1/fm_final.pdf}.
 
 \bibitem{baylis-intro}
 W. E. Baylis, ``Relativity in introductory physics,''
 \emph{Can. J. Phys.}, vol.~82, no.~11, pp.~853--873, 2004,
 doi: \href{https://doi.org/10.1139/p04-058}{10.1139/p04-058}.
-[Online]. Available: \url{https://arxiv.org/pdf/physics/0406158}.
+Online. Available: \url{https://arxiv.org/pdf/physics/0406158}.
 
 \bibitem{lounesto-intro}
 P.~Lounesto, ``Introduction to Clifford algebras,''
@@ -6469,76 +6474,76 @@ in \emph{Lectures on Clifford (Geometric) Algebras and Applications},
 R.~Ab{\l}amowicz and G.~Sobczyk, Eds. Boston, MA, USA: Birkh{\"a}user,
 2004, pp.~1--29,
 doi: \href{https://doi.org/10.1007/978-0-8176-8190-6_1}{10.1007/978-0-8176-8190-6\_1}.
-[Online]. Published volume:
+Online. Published volume:
 \url{https://ndl.ethernet.edu.et/bitstream/123456789/32989/1/3.pdf.pdf}.
 
 \bibitem{tong-em}
 D. Tong, \emph{Electromagnetism}, University of Cambridge,
 Cambridge, U.K., lecture notes, 2015.
-[Online]. Available: \url{https://davidtong.org/pdfs/teaching/electromagnetism/electro.pdf}.
+Online. Available: \url{https://davidtong.org/pdfs/teaching/electromagnetism/electro.pdf}.
 
 \bibitem{hestenes-spacetime}
 D.~Hestenes, ``Spacetime physics with geometric algebra,''
 \emph{Am. J. Phys.}, vol.~71, no.~7, pp.~691--714, 2003,
 doi: \href{https://doi.org/10.1119/1.1571836}{10.1119/1.1571836}.
-[Online]. Available: \url{https://davidhestenes.net/geocalc/pdf/SpacetimePhysics.pdf}.
+Online. Available: \url{https://davidhestenes.net/geocalc/pdf/SpacetimePhysics.pdf}.
 
 \bibitem{tong-relativity}
 D. Tong, \emph{Dynamics and Relativity}, University of Cambridge,
 Cambridge, U.K., lecture notes, 2013.
-[Online]. Available: \url{https://davidtong.org/pdfs/teaching/dynamics-and-relativity/dynrel.pdf}.
+Online. Available: \url{https://davidtong.org/pdfs/teaching/dynamics-and-relativity/dynrel.pdf}.
 
 \bibitem{baylis-charge}
 W.~E. Baylis, ``Surprising symmetries in relativistic charge dynamics,''
 arXiv:physics/0410197, 2004.
-[Online]. Available: \url{https://arxiv.org/pdf/physics/0410197}.
+Online. Available: \url{https://arxiv.org/pdf/physics/0410197}.
 
 \bibitem{baylis-spin}
 W.~E. Baylis, R.~Cabrera, and D.~Keselica,
 ``Quantum/Classical interface: Fermion spin,'' arXiv:0710.3144, 2007.
-[Online]. Available: \url{https://arxiv.org/pdf/0710.3144}.
+Online. Available: \url{https://arxiv.org/pdf/0710.3144}.
 
 \bibitem{gurtler-hestenes}
 R.~Gurtler and D.~Hestenes,
 ``Consistency in the formulation of the Dirac, Pauli, and Schr\"odinger theories,''
 \emph{J. Math. Phys.}, vol.~16, no.~3, pp.~573--584, 1975,
 doi: \href{https://doi.org/10.1063/1.522555}{10.1063/1.522555}.
-[Online]. Available: \url{https://davidhestenes.net/geocalc/pdf/Consistency.pdf}.
+Online. Available: \url{https://davidhestenes.net/geocalc/pdf/Consistency.pdf}.
 
 \bibitem{sparks-quantum}
 J. Sparks, \emph{Quantum Theory}, University of Oxford,
 Oxford, U.K., lecture notes, 2020.
-[Online]. Available: \url{https://users.ox.ac.uk/~math0391/QT2020.pdf}.
+Online. Available: \url{https://users.ox.ac.uk/~math0391/QT2020.pdf}.
 
 \bibitem{debroglie1929}
 L. de Broglie, ``The wave nature of the electron,'' Nobel Lecture,
 Dec.~12, 1929, in \emph{Nobel Lectures, Physics 1922--1941}.
 Amsterdam, The Netherlands: Elsevier, 1965, pp.~244--256.
-[Online]. Available: \url{https://www.nobelprize.org/uploads/2016/04/broglie-lecture.pdf}.
+Online. Available: \url{https://www.nobelprize.org/uploads/2016/04/broglie-lecture.pdf}.
 
 \bibitem{millikan1924}
 R. A. Millikan, ``The electron and the light-quant from the experimental
 point of view,'' Nobel Lecture, May~23, 1924,
 in \emph{Nobel Lectures, Physics 1922--1941}.
 Amsterdam, The Netherlands: Elsevier, 1965.
-[Online]. Available: \url{https://www.nobelprize.org/uploads/2018/06/millikan-lecture.pdf}.
+Online. Available: \url{https://www.nobelprize.org/uploads/2018/06/millikan-lecture.pdf}.
 
 \bibitem{tong-qft}
 D. Tong, \emph{Quantum Field Theory}, University of Cambridge,
 Cambridge, U.K., lecture notes, 2006--2007.
-[Online]. Available: \url{https://davidtong.org/pdfs/teaching/quantum-field-theory/qft.pdf}.
+Online. Available: \url{https://davidtong.org/pdfs/teaching/quantum-field-theory/qft.pdf}.
 
 \bibitem{lenz-quantum}
 A.~Lenz, \emph{Theoretical Physics 3: Quantum Mechanics (PHYS3661)},
 IPPP, Durham University, lecture notes, Apr.~8, 2015.
-[Online]. Available:
+Online. Available:
 \url{https://tp.nt.uni-siegen.de/wp-content/uploads/2024/02/TP3-Notes_Lenz_2015.pdf}.
 
 \bibitem{feynman-gellmann}
 R.~P. Feynman and M.~Gell-Mann, ``Theory of the Fermi interaction,''
 \emph{Phys. Rev.}, vol.~109, no.~1, pp.~193--198, 1958,
 doi: \href{https://doi.org/10.1103/PhysRev.109.193}{10.1103/PhysRev.109.193}.
-[Online]. Available:
+Online. Available:
 \url{https://harvest.aps.org/v2/journals/articles/10.1103/PhysRev.109.193/fulltext}.
 
 \bibitem{feynman-schrodinger}
@@ -6546,32 +6551,32 @@ R.~P. Feynman, R.~B. Leighton, and M.~Sands,
 \emph{The Feynman Lectures on Physics}, vol.~III.
 Reading, MA, USA: Addison-Wesley, 1965, ch.~21,
 ``The Schr\"odinger equation in a classical context: A seminar on superconductivity.''
-[Online]. Available: \url{https://www.feynmanlectures.caltech.edu/III_21.html}.
+Online. Available: \url{https://www.feynmanlectures.caltech.edu/III_21.html}.
 
 \bibitem{feynmanspin}
 R. P. Feynman, R. B. Leighton, and M. Sands,
 \emph{The Feynman Lectures on Physics}, vol.~III.
 Reading, MA, USA: Addison-Wesley, 1965, ch.~6, ``Spin one-half.''
-[Online]. Available: \url{https://www.feynmanlectures.caltech.edu/III_06.html}.
+Online. Available: \url{https://www.feynmanlectures.caltech.edu/III_06.html}.
 
 \bibitem{feynman-spacetime}
 R.~P. Feynman, R.~B. Leighton, and M.~Sands,
 \emph{The Feynman Lectures on Physics}, vol.~I.
 Reading, MA, USA: Addison-Wesley, 1963, ch.~17, ``Space-time.''
-[Online]. Available: \url{https://www.feynmanlectures.caltech.edu/I_17.html}.
+Online. Available: \url{https://www.feynmanlectures.caltech.edu/I_17.html}.
 
 \bibitem{russo-townsend}
 J.~G. Russo and P.~K. Townsend,
 ``Relativistic kinematics and stationary motions,''
 \emph{J. Phys. A: Math. Theor.}, vol.~42, 445402, 2009,
 doi: \href{https://doi.org/10.1088/1751-8113/42/44/445402}{10.1088/1751-8113/42/44/445402}.
-[Online]. Available: \url{https://arxiv.org/pdf/0902.4243}.
+Online. Available: \url{https://arxiv.org/pdf/0902.4243}.
 
 \bibitem{frenet-curves}
 K.~Ko, T.~Maekawa, and N.~M. Patrikalakis,
 ``Differential geometry of curves,'' \emph{Computational Geometry},
 Lecture~2, Massachusetts Institute of Technology, 2003.
-[Online]. Available: \url{https://ocw.mit.edu/courses/2-158j-computational-geometry-spring-2003/dd2e0ef6278218b74dd1709065814109_lecnotes2.pdf}.
+Online. Available: \url{https://ocw.mit.edu/courses/2-158j-computational-geometry-spring-2003/dd2e0ef6278218b74dd1709065814109_lecnotes2.pdf}.
 
 \end{thebibliography}
 
