@@ -1870,11 +1870,17 @@ The path is determined by the velocity history; an endpoint boost alone is insuf
 \label{sec:fixed-axis}
 For a fixed real unit vector $\bu$, the signed velocity along the axis
 is $\beta=\tanh\theta$, with $\bv=\beta\bu$ and $\gamma=\cosh\theta$.
-The four-velocity and longitudinal rest direction are represented by
-\[
- \pU=\cosh\theta+\sinh\theta\bu\dotprod\bsig,\qquad
- \pN=\sinh\theta+\cosh\theta\bu\dotprod\bsig.
-\]
+With the projectors $\pvPi_\pm=(1\pm\bu\dotprod\bsig)/2$
+from \eqref{eq:projectors}, the four-velocity and longitudinal rest
+direction have equivalent hyperbolic, exponential, and projected forms:
+\begin{align*}
+ \pU&=\cosh\theta+\sinh\theta\,\bu\dotprod\bsig\\
+ &=\exp(\theta\bu\dotprod\bsig)
+ =e^\theta\pvPi_++e^{-\theta}\pvPi_-,\\
+ \pN&=\sinh\theta+\cosh\theta\,\bu\dotprod\bsig\\
+ &=(\bu\dotprod\bsig)\exp(\theta\bu\dotprod\bsig)
+ =e^\theta\pvPi_+-e^{-\theta}\pvPi_-.
+\end{align*}
 Here $\det\pU=1$, $\det\pN=-1$, and $\scpart{\pU^*\pN}=0$.
 The pair is an orthonormal time and spatial basis in the plane of motion.
 Although rapidity is given as $\theta(s)$, its coordinate-time derivatives
