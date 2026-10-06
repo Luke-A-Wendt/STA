@@ -17,9 +17,9 @@ import tempfile
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "figures"
 OMEGA = 0.25  # Gm * horizon angular velocity; spin points along +r_3.
-RHO = 4 / (1 + 4 * OMEGA**2)
-SPIN = RHO * OMEGA  # Specific angular momentum divided by Gm.
-HORIZON = RHO / 2  # Ellipsoidal radius epsilon_+ / (Gm).
+ELL_SQUARED = 4 / (1 + 4 * OMEGA**2)
+SPIN = ELL_SQUARED * OMEGA  # Specific angular momentum divided by Gm.
+HORIZON = ELL_SQUARED / 2  # Ellipsoidal radius epsilon_+ / (Gm).
 
 PREAMBLE = r"""\documentclass[11pt,border=3pt]{standalone}
 \usepackage{amsmath}

@@ -6080,49 +6080,49 @@ the scalar-field contours.
 \paragraph{Kerr.}
 Let the constant real vector $\vstyle{\omega}$ be the outer horizon's
 angular velocity relative to a nonrotating observer at infinity. For
-$2Gm\lVert\vstyle{\omega}\rVert\le1$, define the positive scalar
+$2Gm\lVert\vstyle{\omega}\rVert\le1$, define the positive length $\ell$ by
 \[
- \rho=\frac{4(Gm)^2}{1+4(Gm)^2\vstyle{\omega}^2}.
+ \ell^2=\frac{4(Gm)^2}{1+4(Gm)^2\vstyle{\omega}^2}.
 \]
-The angular momentum per unit mass is $\rho\vstyle{\omega}$;
-$\rho$ has dimensions of length squared. This scaling follows from
+The angular momentum per unit mass is $\ell^2\vstyle{\omega}$.
+This scaling follows from
 the Kerr horizon angular-velocity relation
 \citeat{heinicke-hehl}{Eq.~(145)}{page=57}.
 Use the positive ellipsoidal-radius branch $\epsilon>0$, on the
 coordinate region where it is smooth. It is determined by $\br$ and
 the spin, and generally differs from $\lVert\br\rVert$:
 \begin{equation}
- \epsilon^4-\epsilon^2(\br^2-\rho^2\vstyle{\omega}^2)
- -\rho^2(\vstyle{\omega}\dotprod\br)^2=0.
+ \epsilon^4-\epsilon^2(\br^2-\ell^4\vstyle{\omega}^2)
+ -\ell^4(\vstyle{\omega}\dotprod\br)^2=0.
  \label{eq:kerr-radius}
 \end{equation}
 The standard Kerr black-hole solution is represented by
 \begin{equation}
  \begin{aligned}
- \bu&=\frac{\epsilon\br-\rho\vstyle{\omega}\times\br
-       +\rho^2\vstyle{\omega}(\vstyle{\omega}\dotprod\br)/\epsilon}
-      {\epsilon^2+\rho^2\vstyle{\omega}^2},\\
+ \bu&=\frac{\epsilon\br-\ell^2\vstyle{\omega}\times\br
+       +\ell^4\vstyle{\omega}(\vstyle{\omega}\dotprod\br)/\epsilon}
+      {\epsilon^2+\ell^4\vstyle{\omega}^2},\\
  \lambda&=\frac{Gm\,\epsilon^3}
-       {\epsilon^4+\rho^2(\vstyle{\omega}\dotprod\br)^2}.
+       {\epsilon^4+\ell^4(\vstyle{\omega}\dotprod\br)^2}.
  \end{aligned}
  \label{eq:kerr-fields}
 \end{equation}
 The radius equation verifies the unit direction:
 \[
  \bu^2=
- \frac{\br^2+\rho^2(\vstyle{\omega}\dotprod\br)^2/\epsilon^2}
-      {\epsilon^2+\rho^2\vstyle{\omega}^2}=1.
+ \frac{\br^2+\ell^4(\vstyle{\omega}\dotprod\br)^2/\epsilon^2}
+      {\epsilon^2+\ell^4\vstyle{\omega}^2}=1.
 \]
 Substituting into \eqref{eq:kerr-schild-blocks} gives the explicit metric blocks
 \begin{equation}
  \begin{aligned}
  g_{tt}&=1-\frac{2Gm\,\epsilon^3}
-                   {\epsilon^4+\rho^2(\vstyle{\omega}\dotprod\br)^2},\\
+                   {\epsilon^4+\ell^4(\vstyle{\omega}\dotprod\br)^2},\\
  \bg_{tr}&=-\frac{2Gm\,\epsilon^3}
-                   {\epsilon^4+\rho^2(\vstyle{\omega}\dotprod\br)^2}
+                   {\epsilon^4+\ell^4(\vstyle{\omega}\dotprod\br)^2}
                    \bu^{\mathsf T},\\
  \bg_{rr}&=-\bI-\frac{2Gm\,\epsilon^3}
-                   {\epsilon^4+\rho^2(\vstyle{\omega}\dotprod\br)^2}
+                   {\epsilon^4+\ell^4(\vstyle{\omega}\dotprod\br)^2}
                    \bu\bu^{\mathsf T},
  \end{aligned}
  \label{eq:kerr-metric-blocks}
@@ -6136,7 +6136,7 @@ Thus the scalar--vector determinant gives
        +\dd\br^{\mathsf T}\bg_{rr}\dd\br\\
  &=\dd t^2-\dd\br^2
   -\frac{2Gm\,\epsilon^3}
-        {\epsilon^4+\rho^2(\vstyle{\omega}\dotprod\br)^2}
+        {\epsilon^4+\ell^4(\vstyle{\omega}\dotprod\br)^2}
        (\dd t+\bu\dotprod\dd\br)^2.
  \end{aligned}
  \label{eq:kerr-interval}
@@ -6146,9 +6146,9 @@ $(+,-,-,-)$~\citeat{bini-kerr-schild}{Sec.~1, Eqs.~(5)--(6)}{page=2}.
 Setting $\vstyle{\omega}=\vstyle{0}$ gives
 $\epsilon=\lVert\br\rVert$ and recovers Schwarzschild.
 The outer horizon is the larger root of
-$\epsilon^2-2Gm\epsilon+\rho^2\vstyle{\omega}^2=0$:
+$\epsilon^2-2Gm\epsilon+\ell^4\vstyle{\omega}^2=0$:
 \[
- \epsilon=\frac{\rho}{2Gm}
+ \epsilon=\frac{\ell^2}{2Gm}
  =\frac{2Gm}{1+4(Gm)^2\vstyle{\omega}^2}.
 \]
 The metric remains regular there, with $\det\bg=-1$.
@@ -6168,7 +6168,7 @@ directions of our chosen frame observers.
  \includegraphics[width=\textwidth]{figures/metric_kerr.pdf}
  \caption{Kerr coordinate slices with spin along $+r_3$ and
  $Gm\lVert\vstyle{\omega}\rVert=1/4$, so
- $\rho\lVert\vstyle{\omega}\rVert=0.8Gm$ and the horizon is
+ $\ell^2\lVert\vstyle{\omega}\rVert=0.8Gm$ and the horizon is
  $\epsilon=1.6Gm$. Left: the $r_2=0$ slice, with dashed cyan contours
  of the ellipsoidal radius $\epsilon$. Right: the $r_3=0$ slice,
  with a dashed constant-$\lambda$ contour and equal-length arrows
