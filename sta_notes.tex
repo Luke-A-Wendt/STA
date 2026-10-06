@@ -5818,82 +5818,115 @@ displacements assign different metrics to the same $\dd t,\dd\br$.
 \subsection{Newtonian motion and black-hole metrics}
 \label{sec:gravity-metrics}
 
+Schwarzschild and Kerr belong to a common family: their intervals can be
+written as the Minkowski interval plus a term proportional to the square
+of a null form. This is the Kerr--Schild construction
+\citeat{bini-kerr-schild}{Eq.~(1)}{page=1}.
+We now express it in our paravector basis. It is a special choice of
+$\bM$, within the general metric construction of Section~\ref{sec:matrix-basis}; the expansion
+example above uses a different choice.
+
 \paragraph{A common basis.}
 On an open coordinate region in $\R\times\R^3$, let
-$f(t,\br)\in\R$ be a smooth dimensionless scalar field and
+$\lambda(t,\br)\in\R$ be a smooth dimensionless scalar field and
 $\bu(t,\br)\in\R^3$ a smooth unit vector field, $\bu^2=1$.
-Writing $\bu$ for $\bu(t,\br)$, choose
+Here $\lambda$ denotes the Kerr--Schild scalar, distinct from the scale
+factor $\lambda(t)$ in the preceding example.
+We omit the field arguments $(t,\br)$ below. The paravector
+$1-\bu\dotprod\bsig$ is null:
+\[
+ \det(1-\bu\dotprod\bsig)=1-\bu^2=0.
+\]
+To change the displacement along this null direction, choose
 \begin{equation}
  \begin{aligned}
- \pSigmaTPrime&=1-f(t,\br)+f(t,\br)\bu\dotprod\bsig,\\
- \bsigRPrime&=-f(t,\br)\bu
-              +\left(\bI+f(t,\br)\bu\bu^{\mathsf T}\right)\bsig.
+ \pSigmaTPrime&=(1-\lambda)+(\lambda\bu)\dotprod\bsig,\\
+ \bsigRPrime&=(-\lambda\bu)
+ +\left(\bI+\lambda\bu\bu^{\mathsf T}\right)\dotprod\bsig.
  \end{aligned}
  \label{eq:kerr-schild-basis}
 \end{equation}
-The displacement separates into scalar and vector parts:
+In the second line, the dot contracts each row of the matrix with
+$\bsig$: $-\lambda\bu$ lists the three scalar parts, and the matrix
+rows give their vector parts.
+The assigned displacement is therefore
+\[
+ \begin{aligned}
+ \dd\pX&=\dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime\\
+ &=\dd t+\dd\br\dotprod\bsig
+ -\lambda(\dd t+\bu\dotprod\dd\br)(1-\bu\dotprod\bsig).
+ \end{aligned}
+\]
+Separating its scalar and vector parts gives
 \[
  \begin{aligned}
  \dd\pX
- &=\left(\dd t-f(t,\br)(\dd t+\bu\dotprod\dd\br)\right)\\
+ &=\left(\dd t-\lambda(\dd t+\bu\dotprod\dd\br)\right)\\
  &\quad+\left(\dd\br
-       +f(t,\br)(\dd t+\bu\dotprod\dd\br)\bu\right)\dotprod\bsig.
+       +\lambda(\dd t+\bu\dotprod\dd\br)\bu\right)\dotprod\bsig.
  \end{aligned}
 \]
 Subtracting the squared vector part from the squared scalar part,
-the terms quadratic in $f(t,\br)$ cancel because $\bu^2=1$.
+the terms quadratic in $\lambda$ cancel because $\bu^2=1$.
 The resulting metric blocks are
 \begin{equation}
  \begin{gathered}
- g_{tt}=1-2f(t,\br),\qquad
- \bg_{tr}=-2f(t,\br)\bu^{\mathsf T},\\
- \bg_{rr}=-\bI-2f(t,\br)\bu\bu^{\mathsf T}.
+ g_{tt}=1-2\lambda,\qquad
+ \bg_{tr}=-2\lambda\bu^{\mathsf T},\\
+ \bg_{rr}=-\bI-2\lambda\bu\bu^{\mathsf T}.
  \end{gathered}
  \label{eq:kerr-schild-blocks}
 \end{equation}
 Combining the three blocks gives
 \begin{equation}
  \boxed{\dd s^2=\dd t^2-\dd\br^2
-       -2f(t,\br)(\dd t+\bu\dotprod\dd\br)^2.}
+       -2\lambda(\dd t+\bu\dotprod\dd\br)^2.}
  \label{eq:kerr-schild-interval}
 \end{equation}
-This is the Kerr--Schild form~\citeat{bini-kerr-schild}{Eq.~(1)}{page=1}.
-The basis is invertible for every finite $f(t,\br)$: its inverse change
-is obtained by replacing $f(t,\br)$ with $-f(t,\br)$, and
+This is exactly the Kerr--Schild interval, with no weak-field
+approximation. Setting $\lambda=0$ recovers Minkowski spacetime.
+The radial choice $\bu=\br/\lVert\br\rVert$ with
+$\lambda=Gm/\lVert\br\rVert$ gives Schwarzschild; the spin-dependent
+fields below give Kerr. Newtonian motion follows in the weak-field,
+slow-motion limit.
+The basis is invertible for every finite $\lambda$: its inverse change
+is obtained by replacing $\lambda$ with $-\lambda$, and
 $\det\bM=1$, so $\det\bg=-1$.
-The algebra specifies the metric for any such fields; Einstein's equation
-selects gravitational solutions.
+The algebra converts the chosen fields into a metric. Einstein's equation
+is the additional physical law that constrains those fields for a given
+source; the basis identities alone do not determine the Schwarzschild
+or Kerr solutions.
 
 \paragraph{Newtonian limit.}
-For stationary $f(t,\br),\bu$, substituting
+For stationary $\lambda,\bu$, substituting
 \eqref{eq:kerr-schild-blocks} into \eqref{eq:metric-block-clock} gives
 \[
  \frac{\dd s}{\dd t}
- =\sqrt{1-\dot\br^2-2f(t,\br)(1+\bu\dotprod\dot\br)^2}.
+ =\sqrt{1-\dot\br^2-2\lambda(1+\bu\dotprod\dot\br)^2}.
 \]
-For $|f(t,\br)|\ll1$ and $\lVert\dot\br\rVert\ll1$, retain terms
-linear in $f(t,\br)$ and quadratic in velocity, dropping their
+For $|\lambda|\ll1$ and $\lVert\dot\br\rVert\ll1$, retain terms
+linear in $\lambda$ and quadratic in velocity, dropping their
 products. The free-particle action per unit mass becomes
 \[
- -\int\dd s\simeq\int\left(-1+\frac12\dot\br^2+f(t,\br)\right)\dd t.
+ -\int\dd s\simeq\int\left(-1+\frac12\dot\br^2+\lambda\right)\dd t.
 \]
 The Euler--Lagrange equation gives
 \begin{equation}
- \boxed{\ddot\br\simeq-\frac12\pdr g_{tt}=\pdr f(t,\br).}
+ \boxed{\ddot\br\simeq-\frac12\pdr g_{tt}=\pdr \lambda.}
  \label{eq:gravity-newtonian-limit}
 \end{equation}
-Thus $-f(t,\br)$ is the Newtonian gravitational potential
+Thus $-\lambda$ is the Newtonian gravitational potential
 \citeat{carroll-gr}{Eqs.~(4.20)--(4.22)}{page=113}.
 
 \paragraph{Schwarzschild.}
 For stationary spherical symmetry, take
-$r=\lVert\br\rVert>0$ and $\bu=\br/r$, with $f(t,\br)$ depending
+$r=\lVert\br\rVert>0$ and $\bu=\br/r$, with $\lambda$ depending
 on position only through $r$.
 For this radial ansatz, the vacuum Einstein equation with zero
 cosmological constant gives the angular condition
 \begin{equation}
- \frac{\dd}{\dd r}(r\,f(t,\br))=0
- \quad\Longrightarrow\quad f(t,\br)=\frac{Gm}{r}.
+ \frac{\dd}{\dd r}(r\,\lambda)=0
+ \quad\Longrightarrow\quad \lambda=\frac{Gm}{r}.
  \label{eq:schwarzschild-profile}
 \end{equation}
 The remaining radial condition follows by differentiating this
@@ -5947,7 +5980,7 @@ The standard Kerr black-hole solution is represented by
  \bu&=\frac{\epsilon\br-\rho\vstyle{\omega}\times\br
        +\rho^2\vstyle{\omega}(\vstyle{\omega}\dotprod\br)/\epsilon}
       {\epsilon^2+\rho^2\vstyle{\omega}^2},\\
- f(t,\br)&=\frac{Gm\,\epsilon^3}
+ \lambda&=\frac{Gm\,\epsilon^3}
        {\epsilon^4+\rho^2(\vstyle{\omega}\dotprod\br)^2}.
  \end{aligned}
  \label{eq:kerr-fields}
@@ -6000,11 +6033,9 @@ The metric remains regular there, with $\det\bg=-1$.
 At this radius, the tangent displacement
 $\dd\br=(\vstyle{\omega}\times\br)\dd t$ gives $\dd s^2=0$,
 verifying that $\vstyle{\omega}$ is the horizon's angular velocity.
-The determinant construction therefore reproduces the Schwarzschild
-and Kerr metrics and their Newtonian limit. The Kerr fields are supplied
-from the known vacuum solution; a general paravector formulation of
-Einstein's equation relating curvature to matter remains to be developed.
-
+These substitutions reproduce the known Kerr solution. A general
+paravector construction of transport, curvature, and Einstein's field
+equation remains to be developed.
 
 \clearpage
 \appendix

@@ -146,36 +146,36 @@
 \contentsline {subsection}{\numberline {19.4}Newtonian motion and black-hole metrics}{81}{subsection.19.4}%
 \contentsline {paragraph}{A common basis.}{81}{section*.33}%
 \contentsline {paragraph}{Newtonian limit.}{82}{section*.34}%
-\contentsline {paragraph}{Schwarzschild.}{82}{section*.35}%
+\contentsline {paragraph}{Schwarzschild.}{83}{section*.35}%
 \contentsline {paragraph}{Kerr.}{83}{section*.36}%
-\contentsline {section}{\numberline {A}Pauli-matrix representation}{84}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Sigmas and products}{84}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Conjugations and product order}{84}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}Scalar part, determinant, and norm}{85}{subsection.A.3}%
-\contentsline {subsection}{\numberline {A.4}Boost and rotation matrices}{86}{subsection.A.4}%
-\contentsline {subsection}{\numberline {A.5}Matrix amplitudes and column spinors}{86}{subsection.A.5}%
-\contentsline {paragraph}{An arbitrary spin basis.}{86}{section*.37}%
-\contentsline {paragraph}{The two-component column.}{86}{section*.38}%
-\contentsline {subsection}{\numberline {A.6}Dirac columns}{87}{subsection.A.6}%
-\contentsline {paragraph}{Characteristic polynomial.}{87}{section*.39}%
-\contentsline {subsection}{\numberline {A.7}Four components and the standard Dirac basis}{88}{subsection.A.7}%
-\contentsline {subsection}{\numberline {A.8}Quaternion matrix image}{89}{subsection.A.8}%
-\contentsline {section}{\numberline {B}Equation reference}{90}{appendix.B}%
-\contentsline {paragraph}{Algebra.}{90}{section*.40}%
-\contentsline {paragraph}{Rotations and boosts.}{90}{section*.60}%
-\contentsline {paragraph}{Spacetime and particles.}{91}{section*.75}%
-\contentsline {paragraph}{Electromagnetism.}{91}{section*.94}%
-\contentsline {paragraph}{Relativistic waves.}{92}{section*.111}%
-\contentsline {paragraph}{Low-energy limits.}{92}{section*.138}%
-\contentsline {paragraph}{Spin and probabilities.}{93}{section*.141}%
-\contentsline {section}{\numberline {C}Conventions}{94}{appendix.C}%
-\contentsline {paragraph}{Names and algebra classifications.}{94}{section*.153}%
-\contentsline {paragraph}{Mapping to the literature.}{94}{section*.154}%
-\contentsline {paragraph}{Source comparisons for the cited equations.}{96}{section*.155}%
-\contentsline {paragraph}{Translating the physical comparisons.}{97}{section*.156}%
-\contentsline {paragraph}{Exponent sign and sandwich order.}{98}{section*.157}%
-\contentsline {paragraph}{Hamilton quaternions fix the basis orientation.}{98}{section*.158}%
-\contentsline {paragraph}{Rotating a state versus changing the measured observable.}{99}{section*.159}%
-\contentsline {paragraph}{Fields and wave amplitudes under either notation.}{99}{section*.160}%
-\contentsline {paragraph}{Preserved quantities.}{100}{section*.161}%
-\contentsline {section}{References}{101}{section*.162}%
+\contentsline {section}{\numberline {A}Pauli-matrix representation}{85}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Sigmas and products}{85}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Conjugations and product order}{85}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Scalar part, determinant, and norm}{86}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}Boost and rotation matrices}{87}{subsection.A.4}%
+\contentsline {subsection}{\numberline {A.5}Matrix amplitudes and column spinors}{87}{subsection.A.5}%
+\contentsline {paragraph}{An arbitrary spin basis.}{87}{section*.37}%
+\contentsline {paragraph}{The two-component column.}{87}{section*.38}%
+\contentsline {subsection}{\numberline {A.6}Dirac columns}{88}{subsection.A.6}%
+\contentsline {paragraph}{Characteristic polynomial.}{88}{section*.39}%
+\contentsline {subsection}{\numberline {A.7}Four components and the standard Dirac basis}{89}{subsection.A.7}%
+\contentsline {subsection}{\numberline {A.8}Quaternion matrix image}{90}{subsection.A.8}%
+\contentsline {section}{\numberline {B}Equation reference}{91}{appendix.B}%
+\contentsline {paragraph}{Algebra.}{91}{section*.40}%
+\contentsline {paragraph}{Rotations and boosts.}{91}{section*.60}%
+\contentsline {paragraph}{Spacetime and particles.}{92}{section*.75}%
+\contentsline {paragraph}{Electromagnetism.}{92}{section*.94}%
+\contentsline {paragraph}{Relativistic waves.}{93}{section*.111}%
+\contentsline {paragraph}{Low-energy limits.}{93}{section*.138}%
+\contentsline {paragraph}{Spin and probabilities.}{94}{section*.141}%
+\contentsline {section}{\numberline {C}Conventions}{95}{appendix.C}%
+\contentsline {paragraph}{Names and algebra classifications.}{95}{section*.153}%
+\contentsline {paragraph}{Mapping to the literature.}{95}{section*.154}%
+\contentsline {paragraph}{Source comparisons for the cited equations.}{97}{section*.155}%
+\contentsline {paragraph}{Translating the physical comparisons.}{98}{section*.156}%
+\contentsline {paragraph}{Exponent sign and sandwich order.}{99}{section*.157}%
+\contentsline {paragraph}{Hamilton quaternions fix the basis orientation.}{99}{section*.158}%
+\contentsline {paragraph}{Rotating a state versus changing the measured observable.}{100}{section*.159}%
+\contentsline {paragraph}{Fields and wave amplitudes under either notation.}{100}{section*.160}%
+\contentsline {paragraph}{Preserved quantities.}{101}{section*.161}%
+\contentsline {section}{References}{102}{section*.162}%
