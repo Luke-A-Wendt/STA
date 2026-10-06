@@ -26,6 +26,8 @@
 \newcommand{\pB}{\pv{B}}
 \newcommand{\pF}{\pv{F}}
 \newcommand{\pG}{\pv{G}}
+\newcommand{\pSigmaTPrime}{\pvsigma'_t}
+\newcommand{\bsigRPrime}{\bsig'_r}
 \newcommand{\pJ}{\pv{J}}
 \newcommand{\pL}{\pv{L}}
 \newcommand{\pN}{\pv{N}}
@@ -105,6 +107,7 @@
 \newcommand{\bQ}{\vstyle{Q}}
 \newcommand{\bS}{\vstyle{S}}
 \newcommand{\bF}{\vstyle{F}}
+\newcommand{\bG}{\vstyle{G}}
 \newcommand{\bE}{\vstyle{E}}
 \newcommand{\bBf}{\vstyle{B}}
 \newcommand{\bJ}{\vstyle{J}}
@@ -163,6 +166,9 @@
 \sourceurl{feynmanspin}{https://www.feynmanlectures.caltech.edu/III_06.html}
 \sourceurl{feynman-spacetime}{https://www.feynmanlectures.caltech.edu/I_17.html}
 \sourceurl{russo-townsend}{https://arxiv.org/pdf/0902.4243}
+\sourceurl{carroll-gr}{https://arxiv.org/pdf/gr-qc/9712019}
+\sourceurl{bini-kerr-schild}{https://arxiv.org/pdf/1408.4601}
+\sourceurl{heinicke-hehl}{https://arxiv.org/pdf/1503.02172}
 
 \sourceurl{frenet-curves}{https://ocw.mit.edu/courses/2-158j-computational-geometry-spring-2003/dd2e0ef6278218b74dd1709065814109_lecnotes2.pdf}
 
@@ -3290,37 +3296,15 @@ with nonsingular Jacobian, specify inertial coordinates:
 Thus $f$ is inertial time and $\bg$ is inertial position; chart time $t$
 and chart position $\br$ need not be clock readings and Cartesian distances.
 
-\paragraph{Interval and differential operators.}
+\paragraph{Interval.}
 By differentiation,
 \begin{align*}
  \dd\pX&=(\partial_tf+\partial_t\bg\dotprod\bsig)\dd t
  +\sum_{k=1}^3(\partial_{r_k}f+\partial_{r_k}\bg\dotprod\bsig)\dd r_k,\\
  \det(\dd\pX)&=\dd f^2-\dd\bg^2.
 \end{align*}
-With $x_0=t$, $x_k=r_k$ and $\partial_k=\partial/\partial x_k$, the
-interval is $\det(\dd\pX)=\sum_{j,k=0}^3 g_{jk}\dd x_j\dd x_k$, where
-\[
- g_{jk}=\partial_jf\,\partial_kf-\partial_j\bg\dotprod\partial_k\bg,
- \qquad (g_{jk})\in\R^{4\times4}.
-\]
-This is the flat Minkowski metric in changed coordinates; varying
+This is the flat Minkowski interval in changed coordinates; varying
 coefficients alone do not imply spacetime curvature.
-The inverse matrix is denoted by $(g^{jk}):=(g_{jk})^{-1}$.
-By the chain rule, the inertial derivative operators are represented in
-the chart by
-\begin{equation}
- \pvpartial=\sum_{j,k=0}^3 g^{jk}(\partial_j\pX)^*\partial_k,
- \qquad
- \pvpartial^*=\sum_{j,k=0}^3 g^{jk}(\partial_j\pX)\partial_k.
- \label{eq:chart-derivatives}
-\end{equation}
-Their coefficients are fixed by
-$\sum_jg^{jk}\scpart{(\partial_j\pX)^*\partial_l\pX}=\delta_{kl}$.
-In Cartesian inertial coordinates, \eqref{eq:paravector-derivative} is
-recovered. In a general chart, these coefficients must also be
-differentiated when operators are composed: $\Box=\pvpartial\pvpartial^*$
-remains valid, but its Cartesian form
-$\partial_t^2-\pdr\dotprod\pdr$ cannot be used unchanged.
 
 \paragraph{Motion and clock rates.}
 Along a future-directed time-like path, $s$ is proper time,
@@ -3355,11 +3339,11 @@ For inertial motion, $\dd\pU/\dd s=0$ implies $\dd\bv/\dd f=0$, hence
 The reference inertial time is $f=0$; the same path may be nonlinear in
 chart coordinates.
 
-\subsection{Varying frames and local bases}
+\subsection{Varying frame transformations}
 \label{sec:varying-transformations}
 
 A coordinate chart is held fixed while the local frame is varied along a
-curve. In this subsection, $s$ is any real curve parameter; it is
+curve. Here $s$ is any real curve parameter; it is
 specialized to proper time in Section~\ref{sec:carried-derivatives}.
 A smooth complex paravector $\pT(s)$ with $\det\pT=1$ is chosen.
 Here $\pT(s),\pZ(s)\in\C\oplus\C^3$. The paravector
@@ -3402,15 +3386,8 @@ with real $\theta(s)$ and \hyperref[def:real-unit-vector]{real unit vector} $\bu
 $\pvOmega^{\mathsf H}=-\pvOmega$ and $\pvOmega\in\{0\}\oplus\ii\R^3$,
 so both formulas agree.
 
-The similarity formula also gives the local algebra-basis law
-$\bsig'=\pT\bsig\pT^{-1}$, with
-\begin{equation*}
- \frac{\dd\bsig'}{\dd s}=[\pvOmega,\bsig'].
-\end{equation*}
-The products and commutator act componentwise on the sigma triple.
-All sigma multiplication rules are preserved by this evolution.  A general complex local basis
-is nevertheless distinct from a real spacetime frame, whose vectors require
-the congruence law.
+Position-dependent sigma bases and metric constructions are developed in
+Section~\ref{sec:variable-bases}.
 
 \subsection{Physical derivatives in a carried frame}
 \label{sec:carried-derivatives}
@@ -5471,6 +5448,364 @@ Thus the electric and magnetic components above reproduce the same
 real four-force in the moving frame; the Hermitian extraction is preserved.
 
 
+\section{Position-dependent paravector bases}
+\label{sec:variable-bases}
+
+The determinant can represent a curved spacetime metric while the
+paravector product remains unchanged. A general local basis supplies
+the interval. Expanding space, Newtonian motion, and black-hole metrics
+illustrate the construction.
+
+\subsection{The basis and its interval}
+\label{sec:matrix-basis}
+
+Let $\bM(t,\br)$ be a smooth real invertible $4\times4$ matrix, with
+\begin{equation}
+ \begin{Bmatrix}\pSigmaTPrime\\\bsigRPrime\end{Bmatrix}
+ =\bM\begin{Bmatrix}1\\\bsig\end{Bmatrix}.
+ \label{eq:spacetime-matrix-basis}
+\end{equation}
+Here $\pSigmaTPrime$ is one real paravector and $\bsigRPrime$ is a
+triple of real paravectors. Sigma conjugation acts componentwise and
+leaves scalar coefficients unchanged:
+\begin{equation}
+ \begin{aligned}
+ \begin{Bmatrix}\pSigmaTPrime\\\bsigRPrime\end{Bmatrix}^{*}
+ &=\bM\begin{Bmatrix}1\\\bsig\end{Bmatrix}^{*}
+  =\bM\begin{Bmatrix}1\\-\bsig\end{Bmatrix}\\
+ &=\bM\operatorname{diag}(1,-1,-1,-1)
+       \begin{Bmatrix}1\\\bsig\end{Bmatrix}.
+ \end{aligned}
+ \label{eq:spacetime-basis-conjugation}
+\end{equation}
+Assigning the local displacement
+$\dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime$ gives
+\begin{equation}
+ \boxed{\dd s^2
+ =\det(\dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime).}
+ \label{eq:spacetime-basis-interval}
+\end{equation}
+Its original scalar--vector coefficient column is
+$\bM^{\mathsf T}\{\dd t,\dd\br\}^{\mathsf T}$. With the metric matrix
+\[
+ \bg=\bM\operatorname{diag}(1,-1,-1,-1)\bM^{\mathsf T}
+ =\begin{Bmatrix}
+  g_{tt}&\bg_{tr}\\
+  \bg_{tr}^{\mathsf T}&\bg_{rr}
+ \end{Bmatrix},
+\]
+\begin{equation*}
+ \begin{aligned}
+ \dd s^2
+ &=\begin{Bmatrix}\dd t\\\dd\br\end{Bmatrix}^{\mathsf T}
+   \bg\begin{Bmatrix}\dd t\\\dd\br\end{Bmatrix}\\
+ &=g_{tt}\dd t^2+2\dd t\,\bg_{tr}\dd\br
+   +\dd\br^{\mathsf T}\bg_{rr}\dd\br.
+ \end{aligned}
+\end{equation*}
+Here $g_{tt}$ is a real scalar, $\bg_{tr}$ a real $1\times3$ row,
+and $\bg_{rr}$ a real symmetric $3\times3$ matrix.
+The metric has signature $(+,-,-,-)$ and can represent any smooth
+Lorentzian metric locally~\citeat{carroll-gr}{Eq.~(3.119)}{page=95}.
+Along a time-like path with $\dd t/\dd s>0$,
+\begin{equation}
+ \frac{\dd s}{\dd t}
+ =\sqrt{g_{tt}+2\bg_{tr}\dot\br
+                    +\dot\br^{\mathsf T}\bg_{rr}\dot\br}.
+ \label{eq:metric-block-clock}
+\end{equation}
+
+A change of basis with an inverse change of coefficients leaves an
+existing displacement unchanged. Here the coordinate increments are
+held fixed and the displayed determinant specifies their metric.
+The earlier similarity basis $\bsigRPrime=\pT\bsig\pT^{-1}$ preserves
+\[
+ \det(\dd t+\dd\br\dotprod\bsigRPrime)=\dd t^2-\dd\br^2,
+\]
+so its position dependence alone gives no curvature. A general
+$\bM$ need not preserve this interval. Curvature is determined by the
+metric-compatible, torsion-free transport of the resulting metric.
+
+\subsection{Algebra and differentiation}
+
+For $\pZ=c\pSigmaTPrime+\bZ\dotprod\bsigRPrime$, with
+$c\in\C$ and $\bZ\in\C^3$, the coefficient row multiplies the
+basis column. Substituting \eqref{eq:spacetime-matrix-basis} gives
+\[
+ \begin{aligned}
+ \pZ
+ &=\begin{Bmatrix}c\\\bZ\end{Bmatrix}^{\mathsf T}
+   \begin{Bmatrix}\pSigmaTPrime\\\bsigRPrime\end{Bmatrix}\\
+ &=\begin{Bmatrix}c\\\bZ\end{Bmatrix}^{\mathsf T}
+   \bM\begin{Bmatrix}1\\\bsig\end{Bmatrix}
+ =\left(\bM^{\mathsf T}\begin{Bmatrix}c\\\bZ\end{Bmatrix}\right)^{\mathsf T}
+   \begin{Bmatrix}1\\\bsig\end{Bmatrix}.
+ \end{aligned}
+\]
+Thus $\bM$ transforms the basis column, while $\bM^{\mathsf T}$
+maps the primed coefficient column to the original coefficient column:
+\begin{equation}
+ \begin{Bmatrix}\scpart{\pZ}\\\vecpart{\pZ}\end{Bmatrix}
+ =\bM^{\mathsf T}\begin{Bmatrix}c\\\bZ\end{Bmatrix}.
+ \label{eq:spacetime-basis-coefficients}
+\end{equation}
+Products follow by applying \eqref{eq:para-product} to these
+coefficients and returning with $\bM^{-\mathsf T}$.
+By \eqref{eq:spacetime-basis-conjugation},
+\[
+ \pZ^*=c\pvsigma_t^{\prime *}+\bZ\dotprod\bsig_r^{\prime *}.
+\]
+Determinant and inversion retain their original definitions.
+The same metric blocks give the determinant:
+\begin{equation}
+ \det\pZ=g_{tt}c^2+2c\,\bg_{tr}\bZ
+                      +\bZ^{\mathsf T}\bg_{rr}\bZ.
+ \label{eq:metric-block-determinant}
+\end{equation}
+The transpose introduces no complex conjugation.
+
+Differentiating the original coefficients and returning to the local
+basis gives the compact rule
+\begin{equation}
+ \partial_t\pZ
+ =\begin{Bmatrix}\pSigmaTPrime&\bsig_r^{\prime\mathsf T}\end{Bmatrix}
+ \bM^{-\mathsf T}
+ \partial_t\left(\bM^{\mathsf T}
+                   \begin{Bmatrix}c\\\bZ\end{Bmatrix}\right).
+ \label{eq:spacetime-basis-field-derivative}
+\end{equation}
+The derivative acts on both $\bM$ and the coefficient fields.
+Replacing $\partial_t$ by any coordinate or directional spatial
+derivative gives the corresponding rule; products obey Leibniz's rule.
+This is ordinary differentiation of the paravector representation.
+Metric parallel transport must also account for the assigned interval.
+
+\subsection{A curved example}
+
+For a positive scalar $a(t)$, choose
+\begin{equation}
+ \bM=\operatorname{diag}(1,a,a,a),\qquad
+ \pSigmaTPrime=1,\qquad \bsigRPrime=a\bsig.
+ \label{eq:matrix-basis}
+\end{equation}
+The metric blocks are
+\begin{equation}
+ g_{tt}=1,\qquad \bg_{tr}=\vstyle{0}^{\mathsf T},\qquad
+ \bg_{rr}=-a(t)^2\bI.
+ \label{eq:expansion-metric-blocks}
+\end{equation}
+Here $\bI$ is the $3\times3$ identity. The algebra gives
+\begin{align*}
+ (\bX\dotprod\bsigRPrime)(\bY\dotprod\bsigRPrime)
+ &=a^2\bX\dotprod\bY+\ii a(\bX\times\bY)\dotprod\bsigRPrime,\\
+ \det(c+\bZ\dotprod\bsigRPrime)&=c^2-a^2\bZ^2.
+\end{align*}
+Thus the interval is
+\begin{equation}
+ \boxed{\dd s^2=\dd t^2-a(t)^2\dd\br^2,}
+ \label{eq:matrix-basis-interval}
+\end{equation}
+the spatially flat Robertson--Walker metric
+\citeat{carroll-gr}{Eqs.~(8.7)--(8.9)}{page=226}.
+Its constant-time spatial slices are flat; its spacetime need not be.
+
+\paragraph{Free fall and transport.}
+For the metric blocks above, extremizing the general metric action
+\citeat{carroll-gr}{pp.~68--70}{page=75}
+\[
+ \frac12\int\left(
+    g_{tt}\left(\frac{\dd t}{\dd s}\right)^2
+    +2\frac{\dd t}{\dd s}\bg_{tr}\frac{\dd\br}{\dd s}
+    +\left(\frac{\dd\br}{\dd s}\right)^{\mathsf T}
+          \bg_{rr}\frac{\dd\br}{\dd s}\right)\dd s
+\]
+with fixed endpoints gives
+\begin{equation}
+ \frac{\dd^2t}{\dd s^2}
+ =-a\dot a\left(\frac{\dd\br}{\dd s}\right)^2,
+ \qquad
+ \frac{\dd}{\dd s}\left(a^2\frac{\dd\br}{\dd s}\right)
+ =\vstyle{0}.
+ \label{eq:matrix-basis-geodesics}
+\end{equation}
+Here $\dot a=\dd a/\dd t$. For time-like paths, $s$ is proper time
+when $(\dd t/\dd s)^2-a^2(\dd\br/\dd s)^2=1$.
+Polarizing the quadratic tangent terms gives parallel transport of
+a real $c+\bZ\dotprod\bsigRPrime$ along any path:
+\begin{equation}
+ \frac{\dd c}{\dd s}
+ =-a\dot a\frac{\dd\br}{\dd s}\dotprod\bZ,
+ \qquad
+ \frac{\dd\bZ}{\dd s}
+ =-\frac{\dot a}{a}\left(
+       \frac{\dd t}{\dd s}\bZ+c\frac{\dd\br}{\dd s}\right).
+ \label{eq:matrix-basis-parallel-transport}
+\end{equation}
+This preserves $c^2-a^2\bZ^2$. Setting $c=\dd t/\dd s$ and
+$\bZ=\dd\br/\dd s$ recovers free fall.
+
+\paragraph{Curvature.}
+Fixed-coordinate observers follow geodesics with $s=t$ up to a
+constant. Their infinitesimal physical separation satisfies
+\[
+ \ell=a\lVert\Delta\br\rVert,\qquad
+ \ddot\ell=\frac{\ddot a}{a}\ell.
+\]
+Transport around infinitesimal loops gives curvature magnitudes
+$|\ddot a/a|$ in time--space planes and $(\dot a/a)^2$ in spatial
+planes. Their contraction gives the squared Riemann curvature
+\begin{equation}
+ 12\left(\left(\frac{\ddot a}{a}\right)^2
+         +\left(\frac{\dot a}{a}\right)^4\right).
+ \label{eq:matrix-basis-curvature}
+\end{equation}
+This is nonzero wherever $\dot a$ or $\ddot a$ is nonzero.
+Thus the determinant construction does represent curved spacetime.
+
+The assigned displacement is essential. The exact differential
+\[
+ \dd\left(t+a(t)\br\dotprod\bsig\right)
+ =\dd t+\left(a\dd\br+\dot a\br\dd t\right)\dotprod\bsig
+\]
+instead describes flat spacetime in the coordinates $a(t)\br$.
+The curved metric uses $\dd t+a\dd\br\dotprod\bsig$.
+
+\subsection{Newtonian motion and black-hole metrics}
+\label{sec:gravity-metrics}
+
+\paragraph{A common basis.}
+On an open coordinate region in $\R\times\R^3$, let
+$f(t,\br)\in\R$ be a smooth dimensionless scalar field and
+$\bu(t,\br)\in\R^3$ a smooth unit vector field, $\bu^2=1$.
+Here $f(t,\br)$ is a scalar multiplier. Writing $\bu$ for $\bu(t,\br)$, choose
+\begin{equation}
+ \pSigmaTPrime=1-(1-\bu\dotprod\bsig)f(t,\br),\qquad
+ \bsigRPrime=\bsig-\bu(1-\bu\dotprod\bsig)f(t,\br).
+ \label{eq:kerr-schild-basis}
+\end{equation}
+Juxtaposition denotes multiplication; products on the sigma triple act
+componentwise. Substitution gives
+\[
+ \dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime
+ =\dd t+\dd\br\dotprod\bsig
+ -f(t,\br)(\dd t+\bu\dotprod\dd\br)(1-\bu\dotprod\bsig).
+\]
+Since $\bu^2=1$, the last paravector factor has zero determinant.
+The terms quadratic in $f(t,\br)$ therefore cancel. The resulting
+metric blocks are
+\begin{equation}
+ \begin{gathered}
+ g_{tt}=1-2f(t,\br),\qquad
+ \bg_{tr}=-2f(t,\br)\bu^{\mathsf T},\\
+ \bg_{rr}=-\bI-2f(t,\br)\bu\bu^{\mathsf T}.
+ \end{gathered}
+ \label{eq:kerr-schild-blocks}
+\end{equation}
+Combining the three blocks gives
+\begin{equation}
+ \boxed{\dd s^2=\dd t^2-\dd\br^2
+       -2f(t,\br)(\dd t+\bu\dotprod\dd\br)^2.}
+ \label{eq:kerr-schild-interval}
+\end{equation}
+This is the Kerr--Schild form~\citeat{bini-kerr-schild}{Eq.~(1)}{page=1}.
+The basis is invertible for every finite $f(t,\br)$; its inverse change is
+obtained by replacing $f(t,\br)$ with $-f(t,\br)$. The algebra specifies the metric
+for any such fields. Selecting a gravitational solution additionally
+requires a field equation.
+
+\paragraph{Newtonian limit.}
+For stationary $f(t,\br),\bu$, substituting
+\eqref{eq:kerr-schild-blocks} into \eqref{eq:metric-block-clock} gives
+\[
+ \frac{\dd s}{\dd t}
+ =\sqrt{1-\dot\br^2-2f(t,\br)(1+\bu\dotprod\dot\br)^2}.
+\]
+In a weak field with slow motion, the contributions of $\bg_{tr}$
+and $\bg_{rr}+\bI$ to the action are of higher order. Retaining $f(t,\br)$ and
+$\dot\br^2$ to leading order reduces the free-particle action per unit mass to
+\[
+ -\int\dd s\simeq\int\left(-1+\frac12\dot\br^2+f(t,\br)\right)\dd t.
+\]
+The Euler--Lagrange equation gives
+\begin{equation}
+ \boxed{\ddot\br\simeq-\frac12\pdr g_{tt}=\pdr f(t,\br).}
+ \label{eq:gravity-newtonian-limit}
+\end{equation}
+Thus $-f(t,\br)$ is the Newtonian gravitational potential
+\citeat{carroll-gr}{Eqs.~(4.20)--(4.22)}{page=113}.
+This determines motion in a given field; determining the field from
+matter requires the gravitational field equation.
+
+\paragraph{Schwarzschild.}
+For stationary spherical symmetry, take
+$r=\lVert\br\rVert>0$ and $\bu=\br/r$, with $f(t,\br)$ depending
+on position only through $r$.
+Using the vacuum Einstein equation with zero cosmological constant as
+additional physical input, the radial condition is
+\begin{equation}
+ \frac{\dd}{\dd r}(r\,f(t,\br))=0
+ \quad\Longrightarrow\quad f(t,\br)=\frac{Gm}{r},
+ \label{eq:schwarzschild-profile}
+\end{equation}
+where matching the Newtonian potential fixes the integration constant
+to $Gm$~\citeat{carroll-gr}{Eqs.~(7.23)--(7.29)}{page=177}.
+Here $G$ is Newton's gravitational constant and $m>0$ is the source
+mass. Substitution into \eqref{eq:kerr-schild-blocks} gives
+\begin{equation}
+ \begin{gathered}
+ g_{tt}=1-\frac{2Gm}{r},\qquad
+ \bg_{tr}=-\frac{2Gm}{r^2}\br^{\mathsf T},\\
+ \bg_{rr}=-\bI-\frac{2Gm}{r^3}\br\br^{\mathsf T}.
+ \end{gathered}
+ \label{eq:schwarzschild-blocks}
+\end{equation}
+Since $\bu\dotprod\dd\br=\dd r$, these blocks give
+\begin{equation}
+ \boxed{\dd s^2=\dd t^2-\dd\br^2-\frac{2Gm}{r}(\dd t+\dd r)^2.}
+ \label{eq:schwarzschild-kerr-schild}
+\end{equation}
+This is the Schwarzschild metric in coordinates regular at the future
+horizon $r=2Gm$~\citeat{heinicke-hehl}{Table~3}{page=23}.
+The weak-field acceleration is
+\[
+ \ddot\br\simeq-\frac{Gm}{r^3}\br.
+\]
+
+\Needspace{24\baselineskip}
+\paragraph{Kerr.}
+Let the constant real vector $\ba$ be the source's angular momentum
+per unit mass. The scalar $r>0$ now denotes an ellipsoidal radius,
+determined by
+\begin{equation}
+ r^4-r^2(\br^2-\ba^2)-(\ba\dotprod\br)^2=0.
+ \label{eq:kerr-radius}
+\end{equation}
+The standard Kerr vacuum solution is represented by
+\begin{equation}
+ \bu=
+ \frac{r\br-\ba\times\br+\ba(\ba\dotprod\br)/r}
+      {r^2+\ba^2},\qquad
+ f(t,\br)=\frac{Gm\,r^3}{r^4+(\ba\dotprod\br)^2}.
+ \label{eq:kerr-fields}
+\end{equation}
+Equation~\eqref{eq:kerr-radius} gives $\bu^2=1$.
+Substitution into \eqref{eq:kerr-schild-blocks} supplies
+$g_{tt},\bg_{tr},\bg_{rr}$ for the Kerr metric
+\citeat{bini-kerr-schild}{Eqs.~(5)--(6)}{page=2}; the basis and interval
+follow from \eqref{eq:kerr-schild-basis} and
+\eqref{eq:kerr-schild-interval}.
+Setting $\ba=\vstyle{0}$ recovers Schwarzschild. The black-hole spin
+bound and outer horizon are~\citeat{heinicke-hehl}{p.~53}{page=53}
+\[
+ \lVert\ba\rVert\le Gm,\qquad
+ r=Gm+\sqrt{(Gm)^2-\ba^2}.
+\]
+These substitutions express the known solution within the paravector
+algebra. Deriving the Kerr fields from Einstein's equation, and
+formulating its general relation to matter in this algebra, remain
+separate tasks.
+
+
 \clearpage
 \appendix
 
@@ -6804,6 +7139,21 @@ K.~Ko, T.~Maekawa, and N.~M. Patrikalakis,
 ``Differential geometry of curves,'' \emph{Computational Geometry},
 Lecture~2, Massachusetts Institute of Technology, 2003.
 Online. Available: \url{https://ocw.mit.edu/courses/2-158j-computational-geometry-spring-2003/dd2e0ef6278218b74dd1709065814109_lecnotes2.pdf}.
+
+\bibitem{carroll-gr}
+S.~M. Carroll, \emph{Lecture Notes on General Relativity}, 1997.
+Online. Available: \url{https://arxiv.org/pdf/gr-qc/9712019}.
+
+\bibitem{bini-kerr-schild}
+D.~Bini, A.~Geralico, and R.~P. Kerr,
+``The Kerr--Schild ansatz revised,'' arXiv:1408.4601, 2014.
+Online. Available: \url{https://arxiv.org/pdf/1408.4601}.
+
+\bibitem{heinicke-hehl}
+C.~Heinicke and F.~W. Hehl,
+``Schwarzschild and Kerr solutions of Einstein's field equation---an
+introduction,'' arXiv:1503.02172, 2015.
+Online. Available: \url{https://arxiv.org/pdf/1503.02172}.
 
 \end{thebibliography}
 
