@@ -401,6 +401,45 @@ for a, ap, app in ((1, 0, 0), (2, 3, 5), (1, 1, 1), (3, 0, 2), (2, 1, 0)):
                        scale(carried[0], tangent[1:])))
         assert predicted == direct
 
+        # Convert coordinate components to the measured scalar-vector parts.
+        # Differentiating a*Y includes the time-dependent basis scale.
+        physical = (carried[0],)+scale(a, carried[1:])
+        physical_rate = (direct[0],)+add(scale(a, direct[1:]),
+                                       scale(ap*tangent[0], carried[1:]))
+        expected_physical = (-ap*dot(tangent[1:], physical[1:]),)+scale(
+            -ap*physical[0], tangent[1:])
+        assert physical_rate == expected_physical
+
+    # Along a massive geodesic, the measured momentum redshifts as 1/a.
+    mass, momentum = 1.2, (2., -1., .5)
+    energy = sqrt(mass**2+dot(momentum, momentum))
+    time_rate = energy/mass
+    spatial_rate = scale(1/(mass*a), momentum)
+    time_accel = -a*ap*dot(spatial_rate, spatial_rate)
+    spatial_accel = scale(-2*ap*time_rate/a, spatial_rate)
+    momentum_rate = scale(mass/time_rate,
+                         add(scale(ap*time_rate, spatial_rate), scale(a, spatial_accel)))
+    energy_rate = mass*time_accel/time_rate
+    check('cosmological momentum redshift', momentum_rate, scale(-ap/a, momentum))
+    check('massive measured-energy transport', (energy_rate,),
+          (-ap/a*dot(momentum, momentum)/energy,))
+    check('mass shell preserved during expansion',
+          (2*energy*energy_rate-2*dot(momentum, momentum_rate),), (0,))
+
+    # Arbitrary transported vectors and null photon momenta use t, not
+    # proper time, in the new scalar-vector transport equations.
+    velocity, carried_scalar, carried_vector = (Q(1, 3), Q(-2, 7), Q(1, 5)), Q(2), (Q(3), Q(-4), Q(5))
+    scalar_rate = -ap/a*dot(velocity, carried_vector)
+    vector_rate = scale(-ap/a*carried_scalar, velocity)
+    assert carried_scalar*scalar_rate-dot(carried_vector, vector_rate) == 0
+    photon_direction = (Q(2, 3), Q(-1, 3), Q(2, 3))
+    photon_energy = Q(3)
+    photon_momentum = scale(photon_energy, photon_direction)
+    photon_energy_rate = -ap/a*dot(photon_direction, photon_momentum)
+    photon_momentum_rate = scale(-ap/a*photon_energy, photon_direction)
+    assert ap*photon_energy+a*photon_energy_rate == 0
+    assert photon_energy*photon_energy_rate-dot(photon_momentum, photon_momentum_rate) == 0
+
     squared = sum((g[r]*riemann(r, s, m, n))**2*gi[r]*gi[s]*gi[m]*gi[n]
                   for r, s, m, n in product(range(4), repeat=4))
     assert squared == 12*((app/a)**2+(ap/a)**4)
@@ -632,6 +671,38 @@ for fraction in (0, .6, 1):
     extrapolated = ms(1/3, ma(ms(4, fine), ms(-1, coarse)))
     check('omega metric vacuum Ricci', flatten(extrapolated), (0,)*16, tolerance=3e-7)
 
+# Check the Schwarzschild radial reduction for general profiles, not just
+# the solution f=C/r. In spherical coordinates the two Ricci factors are
+# f''+2f'/r and 2(f+r*f')/r**2; (r*f)'=0 makes both vanish.
+# Compare their Cartesian tensor to independent metric finite differences.
+radial_event = (0, 3, 1, 2)
+radial_position = radial_event[1:]
+radial_radius = sqrt(dot(radial_position, radial_position))
+radial_direction = scale(1/radial_radius, radial_position)
+for terms in (((.7, -1),), ((.1, 0),), ((.02, 2),),
+              ((.1, -2),), ((.7, -1), (.03, 0), (.01, 2))):
+    def radial_profile_metric(event):
+        radius = sqrt(dot(event[1:], event[1:]))
+        profile = sum(coefficient*radius**power for coefficient, power in terms)
+        null = (1,)+scale(1/radius, event[1:])
+        return tuple(tuple(signature[i][j]-2*profile*null[i]*null[j]
+                           for j in range(4)) for i in range(4))
+
+    profile = sum(c*radial_radius**p for c, p in terms)
+    radial_factor = sum(c*p*(p+1)*radial_radius**(p-2) for c, p in terms)
+    angular_factor = sum(2*c*(p+1)*radial_radius**(p-2) for c, p in terms)
+    expected = ((-(1-2*profile)*radial_factor,)
+                + scale(2*profile*radial_factor, radial_direction),)
+    expected += tuple(
+        (2*profile*radial_factor*radial_direction[i],)
+        + tuple((1+2*profile)*radial_factor*radial_direction[i]*radial_direction[j]
+                + angular_factor*(int(i == j)-radial_direction[i]*radial_direction[j])
+                for j in range(3)) for i in range(3))
+    _, coarse = finite_difference_geometry(radial_profile_metric, radial_event, .002)
+    _, fine = finite_difference_geometry(radial_profile_metric, radial_event, .001)
+    extrapolated = ms(1/3, ma(ms(4, fine), ms(-1, coarse)))
+    check_matrix('spherical vacuum radial reduction', extrapolated, expected, tolerance=3e-7)
+
 # A non-vacuum radial profile must not pass the same Ricci check.
 def constant_profile_metric(event):
     position = event[1:]
@@ -656,4 +727,4 @@ for strength in (1e-3, 5e-4):
 assert errors[1] < .51*errors[0] and errors[1] < 2e-5, errors
 
 print(f'PASS: {checks-ks_start} Kerr-Schild, spin, determinant, and vacuum checks; '
-      'non-vacuum control and Newtonian-limit convergence.')
+      'spherical radial reduction, non-vacuum control, and Newtonian-limit convergence.')

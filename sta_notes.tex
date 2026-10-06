@@ -3288,55 +3288,56 @@ All fields and partial derivatives are evaluated at $(t,\br(t))$.
 \label{sec:generalized}
 
 Here $(t,\br)$ are real chart coordinates. Smooth functions
-$f:\R^4\to\R$ and $\bg:\R^4\to\R^3$, restricted to an open region
+$a:\R^4\to\R$ and $\bX:\R^4\to\R^3$, restricted to an open region
 with nonsingular Jacobian, specify inertial coordinates:
 \[
- \pX=f(t,\br)+\bg(t,\br)\dotprod\bsig\in\R\oplus\R^3.
+ \pX=a(t,\br)+\bX(t,\br)\dotprod\bsig\in\R\oplus\R^3.
 \]
-Thus $f$ is inertial time and $\bg$ is inertial position; chart time $t$
-and chart position $\br$ need not be clock readings and Cartesian distances.
+Here $a$ is scalar-valued inertial time and $\bX$ is
+vector-valued inertial position. Chart time $t$ and chart position $\br$
+need not be clock readings and Cartesian distances.
 
 \paragraph{Interval.}
 By differentiation,
 \begin{align*}
- \dd\pX&=(\partial_tf+\partial_t\bg\dotprod\bsig)\dd t
- +\sum_{k=1}^3(\partial_{r_k}f+\partial_{r_k}\bg\dotprod\bsig)\dd r_k,\\
- \det(\dd\pX)&=\dd f^2-\dd\bg^2.
+ \dd\pX&=(\partial_t a+\partial_t\bX\dotprod\bsig)\dd t
+ +\sum_{k=1}^3(\partial_{r_k}a+\partial_{r_k}\bX\dotprod\bsig)\dd r_k,\\
+ \det(\dd\pX)&=\dd a^2-\dd\bX^2.
 \end{align*}
 This is the flat Minkowski interval in changed coordinates; varying
 coefficients alone do not imply spacetime curvature.
 
 \paragraph{Motion and clock rates.}
 Along a future-directed time-like path, $s$ is proper time,
-$\dd s^2=\det(\dd\pX)>0$, and $\dd f>0$.
+$\dd s^2=\det(\dd\pX)>0$, and $\dd a>0$.
 On a segment parametrized by increasing chart time $t$, overdots denote
 total $t$ derivatives. The inertial velocity and particle Lorentz factor are
 \[
- \bv:=\frac{\dd\bg}{\dd f}=\frac{\dot\bg}{\dot f}\in\R^3,
+ \bv:=\frac{\dd\bX}{\dd a}=\frac{\dot{\bX}}{\dot a}\in\R^3,
  \qquad \bv^2<1,\qquad
- \gamma:=\frac{1}{\sqrt{1-\bv^2}}=\frac{\dd f}{\dd s}.
+ \gamma:=\frac{1}{\sqrt{1-\bv^2}}=\frac{\dd a}{\dd s}.
 \]
 Consequently,
 \begin{equation}
- \dot s=\sqrt{\dot f^2-\dot\bg^2}=\frac{\dot f}{\gamma},\qquad
- \frac{\dd}{\dd s}=\frac{\gamma}{\dot f}\frac{\dd}{\dd t},\qquad
+ \dot s=\sqrt{\dot a^2-\dot{\bX}^2}=\frac{\dot a}{\gamma},\qquad
+ \frac{\dd}{\dd s}=\frac{\gamma}{\dot a}\frac{\dd}{\dd t},\qquad
  \pU=\gamma(1+\bv\dotprod\bsig).
  \label{eq:chart-clock-rate}
 \end{equation}
-Here $\dot f>0$. The earlier rule $\dd/\dd s=\gamma\dd/\dd t$ is
-recovered when $t=f$. The two acceleration derivatives are related by
+Here $\dot a>0$. The earlier rule $\dd/\dd s=\gamma\dd/\dd t$ is
+recovered when $t=a$. The two acceleration derivatives are related by
 \[
- \dot{\bv}=\frac{\ddot\bg\dot f-\dot\bg\ddot f}{\dot f^2},
- \qquad \frac{\dd\bv}{\dd f}=\frac{\dot\bv}{\dot f}.
+ \dot{\bv}=\frac{\ddot{\bX}\dot a-\dot{\bX}\ddot a}{\dot a^2},
+ \qquad \frac{\dd\bv}{\dd a}=\frac{\dot\bv}{\dot a}.
 \]
 Equation~\eqref{eq:proper-acceleration-components} is applied with inertial
-time $f$ and acceleration $\dd\bv/\dd f$.
-For inertial motion, $\dd\pU/\dd s=0$ implies $\dd\bv/\dd f=0$, hence
+time $a$ and acceleration $\dd\bv/\dd a$.
+For inertial motion, $\dd\pU/\dd s=0$ implies $\dd\bv/\dd a=0$, hence
 \[
- \bg=\bg_0+\bv_0f,\qquad
- \bg_0,\bv_0\in\R^3,\quad \bv_0^2<1.
+ \bX=\bX_0+\bv_0 a,\qquad
+ \bX_0,\bv_0\in\R^3,\quad \bv_0^2<1.
 \]
-The reference inertial time is $f=0$; the same path may be nonlinear in
+The reference inertial time is $a=0$; the same path may be nonlinear in
 chart coordinates.
 
 \subsection{Varying frame transformations}
@@ -5451,10 +5452,41 @@ real four-force in the moving frame; the Hermitian extraction is preserved.
 \section{Position-dependent paravector bases}
 \label{sec:variable-bases}
 
-The determinant can represent a curved spacetime metric while the
-paravector product remains unchanged. A general local basis supplies
-the interval. Expanding space, Newtonian motion, and black-hole metrics
-illustrate the construction.
+Section~\ref{sec:generalized} starts with an inertial coordinate map
+$\pX=a(t,\br)+\bX(t,\br)\dotprod\bsig$. Its exact differential gives
+\[
+ \dd\pX=\dd a+\dd\bX\dotprod\bsig,\qquad
+ \dd s^2=\dd a^2-\dd\bX^2.
+\]
+This is flat spacetime in generalized coordinates. In the block notation
+used below,
+\[
+ \begin{Bmatrix}\dd a\\\dd\bX\end{Bmatrix}
+ =\bM^{\mathsf T}\begin{Bmatrix}\dd t\\\dd\br\end{Bmatrix};
+\]
+so $\bM^{\mathsf T}$ is the Jacobian of the same functions $a,\bX$.
+
+Here we assign a local displacement directly:
+\[
+ \dd\pX=\dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime,
+ \qquad \dd s^2=\det(\dd\pX).
+\]
+A smooth real invertible $\bM(t,\br)$ specifies the basis elements,
+without requiring $\bM^{\mathsf T}$ to be a coordinate Jacobian.
+The notation $\dd\pX$ now denotes that local assignment; it need not
+be an exact differential, even locally. For fixed coordinate increments
+$\dd t,\dd\br$, the basis specifies their metric.
+This is the usual local-frame (tetrad) construction, expressed
+in paravector form~\citeat{carroll-gr}{Eq.~(3.119)}{page=96}.
+The product, conjugations, and determinant retain their earlier definitions.
+
+Generalized coordinates are a flat special case. A general basis can
+describe curvature, although position dependence or failure of exactness
+alone does not establish it: a varying Lorentz basis can still give a flat
+metric. We use the metric's unique torsion-free, metric-compatible
+parallel transport to determine free fall and curvature. This is the
+standard geometric input; Einstein's field equation is additional
+physical input selecting metrics from matter and boundary conditions.
 
 \subsection{The basis and its interval}
 \label{sec:matrix-basis}
@@ -5468,18 +5500,14 @@ $\bM_{rt}$ a $3\times1$ column, and $\bM_{rr}$ a $3\times3$ matrix.
 The blocks are independent: no symmetry of $\bM$ is assumed, and
 $\bM_{rt}=\bM_{tr}^{\mathsf T}$ is not required.
 Let $\bI$ be the $3\times3$ identity and $\vstyle{0}$ the zero
-three-vector. The signature matrix is
-\[
- \begin{Bmatrix}1&\vstyle{0}^{\mathsf T}\\\vstyle{0}&-\bI\end{Bmatrix}.
-\]
-The local basis is
+three-vector. The local basis is
 \begin{equation}
  \begin{Bmatrix}\pSigmaTPrime\\\bsigRPrime\end{Bmatrix}
  =\bM\begin{Bmatrix}1\\\bsig\end{Bmatrix}.
  \label{eq:spacetime-matrix-basis}
 \end{equation}
 Here $\pSigmaTPrime$ is one real paravector and $\bsigRPrime$ is a
-triple of real paravectors. Their scalar and vector parts are
+triple of real paravectors, all Hermitian. Their scalar and vector parts are
 \[
  \pSigmaTPrime=M_{tt}+\bM_{tr}^{\mathsf T}\dotprod\bsig,
  \qquad \bsigRPrime=\bM_{rt}+\bM_{rr}\bsig.
@@ -5501,22 +5529,16 @@ leaves the real entries of $\bM$ unchanged:
 \end{equation}
 Write the local displacement as
 $\dd\pX=\dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime$.
-Here $\dd\pX$ need not be the exact differential of a global
-paravector coordinate $\pX$. Its interval is
+Its interval is
 \begin{equation}
  \boxed{\dd s^2
  =\det(\dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime).}
  \label{eq:spacetime-basis-interval}
 \end{equation}
-The displacement itself has the scalar--vector form
-\[
- \dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime
- =\left(M_{tt}\dd t+\bM_{rt}\dotprod\dd\br\right)
- +\left(\dd t\,\bM_{tr}^{\mathsf T}
-             +\bM_{rr}^{\mathsf T}\dd\br\right)\dotprod\bsig.
-\]
-Its determinant is the scalar part squared minus the vector part squared.
-With the metric matrix
+Its scalar--vector coefficient column in the fixed basis is
+$\bM^{\mathsf T}\{\dd t,\dd\br\}^{\mathsf T}$, as derived below.
+Taking the scalar part squared minus the vector part squared gives
+the metric matrix
 \[
  \bg=\bM\begin{Bmatrix}1&\vstyle{0}^{\mathsf T}\\\vstyle{0}&-\bI\end{Bmatrix}\bM^{\mathsf T}
  =\begin{Bmatrix}
@@ -5524,7 +5546,7 @@ With the metric matrix
   \bg_{tr}^{\mathsf T}&\bg_{rr}
  \end{Bmatrix},
 \]
-\begin{equation*}
+\begin{equation}
  \begin{aligned}
  \dd s^2
  &=\begin{Bmatrix}\dd t\\\dd\br\end{Bmatrix}^{\mathsf T}
@@ -5532,7 +5554,8 @@ With the metric matrix
  &=g_{tt}\dd t^2+2\dd t\,\bg_{tr}\dd\br
    +\dd\br^{\mathsf T}\bg_{rr}\dd\br.
  \end{aligned}
-\end{equation*}
+ \label{eq:metric-block-determinant}
+\end{equation}
 Here $g_{tt}$ is a real scalar, $\bg_{tr}$ a real $1\times3$ row,
 and $\bg_{rr}$ a real symmetric $3\times3$ matrix.
 Explicitly,
@@ -5543,8 +5566,9 @@ Explicitly,
  \bg_{rr}&=\bM_{rt}\bM_{rt}^{\mathsf T}-\bM_{rr}\bM_{rr}^{\mathsf T}.
  \end{aligned}
 \]
-The metric has signature $(+,-,-,-)$ and can represent any smooth
-Lorentzian metric locally~\citeat{carroll-gr}{Eq.~(3.119)}{page=95}.
+Invertibility of $\bM$ ensures signature $(+,-,-,-)$ and
+$\det\bg=-(\det\bM)^2<0$. Every smooth Lorentzian metric has such a
+representation locally~\citeat{carroll-gr}{Eq.~(3.119)}{page=96}.
 Along a time-like path with $\dd t/\dd s>0$,
 \begin{equation}
  \frac{\dd s}{\dd t}
@@ -5553,18 +5577,13 @@ Along a time-like path with $\dd t/\dd s>0$,
  \label{eq:metric-block-clock}
 \end{equation}
 
-A change of basis with an inverse change of coefficients leaves an
-existing displacement unchanged. Here the coordinate increments are
-held fixed and the displayed determinant specifies their metric.
 The earlier similarity basis $\bsigRPrime=\pT\bsig\pT^{-1}$ preserves
 \[
  \det(\dd t+\dd\br\dotprod\bsigRPrime)=\dd t^2-\dd\br^2,
 \]
-so its position dependence alone gives no curvature. A general
-$\bM$ need not preserve this interval. Curvature is determined by the
-metric-compatible, torsion-free transport of the resulting metric.
+so it retains the flat interval. The general real matrix $\bM$ allows
+the metric blocks above to vary independently of that similarity law.
 
-\Needspace{20\baselineskip}
 \subsection{Algebra and differentiation}
 
 For the real local displacement
@@ -5582,10 +5601,12 @@ Substituting \eqref{eq:spacetime-matrix-basis} gives
    \begin{Bmatrix}1\\\bsig\end{Bmatrix}.
  \end{aligned}
 \]
-Thus the basis transforms by $\bM$ and its coefficient column by $\bM^{\mathsf T}$.
+Thus expansion in the fixed basis uses $\bM^{\mathsf T}$ on the
+coefficient column. The transpose introduces no complex conjugation.
 Transposition swaps and transposes the off-diagonal blocks; it does not equate them:
 \begin{equation}
  \begin{Bmatrix}\scpart{\dd\pX}\\\vecpart{\dd\pX}\end{Bmatrix}
+ =\bM^{\mathsf T}\begin{Bmatrix}\dd t\\\dd\br\end{Bmatrix}
  =\begin{Bmatrix}M_{tt}&\bM_{rt}^{\mathsf T}\\
                   \bM_{tr}^{\mathsf T}&\bM_{rr}^{\mathsf T}\end{Bmatrix}
    \begin{Bmatrix}\dd t\\\dd\br\end{Bmatrix}
@@ -5600,29 +5621,10 @@ Equivalently, the paravector is
 \]
 The first term is $\scpart{\dd\pX}$; the coefficient of $\bsig$ is
 $\vecpart{\dd\pX}$. In general these are not $\dd t$ and $\dd\br$.
-Products follow by applying \eqref{eq:para-product} to these
-coefficients and returning with $\bM^{-\mathsf T}$.
-
-\paragraph{Conjugations.}
-Since $\bM$ is real, the basis elements are Hermitian:
-\begin{equation}
- \pvsigma_t^{\prime\mathsf H}=\pSigmaTPrime,
- \qquad \bsig_r^{\prime\mathsf H}=\bsigRPrime.
- \label{eq:local-basis-conjugations}
-\end{equation}
-
-\paragraph{Determinant and inverse.}
-Using \eqref{eq:det}, the same metric blocks give
-\begin{equation}
- \begin{aligned}
- \dd s^2=\det(\dd\pX)&=\scpart{\dd\pX}^2-\vecpart{\dd\pX}^2\\
-        &=g_{tt}\dd t^2+2\dd t\,\bg_{tr}\dd\br
-                      +\dd\br^{\mathsf T}\bg_{rr}\dd\br.
- \end{aligned}
- \label{eq:metric-block-determinant}
-\end{equation}
-For $\dd s^2\ne0$, $(\dd\pX)^{-1}=\operatorname{adj}(\dd\pX)/\dd s^2$.
-The transpose introduces no complex conjugation.
+To multiply paravectors, apply the existing rule~\eqref{eq:para-product}
+to their scalar--vector parts, then apply $\bM^{-\mathsf T}$ to the
+resulting coefficient column to return to the local basis.
+The product may have complex coefficients even when both factors are real.
 
 \paragraph{Differentiation.}
 Holding the coordinate increments $\dd t,\dd\br$ fixed while
@@ -5644,99 +5646,174 @@ Refactoring into the local basis gives
  \begin{Bmatrix}\dd t\\\dd\br\end{Bmatrix}.
  \label{eq:spacetime-basis-field-derivative}
 \end{equation}
-The same rule holds for coordinate and directional spatial derivatives;
-products obey Leibniz's rule. These are ordinary derivatives of the
-representation; metric parallel transport also depends on the assigned interval.
+The same rule holds for any coordinate or fixed-direction spatial
+derivative. If the increments also vary, their derivatives contribute
+the usual product-rule terms. Refactoring an ordinary derivative
+changes its representation; it does not supply the metric's
+torsion-free parallel transport.
 
-\subsection{A curved example}
+\subsection{Expansion, free fall, and curvature}
 
-For a positive scalar $a(t)$, choose
+For a smooth positive scale factor $\lambda(t)$, choose
 \begin{equation}
- \bM=\operatorname{diag}(1,a\bI),\qquad
- \pSigmaTPrime=1,\qquad \bsigRPrime=a\bsig.
+ \bM=\begin{Bmatrix}1&\vstyle{0}^{\mathsf T}\\
+                   \vstyle{0}&\lambda\bI\end{Bmatrix},\qquad
+ \pSigmaTPrime=1,\qquad \bsigRPrime=\lambda\bsig.
  \label{eq:matrix-basis}
 \end{equation}
 The metric blocks are
 \begin{equation}
  g_{tt}=1,\qquad \bg_{tr}=\vstyle{0}^{\mathsf T},\qquad
- \bg_{rr}=-a(t)^2\bI.
+ \bg_{rr}=-\lambda(t)^2\bI.
  \label{eq:expansion-metric-blocks}
 \end{equation}
-The algebra gives
-\begin{align*}
- (\bX\dotprod\bsigRPrime)(\bY\dotprod\bsigRPrime)
- &=a^2\bX\dotprod\bY+\ii a(\bX\times\bY)\dotprod\bsigRPrime,\\
- \det(c+\bZ\dotprod\bsigRPrime)&=c^2-a^2\bZ^2.
-\end{align*}
-Thus the interval is
+For real vector increments $\dd\bX,\dd\bY$, the algebra gives
+\[
+ (\dd\bX\dotprod\bsigRPrime)(\dd\bY\dotprod\bsigRPrime)
+ =\lambda^2\dd\bX\dotprod\dd\bY
+  +\ii \lambda(\dd\bX\times\dd\bY)\dotprod\bsigRPrime.
+\]
+For $\dd\pX=\dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime$,
+the interval is
 \begin{equation}
- \boxed{\dd s^2=\dd t^2-a(t)^2\dd\br^2,}
+ \boxed{\dd s^2=\det(\dd\pX)=\dd t^2-\lambda(t)^2\dd\br^2,}
  \label{eq:matrix-basis-interval}
 \end{equation}
 the spatially flat Robertson--Walker metric
 \citeat{carroll-gr}{Eqs.~(8.7)--(8.9)}{page=226}.
 Its constant-time spatial slices are flat; its spacetime need not be.
 
-\paragraph{Free fall and transport.}
-For the metric blocks above, extremizing the general metric action
-\citeat{carroll-gr}{pp.~68--70}{page=75}
+\Needspace{14\baselineskip}
+\paragraph{Free fall in an expanding universe.}
+Observers at fixed $\br$ are comoving: their clocks measure $t$, and
+the scale factor $\lambda(t)$ converts coordinate separations into physical distances.
+For this metric, the quadratic geodesic action reduces to
 \[
  \frac12\int\left(
-    g_{tt}\left(\frac{\dd t}{\dd s}\right)^2
-    +2\frac{\dd t}{\dd s}\bg_{tr}\frac{\dd\br}{\dd s}
-    +\left(\frac{\dd\br}{\dd s}\right)^{\mathsf T}
-          \bg_{rr}\frac{\dd\br}{\dd s}\right)\dd s
+    \left(\frac{\dd t}{\dd s}\right)^2
+    -\lambda(t)^2\left(\frac{\dd\br}{\dd s}\right)^2\right)\dd s.
 \]
-with fixed endpoints gives
+Varying $t$ and $\br$ with fixed endpoints gives the affinely
+parameterized geodesic equations
+\citeat{carroll-gr}{pp.~68--70}{page=75}
 \begin{equation}
  \frac{\dd^2t}{\dd s^2}
- =-a\dot a\left(\frac{\dd\br}{\dd s}\right)^2,
+ =-\lambda\dot \lambda\left(\frac{\dd\br}{\dd s}\right)^2,
  \qquad
- \frac{\dd}{\dd s}\left(a^2\frac{\dd\br}{\dd s}\right)
+ \frac{\dd}{\dd s}\left(\lambda^2\frac{\dd\br}{\dd s}\right)
  =\vstyle{0}.
  \label{eq:matrix-basis-geodesics}
 \end{equation}
-Here $\dot a=\dd a/\dd t$. For time-like paths, $s$ is proper time
-when $(\dd t/\dd s)^2-a^2(\dd\br/\dd s)^2=1$.
-Polarizing the quadratic tangent terms gives parallel transport of
-a real $\pY=b\pSigmaTPrime+\bY\dotprod\bsigRPrime$, with $b\in\R$ and $\bY\in\R^3$, along any path:
+Here $\dot \lambda=\dd \lambda/\dd t$. For a massive particle, choose $s$ to
+be proper time. Its velocity relative to a comoving
+observer is $\bv=\lambda\,\dd\br/\dd t$, so
+$\gamma=\dd t/\dd s=(1-\bv^2)^{-1/2}$.
+For constant mass $m>0$, the earlier momentum law $\pP=m\pU$ gives
+\[
+ E=m\gamma,\qquad
+ \bp=m\lambda\frac{\dd\br}{\dd s}=m\gamma\bv.
+\]
+The spatial geodesic equation therefore has the direct physical meaning
 \begin{equation}
- \frac{\dd b}{\dd s}
- =-a\dot a\frac{\dd\br}{\dd s}\dotprod\bY,
+ \boxed{\frac{\dd}{\dd t}(\lambda\bp)=\vstyle{0},\qquad
+        \frac{\dd\bp}{\dd t}=-\frac{\dot \lambda}{\lambda}\bp.}
+ \label{eq:expansion-momentum-redshift}
+\end{equation}
+The momentum measured by comoving observers decreases as $1/\lambda$ during
+expansion. This is the standard cosmological redshift of particle
+momentum~\citeat{carroll-gr}{Eq.~(8.64)}{page=236}.
+At low speeds, $\bp\simeq m\bv$, so the velocity relative to those
+observers also decreases as $1/\lambda$. A particle initially at fixed $\br$
+remains there.
+
+\Needspace{12\baselineskip}
+\paragraph{Parallel transport and redshift.}
+Parallel transport carries a four-vector along a chosen path using
+the metric's torsion-free, metric-compatible connection. Write the real
+paravector in terms of its measured scalar and vector parts:
+\[
+ \pY=b\pSigmaTPrime+\frac{\bY}{\lambda}\dotprod\bsigRPrime
+     =b+\bY\dotprod\bsig,\qquad b\in\R,\quad\bY\in\R^3.
+\]
+The factor $1/\lambda$ converts the measured vector $\bY$ into coefficients
+of the scaled basis. The torsion-free transport law follows from
+the quadratic velocity terms in \eqref{eq:matrix-basis-geodesics}:
+replace one tangent by the carried vector and average the two placements.
+Converting to the measured components above and using $t$ as the path
+parameter, with $\bv=\lambda\,\dd\br/\dd t$, gives
+\begin{equation}
+ \frac{\dd b}{\dd t}=-\frac{\dot \lambda}{\lambda}\bv\dotprod\bY,
  \qquad
- \frac{\dd\bY}{\dd s}
- =-\frac{\dot a}{a}\left(
-       \frac{\dd t}{\dd s}\bY+b\frac{\dd\br}{\dd s}\right).
+ \frac{\dd\bY}{\dd t}=-\frac{\dot \lambda}{\lambda}b\bv.
  \label{eq:matrix-basis-parallel-transport}
 \end{equation}
-This preserves $b^2-a^2\bY^2$. Setting $b=\dd t/\dd s$ and
-$\bY=\dd\br/\dd s$ recovers free fall.
+These equations preserve $\det\pY=b^2-\bY^2$.
+Choosing $\pY=\pU$, with $b=\gamma$ and $\bY=\gamma\bv$,
+recovers free fall: a geodesic parallel-transports its own tangent.
 
-\paragraph{Curvature.}
-Fixed-coordinate observers follow geodesics with $s=t$ up to a
-constant. Their infinitesimal physical separation satisfies
-\[
- \ell=a\lVert\Delta\br\rVert,\qquad
- \ddot\ell=\frac{\ddot a}{a}\ell.
-\]
-Transport around infinitesimal loops gives curvature magnitudes
-$|\ddot a/a|$ in time--space planes and $(\dot a/a)^2$ in spatial
-planes. Their contraction gives the squared Riemann curvature
+For a freely propagating photon, take $\pY=\pP=E+\bp\dotprod\bsig$,
+with $\bp=E\bv$ and $\bv^2=1$. The same transport rule gives
 \begin{equation}
- 12\left(\left(\frac{\ddot a}{a}\right)^2
-         +\left(\frac{\dot a}{a}\right)^4\right).
+ \boxed{\frac{\dd E}{\dd t}=-\frac{\dot \lambda}{\lambda}E,
+        \qquad \lambda E=\text{constant}.}
+ \label{eq:expansion-photon-redshift}
+\end{equation}
+Photon energy and frequency scale as $1/\lambda$: expansion produces the familiar
+cosmological redshift~\citeat{carroll-gr}{Eq.~(8.66)}{page=236}.
+Both results follow from the assigned metric for any smooth positive
+$\lambda(t)$; determining $\lambda(t)$ from matter requires Einstein's field equation.
+
+\Needspace{12\baselineskip}
+\paragraph{Tidal acceleration and curvature.}
+Two nearby comoving observers are both in free fall, with proper time
+$t$ and fixed coordinate separation $\Delta\br$. Their physical
+separation $\ell$ therefore obeys
+\[
+ \ell=\lambda\lVert\Delta\br\rVert,\qquad
+ \dot\ell=\frac{\dot \lambda}{\lambda}\ell,\qquad
+ \boxed{\ddot\ell=\frac{\ddot \lambda}{\lambda}\ell.}
+\]
+The middle relation is Hubble's law: recession speed is proportional
+to distance. The last relation is geodesic deviation, the tidal
+acceleration between neighboring freely falling observers
+\citeat{carroll-gr}{Eq.~(3.113)}{page=94}.
+Each observer has zero proper acceleration, yet their separation can
+accelerate. The ratio $\ddot \lambda/\lambda$ measures this tidal effect.
+
+Transport around infinitesimal loops gives curvature magnitudes
+$|\ddot \lambda/\lambda|$ in each of the three orthonormal time--space planes
+and $(\dot \lambda/\lambda)^2$ in each of the three spatial planes.
+These are spacetime transport effects; each fixed-time spatial slice
+has zero intrinsic curvature.
+Contracting the Riemann tensor with itself counts each plane four
+times. The resulting coordinate-independent \emph{Kretschmann scalar} is
+\begin{equation}
+ \boxed{12\left(\left(\frac{\ddot \lambda}{\lambda}\right)^2
+         +\left(\frac{\dot \lambda}{\lambda}\right)^4\right).}
  \label{eq:matrix-basis-curvature}
 \end{equation}
-This is nonzero wherever $\dot a$ or $\ddot a$ is nonzero.
-Thus the determinant construction does represent curved spacetime.
+A nonzero value establishes spacetime curvature that no coordinate
+change can remove. In this spatially flat family it is nonzero wherever
+$\dot \lambda$ or $\ddot \lambda$ is nonzero; the spacetime is flat on a time
+interval precisely when $\lambda$ is constant there.
+In particular, $\ddot \lambda=0$ alone does not imply flat spacetime.
 
-The assigned displacement is essential. The exact differential
+\paragraph{The role of the assigned displacement.}
+The curved metric above uses
+$\dd\pX=\dd t+\lambda\dd\br\dotprod\bsig$.
+An ordinary rescaling of inertial spatial coordinates instead gives
 \[
- \dd\left(t+a(t)\br\dotprod\bsig\right)
- =\dd t+\left(a\dd\br+\dot a\br\dd t\right)\dotprod\bsig
+ \begin{aligned}
+ \dd\left(t+\lambda(t)\br\dotprod\bsig\right)
+ &=\dd t+\left(\lambda\dd\br+\dot \lambda\br\dd t\right)\dotprod\bsig,\\
+ \det\!\left(\dd\left(t+\lambda(t)\br\dotprod\bsig\right)\right)
+ &=\dd t^2-\left(\lambda\dd\br+\dot \lambda\br\dd t\right)^2.
+ \end{aligned}
 \]
-instead describes flat spacetime in the coordinates $a(t)\br$.
-The curved metric uses $\dd t+a\dd\br\dotprod\bsig$.
+Since $\lambda>0$, this is an invertible coordinate change of flat Minkowski
+spacetime. The product-rule term $\dot \lambda\br\dd t$ distinguishes this
+flat interval from \eqref{eq:matrix-basis-interval}: the two
+displacements assign different metrics to the same $\dd t,\dd\br$.
 
 \subsection{Newtonian motion and black-hole metrics}
 \label{sec:gravity-metrics}
@@ -5745,7 +5822,7 @@ The curved metric uses $\dd t+a\dd\br\dotprod\bsig$.
 On an open coordinate region in $\R\times\R^3$, let
 $f(t,\br)\in\R$ be a smooth dimensionless scalar field and
 $\bu(t,\br)\in\R^3$ a smooth unit vector field, $\bu^2=1$.
-Here $f(t,\br)$ is a scalar multiplier. Writing $\bu$ for $\bu(t,\br)$, choose
+Writing $\bu$ for $\bu(t,\br)$, choose
 \begin{equation}
  \begin{aligned}
  \pSigmaTPrime&=1-f(t,\br)+f(t,\br)\bu\dotprod\bsig,\\
@@ -5754,16 +5831,18 @@ Here $f(t,\br)$ is a scalar multiplier. Writing $\bu$ for $\bu(t,\br)$, choose
  \end{aligned}
  \label{eq:kerr-schild-basis}
 \end{equation}
-Juxtaposition denotes multiplication; products on the sigma triple act
-componentwise. Substitution gives
+The displacement separates into scalar and vector parts:
 \[
- \dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime
- =\dd t+\dd\br\dotprod\bsig
- -f(t,\br)(\dd t+\bu\dotprod\dd\br)(1-\bu\dotprod\bsig).
+ \begin{aligned}
+ \dd\pX
+ &=\left(\dd t-f(t,\br)(\dd t+\bu\dotprod\dd\br)\right)\\
+ &\quad+\left(\dd\br
+       +f(t,\br)(\dd t+\bu\dotprod\dd\br)\bu\right)\dotprod\bsig.
+ \end{aligned}
 \]
-Since $\bu^2=1$, the last paravector factor has zero determinant.
-The terms quadratic in $f(t,\br)$ therefore cancel. The resulting
-metric blocks are
+Subtracting the squared vector part from the squared scalar part,
+the terms quadratic in $f(t,\br)$ cancel because $\bu^2=1$.
+The resulting metric blocks are
 \begin{equation}
  \begin{gathered}
  g_{tt}=1-2f(t,\br),\qquad
@@ -5779,10 +5858,11 @@ Combining the three blocks gives
  \label{eq:kerr-schild-interval}
 \end{equation}
 This is the Kerr--Schild form~\citeat{bini-kerr-schild}{Eq.~(1)}{page=1}.
-The basis is invertible for every finite $f(t,\br)$; its inverse change is
-obtained by replacing $f(t,\br)$ with $-f(t,\br)$. The algebra specifies the metric
-for any such fields. Selecting a gravitational solution additionally
-requires a field equation.
+The basis is invertible for every finite $f(t,\br)$: its inverse change
+is obtained by replacing $f(t,\br)$ with $-f(t,\br)$, and
+$\det\bM=1$, so $\det\bg=-1$.
+The algebra specifies the metric for any such fields; Einstein's equation
+selects gravitational solutions.
 
 \paragraph{Newtonian limit.}
 For stationary $f(t,\br),\bu$, substituting
@@ -5791,9 +5871,9 @@ For stationary $f(t,\br),\bu$, substituting
  \frac{\dd s}{\dd t}
  =\sqrt{1-\dot\br^2-2f(t,\br)(1+\bu\dotprod\dot\br)^2}.
 \]
-In a weak field with slow motion, the contributions of $\bg_{tr}$
-and $\bg_{rr}+\bI$ to the action are of higher order. Retaining $f(t,\br)$ and
-$\dot\br^2$ to leading order reduces the free-particle action per unit mass to
+For $|f(t,\br)|\ll1$ and $\lVert\dot\br\rVert\ll1$, retain terms
+linear in $f(t,\br)$ and quadratic in velocity, dropping their
+products. The free-particle action per unit mass becomes
 \[
  -\int\dd s\simeq\int\left(-1+\frac12\dot\br^2+f(t,\br)\right)\dd t.
 \]
@@ -5804,21 +5884,20 @@ The Euler--Lagrange equation gives
 \end{equation}
 Thus $-f(t,\br)$ is the Newtonian gravitational potential
 \citeat{carroll-gr}{Eqs.~(4.20)--(4.22)}{page=113}.
-This determines motion in a given field; determining the field from
-matter requires the gravitational field equation.
 
 \paragraph{Schwarzschild.}
 For stationary spherical symmetry, take
 $r=\lVert\br\rVert>0$ and $\bu=\br/r$, with $f(t,\br)$ depending
 on position only through $r$.
-Using the vacuum Einstein equation with zero cosmological constant as
-additional physical input, the radial condition is
+For this radial ansatz, the vacuum Einstein equation with zero
+cosmological constant gives the angular condition
 \begin{equation}
  \frac{\dd}{\dd r}(r\,f(t,\br))=0
- \quad\Longrightarrow\quad f(t,\br)=\frac{Gm}{r},
+ \quad\Longrightarrow\quad f(t,\br)=\frac{Gm}{r}.
  \label{eq:schwarzschild-profile}
 \end{equation}
-where matching the Newtonian potential fixes the integration constant
+The remaining radial condition follows by differentiating this
+equation. Matching the Newtonian potential fixes the integration constant
 to $Gm$~\citeat{carroll-gr}{Eqs.~(7.23)--(7.29)}{page=177}.
 Here $G$ is Newton's gravitational constant and $m>0$ is the source
 mass. Substitution into \eqref{eq:kerr-schild-blocks} gives
@@ -5854,8 +5933,9 @@ The angular momentum per unit mass is $\rho\vstyle{\omega}$;
 $\rho$ has dimensions of length squared. This scaling follows from
 the Kerr horizon angular-velocity relation
 \citeat{heinicke-hehl}{Eq.~(145)}{page=57}.
-The ellipsoidal radius $\epsilon>0$ is determined by $\br$ and the spin,
-and generally differs from $\lVert\br\rVert$:
+Use the positive ellipsoidal-radius branch $\epsilon>0$, on the
+coordinate region where it is smooth. It is determined by $\br$ and
+the spin, and generally differs from $\lVert\br\rVert$:
 \begin{equation}
  \epsilon^4-\epsilon^2(\br^2-\rho^2\vstyle{\omega}^2)
  -\rho^2(\vstyle{\omega}\dotprod\br)^2=0.
@@ -5906,23 +5986,24 @@ Thus the scalar--vector determinant gives
  \end{aligned}
  \label{eq:kerr-interval}
 \end{equation}
-This is the Cartesian Kerr--Schild metric with signature $(+,-,-,-)$
-\citeat{bini-kerr-schild}{Eqs.~(5)--(6)}{page=2}.
-Its determinant is $\det\bg=-1$, including at the horizon.
+This is the Cartesian Kerr--Schild vacuum solution with signature
+$(+,-,-,-)$~\citeat{bini-kerr-schild}{Sec.~1, Eqs.~(5)--(6)}{page=2}.
 Setting $\vstyle{\omega}=\vstyle{0}$ gives
 $\epsilon=\lVert\br\rVert$ and recovers Schwarzschild.
-The outer horizon is
+The outer horizon is the larger root of
+$\epsilon^2-2Gm\epsilon+\rho^2\vstyle{\omega}^2=0$:
 \[
  \epsilon=\frac{\rho}{2Gm}
  =\frac{2Gm}{1+4(Gm)^2\vstyle{\omega}^2}.
 \]
+The metric remains regular there, with $\det\bg=-1$.
 At this radius, the tangent displacement
 $\dd\br=(\vstyle{\omega}\times\br)\dd t$ gives $\dd s^2=0$,
 verifying that $\vstyle{\omega}$ is the horizon's angular velocity.
-These substitutions express the known solution within the paravector
-algebra. Deriving the Kerr fields from Einstein's equation, and
-formulating its general relation to matter in this algebra, remain
-separate tasks.
+The determinant construction therefore reproduces the Schwarzschild
+and Kerr metrics and their Newtonian limit. The Kerr fields are supplied
+from the known vacuum solution; a general paravector formulation of
+Einstein's equation relating curvature to matter remains to be developed.
 
 
 \clearpage

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.9.30)  6 OCT 2026 12:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.9.30)  6 OCT 2026 13:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -874,47 +874,47 @@ Package microtype Info: Loading generic protrusion settings for font family
 [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47]
 [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62]
 [63] [64] [65] [66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77]
-[78] [79] [80] [81] [82] [83
+[78] [79] [80] [81] [82] [83] [84
 
-] [84] [85] [86] [87] [88] [89
+] [85] [86] [87] [88] [89] [90
 
-] [90] [91] [92]
-[93
+] [91] [92]
+[93] [94
 
-] [94] [95
-
-] [96
+] [95] [96
 
 ] [97
 
-] [98] [99]
-Underfull \hbox (badness 4505) in paragraph at lines 7119--7124
+] [98
+
+] [99] [100]
+Underfull \hbox (badness 4505) in paragraph at lines 7200--7205
 []\OT1/cmr/m/n/10.95 (+20) W. E. Baylis and G. Sobczyk, ``Rel-a-tiv-ity in Clif
 -ford's ge-o-met-ric al-ge-bras of
  []
 
 
-Underfull \hbox (badness 2359) in paragraph at lines 7119--7124
+Underfull \hbox (badness 2359) in paragraph at lines 7200--7205
 \OT1/cmr/m/n/10.95 (+20) space and space-time,'' \OT1/cmr/m/it/10.95 (+20) Int.
  J. Theor. Phys.\OT1/cmr/m/n/10.95 (+20) , vol. 43, pp. 2061--2079, 2004, doi:
  []
 
-[100
+[101
 
-] [101] (./sta_notes.aux)
+] [102] (./sta_notes.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `sta_notes.out' has not changed.
-(rerunfilecheck)             Checksum: C9FCFB76FFB8F0176AB924518CF34B81;25729.
+(rerunfilecheck)             Checksum: C9C59B2788B7AAF513CD7E39777E0511;25830.
  ) 
 Here is how much of TeX's memory you used:
- 29090 strings out of 469514
- 559441 string characters out of 5470072
- 1043866 words of memory out of 5000000
- 56425 multiletter control sequences out of 15000+600000
- 653084 words of font info for 224 fonts, out of 8000000 for 9000
+ 29095 strings out of 469514
+ 559512 string characters out of 5470072
+ 1044054 words of memory out of 5000000
+ 56426 multiletter control sequences out of 15000+600000
+ 653144 words of font info for 225 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,24n,118p,1006b,1065s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/luke/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600p
@@ -940,10 +940,10 @@ nts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/symbols/msbm10.pfb>
-Output written on sta_notes.pdf (106 pages, 754032 bytes).
+Output written on sta_notes.pdf (107 pages, 760915 bytes).
 PDF statistics:
- 2613 PDF objects out of 2984 (max. 8388607)
- 2383 compressed objects within 24 object streams
- 651 named destinations out of 1000 (max. 500000)
+ 2624 PDF objects out of 2984 (max. 8388607)
+ 2393 compressed objects within 24 object streams
+ 653 named destinations out of 1000 (max. 500000)
  54749 words of extra memory for PDF output out of 61914 (max. 10000000)
 
