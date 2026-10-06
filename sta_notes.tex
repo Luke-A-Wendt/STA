@@ -3349,22 +3349,6 @@ For inertial motion, $\dd\pU/\dd s=0$ implies $\dd\bv/\dd f=0$, hence
 The reference inertial time is $f=0$; the same path may be nonlinear in
 chart coordinates.
 
-\paragraph{An accelerated coordinate chart.}
-For $r_1>0$ and dimensionless chart time $t$, the choice
-\[
- f=r_1\sinh t,\qquad
- \bg=\{r_1\cosh t,r_2,r_3\}
-\]
-gives, by direct substitution,
-\[
- \det(\dd\pX)=r_1^2\dd t^2-\dd r_1^2-\dd r_2^2-\dd r_3^2.
-\]
-At fixed $\br$, $\dd s=r_1\dd t$ and the inertial worldline is the
-hyperbola $g_1^2-f^2=r_1^2$. Its proper-acceleration magnitude is
-$1/r_1$, as in Section~\ref{sec:constant-proper-acceleration}.
-Thus nonzero physical acceleration is compatible with fixed chart
-coordinates, even though spacetime remains flat.
-
 \subsection{Varying frames and local bases}
 \label{sec:varying-transformations}
 
@@ -3413,10 +3397,11 @@ $\pvOmega^{\mathsf H}=-\pvOmega$ and $\pvOmega\in\{0\}\oplus\ii\R^3$,
 so both formulas agree.
 
 The similarity formula also gives the local algebra-basis law
-$\pvsigma_k'=\pT\pvsigma_k\pT^{-1}$, with
+$\bsig'=\pT\bsig\pT^{-1}$, with
 \begin{equation*}
- \frac{\dd\pvsigma_k'}{\dd s}=[\pvOmega,\pvsigma_k'],\qquad k=1,2,3.
+ \frac{\dd\bsig'}{\dd s}=[\pvOmega,\bsig'].
 \end{equation*}
+The products and commutator act componentwise on the sigma triple.
 All sigma multiplication rules are preserved by this evolution.  A general complex local basis
 is nevertheless distinct from a real spacetime frame, whose vectors require
 the congruence law.
