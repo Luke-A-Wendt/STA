@@ -146,7 +146,7 @@ The quaternion multiplication rules are satisfied by $`(-\mathrm i\sigma_k)`$:
 \end{gathered}
 ```
 
-The sign is reversed when two distinct factors are exchanged. For $`a\in\mathbb R`$ and $`{\color{cyan}𝐐}\in\mathbb R^3`$, the quaternion and its conjugate are:
+For $`a\in\mathbb R`$ and $`{\color{cyan}𝐐}\in\mathbb R^3`$, the quaternion and its conjugate are:
 
 ```math
 \begin{aligned}
@@ -173,7 +173,7 @@ Thus, with $`\lVert{\color{cyan}𝐐}\rVert^2={\color{cyan}𝐐}^2`$ for real $`
 {\color{magenta}\boldsymbol{\mathcal Q}}{\color{magenta}\boldsymbol{\mathcal Q}}^{\mathsf H}=a^2+\lVert{\color{cyan}𝐐}\rVert^2=1.
 ```
 
-For a unit quaternion with $`{\color{cyan}𝐐}\ne0`$, the rotation axis and angle are specified by:
+For $`{\color{cyan}𝐐}\ne0`$, the rotation axis and angle are specified by:
 
 ```math
 {\color{cyan}𝐮}=\frac{{\color{cyan}𝐐}}{\lVert{\color{cyan}𝐐}\rVert},\qquad
@@ -735,7 +735,7 @@ With $`\hat E_q=\mathrm i\partial_t-qV`$, the [Pauli equation](https://en.wikipe
 
 ## [Spin up and spin down](https://en.wikipedia.org/wiki/Spin-1/2#Observables) in a uniform magnetic field
 
-For a constant nonzero field $`{\color{cyan}𝐁}`$, its unit direction and [spin projectors](https://en.wikipedia.org/wiki/Pauli_matrices#Eigenvectors_and_eigenvalues) are defined by:
+For constant $`{\color{cyan}𝐁}\ne0`$, the unit direction and [spin projectors](https://en.wikipedia.org/wiki/Pauli_matrices#Eigenvectors_and_eigenvalues) are:
 
 ```math
 {\color{cyan}𝐮}:=\frac{{\color{cyan}𝐁}}{\lVert{\color{cyan}𝐁}\rVert},
@@ -752,7 +752,7 @@ By [spectral decomposition](#projections-and-spectral-decomposition):
 =\pm\lVert{\color{cyan}𝐁}\rVert\textcolor{magenta}{\boldsymbol\Pi} _\pm.
 ```
 
-The two spin amplitudes $`\phi_{++},\phi_{+-}`$ are encoded in a paravector $`\textcolor{magenta}{\boldsymbol\phi} _+`$ aligned with $`{\color{cyan}𝐮}`$:
+Spin amplitudes along $`{\color{cyan}𝐮}`$ are encoded by:
 
 ```math
 \begin{aligned}
@@ -761,7 +761,7 @@ The two spin amplitudes $`\phi_{++},\phi_{+-}`$ are encoded in a paravector $`\t
 \end{aligned}
 ```
 
-Constant $`\textcolor{magenta}{\boldsymbol\Pi} _\pm`$ commute with $`\hat E_q`$ and $`\hat{{\color{cyan}𝐏}}_q^2`$, so the following is obtained from the [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation):
+The [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation) is projected using constant $`\textcolor{magenta}{\boldsymbol\Pi} _\pm`$, which commute with $`\hat E_q`$ and $`\hat{{\color{cyan}𝐏}}_q^2`$:
 
 ```math
 \begin{aligned}
@@ -779,11 +779,11 @@ With $`\textcolor{magenta}{\boldsymbol\Pi} _\pm\ne0`$ and $`\hat E_q=\mathrm i\p
 \left(\frac{\hat{{\color{cyan}𝐏}}_q^2\mp q\lVert{\color{cyan}𝐁}\rVert}{2m}+qV\right)\phi_{+\pm}.}
 ```
 
-Opposite [Zeeman shifts](https://en.wikipedia.org/wiki/Zeeman_effect) are obtained for [spin projections](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ along $`{\color{cyan}𝐮}`$. Orbital coupling is retained in [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Definition_(position_space)) $`\hat{{\color{cyan}𝐏}}_q=-\mathrm i\partial_{{\color{cyan}𝐫}}-q{\color{cyan}𝐀}`$.
+Opposite [Zeeman shifts](https://en.wikipedia.org/wiki/Zeeman_effect) are obtained for [spin](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ along $`{\color{cyan}𝐮}`$; orbital coupling is retained in [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Definition_(position_space)) $`\hat{{\color{cyan}𝐏}}_q=-\mathrm i\partial_{{\color{cyan}𝐫}}-q{\color{cyan}𝐀}`$.
 
-This encoding is used for uniform-field [Pauli evolution](https://en.wikipedia.org/wiki/Pauli_equation); the fixed spinor space is retained for [Dirac dynamics](https://en.wikipedia.org/wiki/Dirac_equation) and measurements.
+For [Dirac dynamics](https://en.wikipedia.org/wiki/Dirac_equation) and measurements, the fixed spinor space is retained.
 
-With the rest-energy phase removed, the four complex [Dirac amplitudes](https://en.wikipedia.org/wiki/Dirac_spinor) are arranged as:
+With the rest-energy phase removed, the complex [Dirac amplitudes](https://en.wikipedia.org/wiki/Dirac_spinor) are arranged as:
 
 ```math
 {\color{cyan}𝝓}:=\left(\,\begin{matrix}
