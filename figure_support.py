@@ -1,7 +1,7 @@
-"""Shared cyan/magenta PGFPlots styling for the paper's explanatory figures.
+"""Shared cyan, black, and gray PGFPlots styling for the paper's explanatory figures.
 
 Only the standard library and the installed TeX tools are required.
-White is the page background; all printed marks use cyan or magenta.
+White is the page background; all printed marks use cyan, black, or gray.
 """
 
 from pathlib import Path
@@ -21,21 +21,21 @@ PREAMBLE = r"""\documentclass[11pt,border=3pt]{standalone}
 \pgfplotsset{
  every axis/.append style={
   width=7.65cm,height=6.8cm,
-  axis line style={magenta},tick style={magenta},
-  tick label style={font=\small,text=magenta},
-  label style={font=\small,text=magenta},
-  title style={font=\small\bfseries,text=magenta},
+  axis line style={black},tick style={black},
+  tick label style={font=\small,text=black},
+  label style={font=\small,text=black},
+  title style={font=\small\bfseries,text=black},
   grid=major,grid style={cyan!18},
   axis background/.style={fill=white},
   every axis plot/.append style={color=cyan,line width=1.1pt},
-  legend style={font=\footnotesize,text=magenta,draw=none,
+  legend style={font=\footnotesize,text=black,draw=none,
    fill=white,cells={anchor=west}},
   clip=true,
  }
 }
 \begin{document}
-\color{magenta}
-\begin{tikzpicture}[every node/.style={text=magenta}]
+\color{black}
+\begin{tikzpicture}[every node/.style={text=black}]
 """
 END = "\\end{tikzpicture}\n\\end{document}\n"
 
