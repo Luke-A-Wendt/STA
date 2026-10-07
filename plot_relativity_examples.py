@@ -107,7 +107,7 @@ def rocket_trip():
 ]
 """
     tex += line((0, tm), (2, tm), "black!45,densely dotted")
-    tex += curve([(state(q)[0], tm*q) for q in samples(0, 1)], "black!60,line width=1.4pt")
+    tex += curve([(state(q)[0], tm*q) for q in samples(0, 1)], "black,line width=1.4pt")
     tex += curve([(state(q)[0], tm*q) for q in samples(1, 2)], "black,line width=1.4pt")
     tex += curve([(1, tm)], "black,only marks,mark=*,mark size=2pt")
     tex += note(.34, .45, "Accelerate", "text=black,anchor=west")
@@ -124,9 +124,9 @@ def rocket_trip():
 ]
 """
     tex += line((1, 0), (1, 1.08), "black!45,densely dotted")
-    tex += curve([(q, state(q)[1]) for q in samples(0, 2)], "black!60,line width=1.4pt")
+    tex += curve([(q, state(q)[1]) for q in samples(0, 2)], "black,line width=1.4pt")
     tex += r"\addlegendentry{$v$}"+"\n"
-    tex += curve([(q, state(q)[2]) for q in samples(0, 2)], "black,line width=1.4pt")
+    tex += curve([(q, state(q)[2]) for q in samples(0, 2)], "black,dashed,line width=1.4pt")
     tex += r"\addlegendentry{$\mathrm ds/\mathrm dt$}"+"\n"
     tex += note(1, .98, r"$v_{\max}=\sqrt{3}/2$", "text=black")
     tex += note(1, .37, r"$\mathrm ds/\mathrm dt=1/2$")
@@ -139,13 +139,13 @@ def rocket_trip():
 ]
 """
     tex += line((1, -1.25), (1, 1.25), "black!45,densely dotted")
-    tex += curve([(0, 1), (1, 1)], "black!60,line width=1.4pt")
+    tex += curve([(0, 1), (1, 1)], "black,dashed,line width=1.4pt")
     tex += r"\addlegendentry{Proper: $\mathrm d\theta/\mathrm ds$}"+"\n"
     tex += curve([(q, state(q)[2]**3) for q in samples(0, 1)], "black,line width=1.4pt")
     tex += r"\addlegendentry{Coordinate: $\mathrm dv/\mathrm dt$}"+"\n"
-    tex += curve([(1, -1), (2, -1)], "black!60,line width=1.4pt,forget plot")
+    tex += curve([(1, -1), (2, -1)], "black,dashed,line width=1.4pt,forget plot")
     tex += curve([(q, -state(q)[2]**3) for q in samples(1, 2)], "black,line width=1.4pt,forget plot")
-    tex += curve([(1, 1), (1, -1)], "black!60,only marks,mark=o,mark options={fill=white},mark size=2pt,forget plot")
+    tex += curve([(1, 1), (1, -1)], "black,only marks,mark=o,mark options={fill=white},mark size=2pt,forget plot")
     tex += curve([(1, .125), (1, -.125)], "black,only marks,mark=o,mark options={fill=white},mark size=2pt,forget plot")
     tex += r"""\nextgroupplot[grid style={black!15},
  title={The traveling clock records less time},
@@ -156,9 +156,9 @@ def rocket_trip():
 ]
 """
     tex += line((1, 0), (1, 3.8), "black!45,densely dotted")
-    tex += curve([(q, tm*q) for q in samples(0, 2)], "black!60,dashed,line width=1.4pt")
+    tex += curve([(q, tm*q) for q in samples(0, 2)], "black,line width=1.4pt")
     tex += r"\addlegendentry{Departure-frame clocks: $t$}"+"\n"
-    tex += curve([(q, state(q)[3]) for q in samples(0, 2)], "black,line width=1.4pt")
+    tex += curve([(q, state(q)[3]) for q in samples(0, 2)], "black,dashed,line width=1.4pt")
     tex += r"\addlegendentry{Traveling clock: $s$}"+"\n"
     tex += note(1.98, 3.59, r"$3.464$", "anchor=east,text=black")
     tex += note(1.98, 2.38, r"$2.634$", "anchor=east")

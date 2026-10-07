@@ -64,7 +64,7 @@
 \contentsline {paragraph}{Rapidity and derivatives.}{36}{section*.14}%
 \contentsline {paragraph}{Position, clocks, and arrival.}{36}{section*.15}%
 \contentsline {paragraph}{The thrust reversal.}{37}{section*.16}%
-\contentsline {section}{\numberline {9}Jerk}{37}{section.9}%
+\contentsline {section}{\numberline {9}Jerk}{39}{section.9}%
 \contentsline {subsection}{\numberline {9.1}Coordinate derivatives, then proper-time derivatives}{39}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}Projection into the instantaneous rest space}{39}{subsection.9.2}%
 \contentsline {paragraph}{Invariant magnitude.}{40}{section*.17}%
