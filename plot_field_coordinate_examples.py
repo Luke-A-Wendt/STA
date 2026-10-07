@@ -1,4 +1,4 @@
-"""Two explanatory relativity figures, using only cyan and magenta ink.
+"""Two explanatory relativity figures, using only black and gray ink.
 
 Run with the standard library and an installed pdflatex.  The figures
 illustrate equations already derived in sta_notes.tex; no fitted data
@@ -42,22 +42,22 @@ def boosted_fields():
 """
     body += note(0, 3.22, r"Before boost")
     body += note(2.45, 3.22, r"After boost: $\beta=0.6$")
-    body += line((0, 0), (0, 2), "cyan,line width=2pt,-{Stealth[length=3mm]}")
-    body += line((2.45, 0), (2.45, 2.5), "cyan,line width=2pt,-{Stealth[length=3mm]}")
-    body += note(0, 2.25, r"$E=E_0$", "text=cyan")
-    body += note(2.45, 2.75, r"$E'=1.25E_0$", "text=cyan")
+    body += line((0, 0), (0, 2), "plotgray,line width=2pt,-{Stealth[length=3mm]}")
+    body += line((2.45, 0), (2.45, 2.5), "plotgray,line width=2pt,-{Stealth[length=3mm]}")
+    body += note(0, 2.25, r"$E=E_0$", "text=black")
+    body += note(2.45, 2.75, r"$E'=1.25E_0$", "text=black")
     body += note(0, -0.35, r"$\bm B=0$")
     body += r"""
-\draw[magenta,line width=1.2pt] (axis cs:2.45,0) circle[radius=3.5pt];
-\draw[magenta,line width=1.1pt]
+\draw[black,line width=1.2pt] (axis cs:2.45,0) circle[radius=3.5pt];
+\draw[black,line width=1.1pt]
  ([xshift=-2.4pt,yshift=-2.4pt]axis cs:2.45,0) --
  ([xshift=2.4pt,yshift=2.4pt]axis cs:2.45,0);
-\draw[magenta,line width=1.1pt]
+\draw[black,line width=1.1pt]
  ([xshift=-2.4pt,yshift=2.4pt]axis cs:2.45,0) --
  ([xshift=2.4pt,yshift=-2.4pt]axis cs:2.45,0);
 """
     body += note(2.45, -0.4, r"$B'=0.75E_0$ into page")
-    body += line((0.65, 0.8), (1.65, 0.8), "magenta,line width=1.2pt,-{Stealth}")
+    body += line((0.65, 0.8), (1.65, 0.8), "black,line width=1.2pt,-{Stealth}")
     body += note(1.15, 0.43, r"boost along $+r_1$")
     body += note(1.55, -0.95, r"Electric field along $+r_2$; $\bm B'$ along $-r_3$.")
     body += r"""
@@ -68,12 +68,12 @@ def boosted_fields():
  legend style={at={(0.04,0.96)},anchor=north west}]
 """
     body += curve([(b, (1+b*b)/(1-b*b)) for b in samples(0, 0.85)],
-                  "cyan,line width=1.5pt")
+                  "plotgray,line width=1.5pt")
     body += r"\addlegendentry{$(E'^2+B'^2)/E_0^2$}" + "\n"
-    body += curve([(0, 1), (0.85, 1)], "magenta,dashed,line width=1.3pt")
+    body += curve([(0, 1), (0.85, 1)], "black,dashed,line width=1.3pt")
     body += r"\addlegendentry{$(E'^2-B'^2)/E_0^2=1$}" + "\n"
-    body += curve([(0.6, 2.125)], "cyan,only marks,mark=*,mark size=2pt")
-    body += line((0.6, 0), (0.6, 2.125), "magenta,densely dotted")
+    body += curve([(0.6, 2.125)], "plotgray,only marks,mark=*,mark size=2pt")
+    body += line((0.6, 0), (0.6, 2.125), "black,densely dotted")
     body += note(0.52, 2.7, r"$\beta=0.6:\;2.125$")
     body += "\\end{groupplot}\n"
     return build_figure("boosted_fields", body)
@@ -91,7 +91,7 @@ def coordinates_curvature():
     times = samples(0, 2)
     for sign in (-1, 1):
         body += curve([(sign*time/(1+time), time) for time in times],
-                      "cyan,line width=1.8pt")
+                      "plotgray,line width=1.8pt")
     for x in (-0.9, 0.9):
         for time in (0.5, 1.25, 1.85):
             for sign in (-1, 1):
@@ -99,14 +99,14 @@ def coordinates_curvature():
                 dt = 0.13
                 body += line((x-slope*dt/2, time-dt/2),
                              (x+slope*dt/2, time+dt/2),
-                             "magenta,line width=0.8pt,-{Stealth[length=1.2mm]}")
+                             "black,line width=0.8pt,-{Stealth[length=1.2mm]}")
     body += note(0, 1.75, r"$K=0$")
     body += r"""
 \nextgroupplot[title={Curved: assigned displacement}]
 """
     for sign in (-1, 1):
         body += curve([(sign*log(1+time), time) for time in times],
-                      "cyan,line width=1.8pt")
+                      "plotgray,line width=1.8pt")
     for x in (-0.9, 0.9):
         for time in (0.5, 1.25, 1.85):
             for sign in (-1, 1):
@@ -114,7 +114,7 @@ def coordinates_curvature():
                 dt = 0.13
                 body += line((x-slope*dt/2, time-dt/2),
                              (x+slope*dt/2, time+dt/2),
-                             "magenta,line width=0.8pt,-{Stealth[length=1.2mm]}")
+                             "black,line width=0.8pt,-{Stealth[length=1.2mm]}")
     body += note(0, 1.75, r"$K=\dfrac{12}{(t+t_0)^4}>0$")
     body += r"""
 \end{groupplot}
@@ -129,8 +129,8 @@ def coordinates_curvature():
 \node[font=\small,anchor=north,align=center] at
  ([yshift=-2.65cm]$(group c1r1.south)!0.5!(group c2r1.south)$) {
  $\lambda(t)=1+t/t_0,\quad t_0>0$: the same chart and the same scale factor.\\[3pt]
- \textcolor{cyan}{Thick curves: light rays from the origin.}\quad
- \textcolor{magenta}{Short arrows: local light directions.}\\[3pt]
+ \textcolor{black}{Thick curves: light rays from the origin.}\quad
+ \textcolor{black}{Short arrows: local light directions.}\\[3pt]
  Curved coordinate paths do not prove curvature; the four-dimensional $K$ does.};
 """
     return build_figure("coordinates_curvature", body)

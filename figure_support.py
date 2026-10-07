@@ -1,7 +1,7 @@
-"""Shared cyan/magenta PGFPlots styling for the paper's explanatory figures.
+"""Shared grayscale PGFPlots styling for the paper's explanatory figures.
 
 Only the standard library and the installed TeX tools are required.
-White is the page background; all printed marks use cyan or magenta.
+White is the page background; all printed marks use black or shades of gray.
 """
 
 from pathlib import Path
@@ -18,24 +18,25 @@ PREAMBLE = r"""\documentclass[11pt,border=3pt]{standalone}
 \usepgfplotslibrary{groupplots}
 \usetikzlibrary{arrows.meta,calc,decorations.markings,patterns}
 \pgfplotsset{compat=1.18}
+\colorlet{plotgray}{black!65}
 \pgfplotsset{
  every axis/.append style={
   width=7.65cm,height=6.8cm,
-  axis line style={magenta},tick style={magenta},
-  tick label style={font=\small,text=magenta},
-  label style={font=\small,text=magenta},
-  title style={font=\small\bfseries,text=magenta},
-  grid=major,grid style={cyan!18},
+  axis line style={black},tick style={black},
+  tick label style={font=\small,text=black},
+  label style={font=\small,text=black},
+  title style={font=\small\bfseries,text=black},
+  grid=major,grid style={black!12},
   axis background/.style={fill=white},
-  every axis plot/.append style={color=cyan,line width=1.1pt},
-  legend style={font=\footnotesize,text=magenta,draw=none,
+  every axis plot/.append style={color=plotgray,line width=1.1pt},
+  legend style={font=\footnotesize,text=black,draw=none,
    fill=white,cells={anchor=west}},
   clip=true,
  }
 }
 \begin{document}
-\color{magenta}
-\begin{tikzpicture}[every node/.style={text=magenta}]
+\color{black}
+\begin{tikzpicture}[every node/.style={text=black}]
 """
 END = "\\end{tikzpicture}\n\\end{document}\n"
 
@@ -48,12 +49,12 @@ def xy(p):
     return f"{p[0]:.9f},{p[1]:.9f}"
 
 
-def curve(points, options="cyan"):
+def curve(points, options="plotgray"):
     points = " ".join(f"({xy(p)})" for p in points)
     return f"\\addplot[{options}] coordinates {{{points}}};\n"
 
 
-def line(start, end, options="cyan"):
+def line(start, end, options="plotgray"):
     return (rf"\draw[{options}] (axis cs:{xy(start)}) -- "
             rf"(axis cs:{xy(end)});"+"\n")
 

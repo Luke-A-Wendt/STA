@@ -2,7 +2,7 @@
 """Regenerate the boost and midpoint-braking figures with stdlib and PGFPlots.
 
 Run: python plot_relativity_examples.py
-Natural units c=1. Only cyan and magenta ink is used on a white background.
+Natural units c=1. Only black and gray ink is used on a white background.
 """
 
 from math import asinh, cos, cosh, isclose, pi, sin, sinh, sqrt, tanh
@@ -29,17 +29,17 @@ def boost_geometry():
  legend style={at={(0.5,-0.17)},anchor=north},
 ]
 """
-    tex += line((0, 0), (2.05, 2.05), "cyan!55,densely dotted,line width=1.2pt")
-    tex += note(1.7, 1.91, "Light", "text=cyan,fill=none,rotate=45")
-    tex += curve([(sinh(h), cosh(h)) for h in samples(0, 1.43)], "magenta,line width=1.4pt")
+    tex += line((0, 0), (2.05, 2.05), "plotgray!55,densely dotted,line width=1.2pt")
+    tex += note(1.7, 1.91, "Light", "text=black,fill=none,rotate=45")
+    tex += curve([(sinh(h), cosh(h)) for h in samples(0, 1.43)], "black,line width=1.4pt")
     tex += r"\addlegendentry{$t^2-x^2=1$: determinant}"+"\n"
-    tex += curve([(sin(h), cos(h)) for h in samples(0, pi/2)], "cyan,dashed,line width=1.2pt")
+    tex += curve([(sin(h), cos(h)) for h in samples(0, pi/2)], "plotgray,dashed,line width=1.2pt")
     tex += r"\addlegendentry{$t^2+x^2=1$: coefficient norm}"+"\n"
-    tex += line((0, 0), (1.2, 1.2/beta), "cyan,line width=0.85pt,-{Stealth[length=4pt]}")
-    tex += line((0, 0), (1.93, 1.93*beta), "cyan,line width=0.85pt,-{Stealth[length=4pt]}")
-    tex += note(1.17, 2.07, r"$t'$ axis", "text=cyan")
-    tex += note(1.79, 1.1, r"$x'$ axis", "text=cyan")
-    tex += curve([(0, 1), (space, time)], "magenta,only marks,mark=*,mark size=2pt")
+    tex += line((0, 0), (1.2, 1.2/beta), "plotgray,line width=0.85pt,-{Stealth[length=4pt]}")
+    tex += line((0, 0), (1.93, 1.93*beta), "plotgray,line width=0.85pt,-{Stealth[length=4pt]}")
+    tex += note(1.17, 2.07, r"$t'$ axis", "text=black")
+    tex += note(1.79, 1.1, r"$x'$ axis", "text=black")
+    tex += curve([(0, 1), (space, time)], "black,only marks,mark=*,mark size=2pt")
     tex += note(0.14, 1.11, r"$\mathcal U(0)$", "anchor=west")
     tex += note(space+0.12, time+0.12, r"$\mathcal U(\theta)$", "anchor=west")
     tex += note(0.17, 2.1, r"$\theta=0.8$", "anchor=west")
@@ -52,13 +52,13 @@ def boost_geometry():
  legend style={at={(0.5,-0.17)},anchor=north},
 ]
 """
-    tex += curve([(h, 1) for h in (0, 1.2)], "magenta,line width=1.4pt")
+    tex += curve([(h, 1) for h in (0, 1.2)], "black,line width=1.4pt")
     tex += r"\addlegendentry{$\det\mathcal U=1$}"+"\n"
-    tex += curve([(h, cosh(2*h)) for h in samples(0, 1.2)], "cyan,dashed,line width=1.4pt")
+    tex += curve([(h, cosh(2*h)) for h in samples(0, 1.2)], "plotgray,dashed,line width=1.4pt")
     tex += r"\addlegendentry{$\lVert\mathcal U\rVert^2=\cosh(2\theta)$}"+"\n"
-    tex += line((theta, 0), (theta, cosh(2*theta)), "magenta!45,densely dotted")
-    tex += curve([(theta, 1)], "magenta,only marks,mark=*,mark size=2pt")
-    tex += curve([(theta, cosh(2*theta))], "cyan,only marks,mark=*,mark size=2pt")
+    tex += line((theta, 0), (theta, cosh(2*theta)), "black!45,densely dotted")
+    tex += curve([(theta, 1)], "black,only marks,mark=*,mark size=2pt")
+    tex += curve([(theta, cosh(2*theta))], "plotgray,only marks,mark=*,mark size=2pt")
     tex += note(0.44, 4.9, r"$\mathcal U=\cosh\theta+\sinh\theta\,\boldsymbol u\cdot\boldsymbol\sigma$")
     tex += note(0.23, 3.65, r"$\beta=\tanh\theta$", "anchor=west")
     tex += "\\end{groupplot}\n"
@@ -106,11 +106,11 @@ def rocket_trip():
  xtick={0,1,2},ytick={0,1,2,3},
 ]
 """
-    tex += line((0, tm), (2, tm), "magenta!45,densely dotted")
-    tex += curve([(state(q)[0], tm*q) for q in samples(0, 1)], "cyan,line width=1.4pt")
-    tex += curve([(state(q)[0], tm*q) for q in samples(1, 2)], "magenta,line width=1.4pt")
-    tex += curve([(1, tm)], "magenta,only marks,mark=*,mark size=2pt")
-    tex += note(.34, .45, "Accelerate", "text=cyan,anchor=west")
+    tex += line((0, tm), (2, tm), "black!45,densely dotted")
+    tex += curve([(state(q)[0], tm*q) for q in samples(0, 1)], "plotgray,line width=1.4pt")
+    tex += curve([(state(q)[0], tm*q) for q in samples(1, 2)], "black,line width=1.4pt")
+    tex += curve([(1, tm)], "black,only marks,mark=*,mark size=2pt")
+    tex += note(.34, .45, "Accelerate", "text=black,anchor=west")
     tex += note(.28, 2.95, "Brake", "anchor=west")
     tex += note(.06, tm+.26, "Reversal", "anchor=west")
     tex += note(1.93, 3.58, "Arrive at rest", "anchor=east")
@@ -123,12 +123,12 @@ def rocket_trip():
  legend style={at={(0.5,-0.24)},anchor=north,legend columns=2},
 ]
 """
-    tex += line((1, 0), (1, 1.08), "magenta!45,densely dotted")
-    tex += curve([(q, state(q)[1]) for q in samples(0, 2)], "cyan,line width=1.4pt")
+    tex += line((1, 0), (1, 1.08), "black!45,densely dotted")
+    tex += curve([(q, state(q)[1]) for q in samples(0, 2)], "plotgray,line width=1.4pt")
     tex += r"\addlegendentry{$v$}"+"\n"
-    tex += curve([(q, state(q)[2]) for q in samples(0, 2)], "magenta,line width=1.4pt")
+    tex += curve([(q, state(q)[2]) for q in samples(0, 2)], "black,dashed,line width=1.4pt")
     tex += r"\addlegendentry{$\mathrm ds/\mathrm dt$}"+"\n"
-    tex += note(1, .98, r"$v_{\max}=\sqrt{3}/2$", "text=cyan")
+    tex += note(1, .98, r"$v_{\max}=\sqrt{3}/2$", "text=black")
     tex += note(1, .37, r"$\mathrm ds/\mathrm dt=1/2$")
     tex += r"""\nextgroupplot[
  title={Proper and coordinate acceleration},
@@ -138,15 +138,15 @@ def rocket_trip():
  legend style={at={(0.5,-0.24)},anchor=north},
 ]
 """
-    tex += line((1, -1.25), (1, 1.25), "magenta!45,densely dotted")
-    tex += curve([(0, 1), (1, 1)], "cyan,line width=1.4pt")
+    tex += line((1, -1.25), (1, 1.25), "black!45,densely dotted")
+    tex += curve([(0, 1), (1, 1)], "plotgray,line width=1.4pt")
     tex += r"\addlegendentry{Proper: $\mathrm d\theta/\mathrm ds$}"+"\n"
-    tex += curve([(q, state(q)[2]**3) for q in samples(0, 1)], "magenta,line width=1.4pt")
+    tex += curve([(q, state(q)[2]**3) for q in samples(0, 1)], "black,dashed,line width=1.4pt")
     tex += r"\addlegendentry{Coordinate: $\mathrm dv/\mathrm dt$}"+"\n"
-    tex += curve([(1, -1), (2, -1)], "cyan,line width=1.4pt,forget plot")
-    tex += curve([(q, -state(q)[2]**3) for q in samples(1, 2)], "magenta,line width=1.4pt,forget plot")
-    tex += curve([(1, 1), (1, -1)], "cyan,only marks,mark=o,mark options={fill=white},mark size=2pt,forget plot")
-    tex += curve([(1, .125), (1, -.125)], "magenta,only marks,mark=o,mark options={fill=white},mark size=2pt,forget plot")
+    tex += curve([(1, -1), (2, -1)], "plotgray,line width=1.4pt,forget plot")
+    tex += curve([(q, -state(q)[2]**3) for q in samples(1, 2)], "black,dashed,line width=1.4pt,forget plot")
+    tex += curve([(1, 1), (1, -1)], "plotgray,only marks,mark=o,mark options={fill=white},mark size=2pt,forget plot")
+    tex += curve([(1, .125), (1, -.125)], "black,only marks,mark=o,mark options={fill=white},mark size=2pt,forget plot")
     tex += r"""\nextgroupplot[
  title={The traveling clock records less time},
  xlabel={$t/t_m$},ylabel={Elapsed time multiplied by $\dot v_0$},
@@ -155,12 +155,12 @@ def rocket_trip():
  legend style={at={(0.5,-0.24)},anchor=north},
 ]
 """
-    tex += line((1, 0), (1, 3.8), "magenta!45,densely dotted")
-    tex += curve([(q, tm*q) for q in samples(0, 2)], "cyan,dashed,line width=1.4pt")
+    tex += line((1, 0), (1, 3.8), "black!45,densely dotted")
+    tex += curve([(q, tm*q) for q in samples(0, 2)], "plotgray,dashed,line width=1.4pt")
     tex += r"\addlegendentry{Departure-frame clocks: $t$}"+"\n"
-    tex += curve([(q, state(q)[3]) for q in samples(0, 2)], "magenta,line width=1.4pt")
+    tex += curve([(q, state(q)[3]) for q in samples(0, 2)], "black,line width=1.4pt")
     tex += r"\addlegendentry{Traveling clock: $s$}"+"\n"
-    tex += note(1.98, 3.59, r"$3.464$", "anchor=east,text=cyan")
+    tex += note(1.98, 3.59, r"$3.464$", "anchor=east,text=black")
     tex += note(1.98, 2.38, r"$2.634$", "anchor=east")
     tex += "\\end{groupplot}\n"
     return tex

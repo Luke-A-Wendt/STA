@@ -18,10 +18,10 @@
 \usepackage[dvipsnames]{xcolor}
 % Central paravector styles; change these definitions to restyle all aliases.
 % Usage: \pv{X} for Latin symbols; \pvGreek{\psi} for Greek symbols/operators.
-% Latin paravectors use bold calligraphic magenta lettering; Greek glyphs are retained and bold.
-\newcommand{\pv}[1]{{\color{magenta}\bm{\mathcal{#1}}}}
-\newcommand{\pvGreek}[1]{{\color{magenta}\bm{#1}}}
-\newcommand{\vstyle}[1]{{\color{cyan}\bm{#1}}}
+% Latin paravectors are calligraphic, never bold; Greek symbols retain their usual glyphs.
+\newcommand{\pv}[1]{{\mathcal{#1}}}
+\newcommand{\pvGreek}[1]{{#1}}
+\newcommand{\vstyle}[1]{{\bm{#1}}}
 \newcommand{\pA}{\pv{A}}
 \newcommand{\pB}{\pv{B}}
 \newcommand{\pF}{\pv{F}}
@@ -215,8 +215,9 @@ and signature $(+,-,-,-)$ are used. SI conversions, including their unit
 assignments and explanations, appear in boxes labeled SI units. Within
 these boxes, the usual symbols carry the stated SI units; outside them,
 natural units apply.
-Vectors and matrices of objects are \textcolor{cyan}{\textbf{bold cyan}}; paravectors are \textcolor{magenta}{\textbf{bold magenta}}.
-Bold calligraphic Latin lettering is reserved for paravectors and paravector operators; Greek glyphs are retained and bold.
+Vectors and matrices of objects are bold. Latin paravector symbols and
+paravector operators are calligraphic, as in $\pX$, and are not bold.
+Greek paravector symbols retain their usual, nonbold glyphs.
 No meaning is assigned by convention to uppercase
 or lowercase letters. The ordered sigma triple $\bsig$ is bold;
 each individual sigma $\pvsigma_k$ is non-bold.
@@ -225,7 +226,7 @@ Derivatives such as $\partial_t$ and $\pdr$ retain bold vector subscripts.
 Scalar quantities and coefficient components remain unadorned.
 The scalar trip distance $\ell$ is distinguished from the position vector $\br$.
 Scalar and paravector quantities are distinguished by their stated domains.
-The paravector momentum $\pP$ is distinguished from its vector part $\bp$ by calligraphic lettering and color.
+The paravector momentum $\pP$ is distinguished from its vector part $\bp$ by calligraphic lettering.
 
 
 Space--time algebra is developed here using complex paravectors.
@@ -2002,11 +2003,11 @@ Lorentz transformations would not be obtained by preserving the squared norm.
  \centering
  \includegraphics[width=\textwidth]{figures/boost_geometry.pdf}
  \caption{Boost geometry in the $t,x$ plane, with $x=\bu\dotprod\br$.
- The cyan primed axes have rapidity $\theta=0.8$.
+ The gray primed axes have rapidity $\theta=0.8$.
  The vector $\pU=\pL^{-2}$ is the primed frame's unit time direction,
- expressed in the original coordinates; its components lie on the magenta
+ expressed in the original coordinates; its components lie on the solid black
  unit-determinant hyperbola. The boost takes this vector to rest while
- preserving the light directions. The cyan unit-norm circle is not
+ preserving the light directions. The dashed unit-norm circle is not
  preserved. Right: $\det\pU=1$ for every rapidity, whereas
  $\lVert\pU\rVert^2=\cosh(2\theta)$ changes.}
  \label{fig:boost-geometry}
@@ -5283,7 +5284,7 @@ with these probabilities.
  \includegraphics[width=\textwidth]{figures/spin_probability.pdf}
  \caption{Spin prepared along $\bu'$ and measured along $\bu$.
  Only the angle $\theta$ between the axes enters the probabilities.
- The cyan solid curve gives the $+1/2$ outcome; the magenta dashed curve
+ The solid curve gives the $+1/2$ outcome; the dashed curve
  gives the $-1/2$ outcome. Aligned axes give certainty, perpendicular
  axes give equal probabilities, and opposite axes reverse the certain
  outcome. The two curves sum to one at every angle.}
@@ -5493,8 +5494,8 @@ Figure~\ref{fig:boosted-fields} illustrates this perpendicular boost.
  initial magnitude $E_0>0$. Left: electric arrows are drawn to a common
  scale for $\beta=0.6$; the crossed circle denotes the induced magnetic
  field into the page. Right: writing $E'=\lVert\bE'\rVert$ and
- $B'=\lVert\bBf'\rVert$, the cyan curve is the energy-density ratio
- $(E'^2+B'^2)/E_0^2$, whereas the magenta difference
+ $B'=\lVert\bBf'\rVert$, the solid curve is the energy-density ratio
+ $(E'^2+B'^2)/E_0^2$, whereas the dashed curve for the difference
  $(E'^2-B'^2)/E_0^2$ remains one.
  The other invariant, $\bE'\dotprod\bBf'$, remains zero.}
  \label{fig:boosted-fields}
@@ -5901,8 +5902,8 @@ and these scalings for one simple choice of $\lambda(t)$.
  \includegraphics[width=\textwidth]{figures/metric_expansion.pdf}
  \caption{Expansion with $\lambda(t)=1+t/t_0$, where $t_0>0$.
  Left: a comoving coordinate slice, with the other spatial coordinates
- fixed. Cyan arrows are tangent light directions,
- $\dd r_1/\dd t=\pm1/\lambda$; the magenta line is a comoving observer.
+ fixed. Gray arrows are tangent light directions,
+ $\dd r_1/\dd t=\pm1/\lambda$; the black line is a comoving observer.
  Narrowing coordinate cones do not change the locally measured speed of
  light, which remains one. Right: the physical separation of comoving
  observers grows as $\ell/\ell_0=\lambda$, while a freely moving particle's
@@ -5972,8 +5973,8 @@ through their different light propagation in the same chart.
  \caption{The same positive scale factor $\lambda=1+t/t_0$, $t_0>0$,
  used as an exact coordinate rescaling (left) or an assigned local
  displacement (right). Both diagrams use the same chart, with
- $r_2=r_3=0$. Thick cyan curves are light rays emitted from the origin;
- short magenta arrows show local light directions.
+ $r_2=r_3=0$. Thick curves are light rays emitted from the origin;
+ short arrows show local light directions.
  Curved coordinate paths occur in both panels and do not establish
  spacetime curvature. Here $K$ is the Kretschmann scalar of the full
  four-dimensional metric, as in \eqref{eq:matrix-basis-curvature}:
@@ -6162,9 +6163,9 @@ the scalar-field contours.
  \caption{Schwarzschild in the coordinates of
  \eqref{eq:schwarzschild-kerr-schild}, with lengths and times in units
  of $Gm$. Left: constant-$\lambda$ circles in the $r_3=0$ plane;
- the solid magenta circle is the horizon, with its interior shaded pale magenta.
+ the black circle is the horizon, with its interior shaded light gray.
  Right: future radial light cones, drawn as local tangent directions,
- with time increasing upward. The dashed magenta curve follows the
+ with time increasing upward. The dashed black curve follows the
  chosen frame observer, $\dd r/\dd t=-Gm/(r+Gm)$, starting at $r=3Gm$
  when $t=0$; it is not a free-fall trajectory.
  The spatial panel shows coordinate contours, not proper distances or
@@ -6265,12 +6266,12 @@ directions of our chosen frame observers.
  \caption{Kerr coordinate slices with spin along $+r_3$ and
  $Gm\lVert\vstyle{\omega}\rVert=1/4$, so
  $\ell^2\lVert\vstyle{\omega}\rVert=0.8Gm$ and the horizon is
- $\epsilon=1.6Gm$. Left: the $r_2=0$ slice, with dashed cyan contours
+ $\epsilon=1.6Gm$. Left: the $r_2=0$ slice, with dashed gray contours
  of the ellipsoidal radius $\epsilon$. Right: the $r_3=0$ slice,
  with a dashed constant-$\lambda$ contour and equal-length arrows
  showing the direction of $\dd\br/\dd t=-\lambda\bu/(1+\lambda)$.
- Solid magenta marks the horizon; solid cyan marks the outer stationary limit,
- with the exterior ergoregion shaded pale cyan. Pale magenta marks the horizon's interior.
+ The black outline marks the horizon; the gray outline marks the outer stationary limit.
+ The exterior ergoregion is shaded medium gray; the horizon's interior is light gray.
  The arrows describe the chosen frame observers, not general free fall;
  the coordinate shapes are not an isometric embedding.}
  \label{fig:metric-kerr}
