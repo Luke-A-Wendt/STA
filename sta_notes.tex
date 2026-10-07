@@ -9,7 +9,7 @@
 % All SI definitions, prose, and equations stay within this environment.
 \newtcolorbox{SIunits}[1]{
   enhanced,breakable,sharp corners,
-  colback=white,colframe=black,boxrule=0.4pt,
+  colback=white,colframe=black,boxrule=1.2pt,
   colbacktitle=white,coltitle=black,fonttitle=\bfseries,
   title={SI units: #1},title after break={SI units: #1 (continued)},
   left=8pt,right=8pt,top=6pt,bottom=6pt,
@@ -2077,11 +2077,11 @@ Lorentz transformations would not be obtained by preserving the squared norm.
  \centering
  \includegraphics[width=\textwidth]{figures/boost_geometry.pdf}
  \caption{Boost geometry in the $t,x$ plane, with $x=\bu\dotprod\br\in\R$.
- The cyan primed axes have rapidity $\theta=0.8$.
+ The gray primed axes have rapidity $\theta=0.8$.
  The vector $\pU=\pL^{-2}$ is the primed frame's unit time direction,
  expressed in the original coordinates; its components lie on the black
  unit-determinant hyperbola. The boost takes this vector to rest while
- preserving the light directions. The cyan unit-norm circle is not
+ preserving the light directions. The dashed unit-norm circle is not
  preserved. Right: $\det\pU=1$ for every rapidity, whereas
  $\lVert\pU\rVert^2=\cosh(2\theta)$ changes.}
  \label{fig:boost-geometry}
@@ -3456,8 +3456,6 @@ By differentiation,
 \end{align*}
 This is the flat Minkowski interval in changed coordinates; varying
 coefficients alone do not imply spacetime curvature.
-Figure~\ref{fig:coordinates-curvature} later compares an exact coordinate
-rescaling with a curved metric in the same chart.
 
 \paragraph{Motion and clock rates.}
 Along a future-directed time-like path, $s$ is proper time,
@@ -5428,7 +5426,7 @@ with these probabilities.
  \includegraphics[width=\textwidth]{figures/spin_probability.pdf}
  \caption{Spin prepared along $\bu'$ and measured along $\bu$.
  Only the angle $\theta$ between the axes enters the probabilities.
- The cyan solid curve gives the $+1/2$ outcome; the black dashed curve
+ The solid curve gives the $+1/2$ outcome; the dashed curve
  gives the $-1/2$ outcome. Aligned axes give certainty, perpendicular
  axes give equal probabilities, and opposite axes reverse the certain
  outcome. The two curves sum to one at every angle.}
@@ -5633,22 +5631,6 @@ observer-dependent energy density.  For example, if $\bBf=0$ and
 $\bu\dotprod\bE=0$, \eqref{eq:electric-boost} and \eqref{eq:magnetic-boost}
 give $\lVert \pF'\rVert^2=\gamma^2(1+\beta^2)\bE^2$, while
 $\bE'^2-\bBf'^2=\bE^2$.
-Figure~\ref{fig:boosted-fields} illustrates this perpendicular boost.
-
-\begin{figure}[htbp]
- \centering
- \includegraphics[width=\textwidth]{figures/boosted_fields.pdf}
- \caption{A perpendicular boost of a purely electric field with
- initial magnitude $E_0\in\R_{>0}$. Left: electric arrows are drawn to a common
- scale for $\beta=0.6$; the crossed circle denotes the induced magnetic
- field into the page. Right: writing $E'=\lVert\bE'\rVert$ and
- $B'=\lVert\bBf'\rVert$, both in $\R_{\ge0}$, the cyan curve is the energy-density ratio
- $(E'^2+B'^2)/E_0^2$, whereas the black difference
- $(E'^2-B'^2)/E_0^2$ remains one.
- The other invariant, $\bE'\dotprod\bBf'$, remains zero.}
- \label{fig:boosted-fields}
-\end{figure}
-
 Notation: the stress map $T(\pX)=\pF \pX \pF^{\mathsf H}/2$ from
 \eqref{eq:electromagnetic-stress-map}, with real paravector input $\pX$;
 here $T$ denotes this map.  Since $\pX'=\pL \pX \pL$,
@@ -6059,25 +6041,6 @@ Photon energy and frequency scale as $1/\lambda$: expansion produces the familia
 cosmological redshift~\citeat{carroll-gr}{Eq.~(8.66)}{page=236}.
 Both results follow from the assigned metric for any smooth positive
 $\lambda(t)$; determining $\lambda(t)$ from matter requires Einstein's field equation.
-Figure~\ref{fig:metric-expansion} illustrates the local light directions
-and these scalings for one simple choice of $\lambda(t)$.
-
-\begin{figure}[htbp]
- \centering
- \includegraphics[width=\textwidth]{figures/metric_expansion.pdf}
- \caption{Expansion with $\lambda(t)=1+t/t_0$, where $t_0\in\R_{>0}$.
- Left: a comoving coordinate slice, with the other spatial coordinates
- fixed. Cyan arrows are tangent light directions,
- $\dd r_1/\dd t=\pm1/\lambda$; the black line is a comoving observer.
- Narrowing coordinate cones do not change the locally measured speed of
- light, which remains one. Right: the physical separation of comoving
- observers grows as $\ell/\ell_0=\lambda$, while a freely moving particle's
- momentum magnitude $P=\lVert\bp\rVert\in\R_{\ge0}$ scales as $P/P_0=1/\lambda$.
- Subscript zero denotes $t=0$. This illustrative scale factor is not
- selected by a matter model.}
- \label{fig:metric-expansion}
-\end{figure}
-
 \Needspace{12\baselineskip}
 \paragraph{Tidal acceleration and curvature.}
 Two nearby comoving observers are both in free fall, with proper time
@@ -6129,24 +6092,6 @@ Since $\lambda>0$, this is an invertible coordinate change of flat Minkowski
 spacetime. The product-rule term $\dot \lambda\br\dd t$ distinguishes this
 flat interval from \eqref{eq:matrix-basis-interval}: the two
 displacements assign different metrics to the same $\dd t,\dd\br$.
-Figure~\ref{fig:coordinates-curvature} makes this distinction visible
-through their different light propagation in the same chart.
-
-\begin{figure}[htbp]
- \centering
- \includegraphics[width=\textwidth]{figures/coordinates_curvature.pdf}
- \caption{The same positive scale factor $\lambda=1+t/t_0$, $t_0\in\R_{>0}$,
- used as an exact coordinate rescaling (left) or an assigned local
- displacement (right). Both diagrams use the same chart, with
- $r_2=r_3=0$. Thick cyan curves are light rays emitted from the origin;
- short black arrows show local light directions.
- Curved coordinate paths occur in both panels and do not establish
- spacetime curvature. Here $K\in\R_{\ge0}$ is the Kretschmann scalar of the full
- four-dimensional metric, as in \eqref{eq:matrix-basis-curvature}:
- only the right metric has nonzero curvature, even though $\ddot\lambda=0$.}
- \label{fig:coordinates-curvature}
-\end{figure}
-
 \subsection{Newtonian motion and black-hole metrics}
 \label{sec:gravity-metrics}
 

@@ -23,7 +23,7 @@ def frenet_figure():
  title={The path sets the local axes},clip=false]
 """
     body += curve([(x, x*x/2) for x in samples(-1.6, 1.6)],
-                  "cyan,line width=1.7pt")
+                  "black,line width=1.7pt")
     body += curve([(centre[0]+radius*cos(q), centre[1]+radius*sin(q))
                    for q in samples(0, 2*pi)], "black,dashed,line width=.9pt")
     body += line((0, 0), centre, "black,densely dotted,line width=1pt")
@@ -31,13 +31,13 @@ def frenet_figure():
     body += note(-.06, 1.11, "centre", "anchor=east")
     body += note(-.08, .52, r"$1/k$", "anchor=east")
     body += note(-1.23, 1.79, "osculating circle", "anchor=south west")
-    body += line((0, 0), (.76, 0), "cyan,-{Latex[length=2.5mm]},line width=1.5pt")
+    body += line((0, 0), (.76, 0), "black,-{Latex[length=2.5mm]},line width=1.5pt")
     body += note(.76, -.07, r"$\bm u$ (tangent)", "anchor=north")
-    body += line((0, 0), (0, .76), "cyan,-{Latex[length=2.5mm]},line width=1.5pt")
+    body += line((0, 0), (0, .76), "black,-{Latex[length=2.5mm]},line width=1.5pt")
     body += note(.075, .72, r"$\bm u'$ (normal)", "anchor=west")
     body += r"""
-\draw[cyan,line width=1.2pt,fill=white] (axis cs:0,0) circle (3.5pt);
-\fill[cyan] (axis cs:0,0) circle (1.2pt);
+\draw[black,line width=1.2pt,fill=white] (axis cs:0,0) circle (3.5pt);
+\fill[black] (axis cs:0,0) circle (1.2pt);
 """
     body += note(-.1, -.12, r"$\bm u''$ out of the page", "anchor=north east")
     # A second tangent arrow demonstrates that the frame follows the path.
@@ -47,9 +47,9 @@ def frenet_figure():
     assert isclose(tangent[0]*normal[0]+tangent[1]*normal[1], 0, abs_tol=1e-15)
     start = (q, q*q/2)
     body += line(start, (start[0]+.52*tangent[0], start[1]+.52*tangent[1]),
-                 "cyan,-{Latex[length=1.9mm]},line width=1pt")
+                 "black,-{Latex[length=1.9mm]},line width=1pt")
     body += line(start, (start[0]+.52*normal[0], start[1]+.52*normal[1]),
-                 "cyan,-{Latex[length=1.9mm]},line width=1pt")
+                 "black,-{Latex[length=1.9mm]},line width=1pt")
     body += note(1.15, 1.38, "path", "text=black,anchor=west")
     body += note(.08, -.65, r"Planar example: $\tau=0$", "anchor=south")
     body += r"""
@@ -61,10 +61,10 @@ def frenet_figure():
  title={Acceleration: speed and turning},clip=false]
 """
     origin, tangential, normal_end, total = (0, 0), (1.6, 0), (0, 1.6), (1.6, 1.6)
-    body += line(tangential, total, "cyan,dashed,line width=.8pt")
-    body += line(normal_end, total, "cyan,dashed,line width=.8pt")
-    body += line(origin, tangential, "cyan,-{Latex[length=2.7mm]},line width=1.5pt")
-    body += line(origin, normal_end, "cyan,-{Latex[length=2.7mm]},line width=1.5pt")
+    body += line(tangential, total, "black,dashed,line width=.8pt")
+    body += line(normal_end, total, "black,dashed,line width=.8pt")
+    body += line(origin, tangential, "black,-{Latex[length=2.7mm]},line width=1.5pt")
+    body += line(origin, normal_end, "black,-{Latex[length=2.7mm]},line width=1.5pt")
     body += line(origin, total, "black,-{Latex[length=2.8mm]},line width=1.8pt")
     body += note(.85, -.11, r"$\dot v\,\bm u$", "anchor=north,text=black")
     body += note(.85, -.36, "changes speed", "anchor=north")
@@ -92,7 +92,7 @@ def spin_figure():
  xmin=-.6,xmax=2.6,ymin=-.7,ymax=2.75,
  title={Preparation and measurement},clip=false]
 """
-    body += line((0, 0), (0, 2), "cyan,-{Latex[length=3mm]},line width=1.7pt")
+    body += line((0, 0), (0, 2), "black,-{Latex[length=3mm]},line width=1.7pt")
     body += note(-.04, 2.03, r"$\bm u'$", "anchor=south east,text=black")
     body += note(-.08, 1.68, "prepared", "anchor=east")
     body += line((0, 0), (sqrt(3), 1), "black,-{Latex[length=3mm]},line width=1.7pt")
@@ -114,14 +114,14 @@ def spin_figure():
  xticklabels={$0$,$\pi/2$,$\pi$},ytick={0,.5,1},
  minor tick num=0,grid=none,clip=false]
 """
-    body += line((pi/2, 0), (pi/2, 1), "cyan,densely dotted,line width=.6pt")
-    body += line((0, .5), (pi, .5), "cyan,densely dotted,line width=.6pt")
-    body += curve([(q, cos(q/2)**2) for q in samples(0, pi)], "cyan,line width=1.6pt")
+    body += line((pi/2, 0), (pi/2, 1), "black!40,densely dotted,line width=.6pt")
+    body += line((0, .5), (pi, .5), "black!40,densely dotted,line width=.6pt")
+    body += curve([(q, cos(q/2)**2) for q in samples(0, pi)], "black,line width=1.6pt")
     body += curve([(q, sin(q/2)**2) for q in samples(0, pi)], "black,dashed,line width=1.6pt")
     body += note(.96, .88, r"$\mathrm{prob}(+)=\cos^2(\theta/2)$", "text=black")
     body += note(.96, .13, r"$\mathrm{prob}(-)=\sin^2(\theta/2)$")
     body += r"""
-\addplot[only marks,mark=*,mark size=2.5pt,cyan] coordinates {(0,1) (1.57079632679,.5) (3.14159265359,0)};
+\addplot[only marks,mark=*,mark size=2.5pt,black] coordinates {(0,1) (1.57079632679,.5) (3.14159265359,0)};
 \addplot[only marks,mark=o,mark size=3.5pt,black,line width=1pt] coordinates {(0,0) (1.57079632679,.5) (3.14159265359,1)};
 """
     body += note(0, -.31, "aligned", "anchor=north")

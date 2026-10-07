@@ -19,7 +19,7 @@ def boost_geometry():
     assert isclose(time*(time-beta*space), 1)
     assert abs(time*(space-beta*time)) < 1e-14
     tex = r"""\begin{groupplot}[group style={group size=2 by 1,horizontal sep=1.4cm}]
-\nextgroupplot[
+\nextgroupplot[grid style={black!18},
  title={Boosted axes and invariant hyperbola},
  xlabel={$x=\boldsymbol u\cdot\boldsymbol r$},ylabel={$t$},
  xmin=-0.12,xmax=2.1,ymin=-0.12,ymax=2.25,
@@ -29,21 +29,21 @@ def boost_geometry():
  legend style={at={(0.5,-0.17)},anchor=north},
 ]
 """
-    tex += line((0, 0), (2.05, 2.05), "cyan!55,densely dotted,line width=1.2pt")
+    tex += line((0, 0), (2.05, 2.05), "black!45,densely dotted,line width=1.2pt")
     tex += note(1.7, 1.91, "Light", "text=black,fill=none,rotate=45")
     tex += curve([(sinh(h), cosh(h)) for h in samples(0, 1.43)], "black,line width=1.4pt")
     tex += r"\addlegendentry{$t^2-x^2=1$: determinant}"+"\n"
-    tex += curve([(sin(h), cos(h)) for h in samples(0, pi/2)], "cyan,dashed,line width=1.2pt")
+    tex += curve([(sin(h), cos(h)) for h in samples(0, pi/2)], "black,dashed,line width=1.2pt")
     tex += r"\addlegendentry{$t^2+x^2=1$: coefficient norm}"+"\n"
-    tex += line((0, 0), (1.2, 1.2/beta), "cyan,line width=0.85pt,-{Stealth[length=4pt]}")
-    tex += line((0, 0), (1.93, 1.93*beta), "cyan,line width=0.85pt,-{Stealth[length=4pt]}")
+    tex += line((0, 0), (1.2, 1.2/beta), "black!65,line width=0.85pt,-{Stealth[length=4pt]}")
+    tex += line((0, 0), (1.93, 1.93*beta), "black!65,line width=0.85pt,-{Stealth[length=4pt]}")
     tex += note(1.17, 2.07, r"$t'$ axis", "text=black")
     tex += note(1.79, 1.1, r"$x'$ axis", "text=black")
     tex += curve([(0, 1), (space, time)], "black,only marks,mark=*,mark size=2pt")
     tex += note(0.14, 1.11, r"$U(0)$", "anchor=west")
     tex += note(space+0.12, time+0.12, r"$U(\theta)$", "anchor=west")
     tex += note(0.17, 2.1, r"$\theta=0.8$", "anchor=west")
-    tex += r"""\nextgroupplot[
+    tex += r"""\nextgroupplot[grid style={black!18},
  title={What a boost preserves},
  xlabel={Rapidity $\theta$},ylabel={Squared quantity},
  xmin=0,xmax=1.22,ymin=0,ymax=6.15,
@@ -54,11 +54,11 @@ def boost_geometry():
 """
     tex += curve([(h, 1) for h in (0, 1.2)], "black,line width=1.4pt")
     tex += r"\addlegendentry{$\det U=1$}"+"\n"
-    tex += curve([(h, cosh(2*h)) for h in samples(0, 1.2)], "cyan,dashed,line width=1.4pt")
+    tex += curve([(h, cosh(2*h)) for h in samples(0, 1.2)], "black,dashed,line width=1.4pt")
     tex += r"\addlegendentry{$\lVert U\rVert^2=\cosh(2\theta)$}"+"\n"
     tex += line((theta, 0), (theta, cosh(2*theta)), "black!45,densely dotted")
     tex += curve([(theta, 1)], "black,only marks,mark=*,mark size=2pt")
-    tex += curve([(theta, cosh(2*theta))], "cyan,only marks,mark=*,mark size=2pt")
+    tex += curve([(theta, cosh(2*theta))], "black,only marks,mark=*,mark size=2pt")
     tex += note(0.44, 4.9, r"$U=\cosh\theta+\sinh\theta\,\boldsymbol u\cdot\boldsymbol\sigma$")
     tex += note(0.23, 3.65, r"$\beta=\tanh\theta$", "anchor=west")
     tex += "\\end{groupplot}\n"
@@ -99,7 +99,7 @@ def rocket_trip():
  group style={group size=2 by 2,horizontal sep=1.45cm,vertical sep=2.6cm},
  width=7.65cm,height=6.1cm,
 ]
-\nextgroupplot[
+\nextgroupplot[grid style={black!15},
  title={One trip; thrust reverses halfway},
  xlabel={$\dot v_0 x$},ylabel={$\dot v_0 t$},
  xmin=-0.12,xmax=2.12,ymin=-0.15,ymax=3.75,
@@ -107,7 +107,7 @@ def rocket_trip():
 ]
 """
     tex += line((0, tm), (2, tm), "black!45,densely dotted")
-    tex += curve([(state(q)[0], tm*q) for q in samples(0, 1)], "cyan,line width=1.4pt")
+    tex += curve([(state(q)[0], tm*q) for q in samples(0, 1)], "black!60,line width=1.4pt")
     tex += curve([(state(q)[0], tm*q) for q in samples(1, 2)], "black,line width=1.4pt")
     tex += curve([(1, tm)], "black,only marks,mark=*,mark size=2pt")
     tex += note(.34, .45, "Accelerate", "text=black,anchor=west")
@@ -115,7 +115,7 @@ def rocket_trip():
     tex += note(.06, tm+.26, "Reversal", "anchor=west")
     tex += note(1.93, 3.58, "Arrive at rest", "anchor=east")
     tex += note(.12, .05, "Start at rest", "anchor=west")
-    tex += r"""\nextgroupplot[
+    tex += r"""\nextgroupplot[grid style={black!15},
  title={Speed stays continuous},
  xlabel={$t/t_m$},ylabel={Speed or clock rate},
  xmin=0,xmax=2,ymin=0,ymax=1.08,
@@ -124,13 +124,13 @@ def rocket_trip():
 ]
 """
     tex += line((1, 0), (1, 1.08), "black!45,densely dotted")
-    tex += curve([(q, state(q)[1]) for q in samples(0, 2)], "cyan,line width=1.4pt")
+    tex += curve([(q, state(q)[1]) for q in samples(0, 2)], "black!60,line width=1.4pt")
     tex += r"\addlegendentry{$v$}"+"\n"
     tex += curve([(q, state(q)[2]) for q in samples(0, 2)], "black,line width=1.4pt")
     tex += r"\addlegendentry{$\mathrm ds/\mathrm dt$}"+"\n"
     tex += note(1, .98, r"$v_{\max}=\sqrt{3}/2$", "text=black")
     tex += note(1, .37, r"$\mathrm ds/\mathrm dt=1/2$")
-    tex += r"""\nextgroupplot[
+    tex += r"""\nextgroupplot[grid style={black!15},
  title={Proper and coordinate acceleration},
  xlabel={$t/t_m$},ylabel={Acceleration divided by $\dot v_0$},
  xmin=0,xmax=2,ymin=-1.28,ymax=1.28,
@@ -139,15 +139,15 @@ def rocket_trip():
 ]
 """
     tex += line((1, -1.25), (1, 1.25), "black!45,densely dotted")
-    tex += curve([(0, 1), (1, 1)], "cyan,line width=1.4pt")
+    tex += curve([(0, 1), (1, 1)], "black!60,line width=1.4pt")
     tex += r"\addlegendentry{Proper: $\mathrm d\theta/\mathrm ds$}"+"\n"
     tex += curve([(q, state(q)[2]**3) for q in samples(0, 1)], "black,line width=1.4pt")
     tex += r"\addlegendentry{Coordinate: $\mathrm dv/\mathrm dt$}"+"\n"
-    tex += curve([(1, -1), (2, -1)], "cyan,line width=1.4pt,forget plot")
+    tex += curve([(1, -1), (2, -1)], "black!60,line width=1.4pt,forget plot")
     tex += curve([(q, -state(q)[2]**3) for q in samples(1, 2)], "black,line width=1.4pt,forget plot")
-    tex += curve([(1, 1), (1, -1)], "cyan,only marks,mark=o,mark options={fill=white},mark size=2pt,forget plot")
+    tex += curve([(1, 1), (1, -1)], "black!60,only marks,mark=o,mark options={fill=white},mark size=2pt,forget plot")
     tex += curve([(1, .125), (1, -.125)], "black,only marks,mark=o,mark options={fill=white},mark size=2pt,forget plot")
-    tex += r"""\nextgroupplot[
+    tex += r"""\nextgroupplot[grid style={black!15},
  title={The traveling clock records less time},
  xlabel={$t/t_m$},ylabel={Elapsed time multiplied by $\dot v_0$},
  xmin=0,xmax=2.08,ymin=0,ymax=3.8,
@@ -156,7 +156,7 @@ def rocket_trip():
 ]
 """
     tex += line((1, 0), (1, 3.8), "black!45,densely dotted")
-    tex += curve([(q, tm*q) for q in samples(0, 2)], "cyan,dashed,line width=1.4pt")
+    tex += curve([(q, tm*q) for q in samples(0, 2)], "black!60,dashed,line width=1.4pt")
     tex += r"\addlegendentry{Departure-frame clocks: $t$}"+"\n"
     tex += curve([(q, state(q)[3]) for q in samples(0, 2)], "black,line width=1.4pt")
     tex += r"\addlegendentry{Traveling clock: $s$}"+"\n"
