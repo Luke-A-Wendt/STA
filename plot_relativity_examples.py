@@ -21,7 +21,7 @@ def boost_geometry():
     tex = r"""\begin{groupplot}[group style={group size=2 by 1,horizontal sep=1.4cm}]
 \nextgroupplot[
  title={Boosted axes and invariant hyperbola},
- xlabel={$x=\vstyle{u}\cdot\vstyle{r}$},ylabel={$t$},
+ xlabel={$x=\boldsymbol u\cdot\boldsymbol r$},ylabel={$t$},
  xmin=-0.12,xmax=2.1,ymin=-0.12,ymax=2.25,
  width=7.65cm,height=7.4cm,axis equal image,
  xtick={0,1,2},ytick={0,1,2},grid=none,
@@ -40,8 +40,8 @@ def boost_geometry():
     tex += note(1.17, 2.07, r"$t'$ axis", "text=black")
     tex += note(1.79, 1.1, r"$x'$ axis", "text=black")
     tex += curve([(0, 1), (space, time)], "black,only marks,mark=*,mark size=2pt")
-    tex += note(0.14, 1.11, r"$\pv{U}(0)$", "anchor=west")
-    tex += note(space+0.12, time+0.12, r"$\pv{U}(\theta)$", "anchor=west")
+    tex += note(0.14, 1.11, r"$\mathcal U(0)$", "anchor=west")
+    tex += note(space+0.12, time+0.12, r"$\mathcal U(\theta)$", "anchor=west")
     tex += note(0.17, 2.1, r"$\theta=0.8$", "anchor=west")
     tex += r"""\nextgroupplot[
  title={What a boost preserves},
@@ -53,13 +53,13 @@ def boost_geometry():
 ]
 """
     tex += curve([(h, 1) for h in (0, 1.2)], "black,line width=1.4pt")
-    tex += r"\addlegendentry{$\det\pv{U}=1$}"+"\n"
+    tex += r"\addlegendentry{$\det\mathcal U=1$}"+"\n"
     tex += curve([(h, cosh(2*h)) for h in samples(0, 1.2)], "plotgray,dashed,line width=1.4pt")
-    tex += r"\addlegendentry{$\lVert\pv{U}\rVert^2=\cosh(2\theta)$}"+"\n"
+    tex += r"\addlegendentry{$\lVert\mathcal U\rVert^2=\cosh(2\theta)$}"+"\n"
     tex += line((theta, 0), (theta, cosh(2*theta)), "black!45,densely dotted")
     tex += curve([(theta, 1)], "black,only marks,mark=*,mark size=2pt")
     tex += curve([(theta, cosh(2*theta))], "plotgray,only marks,mark=*,mark size=2pt")
-    tex += note(0.44, 4.9, r"$\pv{U}=\cosh\theta+\sinh\theta\,\vstyle{u}\cdot\vstyle{\sigma}$")
+    tex += note(0.44, 4.9, r"$\mathcal U=\cosh\theta+\sinh\theta\,\boldsymbol u\cdot\boldsymbol\sigma$")
     tex += note(0.23, 3.65, r"$\beta=\tanh\theta$", "anchor=west")
     tex += "\\end{groupplot}\n"
     return tex

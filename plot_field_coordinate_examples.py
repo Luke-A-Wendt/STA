@@ -46,7 +46,7 @@ def boosted_fields():
     body += line((2.45, 0), (2.45, 2.5), "plotgray,line width=2pt,-{Stealth[length=3mm]}")
     body += note(0, 2.25, r"$E=E_0$", "text=black")
     body += note(2.45, 2.75, r"$E'=1.25E_0$", "text=black")
-    body += note(0, -0.35, r"$\vstyle{B}=0$")
+    body += note(0, -0.35, r"$\bm B=0$")
     body += r"""
 \draw[black,line width=1.2pt] (axis cs:2.45,0) circle[radius=3.5pt];
 \draw[black,line width=1.1pt]
@@ -59,7 +59,7 @@ def boosted_fields():
     body += note(2.45, -0.4, r"$B'=0.75E_0$ into page")
     body += line((0.65, 0.8), (1.65, 0.8), "black,line width=1.2pt,-{Stealth}")
     body += note(1.15, 0.43, r"boost along $+r_1$")
-    body += note(1.55, -0.95, r"Electric field along $+r_2$; $\vstyle{B}'$ along $-r_3$.")
+    body += note(1.55, -0.95, r"Electric field along $+r_2$; $\bm B'$ along $-r_3$.")
     body += r"""
 \nextgroupplot[title={Energy and invariant},
  xmin=0,xmax=0.85,ymin=0,ymax=7,
@@ -120,11 +120,11 @@ def coordinates_curvature():
 \end{groupplot}
 \node[font=\small,anchor=north,align=center] at
  ([yshift=-1.15cm]group c1r1.south) {
- $\mathrm ds^2=\mathrm dt^2-\mathrm d\!\left(\lambda\vstyle{r}\right)^2$\\[4pt]
+ $\mathrm ds^2=\mathrm dt^2-\mathrm d\!\left(\lambda\bm r\right)^2$\\[4pt]
  $\displaystyle\frac{\mathrm dr_1}{\mathrm dt}=\frac{\pm1-r_1/t_0}{\lambda}$};
 \node[font=\small,anchor=north,align=center] at
  ([yshift=-1.15cm]group c2r1.south) {
- $\mathrm ds^2=\mathrm dt^2-\lambda^2\mathrm d\vstyle{r}^2$\\[4pt]
+ $\mathrm ds^2=\mathrm dt^2-\lambda^2\mathrm d\bm r^2$\\[4pt]
  $\displaystyle\frac{\mathrm dr_1}{\mathrm dt}=\frac{\pm1}{\lambda}$};
 \node[font=\small,anchor=north,align=center] at
  ([yshift=-2.65cm]$(group c1r1.south)!0.5!(group c2r1.south)$) {

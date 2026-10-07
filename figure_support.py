@@ -14,9 +14,6 @@ ROOT = Path(__file__).resolve().parent
 
 PREAMBLE = r"""\documentclass[11pt,border=3pt]{standalone}
 \usepackage{amsmath,bm}
-\newcommand{\pv}[1]{{#1}}
-% Bold mathematical lettering for vectors and matrices.
-\newcommand{\vstyle}[1]{{\bm{#1}}}
 \usepackage{pgfplots}
 \usepgfplotslibrary{groupplots}
 \usetikzlibrary{arrows.meta,calc,decorations.markings,patterns}

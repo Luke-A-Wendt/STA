@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.9.30)  7 OCT 2026 13:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.9.30)  7 OCT 2026 12:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -726,7 +726,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip62
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 65.
+Package hyperref Info: Option `colorlinks' set `true' on input line 64.
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
@@ -735,24 +735,24 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 (./sta_notes.aux)
 \openout1 = `sta_notes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 181.
-LaTeX Font Info:    ... okay on input line 181.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 181.
-LaTeX Font Info:    ... okay on input line 181.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 181.
-LaTeX Font Info:    ... okay on input line 181.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 181.
-LaTeX Font Info:    ... okay on input line 181.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 181.
-LaTeX Font Info:    ... okay on input line 181.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 181.
-LaTeX Font Info:    ... okay on input line 181.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 181.
-LaTeX Font Info:    ... okay on input line 181.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 181.
-LaTeX Font Info:    ... okay on input line 181.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 181.
-LaTeX Font Info:    ... okay on input line 181.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -810,13 +810,13 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \microtypecontext on input line 181.
-Package microtype Info: Applying patch `item' on input line 181.
-Package microtype Info: Applying patch `toc' on input line 181.
-Package microtype Info: Applying patch `eqnum' on input line 181.
-Package microtype Info: Applying patch `footnote' on input line 181.
-Package microtype Info: Applying patch `verbatim' on input line 181.
-LaTeX Info: Redefining \microtypesetup on input line 181.
+LaTeX Info: Redefining \microtypecontext on input line 180.
+Package microtype Info: Applying patch `item' on input line 180.
+Package microtype Info: Applying patch `toc' on input line 180.
+Package microtype Info: Applying patch `eqnum' on input line 180.
+Package microtype Info: Applying patch `footnote' on input line 180.
+Package microtype Info: Applying patch `verbatim' on input line 180.
+LaTeX Info: Redefining \microtypesetup on input line 180.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -832,12 +832,12 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-Package hyperref Info: Link coloring ON on input line 181.
+Package hyperref Info: Link coloring ON on input line 180.
  (./sta_notes.out) (./sta_notes.out)
 \@outlinefile=\write4
 \openout4 = `sta_notes.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 184
+LaTeX Font Info:    Trying to load font information for U+msa on input line 183
 .
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -845,7 +845,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 184
+LaTeX Font Info:    Trying to load font information for U+msb on input line 183
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -874,20 +874,20 @@ Package microtype Info: Loading generic protrusion settings for font family
 <figures/boost_geometry.pdf, id=1027, 402.02899pt x 252.94801pt>
 File: figures/boost_geometry.pdf Graphic file (type pdf)
 <use figures/boost_geometry.pdf>
-Package pdftex.def Info: figures/boost_geometry.pdf  used on input line 2005.
+Package pdftex.def Info: figures/boost_geometry.pdf  used on input line 2004.
 (pdftex.def)             Requested size: 469.75502pt x 295.57744pt.
  [26] [27 <./figures/boost_geometry.pdf>] [28] [29] [30] [31] [32] [33] [34] [3
 5]
 <figures/rocket_trip.pdf, id=1201, 438.90274pt x 419.3286pt>
 File: figures/rocket_trip.pdf Graphic file (type pdf)
 <use figures/rocket_trip.pdf>
-Package pdftex.def Info: figures/rocket_trip.pdf  used on input line 2594.
+Package pdftex.def Info: figures/rocket_trip.pdf  used on input line 2593.
 (pdftex.def)             Requested size: 469.75502pt x 448.83072pt.
  [36] [37 <./figures/rocket_trip.pdf>] [38] [39] [40] [41] [42] [43]
 <figures/frenet_frame.pdf, id=1332, 396.5465pt x 198.06096pt>
 File: figures/frenet_frame.pdf Graphic file (type pdf)
 <use figures/frenet_frame.pdf>
-Package pdftex.def Info: figures/frenet_frame.pdf  used on input line 3129.
+Package pdftex.def Info: figures/frenet_frame.pdf  used on input line 3128.
 (pdftex.def)             Requested size: 469.75502pt x 234.63165pt.
  [44] [45 <./figures/frenet_frame.pdf>] [46]
 [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61]
@@ -895,7 +895,7 @@ Package pdftex.def Info: figures/frenet_frame.pdf  used on input line 3129.
 <figures/spin_probability.pdf, id=1802, 458.57823pt x 243.59608pt>
 File: figures/spin_probability.pdf Graphic file (type pdf)
 <use figures/spin_probability.pdf>
-Package pdftex.def Info: figures/spin_probability.pdf  used on input line 5285.
+Package pdftex.def Info: figures/spin_probability.pdf  used on input line 5284.
 
 (pdftex.def)             Requested size: 469.75502pt x 249.53891pt.
  [76]
@@ -903,13 +903,13 @@ Package pdftex.def Info: figures/spin_probability.pdf  used on input line 5285.
 <figures/boosted_fields.pdf, id=1893, 377.12093pt x 198.65819pt>
 File: figures/boosted_fields.pdf Graphic file (type pdf)
 <use figures/boosted_fields.pdf>
-Package pdftex.def Info: figures/boosted_fields.pdf  used on input line 5493.
+Package pdftex.def Info: figures/boosted_fields.pdf  used on input line 5492.
 (pdftex.def)             Requested size: 469.75502pt x 247.4703pt.
  [79] [80 <./figures/boosted_fields.pdf>] [81] [82] [83] [84]
 <figures/metric_expansion.pdf, id=1996, 430.81653pt x 237.03154pt>
 File: figures/metric_expansion.pdf Graphic file (type pdf)
 <use figures/metric_expansion.pdf>
-Package pdftex.def Info: figures/metric_expansion.pdf  used on input line 5903.
+Package pdftex.def Info: figures/metric_expansion.pdf  used on input line 5902.
 
 (pdftex.def)             Requested size: 469.75502pt x 258.45691pt.
  [85] [86 <./figures/metric_expansion.pdf>]
@@ -917,7 +917,7 @@ Package pdftex.def Info: figures/metric_expansion.pdf  used on input line 5903.
 File: figures/coordinates_curvature.pdf Graphic file (type pdf)
 <use figures/coordinates_curvature.pdf>
 Package pdftex.def Info: figures/coordinates_curvature.pdf  used on input line
-5973.
+5972.
 (pdftex.def)             Requested size: 469.75502pt x 346.40222pt.
  [87]
 [88 <./figures/coordinates_curvature.pdf>] [89]
@@ -925,13 +925,13 @@ Package pdftex.def Info: figures/coordinates_curvature.pdf  used on input line
 File: figures/metric_schwarzschild.pdf Graphic file (type pdf)
 <use figures/metric_schwarzschild.pdf>
 Package pdftex.def Info: figures/metric_schwarzschild.pdf  used on input line 6
-163.
+162.
 (pdftex.def)             Requested size: 469.75502pt x 294.52963pt.
  [90] [91 <./figures/metric_schwarzschild.pdf>]
 <figures/metric_kerr.pdf, id=2186, 376.48354pt x 236.52365pt>
 File: figures/metric_kerr.pdf Graphic file (type pdf)
 <use figures/metric_kerr.pdf>
-Package pdftex.def Info: figures/metric_kerr.pdf  used on input line 6266.
+Package pdftex.def Info: figures/metric_kerr.pdf  used on input line 6265.
 (pdftex.def)             Requested size: 469.75502pt x 295.1305pt.
  [92] [93 <./figures/metric_kerr.pdf>] [94
 
@@ -947,13 +947,13 @@ Package pdftex.def Info: figures/metric_kerr.pdf  used on input line 6266.
 ] [108
 
 ] [109] [110]
-Underfull \hbox (badness 4505) in paragraph at lines 7476--7481
+Underfull \hbox (badness 4505) in paragraph at lines 7475--7480
 []\OT1/cmr/m/n/10.95 (+20) W. E. Baylis and G. Sobczyk, ``Rel-a-tiv-ity in Clif
 -ford's ge-o-met-ric al-ge-bras of
  []
 
 
-Underfull \hbox (badness 2359) in paragraph at lines 7476--7481
+Underfull \hbox (badness 2359) in paragraph at lines 7475--7480
 \OT1/cmr/m/n/10.95 (+20) space and space-time,'' \OT1/cmr/m/it/10.95 (+20) Int.
  J. Theor. Phys.\OT1/cmr/m/n/10.95 (+20) , vol. 43, pp. 2061--2079, 2004, doi:
  []
@@ -970,42 +970,43 @@ Package rerunfilecheck Info: File `sta_notes.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  29216 strings out of 469514
- 562688 string characters out of 5470072
- 1046903 words of memory out of 5000000
+ 562704 string characters out of 5470072
+ 1046897 words of memory out of 5000000
  56510 multiletter control sequences out of 15000+600000
  653502 words of font info for 230 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 98i,18n,118p,1006b,1061s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,19n,118p,1006b,1061s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/luke/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600p
 k></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cmextra/cmmib9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-tt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msa
-m10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm
-10.pfb>
-Output written on sta_notes.pdf (117 pages, 993585 bytes).
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cme
+xtra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmex
+tra/cmmib9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
+i10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+
+Output written on sta_notes.pdf (117 pages, 1005241 bytes).
 PDF statistics:
- 3065 PDF objects out of 3580 (max. 8388607)
- 2728 compressed objects within 28 object streams
+ 3070 PDF objects out of 3580 (max. 8388607)
+ 2731 compressed objects within 28 object streams
  680 named destinations out of 1000 (max. 500000)
  54794 words of extra memory for PDF output out of 61914 (max. 10000000)
 

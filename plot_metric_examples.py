@@ -22,9 +22,7 @@ SPIN = ELL_SQUARED * OMEGA  # Specific angular momentum divided by Gm.
 HORIZON = ELL_SQUARED / 2  # Ellipsoidal radius epsilon_+ / (Gm).
 
 PREAMBLE = r"""\documentclass[11pt,border=3pt]{standalone}
-\usepackage{amsmath,bm}
-% Bold mathematical lettering for vectors and matrices.
-\newcommand{\vstyle}[1]{{\bm{#1}}}
+\usepackage{amsmath}
 \usepackage{pgfplots}
 \usepgfplotslibrary{groupplots}
 \usetikzlibrary{arrows.meta}
@@ -163,7 +161,7 @@ def schwarzschild():
     # Exact solution of dr/dt = -1/(r+1), starting at r=3 when t=0.
     observer = lambda t: -1 + sqrt(16 - 2*t)
     tex += curve([(observer(t), t) for t in samples(0, 5.2)], "frameblack,dashed,line width=1.2pt")
-    tex += r"\addlegendentry{Frame observer: $d\vstyle{r}'=0$}" + "\n"
+    tex += r"\addlegendentry{Frame observer: $d\boldsymbol r'=0$}" + "\n"
     for t in (1.1, 4.4):
         tex += line((observer(t), t), (observer(t+0.2), t+0.2),
                     "frameblack,line width=1.2pt,-{Stealth[length=4pt]}")
@@ -210,7 +208,7 @@ def kerr():
         tex += note(sqrt(epsilon**2+SPIN**2)*sin(theta), epsilon*cos(theta),
                     rf"$\epsilon={epsilon}\,Gm$")
     tex += line((0, 2.5), (0, 3.35), "frameblack,-{Stealth[length=4pt]}")
-    tex += note(0.15, 2.95, r"$\vstyle{\omega}$", "anchor=west")
+    tex += note(0.15, 2.95, r"$\boldsymbol\omega$", "anchor=west")
     tex += note(0, -0.3, r"\shortstack{Inside the\\horizon}", "fill=frameblack!6")
     tex += r"""\nextgroupplot[
  title={Kerr: equatorial slice},

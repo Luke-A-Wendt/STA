@@ -32,14 +32,14 @@ def frenet_figure():
     body += note(-.08, .52, r"$1/k$", "anchor=east")
     body += note(-1.23, 1.79, "osculating circle", "anchor=south west")
     body += line((0, 0), (.76, 0), "plotgray,-{Latex[length=2.5mm]},line width=1.5pt")
-    body += note(.76, -.07, r"$\vstyle{u}$ (tangent)", "anchor=north")
+    body += note(.76, -.07, r"$\bm u$ (tangent)", "anchor=north")
     body += line((0, 0), (0, .76), "plotgray,-{Latex[length=2.5mm]},line width=1.5pt")
-    body += note(.075, .72, r"$\vstyle{u}'$ (normal)", "anchor=west")
+    body += note(.075, .72, r"$\bm u'$ (normal)", "anchor=west")
     body += r"""
 \draw[plotgray,line width=1.2pt,fill=white] (axis cs:0,0) circle (3.5pt);
 \fill[plotgray] (axis cs:0,0) circle (1.2pt);
 """
-    body += note(-.1, -.12, r"$\vstyle{u}''$ out of the page", "anchor=north east")
+    body += note(-.1, -.12, r"$\bm u''$ out of the page", "anchor=north east")
     # A second tangent arrow demonstrates that the frame follows the path.
     q = -1.05
     tangent = (1/sqrt(1+q*q), q/sqrt(1+q*q))
@@ -66,12 +66,12 @@ def frenet_figure():
     body += line(origin, tangential, "plotgray,-{Latex[length=2.7mm]},line width=1.5pt")
     body += line(origin, normal_end, "plotgray,-{Latex[length=2.7mm]},line width=1.5pt")
     body += line(origin, total, "black,-{Latex[length=2.8mm]},line width=1.8pt")
-    body += note(.85, -.11, r"$\dot v\,\vstyle{u}$", "anchor=north,text=black")
+    body += note(.85, -.11, r"$\dot v\,\bm u$", "anchor=north,text=black")
     body += note(.85, -.36, "changes speed", "anchor=north")
-    body += note(-.09, 1.72, r"$v^2k\,\vstyle{u}'$", "anchor=south,text=black")
+    body += note(-.09, 1.72, r"$v^2k\,\bm u'$", "anchor=south,text=black")
     body += note(-.09, 2.03, "changes direction", "anchor=south")
-    body += note(1.1, 1.36, r"$\dot{\vstyle{v}}$", "anchor=south east")
-    body += note(.85, -.66, r"$\dot{\vstyle{v}}=\dot v\,\vstyle{u}+v^2k\,\vstyle{u}'$", "anchor=north")
+    body += note(1.1, 1.36, r"$\dot{\bm v}$", "anchor=south east")
+    body += note(.85, -.66, r"$\dot{\bm v}=\dot v\,\bm u+v^2k\,\bm u'$", "anchor=north")
     body += r"\end{axis}" + "\n"
     return build_figure("frenet_frame", body)
 
@@ -93,16 +93,16 @@ def spin_figure():
  title={Preparation and measurement},clip=false]
 """
     body += line((0, 0), (0, 2), "plotgray,-{Latex[length=3mm]},line width=1.7pt")
-    body += note(-.04, 2.03, r"$\vstyle{u}'$", "anchor=south east,text=black")
+    body += note(-.04, 2.03, r"$\bm u'$", "anchor=south east,text=black")
     body += note(-.08, 1.68, "prepared", "anchor=east")
     body += line((0, 0), (sqrt(3), 1), "black,-{Latex[length=3mm]},line width=1.7pt")
-    body += note(sqrt(3)+.05, 1.0, r"$\vstyle{u}$", "anchor=west")
+    body += note(sqrt(3)+.05, 1.0, r"$\bm u$", "anchor=west")
     body += note(sqrt(3), .77, "measured", "anchor=north")
     body += curve([(.62*cos(q), .62*sin(q)) for q in samples(pi/6, pi/2, 61)],
                   "black,-{Latex[length=1.8mm]},line width=.9pt")
     body += note(.45, .75, r"$\theta$")
-    body += note(.72, -.24, r"Prepared spin: $+\frac12$ along $\vstyle{u}'$", "anchor=north")
-    body += note(.72, -.58, r"$\vstyle{u}\cdot\vstyle{u}'=\cos\theta$", "anchor=north")
+    body += note(.72, -.24, r"Prepared spin: $+\frac12$ along $\bm u'$", "anchor=north")
+    body += note(.72, -.58, r"$\bm u\cdot\bm u'=\cos\theta$", "anchor=north")
     body += r"""
 \end{axis}
 \begin{axis}[
