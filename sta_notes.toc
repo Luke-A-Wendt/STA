@@ -109,7 +109,7 @@
 \contentsline {subsection}{\numberline {13.4}Field strength from noncommuting derivatives}{61}{subsection.13.4}%
 \contentsline {section}{\numberline {14}The Klein--Gordon equation}{62}{section.14}%
 \contentsline {subsection}{\numberline {14.1}The mass shell as a wave equation}{62}{subsection.14.1}%
-\contentsline {subsection}{\numberline {14.2}Positive and negative frequency}{62}{subsection.14.2}%
+\contentsline {subsection}{\numberline {14.2}Positive and negative frequency}{63}{subsection.14.2}%
 \contentsline {subsection}{\numberline {14.3}Square roots from Fourier series}{63}{subsection.14.3}%
 \contentsline {subsection}{\numberline {14.4}Electromagnetic coupling}{64}{subsection.14.4}%
 \contentsline {section}{\numberline {15}The Dirac equation}{64}{section.15}%
