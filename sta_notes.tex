@@ -212,75 +212,63 @@ probabilities are obtained from the same products and projectors.
 
 \subsection{Notation and physical conventions}
 
-Natural units $\hbar=c=1$, rationalized electromagnetic units,
-and signature $(+,-,-,-)$ are used. SI conversions, including their unit
-assignments and explanations, appear in boxes labeled SI units. Within
-these boxes, the usual symbols carry the stated SI units; outside them,
-natural units apply.
-Scalars use ordinary math lettering. Vectors and matrices use
-upright bold Latin letters (bold glyphs for Greek symbols).
-Paravectors use ordinary math lettering. For example,
+\textbf{Units and type.}
+Natural units $\hbar=c=1$, rationalized electromagnetic units, and
+signature $(+,-,-,-)$ apply except in boxes labeled SI units, where
+symbols carry the stated physical units. Scalars and paravectors use
+ordinary math lettering; vectors and matrices use upright bold Latin
+letters or bold Greek glyphs. Domains distinguish scalars from
+paravectors; letter case carries no type convention. For example,
 \[
- \underbrace{c\in\C}_{\text{scalar}}\qquad
- \underbrace{\bZ\in\C^3}_{\text{vector}}\qquad
- \underbrace{\pZ\in\C\oplus\C^3}_{\text{paravector}}.
+ c\in\C\quad\text{(scalar)},\qquad
+ \bZ\in\C^3\quad\text{(vector)},\qquad
+ \pZ\in\C\oplus\C^3\quad\text{(paravector)}.
 \]
-Latin paravectors and paravector operators use ordinary math lettering, without bold styling. Greek symbols and derivative symbols retain their ordinary glyphs.
-No meaning is assigned by convention to uppercase
-or lowercase letters. The ordered sigma triple $\bsig$ is bold;
-each individual sigma $\pvsigma_k$ is an algebra element in ordinary type.
+Vector derivatives $\pdr$ have a bold derivative and subscript;
+scalar derivatives $\partial_t$ remain ordinary. Likewise, the scalar
+trip distance $\ell$ differs from position $\br$, and paravector momentum
+$\pP$ from its vector part $\bp$. Terminology is compared with the
+literature in Appendix~\ref{sec:conventions}.
 
-Vector derivatives such as $\pdr$ have both the derivative symbol and vector subscript in bold; scalar derivatives such as $\partial_t$ remain unadorned.
-Scalar quantities and coefficient components remain unadorned.
-The scalar trip distance $\ell$ is distinguished from the position vector $\br$.
-Scalar and paravector quantities are distinguished by their stated domains.
-The paravector momentum $\pP$ is distinguished from its vector part $\bp$ by its ordinary lettering, while the vector part is bold.
-
-
-Space--time algebra is developed here using complex paravectors.
-Comparisons with terminology in the literature are collected in
-Appendix~\ref{sec:conventions}.
-
-$c+\bZ\dotprod\bsig$ is identified with its coefficient pair
-$(c,\bZ)\in\C\oplus\C^3$. Real paravectors lie in $\R\oplus\R^3$;
-mixed sums specify the two coefficient spaces separately.
-Values are specified by the direct sum; multiplication is defined by the sigma rules.
-The sigmas $\pvsigma_k\in\{0\}\oplus\R^3$, $k\in\{1,2,3\}$,
-are algebraic objects with order-dependent multiplication rules;
+\textbf{Paravectors and sigmas.}
+The algebra uses coefficient pairs
+$\pZ=c+\bZ\dotprod\bsig\leftrightarrow(c,\bZ)\in\C\oplus\C^3$.
+Real paravectors lie in $\R\oplus\R^3$; mixed sums specify each
+coefficient space separately. Direct sums specify values, while the
+sigma rules define multiplication. Each $\pvsigma_k\in\{0\}\oplus\R^3$
+is an algebra element in ordinary type;
 $\bsig\in(\{0\}\oplus\R^3)^3$ is their ordered triple, not a numerical
-vector in $\R^3$. A numerical vector $\bX\in\R^3$ and its algebra
-image $\bX\dotprod\bsig\in\{0\}\oplus\R^3$ have different types.
+vector in $\R^3$. A numerical $\bX\in\R^3$ and its algebra image
+$\bX\dotprod\bsig$ are distinct types. Spatial indices range over
+$\{1,2,3\}$ unless stated otherwise.
 
-Bold lettering identifies vectors and matrices; the declared domain specifies each quantity's
-dimension and whether its coefficients are real or complex. Numerical
-columns lie in $\R^n$ or $\C^n$, rows in $\R^{1\times n}$ or
-$\C^{1\times n}$, and matrices in $\R^{m\times n}$ or $\C^{m\times n}$,
-with positive integers $m,n$. A column of paravectors instead has entries
-in $\C\oplus\C^3$. Matrix entries and numerical vector components are
-scalars in the stated coefficient field. Identity dimensions are stated
-locally; scalar multiples of an identity may be written as scalars in
-block formulas. Scalar constants $\ii\in\C$, $e,\pi\in\R$, and the
-scalar identity $1$ retain ordinary styling. The coefficient $c\in\C$
-in an algebra decomposition is distinct from the speed of light $c\in\R_{>0}$
-in the SI formulas.
-
-Domains persist within a section unless a specialization is stated.
-Primes, initial-value subscripts, increments, and derivatives with respect
-to real parameters inherit the declared value space unless explicitly
-redefined. Constraints such as unit norm need not survive differentiation.
-Spatial component indices range over $\{1,2,3\}$ unless another range is
-given. An indexed component of a numerical vector is scalar; an indexed
-entry of a paravector tuple is still a paravector.
-For fields, membership states the value at each real spacetime point;
-function notation specifies the independent variables.
-The required regularity is assumed for all differentiations. In particular,
-local differential operators act on smooth fields on the stated open
-coordinate region, with scalar operators acting componentwise on vector,
-matrix, and paravector fields. Their outputs have the declared value spaces;
-an operator itself is not an element of a numerical value space. SI units
-change physical dimensions, not these real or complex value spaces;
+\textbf{Vectors, matrices, and constants.}
+For positive integers $m,n$, numerical columns lie in $\R^n$ or $\C^n$,
+rows in $\R^{1\times n}$ or $\C^{1\times n}$, and matrices in
+$\R^{m\times n}$ or $\C^{m\times n}$; their entries are scalars.
+A paravector column instead has paravector entries.
+Identity dimensions are stated locally; scalar multiples of identities
+may be written as scalars in block formulas.
+The constants $\ii\in\C$, $e,\pi\in\R$, and $1$ retain ordinary type.
+The algebraic coefficient $c\in\C$ differs from the SI speed of light.
+SI units change physical dimensions, not real or complex value spaces;
 $c,\hbar,h,\epsilon_0,\mu_0\in\R_{>0}$ in the SI boxes.
 
+\textbf{Domains and derivatives.}
+Domains persist within a section unless specialized or redefined.
+Primes, initial-value subscripts, increments, and real-parameter
+derivatives inherit the declared value space; differentiation need not
+preserve constraints such as unit norm. An indexed numerical vector
+component is scalar; an indexed paravector-tuple entry remains a
+paravector. For fields, membership specifies the value at each real
+spacetime point, while function notation gives the independent variables.
+Required regularity is assumed. Local differential operators act on
+smooth fields on the stated open coordinate region; scalar operators
+act componentwise on vector, matrix, and paravector fields.
+Outputs have the declared value spaces, but operators themselves are
+not numerical values in those spaces.
+
+\newpage
 \subsection{Sigmas and ordered multiplication}
 
 The sigmas $\pvsigma_n$, $n=1,2,3$, are defined by the multiplication
@@ -1496,8 +1484,6 @@ $\pX=1$: the real, positive $\pT \pT^{\mathsf H}$ can have both determinant and
 norm one only if it is $1$, which makes $\pT$ unitary.  Sufficiency was proved above.
 Normalizing $\pL$ to $\lVert \pL\rVert=1$ would change its determinant
 and lose the Lorentz metric.
-Figure~\ref{fig:boost-geometry} contrasts the determinant hyperbola with
-the coefficient-norm circle and shows their different behavior under boosts.
 
 \paragraph{Every factor separates into a boost and a rotation.}
 For any complex $\pT$, the Hermitian product rule gives
@@ -2072,20 +2058,6 @@ Each norm equals $1$ only at rest in its corresponding frame, whereas
 $\det(\dd\pX'/\dd s)=1$ in every inertial frame.
 Proper time and causality are determined by the determinant; these
 Lorentz transformations would not be obtained by preserving the squared norm.
-
-\begin{figure}[htbp]
- \centering
- \includegraphics[width=\textwidth]{figures/boost_geometry.pdf}
- \caption{Boost geometry in the $t,x$ plane, with $x=\bu\dotprod\br\in\R$.
- The gray primed axes have rapidity $\theta=0.8$.
- The vector $\pU=\pL^{-2}$ is the primed frame's unit time direction,
- expressed in the original coordinates; its components lie on the black
- unit-determinant hyperbola. The boost takes this vector to rest while
- preserving the light directions. The dashed unit-norm circle is not
- preserved. Right: $\det\pU=1$ for every rapidity, whereas
- $\lVert\pU\rVert^2=\cosh(2\theta)$ changes.}
- \label{fig:boost-geometry}
-\end{figure}
 
 \subsection{Spacetime increments and velocity}
 Notation: the real four-velocity $\pU=\dd \pX/\dd s$, an

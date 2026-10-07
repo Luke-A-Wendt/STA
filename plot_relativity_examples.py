@@ -1,67 +1,146 @@
 #!/usr/bin/env python3
-"""Regenerate the boost and midpoint-braking figures with stdlib and PGFPlots.
+"""Regenerate the spacetime and midpoint-braking figures with stdlib and PGFPlots.
 
 Run: python plot_relativity_examples.py
-Natural units c=1. Cyan, black, and gray ink is used on a white background.
+Natural units c=1. All figures use black, gray, and white.
 """
 
-from math import asinh, cos, cosh, isclose, pi, sin, sinh, sqrt, tanh
+from math import asinh, isclose, sqrt
 
 from figure_support import build_figure, curve, line, note, samples
 
 
+def lorentz_event(x, t, beta=0.6):
+    """Return (x', t') for the document's passive, positive-velocity boost."""
+    gamma = 1 / sqrt(1-beta*beta)
+    return gamma*(x-beta*t), gamma*(t-beta*x)
+
+
+def verify_spacetime_examples():
+    # Exact textbook values and interval checks, independent of drawing styles.
+    from fractions import Fraction as F
+    beta, gamma = F(3, 5), F(5, 4)
+    def transform(x, t):
+        return gamma*(x-beta*t), gamma*(t-beta*x)
+    cases = [((3, 5), (0, 4)), ((4, 4), (2, 2)),
+             ((0, 4), (-3, 5)), ((4, F(32, 5)), (F(1, 5), 5)),
+             ((0, 10), (F(-15, 2), F(25, 2)))]
+    for (x, t), expected in cases:
+        xp, tp = transform(x, t)
+        assert (xp, tp) == expected
+        assert tp*tp-xp*xp == t*t-x*x
+    # Same-t events P,Q are spacelike and differ by -3 in primed time.
+    p, q = transform(0, 4), transform(4, 4)
+    assert q[1]-p[1] == -3
+    assert (q[1]-p[1])**2-(q[0]-p[0])**2 == -16
+    # Each leg of the traveling clock accumulates 4, in either frame.
+    o, turn, reunion = (0, 0), (3, 5), (0, 10)
+    for first, last in [(o, turn), (turn, reunion)]:
+        dx, dt = last[0]-first[0], last[1]-first[1]
+        assert dt*dt-dx*dx == 16
+        xp0, tp0 = transform(*first)
+        xp1, tp1 = transform(*last)
+        assert (tp1-tp0)**2-(xp1-xp0)**2 == 16
+    for s in range(5):
+        assert transform(F(3, 4)*s, F(5, 4)*s) == (0, s)
+    print('Verified event coordinates, simultaneity, and proper times in both frames.')
+
+
+def event_dot(x, t):
+    return curve([(x, t)], "black,only marks,mark=*,mark size=2pt,forget plot")
+
+
 def boost_geometry():
-    theta = 0.8
-    beta = tanh(theta)
-    space, time = sinh(theta), cosh(theta)
-    assert isclose(time*time-space*space, 1)
-    assert isclose(time*time+space*space, cosh(2*theta))
-    assert isclose(time*(time-beta*space), 1)
-    assert abs(time*(space-beta*time)) < 1e-14
-    tex = r"""\begin{groupplot}[group style={group size=2 by 1,horizontal sep=1.4cm}]
-\nextgroupplot[grid style={black!18},
- title={Boosted axes and invariant hyperbola},
- xlabel={$x=\boldsymbol u\cdot\boldsymbol r$},ylabel={$t$},
- xmin=-0.12,xmax=2.1,ymin=-0.12,ymax=2.25,
- width=7.65cm,height=7.4cm,axis equal image,
- xtick={0,1,2},ytick={0,1,2},grid=none,
- axis lines=middle,clip=false,
- legend style={at={(0.5,-0.17)},anchor=north},
-]
+    """One clock and one light signal, drawn in two inertial coordinate charts."""
+    verify_spacetime_examples()
+    tex = r"""\begin{groupplot}[
+ group style={group size=2 by 1,horizontal sep=1.3cm},
+ width=7.8cm,height=6.8cm,axis equal image,
+ xmin=-4.5,xmax=5.5,ymin=-.5,ymax=6.5,
+ xtick={-4,-2,0,2,4},ytick={0,1,2,3,4,5,6},
+ grid=none,clip=false]
+\nextgroupplot[title={Lab frame},xlabel={$x$},ylabel={$t$}]
 """
-    tex += line((0, 0), (2.05, 2.05), "black!45,densely dotted,line width=1.2pt")
-    tex += note(1.7, 1.91, "Light", "text=black,fill=none,rotate=45")
-    tex += curve([(sinh(h), cosh(h)) for h in samples(0, 1.43)], "black,line width=1.4pt")
-    tex += r"\addlegendentry{$t^2-x^2=1$: determinant}"+"\n"
-    tex += curve([(sin(h), cos(h)) for h in samples(0, pi/2)], "black,dashed,line width=1.2pt")
-    tex += r"\addlegendentry{$t^2+x^2=1$: coefficient norm}"+"\n"
-    tex += line((0, 0), (1.2, 1.2/beta), "black!65,line width=0.85pt,-{Stealth[length=4pt]}")
-    tex += line((0, 0), (1.93, 1.93*beta), "black!65,line width=0.85pt,-{Stealth[length=4pt]}")
-    tex += note(1.17, 2.07, r"$t'$ axis", "text=black")
-    tex += note(1.79, 1.1, r"$x'$ axis", "text=black")
-    tex += curve([(0, 1), (space, time)], "black,only marks,mark=*,mark size=2pt")
-    tex += note(0.14, 1.11, r"$U(0)$", "anchor=west")
-    tex += note(space+0.12, time+0.12, r"$U(\theta)$", "anchor=west")
-    tex += note(0.17, 2.1, r"$\theta=0.8$", "anchor=west")
-    tex += r"""\nextgroupplot[grid style={black!18},
- title={What a boost preserves},
- xlabel={Rapidity $\theta$},ylabel={Squared quantity},
- xmin=0,xmax=1.22,ymin=0,ymax=6.15,
- width=7.65cm,height=7.4cm,
- xtick={0,0.4,0.8,1.2},ytick={0,1,2,3,4,5,6},
- legend style={at={(0.5,-0.17)},anchor=north},
-]
+    for primed in (False, True):
+        if primed:
+            tex += r"\nextgroupplot[title={Moving clock's rest frame},xlabel={$x'$},ylabel={$t'$}]"+'\n'
+        # A 1+1-dimensional slice of the future cone; equal unit scales.
+        tex += r"\fill[black!4] (axis cs:0,0) -- (axis cs:-4.5,4.5) -- (axis cs:-4.5,6.5) -- (axis cs:5.5,6.5) -- (axis cs:5.5,5.5) -- cycle;"+'\n'
+        for sign in (-1, 1):
+            tex += line((0, 0), (sign*(4.5 if sign<0 else 5.5), 4.5 if sign<0 else 5.5), "black,densely dotted,line width=.8pt")
+        # Reference lab origin and the clock worldline share the event O.
+        tex += line((0, 0), (-3.6, 6) if primed else (0, 6), "black,line width=1pt")
+        points = [(0.75*s, 1.25*s) for s in range(5)]
+        if primed:
+            points = [lorentz_event(*p) for p in points]
+        tex += curve(points, "black,dashed,line width=1.6pt")
+        for s, (x, t) in enumerate(points[1:-1], 1):
+            tex += curve([(x, t)], "black,only marks,mark=o,mark options={fill=white},mark size=1.7pt,forget plot")
+            tex += note(x+.15 if primed else x-.15, t+.06, f'${s}$',
+                        'anchor=west' if primed else 'anchor=east')
+        a = points[-1]
+        light = lorentz_event(4, 4) if primed else (4, 4)
+        tex += event_dot(0, 0)+event_dot(*a)+event_dot(*light)
+        tex += note(-.18, -.08, '$O$', 'anchor=north east,fill=none')
+        tex += note(a[0]+.15, a[1]+.15, r"$A:\ s=4$", 'anchor=south west')
+        tex += note(light[0]+.15, light[1], '$L$', 'anchor=west')
+        tex += note(2.5 if primed else -2.5, 5.7, 'future light cone', 'fill=none')
+    tex += r"""\end{groupplot}
+\node[anchor=north,align=center,font=\small] at
+ ($(group c1r1.south)!0.5!(group c2r1.south)+(0,-1.05cm)$)
+ {Same events: $A:(x,t)=(3,5)\ \longleftrightarrow\ (x',t')=(0,4)$\\[3pt]
+ Light signal: $L:(4,4)\ \longleftrightarrow\ (2,2)$;\quad $O:(0,0)$ in both frames.};
 """
-    tex += curve([(h, 1) for h in (0, 1.2)], "black,line width=1.4pt")
-    tex += r"\addlegendentry{$\det U=1$}"+"\n"
-    tex += curve([(h, cosh(2*h)) for h in samples(0, 1.2)], "black,dashed,line width=1.4pt")
-    tex += r"\addlegendentry{$\lVert U\rVert^2=\cosh(2\theta)$}"+"\n"
-    tex += line((theta, 0), (theta, cosh(2*theta)), "black!45,densely dotted")
-    tex += curve([(theta, 1)], "black,only marks,mark=*,mark size=2pt")
-    tex += curve([(theta, cosh(2*theta))], "black,only marks,mark=*,mark size=2pt")
-    tex += note(0.44, 4.9, r"$U=\cosh\theta+\sinh\theta\,\boldsymbol u\cdot\boldsymbol\sigma$")
-    tex += note(0.23, 3.65, r"$\beta=\tanh\theta$", "anchor=west")
-    tex += "\\end{groupplot}\n"
+    return tex
+
+
+def spacetime_examples():
+    """Relativity of simultaneity and the path dependence of proper time."""
+    verify_spacetime_examples()
+    tex = r"""\begin{groupplot}[
+ group style={group size=2 by 1,horizontal sep=1.8cm},
+ width=7.6cm,height=8.5cm,axis equal image,grid=none,clip=false]
+\nextgroupplot[title={Which events are simultaneous?},
+ xlabel={$x$},ylabel={$t$},xmin=-1.4,xmax=5.4,ymin=-.5,ymax=7.4,
+ xtick={0,2,4},ytick={0,2,4,6}]
+\fill[black!4] (axis cs:0,0) -- (axis cs:-1.4,1.4) -- (axis cs:-1.4,7.4) -- (axis cs:5.4,7.4) -- (axis cs:5.4,5.4) -- cycle;
+"""
+    for sign in (-1, 1):
+        tex += line((0, 0), (sign*(1.4 if sign<0 else 5.4), 1.4 if sign<0 else 5.4), 'black,densely dotted,line width=.8pt')
+    tex += line((0, 0), (4.2, 7), 'black,line width=1pt,-{Stealth[length=3pt]}')
+    tex += line((0, 0), (5, 3), 'black,line width=1pt,-{Stealth[length=3pt]}')
+    tex += note(4.25, 7.06, "$t'$ axis", 'anchor=south')
+    tex += note(4.85, 2.75, "$x'$ axis", 'anchor=north')
+    tex += line((-1, 4), (5, 4), 'black,line width=.8pt')
+    tex += line((-1, 3.4), (5, 7), 'black,line width=.8pt')
+    tex += note(1.7, 4.06, '$t=4$', 'anchor=south')
+    tex += note(1.8, 5.18, "$t'=5$", 'anchor=south,rotate=31')
+    for (x, t), label, opts in [((0, 0), '$O$', 'anchor=north east'),
+                               ((0, 4), '$P$', 'anchor=south east'),
+                               ((4, 4), '$Q$', 'anchor=south east'),
+                               ((4, 6.4), '$R$', 'anchor=south east')]:
+        tex += event_dot(x, t)+note(x-.07, t+.08, label, opts)
+    tex += r"""\nextgroupplot[title={Reunited clocks},
+ xlabel={$x$},ylabel={$t$},xmin=-4.2,xmax=4.2,ymin=-.5,ymax=10.8,
+ xtick={-4,-2,0,2,4},ytick={0,2,4,6,8,10}]
+\fill[black!4] (axis cs:0,0) -- (axis cs:4.2,4.2) -- (axis cs:4.2,5.8) -- (axis cs:0,10) -- (axis cs:-4.2,5.8) -- (axis cs:-4.2,4.2) -- cycle;
+"""
+    for sign in (-1, 1):
+        tex += line((0, 0), (sign*4.2, 4.2), 'black,densely dotted,line width=.8pt')
+        tex += line((0, 10), (sign*4.2, 5.8), 'black,densely dotted,line width=.8pt')
+    tex += line((0, 0), (0, 10), 'black,line width=1.3pt')
+    tex += curve([(0, 0), (3, 5), (0, 10)], 'black,dashed,line width=1.5pt')
+    for x, t, s in [(1.5, 2.5, 2), (1.5, 7.5, 6)]:
+        tex += curve([(x, t)], 'black,only marks,mark=o,mark options={fill=white},mark size=1.7pt,forget plot')
+        tex += note(x+.12, t, f'$s={s}$', 'anchor=west')
+    tex += event_dot(0, 0)+note(-.15, -.05, '$O$', 'anchor=north east')
+    tex += event_dot(3, 5)+note(3, 5.3, r'$T:\ s=4$', 'anchor=south east')
+    tex += event_dot(0, 10)+note(0, 10.2, '$D$', 'anchor=south')
+    tex += note(-.2, 7, r'\shortstack{Stay:\\$s=t$}', 'anchor=east')
+    tex += note(-.2, 9.4, '$s=10$', 'anchor=east')
+    tex += note(.5, 9.4, '$s=8$', 'anchor=west')
+    tex += note(2.5, 1.5, 'Travel', 'anchor=west')
+    tex += r"\end{groupplot}"+'\n'
     return tex
 
 
@@ -168,4 +247,5 @@ def rocket_trip():
 
 if __name__ == "__main__":
     build_figure("boost_geometry", boost_geometry())
+    build_figure("spacetime_examples", spacetime_examples())
     build_figure("rocket_trip", rocket_trip())

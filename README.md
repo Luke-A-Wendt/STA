@@ -781,7 +781,7 @@ With $`{\Pi} _\pm\ne0`$ and $`\hat E_q=\mathrm i\partial_t-qV`$:
 
 Opposite [Zeeman shifts](https://en.wikipedia.org/wiki/Zeeman_effect) are obtained for [spin](https://en.wikipedia.org/wiki/Spin-1/2) $`\pm\tfrac12`$ along $`{𝐮}`$; orbital coupling is retained in [kinetic momentum](https://en.wikipedia.org/wiki/Momentum_operator#Definition_(position_space)) $`\hat{{𝐏}}_q=-\mathrm i{𝝏}_{{𝐫}}-q{𝐀}`$.
 
-With the rest-energy phase removed, the four scalar fields $`\phi_{ab}:\mathbb R^4\to\mathbb C`$, $`a,b\in\{+,-\}`$, are arranged as the matrix field $`{𝝓}:\mathbb R^4\to\mathbb C^{2\times2}`$:
+With the rest-energy phase removed, the four scalar fields $`\phi_\pm`$, are arranged as the matrix field $`{𝝓}\in\mathbb C^{2\times2}`$:
 
 ```math
 {𝝓}:=\left(\,\begin{matrix}
