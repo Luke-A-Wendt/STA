@@ -4624,28 +4624,28 @@ The original first-order constraint is the coupled pair~\citeat{tong-qft}{Eq.~(4
 
 On one Fourier mode, the eigenvalue $s\in\C$ is defined by $\hD(m)\bpsi=s\bpsi$
 for a nonzero amplitude.  The spectral parameter $s$ here is distinct from proper time.
-Write $\Box\bpsi=\lambda_{\Box}\bpsi$, with
-$\lambda_{\Box}=-E^2+\bp^2\in\R$ for real mode energy $E$ and momentum $\bp$.
+Write $\Box\bpsi=\lambda\bpsi$, with
+$\lambda=-E^2+\bp^2\in\R$ for real mode energy $E$ and momentum $\bp$.
 Thus $\Box$ remains a differential operator.
 Since $\hD(m)+m\bI=\Wop(\hP)$, \eqref{eq:dirac-free-factorization} gives
 \[
  (\hD(m)+m\bI)^2\bpsi=-\Box\bpsi
  \quad\Longrightarrow\quad
- \bigl((s+m)^2+\lambda_{\Box}\bigr)\bpsi=0.
+ \bigl((s+m)^2+\lambda\bigr)\bpsi=0.
 \]
 Thus the eigenvalues are
 \[
- s=-m\pm\ii\sqrt{\lambda_{\Box}}.
+ s=-m\pm\ii\sqrt{\lambda}.
 \]
 When distinct, each allows two independent complex coefficients in
 $\pvpsi_+$, with $\pvpsi_-=\ii\pvpartial^*\pvpsi_+/(s+m)$.
 Each root therefore occurs twice, giving the scalar characteristic equation
 \begin{equation}
- \boxed{\bigl((s+m)^2+\lambda_{\Box}\bigr)^2=0.}
+ \boxed{\bigl((s+m)^2+\lambda\bigr)^2=0.}
  \label{eq:dirac-characteristic}
 \end{equation}
-At $\lambda_{\Box}=0$ the roots coalesce with total algebraic multiplicity four.
-For KG modes, $\lambda_{\Box}=-m^2$, so $s=0,-2m$; the Dirac equation selects $s=0$.
+At $\lambda=0$ the roots coalesce with total algebraic multiplicity four.
+For KG modes, $\lambda=-m^2$, so $s=0,-2m$; the Dirac equation selects $s=0$.
 The matrix verification is \eqref{eq:matrix-dirac-characteristic}.
 
 \subsection{Reconstructing free solutions from Klein--Gordon}
@@ -6667,18 +6667,18 @@ of a four-component column:
 
 \paragraph{Characteristic polynomial.}
 On one Fourier mode, $s\in\C$ is the spectral parameter and
-$\lambda_{\Box}=-E^2+\bp^2\in\R$ is the wave-operator eigenvalue
+$\lambda=-E^2+\bp^2\in\R$ is the wave-operator eigenvalue
 for $E\in\R$, $\bp\in\R^3$; $s$ is not proper time here.
 Each differential-operator block in the determinant is evaluated on that mode.  The two off-diagonal blocks multiply to
-$-\lambda_{\Box}\bI_2$, so block elimination gives the ordinary matrix determinant
+$-\lambda\bI_2$, so block elimination gives the ordinary matrix determinant
 \begin{equation}
  \begin{aligned}
  \det\begin{Bmatrix}
  -(s+m)\bI_2&\operatorname{mat}(\ii\pvpartial)\\
  \operatorname{mat}(\ii\pvpartial^*)&-(s+m)\bI_2
  \end{Bmatrix}
- &=\det\!\left(\bigl((s+m)^2+\lambda_{\Box}\bigr)\bI_2\right)\\
- &=\bigl((s+m)^2+\lambda_{\Box}\bigr)^2.
+ &=\det\!\left(\bigl((s+m)^2+\lambda\bigr)\bI_2\right)\\
+ &=\bigl((s+m)^2+\lambda\bigr)^2.
  \end{aligned}
  \label{eq:matrix-dirac-characteristic}
 \end{equation}
