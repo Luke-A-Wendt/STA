@@ -18,16 +18,17 @@
 \usepackage[dvipsnames]{xcolor}
 % Central paravector styles; change these definitions to restyle all aliases.
 % Usage: \pv{X} for Latin symbols; \pvGreek{\psi} for Greek symbols/operators.
-% Latin paravectors are calligraphic, never bold; Greek symbols retain their usual glyphs.
-\newcommand{\pv}[1]{{\mathcal{#1}}}
+% Paravectors use ordinary, nonbold mathematical lettering.
+\newcommand{\pv}[1]{{#1}}
 \newcommand{\pvGreek}[1]{{#1}}
+% Bold mathematical lettering for vectors and matrices.
 \newcommand{\vstyle}[1]{{\bm{#1}}}
 \newcommand{\pA}{\pv{A}}
 \newcommand{\pB}{\pv{B}}
 \newcommand{\pF}{\pv{F}}
 \newcommand{\pG}{\pv{G}}
-\newcommand{\pSigmaTPrime}{\pvsigma'_t}
-\newcommand{\bsigRPrime}{\bsig'_r}
+\newcommand{\peT}{\pv{e}_t}
+\newcommand{\beR}{\vstyle{e}_r}
 \newcommand{\pJ}{\pv{J}}
 \newcommand{\pL}{\pv{L}}
 \newcommand{\pN}{\pv{N}}
@@ -125,7 +126,7 @@
 \newcommand{\hEq}{\hat E_q}
 \newcommand{\hbpq}{\hat{\bp}_q}
 \newcommand{\hPq}{\hP_q}
-\newcommand{\hH}{\hat H}
+\newcommand{\hH}{\hat{\vstyle{H}}}
 \newcommand{\hOmega}{\hat\Omega}
 \newcommand{\pdr}{\partial_{\br}}
 \newcommand{\rev}[1]{#1^{\mathsf H}}
@@ -215,8 +216,8 @@ and signature $(+,-,-,-)$ are used. SI conversions, including their unit
 assignments and explanations, appear in boxes labeled SI units. Within
 these boxes, the usual symbols carry the stated SI units; outside them,
 natural units apply.
-Vectors and matrices of objects are bold. Latin paravector symbols and
-paravector operators are calligraphic, as in $\pX$, and are not bold.
+Vectors and matrices of objects are bold math italic. Latin paravector symbols and
+paravector operators use ordinary, nonbold math lettering, as in $\pX$.
 Greek paravector symbols retain their usual, nonbold glyphs.
 No meaning is assigned by convention to uppercase
 or lowercase letters. The ordered sigma triple $\bsig$ is bold;
@@ -226,7 +227,7 @@ Derivatives such as $\partial_t$ and $\pdr$ retain bold vector subscripts.
 Scalar quantities and coefficient components remain unadorned.
 The scalar trip distance $\ell$ is distinguished from the position vector $\br$.
 Scalar and paravector quantities are distinguished by their stated domains.
-The paravector momentum $\pP$ is distinguished from its vector part $\bp$ by calligraphic lettering.
+The paravector momentum $\pP$ is nonbold; its vector part $\bp$ is bold.
 
 
 Space--time algebra is developed here using complex paravectors.
@@ -282,11 +283,11 @@ For complex vectors, the same formulas are used for dot and cross products,
 with neither factor conjugated.
 The elementary Cartesian vectors used below are the real vectors
 \[
- \bm e_1=\{1,0,0\},\qquad
- \bm e_2=\{0,1,0\},\qquad
- \bm e_3=\{0,0,1\}.
+ \vstyle{e}_1=\{1,0,0\},\qquad
+ \vstyle{e}_2=\{0,1,0\},\qquad
+ \vstyle{e}_3=\{0,0,1\}.
 \]
-Thus $\bm e_k\dotprod\bsig=\pvsigma_k$; the scalar basis element is $1$.
+Thus $\vstyle{e}_k\dotprod\bsig=\pvsigma_k$; the scalar basis element is $1$.
 Unindexed $e$ denotes only Euler's number.
 
 A basis over $\R$ is provided by the eight elements
@@ -4893,7 +4894,7 @@ or longer, gives $\pvphi_-=O(v\pvphi_+)$ and omitted energy terms of order $mv^4
 \subsection{Spin components in a uniform magnetic field}
 \label{sec:uniform-spin}
 
-For a constant field $\bm B\in\R^3\setminus\{0\}$, its \hyperref[def:real-unit-vector]{unit direction} and \hyperref[sec:algebra-projectors]{spin projectors} are defined by:
+For a constant field $\vstyle{B}\in\R^3\setminus\{0\}$, its \hyperref[def:real-unit-vector]{unit direction} and \hyperref[sec:algebra-projectors]{spin projectors} are defined by:
 
 \[
 \vstyle{u}:=\frac{\vstyle{B}}{\lVert\vstyle{B}\rVert}\in\R^3,
@@ -4911,7 +4912,7 @@ For a constant field $\bm B\in\R^3\setminus\{0\}$, its \hyperref[def:real-unit-v
 \]
 
 The two spin amplitudes $\phi_{++},\phi_{+-}:\R^4\to\C$ are encoded in an aligned paravector
-$\pvphi_+:\R^4\to\mathrm{span}_{\C}\{1,\bm u\dotprod\bsig\}\subset\C\oplus\C^3$
+$\pvphi_+:\R^4\to\mathrm{span}_{\C}\{1,\vstyle{u}\dotprod\bsig\}\subset\C\oplus\C^3$
 by spectral decomposition:
 \[
 \begin{aligned}
@@ -4924,9 +4925,9 @@ Constant $\pvPi_\pm$ commute with $\hEq$ and $\hbpq^2$,
 so the Pauli equation gives
 \[
 \begin{aligned}
-0&=\pvPi_\pm\left(2m\hEq-\hbpq^2+q\bm B\dotprod\bsig\right)\pvphi_+\\
+0&=\pvPi_\pm\left(2m\hEq-\hbpq^2+q\vstyle{B}\dotprod\bsig\right)\pvphi_+\\
 &=\left(\left(2m\hEq-\hbpq^2
-\pm q\lVert\bm B\rVert\right)\phi_{+\pm}\right)\pvPi_\pm.
+\pm q\lVert\vstyle{B}\rVert\right)\phi_{+\pm}\right)\pvPi_\pm.
 \end{aligned}
 \]
 
@@ -4934,13 +4935,13 @@ Since $\pvPi_\pm\ne0$, the scalar coefficients vanish.
 Restoring $\hEq=\ii\partial_t-qV$ gives
 \[
 \boxed{\ii\partial_t\phi_{+\pm}=
-\left(\frac{\hbpq^2\mp q\lVert\bm B\rVert}{2m}+qV\right)\phi_{+\pm}.}
+\left(\frac{\hbpq^2\mp q\lVert\vstyle{B}\rVert}{2m}+qV\right)\phi_{+\pm}.}
 \]
 
-States with \hyperref[sec:spin-half]{spin projections} $\pm\tfrac12$ along $\bm u$ have opposite
+States with \hyperref[sec:spin-half]{spin projections} $\pm\tfrac12$ along $\vstyle{u}$ have opposite
 \hyperref[sec:uniform-spin]{Zeeman shifts}. The
 \hyperref[eq:mechanical-momentum-operator]{kinetic momentum}
-$\hbpq=-\ii\partial_{\bm r}-q\bm A$ retains the orbital coupling.
+$\hbpq=-\ii\partial_{\vstyle{r}}-q\vstyle{A}$ retains the orbital coupling.
 
 The separation $\Delta E$ of the two spin-energy contributions, excluding
 orbital energy, is
@@ -4969,7 +4970,7 @@ the rest-energy phase, are arranged as:
 \]
 Dirac blocks are indexed by rows and spin projections by columns; the upper row is governed by the Pauli limit.
 
-In a basis diagonalizing $\bm u\dotprod\bsig$, the aligned paravector is
+In a basis diagonalizing $\vstyle{u}\dotprod\bsig$, the aligned paravector is
 $\mathrm{diag}(\phi_{++},\phi_{+-})$. The corresponding spinor in the
 fixed subspace of \eqref{eq:axis-ideal-components} is
 $\phi_{++}\pZ_++\phi_{+-}\pZ_-$, where constant orthonormal $\pZ_\pm$ satisfy
@@ -4996,12 +4997,12 @@ sectors; the magnetic term commutes with its own projectors.
 
 \subsection{Evolution about an alternate spin axis}
 \label{sec:alternate-spin-alignment}
-A constant unit vector $\bm u'\in\R^3$ and $0\le\theta\le\pi$ are chosen.
+A constant unit vector $\vstyle{u}'\in\R^3$ and $0\le\theta\le\pi$ are chosen.
 Initial scalar wavefunctions $\phi_{++},\phi_{+-}:\R^3\to\C$ are chosen along this axis:
 \[
 \begin{gathered}
-\bm u'\dotprod\bm u=\cos\theta,\qquad
-\pvPi_\pm':=\frac12(1\pm\bm u'\dotprod\bsig)\in\R\oplus\R^3,\\
+\vstyle{u}'\dotprod\vstyle{u}=\cos\theta,\qquad
+\pvPi_\pm':=\frac12(1\pm\vstyle{u}'\dotprod\bsig)\in\R\oplus\R^3,\\
 \pvphi_+(0)=\phi_{++}\pvPi_+'+\phi_{+-}\pvPi_-'\in\C\oplus\C^3.
 \end{gathered}
 \]
@@ -5009,10 +5010,10 @@ Initial scalar wavefunctions $\phi_{++},\phi_{+-}:\R^3\to\C$ are chosen along th
 The magnetic term has both diagonal and off-diagonal parts in these projectors:
 \[
 \begin{aligned}
-\pvPi_\pm'(\bm u\dotprod\bsig)\pvPi_\pm'
+\pvPi_\pm'(\vstyle{u}\dotprod\bsig)\pvPi_\pm'
 &=\pm\cos\theta\,\pvPi_\pm',\\
-\pvPi_\mp'(\bm u\dotprod\bsig)\pvPi_\pm'
-&=\bigl((\bm u-\cos\theta\,\bm u')\dotprod\bsig\bigr)\pvPi_\pm'.
+\pvPi_\mp'(\vstyle{u}\dotprod\bsig)\pvPi_\pm'
+&=\bigl((\vstyle{u}-\cos\theta\,\vstyle{u}')\dotprod\bsig\bigr)\pvPi_\pm'.
 \end{aligned}
 \]
 
@@ -5020,17 +5021,17 @@ By projection of the Pauli equation,
 \[
 \begin{aligned}
 2m\hEq\pvPi_\pm'\pvphi_+
-&=\left(\hbpq^2\mp q\lVert\bm B\rVert\cos\theta\right)\pvPi_\pm'\pvphi_+\\
-&\quad-q\lVert\bm B\rVert
-\pvPi_\pm'(\bm u\dotprod\bsig)\pvPi_\mp'\pvphi_+.
+&=\left(\hbpq^2\mp q\lVert\vstyle{B}\rVert\cos\theta\right)\pvPi_\pm'\pvphi_+\\
+&\quad-q\lVert\vstyle{B}\rVert
+\pvPi_\pm'(\vstyle{u}\dotprod\bsig)\pvPi_\mp'\pvphi_+.
 \end{aligned}
 \]
 
 Initially $\pvPi_\mp'\pvphi_+(0)\pvPi_\pm'=0$, but
 \[
 \left.\ii\partial_t\bigl(\pvPi_\mp'\pvphi_+\pvPi_\pm'\bigr)\right|_{t=0}
-=-\frac{q\lVert\bm B\rVert}{2m}\,
-\phi_{+\pm}\bigl((\bm u-\cos\theta\,\bm u')\dotprod\bsig\bigr)\pvPi_\pm'.
+=-\frac{q\lVert\vstyle{B}\rVert}{2m}\,
+\phi_{+\pm}\bigl((\vstyle{u}-\cos\theta\,\vstyle{u}')\dotprod\bsig\bigr)\pvPi_\pm'.
 \]
 
 For $q\ne0$ and $\sin\theta\ne0$, evolution generates off-diagonal components:
@@ -5038,20 +5039,20 @@ two scalar multiples of the fixed $\pvPi_\pm'$ no longer suffice.
 At $\theta=0$ the earlier equations return; at $\theta=\pi$ the signs exchange.
 For perpendicular axes, the magnetic term is entirely off-diagonal.
 
-For time-independent $V:\R^3\to\R$ and $\bm A:\R^3\to\R^3$,
+For time-independent $V:\R^3\to\R$ and $\vstyle{A}:\R^3\to\R^3$,
 the orbital operator commutes with the constant magnetic term.
 The full Pauli evolution of this initial paravector is
 \[
 \begin{aligned}
 \pvphi_+(t)
 &=e^{-\ii t(\hbpq^2/(2m)+qV)}
-  e^{\,\ii q\lVert\bm B\rVert t\,\bm u\dotprod\bsig/(2m)}\pvphi_+(0)\\
+  e^{\,\ii q\lVert\vstyle{B}\rVert t\,\vstyle{u}\dotprod\bsig/(2m)}\pvphi_+(0)\\
 &=e^{-\ii t(\hbpq^2/(2m)+qV)}
-  \left(\cos\frac{q\lVert\bm B\rVert t}{2m}
-  +\ii\bm u\dotprod\bsig\sin\frac{q\lVert\bm B\rVert t}{2m}\right)\pvphi_+(0).
+  \left(\cos\frac{q\lVert\vstyle{B}\rVert t}{2m}
+  +\ii\vstyle{u}\dotprod\bsig\sin\frac{q\lVert\vstyle{B}\rVert t}{2m}\right)\pvphi_+(0).
 \end{aligned}
 \]
-The exponential follows from $(\bm u\dotprod\bsig)^2=1$.
+The exponential follows from $(\vstyle{u}\dotprod\bsig)^2=1$.
 Its transverse contribution produces the off-diagonal terms above.
 
 \subsection{The next free order}
@@ -5548,7 +5549,7 @@ so $\bM^{\mathsf T}$ is the Jacobian of the same functions $a,\bX$.
 
 Here we assign a local displacement directly:
 \[
- \dd\pX=\dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime,
+ \dd\pX=\dd t\,\peT+\dd\br\dotprod\beR,
  \qquad \dd s^2=\det(\dd\pX).
 \]
 A smooth real invertible $\bM(t,\br)$ specifies the basis elements,
@@ -5582,15 +5583,15 @@ $\bM_{rt}=\bM_{tr}^{\mathsf T}$ is not required.
 Let $\bI$ be the $3\times3$ identity and $\vstyle{0}$ the zero
 three-vector. The local basis is
 \begin{equation}
- \begin{Bmatrix}\pSigmaTPrime\\\bsigRPrime\end{Bmatrix}
+ \begin{Bmatrix}\peT\\\beR\end{Bmatrix}
  =\bM\begin{Bmatrix}1\\\bsig\end{Bmatrix}.
  \label{eq:spacetime-matrix-basis}
 \end{equation}
-Here $\pSigmaTPrime$ is one real paravector and $\bsigRPrime$ is a
+Here $\peT$ is one real paravector and $\beR$ is a
 triple of real paravectors, all Hermitian. Their scalar and vector parts are
 \[
- \pSigmaTPrime=M_{tt}+\bM_{tr}^{\mathsf T}\dotprod\bsig,
- \qquad \bsigRPrime=\bM_{rt}+\bM_{rr}\bsig.
+ \peT=M_{tt}+\bM_{tr}^{\mathsf T}\dotprod\bsig,
+ \qquad \beR=\bM_{rt}+\bM_{rr}\bsig.
 \]
 In the second expression, $\bM_{rt}$ collects the three scalar parts
 and each row of $\bM_{rr}$ gives the corresponding vector part.
@@ -5599,7 +5600,7 @@ Sigma conjugation acts componentwise and
 leaves the real entries of $\bM$ unchanged:
 \begin{equation}
  \begin{aligned}
- \begin{Bmatrix}\pSigmaTPrime\\\bsigRPrime\end{Bmatrix}^{*}
+ \begin{Bmatrix}\peT\\\beR\end{Bmatrix}^{*}
  &=\bM\begin{Bmatrix}1\\\bsig\end{Bmatrix}^{*}
   =\bM\begin{Bmatrix}1\\-\bsig\end{Bmatrix}\\
  &=\bM\begin{Bmatrix}1&\vstyle{0}^{\mathsf T}\\\vstyle{0}&-\bI\end{Bmatrix}
@@ -5608,11 +5609,11 @@ leaves the real entries of $\bM$ unchanged:
  \label{eq:spacetime-basis-conjugation}
 \end{equation}
 Write the local displacement as
-$\dd\pX=\dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime$.
+$\dd\pX=\dd t\,\peT+\dd\br\dotprod\beR$.
 Its interval is
 \begin{equation}
  \boxed{\dd s^2
- =\det(\dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime).}
+ =\det(\dd t\,\peT+\dd\br\dotprod\beR).}
  \label{eq:spacetime-basis-interval}
 \end{equation}
 Its scalar--vector coefficient column in the fixed basis is
@@ -5657,15 +5658,15 @@ Along a time-like path with $\dd t/\dd s>0$,
  \label{eq:metric-block-clock}
 \end{equation}
 
-The earlier similarity basis $\bsigRPrime=\pT\bsig\pT^{-1}$ preserves
+The earlier similarity construction, written here as $\beR=\pT\bsig\pT^{-1}$, preserves
 \[
- \det(\dd t+\dd\br\dotprod\bsigRPrime)=\dd t^2-\dd\br^2,
+ \det(\dd t+\dd\br\dotprod\beR)=\dd t^2-\dd\br^2,
 \]
 so it retains the flat interval. The general real matrix $\bM$ allows
 the metric blocks above to vary independently of that similarity law.
 
 \paragraph{Local measurements and velocity.}
-The primed basis represents coordinate directions; it is generally not
+The local basis $\peT,\beR$ represents coordinate directions; it is generally not
 an observer's orthonormal time and space basis. The matrix $\bM$ converts
 coordinate increments to components in an orthonormal local frame
 \citeat{carroll-gr}{Eqs.~(3.119)--(3.123)}{page=96}:
@@ -5673,7 +5674,7 @@ coordinate increments to components in an orthonormal local frame
  \begin{aligned}
  \begin{Bmatrix}\dd t'\\\dd\br'\end{Bmatrix}
  &=\bM^{\mathsf T}\begin{Bmatrix}\dd t\\\dd\br\end{Bmatrix},\\
- \dd\pX&=\dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime
+ \dd\pX&=\dd t\,\peT+\dd\br\dotprod\beR
         =\dd t'+\dd\br'\dotprod\bsig.
  \end{aligned}
  \label{eq:local-frame-increments}
@@ -5716,14 +5717,14 @@ Nor does choosing a frame imply that its observers are in free fall.
 \subsection{Algebra and differentiation}
 
 For the real local displacement
-$\dd\pX=\dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime$,
+$\dd\pX=\dd t\,\peT+\dd\br\dotprod\beR$,
 the coefficient row multiplies the basis column.
 Substituting \eqref{eq:spacetime-matrix-basis} gives
 \[
  \begin{aligned}
  \dd\pX
  &=\begin{Bmatrix}\dd t\\\dd\br\end{Bmatrix}^{\mathsf T}
-   \begin{Bmatrix}\pSigmaTPrime\\\bsigRPrime\end{Bmatrix}\\
+   \begin{Bmatrix}\peT\\\beR\end{Bmatrix}\\
  &=\begin{Bmatrix}\dd t\\\dd\br\end{Bmatrix}^{\mathsf T}
    \bM\begin{Bmatrix}1\\\bsig\end{Bmatrix}
  =\left(\bM^{\mathsf T}\begin{Bmatrix}\dd t\\\dd\br\end{Bmatrix}\right)^{\mathsf T}
@@ -5770,7 +5771,7 @@ varying the base point gives
 Refactoring into the local basis gives
 \begin{equation}
  \partial_t(\dd\pX)
- =\begin{Bmatrix}\pSigmaTPrime&\bsig_r^{\prime\mathsf T}\end{Bmatrix}
+ =\begin{Bmatrix}\peT&\beR^{\mathsf T}\end{Bmatrix}
  \bM^{-\mathsf T}(\partial_t\bM^{\mathsf T})
  \begin{Bmatrix}\dd t\\\dd\br\end{Bmatrix}.
  \label{eq:spacetime-basis-field-derivative}
@@ -5787,7 +5788,7 @@ For a smooth positive scale factor $\lambda(t)$, choose
 \begin{equation}
  \bM=\begin{Bmatrix}1&\vstyle{0}^{\mathsf T}\\
                    \vstyle{0}&\lambda\bI\end{Bmatrix},\qquad
- \pSigmaTPrime=1,\qquad \bsigRPrime=\lambda\bsig.
+ \peT=1,\qquad \beR=\lambda\bsig.
  \label{eq:matrix-basis}
 \end{equation}
 The metric blocks are
@@ -5798,11 +5799,11 @@ The metric blocks are
 \end{equation}
 For real vector increments $\dd\bX,\dd\bY$, the algebra gives
 \[
- (\dd\bX\dotprod\bsigRPrime)(\dd\bY\dotprod\bsigRPrime)
+ (\dd\bX\dotprod\beR)(\dd\bY\dotprod\beR)
  =\lambda^2\dd\bX\dotprod\dd\bY
-  +\ii \lambda(\dd\bX\times\dd\bY)\dotprod\bsigRPrime.
+  +\ii \lambda(\dd\bX\times\dd\bY)\dotprod\beR.
 \]
-For $\dd\pX=\dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime$,
+For $\dd\pX=\dd t\,\peT+\dd\br\dotprod\beR$,
 the interval is
 \begin{equation}
  \boxed{\dd s^2=\det(\dd\pX)=\dd t^2-\lambda(t)^2\dd\br^2,}
@@ -5864,7 +5865,7 @@ Parallel transport carries a four-vector along a chosen path using
 the metric's torsion-free, metric-compatible connection. Write the real
 paravector in terms of its measured scalar and vector parts:
 \[
- \pY=b\pSigmaTPrime+\frac{\bY}{\lambda}\dotprod\bsigRPrime
+ \pY=b\peT+\frac{\bY}{\lambda}\dotprod\beR
      =b+\bY\dotprod\bsig,\qquad b\in\R,\quad\bY\in\R^3.
 \]
 The factor $1/\lambda$ converts the measured vector $\bY$ into coefficients
@@ -6007,8 +6008,8 @@ $1-\bu\dotprod\bsig$ is null:
 To change the displacement along this null direction, choose
 \begin{equation}
  \begin{aligned}
- \pSigmaTPrime&=(1-\lambda)+(\lambda\bu)\dotprod\bsig,\\
- \bsigRPrime&=(-\lambda\bu)
+ \peT&=(1-\lambda)+(\lambda\bu)\dotprod\bsig,\\
+ \beR&=(-\lambda\bu)
  +\left(\bI+\lambda\bu\bu^{\mathsf T}\right)\dotprod\bsig.
  \end{aligned}
  \label{eq:kerr-schild-basis}
@@ -6019,7 +6020,7 @@ rows give their vector parts.
 The assigned displacement is therefore
 \[
  \begin{aligned}
- \dd\pX&=\dd t\,\pSigmaTPrime+\dd\br\dotprod\bsigRPrime\\
+ \dd\pX&=\dd t\,\peT+\dd\br\dotprod\beR\\
  &=\dd t+\dd\br\dotprod\bsig
  -\lambda(\dd t+\bu\dotprod\dd\br)(1-\bu\dotprod\bsig).
  \end{aligned}
@@ -6323,14 +6324,14 @@ For $\bM,\bN\in\C^{2\times2}$, transpose $^{\mathsf T}$ exchanges row
 and column indices; entrywise complex conjugation $^{\mathsf C}$ sends each
 $a+\ii b$ to $a-\ii b$ for real $a,b$.  Their composition is
 $\bM^{\mathsf H}=(\bM^{\mathsf C})^{\mathsf T}$.
-Introduce the fixed matrix $\bm S\in\R^{2\times2}$:
+Introduce the fixed matrix $\vstyle{S}\in\R^{2\times2}$:
 \[
- \bm S=\begin{Bmatrix}0&1\\-1&0\end{Bmatrix},\qquad
- \bm S^{-1}=-\bm S.
+ \vstyle{S}=\begin{Bmatrix}0&1\\-1&0\end{Bmatrix},\qquad
+ \vstyle{S}^{-1}=-\vstyle{S}.
 \]
 The paravector sigma conjugation has the matrix image
 \begin{equation}
- \operatorname{mat}(\pZ^*)=\bm S^{-1}\bM^{\mathsf C}\bm S=: \bM^*.
+ \operatorname{mat}(\pZ^*)=\vstyle{S}^{-1}\bM^{\mathsf C}\vstyle{S}=: \bM^*.
  \label{eq:matrix-sigma-conjugation}
 \end{equation}
 Substituting the basis in \eqref{eq:matrix-sigma-conjugation} gives
@@ -6357,8 +6358,8 @@ Their product-order rules are
 \end{align*}
 For sigma conjugation the middle factors cancel:
 \[
- (\bM\bN)^*=\bm S^{-1}\bM^{\mathsf C}\bm S
-                   \bm S^{-1}\bN^{\mathsf C}\bm S.
+ (\bM\bN)^*=\vstyle{S}^{-1}\bM^{\mathsf C}\vstyle{S}
+                   \vstyle{S}^{-1}\bN^{\mathsf C}\vstyle{S}.
 \]
 Thus sigma conjugation preserves product order:
 \begin{equation*}
@@ -6369,8 +6370,8 @@ Hermitian and sigma conjugation commute, and applying either twice
 restores the original matrix.
 The matrix-only operations can be recovered as
 \begin{align*}
- \bM^{\mathsf C}&=\bm S\bM^*\bm S^{-1},\\
- \bM^{\mathsf T}&=\bm S(\bM^*)^{\mathsf H}\bm S^{-1}.
+ \bM^{\mathsf C}&=\vstyle{S}\bM^*\vstyle{S}^{-1},\\
+ \bM^{\mathsf T}&=\vstyle{S}(\bM^*)^{\mathsf H}\vstyle{S}^{-1}.
 \end{align*}
 
 \subsection{Scalar part, determinant, and norm}
@@ -6507,21 +6508,21 @@ $\rho=\lVert c_+\rVert^2+\lVert c_-\rVert^2$.
 Every column of $\bM_{\pvpsi_+}$ has eigenvalue $+1$ under
 $\operatorname{mat}(\bu\dotprod\bsig)$, whose $+1$ eigenspace is
 one-dimensional.  Since $\lVert\pvpsi_+\rVert=1$, its matrix therefore
-factors as $\bM_{\pvpsi_+}=\sqrt2\,\bpsi_+\bm v^{\mathsf H}$ for
-constant columns $\bpsi_+,\bm v\in\C^2$ satisfying
-$\bpsi_+^{\mathsf H}\bpsi_+=\bm v^{\mathsf H}\bm v=1$.
+factors as $\bM_{\pvpsi_+}=\sqrt2\,\bpsi_+\vstyle{v}^{\mathsf H}$ for
+constant columns $\bpsi_+,\vstyle{v}\in\C^2$ satisfying
+$\bpsi_+^{\mathsf H}\bpsi_+=\vstyle{v}^{\mathsf H}\vstyle{v}=1$.
 
 \Needspace{3\baselineskip}
 By left multiplication,
-\mbox{$\bM_{\pvpsi_-}=\sqrt2\,\bpsi_-\bm v^{\mathsf H}$}, where
+\mbox{$\bM_{\pvpsi_-}=\sqrt2\,\bpsi_-\vstyle{v}^{\mathsf H}$}, where
 $\bpsi_-=\operatorname{mat}(\ba\dotprod\bsig)\bpsi_+$.
 The columns $\bpsi_+,\bpsi_-$ are orthonormal.  Thus every amplitude
 in \eqref{eq:ideal-components} has the conventional Pauli column
 \begin{equation*}
- \bpsi:=\frac1{\sqrt2}\bM_\pvpsi\bm v
+ \bpsi:=\frac1{\sqrt2}\bM_\pvpsi\vstyle{v}
  =c_+\bpsi_++c_-\bpsi_-\in\C^2.
 \end{equation*}
-Conversely, $\bM_\pvpsi=\sqrt2\,\bpsi\bm v^{\mathsf H}$, so this
+Conversely, $\bM_\pvpsi=\sqrt2\,\bpsi\vstyle{v}^{\mathsf H}$, so this
 correspondence is one-to-one.  For two amplitudes in this fixed basis
 and any complex multiplying paravector $\pZ$, by substitution,
 \begin{align*}
@@ -6641,27 +6642,27 @@ This is the component image of \eqref{eq:dirac-hamiltonian}.
 
 \Needspace{10\baselineskip}
 Conventional gamma matrices are identified through
-$\bm\sigma_k=\operatorname{mat}(\pvsigma_k)$ for $k=1,2,3$.
-Here $\bm\sigma_k\in\C^{2\times2}$ and the gamma matrices below lie in
-$\C^{4\times4}$. The $\bm\sigma_k$ are also the images under $\operatorname{mat}'$ of
+$\vstyle{\sigma}_k=\operatorname{mat}(\pvsigma_k)$ for $k=1,2,3$.
+Here $\vstyle{\sigma}_k\in\C^{2\times2}$ and the gamma matrices below lie in
+$\C^{4\times4}$. The $\vstyle{\sigma}_k$ are also the images under $\operatorname{mat}'$ of
 $\ba\dotprod\bsig$, $(\bu\times\ba)\dotprod\bsig$, and $\bu\dotprod\bsig$,
 respectively.  Their numerical entries apply to every choice of $\bu,\ba$.
 The following matrices are defined~\citeat{tong-qft}{Eqs.~(4.16)--(4.17)}{page=89}
 \begin{align}
- \gamma^0&=\begin{Bmatrix}0&\bI_2\\\bI_2&0\end{Bmatrix},
+ \vstyle{\gamma}^0&=\begin{Bmatrix}0&\bI_2\\\bI_2&0\end{Bmatrix},
  \label{eq:gamma-time}\\
- \gamma^k&=\begin{Bmatrix}0&\bm\sigma_k\\-\bm\sigma_k&0\end{Bmatrix}.
+ \vstyle{\gamma}^k&=\begin{Bmatrix}0&\vstyle{\sigma}_k\\-\vstyle{\sigma}_k&0\end{Bmatrix}.
  \label{eq:gamma-space}
 \end{align}
 Equations~\eqref{eq:gamma-time}--\eqref{eq:gamma-space} obey
-$(\gamma^0)^2=\bI_4$, $(\gamma^k)^2=-\bI_4$, and
-$\gamma^j\gamma^k+\gamma^k\gamma^j=0$ for distinct
+$(\vstyle{\gamma}^0)^2=\bI_4$, $(\vstyle{\gamma}^k)^2=-\bI_4$, and
+$\vstyle{\gamma}^j\vstyle{\gamma}^k+\vstyle{\gamma}^k\vstyle{\gamma}^j=0$ for distinct
 $j,k=0,1,2,3$.  The standard chiral Dirac operator in this basis,
 with signature $(+,-,-,-)$, is~
 \begin{equation*}
  \Wop(\hPq)
  \quad\longleftrightarrow\quad
- \gamma^0\hEq-\sum_{k=1}^3\gamma^k\hat P_{q,k}.
+ \vstyle{\gamma}^0\hEq-\sum_{k=1}^3\vstyle{\gamma}^k\hat P_{q,k}.
 \end{equation*}
 Here $\pA=V+\bA\dotprod\bsig$ is the
 real potential paravector.
@@ -6670,13 +6671,13 @@ The unitary change to the standard Dirac basis commutes with the scalar
 rest-phase factor explained in \eqref{eq:dirac-rest-phase}.
 Together they define the envelope columns
 \begin{equation}
- \begin{Bmatrix}\bm\phi_+\\\bm\phi_-\end{Bmatrix}
+ \begin{Bmatrix}\vstyle{\phi}_+\\\vstyle{\phi}_-\end{Bmatrix}
  =\frac{e^{\ii mt}}{\sqrt2}
  \begin{Bmatrix}\bI_2&\bI_2\\-\bI_2&\bI_2\end{Bmatrix}
  \begin{Bmatrix}\vstyle{c}_+'\\\vstyle{c}_-'\end{Bmatrix}.
  \label{eq:matrix-envelope-map}
 \end{equation}
-Here $\bm\phi_+,\bm\phi_-\in\C^2$ are the coefficient columns in the same
+Here $\vstyle{\phi}_+,\vstyle{\phi}_-\in\C^2$ are the coefficient columns in the same
 spin basis of the paravector fields
 $\pvphi_+=e^{\ii mt}(\pvpsi_++\pvpsi_-)/\sqrt2$ and
 $\pvphi_-=e^{\ii mt}(\pvpsi_--\pvpsi_+)/\sqrt2$.
@@ -6684,19 +6685,19 @@ Before removing the rest phase, the basis change in
 \eqref{eq:matrix-envelope-map} sends \eqref{eq:matrix-dirac-hamiltonian} to
 \begin{equation}
  \hH'=\begin{Bmatrix}
- (qV+m)\bI_2&\sum_k\hat P_{q,k}\bm\sigma_k\\
- \sum_k\hat P_{q,k}\bm\sigma_k&(qV-m)\bI_2
+ (qV+m)\bI_2&\sum_k\hat P_{q,k}\vstyle{\sigma}_k\\
+ \sum_k\hat P_{q,k}\vstyle{\sigma}_k&(qV-m)\bI_2
  \end{Bmatrix}.
  \label{eq:matrix-standard-dirac}
 \end{equation}
 Multiplying the full column by $e^{\ii mt}$ subtracts $m$ from its
 Hamiltonian: $\ii\partial_t(e^{\ii mt}\bpsi)=e^{\ii mt}(\ii\partial_t-m)\bpsi$.
-Thus \eqref{eq:matrix-standard-dirac} becomes $\hH'-mI_4$:
+Thus \eqref{eq:matrix-standard-dirac} becomes $\hH'-m\bI_4$:
 its diagonal entries are $qV$ and $qV-2m$.
 Moving $qV$ into $\hEq=\ii\partial_t-qV$ gives the exact envelope equations
 \begin{align*}
- \hEq\bm\phi_+&=\sum_k\hat P_{q,k}\bm\sigma_k\bm\phi_-,\\
- (\hEq+2m)\bm\phi_-&=\sum_k\hat P_{q,k}\bm\sigma_k\bm\phi_+.
+ \hEq\vstyle{\phi}_+&=\sum_k\hat P_{q,k}\vstyle{\sigma}_k\vstyle{\phi}_-,\\
+ (\hEq+2m)\vstyle{\phi}_-&=\sum_k\hat P_{q,k}\vstyle{\sigma}_k\vstyle{\phi}_+.
 \end{align*}
 These identify the large and small amplitudes used in the Pauli limit.
 
@@ -7073,9 +7074,9 @@ The table translates the notation of the \href{https://en.wikipedia.org/w/index.
 \toprule
 Object or operation & This paper & APS notation\\
 \midrule
-Spatial basis & $\pvsigma_k$ & $\mathbf e_k$\\
-Central imaginary unit & $\ii=\pvsigma_1\pvsigma_2\pvsigma_3$ & $i=\mathbf e_{123}$\\
-Real paravector & $\pX=t+\br\dotprod\bsig$ & $x=x^0+\mathbf x$\\
+Spatial basis & $\pvsigma_k$ & $\vstyle{e}_k$\\
+Central imaginary unit & $\ii=\pvsigma_1\pvsigma_2\pvsigma_3$ & $i=\vstyle{e}_{123}$\\
+Real paravector & $\pX=t+\br\dotprod\bsig$ & $x=x^0+\vstyle{x}$\\
 General algebra element & $\pZ=c+\bZ\dotprod\bsig$ & $A$ (complex paravector)\\
 Reversion & $\pZ^{\mathsf H}$ & $A^\dagger$\\
 Clifford conjugation & $\operatorname{adj}\pZ$ & $\bar A$\\
@@ -7085,7 +7086,7 @@ Complex vector part & $\vecpart {\pZ}\dotprod\bsig$ & $\langle A\rangle_V$\\
 Real part & $\repart {\pZ}$ & $\langle A\rangle_R$\\
 Imaginary part & $\ii\,\impart {\pZ}$ & $\langle A\rangle_I$\\
 Spacetime quadratic form & $\det \pX=t^2-\br^2$ & $x\bar x$\\
-Projectors & $\pvPi_+,\pvPi_-$ & $P_{\mathbf u},\bar P_{\mathbf u}$\\
+Projectors & $\pvPi_+,\pvPi_-$ & $P_{\vstyle{u}},\bar P_{\vstyle{u}}$\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -7110,11 +7111,11 @@ Wikipedia's \href{https://en.wikipedia.org/w/index.php?title=Paravector&oldid=13
 \]
 
 Baylis's rotor action $x'=GxG^\dagger$ is written here as $\pX'=\pG \pX \pG^{\mathsf H}$;
-Baylis's field $\mathbf E+i\mathbf B$ and law $F'=GF\bar G$ are written here as
+Baylis's field $\vstyle{E}+i\vstyle{B}$ and law $F'=GF\bar G$ are written here as
 $\pF=(\bE+\ii\bBf)\dotprod\bsig$ and $\pF'=\pG \pF \pG^{-1}$ for $\det \pG=1$
 ($c=1$)~\citeat{baylis-intro}{Eq.~(23)}{page=19}\,\citeat{baylis-intro}{Eq.~(24)}{page=20}\,\citeat{baylis-intro}{Eq.~(33)}{page=22}.
 Baylis's positively oriented spatial-plane generator is
-$\mathbf e_2\mathbf e_1=-i\mathbf e_3$, giving
+$\vstyle{e}_2\vstyle{e}_1=-i\vstyle{e}_3$, giving
 $\pR=e^{-\ii\theta\pvsigma_3/2}$ about $+\pvsigma_3$
 \citeat{baylis-intro}{Eqs.~(17)--(19)}{page=14}.
 Baylis's positive-rapidity boost factor, denoted here by $\pB$, satisfies
@@ -7223,9 +7224,9 @@ Thus the trigonometric exponential is represented here by the hyperbolic form
 \citeat{chappell-functions}{Eq.~(52)}{page=12}.
 
 For the quaternion basis, the Hamilton units are identified by Baylis with
-$\mathbf e_{32},\mathbf e_{13},\mathbf e_{21}$, respectively
+$\vstyle{e}_{32},\vstyle{e}_{13},\vstyle{e}_{21}$, respectively
 \citeat{baylis-applications}{p.~92}{page=103}.  With
-$\mathbf e_k\leftrightarrow\pvsigma_k$, the units are represented here by
+$\vstyle{e}_k\leftrightarrow\pvsigma_k$, the units are represented here by
 $(-\ii\pvsigma_1),(-\ii\pvsigma_2),(-\ii\pvsigma_3)$.
 Higham's spectral and repeated-root formulas apply through the faithful
 matrix image in Appendix~\ref{sec:matrix}; no change of the intrinsic
