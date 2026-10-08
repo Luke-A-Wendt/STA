@@ -127,7 +127,6 @@
 \newcommand{\hPq}{\hP_q}
 \newcommand{\hH}{\hat{\vstyle{H}}}
 \newcommand{\hHpauli}{\hat{\pv{H}}}
-\newcommand{\spinspace}{\mathsf{S}}
 \newcommand{\hOmega}{\hat\Omega}
 \newcommand{\pdr}{\vstyle{\partial}_{\br}}
 \newcommand{\rev}[1]{#1^{\mathsf H}}
@@ -4115,16 +4114,11 @@ A Pauli amplitude or either Dirac entry is~\citeat{baylis-spin}{Eq.~(69a)}{page=
  \pvpsi(t,\br)=c_+(t,\br)\pvpsi_++c_-(t,\br)\pvpsi_-.
  \label{eq:axis-ideal-components}
 \end{equation}
-Here $c_+,c_-:\R^4\to\C$, and pointwise
-\[
- \spinspace:=\mathrm{span}_{\C}\{\pvpsi_+,\pvpsi_-\}\subset\C\oplus\C^3,\qquad \pvpsi\in\spinspace,\quad \dim_{\C}\spinspace=2.
-\]
-Thus $\pvpsi:\R^4\to\spinspace$ is a paravector-valued spinor field;
-its coefficient column $(c_+,c_-)^{\mathsf T}$ lies in $\C^2$.
-The symbol $\spinspace$ denotes this fixed space in the sections that follow.
-This fixed two-dimensional complex subspace is preserved by left
-multiplication by any paravector. Its coordinates are in $\C^2$,
-not the full four-complex-dimensional paravector space.
+Here $c_+,c_-:\R^4\to\C$ and $\pvpsi:\R^4\to\C\oplus\C^3$.
+The fixed basis in \eqref{eq:axis-ideal-components} restricts the amplitude
+to two independent complex coefficients, with column
+$(c_+,c_-)^{\mathsf T}\in\C^2$.
+Left multiplication by any paravector preserves this two-component form.
 Here $\pvpsi_\pm$ denote constant basis elements; in the Dirac sections they
 denote fields taking values in this same subspace.
 Left multiplication by $\bu\dotprod\bsig$ or $\bu'\dotprod\bsig$ preserves
@@ -4664,11 +4658,10 @@ All potential derivatives are retained.
 
 The independent variables are $(t,\br)\in\R\times\R^3$,
 with mass $m\in\R_{>0}$. The entry fields are
-$\pvpsi_\pm:\R^4\to\spinspace$, where $\spinspace\subset\C\oplus\C^3$
-is the fixed two-dimensional spinor space of \eqref{eq:axis-ideal-components}.
-Their column $\bpsi:\R^4\to\spinspace\oplus\spinspace$ has four
-complex coordinates. The free and coupled Dirac operators act on smooth
-fields with this codomain. When coupling is introduced, $q\in\R$,
+$\pvpsi_\pm:\R^4\to\C\oplus\C^3$, each restricted to the fixed
+two-component form of \eqref{eq:axis-ideal-components}.
+Their two-entry column $\bpsi$ therefore has four independent complex coordinates.
+The free and coupled Dirac operators act on smooth fields of this form. When coupling is introduced, $q\in\R$,
 $V:\R^4\to\R$, $\bA:\R^4\to\R^3$, and
 $\pA:\R^4\to\R\oplus\R^3$.
 
@@ -4679,8 +4672,8 @@ In the Weyl representation, a Dirac field is the two-entry block
 \begin{equation*}
  \bpsi(t,\br)=\begin{Bmatrix}\pvpsi_+(t,\br)\\\pvpsi_-(t,\br)\end{Bmatrix}.
 \end{equation*}
-Each entry takes values in $\spinspace$, the fixed two-dimensional complex subspace
-of $\C\oplus\C^3$ from \eqref{eq:axis-ideal-components}.
+Each entry lies in $\C\oplus\C^3$ and has the fixed two-component form
+of \eqref{eq:axis-ideal-components}.
 Each has coordinates in $\C^2$, so the block has coordinates in $\C^4$.
 On blocks, Hermitian conjugation also transposes entries; sigma
 conjugation acts entrywise.  Summing the two local squared norms gives
@@ -4698,7 +4691,7 @@ For $\pZ\in\C\oplus\C^3$, the complex-linear block map is defined by
  \label{eq:dirac-block-map}
 \end{equation}
 Intrinsically $\Wop(\pZ)$ is a $2\times2$ array with paravector
-entries acting on $\spinspace\oplus\spinspace$ by left multiplication.
+entries acting on the two Dirac entries by left multiplication.
 In spinor coordinates, $\Wop(\pZ)$ and $\bI$ are matrices in $\C^{4\times4}$.
 For differential-operator arguments, $\Wop(\hP)$, $\hD$, and $\hDq$
 are instead matrix differential operators on four-component fields.
@@ -4779,7 +4772,8 @@ The matrix verification is \eqref{eq:matrix-dirac-characteristic}.
 
 \subsection{Reconstructing free solutions from Klein--Gordon}
 A KG solution $\psi':\R^4\to\C$ is combined with the constant unit basis amplitude
-$\pveta_+\in\spinspace$.  For constants $a,b\in\C$, a two-constant construction is
+$\pveta_+\in\C\oplus\C^3$ from the fixed basis of
+\eqref{eq:axis-ideal-components}. For constants $a,b\in\C$, a two-constant construction is
 \begin{equation}
  \bpsi=\frac1m
  \begin{Bmatrix}
@@ -4833,9 +4827,12 @@ Its entries are
  \label{eq:dirac-entry-two}
 \end{align}
 With the time derivative isolated,
-$\ii\partial_t\bpsi=\hH\bpsi$, where the Hamiltonian is a matrix differential operator on $\spinspace\oplus\spinspace$:~\citeat{lenz-quantum}{Eq.~(412)}{page=75}
+$\ii\partial_t\bpsi=\hH\bpsi$, where the Hamiltonian is a matrix differential operator on the two-entry Dirac field:~\citeat{lenz-quantum}{Eq.~(412)}{page=75}
 \begin{equation}
- \hH:=qV\bI+\Wop(1)\bigl(m\bI-\Wop(\hbpq\dotprod\bsig)\bigr).
+ \hH:=\begin{Bmatrix}
+ qV-\hbpq\dotprod\bsig&m\\
+ m&qV+\hbpq\dotprod\bsig
+ \end{Bmatrix}.
  \label{eq:dirac-hamiltonian}
 \end{equation}
 For real potentials, the Dirac equation conserves total probability
@@ -4982,7 +4979,8 @@ preserve the KG and Pauli equations.
 Notation: $m\in\R_{>0}$, $q\in\R$, and potentials
 $V:\R^4\to\R$, $\bA:\R^4\to\R^3$.
 Scalar KG envelopes have domain $\psi:\R^4\to\C$;
-Dirac and Pauli entry fields have domain $\R^4\to\spinspace$ unless an
+Dirac and Pauli entry fields map $\R^4\to\C\oplus\C^3$ and have the fixed
+two-component form of \eqref{eq:axis-ideal-components}, unless an
 alternative encoding is explicitly introduced. The electric and magnetic
 fields take values in $\R^3$.
 The coupled operators are $\hEq=\ii\partial_t-qV$ and
@@ -5052,9 +5050,9 @@ Schr\"odinger equation.
 \label{sec:low-energy-recursion}
 \label{sec:pauli-limit}
 
-The fields $\pvpsi_\pm,\pvpsi_\pm',\pvphi_\pm:\R^4\to\spinspace$
-all take values in the same fixed two-dimensional complex subspace of
-$\C\oplus\C^3$, with coordinate columns in $\C^2$. The phase and change of blocks below preserve this domain.
+The fields $\pvpsi_\pm,\pvpsi_\pm',\pvphi_\pm:\R^4\to\C\oplus\C^3$
+all have the fixed two-component form of \eqref{eq:axis-ideal-components},
+with coordinate columns in $\C^2$. The phase and change of blocks below preserve this domain.
 
 The Dirac envelopes are defined by the same rest-energy phase shift~\citeat{gurtler-hestenes}{Eq.~(2.1)}{page=4}:
 \begin{equation}
@@ -5150,7 +5148,7 @@ For a constant field $\vstyle{B}\in\R^3\setminus\{0\}$, its \hyperref[def:real-u
 The two spin amplitudes $\phi_{++},\phi_{+-}:\R^4\to\C$ are encoded in an aligned paravector
 $\pvphi_+:\R^4\to\mathrm{span}_{\C}\{1,\vstyle{u}\dotprod\bsig\}\subset\C\oplus\C^3$
 by spectral decomposition. This subsection temporarily uses this aligned
-encoding of two scalars in place of the fixed spinor space $\spinspace$;
+encoding of two scalars in place of the form in \eqref{eq:axis-ideal-components};
 the two subspaces are different:
 \[
 \begin{aligned}
@@ -5211,7 +5209,8 @@ Dirac blocks are indexed by rows and spin projections by columns; the upper row 
 In a basis diagonalizing $\vstyle{u}\dotprod\bsig$, the aligned paravector is
 $\mathrm{diag}(\phi_{++},\phi_{+-})$. The corresponding spinor in the
 fixed subspace of \eqref{eq:axis-ideal-components} is
-$\phi_{++}\pZ_++\phi_{+-}\pZ_-$, where constant orthonormal $\pZ_\pm\in\spinspace$ satisfy
+$\phi_{++}\pZ_++\phi_{+-}\pZ_-$, where constant orthonormal
+$\pZ_\pm\in\C\oplus\C^3$ lie in that same subspace and satisfy
 $\pvPi_\pm \pZ_\pm=\pZ_\pm$ and $\pvPi_\pm \pZ_\mp=0$.
 Both representations give the same scalar Pauli equations.
 The full Dirac coupling $\hbpq\dotprod\bsig$ need not preserve alignment.
@@ -5220,8 +5219,9 @@ For the original spinor blocks, the lower block still satisfies
 $\pvphi_-\simeq(\hbpq\dotprod\bsig)\pvphi_+/(2m)$.
 For a nonzero field with varying direction, its projectors depend on $(t,\br)$.
 Here $\hHpauli$ is the paravector differential operator in
-\eqref{eq:pauli}, acting on smooth $\spinspace$-valued fields (a
-$2\times2$ matrix differential operator in spinor coordinates).
+\eqref{eq:pauli}, acting on smooth fields of the form
+\eqref{eq:axis-ideal-components} (a $2\times2$ matrix differential operator
+in spinor coordinates).
 With this Pauli Hamiltonian,
 the product rule for the original spinor gives
 \begin{equation*}
@@ -5331,15 +5331,15 @@ compared with $m$.
 \label{sec:spin-and-probability}
 \label{sec:paravector-spin-content}
 
-Here $\pvpsi:\R^4\to\spinspace$ takes values in the fixed spinor space of
+Here $\pvpsi:\R^4\to\C\oplus\C^3$ takes values in the fixed spinor space of
 \eqref{eq:axis-ideal-components}, with coordinates in $\C^2$.
 Axes and polarizations $\bu,\bu',\ba\in\R^3$ are unit vectors;
 angles $\theta,\varphi\in\R$, projectors $\pvPi_\pm,\pvPi_\pm'\in\R\oplus\R^3$,
 and probabilities lie between $0$ and $1$, inclusive.
 The density $\rho:\R^4\to\R_{\ge0}$ is a probability density.
 Multiplying observables $\pZ\in\R\oplus\R^3$ have real scalar
-expectations. Rotation factors $\pR\in\R\oplus\ii\R^3$ act within
-$\spinspace$; probabilities are real-valued functions of the state and axis.
+expectations. Rotation factors $\pR\in\R\oplus\ii\R^3$ preserve this
+two-component form; probabilities are real-valued functions of the state and axis.
 
 Spin is specified by the intrinsic rotation of an amplitude.  Here the state is rotated
 at fixed coordinates.  A scalar KG amplitude stays unchanged
@@ -5579,7 +5579,8 @@ At corresponding events, the domains are
 \]
 Here $\bu^2=1$, $|\beta|<1$, $\gamma\ge1$, and $\rho$ is charge density.
 Transformed quantities retain their types. Scalar KG fields have domain $\psi:\R^4\to\C$;
-Dirac entries have domain $\pvpsi_\pm:\R^4\to\spinspace$.
+Dirac entries $\pvpsi_\pm:\R^4\to\C\oplus\C^3$ have the fixed
+two-component form of \eqref{eq:axis-ideal-components}.
 Mass $m\in\R_{>0}$ and charge $q\in\R$ are constant;
 plane waves $f:\R^4\to\C$ are evaluated for a fixed real momentum.
 The stress map $T:\R\oplus\R^3\to\R\oplus\R^3$ is real-linear;
@@ -6785,9 +6786,10 @@ spin expectation and Born rule.
 \subsection{Dirac columns}
 \label{sec:matrix-dirac-columns}
 
-In this subsection $\bpsi\in\spinspace\oplus\spinspace$ again denotes
- a Dirac block $\bpsi=\{\pvpsi_+,\pvpsi_-\}^{\mathsf T}$, the corresponding columns
-are denoted by $\vstyle{c}_+,\vstyle{c}_-\in\C^2$.  Then
+In this subsection $\bpsi=\{\pvpsi_+,\pvpsi_-\}^{\mathsf T}$ again denotes
+a Dirac block. Each entry $\pvpsi_\pm\in\C\oplus\C^3$ has the fixed
+two-component form of \eqref{eq:axis-ideal-components}; the corresponding
+columns are $\vstyle{c}_+,\vstyle{c}_-\in\C^2$. Then
 \[
  \Wop(\pZ)\bpsi\quad\longleftrightarrow\quad
  \begin{Bmatrix}0&\operatorname{mat}(\adj {\pZ})\\
@@ -7144,7 +7146,9 @@ Notation: $m\in\R_{>0}$, $q,V\in\R$, $\bA\in\R^3$, and
 $\pA=V+\bA\dotprod\bsig\in\R\oplus\R^3$.
 Here $\hEq$ is a scalar differential operator and $\hbpq$ a triple of them;
 $\psi:\R^4\to\C$ is a KG field.
-The Dirac field $\bpsi:\R^4\to\spinspace\oplus\spinspace$ has four complex coordinates.
+The Dirac field $\bpsi$ has two paravector entries
+$\pvpsi_\pm:\R^4\to\C\oplus\C^3$, each of the form
+\eqref{eq:axis-ideal-components}, giving four independent complex coordinates.
 Here, subscript $0$ labels the uncoupled operators of
 \eqref{eq:canonical-operators}. The operators and wave equations are
 \begin{align*}
@@ -7200,7 +7204,8 @@ Schr\"odinger's equation to leading order:
  \ii\partial_t\psi=\left(qV+\frac{\hbpq^2}{2m}\right)\psi.
  \tag*{\eqref{eq:schrodinger}}
 \end{equation*}
-The envelope $\pvphi_+:\R^4\to\spinspace$ in the fixed spinor space obeys Pauli's equation:
+The envelope $\pvphi_+:\R^4\to\C\oplus\C^3$, restricted to the form
+\eqref{eq:axis-ideal-components}, obeys Pauli's equation:
 \begin{equation*}
  \ii\partial_t\pvphi_+=\left(qV+
  \frac{\hbpq^2-q\bBf\dotprod\bsig}{2m}\right)\pvphi_+.
@@ -7212,7 +7217,8 @@ for scalar and spinor amplitudes respectively.
 
 \Needspace{10\baselineskip}
 \paragraph{Spin and probabilities.}
-Notation: a nonzero $\pvpsi\in\spinspace$ in the fixed spinor space, $\rho\in\R_{>0}$,
+Notation: a nonzero $\pvpsi\in\C\oplus\C^3$ of the form
+\eqref{eq:axis-ideal-components}, $\rho\in\R_{>0}$,
 and polarization and measurement axes $\bu',\bu\in\R^3$ of unit norm.
 The real observable $\pZ\in\R\oplus\R^3$ acts from the left.  A rotation uses
 \begin{equation*}
@@ -7249,14 +7255,15 @@ Unadorned source symbols below retain each source's meaning.
 In the coefficient notation, $\pZ,\pG\in\C\oplus\C^3$,
 $\pX,\pY,\pA,\pP,\pJ\in\R\oplus\R^3$, and
 $\pF\in\{0\}\oplus\C^3$.
-Physical factors $\pG$ have determinant one; spinor amplitudes lie in
-$\spinspace$, the fixed ideal of \eqref{eq:axis-ideal-components}.
+Physical factors $\pG$ have determinant one; spinor amplitudes have the
+fixed two-component form of \eqref{eq:axis-ideal-components}.
 Here $t,E,V,\rho,q,\theta\in\R$, $m\in\R_{>0}$,
 $\br,\bp,\bv,\bu,\bA,\bE,\bBf,\bJ\in\R^3$,
 $\beta\in(-1,1)$, and $\gamma\in\R_{\ge1}$, with $\bu^2=1$.
 The factors $\pT\in\C\oplus\C^3$, $\pR,\pQ\in\R\oplus\ii\R^3$,
 and $\pL,\pB\in\R\oplus\R^3$ have the roles stated locally.
-The amplitudes $\pvpsi,\pvvarphi,\pvpsi_\pm$ take values in $\spinspace$;
+The amplitudes $\pvpsi,\pvvarphi,\pvpsi_\pm$ take values in $\C\oplus\C^3$
+with that restriction;
 $\psi_{\mathrm{KG}}:\R^4\to\C$ is scalar.
 In expectation formulas $\rho=\lVert\pvpsi\rVert^2\in\R_{\ge0}$ is
 probability density; in $\pJ$ it is charge density.

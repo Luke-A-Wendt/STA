@@ -100,10 +100,12 @@ partial_star = lower.diff(t) - sum((sigma[k] * lower.diff(spatial[k]) for k in r
 check('boxed energy-plus-momentum equals i partial-star minus q Phi',
       energy(lower) + sigma_momentum(lower) - i * partial_star + q * Phi * lower)
 
-H_psi = q * V * psi + W(one) * (m * psi - W_momentum(psi))
+H_psi = s.Matrix.vstack(
+    q * V * upper - sigma_momentum(upper) + m * lower,
+    m * upper + q * V * lower + sigma_momentum(lower))
 standard_H_psi = q * V * psi + m * gamma[0] * psi + sum((gamma[0] * gamma[k+1] * momentum(k, psi)
                                                                       for k in range(3)), s.zeros(4, 1))
-check('Hamiltonian contains minus W(p.sigma)', H_psi - standard_H_psi)
+check('explicit block Hamiltonian matches conventional Weyl form', H_psi - standard_H_psi)
 check('Dirac and Hamiltonian equations are equivalent',
       W(one) * dirac(psi) - i * psi.diff(t) + H_psi)
 
