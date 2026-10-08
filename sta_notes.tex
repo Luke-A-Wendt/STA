@@ -774,6 +774,21 @@ and cyclicity give the Hermitian form~\citeat{chappell-functions}{Eq.~(46)}{page
  \end{aligned}
  \label{eq:hermitian-norm}
 \end{equation}
+For every complex $\pZ\in\C\oplus\C^3$, conjugating its coefficients gives
+\[
+ \det(\pZ^{\mathsf H})=(c^*)^2-(\bZ^*)^2=\det(\pZ)^*.
+\]
+Determinant multiplicativity therefore yields
+\begin{equation}
+ \begin{aligned}
+ \det(\pZ\pZ^{\mathsf H})
+ &=\det(\pZ^{\mathsf H}\pZ)\\
+ &=\det(\pZ)\det(\pZ)^*=\lVert\det(\pZ)\rVert^2\ge0.
+ \end{aligned}
+ \label{eq:hermitian-product-determinant}
+\end{equation}
+This also holds when $\pZ$ is singular.
+
 For complex coefficients, $c^2$ and $\bZ^2$ generally differ from these
 squared norms.  Also $\det(\pZ)$ may be complex.  For a complex scalar
 $z=r e^{\ii\theta}$, with real $r\ge0$ and $\theta$, scalar scaling gives
@@ -4005,10 +4020,11 @@ $q^2\lVert\bE\rVert^2/m^2$ without choosing a projection axis.
 \subsection{Energy and momentum flux}
 
 Notation: $\pF=(\bE+\ii\bBf)\dotprod\bsig$.  Its Hermitian product is~\citeat{hestenes-spacetime}{Eq.~(180)}{page=30}
-\begin{equation*}
+\begin{equation}
  \tfrac12\pF \pF^{\mathsf H}
  =\tfrac12(\bE^2+\bBf^2)+(\bE\times\bBf)\dotprod\bsig.
-\end{equation*}
+ \label{eq:electromagnetic-energy-flux}
+\end{equation}
 The energy density $u=(\bE^2+\bBf^2)/2\in\R_{\ge0}$ and Poynting
 vector $\bS=\bE\times\bBf\in\R^3$ are defined.  These coefficients are frame-dependent,
 whereas $\pF^2$ contains the Lorentz invariants.
@@ -4025,18 +4041,12 @@ Here $u$ is energy per unit volume in $\mathrm{J\,m^{-3}}$, and
 $\bS$ is energy flux in $\mathrm{W\,m^{-2}}$.
 \end{SIunits}
 
-In natural units, the full stress--energy tensor is represented by the real linear map~\citeat{hestenes-spacetime}{Eq.~(167)}{page=28}
-\begin{equation}
- T(\pX):=\tfrac12\pF \pX \pF^{\mathsf H},
- \label{eq:electromagnetic-stress-map}
-\end{equation}
-Here $T:\R\oplus\R^3\to\R\oplus\R^3$ is a real-linear map, with
-$\pX\in\R\oplus\R^3$; $T$ denotes the stress map, not a frame factor.  Its time-direction value is
-$T(1)=u+\bS\dotprod\bsig$.  It is future causal because $u\geq0$ and
+In natural units, $\tfrac12\pF\pF^{\mathsf H}=u+\bS\dotprod\bsig$.
+By \eqref{eq:hermitian-product-determinant} and scalar scaling,
 \begin{equation*}
- \det(T(1))=u^2-\bS^2=\tfrac14\lVert\det(\pF)\rVert^2\geq0.
+ u^2-\bS^2=\tfrac14\lVert\det(\pF)\rVert^2\geq0.
 \end{equation*}
-Hence $\lVert\bS\rVert\le u$, with equality for null fields.
+Since $u\ge0$, this gives $\lVert\bS\rVert\le u$, with equality for null fields.
 
 \begin{SIunits}{Field determinant and flux bound}
 In SI units, the determinant and flux bound are
@@ -4050,7 +4060,7 @@ Equality holds for null fields.
 
 Returning to natural units, reversal of the order gives
 $\pF^{\mathsf H}\pF=(\pF \pF^{\mathsf H})^*$: the same energy density and opposite
-flux.  The transformation of the full map is derived in
+flux. The transformation of these energy and flux components is derived in
 Section~\ref{sec:transformations}.
 
 Using Maxwell's vector equations,
@@ -5583,8 +5593,7 @@ Dirac entries $\pvpsi_\pm:\R^4\to\C\oplus\C^3$ have the fixed
 two-component form of \eqref{eq:axis-ideal-components}.
 Mass $m\in\R_{>0}$ and charge $q\in\R$ are constant;
 plane waves $f:\R^4\to\C$ are evaluated for a fixed real momentum.
-The stress map $T:\R\oplus\R^3\to\R\oplus\R^3$ is real-linear;
-its energy density is $u\in\R_{\ge0}$ and flux $\bS\in\R^3$.
+The field energy density is $u\in\R_{\ge0}$ and its flux is $\bS\in\R^3$.
 
 The algebraic actions of Section~\ref{sec:preserved-quantities}
 are now applied to the physical variables already defined.  Appendix~\ref{sec:conventions}
@@ -5700,7 +5709,7 @@ $\pJ=\rho+\bJ\dotprod\bsig$ follow the same component formulas as
 \eqref{eq:energy-boost}--\eqref{eq:momentum-boost}, with $(E,\bp)$ replaced
 by $(V,\bA)$ or $(\rho,\bJ)$.
 
-At corresponding events, \eqref{eq:field-transformation} reduces to
+At corresponding events, with $\pX'=\pL\pX\pL$, \eqref{eq:field-transformation} reduces to
 \begin{equation}
  \pF'=\pL \pF \pL^{-1}.
  \label{eq:boost-field-action}
@@ -5712,14 +5721,8 @@ can acquire an imaginary part under this action.  In contrast, a nonzero
 boost congruence would give a scalar part to a nonzero field parallel to $\bu$.
 Thus the field uses similarity, whereas events and the real four-potential
 use congruence.
-Both the field coefficients and their spacetime arguments transform:
-\begin{equation}
- \pF'(\pX')=\pL \pF(\pL^{-1}\pX'\pL^{-1})\pL^{-1}.
- \label{eq:boosted-field-arguments}
-\end{equation}
-Here $\pX=\pL^{-1}\pX'\pL^{-1}$.  To expand \eqref{eq:boost-field-action},
-\eqref{eq:boost-similarity-vector} is applied to
-$\bE+\ii\bBf$ and separate its real and imaginary parts~\citeat{tong-em}{Eqs.~(5.17)--(5.18)}{page=116}:
+Applying \eqref{eq:boost-similarity-vector} to $\bE+\ii\bBf$ in
+\eqref{eq:boost-field-action} and separating real and imaginary parts gives~\citeat{tong-em}{Eqs.~(5.17)--(5.18)}{page=116}:
 \begin{align}
  \bE'&=\bE_{\parallel}+\gamma(\bE_{\perp}+\beta\bu\times\bBf),
  \label{eq:electric-boost}\\
@@ -5741,19 +5744,18 @@ observer-dependent energy density.  For example, if $\bBf=0$ and
 $\bu\dotprod\bE=0$, \eqref{eq:electric-boost} and \eqref{eq:magnetic-boost}
 give $\lVert \pF'\rVert^2=\gamma^2(1+\beta^2)\bE^2$, while
 $\bE'^2-\bBf'^2=\bE^2$.
-Notation: the stress map $T(\pX)=\pF \pX \pF^{\mathsf H}/2$ from
-\eqref{eq:electromagnetic-stress-map}, with real paravector input $\pX$;
-here $T$ denotes this map.  Since $\pX'=\pL \pX \pL$,
-\begin{equation*}
- T'(\pX')=\tfrac12\pF'\pX'\pF'^{\mathsf H}=\pL T(\pX)\pL.
-\end{equation*}
-Here $T'$ is the map formed from $\pF'$.  To measure the primed
-energy density and Poynting vector, $\pX'=1$ is used, hence $\pX=\pL^{-2}$:
-\begin{equation*}
- T'(1)=\pL T(\pL^{-2})\pL=\tfrac12\pF'\pF'^{\mathsf H}.
-\end{equation*}
-The full map transforms covariantly; its value at $1$ depends on the
-observer's time direction.
+The primed energy density $u'\in\R_{\ge0}$ and Poynting vector
+$\bS'\in\R^3$ follow directly from the same Hermitian product
+\eqref{eq:electromagnetic-energy-flux}. Since $\pL^{\mathsf H}=\pL$,
+\begin{align*}
+ u'+\bS'\dotprod\bsig
+ &=\tfrac12\pF'\pF'^{\mathsf H}\\
+ &=\tfrac12(\pL\pF\pL^{-1})(\pL^{-1}\pF^{\mathsf H}\pL)\\
+ &=\tfrac12\pL\pF\pL^{-2}\pF^{\mathsf H}\pL.
+\end{align*}
+Thus energy density and flux depend on the observer through the boost
+factor $\pL$; their explicit values are
+$u'=(\bE'^2+\bBf'^2)/2$ and $\bS'=\bE'\times\bBf'$.
 
 Finally, the following notation is retained: the real four-velocity $\pU=\dd \pX/\dd s$, an
 \hyperref[eq:unit-paravector]{invertible paravector} with $\pU \pU^{-1}=1$,
@@ -7109,9 +7111,8 @@ Notation: $V,\rho,S,q\in\R$, $\bA,\bE,\bBf,\bJ\in\R^3$,
 $\pA,\pJ\in\R\oplus\R^3$, and
 $\pF\in\{0\}\oplus\C^3$.
 The coefficient fields depend on real spacetime; $q$ is constant charge.
-Their boosted arguments and components are
-\eqref{eq:boosted-field-arguments} and
-\eqref{eq:electric-boost}--\eqref{eq:magnetic-boost}.
+Their boost law at corresponding events is \eqref{eq:boost-field-action},
+with components \eqref{eq:electric-boost}--\eqref{eq:magnetic-boost}.
 The field and particle equations are
 \begin{align*}
  \pF&=(\bE+\ii\bBf)\dotprod\bsig,
@@ -7126,14 +7127,12 @@ The field and particle equations are
    \tag*{\eqref{eq:field-invariants}}\\
  \frac{\dd \pP}{\dd s}&=q\repart{\pF \pU},
    \tag*{\eqref{eq:lorentz}}\\
- T(\pX)&=\tfrac12\pF \pX \pF^{\mathsf H},
-   \tag*{\eqref{eq:electromagnetic-stress-map}}\\
+ u+\bS\dotprod\bsig&=\tfrac12\pF\pF^{\mathsf H},
+   \tag*{\eqref{eq:electromagnetic-energy-flux}}\\
  \partial_tu+\pdr\dotprod\bS&=-\bJ\dotprod\bE.
    \tag*{\eqref{eq:poynting}}
 \end{align*}
-Here $T:\R\oplus\R^3\to\R\oplus\R^3$ is the stress map,
-$\pX\in\R\oplus\R^3$ its argument, $u\in\R_{\ge0}$ field energy
-density, and $\bS\in\R^3$ energy flux.
+Here $u\in\R_{\ge0}$ is field energy density and $\bS\in\R^3$ is energy flux.
 Potential components are \eqref{eq:electric-potential}--\eqref{eq:magnetic-potential};
 force components are \eqref{eq:lorentz-momentum} and \eqref{eq:lorentz-energy}.
 The action derivation uses \eqref{eq:maxwell-lagrangian} and
@@ -7414,8 +7413,8 @@ Momentum, acceleration, and world lines
 \eqref{eq:four-momentum}, \eqref{eq:proper-acceleration-components},
 \eqref{eq:hyperbolic-worldline}
 & \citeat{tong-relativity}{Eq.~(7.24)}{page=142}; \citeat{tong-relativity}{p.~141}{page=147}; \citeat{tong-relativity}{Eq.~(7.33), p.~143}{page=148}.\\
-Maxwell, stress map, and energy flux
-\eqref{eq:maxwell}, \eqref{eq:electromagnetic-stress-map}
+Maxwell, field energy, and energy flux
+\eqref{eq:maxwell}, \eqref{eq:electromagnetic-energy-flux}
 & \citeat{hestenes-spacetime}{Eq.~(177)}{page=29}; \citeat{hestenes-spacetime}{Eq.~(167)}{page=28}; \citeat{hestenes-spacetime}{Eq.~(180)}{page=30}.\\
 Potential, gauge, and field action
 \eqref{eq:electric-potential}--\eqref{eq:magnetic-potential},
@@ -7487,15 +7486,14 @@ STA embedding above,
 \]
 Hestenes's explicit spacetime split is represented here by the component equation
 \citeat{hestenes-spacetime}{Eqs.~(175)--(177)}{page=29}.
-For a real spacetime vector $n\in\R^{1,3}$,
-$\pX=n\gamma_0\in\R\oplus\R^3$ is used in the observer's paravector identification.  Hestenes's stress map
-$T_{\mathrm{STA}}(n)=\tfrac12Fn\widetilde {F}$, with
-$F^{\mathsf H}=\gamma_0\widetilde {F}\gamma_0$, gives
+With $F^{\mathsf H}=\gamma_0\widetilde{F}\gamma_0$, Hestenes's
+energy and flux components become
 \[
- T_{\mathrm{STA}}(n)\gamma_0=\tfrac12\pF \pX \pF^{\mathsf H}=T(\pX),
+ \tfrac12F\gamma_0\widetilde{F}\gamma_0
+ =\tfrac12\pF\pF^{\mathsf H}=u+\bS\dotprod\bsig,
 \]
-including the energy and flux components in Eq.~(180) of that source
-\citeat{hestenes-spacetime}{Eq.~(167)}{page=28}\,\citeat{hestenes-spacetime}{Eq.~(180)}{page=30}.
+as in \eqref{eq:electromagnetic-energy-flux}
+\citeat{hestenes-spacetime}{Eq.~(180)}{page=30}.
 
 For Dirac and Pauli, the complex unit is represented by Hestenes and
 Gurtler--Hestenes through right multiplication of the real spinor

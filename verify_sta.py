@@ -53,6 +53,16 @@ W = lambda z: s.BlockMatrix([[s.zeros(2), adj(z)], [z, s.zeros(2)]]).as_explicit
 check("Dirac block adjoint", W(Z).H - W(S.inv()*Z.conjugate()*S))
 check("algebraic Dirac square", W(Z)**2 - Z.det()*s.eye(4))
 
+# Arbitrary complex matrices cover all complex paravectors, including singular ones.
+generic_Z = s.Matrix(2, 2, s.symbols("z0:4", complex=True))
+check("determinant of Hermitian conjugate", generic_Z.H.det() - s.conjugate(generic_Z.det()))
+for product in (generic_Z * generic_Z.H, generic_Z.H * generic_Z):
+    check("Hermitian-product determinant is squared scalar modulus",
+          s.expand(product.det() - generic_Z.det() * s.conjugate(generic_Z.det())))
+check("half Hermitian product has quarter squared determinant modulus",
+      s.expand((generic_Z * generic_Z.H / 2).det()
+               - generic_Z.det() * s.conjugate(generic_Z.det()) / 4))
+
 # Complex bilinear normalization supports the spectral projectors;
 # positive-norm normalization can instead destroy their idempotence.
 complex_direction = s.Matrix([s.sqrt(2), i, 0])

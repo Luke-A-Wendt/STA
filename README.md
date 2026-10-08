@@ -130,6 +130,16 @@ The paravector [trace](https://en.wikipedia.org/wiki/Trace_%28linear_algebra%29)
 \end{aligned}
 ```
 
+For every complex paravector $`{Z}\in\mathbb C\oplus\mathbb C^3`$, determinant multiplicativity gives:
+
+```math
+\begin{aligned}
+\det({Z}^{\mathsf H})&=\det({Z})^*,\\
+\det({Z}{Z}^{\mathsf H})&=\det({Z}^{\mathsf H}{Z})
+=\det({Z})\det({Z})^*=\lVert\det({Z})\rVert^2.
+\end{aligned}
+```
+
 ## [Quaternions](https://en.wikipedia.org/wiki/Quaternion)
 
 The quaternion multiplication rules are satisfied by $`(-\mathrm i{\sigma}_k)`$:
