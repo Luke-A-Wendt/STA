@@ -115,9 +115,9 @@ The paravector [adjugate](https://en.wikipedia.org/wiki/Adjugate_matrix), [deter
 
 ```math
 \begin{aligned}
-\mathrm{adj}\,{Z}&:=c-{𝐙}\cdot{𝝈}={Z}^{*\mathsf H},\\[4pt]
-\det {Z}&:=c^2-{𝐙}^2={Z}\,\mathrm{adj}\,{Z},\\[6pt]
-{Z}^{-1}&=\frac{\mathrm{adj}\,{Z}}{\det {Z}}\qquad\text{if }\det {Z}\ne0.
+\mathrm{adj}({Z})&:=c-{𝐙}\cdot{𝝈}={Z}^{*\mathsf H},\\[4pt]
+\det({Z})&:=c^2-{𝐙}^2={Z}\,\mathrm{adj}({Z}),\\[6pt]
+{Z}^{-1}&=\frac{\mathrm{adj}({Z})}{\det({Z})}\qquad\text{if }\det({Z})\ne0.
 \end{aligned}
 ```
 
@@ -125,7 +125,7 @@ The paravector [trace](https://en.wikipedia.org/wiki/Trace_%28linear_algebra%29)
 
 ```math
 \begin{aligned}
-\mathrm{tr}\,{Z}&:=2c={Z}+\mathrm{adj}\,{Z},\\[4pt]
+\mathrm{tr}({Z})&:=2c={Z}+\mathrm{adj}({Z}),\\[4pt]
 \lVert {Z}\rVert^2&:=cc^{*}+{𝐙}\cdot{𝐙}^{*}=\mathrm{sc}({Z}{Z}^{\mathsf H}).
 \end{aligned}
 ```
@@ -156,7 +156,7 @@ For $`a\in\mathbb R`$ and $`{𝐐}\in\mathbb R^3`$, the quaternion and its conju
 with
 
 ```math
-{Q}{Q}^{\mathsf H}=\det {Q}=a^2+{𝐐}^2.
+{Q}{Q}^{\mathsf H}=\det({Q})=a^2+{𝐐}^2.
 ```
 
 Nonzero quaternions are normalized with:
@@ -175,8 +175,8 @@ For $`{𝐐}\ne0`$, the rotation axis and angle are specified by:
 
 ```math
 {𝐮}=\frac{{𝐐}}{\lVert{𝐐}\rVert},\qquad
-a=\cos\frac{\theta}{2},\qquad
-{𝐐}={𝐮}\sin\frac{\theta}{2}.
+a=\cos\left(\frac{\theta}{2}\right),\qquad
+{𝐐}={𝐮}\sin\left(\frac{\theta}{2}\right).
 ```
 
 A rotation of $`{𝐫}\in\mathbb R^3`$ about $`{𝐮}`$ by angle $`\theta`$ is expressed by:
@@ -201,15 +201,15 @@ For $`{T}={R}`$, a [Rodrigues rotation](https://en.wikipedia.org/wiki/Rodrigues%
 ```math
 \begin{aligned}
 {R}&:=e^{-\mathrm i\theta{𝐮}\cdot{𝝈}/2}
-=\cos\frac\theta2-\mathrm i{𝐮}\cdot{𝝈}\sin\frac\theta2,\\
+=\cos\left(\frac\theta2\right)-\mathrm i{𝐮}\cdot{𝝈}\sin\left(\frac\theta2\right),\\
 {X}'&={R}{X}{R}^{\mathsf H},\\
 t'&=t,\\
-{𝐫}'&={𝐫}\cos\theta+({𝐮}\times{𝐫})\sin\theta
-+({𝐮}\cdot{𝐫})(1-\cos\theta){𝐮}.
+{𝐫}'&={𝐫}\cos(\theta)+({𝐮}\times{𝐫})\sin(\theta)
++({𝐮}\cdot{𝐫})(1-\cos(\theta)){𝐮}.
 \end{aligned}
 ```
 
-For $`{T}={L}`$, a [Lorentz boost](https://en.wikipedia.org/wiki/Lorentz_transformation) to a frame moving at $`+\beta{𝐮}`$, with [rapidity](https://en.wikipedia.org/wiki/Rapidity) $`\theta`$, $`\beta:=\tanh\theta`$, and [Lorentz factor](https://en.wikipedia.org/wiki/Lorentz_factor) $`\gamma:=\cosh\theta`$ is considered.
+For $`{T}={L}`$, a [Lorentz boost](https://en.wikipedia.org/wiki/Lorentz_transformation) to a frame moving at $`+\beta{𝐮}`$, with [rapidity](https://en.wikipedia.org/wiki/Rapidity) $`\theta`$, $`\beta:=\tanh(\theta)`$, and [Lorentz factor](https://en.wikipedia.org/wiki/Lorentz_factor) $`\gamma:=\cosh(\theta)`$ is considered.
 
 The parallel and perpendicular components are defined by:
 
@@ -223,7 +223,7 @@ The boost and transformed coordinates are:
 ```math
 \begin{aligned}
 {L}&:=e^{-\theta{𝐮}\cdot{𝝈}/2}
-=\cosh\frac\theta2-{𝐮}\cdot{𝝈}\sinh\frac\theta2
+=\cosh\left(\frac\theta2\right)-{𝐮}\cdot{𝝈}\sinh\left(\frac\theta2\right)
 ={L}^{\mathsf H},\\
 {X}'&={L}{X}{L}^{\mathsf H},\\
 t'&=\gamma(t-\beta{𝐮}\cdot{𝐫}),\\
@@ -311,7 +311,7 @@ The [four-velocity](https://en.wikipedia.org/wiki/Four-velocity) is:
 Thus:
 
 ```math
-\det {U}=\det\!\left(\frac{\mathrm d{X}}{\mathrm ds}\right)
+\det({U})=\det\left(\frac{\mathrm d{X}}{\mathrm ds}\right)
 =\frac{\det(\mathrm d{X})}{\mathrm ds^2}=1.
 ```
 
@@ -324,13 +324,13 @@ For energy $`E`$ and momentum $`{𝐏}`$, the [four-momentum](https://en.wikiped
 For constant mass $`m>0`$:
 
 ```math
-\det {P}=\det(m{U})=m^2\det {U}=m^2.
+\det({P})=\det(m{U})=m^2\det({U})=m^2.
 ```
 
 The [mass-shell](https://en.wikipedia.org/wiki/On_shell_and_off_shell#Mass_shell) relation follows:
 
 ```math
-\det {P}=E^2-{𝐏}^2=m^2.
+\det({P})=E^2-{𝐏}^2=m^2.
 ```
 
 ## [Maxwell](https://en.wikipedia.org/wiki/Maxwell%27s_equations) in one equation
@@ -492,8 +492,8 @@ The canonical four-momentum operator is formed by:
 By commutativity of the free operators:
 
 ```math
-\hat{{P}}\,\mathrm{adj}\,\hat{{P}}
-=\det\hat{{P}}
+\hat{{P}}\,\mathrm{adj}(\hat{{P}})
+=\det(\hat{{P}})
 =\hat E^2-\hat{{𝐏}}^2
 =-\Box.
 ```
@@ -502,7 +502,7 @@ With the [mass shell](https://en.wikipedia.org/wiki/On_shell_and_off_shell#Mass_
 
 ```math
 \begin{aligned}
-0&=(\det\hat{{P}}-m^2)\psi\\
+0&=(\det(\hat{{P}})-m^2)\psi\\
 &=(\hat E^2-\hat{{𝐏}}^2-m^2)\psi\\
 &=-(\Box+m^2)\psi.
 \end{aligned}
@@ -524,7 +524,7 @@ The following operators are defined using the free momentum operator above:
 \begin{aligned}
 {𝐖}(\hat{{P}})&:=
 \begin{pmatrix}
-0 & \mathrm{adj}\,\hat{{P}} \\
+0 & \mathrm{adj}(\hat{{P}}) \\
 \hat{{P}} & 0
 \end{pmatrix},\\
 \hat{{𝐃}}(m)&:={𝐖}(\hat{{P}})-m{𝐈}.
@@ -543,7 +543,7 @@ Equivalently:
 (\hat E\pm\hat{{𝐏}}\cdot{𝝈}){\psi} _\pm=m{\psi} _\mp.
 ```
 
-By $`{𝐖}(\hat{{P}})^2=(\det\hat{{P}}){𝐈}`$, the [Klein–Gordon factorization](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) is obtained:
+By $`{𝐖}(\hat{{P}})^2=(\det(\hat{{P}})){𝐈}`$, the [Klein–Gordon factorization](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation) is obtained:
 
 ```math
 \begin{aligned}
@@ -586,7 +586,7 @@ The [kinetic four-momentum](https://en.wikipedia.org/wiki/Minimal_coupling) oper
 
 In $`\hat E_q`$, rest energy is included and the potential energy $`qV`$ is excluded.
 
-For operator arguments, the spatial vector part is reversed by $`\mathrm{adj}`$ while derivative order is preserved.
+For operator arguments, the spatial vector part is reversed by the adjugate while derivative order is preserved.
 
 The coupled [Dirac operator](https://en.wikipedia.org/wiki/Dirac_equation) is:
 
@@ -594,7 +594,7 @@ The coupled [Dirac operator](https://en.wikipedia.org/wiki/Dirac_equation) is:
 \begin{aligned}
 \hat{{𝐃}}_q(m)&:={𝐖}(\hat{{P}}_q)-m{𝐈}\\
 &=\begin{pmatrix}
--m & \mathrm{adj}\,\hat{{P}}_q\\
+-m & \mathrm{adj}(\hat{{P}}_q)\\
 \hat{{P}}_q & -m
 \end{pmatrix}.
 \end{aligned}
@@ -794,7 +794,7 @@ Rows are [Dirac blocks](https://en.wikipedia.org/wiki/Dirac_spinor); columns are
 
 ## [Spin measurement](https://en.wikipedia.org/wiki/Spin-1/2#Rotations_and_Spinors) probabilities
 
-Real unit preparation and measurement axes are denoted by $`{𝐮}',{𝐮}`$, with $`\cos\theta:={𝐮}\cdot{𝐮}'`$.
+Real unit preparation and measurement axes are denoted by $`{𝐮}',{𝐮}`$, with $`\cos(\theta):={𝐮}\cdot{𝐮}'`$.
 
 The state $`{\psi} ={\Pi} _+'{\psi} \ne0`$ is prepared using projectors with the following overlap:
 
@@ -802,7 +802,7 @@ The state $`{\psi} ={\Pi} _+'{\psi} \ne0`$ is prepared using projectors with the
 \begin{gathered}
 {\Pi} _+':=\frac12(1+{𝐮}'\cdot{𝝈}),\qquad
 {\Pi} _\pm:=\frac12(1\pm{𝐮}\cdot{𝝈}),\\[4pt]
-{\Pi} _+'{\Pi} _\pm{\Pi} _+'=\frac{1\pm\cos\theta}{2}{\Pi} _+'.
+{\Pi} _+'{\Pi} _\pm{\Pi} _+'=\frac{1\pm\cos(\theta)}{2}{\Pi} _+'.
 \end{gathered}
 ```
 
@@ -820,8 +820,8 @@ For the [prepared state](https://en.wikipedia.org/wiki/Spin-1/2#Bloch_Representa
 &=\mathrm{sc}\bigl(({\Pi} _\pm{\psi} )({\Pi} _\pm{\psi} )^{\mathsf H}\bigr)\\
 &=\mathrm{sc}({\Pi} _\pm{\psi} {\psi} ^{\mathsf H})\\
 &=\mathrm{sc}({\Pi} _+'{\Pi} _\pm{\Pi} _+'{\psi} {\psi} ^{\mathsf H})\\
-&=\frac{1\pm\cos\theta}{2}\mathrm{sc}({\psi} {\psi} ^{\mathsf H})
-=\frac{1\pm\cos\theta}{2}\lVert{\psi} \rVert^2.
+&=\frac{1\pm\cos(\theta)}{2}\mathrm{sc}({\psi} {\psi} ^{\mathsf H})
+=\frac{1\pm\cos(\theta)}{2}\lVert{\psi} \rVert^2.
 \end{aligned}
 ```
 
@@ -830,7 +830,7 @@ The [Born probabilities](https://en.wikipedia.org/wiki/Born_rule) for [spin proj
 ```math
 \begin{gathered}
 \mathrm{prob}(\pm)=\frac{\lVert{\Pi} _\pm{\psi} \rVert^2}{\lVert{\psi} \rVert^2}
-=\frac{1\pm\cos\theta}{2},\\[6pt]
-\boxed{\mathrm{prob}(+)=\cos^2\frac\theta2,\quad \mathrm{prob}(-)=\sin^2\frac\theta2.}
+=\frac{1\pm\cos(\theta)}{2},\\[6pt]
+\boxed{\mathrm{prob}(+)=\cos^2\left(\frac\theta2\right),\quad \mathrm{prob}(-)=\sin^2\left(\frac\theta2\right).}
 \end{gathered}
 ```

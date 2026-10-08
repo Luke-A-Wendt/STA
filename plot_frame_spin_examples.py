@@ -102,7 +102,7 @@ def spin_figure():
                   "black,-{Latex[length=1.8mm]},line width=.9pt")
     body += note(.45, .75, r"$\theta$")
     body += note(.72, -.24, r"Prepared spin: $+\frac12$ along $\bm u'$", "anchor=north")
-    body += note(.72, -.58, r"$\bm u\cdot\bm u'=\cos\theta$", "anchor=north")
+    body += note(.72, -.58, r"$\bm u\cdot\bm u'=\cos(\theta)$", "anchor=north")
     body += r"""
 \end{axis}
 \begin{axis}[
