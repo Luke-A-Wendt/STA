@@ -5579,14 +5579,20 @@ is $\cos^2(\varphi/2)$.
 The algebraic actions of Section~\ref{sec:preserved-quantities} are applied
 here to fields and equations at corresponding events. Primed and unprimed
 quantities describe the same event in different coordinates and retain
-their types. The frame factors are constant; varying factors are treated
+their types. We compare inertial frames with a common coordinate origin.
+The frame factors are constant; varying factors are treated
 in Section~\ref{sec:varying-transformations}. Appendix~\ref{sec:conventions}
 compares exponent signs and sandwich orders.
 Natural units $c=\hbar=1$ are used. These transformations preserve spatial
 and time orientation; fields are assumed twice continuously differentiable
 where second derivatives occur.
+Mass $m>0$ and charge $q\in\R$ are Lorentz scalars. The particle coupling,
+Maxwell equation, and spin-one-half representation are the physical inputs
+already specified in the preceding sections. The algebra then determines
+how their factors must combine. Being a paravector alone does not determine
+a transformation law: the definition and physical role of each quantity do.
 
-\subsection{Events and derivatives}
+\subsection{Events, proper time, and momentum}
 
 Coordinates satisfy $(t,\br)\in\R\times\R^3$, with
 $\pX=t+\br\dotprod\bsig\in\R\oplus\R^3$.
@@ -5600,9 +5606,41 @@ ordered product of rotations and boosts,
 where $\theta\in\R$ is an angle or rapidity and $\bu\in\R^3$ is a unit axis.
 The event coordinates transform as~\citeat{baylis-intro}{Eq.~(24)}{page=20}
 \begin{equation}
- \pX'=\pT\pX\pT^{\mathsf H}.
+ \boxed{\pX'=\pT\pX\pT^{\mathsf H}.}
  \label{eq:physical-lorentz-congruence}
 \end{equation}
+This is the Lorentz representation established in
+Section~\ref{sec:preserved-quantities}. It preserves reality and the interval:
+\begin{align*}
+ \pX'^{\mathsf H}&=\pT\pX^{\mathsf H}\pT^{\mathsf H}=\pX',\\
+ \det(\dd\pX')
+ &=\det(\pT)\det(\dd\pX)\det(\pT^{\mathsf H})
+ =\det(\dd\pX).
+\end{align*}
+The continuous rotation and boost factors preserve orientation and the
+future cone, as shown there. On a future-directed time-like path, take the
+positive proper-time increment $\dd s=\sqrt{\det(\dd\pX)}$.
+Then $\dd s'=\dd s$, and differentiating the event law gives
+\begin{align*}
+ \pU'&=\frac{\dd\pX'}{\dd s'}
+ =\pT\frac{\dd\pX}{\dd s}\pT^{\mathsf H}
+ =\pT\pU\pT^{\mathsf H},\\
+ \pP'&=m\pU'=\pT(m\pU)\pT^{\mathsf H}
+ =\pT\pP\pT^{\mathsf H}.
+\end{align*}
+Thus $\pU,\pP\in\R\oplus\R^3$ inherit the event transformation from
+$\pU=\dd\pX/\dd s$ and $\pP=m\pU$; their determinants remain $1$ and $m^2$.
+For the same reason, proper-time differentiation preserves this law:
+\[
+ \frac{\dd\pU'}{\dd s'}=\pT\frac{\dd\pU}{\dd s}\pT^{\mathsf H},
+ \qquad
+ \frac{\dd\pP'}{\dd s'}=\pT\frac{\dd\pP}{\dd s}\pT^{\mathsf H}.
+\]
+Further proper-time derivatives follow in the same way. Coordinate-time
+derivatives require the additional factor $\dd t/\dd t'$.
+
+\subsection{Coordinate derivatives}
+
 To derive the transformation of
 $\pvpartial=\partial_t+\bsig\dotprod\pdr$, express the same scalar
 differential in both coordinate systems. Let $f:\R^4\to\C$ be twice
@@ -5632,7 +5670,7 @@ independent. Comparing their complex coefficients in $\dd f'=\dd f$ gives
 Since this holds for every such scalar field, the coordinate derivative
 operators obey the chain rule~\citeat{tong-em}{p.~101}{page=109}
 \begin{equation}
- \pvpartial'=\pT^*\pvpartial\pT^{-1}.
+ \boxed{\pvpartial'=\pT^*\pvpartial\pT^{-1}.}
  \label{eq:derivative-transformation}
 \end{equation}
 Here derivatives act on the field to their right; the frame factors
@@ -5644,55 +5682,194 @@ Since $\det(\pT^*)=\det(\pT^{-1})=1$,
  =\det(\pT^*)\det(\pvpartial)\det(\pT^{-1})=\Box.
 \]
 Equivalently, $\Box'f'=\Box f$ at corresponding events.
+Sigma conjugation of the operator coefficients also gives
+\[
+ \pvpartial'^*=\pT\pvpartial^*\pT^{\mathsf H}.
+\]
+Here the star acts on the algebra coefficients, not on the field to which
+the operator will be applied.
 
-\subsection{Electromagnetic fields and Maxwell covariance}
+\subsection{Potential and current}
 
 Write $\pA=V+\bA\dotprod\bsig$ and $\pJ=\rho+\bJ\dotprod\bsig$,
 where $V,\rho\in\R$, $\bA,\bJ\in\R^3$, and $\rho$ is charge density.
-These real paravectors transform as
+Their transformation laws require their physical definitions.
+
+\paragraph{Potential from the particle coupling.}
+The interaction in \eqref{eq:charged-particle-action} is
+$-q\int\scpart{\pA^*\pU}\dd s$. We require the same interaction in every
+inertial frame. First compare the same gauge representative, so the
+local coupling agrees, without adding a total derivative to the action.
+For a nonzero test charge, invariance of $q$ and $\dd s$ therefore requires,
+for every possible time-like particle tangent~\citeat{tong-em}{Eq.~(5.41)}{page=132},
 \[
- \pA'=\pT\pA\pT^{\mathsf H},\qquad
- \pJ'=\pT\pJ\pT^{\mathsf H}.
+ \scpart{\pA'^*\pU'}=\scpart{\pA^*\pU}.
 \]
+Substitute the derived law for $\pU'$ and use scalar-part cyclicity:
+\[
+ \scpart{\pA'^*\pT\pU\pT^{\mathsf H}}
+ =\scpart{(\pT^{\mathsf H}\pA'^*\pT)\pU}
+ =\scpart{\pA^*\pU}.
+\]
+Future-directed unit time-like tangents span the real paravectors:
+a rest tangent determines the scalar coefficient, and opposite velocities
+along each axis determine the three vector coefficients. Consequently
+\[
+ \pT^{\mathsf H}\pA'^*\pT=\pA^*,
+ \qquad
+ \pA'^*=\pT^*\pA^*\pT^{-1}.
+\]
+Applying sigma conjugation yields the potential law:
+\begin{equation}
+ \boxed{\pA'=\pT\pA\pT^{\mathsf H}.}
+ \label{eq:potential-lorentz-law}
+\end{equation}
+Thus $\pA$ transforms like $\pU$ and $\pP$ because of its coupling to
+charge motion.
+
+\paragraph{Gauge freedom.}
+For the real gauge scalar $\lambda$ already introduced, let
+$\lambda'=\lambda$ at corresponding events. The derivative law gives
+\[
+ \pvpartial'^*\lambda'=\pT(\pvpartial^*\lambda)\pT^{\mathsf H},
+ \qquad
+ \pA'+\pvpartial'^*\lambda'
+ =\pT(\pA+\pvpartial^*\lambda)\pT^{\mathsf H}.
+\]
+The potential law therefore respects gauge freedom. Choosing an additional
+gauge change only in the primed frame adds $\pvpartial'^*\lambda'$ to
+\eqref{eq:potential-lorentz-law}. Its contribution to the particle coupling
+is a boundary term, because
+\[
+ \scpart{(\pvpartial^*\lambda)^*\pU}\dd s
+ =\scpart{(\pvpartial\lambda)\dd\pX}=\dd\lambda.
+\]
+In the frame transformations below no additional gauge change is made.
+
+\paragraph{Current from charge transport.}
+For one local stream of charges with velocity $\bv$, the definitions give
+$\bJ=\rho\bv$ and
+\[
+ \pJ=\rho(1+\bv\dotprod\bsig)
+ =\frac{\rho}{\scpart{\pU}}\pU.
+\]
+Charge is invariant, while Lorentz contraction divides a small comoving
+volume by $\scpart{\pU}=\dd t/\dd s$. Hence
+$\rho/\scpart{\pU}$ is the charge density measured in that stream's rest
+frame, a Lorentz scalar~\citeat{tong-em}{Sec.~5.2}{page=110}.
+It follows that
+\[
+ \pJ'=\frac{\rho'}{\scpart{\pU'}}\pU'
+ =\frac{\rho}{\scpart{\pU}}\pT\pU\pT^{\mathsf H}
+ =\pT\pJ\pT^{\mathsf H}.
+\]
+\begin{equation}
+ \boxed{\pJ'=\pT\pJ\pT^{\mathsf H}.}
+ \label{eq:current-lorentz-law}
+\end{equation}
+A general current is a sum of contributions from streams with their own
+velocities and signed charge densities. Linearity gives the same law for
+the total, even when it has no rest frame. Charge conservation is preserved:
+\[
+ \scpart{\pvpartial'\pJ'}
+ =\scpart{\pT^*(\pvpartial\pJ)\pT^{\mathsf H}}
+ =\scpart{\pvpartial\pJ}=0.
+\]
+This is $\partial_{t'}\rho'+\vstyle{\partial}_{\br'}\dotprod\bJ'=0$
+whenever the unprimed continuity equation holds.
+
+\subsection{Electromagnetic field and Maxwell covariance}
+
 The electric and magnetic fields $\bE,\bBf\in\R^3$ form
 $\pF=(\bE+\ii\bBf)\dotprod\bsig\in\{0\}\oplus\C^3$.
 The field transformation follows from the potential law. With
 $S=\scpart{\pvpartial\pA}\in\R$, \eqref{eq:potential-field} gives
+\begin{align*}
+ S'+\pF'^*=\pvpartial'\pA'
+ &=(\pT^*\pvpartial\pT^{-1})(\pT\pA\pT^{\mathsf H})\\
+ &=\pT^*(\pvpartial\pA)\pT^{\mathsf H}\\
+ &=\pT^*(S+\pF^*)\pT^{\mathsf H}
+ =S+\pT^*\pF^*\pT^{\mathsf H}.
+\end{align*}
+The derivatives act on $\pA$; the constant adjacent factors
+$\pT^{-1}\pT$ cancel. Since $\pT^{\mathsf H}\pT^*=1$, scalar-part
+cyclicity gives $\scpart{\pT^*\pF^*\pT^{\mathsf H}}=0$.
+The scalar and vector parts therefore give, separately,
 \[
- \pvpartial'\pA'=\pT^*(S+\pF^*)\pT^{\mathsf H}.
+ S'=S,\qquad \pF'^*=\pT^*\pF^*\pT^{\mathsf H}.
 \]
-By scalar-part cyclicity, $S'=S$. Since
-$\pT^*=(\pT^{\mathsf H})^{-1}$, sigma conjugation of the vector part gives~\citeat{baylis-intro}{Eq.~(33)}{page=22}
+Sigma conjugation preserves product order and satisfies
+$(\pT^{\mathsf H})^*=\pT^{-1}$. Applying it to the second equality gives~\citeat{baylis-intro}{Eq.~(33)}{page=22}
 \begin{equation}
- \pF'=\pT\pF\pT^{-1}.
+ \boxed{\pF'=\pT\pF\pT^{-1}.}
  \label{eq:field-transformation}
 \end{equation}
 Thus the field transforms by similarity. Maxwell's equation then follows
 in the primed frame by cancellation:
-\begin{equation*}
- \pvpartial'\pF'=\pT^*(\pvpartial\pF)\pT^{-1}
- =\pT^*\pJ^*\pT^{-1}=\pJ'^*.
-\end{equation*}
+\begin{align*}
+ \pvpartial'\pF'
+ &=(\pT^*\pvpartial\pT^{-1})(\pT\pF\pT^{-1})\\
+ &=\pT^*(\pvpartial\pF)\pT^{-1}
+ =\pT^*\pJ^*\pT^{-1}\\
+ &=(\pT\pJ\pT^{\mathsf H})^*=\pJ'^*.
+\end{align*}
 The transformed potentials and fields therefore satisfy the same
 Maxwell equation~\eqref{eq:maxwell}.
+An additional gauge change would give $S'\mapsto S'+\Box'\lambda'$
+but leave $\pF'$ unchanged: the added derivative
+$\pvpartial'\pvpartial'^*\lambda'=\Box'\lambda'$ is purely scalar.
+Thus $S'=S$ refers to the frame change alone, whereas the field law is
+independent of the gauge representative.
 
-\subsection{Boosted electric and magnetic fields}
+\subsection{Boost components}
 
 For a frame moving with velocity $+\beta\bu$, use the boost factor
 $\pL$ above, with $\beta=\tanh(\theta)\in(-1,1)$ and
 $\gamma=\cosh(\theta)\in\R_{\ge1}$.
+Parallel and perpendicular components are taken relative to $\bu$.
+The expansion
+$\pL=\cosh(\theta/2)-\sinh(\theta/2)\bu\dotprod\bsig$
+and the vector product give
+\begin{align*}
+ \pL^2&=\gamma(1-\beta\bu\dotprod\bsig),\\
+ \pL(\bu\dotprod\bsig)\pL&=\gamma(\bu\dotprod\bsig-\beta),\\
+ \pL(\br_{\perp}\dotprod\bsig)\pL&=\br_{\perp}\dotprod\bsig.
+\end{align*}
+In the last line $\bu\dotprod\bsig$ anticommutes with
+$\br_{\perp}\dotprod\bsig$, so the two boost factors cancel.
+Applying these identities to $\pX=t+\br\dotprod\bsig$ gives
+\[
+ t'=\gamma(t-\beta\bu\dotprod\br),\qquad
+ \br'_{\parallel}=\gamma(\br_{\parallel}-\beta t\bu),\qquad
+ \br'_{\perp}=\br_{\perp}.
+\]
+Differentiation with respect to invariant proper time gives the component
+law for $\pU$, and multiplication by $m$ gives that for $\pP$.
+The identical congruence laws for the potential and current give
+\begin{align*}
+ V'&=\gamma(V-\beta\bu\dotprod\bA),
+ &\rho'&=\gamma(\rho-\beta\bu\dotprod\bJ),\\
+ \bA'_{\parallel}&=\gamma(\bA_{\parallel}-\beta V\bu),
+ &\bJ'_{\parallel}&=\gamma(\bJ_{\parallel}-\beta\rho\bu),\\
+ \bA'_{\perp}&=\bA_{\perp},
+ &\bJ'_{\perp}&=\bJ_{\perp}.
+\end{align*}
+
 Since $\pL^{\mathsf H}=\pL$ and $\pL^*=\pL^{-1}$,
 \eqref{eq:derivative-transformation} becomes
-$\pvpartial'=\pL^{-1}\pvpartial\pL^{-1}$. Its scalar and vector parts are
+$\pvpartial'=\pL^{-1}\pvpartial\pL^{-1}$.
+Resolving the spatial derivatives parallel and perpendicular to $\bu$ gives
 \begin{align*}
  \partial_{t'}&=\gamma(\partial_t+\beta\bu\dotprod\pdr),\\
- \vstyle{\partial}_{\br'}&=\pdr+(\gamma-1)\bu(\bu\dotprod\pdr)
- +\gamma\beta\bu\partial_t.
+ \vstyle{\partial}_{\br'\parallel}
+ &=\gamma(\vstyle{\partial}_{\br\parallel}+\beta\bu\partial_t),\\
+ \vstyle{\partial}_{\br'\perp}&=\vstyle{\partial}_{\br\perp}.
 \end{align*}
-These inverse signs express the chain rule. The potential and current
-follow the component formulas \eqref{eq:energy-boost}--\eqref{eq:momentum-boost},
-with energy and momentum $(E,\bp)\in\R\times\R^3$ replaced by
-$(V,\bA)$ or $(\rho,\bJ)$.
+Here $\vstyle{\partial}_{\br\parallel}=\bu(\bu\dotprod\pdr)$ and
+$\vstyle{\partial}_{\br\perp}=\pdr-\vstyle{\partial}_{\br\parallel}$,
+with the same projections in the primed frame. Only the parallel derivative
+mixes with the time derivative; the plus signs express the inverse coordinate
+transformation in the chain rule.
 
 At corresponding events, with $\pX'=\pL\pX\pL$, the field law reduces to
 \begin{equation}
@@ -5703,34 +5880,49 @@ Similarity preserves the field's zero scalar part and mixes its real
 and imaginary vector parts. A nonzero boost congruence would instead introduce
 a scalar part for a nonzero field parallel to $\bu$; it is the law for
 events and the real four-potential, not for $\pF$.
-Applying \eqref{eq:boost-similarity-vector} to $\bE+\ii\bBf$ and separating
-real and imaginary parts gives~\citeat{tong-em}{Eqs.~(5.17)--(5.18)}{page=116}
-\begin{align}
- \bE'&=\bE_{\parallel}+\gamma(\bE_{\perp}+\beta\bu\times\bBf),
+Expanding this product by \eqref{eq:boost-similarity-vector} gives
+\[
+ \pF'=\bigl(\bE_{\parallel}+\ii\bBf_{\parallel}
+ +\gamma(\bE_{\perp}+\ii\bBf_{\perp})
+ -\ii\gamma\beta\bu\times(\bE+\ii\bBf)\bigr)\dotprod\bsig.
+\]
+Separating real and imaginary parts gives~\citeat{tong-em}{Eqs.~(5.17)--(5.18)}{page=116}
+\begin{gather}
+ \boxed{\bE'=\bE_{\parallel}+\gamma(\bE_{\perp}+\beta\bu\times\bBf),}
  \label{eq:electric-boost}\\
- \bBf'&=\bBf_{\parallel}+\gamma(\bBf_{\perp}-\beta\bu\times\bE).
+ \boxed{\bBf'=\bBf_{\parallel}+\gamma(\bBf_{\perp}-\beta\bu\times\bE).}
  \label{eq:magnetic-boost}
-\end{align}
-Parallel and perpendicular components are taken relative to $\bu$.
+\end{gather}
 The parallel components are unchanged, and reversing $\beta$ gives the
 inverse field law.
+For a rotation, $\pR^{\mathsf H}=\pR^{-1}$, so congruence and similarity
+coincide. Boosts distinguish the two laws because
+$\pL^{\mathsf H}=\pL\ne\pL^{-1}$ unless the boost is zero.
 
 \subsection{Field invariants, energy flux, and force}
 
 \paragraph{Field invariants.}
 Since $\pF^2$ is scalar, similarity preserves
-$\pF'^2=\pL\pF^2\pL^{-1}=\pF^2$.
+$\pF'^2=\pT\pF^2\pT^{-1}=\pF^2$.
 Equation~\eqref{eq:field-invariants} therefore gives
-\begin{align*}
+\[
+ \boxed{\begin{aligned}
  \bE'^2-\bBf'^2&=\bE^2-\bBf^2,\\
  \bE'\dotprod\bBf'&=\bE\dotprod\bBf.
-\end{align*}
+ \end{aligned}}
+\]
 
 \paragraph{Energy density and flux.}
 The energy density $u=(\bE^2+\bBf^2)/2\in\R_{\ge0}$ and Poynting vector
 $\bS=\bE\times\bBf\in\R^3$ depend on the observer.
 Their primed values follow directly from
 \eqref{eq:electromagnetic-energy-flux}:
+\[
+ \boxed{u'+\bS'\dotprod\bsig
+ =\tfrac12\pT\pF\pT^{-1}(\pT^{\mathsf H})^{-1}
+ \pF^{\mathsf H}\pT^{\mathsf H}.}
+\]
+For a boost this becomes, step by step,
 \begin{align*}
  u'+\bS'\dotprod\bsig
  &=\tfrac12\pF'\pF'^{\mathsf H}\\
@@ -5738,6 +5930,9 @@ Their primed values follow directly from
  &=\tfrac12\pL\pF\pL^{-2}\pF^{\mathsf H}\pL.
 \end{align*}
 Explicitly, $u'=(\bE'^2+\bBf'^2)/2$ and $\bS'=\bE'\times\bBf'$.
+The middle factor $\pL^{-2}$ shows why the real paravector
+$u+\bS\dotprod\bsig$ does not itself obey the four-momentum law:
+it combines field energy density and flux for a specified observer.
 For example, if $\bBf=0$ and $\bu\dotprod\bE=0$, the component laws give
 \[
  2u'=\lVert\pF'\rVert^2=\gamma^2(1+\beta^2)\bE^2,
@@ -5746,21 +5941,57 @@ For example, if $\bBf=0$ and $\bu\dotprod\bE=0$, the component laws give
 The energy density changes while the field invariant remains fixed.
 
 \paragraph{Lorentz force.}
-For constant mass $m\in\R_{>0}$ and charge $q\in\R$, let
-$\pU=\dd\pX/\dd s$ and $\pP=m\pU$ be real paravectors in
-$\R\oplus\R^3$, where $s\in\R$ is proper time
-and $\det(\pU)=1$. Proper time is unchanged, so the constant boost gives
-$\pU'=\pL\pU\pL$ and $\pP'=\pL\pP\pL$. The force
-law~\eqref{eq:lorentz} therefore transforms as
-\begin{equation*}
+The field and velocity laws give
+\begin{align*}
+ \pF'\pU'&=(\pT\pF\pT^{-1})(\pT\pU\pT^{\mathsf H})
+ =\pT\pF\pU\pT^{\mathsf H},\\
+ \pU'\pF'^{\mathsf H}
+ &=(\pT\pU\pT^{\mathsf H})((\pT^{\mathsf H})^{-1}\pF^{\mathsf H}\pT^{\mathsf H})
+ =\pT\pU\pF^{\mathsf H}\pT^{\mathsf H}.
+\end{align*}
+Their sum therefore transforms like $\dd\pP/\dd s$, proving covariance
+of the force law~\eqref{eq:lorentz} for every frame factor $\pT$.
+For a boost, the identity insertions are explicit:
+\begin{align*}
  \frac{\dd\pP'}{\dd s}
- =\pL\frac q2(\pF\pU+\pU\pF^{\mathsf H})\pL
- =\frac q2(\pF'\pU'+\pU'\pF'^{\mathsf H}).
-\end{equation*}
+ &=\pL\frac q2(\pF\pU+\pU\pF^{\mathsf H})\pL\\
+ &=\frac q2\bigl(\pL\pF(\pL^{-1}\pL)\pU\pL
+ +\pL\pU(\pL\pL^{-1})\pF^{\mathsf H}\pL\bigr)\\
+ &=\frac q2\bigl((\pL\pF\pL^{-1})(\pL\pU\pL)
+ +(\pL\pU\pL)(\pL^{-1}\pF^{\mathsf H}\pL)\bigr).
+\end{align*}
 Thus the transformed fields give the same form of the real four-force
-in the moving frame.
+in the moving frame:
+\[
+ \boxed{\frac{\dd\pP'}{\dd s}
+ =\frac q2(\pF'\pU'+\pU'\pF'^{\mathsf H}).}
+\]
 
-\subsection{Scalar waves and Dirac covariance}
+\subsection{Momentum operators, scalar waves, and Dirac covariance}
+
+\paragraph{Momentum operators.}
+The definition $\hP=\ii\pvpartial^*$ and the coefficient transformation
+of $\pvpartial^*$ give
+\begin{align*}
+ \hP'&=\ii\pvpartial'^*
+ =\pT(\ii\pvpartial^*)\pT^{\mathsf H}
+ =\pT\hP\pT^{\mathsf H},\\
+ \hPq'&=\hP'-q\pA'
+ =\pT(\hP-q\pA)\pT^{\mathsf H}
+ =\pT\hPq\pT^{\mathsf H}.
+\end{align*}
+These are operator equalities under the coordinate change, with all
+derivatives acting to the right. Their factors are constant except for the
+potentials. The adjugate is complex-linear and reverses product order,
+so
+\[
+ \adj{\hPq'}
+ =\adj{\pT^{\mathsf H}}\adj{\hPq}\adj{\pT}
+ =\pT^*\adj{\hPq}\pT^{-1}.
+\]
+Thus the kinetic operator and its adjugate have the two complementary
+laws needed in the Dirac equations. Sigma conjugation cannot replace
+this adjugate: it would also conjugate the factor $\ii$.
 
 \paragraph{Wave phase and Klein--Gordon.}
 The momentum $\pP\in\R\oplus\R^3$ transforms as
@@ -5776,32 +6007,56 @@ complex plane wave~\eqref{eq:plane-wave} has $f'=f$ at corresponding events
 and momenta.
 A scalar Klein--Gordon field $\psi:\R^4\to\C$ likewise uses $\psi'=\psi$
 at corresponding events. With $\hEq=\ii\partial_t-qV$ and
-$\hbpq=-\ii\pdr-q\bA$, the derivative and potential laws give
+$\hbpq=-\ii\pdr-q\bA$, scalar extraction gives
 \[
- \bigl(-({\hEq}')^2+({\hbpq}')^2+m^2\bigr)\psi'
- =(-\hEq^2+\hbpq^2+m^2)\psi.
+ \scpart{\adj{\hPq}\hPq}
+ =\scpart{(\hEq-\hbpq\dotprod\bsig)(\hEq+\hbpq\dotprod\bsig)}
+ =\hEq^2-\hbpq^2.
+\]
+The mixed terms are vectors; the scalar part of the spatial product is
+the sum of its three component squares. This extraction does not require
+the kinetic components to commute. Under the transformation just derived,
+\begin{align*}
+ \scpart{\adj{\hPq'}\hPq'}
+ &=\scpart{\pT^*\adj{\hPq}\pT^{-1}\pT\hPq\pT^{\mathsf H}}\\
+ &=\scpart{\adj{\hPq}\hPq}.
+\end{align*}
+Here cyclicity moves only constant frame factors past the derivatives.
+Consequently
+\[
+ \boxed{\bigl(-({\hEq}')^2+({\hbpq}')^2+m^2\bigr)\psi'
+ =(-\hEq^2+\hbpq^2+m^2)\psi.}
 \]
 Derivatives act on the potentials as well as the amplitude. Thus a zero
 right-hand side remains zero in the primed frame; $q=0$ gives the free case.
 
 \paragraph{Dirac entries.}
 The fields $\pvpsi_\pm:\R^4\to\C\oplus\C^3$ have the fixed two-component
-form of \eqref{eq:axis-ideal-components}. At corresponding events their
-transformation is
-\[
- \pvpsi_+'=\pT^*\pvpsi_+,
- \qquad \pvpsi_-'=\pT\pvpsi_-.
-\]
-Primed coupled operators use the primed coordinates and potentials.
-The interacting equations \eqref{eq:dirac-entry-one}--\eqref{eq:dirac-entry-two}
-transform by cancellation:
+form of \eqref{eq:axis-ideal-components}. Choose the spin-one-half
+representation $\pvpsi_-'=\pT\pvpsi_-$: consecutive frame factors act by
+their ordered product, and a rotation gives the established
+law~\eqref{eq:spin-half-law}. Left multiplication preserves that fixed
+two-component form. This representation choice is the spin input.
+For $m>0$, the first interacting equation~\eqref{eq:dirac-entry-one}
+then determines the partner's transformation:
 \begin{align*}
- (\hEq'-\hbpq'\dotprod\bsig)\pvpsi_-'
- &=\pT^*(\hEq-\hbpq\dotprod\bsig)\pvpsi_-=m\pvpsi_+',\\
- (\hEq'+\hbpq'\dotprod\bsig)\pvpsi_+'
- &=\pT(\hEq+\hbpq\dotprod\bsig)\pvpsi_+=m\pvpsi_-'.
+ m\pvpsi_+'&=\adj{\hPq'}\pvpsi_-'
+ =(\pT^*\adj{\hPq}\pT^{-1})(\pT\pvpsi_-)\\
+ &=\pT^*\adj{\hPq}\pvpsi_-=m\pT^*\pvpsi_+.
 \end{align*}
-Both equations retain their form; $q=0$ gives the free case.
+Hence
+\[
+ \boxed{\pvpsi_+'=\pT^*\pvpsi_+,\qquad \pvpsi_-'=\pT\pvpsi_-.}
+\]
+The second equation~\eqref{eq:dirac-entry-two} now follows by the
+complementary cancellation:
+\[
+ \hPq'\pvpsi_+'=(\pT\hPq\pT^{\mathsf H})(\pT^*\pvpsi_+)
+ =\pT\hPq\pvpsi_+=m\pT\pvpsi_-=m\pvpsi_-'.
+\]
+Here $\adj{\hPq}=\hEq-\hbpq\dotprod\bsig$ and
+$\hPq=\hEq+\hbpq\dotprod\bsig$ are exactly the operators in those
+two equations. Both equations retain their form; $q=0$ gives the free case.
 For $\pT=\pR$, both entries transform by $\pR$, consistently with
 \eqref{eq:spin-half-law}; the spatial coordinates also rotate.
 A rotation of the axes through $+\theta$ about $\bu$ uses the inverse factor $\pT=\pR^{-1}$.
@@ -5810,11 +6065,42 @@ respectively~\citeat{tong-qft}{Eq.~(4.31)}{page=92}.
 The boost factor already contains half the rapidity.
 
 \paragraph{Spinor pairing and density.}
-The cross-pairing $\scpart{\pvpsi_+^{\mathsf H}\pvpsi_-}$ is invariant
-because the two transformation factors cancel. The summed positive
-density~\eqref{eq:dirac-norm} is preserved by rotations and generally
-changes under boosts.
+The cross-pairing is invariant because $(\pT^*)^{\mathsf H}=\pT^{-1}$:
+\[
+ \scpart{\pvpsi_+'^{\mathsf H}\pvpsi_-'}
+ =\scpart{\pvpsi_+^{\mathsf H}\pT^{-1}\pT\pvpsi_-}
+ =\scpart{\pvpsi_+^{\mathsf H}\pvpsi_-}.
+\]
+The summed positive density~\eqref{eq:dirac-norm} instead becomes
+\[
+ \lVert\pvpsi_+'\rVert^2+\lVert\pvpsi_-'\rVert^2
+ =\scpart{\pvpsi_+^{\mathsf H}\pT^{-1}\pT^*\pvpsi_+}
+ +\scpart{\pvpsi_-^{\mathsf H}\pT^{\mathsf H}\pT\pvpsi_-}.
+\]
+For rotations both middle products are $1$; for a boost they are
+$\pL^{-2}$ and $\pL^2$. Thus the density is preserved by rotations
+and generally changes under boosts.
 The full Dirac pair is used for boosts before the Pauli low-energy limit is taken.
+
+\paragraph{Transformation laws collected.}
+For the same constant frame factor and gauge representative,
+\[
+ \boxed{\begin{aligned}
+ \pX'&=\pT\pX\pT^{\mathsf H},
+ &\pU'&=\pT\pU\pT^{\mathsf H},
+ &\pP'&=\pT\pP\pT^{\mathsf H},\\
+ \pA'&=\pT\pA\pT^{\mathsf H},
+ &\pJ'&=\pT\pJ\pT^{\mathsf H},
+ &\hPq'&=\pT\hPq\pT^{\mathsf H},\\
+ \pvpartial'&=\pT^*\pvpartial\pT^{-1},
+ &\pF'&=\pT\pF\pT^{-1},\\
+ \pvpsi_+'&=\pT^*\pvpsi_+,
+ &\pvpsi_-'&=\pT\pvpsi_-.
+ \end{aligned}}
+\]
+These are different representations within the same algebra. The field law
+follows from differentiating the potential; it does not replace the
+potential's four-vector law.
 
 \section{Position-dependent paravector bases}
 \label{sec:variable-bases}

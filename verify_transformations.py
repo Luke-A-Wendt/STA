@@ -364,6 +364,25 @@ check("potential-derived Maxwell source is real", derived_current.H - derived_cu
 check("Maxwell equation with transformed potential and source",
       differential(derived_primed_field) - star(event_map(T, at_old(derived_current))))
 
+# A real, non-harmonic gauge function tests the frame/gauge distinction:
+# the field is unchanged even though the scalar divergence changes.
+gauge_scalar = time_coordinate**4 + time_coordinate * cx * cy + cz**3
+gauge_gradient = differential(gauge_scalar * one, -1)
+check("gauge gradient is a four-vector under the coordinate chain rule",
+      differential(at_old(gauge_scalar * one), -1)
+      - event_map(T, at_old(gauge_gradient)))
+gauge_potential_derivative = differential(variable_potential + gauge_gradient)
+check("gauge change leaves the field extracted from the potential unchanged",
+      star(gauge_potential_derivative - sc(gauge_potential_derivative) * one)
+      - derived_field)
+check("gauge change adds the wave operator only to the scalar divergence",
+      sc(gauge_potential_derivative - raw_potential_derivative)
+      - sc(wave_operator(gauge_scalar * one)))
+check("gauge shift in the particle coupling is the total differential",
+      sc(star(gauge_gradient) * increment_paravector)
+      - sum(gauge_scalar.diff(coordinate) * coordinate_increment[index]
+            for index, coordinate in enumerate(coordinates)))
+
 
 def mechanical_component(expression, potential, index):
     coefficient = coeff(potential)[index]
@@ -383,6 +402,26 @@ coupled_scalar_test = (time_coordinate * cx + cy**2 + s.I * cz * time_coordinate
 check("coupled Klein-Gordon covariance including potential derivatives",
       coupled_kg(at_old(coupled_scalar_test), primed_potential)
       - at_old(coupled_kg(coupled_scalar_test, variable_potential)))
+
+
+def kinetic_paravector(expression, potential, adjugate=False):
+    derivative = differential(expression, 1 if adjugate else -1)
+    coupling = star(potential) if adjugate else potential
+    return (s.I * derivative - charge * coupling * expression).expand()
+
+
+ordered_kinetic_product = kinetic_paravector(
+    kinetic_paravector(coupled_scalar_test, variable_potential),
+    variable_potential, adjugate=True)
+primed_ordered_product = kinetic_paravector(
+    kinetic_paravector(at_old(coupled_scalar_test), primed_potential),
+    primed_potential, adjugate=True)
+check("scalar extraction of the ordered kinetic product yields the coupled KG operator",
+      mass**2 * coupled_scalar_test - sc(ordered_kinetic_product) * one
+      - coupled_kg(coupled_scalar_test, variable_potential))
+check("ordered kinetic product has the claimed similarity law before scalar extraction",
+      primed_ordered_product - Ti.H * at_old(ordered_kinetic_product) * T.H)
+
 check("first coupled Dirac equation with varying potentials",
       s.I * differential(psi2p) - charge * star(primed_potential) * psi2p - mass * psi1p
       - Ti.H * at_old(s.I * differential(psi2)
