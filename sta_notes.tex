@@ -4,6 +4,7 @@
 \usepackage{amsmath,amssymb,mathtools,bm}
 \usepackage{booktabs,array}
 \usepackage{graphicx}
+\usepackage{placeins}
 \usepackage{tcolorbox}
 \tcbuselibrary{breakable,skins}
 % All SI definitions, prose, and equations stay within this environment.
@@ -168,6 +169,7 @@
 \sourceurl{feynmanspin}{https://www.feynmanlectures.caltech.edu/III_06.html}
 \sourceurl{feynman-spacetime}{https://www.feynmanlectures.caltech.edu/I_17.html}
 \sourceurl{russo-townsend}{https://arxiv.org/pdf/0902.4243}
+\sourceurl{llosa-frames}{https://arxiv.org/pdf/1706.09656}
 \sourceurl{carroll-gr}{https://arxiv.org/pdf/gr-qc/9712019}
 \sourceurl{bini-kerr-schild}{https://arxiv.org/pdf/1408.4601}
 \sourceurl{heinicke-hehl}{https://arxiv.org/pdf/1503.02172}
@@ -234,11 +236,10 @@ literature in Appendix~\ref{sec:conventions}.
 The algebra uses coefficient pairs
 $\pZ=c+\bZ\dotprod\bsig\leftrightarrow(c,\bZ)\in\C\oplus\C^3$.
 Real paravectors lie in $\R\oplus\R^3$; mixed sums specify each
-coefficient space separately. Direct sums specify values, while the
-sigma rules define multiplication. Each $\pvsigma_k\in\{0\}\oplus\R^3$
-is an algebra element in ordinary type;
-$\bsig\in(\{0\}\oplus\R^3)^3$ is their ordered triple, not a numerical
-vector in $\R^3$. A numerical $\bX\in\R^3$ and its algebra image
+coefficient space separately. Direct sums specify coefficient values.
+Each $\pvsigma_k$ is a distinct symbolic object whose products follow
+the order-dependent rules given below. The bold symbol $\bsig$ is the
+three-vector of these objects. A numerical $\bX\in\R^3$ and its algebra image
 $\bX\dotprod\bsig$ are distinct types. Spatial indices range over
 $\{1,2,3\}$ unless stated otherwise.
 
@@ -1866,6 +1867,11 @@ The Lorentz factor and the derivative conversion are therefore~\citeat{tong-rela
 \end{align}
 The coordinate-time and proper-time rates coincide only at rest in the
 chosen frame.
+For an ideal clock this relation also holds during acceleration: its
+instantaneous rate depends on its velocity, and its total reading depends
+on the complete path. This is the clock hypothesis. Acceleration and jerk
+change that path and the coordinates assigned by a carried frame; they do
+not add an independent term to the local proper-time interval.
 
 \paragraph{Elapsed time and clock comparison.}
 Between coordinate times $t_0$ and $t$ the clock records~\citeat{tong-relativity}{Eq.~(7.19)}{page=140}
@@ -2074,6 +2080,84 @@ $\det(\dd\pX'/\dd s)=1$ in every inertial frame.
 Proper time and causality are determined by the determinant; these
 Lorentz transformations would not be obtained by preserving the squared norm.
 
+\subsection{The same events in two frames}
+\label{sec:event-comparison}
+
+An event is one spacetime point; $(t,\br)$ and $(t',\br')$ are two
+coordinate assignments to it. A displacement compares two neighboring
+events. Since the boost factor is constant, its action on $\pX$ gives
+\begin{equation}
+ \boxed{\begin{aligned}
+ \dd t'&=\gamma(\dd t-\beta\bu\dotprod\dd\br),\\
+ \dd\br'_{\parallel}&=\gamma(\dd\br_{\parallel}-\beta\bu\dd t),\\
+ \dd\br'_{\perp}&=\dd\br_{\perp}.
+ \end{aligned}}
+ \label{eq:inertial-event-increments}
+\end{equation}
+These equations also hold for finite separations $\Delta t,\Delta\br$.
+They compare the same pair of events, rather than different events chosen
+to have equal coordinate times. Clock readings and rod lengths require
+that choice to be specified.
+
+For example, take $\beta=3/5$, so $\gamma=5/4$, and zero transverse
+separation. In any common natural unit, the pairs below are measured from
+the common origin:
+\begin{center}
+\begin{tabular}{lccccc}
+\toprule
+Event pair & $\Delta t$ & $\bu\dotprod\Delta\br$
+ & $\Delta t'$ & $\bu\dotprod\Delta\br'$ & $\det(\Delta\pX)$\\
+\midrule
+Unprimed clock at rest & $1$ & $0$ & $5/4$ & $-3/4$ & $1$\\
+Primed clock at rest & $5/4$ & $3/4$ & $1$ & $0$ & $1$\\
+Light along $+\bu$ & $1$ & $1$ & $1/2$ & $1/2$ & $0$\\
+Simultaneous unprimed endpoints & $0$ & $1$ & $-3/4$ & $5/4$ & $-1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Both clocks in the first two rows record unit proper time along their
+respective straight worldlines. The light ray stays null, and the last
+pair remains space-like even though its coordinate-time ordering changes.
+For an accelerated clock between two fixed events, its elapsed proper
+time is instead the path integral~\eqref{eq:elapsed-proper-time}.
+
+These are assigned coordinates, not the time at which a distant observer
+receives an image. Reception is a further event connected to emission by
+a future null displacement. This distinction remains necessary for an
+accelerating observer.
+
+Figure~\ref{fig:observer-events} shows the four event pairs in the table.
+The same labels refer to the same events in both panels.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\textwidth]{figures/observer_events.pdf}
+ \caption{The same events in two inertial frames, with
+ $x=\bu\dotprod\br$, $x'=\bu\dotprod\br'$, and $\beta=3/5$.
+ From the common event $O$, $A$ lies on the unprimed rest clock (solid),
+ $B$ on the primed rest clock (dashed), $C$ on the future light cone
+ (dotted), and $D$ at simultaneous unprimed separation.
+ Both clocks accumulate $\Delta s=1$, although their coordinate increments
+ differ. The space-like pair $OD$ is simultaneous only in the left panel.
+ Equal spatial and temporal scales keep null lines at $45^\circ$.}
+ \label{fig:observer-events}
+\end{figure}
+
+\begin{SIunits}{The same event displacement}
+With $t,t'$ in seconds, $\br,\br'$ in metres, and frame velocity
+$\beta c\bu$, the final relations are
+\begin{gather*}
+ \dd t'=\gamma\left(\dd t-\frac{\beta}{c}\bu\dotprod\dd\br\right),\qquad
+ \dd\br'_{\parallel}=\gamma(\dd\br_{\parallel}-\beta c\bu\dd t),\qquad
+ \dd\br'_{\perp}=\dd\br_{\perp},\\
+ \dd s^2=c^2\dd\tau^2
+ =c^2\dd t^2-\dd\br^2=c^2\dd t'^2-\dd\br'^2.
+\end{gather*}
+The proper-time equality applies to time-like displacements; for light
+the interval is zero.
+\end{SIunits}
+\FloatBarrier
+
 \subsection{Spacetime increments and velocity}
 Notation: the real four-velocity $\pU=\dd \pX/\dd s$, an
 \hyperref[eq:unit-paravector]{invertible paravector} with $\pU \pU^{-1}=1$,
@@ -2105,23 +2189,82 @@ Thus \eqref{eq:velocity-boost} preserves subluminal motion and light speed.
 Since $\pL$ is constant, the same transformation applies to the integrated
 worldline in \eqref{eq:worldline-integral}.
 
+\paragraph{Rest, simultaneity, and the light-speed limit.}
+For an unprimed clock at rest, $\dd\br=0$, so
+$\dd s=\dd t$, $\dd t'=\gamma\dd t$, and
+$\dd\br'=-\gamma\beta\bu\dd t$. For a primed clock at rest,
+$\dd\br'=0$, the inverse calculation gives $\dd s=\dd t'=\dd t/\gamma$.
+Neither clock stops evolving in its own proper time.
+If $\dd t=0$ and $\dd\br\ne0$, the displacement is space-like;
+it is a simultaneous separation of events, not a massive observer's path.
+If both increments vanish, there is no displacement.
+
+For massive motion, $\dd s/\dd t=\sqrt{1-\bv^2}\to0$ as
+$\lVert\bv\rVert\to1$, while $\dd t/\dd s\to\infty$.
+This limiting comparison of clock rates does not define a frame that
+is ``not moving through time.'' At light speed $\dd s=0$, so
+$\pU=\dd\pX/\dd s$ and a comoving massive clock cease to be defined.
+Likewise, a frame boost requires $|\beta|<1$: its light-speed limit has
+unbounded rapidity and no finite invertible rest-frame transformation.
+
+The null directions show exactly what remains regular. For light along
+$\pm\bu$, substitute $\dd\br=\pm\bu\dd t$ to obtain
+\[
+ \dd t'=e^{\mp\theta}\dd t>0,\qquad
+ \dd\br'=\pm\bu\dd t'.
+\]
+Every finite boost preserves the light speed and future direction.
+Acceleration changes which boost the observer uses at successive events;
+it never turns a null tangent into a time-like one.
+
 \subsection{Clock rates and measured lengths}
+\paragraph{Time dilation and a transverse light clock.}
 For a clock at rest in the primed frame, \eqref{eq:lorentz-time} uses
 $\dd\br=\beta\bu\dd t$, hence~\citeat{tong-relativity}{p.~119}{page=125}
 \begin{equation}
- \dd t'=\gamma(1-\beta^2)\dd t=\dd t/\gamma.
+ \boxed{\dd t'=\dd s=\gamma(1-\beta^2)\dd t=\dd t/\gamma.}
  \label{eq:time-dilation}
 \end{equation}
 Here $\dd t'=\dd s$; finite elapsed time follows from
 \eqref{eq:elapsed-proper-time}.
+To realize this clock, place two mirrors at primed rest separation
+$\ell>0$ perpendicular to $\bu$. A light pulse returns after
+$\Delta t'=2\ell$. In the unprimed frame each half-trip is a null
+displacement with transverse length $\ell$ and longitudinal displacement
+$\beta\Delta t/2$. Its determinant gives
+\[
+ (\Delta t/2)^2-\ell^2-(\beta\Delta t/2)^2=0,
+ \qquad \Delta t=2\gamma\ell=\gamma\Delta t'.
+\]
+Thus the clock relation follows from the light cone itself. For
+$\beta=3/5$, a primed elapsed time of $1$ corresponds to unprimed
+elapsed time $5/4$. The reciprocal clock statement compares a different
+worldline, as in the first two rows of Section~\ref{sec:event-comparison}.
 
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\textwidth]{figures/observer_light_clock.pdf}
+ \caption{A transverse light clock with mirror separation $\ell$ and
+ $\beta=3/5$. These are spatial projections, with the time of each event
+ written beside it: emission $O$, reflection $M$, and return $R$.
+ Choose the first spatial axis along $\bu$ and the second along the mirrors.
+ In the clock's rest frame the pulse retraces its path; in the unprimed
+ frame each dotted leg has length $5\ell/4$.
+ Light speed is $1$ in both frames, so the same round trip takes
+ $\Delta t=5\ell/2$ while the clock records $\Delta s=2\ell$.}
+ \label{fig:observer-light-clock}
+\end{figure}
+\FloatBarrier
+
+\paragraph{Length contraction and simultaneity.}
 For a rod at rest in the unprimed frame, the fixed endpoint separation is
 denoted by $\Delta\br\in\R^3$.  A simultaneous measurement in the primed
 frame requires $\Delta t'=0$, so
 $\Delta t=\beta\bu\dotprod\Delta\br$.  Substituting in
 \eqref{eq:lorentz-position} gives~\citeat{tong-relativity}{p.~123}{page=129}
 \begin{equation}
- \Delta\br'_{\parallel}=\Delta\br_{\parallel}/\gamma.
+ \boxed{\Delta\br'_{\parallel}=\Delta\br_{\parallel}/\gamma,
+ \qquad \Delta\br'_{\perp}=\Delta\br_{\perp}.}
  \label{eq:length-contraction}
 \end{equation}
 The transverse separation stays unchanged; thus a rod of any orientation has
@@ -2135,6 +2278,42 @@ endpoint events at equal primed times.
 Equal unprimed times instead give
 $\Delta t'=-\gamma\beta\bu\dotprod\Delta\br$; simultaneity is frame-dependent.
 The reciprocal statement follows by exchanging primes and reversing $\beta$.
+For a rod of rest length $\ell$ parallel to the motion, $\beta=3/5$
+therefore gives measured length $4\ell/5$. This is the separation of its
+endpoints measured simultaneously in the observing frame, rather than
+an optical image or a change of the rod's rest length.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\textwidth]{figures/observer_rod.pdf}
+ \caption{Length contraction selects simultaneous endpoint events.
+ The solid lines are the two ends of a rod at unprimed rest, with
+ $x=\bu\dotprod\br$ and rest length $\ell$; $\beta=3/5$.
+ The dotted segment $OA$ measures its length at $t=0$.
+ The dash-dotted segment $OB$ instead has $t'=0$ and measures
+ $\Delta x'=4\ell/5$ in the moving frame. The event $A$ has
+ $t'=-3\ell/4$, so $OA$ cannot be used as that frame's simultaneous
+ length measurement. Labels identify the same three events in both panels.}
+ \label{fig:observer-rod}
+\end{figure}
+
+\begin{SIunits}{Clock dilation and length contraction}
+For frame speed $\beta c$, $\gamma=(1-\beta^2)^{-1/2}$:
+\begin{gather*}
+ \dd\tau=\dd t'=\frac{\dd t}{\gamma}
+ \quad\text{for a clock at primed rest},\\
+ \Delta t'=\frac{2\ell}{c},\qquad
+ \Delta t=\frac{2\gamma\ell}{c}
+ \quad\text{for the transverse light clock},\\
+ \Delta t=\frac{\beta}{c}\bu\dotprod\Delta\br,
+ \qquad \Delta\br'_{\parallel}=\frac{\Delta\br_{\parallel}}{\gamma},
+ \qquad \Delta\br'_{\perp}=\Delta\br_{\perp}
+ \quad(\Delta t'=0).
+\end{gather*}
+The last line measures a rod at unprimed rest using simultaneous primed
+endpoint events.
+\end{SIunits}
+\FloatBarrier
 
 \subsection{Composing frames}
 For constant determinant-one factors $\pT,\pT'$, applying the frame change
@@ -2220,6 +2399,45 @@ from $\pP'=m$ in the rest frame by inversion of the boost:
 \end{equation*}
 Thus $E=m\gamma$ and $\bp=m\gamma\beta\bu$, while $m$ remains unchanged
 \citeat{tong-relativity}{Eqs.~(7.25), (7.28)}{page=142}.
+
+\paragraph{Energy increase and the meaning of ``mass dilation.''}
+The same boost that compares clock rates gives
+\[
+ \boxed{\frac{E}{m}=\frac{\dd t}{\dd s}=\gamma,
+ \qquad E^2-\bp^2=m^2.}
+\]
+For $\beta=3/5$, $E=5m/4$ and $\bp=3m\bu/4$; their difference of
+squares still gives $m^2$. The older term \emph{relativistic mass}
+denotes the energy $E$ in natural units, or $E/c^2$ in SI.
+Calling its increase ``mass dilation'' must not be read as a change of
+the invariant $m$ used here. The different longitudinal and transverse
+inertias follow in Section~\ref{sec:energy-inertia}.
+For fixed $m>0$, $E\to\infty$ as $|\beta|\to1$; a massless particle
+is a separate null case, with no rest frame or proper-time four-velocity.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\textwidth]{figures/observer_limits.pdf}
+ \caption{Rest and the light-speed limit. The dashed curve gives both
+ a moving clock's proper-time rate and a longitudinal rod's measured
+ length divided by its rest length. The solid curve gives a massive
+ particle's energy divided by its invariant mass.
+ At $\beta=3/5$ the first factor is $4/5$ and the second $5/4$.
+ As $\beta\to1$, the clock rate and length fraction tend to zero while
+ the energy diverges. The open endpoint is a limit, not a massive
+ observer at light speed; $m$ remains invariant throughout.}
+ \label{fig:observer-limits}
+\end{figure}
+
+\begin{SIunits}{Energy increase and invariant mass}
+With frame-relative particle speed $\beta c$ and invariant mass $m$,
+\[
+ E=\gamma mc^2,\qquad \bp=\gamma m\beta c\bu,\qquad
+ \frac{E^2}{c^4}-\frac{\bp^2}{c^2}=m^2.
+\]
+Thus $E/c^2=\gamma m$ is frame-dependent, while $m$ is not.
+\end{SIunits}
+\FloatBarrier
 
 \subsection{Free-particle action}
 
@@ -2472,6 +2690,153 @@ By scaling the coordinate derivatives,
 \]
 The proper-acceleration magnitude is therefore $\gamma|\dot\theta|$.
 
+\subsection{Events in an accelerating frame}
+\label{sec:accelerated-events}
+
+An accelerated observer has an instantaneous rest frame at each event,
+but assigning coordinates to distant events also requires a rule for
+simultaneity and spatial axes. Here spacetime is flat, the motion is along
+the fixed axis $\bu$, and the carried axes do not rotate. Ideal clocks
+are assumed to measure proper time. The construction below uses the
+observer's instantaneous rest planes for simultaneity, as in
+Fermi--Walker coordinates~\citeat{llosa-frames}{Eqs.~(4)--(8)}{page=4}.
+It is a local coordinate choice, not a new gravitational field.
+
+Let $\pX(s)$ be the reference observer's worldline. Label each rest plane
+by that observer's clock, $t'=s$, and give its points the spatial coordinates
+$\br'$. Using the already defined orthonormal directions $\pU,\pN$,
+the same event has inertial coordinates determined by
+\begin{equation}
+ \boxed{t+\br\dotprod\bsig
+ =\pX(t')+(\bu\dotprod\br')\pN(t')
+ +\br'_{\perp}\dotprod\bsig.}
+ \label{eq:accelerated-event-map}
+\end{equation}
+The notation $\pX(t')$ on the right denotes the reference worldline
+evaluated at its proper time $t'$, not the distant event on the left.
+Its separation from that reference event is orthogonal to $\pU(t')$;
+this is precisely the chosen simultaneity condition. At $\br'=0$ the
+map reduces to the observer's worldline.
+
+Along the origin, $\dd\pX/\dd t'=\pU$ and
+$\dd\pN/\dd t'=(\dd\theta/\dd t')\pU$. Differentiating the full map,
+including its moving spatial direction, gives
+\begin{align*}
+ \dd\pX={}&\left(1+(\bu\dotprod\br')\frac{\dd\theta}{\dd t'}\right)
+ \pU\dd t'
+ +\pN\,\bu\dotprod\dd\br'
+ +\dd\br'_{\perp}\dotprod\bsig,\\
+ \dd t={}&\cosh(\theta)
+ \left(1+(\bu\dotprod\br')\frac{\dd\theta}{\dd t'}\right)\dd t'
+ +\sinh(\theta)\bu\dotprod\dd\br',\\
+ \bu\dotprod\dd\br={}&\sinh(\theta)
+ \left(1+(\bu\dotprod\br')\frac{\dd\theta}{\dd t'}\right)\dd t'
+ +\cosh(\theta)\bu\dotprod\dd\br'.
+\end{align*}
+The inverse comparison of the same neighboring events is therefore
+\begin{equation}
+ \boxed{\begin{aligned}
+ \left(1+(\bu\dotprod\br')\frac{\dd\theta}{\dd t'}\right)\dd t'
+ &=\gamma(\dd t-\beta\bu\dotprod\dd\br),\\
+ \dd\br'_{\parallel}&=\gamma(\dd\br_{\parallel}-\beta\bu\dd t),\\
+ \dd\br'_{\perp}&=\dd\br_{\perp}.
+ \end{aligned}}
+ \label{eq:accelerated-event-increments}
+\end{equation}
+Here $\beta=\tanh(\theta(t'))$ and $\gamma=\cosh(\theta(t'))$ belong
+to the origin's instantaneous velocity. At $\br'=0$ the ordinary boost
+of increments is recovered. Away from the origin the additional factor
+comes from the changing rest planes. Merely substituting a time-dependent
+velocity into the finite inertial formula $\pX'=\pL\pX\pL$ would omit
+both the moving origin and these derivative terms.
+
+Indeed, $\pL\pU\pL=1$ and $\pL\pN\pL=\bu\dotprod\bsig$ give
+\[
+ \pL\dd\pX\pL
+ =\left(1+(\bu\dotprod\br')\frac{\dd\theta}{\dd t'}\right)\dd t'
+ +\dd\br'\dotprod\bsig.
+\]
+These are local orthonormal components of the displacement. They differ
+from the coordinate paravector $\dd t'+\dd\br'\dotprod\bsig$ away from
+the origin. Taking the determinant gives
+\begin{equation}
+ \boxed{\dd s^2
+ =\left(1+(\bu\dotprod\br')\frac{\dd\theta}{\dd t'}\right)^2\dd t'^2
+ -\dd\br'^2.}
+ \label{eq:accelerated-interval}
+\end{equation}
+In this interval formula $\dd s$ is the proper time of whichever path
+is being measured; it equals $\dd t'$ along the origin, but not generally
+along other paths.
+The chart is used on a one-to-one region where
+$1+(\bu\dotprod\br')\dd\theta/\dd t'>0$.
+At zero this coordinate map becomes singular, rather than creating an
+observer whose clock has stopped.
+
+\paragraph{Clocks, lengths, and light cones.}
+At a fixed grid point $\br'$, the clock rate relative to the origin is
+\[
+ \boxed{\frac{\dd s}{\dd t'}
+ =1+(\bu\dotprod\br')\frac{\dd\theta}{\dd t'}
+ \qquad(\dd\br'=0).}
+\]
+Thus simultaneous rest in the accelerated coordinates does not mean equal
+clock rates. At an instant when the origin is also at inertial rest,
+$\theta=0$, its clock has $\dd t=\dd t'$, but distant fixed grid points
+still have the displayed position-dependent rate.
+On a slice $\dd t'=0$, proper spatial distance is $\lVert\dd\br'\rVert$.
+Keeping such distances fixed requires different signed proper
+accelerations at different grid points:
+\[
+ \frac{\dd\theta}{\dd s}
+ =\frac{\dd\theta/\dd t'}
+ {1+(\bu\dotprod\br')\dd\theta/\dd t'}.
+\]
+Here $s$ belongs to the fixed grid clock. Giving every point the same
+accelerometer reading would generally change the rest distances.
+
+For light, \eqref{eq:accelerated-interval} instead gives
+\[
+ \left\lVert\frac{\dd\br'}{\dd t'}\right\rVert
+ =1+(\bu\dotprod\br')\frac{\dd\theta}{\dd t'}.
+\]
+Dividing by the local fixed clock's rate restores measured speed $1$.
+The coordinate light cones can therefore widen or narrow with position
+and with the acceleration history, while the local light cone and
+physical light speed are unchanged. For axial rays,
+\begin{equation}
+ \frac{\dd(\bu\dotprod\br')}{\dd t'}
+ =\pm\left(1+(\bu\dotprod\br')\frac{\dd\theta}{\dd t'}\right).
+ \label{eq:accelerated-null-slopes}
+\end{equation}
+When $\dd\theta/\dd t'=0$ throughout an interval, the construction reduces
+to an inertial frame on that interval. For finite rapidity and positive clock factor it
+remains a frame of massive observers, never a light-speed rest frame.
+Changing directions and rotating axes are treated with the general
+paravector frame factor in Section~\ref{sec:general-observer-chart}.
+Figure~\ref{fig:observer-rindler} illustrates the coordinate grid, light
+paths, and clocks for constant proper acceleration;
+Figure~\ref{fig:observer-jerk} shows how they change with proper jerk.
+
+\begin{SIunits}{Accelerated event coordinates and clocks}
+Here $t,t'$ are seconds, $\br,\br'$ are metres, the origin's proper time
+is $t'$, and $\beta c$ is its inertial speed. For an arbitrary clock,
+$s=c\tau$. The signed proper acceleration of the origin is
+$c\,\dd\theta/\dd t'$. The final comparison is
+\begin{gather*}
+ \left(1+\frac{\bu\dotprod\br'}{c}\frac{\dd\theta}{\dd t'}\right)\dd t'
+ =\gamma\left(\dd t-\frac{\beta}{c}\bu\dotprod\dd\br\right),\\
+ \dd\br'_{\parallel}=\gamma(\dd\br_{\parallel}-\beta c\bu\dd t),
+ \qquad \dd\br'_{\perp}=\dd\br_{\perp},\\
+ \dd\tau^2
+ =\left(1+\frac{\bu\dotprod\br'}{c}\frac{\dd\theta}{\dd t'}\right)^2\dd t'^2
+ -\frac{\dd\br'^2}{c^2}.
+\end{gather*}
+At fixed $\br'$, $\dd\tau/\dd t'=1+(\bu\dotprod\br')\dd\theta/(c\dd t')$.
+Light has coordinate speed $c$ times this factor and locally measured
+speed $c$.
+\end{SIunits}
+
 \subsection{Constant coordinate acceleration}
 \label{sec:constant-coordinate-acceleration}
 In the following examples, subscript $0$ denotes the initial event $t=s=0$.
@@ -2564,6 +2929,108 @@ Eliminating $s$ using $\dot{v}_0t=\sinh(\dot{v}_0s)$ makes the coordinate accele
 Here $\gamma(t)=\sqrt{1+\dot{v}_0^2t^2}$, so
 $\gamma^3\lVert\dot{\bv}(t)\rVert=\dot{v}_0$ is constant while the coordinate
 acceleration decreases as the particle gains speed.
+
+\subsection{A uniformly accelerating grid and its horizon}
+\label{sec:rindler-events}
+
+Use the same reference worldline \eqref{eq:hyperbolic-worldline}, with
+$\dot v_0>0$ and $\theta=\dot v_0t'$. Substituting it and $\pN$ in
+\eqref{eq:accelerated-event-map} gives the explicit coordinates of every
+event in the accelerated chart:
+\begin{equation}
+ \boxed{\begin{aligned}
+ t&=\left(\frac1{\dot v_0}+\bu\dotprod\br'\right)\sinh(\dot v_0t'),\\
+ \bu\dotprod\br
+ &=\left(\frac1{\dot v_0}+\bu\dotprod\br'\right)\cosh(\dot v_0t')
+ -\frac1{\dot v_0},\\
+ \br_{\perp}&=\br'_{\perp}.
+ \end{aligned}}
+ \label{eq:rindler-event-map}
+\end{equation}
+The origin $\br'=0$ is the accelerating reference clock; each other
+fixed $\br'$ is a different hyperbolic worldline. At $t'=0$ all are
+instantaneously at inertial rest, yet their clock rates are
+$\dd s/\dd t'=1+\dot v_0\bu\dotprod\br'$ and their signed proper
+accelerations are $\dot v_0/(1+\dot v_0\bu\dotprod\br')$.
+For example, the grid clock at $\bu\dotprod\br'=1/\dot v_0$ advances
+twice as much as the origin per unit $t'$ and needs half its acceleration.
+
+For a concrete event on the origin, choose $t'=\ln(2)/\dot v_0$.
+Its two coordinate assignments and elapsed proper time from departure are
+\[
+ (t,\br)=\left(\frac{3}{4\dot v_0},\frac{\bu}{4\dot v_0}\right),
+ \qquad (t',\br')=\left(\frac{\ln(2)}{\dot v_0},\vstyle{0}\right),
+ \qquad \Delta s=\frac{\ln(2)}{\dot v_0}.
+\]
+The finite separation has
+$\sqrt{\det(\Delta\pX)}=1/(\sqrt2\dot v_0)>\Delta s$.
+This explicitly distinguishes the invariant separation of the two events
+from the proper time accumulated along the accelerated path between them.
+
+These are Rindler coordinates. The interval and axial light paths are
+\begin{gather}
+ \boxed{\dd s^2=(1+\dot v_0\bu\dotprod\br')^2\dd t'^2-\dd\br'^2,}
+ \label{eq:rindler-interval}\\
+ 1+\dot v_0\bu\dotprod\br'(t')
+ =(1+\dot v_0\bu\dotprod\br'_0)e^{\pm\dot v_0t'}.
+ \label{eq:rindler-light-rays}
+\end{gather}
+Here $\br'_0$ is the ray's position at $t'=0$ and its transverse
+coordinates are fixed. The exponential follows by integrating
+\eqref{eq:accelerated-null-slopes}; the inward ray approaches zero
+coordinate speed only as $t'\to\infty$, always moving at unit speed
+relative to a nearby grid clock.
+
+The map covers the wedge
+\[
+ \frac1{\dot v_0}+\bu\dotprod\br>|t|,
+ \qquad 1+\dot v_0\bu\dotprod\br'>0.
+\]
+Its null boundaries $t=\pm(\bu\dotprod\br+1/\dot v_0)$ are the
+past and future horizons for the eternally accelerated observer.
+The reference trajectory approaches a null direction as $t'\to\infty$
+but is time-like at every finite $t'$, with $\det(\pU)=1$.
+A finite period of acceleration followed by inertial motion need not
+produce such a horizon; a horizon is a statement about the full history,
+not merely the instantaneous clock factor.
+Taking $\dot v_0\to0$ at fixed $t',\br'$ gives
+$t=t'$ and $\br=\br'$, as follows by expanding the hyperbolic functions.
+
+\begin{figure}[p]
+ \centering
+ \includegraphics[width=\textwidth]{figures/observer_rindler.pdf}
+ \caption{Uniform acceleration, with $x=\bu\dotprod\br$ and
+ $x'=\bu\dotprod\br'$. Top: the same grid and light rays in inertial
+ and accelerated coordinates. The three solid worldlines have
+ $\dot v_0x'=-1/2,0,1$; thin connecting lines are simultaneous at fixed
+ $t'$. Dotted light rays leave $O$; the additional dotted null line on
+ the left is the future horizon. Hatching excludes $1+\dot v_0x'\le0$.
+ Short V shapes show local coordinate cones: their width varies with
+ position, while locally measured light speed is $1$.
+ Bottom left: fixed grid clocks accumulate different proper times.
+ Bottom right: between the same events $O$ and
+ $E:(\dot v_0x,\dot v_0t)=(1/4,3/4)$, the accelerated clock records
+ $\ln(2)/\dot v_0$, less than the inertial clock's $1/(\sqrt2\dot v_0)$.
+ Thus finite event separation and elapsed time along a curved path differ.}
+ \label{fig:observer-rindler}
+\end{figure}
+
+\begin{SIunits}{Uniformly accelerated grid}
+Let $\dot v_0$ be the origin's constant proper acceleration in
+$\mathrm{m\,s^{-2}}$, with $t,t',\tau$ in seconds. Then
+\begin{gather*}
+ ct=\left(\frac{c^2}{\dot v_0}+\bu\dotprod\br'\right)
+ \sinh(\dot v_0t'/c),\\
+ \bu\dotprod\br=\left(\frac{c^2}{\dot v_0}+\bu\dotprod\br'\right)
+ \cosh(\dot v_0t'/c)-\frac{c^2}{\dot v_0},\qquad
+ \br_\perp=\br'_\perp,\\
+ \dd\tau^2=\left(1+\frac{\dot v_0\bu\dotprod\br'}{c^2}\right)^2\dd t'^2
+ -\frac{\dd\br'^2}{c^2}.
+\end{gather*}
+The coordinate boundary is $\bu\dotprod\br'=-c^2/\dot v_0$;
+the inertial null boundaries are $ct=\pm(\bu\dotprod\br+c^2/\dot v_0)$.
+\end{SIunits}
+\FloatBarrier
 
 \subsection{A trip with midpoint braking}
 \label{sec:rocket-trip}
@@ -2968,6 +3435,126 @@ The constant-proper-acceleration worldline in
 Section~\ref{sec:constant-proper-acceleration} realizes this pattern;
 Section~\ref{sec:constant-jerk} treats nonzero constant proper jerk.
 
+\subsection{Events and light cones when acceleration changes}
+\label{sec:jerking-events}
+
+Jerk changes the history of the accelerating coordinates of
+Section~\ref{sec:accelerated-events}; it does not introduce a new kind
+of spacetime interval. Continue to use fixed $\bu$, the origin's proper
+time $t'$, and its rapidity $\theta(t')$. The signed proper acceleration
+and proper jerk at the origin are $\dd\theta/\dd t'$ and
+$\dd^2\theta/\dd t'^2$. Along the origin, the previously derived
+four-derivatives become
+\[
+ \frac{\dd\pU}{\dd t'}=\frac{\dd\theta}{\dd t'}\pN,
+ \qquad
+ \frac{\dd^2\pU}{\dd t'^2}
+ =\left(\frac{\dd\theta}{\dd t'}\right)^2\pU
+ +\frac{\dd^2\theta}{\dd t'^2}\pN.
+\]
+At the same event, the instantaneous rest boost gives
+\begin{equation}
+ \boxed{\begin{aligned}
+ \pL\frac{\dd\pU}{\dd t'}\pL
+ &=\frac{\dd\theta}{\dd t'}\bu\dotprod\bsig,\\
+ \pL\frac{\dd^2\pU}{\dd t'^2}\pL
+ &=\left(\frac{\dd\theta}{\dd t'}\right)^2
+ +\frac{\dd^2\theta}{\dd t'^2}\bu\dotprod\bsig.
+ \end{aligned}}
+ \label{eq:jerk-rest-frame-components}
+\end{equation}
+The vector term in the second line is the measured proper jerk; its
+scalar term is removed by the projection in \eqref{eq:projected-jerk}.
+Although $\pL\pU\pL=1$ at every point on this carried frame, the displayed
+physical derivatives need not vanish. Differentiating the constant rest
+components alone would lose the derivatives of the changing frame;
+Section~\ref{sec:carried-derivatives} gives the general correction.
+
+\paragraph{Changing clock comparisons.}
+For a fixed accelerated grid point, \eqref{eq:accelerated-interval} gives
+the clock rate $\dd s/\dd t'$. Its change is
+\begin{equation}
+ \boxed{\frac{\dd^2 s}{\dd t'^2}
+ =(\bu\dotprod\br')\frac{\dd^2\theta}{\dd t'^2}
+ \qquad(\br'\ \text{fixed}).}
+ \label{eq:jerk-clock-gradient}
+\end{equation}
+Here $s$ is that grid clock's own proper time. Thus acceleration sets
+the spatial variation of clock rates, and proper jerk changes that
+variation. Differentiating the grid point's signed proper acceleration
+with respect to its own time gives
+\begin{equation}
+ \frac{\dd}{\dd s}
+ \left(\frac{\dd\theta/\dd t'}
+ {1+(\bu\dotprod\br')\dd\theta/\dd t'}\right)
+ =\frac{\dd^2\theta/\dd t'^2}
+ {\left(1+(\bu\dotprod\br')\dd\theta/\dd t'\right)^3}.
+ \label{eq:grid-proper-jerk}
+\end{equation}
+The factor follows by applying
+$\dd/\dd s=(1+(\bu\dotprod\br')\dd\theta/\dd t')^{-1}\dd/\dd t'$
+at fixed $\br'$. At the origin it reduces to the origin's proper jerk.
+
+\paragraph{Changing light paths.}
+For axial light, differentiate \eqref{eq:accelerated-null-slopes} along
+the ray, allowing both $t'$ and $\br'$ to change:
+\begin{equation}
+ \frac{\dd^2(\bu\dotprod\br')}{\dd t'^2}
+ =\pm(\bu\dotprod\br')\frac{\dd^2\theta}{\dd t'^2}
+ +\frac{\dd\theta}{\dd t'}
+ \left(1+(\bu\dotprod\br')\frac{\dd\theta}{\dd t'}\right).
+ \label{eq:jerk-null-coordinate-acceleration}
+\end{equation}
+The first term changes the light-cone slopes through the changing
+acceleration; the second comes from the ray moving through their spatial
+variation. Consequently even zero proper jerk can give curved light
+paths in these coordinates. Both rays still have locally measured speed
+$1$, and a finite proper jerk does not permit a light-speed observer.
+
+At an event where the origin is at rest, $\theta=0$, the origin still
+has $\dd t=\dd t'=\dd s$, whether acceleration and jerk vanish or not.
+If acceleration is zero there but jerk is not, all fixed grid clocks
+have equal instantaneous rates, yet those rates begin separating
+according to \eqref{eq:jerk-clock-gradient}. If both acceleration and
+proper jerk vanish throughout an interval, the chart is inertial there.
+A zero of the clock factor marks a coordinate failure; its instantaneous
+location alone does not determine a causal horizon.
+
+For another local view, start at rest at $\pX(0)=0$ with
+$\dot{\bv}_0=\dot v_0\bu$ and $\ddot{\bv}_0=\ddot v_0\bu$.
+At that event $\dd\theta/\dd s=\dot v_0$ and
+$\dd^2\theta/\dd s^2=\ddot v_0$. Taylor expansion of the same worldline
+in the inertial coordinates gives
+\[
+ \pX(s)=s+\tfrac12\dot v_0s^2\bu\dotprod\bsig
+ +\tfrac16(\dot v_0^2+\ddot v_0\bu\dotprod\bsig)s^3+O(s^4).
+\]
+Acceleration first changes position at quadratic order, while proper
+jerk first changes it at cubic order. In the reference observer's own
+chart these same successive events remain at $\br'=0$, with $t'=s$.
+
+\begin{SIunits}{Jerk, clock comparisons, and light paths}
+Here $t'$ is the origin's proper time in seconds, $\tau$ belongs to a
+fixed grid clock, and $\br'$ is measured in metres. The signed proper
+acceleration and jerk at the origin are
+$c\,\dd\theta/\dd t'$ and $c\,\dd^2\theta/\dd t'^2$, respectively.
+The final formulas are
+\begin{gather*}
+ \frac{\dd\tau}{\dd t'}=1+\frac{\bu\dotprod\br'}{c}\frac{\dd\theta}{\dd t'},
+ \qquad
+ \frac{\dd^2\tau}{\dd t'^2}
+ =\frac{\bu\dotprod\br'}{c}\frac{\dd^2\theta}{\dd t'^2},\\
+ \text{signed proper jerk at fixed }\br':\quad
+ \frac{c\,\dd^2\theta/\dd t'^2}
+ {\left(1+(\bu\dotprod\br')\dd\theta/(c\dd t')\right)^3},\\
+ \frac{\dd(\bu\dotprod\br')}{\dd t'}
+ =\pm c\left(1+\frac{\bu\dotprod\br'}{c}\frac{\dd\theta}{\dd t'}\right)
+ \quad\text{for axial light}.
+\end{gather*}
+Proper jerk has units $\mathrm{m\,s^{-3}}$; the locally measured light
+speed remains $c$.
+\end{SIunits}
+
 \subsection{Jerk at a thrust reversal}
 \label{sec:reversal-jerk}
 For the trip in Section~\ref{sec:rocket-trip}, away from the reversal,
@@ -3055,6 +3642,57 @@ the changing component $(\dd\theta/\dd s)^2\pU$.
 Setting $\theta_0=0$, $\ddot{\theta}_0=0$, and
 $\dot{\theta}_0=\dot{v}_0>0$ recovers the
 constant-proper-acceleration example in Section~\ref{sec:constant-proper-acceleration}.
+
+\paragraph{The frame of a clock with constant proper jerk.}
+For a clock starting at rest with zero initial acceleration, take
+$\ddot\theta_0=\ddot v_0>0$. Then, with $t'=s$ at the origin,
+\[
+ \theta(t')=\tfrac12\ddot v_0t'^2,\qquad
+ \frac{\dd\theta}{\dd t'}=\ddot v_0t',\qquad
+ \frac{\dd^2\theta}{\dd t'^2}=\ddot v_0.
+\]
+Equations~\eqref{eq:constant-proper-jerk-worldline} and
+\eqref{eq:accelerated-event-map} assign inertial coordinates to each event
+in this observer's frame. Their local interval is explicitly
+\[
+ \boxed{\dd s^2=(1+\ddot v_0t'\bu\dotprod\br')^2\dd t'^2-\dd\br'^2.}
+\]
+At $t'=0$ it agrees with the inertial interval throughout the local
+grid; thereafter the clock-rate gradient grows linearly with $t'$.
+For each fixed event where the factor is positive, the light-cone slopes
+are $\pm(1+\ddot v_0t'\bu\dotprod\br')$. The origin's speed
+$\tanh(\ddot v_0t'^2/2)$ approaches $1$ only as $t'\to\infty$.
+This example holds proper jerk constant; constant coordinate jerk has
+the finite subluminal interval described above.
+
+\begin{figure}[p]
+ \centering
+ \includegraphics[width=\textwidth]{figures/observer_jerk.pdf}
+ \caption{Constant proper jerk from rest and zero initial acceleration,
+ with $x=\bu\dotprod\br$ and $x'=\bu\dotprod\br'$.
+ Top: the same grid and dotted light rays in two coordinate charts.
+ The solid grid worldlines have $\sqrt{\ddot v_0}\,x'=-1/2,0,1/2$;
+ thin connecting lines on the left have fixed $t'$.
+ The shared event $E$ is on the origin at
+ $\sqrt{\ddot v_0}\,t'=1$. The small V shapes on the right show
+ coordinate cones widening with time at a fixed positive $x'$.
+ Hatching marks failure of $1+\ddot v_0t'x'>0$, not by itself a horizon.
+ Bottom: proper acceleration grows linearly, proper jerk stays constant,
+ and the rates of separated grid clocks diverge from their initially
+ common value. All plotted light rays remain null in the inertial chart.}
+ \label{fig:observer-jerk}
+\end{figure}
+
+\begin{SIunits}{Constant proper jerk from rest}
+Let $\ddot v_0$ be the constant signed proper jerk in
+$\mathrm{m\,s^{-3}}$, and let $t'$ be seconds. Then
+\[
+ \theta(t')=\frac{\ddot v_0t'^2}{2c},\qquad
+ \dd\tau^2=\left(1+\frac{\ddot v_0t'\bu\dotprod\br'}{c^2}\right)^2\dd t'^2
+ -\frac{\dd\br'^2}{c^2}.
+\]
+\end{SIunits}
+\FloatBarrier
 
 \subsubsection{Constant unprojected four-jerk}
 If the components of $\dd^2\pU/\dd s^2$ are constant in an inertial frame,
@@ -3571,6 +4209,133 @@ $\pvOmega=\pvOmega^{\mathsf H}$, so the proper jerk is
 $-2\dd\pvOmega/\dd s$: the proper-time rate of the measured acceleration.
 The fixed-axis results of Section~\ref{sec:fixed-axis-jerk} are recovered with
 $\pT=\exp(-\theta\bu\dotprod\bsig/2)$ and fixed $\bu$.
+
+\subsection{Event coordinates with changing motion and axes}
+\label{sec:general-observer-chart}
+
+The fixed-axis construction of Section~\ref{sec:accelerated-events}
+extends to an arbitrary smooth time-like reference worldline $\pX(s)$.
+Choose a carried frame $\pT(s)$ with $\pT\pU\pT^{\mathsf H}=1$ and
+use $t'=s$ on the origin. The frame determines the spatial axes; the
+instantaneous rest planes determine simultaneity. The event map is
+\begin{equation}
+ t+\br\dotprod\bsig
+ =\pX(t')+\pT(t')^{-1}(\br'\dotprod\bsig)
+ (\pT(t')^{\mathsf H})^{-1}.
+ \label{eq:general-observer-event-map}
+\end{equation}
+Again the worldline value on the right is the origin's event at $t'$,
+whereas the left side is the event being assigned coordinates. This
+construction is restricted to a one-to-one neighborhood of the worldline.
+
+Differentiate using the inverse rule and
+$\pvOmega=(\dd\pT/\dd t')\pT^{-1}$. The moving origin contributes $1$
+in the local frame, while differentiating the two inverse factors gives
+\begin{equation}
+ \boxed{\pT\dd\pX\pT^{\mathsf H}
+ =\bigl(1-\pvOmega(\br'\dotprod\bsig)
+ -(\br'\dotprod\bsig)\pvOmega^{\mathsf H}\bigr)\dd t'
+ +\dd\br'\dotprod\bsig.}
+ \label{eq:general-observer-increments}
+\end{equation}
+Using the sigma product, its scalar and vector parts are
+\begin{align*}
+ \scpart{\pT\dd\pX\pT^{\mathsf H}}
+ &=\bigl(1-2\vecpart{\repart{\pvOmega}}\dotprod\br'\bigr)\dd t',\\
+ \vecpart{\pT\dd\pX\pT^{\mathsf H}}
+ &=\dd\br'+2\vecpart{\impart{\pvOmega}}\times\br'\dd t'.
+\end{align*}
+These are measured local components; the coordinate differentials
+$\dd t',\dd\br'$ alone are generally different. Determinant invariance
+now gives the interval without introducing a new metric rule:
+\begin{equation}
+ \boxed{\dd s^2
+ =\bigl(1-2\vecpart{\repart{\pvOmega}}\dotprod\br'\bigr)^2\dd t'^2
+ -\left\lVert\dd\br'+2\vecpart{\impart{\pvOmega}}\times\br'\dd t'\right\rVert^2.}
+ \label{eq:general-observer-interval}
+\end{equation}
+The Hermitian part of $\pvOmega$ supplies the acceleration-dependent
+clock factor; its imaginary part supplies the spatial motion of rotating
+axes. A physical grid clock at fixed $\br'$ requires a positive future
+time factor and a positive interval there. Thus a rotating grid also has
+a boundary where its fixed-coordinate worldlines would become null.
+
+For axes carried by torque-free gyroscopes,
+$\pvOmega^{\mathsf H}=\pvOmega$, the spatial rotation term vanishes.
+Equation~\eqref{eq:carried-acceleration} identifies
+$-2\vecpart{\pvOmega}$ with the measured proper-acceleration vector;
+\eqref{eq:carried-jerk} identifies its proper-time derivative with
+proper jerk. The fixed-axis value
+$\pvOmega=-\tfrac12(\dd\theta/\dd t')\bu\dotprod\bsig$ recovers
+\eqref{eq:accelerated-interval}. This is the general nonrotating
+Fermi--Walker construction~\citeat{llosa-frames}{Eqs.~(6)--(9)}{page=4}.
+
+At $\br'=0$, every carried frame has the local interval
+$\dd s^2=\dd t'^2-\dd\br'^2$, regardless of its acceleration, rotation,
+or jerk. Away from the origin, light obeys
+\[
+ \left\lVert\frac{\dd\br'}{\dd t'}
+ +2\vecpart{\impart{\pvOmega}}\times\br'\right\rVert
+ =1-2\vecpart{\repart{\pvOmega}}\dotprod\br'.
+\]
+The apparent tilt and width of the coordinate cone can change, while its
+orthonormal components still satisfy the ordinary null condition.
+These coordinates describe flat spacetime because they came from an
+explicit coordinate map. Section~\ref{sec:variable-bases} distinguishes
+this case from assigning a metric with actual curvature.
+
+For a purely rotating frame with an inertial origin,
+$\repart{\pvOmega}=0$. At a chosen event, align the second spatial axis
+with the grid motion and write
+$2\vecpart{\impart{\pvOmega}}\times\br'=(0,\beta,0)$,
+where $0\le\beta<1$ is that grid point's inertial speed.
+In the first two spatial directions the preceding null condition becomes
+\[
+ \left(\frac{\dd r'_1}{\dd t'}\right)^2
+ +\left(\frac{\dd r'_2}{\dd t'}+\beta\right)^2=1,
+ \qquad
+ \frac{\dd s}{\dd t'}=\sqrt{1-\beta^2}
+ \quad(\br'\ \text{fixed}).
+\]
+Figure~\ref{fig:observer-rotation} displays this shifted circle of
+coordinate light velocities and the corresponding clock rate.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\textwidth]{figures/observer_rotation.pdf}
+ \caption{Rotating coordinates with an inertial origin. Left: cross
+ sections of the local coordinate light cone, expressed as velocities
+ in the rotation plane. The dash-dotted circle belongs to the origin
+ ($\beta=0$); the dotted circle to a grid point moving with
+ $\beta=3/5$ along the second local axis. The tangential coordinate
+ light velocities there are $+2/5$ and $-8/5$; their different values
+ reflect the rotating axes. Orthonormal measurements still give light
+ speed $1$. Right: a clock fixed to that grid point runs at $4/5$ of
+ the origin's rate. The open endpoint $\beta=1$ marks a null grid
+ worldline, beyond the region occupied by physical rotating-grid clocks.}
+ \label{fig:observer-rotation}
+\end{figure}
+
+\begin{SIunits}{A general carried frame}
+Use $s=c\tau$ for proper length and
+$\pvOmega=(\dd\pT/\dd s)\pT^{-1}$ in inverse metres. Chart time $t'$
+is the origin's proper time in seconds. For another path,
+\[
+ \begin{aligned}
+ c^2\dd\tau^2={}&
+ \bigl(1-2\vecpart{\repart{\pvOmega}}\dotprod\br'\bigr)^2c^2\dd t'^2\\
+ &-\left\lVert\dd\br'
+ +2c\vecpart{\impart{\pvOmega}}\times\br'\dd t'\right\rVert^2.
+ \end{aligned}
+\]
+The origin's proper acceleration has components
+$-2c^2\vecpart{\repart{\pvOmega}}$. Setting the interval to zero gives
+the coordinate light cones; local orthonormal measurements give speed $c$.
+For the rotating example, $\beta$ is the grid speed divided by $c$;
+the fixed clock has $\dd\tau/\dd t'=\sqrt{1-\beta^2}$ and the two
+tangential coordinate light velocities are $c(\pm1-\beta)$.
+\end{SIunits}
+\FloatBarrier
 
 \section{Electromagnetism}
 \label{sec:electromagnetism}
@@ -8178,6 +8943,11 @@ J.~G. Russo and P.~K. Townsend,
 \emph{J. Phys. A: Math. Theor.}, vol.~42, 445402, 2009,
 doi: \href{https://doi.org/10.1088/1751-8113/42/44/445402}{10.1088/1751-8113/42/44/445402}.
 Online. Available: \url{https://arxiv.org/pdf/0902.4243}.
+
+\bibitem{llosa-frames}
+J.~Llosa, ``Einstein's accelerated reference systems and Fermi--Walker
+coordinates,'' arXiv:1706.09656, 2017.
+Online. Available: \url{https://arxiv.org/pdf/1706.09656}.
 
 \bibitem{frenet-curves}
 K.~Ko, T.~Maekawa, and N.~M. Patrikalakis,
