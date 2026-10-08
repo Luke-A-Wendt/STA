@@ -176,11 +176,39 @@ def component_map(T):
     return s.Matrix.hstack(*(coeff(event_map(T, b)) for b in (one, *sigma)))
 
 
+# Arbitrary complex gradient values and real coordinate increments test the
+# differential pairing without assuming a particular scalar field.
+gradient_values = s.Matrix(s.symbols("gradient0:4", complex=True))
+coordinate_increment = s.Matrix(s.symbols("increment0:4", real=True))
+gradient_paravector = gradient_values[0] * one + vector(gradient_values[1:, :])
+increment_paravector = coordinate_increment[0] * one + vector(coordinate_increment[1:, :])
+real_four_values = s.Matrix(s.symbols("four0:4", real=True))
+real_four_paravector = real_four_values[0] * one + vector(real_four_values[1:, :])
+
 for name, T in (("rotation", rotor), ("boost", booster), ("composite", composite)):
     Ti = adj(T)
     Zp, Yp = event_map(T, Z), event_map(T, Y)
     Fp = field_map(T, field)
     M = component_map(T)
+    transformed_gradient = Ti.H * gradient_paravector * Ti
+    check(f"{name}: derivative coefficients match inverse-transpose coordinate Jacobian",
+          coeff(transformed_gradient) - M.inv().T * gradient_values)
+    check(f"{name}: complex total differential is unchanged",
+          sc(transformed_gradient * event_map(T, increment_paravector))
+          - gradient_values.dot(coordinate_increment))
+    generic_field_prime = field_map(T, F)
+    electric_prime = s.re(coeff(generic_field_prime)[1:, :])
+    magnetic_prime = s.im(coeff(generic_field_prime)[1:, :])
+    check(f"{name}: energy and Poynting flux from transformed field components",
+          generic_field_prime * generic_field_prime.H / 2
+          - (electric_prime.dot(electric_prime) + magnetic_prime.dot(magnetic_prime)) * one / 2
+          - vector(electric_prime.cross(magnetic_prime)))
+    generic_four_prime = event_map(T, real_four_paravector)
+    check(f"{name}: Lorentz force covariance for arbitrary real four-vector",
+          (generic_field_prime * generic_four_prime + generic_four_prime * generic_field_prime.H) / 2
+          - event_map(T, (F * real_four_paravector + real_four_paravector * F.H) / 2))
+    check(f"{name}: phase invariance for arbitrary real momentum and event",
+          sc(star(generic_four_prime) * event_map(T, X)) - sc(star(real_four_paravector) * X))
     check(f"{name}: event determinant", Zp.det() - Z.det())
     check(f"{name}: complex bilinear Minkowski pairing", sc(adj(Zp) * Yp) - sc(adj(Z) * Y))
     check(f"{name}: complex Hermitian Minkowski pairing", sc(star(Zp) * Yp) - sc(star(Z) * Y))
@@ -239,6 +267,11 @@ check("successive field maps use T_total=T2 T1", field_map(booster, field_map(ro
 check("component maps compose in physical order", component_map(composite)
       - component_map(booster) * component_map(rotor))
 
+boosted_generic_field = field_map(booster, F)
+check("explicit boosted energy-flux product retains the inner inverse-boost square",
+      boosted_generic_field * boosted_generic_field.H / 2
+      - booster * F * adj(booster)**2 * F.H * booster / 2)
+
 # W has adj(Z) above Z; its energy-momentum input is a four-vector.
 # Conventional gamma^j = -W(sigma_j), with the physical Dirac blocks unchanged.
 T, Ti = composite, adj(composite)
@@ -287,9 +320,20 @@ def differential(expression, sign=1):
                                                          for j in range(3)), s.zeros(*expression.shape))
 
 
-scalar_test = (time_coordinate**2 + time_coordinate * cx + cy * cz) * one
+scalar_test = (time_coordinate**4 + time_coordinate * cx * cy + cy * cz**2
+               + s.I * (cx**3 * time_coordinate + cy**2 * cz + cz**4)) * one
 check("coordinate chain rule partial'=(T^-1)^H partial T^-1", differential(at_old(scalar_test))
       - Ti.H * at_old(differential(scalar_test)) * Ti)
+
+
+def wave_operator(expression):
+    return expression.diff(time_coordinate, 2) - sum(
+        (expression.diff(coordinate, 2) for coordinate in coordinates[1:]),
+        s.zeros(*expression.shape))
+
+
+check("wave operator chain rule on a complex field with varying second derivatives",
+      wave_operator(at_old(scalar_test)) - at_old(wave_operator(scalar_test)))
 polynomial_field = (time_coordinate**2 * field + cx * cy * vector(axis1) + cz**2 * vector(axis2)).expand()
 field_prime = field_map(T, at_old(polynomial_field))
 check("Maxwell differential covariance", differential(field_prime)
@@ -301,6 +345,52 @@ check("first Dirac equation differential covariance", s.I * differential(psi2p) 
       - Ti.H * at_old(s.I * differential(psi2) - mass * psi1))
 check("second Dirac equation differential covariance", s.I * differential(psi1p, -1) - mass * psi2p
       - T * at_old(s.I * differential(psi1, -1) - mass * psi2))
+
+# Varying real potentials exercise potential derivatives in coupled equations.
+variable_potential = ((time_coordinate * cx + cy * cz) * one
+                      + vector(s.Matrix((cx * cy, cy * cz + time_coordinate * cy,
+                                         cz * time_coordinate + cx**2))))
+primed_potential = event_map(T, at_old(variable_potential))
+raw_potential_derivative = differential(variable_potential)
+raw_primed_derivative = differential(primed_potential)
+check("potential scalar divergence is Lorentz invariant",
+      sc(raw_primed_derivative) - at_old(sc(raw_potential_derivative)))
+derived_field = star(raw_potential_derivative - sc(raw_potential_derivative) * one)
+derived_primed_field = star(raw_primed_derivative - sc(raw_primed_derivative) * one)
+check("field derived from transformed potential obeys similarity",
+      derived_primed_field - field_map(T, at_old(derived_field)))
+derived_current = star(differential(derived_field))
+check("potential-derived Maxwell source is real", derived_current.H - derived_current)
+check("Maxwell equation with transformed potential and source",
+      differential(derived_primed_field) - star(event_map(T, at_old(derived_current))))
+
+
+def mechanical_component(expression, potential, index):
+    coefficient = coeff(potential)[index]
+    derivative_sign = 1 if index == 0 else -1
+    return (derivative_sign * s.I * expression.diff(coordinates[index])
+            - charge * coefficient * expression).expand()
+
+
+def coupled_kg(expression, potential):
+    squared = [mechanical_component(mechanical_component(expression, potential, index),
+                                    potential, index) for index in range(4)]
+    return (-squared[0] + sum(squared[1:], s.zeros(*expression.shape))
+            + mass**2 * expression).expand()
+
+
+coupled_scalar_test = (time_coordinate * cx + cy**2 + s.I * cz * time_coordinate) * one
+check("coupled Klein-Gordon covariance including potential derivatives",
+      coupled_kg(at_old(coupled_scalar_test), primed_potential)
+      - at_old(coupled_kg(coupled_scalar_test, variable_potential)))
+check("first coupled Dirac equation with varying potentials",
+      s.I * differential(psi2p) - charge * star(primed_potential) * psi2p - mass * psi1p
+      - Ti.H * at_old(s.I * differential(psi2)
+                     - charge * star(variable_potential) * psi2 - mass * psi1))
+check("second coupled Dirac equation with varying potentials",
+      s.I * differential(psi1p, -1) - charge * primed_potential * psi1p - mass * psi2p
+      - T * at_old(s.I * differential(psi1, -1)
+                  - charge * variable_potential * psi1 - mass * psi2))
 
 # Moving frames: the signs follow by differentiating the actual actions.
 tau = s.symbols("tau", real=True)
