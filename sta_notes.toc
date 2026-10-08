@@ -114,40 +114,40 @@
 \contentsline {subsection}{\numberline {14.4}Electromagnetic coupling}{64}{subsection.14.4}%
 \contentsline {section}{\numberline {15}The Dirac equation}{65}{section.15}%
 \contentsline {subsection}{\numberline {15.1}Block form and free factorization}{65}{subsection.15.1}%
-\contentsline {subsection}{\numberline {15.2}Reconstructing free solutions from Klein--Gordon}{66}{subsection.15.2}%
+\contentsline {subsection}{\numberline {15.2}Reconstructing free solutions from Klein--Gordon}{67}{subsection.15.2}%
 \contentsline {subsection}{\numberline {15.3}Potential and paravector components}{67}{subsection.15.3}%
-\contentsline {subsection}{\numberline {15.4}Interacting factorization and reconstruction}{67}{subsection.15.4}%
+\contentsline {subsection}{\numberline {15.4}Interacting factorization and reconstruction}{68}{subsection.15.4}%
 \contentsline {subsection}{\numberline {15.5}Gauge phase}{69}{subsection.15.5}%
-\contentsline {section}{\numberline {16}Low-energy limits}{69}{section.16}%
-\contentsline {subsection}{\numberline {16.1}Klein--Gordon to Schr\"odinger}{69}{subsection.16.1}%
-\contentsline {subsection}{\numberline {16.2}Dirac to Pauli}{70}{subsection.16.2}%
+\contentsline {section}{\numberline {16}Low-energy limits}{70}{section.16}%
+\contentsline {subsection}{\numberline {16.1}Klein--Gordon to Schr\"odinger}{70}{subsection.16.1}%
+\contentsline {subsection}{\numberline {16.2}Dirac to Pauli}{71}{subsection.16.2}%
 \contentsline {subsection}{\numberline {16.3}Spin components in a uniform magnetic field}{72}{subsection.16.3}%
 \contentsline {subsection}{\numberline {16.4}Evolution about an alternate spin axis}{73}{subsection.16.4}%
 \contentsline {subsection}{\numberline {16.5}The next free order}{74}{subsection.16.5}%
-\contentsline {section}{\numberline {17}Spin and probability}{74}{section.17}%
+\contentsline {section}{\numberline {17}Spin and probability}{75}{section.17}%
 \contentsline {subsection}{\numberline {17.1}Spin one-half and rotations}{75}{subsection.17.1}%
 \contentsline {subsection}{\numberline {17.2}Projectors and probabilities}{75}{subsection.17.2}%
 \contentsline {subsection}{\numberline {17.3}Measurement along a second axis}{76}{subsection.17.3}%
 \contentsline {subsection}{\numberline {17.4}Rotating the polarization}{77}{subsection.17.4}%
 \contentsline {section}{\numberline {18}Lorentz covariance and electromagnetic transformations}{78}{section.18}%
 \contentsline {subsection}{\numberline {18.1}Transformation laws for fields and derivatives}{78}{subsection.18.1}%
-\contentsline {subsection}{\numberline {18.2}Maxwell covariance}{78}{subsection.18.2}%
+\contentsline {subsection}{\numberline {18.2}Maxwell covariance}{79}{subsection.18.2}%
 \contentsline {subsection}{\numberline {18.3}Wave phases and spinor covariance}{79}{subsection.18.3}%
-\contentsline {subsection}{\numberline {18.4}Boosted fields and energy flux}{79}{subsection.18.4}%
-\contentsline {section}{\numberline {19}Position-dependent paravector bases}{80}{section.19}%
-\contentsline {subsection}{\numberline {19.1}The basis and its interval}{81}{subsection.19.1}%
-\contentsline {paragraph}{Local measurements and velocity.}{82}{section*.28}%
+\contentsline {subsection}{\numberline {18.4}Boosted fields and energy flux}{80}{subsection.18.4}%
+\contentsline {section}{\numberline {19}Position-dependent paravector bases}{81}{section.19}%
+\contentsline {subsection}{\numberline {19.1}The basis and its interval}{82}{subsection.19.1}%
+\contentsline {paragraph}{Local measurements and velocity.}{83}{section*.28}%
 \contentsline {subsection}{\numberline {19.2}Algebra and differentiation}{83}{subsection.19.2}%
-\contentsline {paragraph}{Differentiation.}{83}{section*.29}%
+\contentsline {paragraph}{Differentiation.}{84}{section*.29}%
 \contentsline {subsection}{\numberline {19.3}Expansion, free fall, and curvature}{84}{subsection.19.3}%
-\contentsline {paragraph}{Free fall in an expanding universe.}{84}{section*.30}%
+\contentsline {paragraph}{Free fall in an expanding universe.}{85}{section*.30}%
 \contentsline {paragraph}{Parallel transport and redshift.}{85}{section*.31}%
-\contentsline {paragraph}{Tidal acceleration and curvature.}{85}{section*.32}%
+\contentsline {paragraph}{Tidal acceleration and curvature.}{86}{section*.32}%
 \contentsline {paragraph}{The role of the assigned displacement.}{86}{section*.33}%
 \contentsline {subsection}{\numberline {19.4}Newtonian motion and black-hole metrics}{86}{subsection.19.4}%
-\contentsline {paragraph}{A common basis.}{86}{section*.34}%
+\contentsline {paragraph}{A common basis.}{87}{section*.34}%
 \contentsline {paragraph}{Local velocity and observer.}{87}{section*.35}%
-\contentsline {paragraph}{Newtonian limit.}{87}{section*.36}%
+\contentsline {paragraph}{Newtonian limit.}{88}{section*.36}%
 \contentsline {paragraph}{Schwarzschild.}{88}{section*.37}%
 \contentsline {paragraph}{Kerr.}{90}{section*.38}%
 \contentsline {section}{\numberline {A}Pauli-matrix representation}{92}{appendix.A}%
