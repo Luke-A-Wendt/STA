@@ -133,12 +133,13 @@
 \newcommand{\rev}[1]{#1^{\mathsf H}}
 \newcommand{\sconj}[1]{#1^{*}}
 \newcommand{\sr}[1]{#1^{*\mathsf H}}
-\newcommand{\adj}[1]{\operatorname{adj}\!\left(#1\right)}
-\newcommand{\scpart}[1]{\operatorname{sc}\!\left(#1\right)}
-\newcommand{\vecpart}[1]{\operatorname{vec}\!\left(#1\right)}
-\newcommand{\repart}[1]{\operatorname{re}\!\left(#1\right)}
-\newcommand{\impart}[1]{\operatorname{im}\!\left(#1\right)}
-\newcommand{\Det}[1]{\det\left(#1\right)}
+% Ordinary parentheses by default; use the starred form for tall arguments.
+\DeclarePairedDelimiterXPP{\adj}[1]{\operatorname{adj}}{(}{)}{}{#1}
+\DeclarePairedDelimiterXPP{\scpart}[1]{\operatorname{sc}}{(}{)}{}{#1}
+\DeclarePairedDelimiterXPP{\vecpart}[1]{\operatorname{vec}}{(}{)}{}{#1}
+\DeclarePairedDelimiterXPP{\repart}[1]{\operatorname{re}}{(}{)}{}{#1}
+\DeclarePairedDelimiterXPP{\impart}[1]{\operatorname{im}}{(}{)}{}{#1}
+\DeclarePairedDelimiterXPP{\Det}[1]{\det}{(}{)}{}{#1}
 \newcommand{\Wop}{\vstyle{W}}
 \newcommand{\dd}{\,\mathrm d}
 % Source locators use printed equation/page numbers; PDF links use physical pages.
@@ -855,7 +856,7 @@ Thus $\bu\dotprod\bsig=\pvPi_+-\pvPi_-$.  For a second
  [\bu\dotprod\bsig,\bu'\dotprod\bsig]
  &=2\ii(\bu\times\bu')\dotprod\bsig,\\
  (\bu\dotprod\bsig)(\bu'\dotprod\bsig)(\bu\dotprod\bsig)
- &=\left(2(\bu\dotprod\bu')\bu-\bu'\right)\dotprod\bsig.
+ &=(2(\bu\dotprod\bu')\bu-\bu')\dotprod\bsig.
 \end{align*}
 The projections $\bu'_{\parallel}=(\bu'\dotprod\bu)\bu$ and
 $\bu'_{\perp}=\bu'-\bu'_{\parallel}$ are defined in $\R^3$.  Then
@@ -1078,7 +1079,7 @@ Its real and imaginary specializations are
  &=e^a\left(\cosh\lVert\bX\rVert
   +\frac{\sinh\lVert\bX\rVert}{\lVert\bX\rVert}\bX\dotprod\bsig\right),
  \label{eq:real-exponential}\\
- \exp\!\left(\ii(b+\bY\dotprod\bsig)\right)
+ \exp\!(\ii(b+\bY\dotprod\bsig))
  &=(\cos b+\ii\sin b)\left(\cos\lVert\bY\rVert
   +\ii\frac{\sin\lVert\bY\rVert}{\lVert\bY\rVert}\bY\dotprod\bsig\right).
  \label{eq:imaginary-exponential}
@@ -1092,7 +1093,7 @@ Every quotient uses its analytic limit at a zero argument.
 For a general real exponent $a+\bX\dotprod\bsig$, where $a\in\R$ and
 $\bX\in\R^3$, \eqref{eq:real-exponential} gives
 \begin{equation}
- \det\!\left(\exp(a+\bX\dotprod\bsig)\right)=e^{2a}.
+ \det\!(\exp(a+\bX\dotprod\bsig))=e^{2a}.
  \label{eq:exponential-determinant}
 \end{equation}
 Thus a real exponential has determinant one exactly when its scalar
@@ -1552,7 +1553,7 @@ Inserting the sine and cosine forms of $\pR$ and $\pR^{\mathsf H}$ therefore yie
  +2\sin\frac\theta2\cos\frac\theta2
        (\bu\times\bZ)\dotprod\bsig\\
  &\quad+\sin^2\frac\theta2
- \left(2(\bu\dotprod\bZ)\bu\dotprod\bsig-\bZ\dotprod\bsig\right).
+ (2(\bu\dotprod\bZ)\bu\dotprod\bsig-\bZ\dotprod\bsig).
 \end{align*}
 Rodrigues' formula is obtained by collecting terms~\citeat{baylis-intro}{p.~14}{page=14}:
 \begin{equation}
@@ -1889,15 +1890,15 @@ while $T$ is recorded by the clock at rest.  This is the twin-clock comparison
 The real four-velocity is the proper-time tangent~\citeat{baylis-intro}{Eq.~(8)}{page=8}:
 \begin{equation}
  \pU:=\frac{\dd\pX}{\dd s}
- =\frac{\dd t}{\dd s}\left(1+\dot{\br}\dotprod\bsig\right)
- =\gamma\left(1+\bv\dotprod\bsig\right).
+ =\frac{\dd t}{\dd s}(1+\dot{\br}\dotprod\bsig)
+ =\gamma(1+\bv\dotprod\bsig).
  \label{eq:proper-velocity}
 \end{equation}
 Its normalization and conjugates are
 \begin{equation}
  \pU^*\pU=\det\pU=\frac{\det(\dd\pX)}{\dd s^2}=1,
  \qquad \pU^{\mathsf H}=\pU,\qquad
- \pU^{-1}=\pU^*=\gamma\left(1-\bv\dotprod\bsig\right).
+ \pU^{-1}=\pU^*=\gamma(1-\bv\dotprod\bsig).
  \label{eq:proper-velocity-star-normalization}
 \end{equation}
 Determinant one is distinct from Hermitian unitarity:
@@ -1952,12 +1953,12 @@ Subscript $0$ denotes the initial event $t=s=0$.
 For $\bv(t)=\bv_0$, $\bv_0^2<1$, and $\br(0)=\br_0$,
 \[
  \gamma_0=\frac{1}{\sqrt{1-\bv_0^2}},\qquad
- \pX(t)=t+\left(\br_0+\bv_0t\right)\dotprod\bsig.
+ \pX(t)=t+(\br_0+\bv_0t)\dotprod\bsig.
 \]
 With $s(0)=0$, the clock integral gives $s=t/\gamma_0$. Hence
 \begin{equation}
  \pX(s)=\br_0\dotprod\bsig+s\pU_0,\qquad
- \pU_0=\gamma_0\left(1+\bv_0\dotprod\bsig\right).
+ \pU_0=\gamma_0(1+\bv_0\dotprod\bsig).
  \label{eq:constant-velocity-worldline}
 \end{equation}
 This straight time-like worldline has $\dot{\bv}=0$ and
@@ -2227,15 +2228,15 @@ For endpoint-fixed real path variations $\delta\br(t)$, varying the
 Lagrangian and integrating by parts gives
 \[
  \delta\int L\dd t
- =\int\left(\pdr L-\frac{\dd\left(\vstyle{\partial}_{\bv}L\right)}{\dd t}\right)
+ =\int\left(\pdr L-\frac{\dd(\vstyle{\partial}_{\bv}L)}{\dd t}\right)
  \dotprod\delta\br\dd t.
 \]
 The Euler--Lagrange equation is obtained from stationarity for every variation.
 With Hamiltonian $H:=\bv\dotprod\vstyle{\partial}_{\bv}L-L\in\R$, the chain rule gives
 \begin{align}
- \frac{\dd\left(\vstyle{\partial}_{\bv}L\right)}{\dd t}&=\pdr L, \label{eq:euler-lagrange}\\
+ \frac{\dd(\vstyle{\partial}_{\bv}L)}{\dd t}&=\pdr L, \label{eq:euler-lagrange}\\
  \dot{H}
- &=\bv\dotprod\left(\frac{\dd\left(\vstyle{\partial}_{\bv}L\right)}{\dd t}-\pdr L\right)
+ &=\bv\dotprod\left(\frac{\dd(\vstyle{\partial}_{\bv}L)}{\dd t}-\pdr L\right)
    -\partial_tL=-\partial_tL. \label{eq:hamiltonian-energy-balance}
 \end{align}
 By \eqref{eq:euler-lagrange} and \eqref{eq:hamiltonian-energy-balance},
@@ -2280,10 +2281,10 @@ $\dd\pU/\dd s$. Proper acceleration is measured by an accelerometer.
 
 Coordinate-time derivatives are first obtained:
 \begin{align*}
- \dot{\gamma}&=\gamma^3\left(\bv\dotprod\dot{\bv}\right),\\
+ \dot{\gamma}&=\gamma^3(\bv\dotprod\dot{\bv}),\\
  \dot{\pU}&=\dot{\gamma}
- +\frac{\dd\left(\gamma\bv\right)}{\dd t}\dotprod\bsig,\\
- \frac{\dd\left(\gamma\bv\right)}{\dd t}
+ +\frac{\dd(\gamma\bv)}{\dd t}\dotprod\bsig,\\
+ \frac{\dd(\gamma\bv)}{\dd t}
  &=\gamma\dot{\bv}+\dot{\gamma}\bv.
 \end{align*}
 For $\bv\ne0$, the coordinate acceleration is resolved into tangential
@@ -2297,7 +2298,7 @@ The projections of $\dot{\bv}$ are indicated by these subscripts; at $\bv=0$, th
 Since $(\bv\dotprod\dot{\bv})\bv=\bv^2\dot{\bv}_{\parallel}$ and
 $1+\gamma^2\bv^2=\gamma^2$, the spatial derivative becomes
 \begin{align*}
- \frac{\dd\left(\gamma\bv\right)}{\dd t}
+ \frac{\dd(\gamma\bv)}{\dd t}
  &=\gamma\dot{\bv}_{\perp}
    +(\gamma+\gamma^3\bv^2)\dot{\bv}_{\parallel}\\
  &=\gamma\dot{\bv}_{\perp}+\gamma^3\dot{\bv}_{\parallel}.
@@ -2306,7 +2307,7 @@ Thus the full coordinate-time derivative of four-velocity is
 \begin{equation}
  \dot{\pU}
  =\gamma^3(\bv\dotprod\dot{\bv})
-  +\left(\gamma\dot{\bv}_{\perp}+\gamma^3\dot{\bv}_{\parallel}\right)\dotprod\bsig.
+  +(\gamma\dot{\bv}_{\perp}+\gamma^3\dot{\bv}_{\parallel})\dotprod\bsig.
  \label{eq:four-velocity-coordinate-derivative}
 \end{equation}
 \paragraph{Orthogonality and determinant.}
@@ -2328,26 +2329,26 @@ Multiplication on the right by $\pU^*$ also gives
 By expansion of the commutator and the product,
 \begin{align*}
  [\pU,\dot{\pU}]
- &=2\ii\gamma^2\left(\bv\times\dot{\bv}\right)\dotprod\bsig,\\
+ &=2\ii\gamma^2(\bv\times\dot{\bv})\dotprod\bsig,\\
  \pU^*\dot{\pU}
- &=\gamma^2\left(\dot{\bv}-\ii\bv\times\dot{\bv}\right)\dotprod\bsig.
+ &=\gamma^2(\dot{\bv}-\ii\bv\times\dot{\bv})\dotprod\bsig.
 \end{align*}
 The cross product depends only on acceleration perpendicular to $\bv$.
 Since $\det\pU^*=1$, multiplying by $\pU^*$ preserves the determinant.
 The determinant of a scalar-free paravector is the negative of its square.
-Using $\dot{\bv}\dotprod\left(\bv\times\dot{\bv}\right)=0$ therefore gives
+Using $\dot{\bv}\dotprod(\bv\times\dot{\bv})=0$ therefore gives
 \begin{align*}
  \det \dot{\pU}
- &=-\left(\pU^*\dot{\pU}\right)^2\\
- &=-\gamma^4\left(\dot{\bv}^2-\left(\bv\times\dot{\bv}\right)^2\right)\\
- &=-\gamma^2\left(\dot{\bv}^2+\gamma^2\left(\bv\dotprod\dot{\bv}\right)^2\right).
+ &=-(\pU^*\dot{\pU})^2\\
+ &=-\gamma^4(\dot{\bv}^2-(\bv\times\dot{\bv})^2)\\
+ &=-\gamma^2(\dot{\bv}^2+\gamma^2(\bv\dotprod\dot{\bv})^2).
 \end{align*}
 The last equality uses
-$\left(\bv\times\dot{\bv}\right)^2=\bv^2\dot{\bv}^2-\left(\bv\dotprod\dot{\bv}\right)^2$ and
+$(\bv\times\dot{\bv})^2=\bv^2\dot{\bv}^2-(\bv\dotprod\dot{\bv})^2$ and
 $1-\bv^2=\gamma^{-2}$.
 Using the parallel and perpendicular components defined above,
 $\dot{\bv}^2=\dot{\bv}_{\perp}^2+\dot{\bv}_{\parallel}^2$ and
-$\left(\bv\dotprod\dot{\bv}\right)^2=\bv^2\dot{\bv}_{\parallel}^2$ give
+$(\bv\dotprod\dot{\bv})^2=\bv^2\dot{\bv}_{\parallel}^2$ give
 \[
  \det \dot{\pU}
  =-\gamma^2\dot{\bv}_{\perp}^2-\gamma^4\dot{\bv}_{\parallel}^2.
@@ -2356,14 +2357,14 @@ $\left(\bv\dotprod\dot{\bv}\right)^2=\bv^2\dot{\bv}_{\parallel}^2$ give
 Multiplying $\dot{\pU}$ by $\gamma$ gives~\citeat{tong-relativity}{p.~141}{page=147}
 \begin{equation}
  \frac{\dd\pU}{\dd s}=\gamma\dot{\pU}
- =\gamma^4\left(\bv\dotprod\dot{\bv}\right)
- +\left(\gamma^2\dot{\bv}+\gamma^4\left(\bv\dotprod\dot{\bv}\right)\bv\right)\dotprod\bsig.
+ =\gamma^4(\bv\dotprod\dot{\bv})
+ +(\gamma^2\dot{\bv}+\gamma^4(\bv\dotprod\dot{\bv})\bv)\dotprod\bsig.
  \label{eq:proper-acceleration-components}
 \end{equation}
 The determinant is quadratic, so
 \begin{align*}
  \det\left(\frac{\dd\pU}{\dd s}\right)
- &=\gamma^2\det\left(\dot{\pU}\right)\\
+ &=\gamma^2\det(\dot{\pU})\\
  &=-\gamma^4\dot{\bv}_{\perp}^2-\gamma^6\dot{\bv}_{\parallel}^2.
 \end{align*}
 The same scaling gives $\scpart{\pU^*\dd\pU/\dd s}=0$, so
@@ -2465,7 +2466,7 @@ is a fixed real vector in a chosen inertial frame. With initial position
 $\br(0)=\br_0$ and velocity $\bv(0)=\bv_0$, integration gives
 \begin{align}
  \bv(t)&=\bv_0+\dot{\bv}_0t,\\
- \pX(t)&=t+\left(\br_0+\bv_0t+\tfrac12\dot{\bv}_0t^2\right)\dotprod\bsig.
+ \pX(t)&=t+(\br_0+\bv_0t+\tfrac12\dot{\bv}_0t^2)\dotprod\bsig.
  \label{eq:constant-coordinate-acceleration-worldline}
 \end{align}
 These familiar coordinate-time formulas also describe a relativistic
@@ -2703,24 +2704,24 @@ The expressions for $\dot{\gamma}$ and $\dot{\pU}$ in
 Section~\ref{sec:proper-acceleration} are differentiated once more with respect to $t$.
 Using
 \[
- \frac{\dd\left(\bv\dotprod\dot{\bv}\right)}{\dd t}
+ \frac{\dd(\bv\dotprod\dot{\bv})}{\dd t}
  =\dot{\bv}^2+\bv\dotprod\ddot{\bv},
 \]
 the following is obtained by a second differentiation:
 \begin{align*}
  \ddot{\gamma}
- &=\gamma^3\left(\dot{\bv}^2+\bv\dotprod\ddot{\bv}\right)
+ &=\gamma^3(\dot{\bv}^2+\bv\dotprod\ddot{\bv})
    +\frac{3\dot{\gamma}^2}{\gamma},\\
  \ddot{\pU}
  &=\ddot{\gamma}
- +\left(\gamma\ddot{\bv}+2\dot{\gamma}\dot{\bv}
-       +\ddot{\gamma}\bv\right)\dotprod\bsig.
+ +(\gamma\ddot{\bv}+2\dot{\gamma}\dot{\bv}
+       +\ddot{\gamma}\bv)\dotprod\bsig.
 \end{align*}
 The conversion $\dd/\dd s=\gamma\dd/\dd t$ is now applied. The first derivative is
 $\dd\pU/\dd s=\gamma\dot{\pU}$, and the second is
 \begin{equation}
  \frac{\dd^2\pU}{\dd s^2}
- =\gamma\frac{\dd\left(\gamma\dot{\pU}\right)}{\dd t}
+ =\gamma\frac{\dd(\gamma\dot{\pU})}{\dd t}
  =\gamma^2\ddot{\pU}+\gamma\dot{\gamma}\dot{\pU}.
  \label{eq:jerk-time-conversion}
 \end{equation}
@@ -2749,7 +2750,7 @@ the coordinate acceleration of the chosen inertial frame.
 The coordinate-time normalization identities are used:
 \[
  \scpart{\pU^*\dot{\pU}}=0,\qquad
- \scpart{\pU^*\ddot{\pU}}=-\det\left(\dot{\pU}\right).
+ \scpart{\pU^*\ddot{\pU}}=-\det(\dot{\pU}).
 \]
 The second follows by differentiating the first. Using
 \[
@@ -2757,7 +2758,7 @@ The second follows by differentiating the first. Using
 \]
 substitution into \eqref{eq:jerk-time-conversion} gives
 \[
- \scpart{\pU^*\frac{\dd^2\pU}{\dd s^2}}
+ \scpart*{\pU^*\frac{\dd^2\pU}{\dd s^2}}
  =-\det\left(\frac{\dd\pU}{\dd s}\right).
 \]
 Thus the derivative of four-acceleration need not be orthogonal to
@@ -2766,7 +2767,7 @@ $\pU$ in the unprojected four-jerk. Removing that component defines the
 projected relativistic jerk~\citeat{russo-townsend}{Eqs.~(2.8)--(2.13)}{page=7}.
 With the signature $(+,-,-,-)$, its orthogonality is
 \begin{equation}
- \scpart{\pU^*\left(\frac{\dd^2\pU}{\dd s^2}
+ \scpart*{\pU^*\left(\frac{\dd^2\pU}{\dd s^2}
  +\det\left(\frac{\dd\pU}{\dd s}\right)\pU\right)}=0.
  \label{eq:projected-jerk}
 \end{equation}
@@ -2800,7 +2801,7 @@ along $\pU$.
 \paragraph{When proper jerk vanishes.}
 In \eqref{eq:four-jerk-components}, subtracting the scalar coefficient
 times $\bv$ from the vector coefficient leaves
-$\gamma^3\left(\ddot{\bv}+3\dot{\gamma}\dot{\bv}/\gamma\right)$.
+$\gamma^3(\ddot{\bv}+3\dot{\gamma}\dot{\bv}/\gamma)$.
 Its vanishing says that the unprojected four-jerk is parallel to $\pU$,
 so its projection vanishes. Hence~\citeat{russo-townsend}{Eq.~(2.14)}{page=7}
 \begin{equation}
@@ -2813,7 +2814,7 @@ so its projection vanishes. Hence~\citeat{russo-townsend}{Eq.~(2.14)}{page=7}
 Zero proper jerk therefore need not mean zero coordinate jerk.
 An equivalent first integral is
 \[
- \frac{\dd\left(\gamma^3\dot{\bv}\right)}{\dd t}=0,
+ \frac{\dd(\gamma^3\dot{\bv})}{\dd t}=0,
  \qquad \gamma^3\dot{\bv}=\gamma_0^3\dot{\bv}_0.
 \]
 Here subscript $0$ denotes any reference event. Any nonzero coordinate
@@ -2822,7 +2823,7 @@ to it; the spatial trajectory is confined to a plane.
 Also, differentiating the acceleration determinant gives
 \[
  \frac{\dd}{\dd s}\det\left(\frac{\dd\pU}{\dd s}\right)
- =2\scpart{\left(\frac{\dd\pU}{\dd s}\right)^*
+ =2\scpart*{\left(\frac{\dd\pU}{\dd s}\right)^*
               \frac{\dd^2\pU}{\dd s^2}}.
 \]
 The pairing is unchanged if the second factor is replaced by its
@@ -2862,16 +2863,16 @@ Applying \eqref{eq:jerk-time-conversion} to each member of the pair gives
 \begin{align}
  \frac{\dd^2\pU}{\dd s^2}
  &=\gamma^2\dot{\theta}^2\pU
- +\left(\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta}\right)\pN,\notag\\
+ +(\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta})\pN,\notag\\
  \frac{\dd^2\pN}{\dd s^2}
  &=\gamma^2\dot{\theta}^2\pN
- +\left(\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta}\right)\pU.
+ +(\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta})\pU.
  \label{eq:rectilinear-jerk}
 \end{align}
 Removing the component along $\pU$ leaves
 \[
  \frac{\dd^2\pU}{\dd s^2}-\gamma^2\dot{\theta}^2\pU
- =\left(\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta}\right)\pN
+ =(\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta})\pN
  =\frac{\dd^2\theta}{\dd s^2}\pN.
 \]
 The proper-jerk magnitude is
@@ -2879,11 +2880,11 @@ $\left|\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta}\right|$.
 The corresponding determinant identities are
 \begin{align*}
  \det\left(\frac{\dd^2\pU}{\dd s^2}-\gamma^2\dot{\theta}^2\pU\right)
- &=-\left(\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta}\right)^2,\\
+ &=-(\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta})^2,\\
  \det\left(\frac{\dd^2\pU}{\dd s^2}\right)
  &=-\det\left(\frac{\dd^2\pN}{\dd s^2}\right)\\
  &=\gamma^4\dot{\theta}^4
- -\left(\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta}\right)^2.
+ -(\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta})^2.
 \end{align*}
 The sign reversal again comes from exchanging the unit time and spatial
 directions. Using $\dot{\theta}=\gamma^2\dot{\beta}$ and
@@ -2906,25 +2907,25 @@ whenever that constant proper acceleration is nonzero.
 The symmetry of the paired derivatives becomes especially simple on
 adding or subtracting $\pU$ and $\pN$:
 \[
- \pU\pm\pN=e^{\pm\theta}\left(1\pm\bu\dotprod\bsig\right),\qquad
- \det\left(\pU\pm\pN\right)=0.
+ \pU\pm\pN=e^{\pm\theta}(1\pm\bu\dotprod\bsig),\qquad
+ \det(\pU\pm\pN)=0.
 \]
 These two null directions are fixed; only their scalar factors change.
 Their coordinate-time derivatives are
 \begin{align*}
  \dot{\pU}\pm\dot{\pN}
- &=\pm\dot{\theta}\left(\pU\pm\pN\right),\\
+ &=\pm\dot{\theta}(\pU\pm\pN),\\
  \ddot{\pU}\pm\ddot{\pN}
- &=\left(\dot{\theta}^2\pm\ddot{\theta}\right)\left(\pU\pm\pN\right).
+ &=(\dot{\theta}^2\pm\ddot{\theta})(\pU\pm\pN).
 \end{align*}
 The proper-time derivatives follow by the same conversion:
 \begin{align*}
- \frac{\dd\left(\pU\pm\pN\right)}{\dd s}
- &=\pm\gamma\dot{\theta}\left(\pU\pm\pN\right),\\
- \frac{\dd^2\left(\pU\pm\pN\right)}{\dd s^2}
- &=\left(\gamma^2\dot{\theta}^2
- \pm\left(\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta}\right)\right)
- \left(\pU\pm\pN\right).
+ \frac{\dd(\pU\pm\pN)}{\dd s}
+ &=\pm\gamma\dot{\theta}(\pU\pm\pN),\\
+ \frac{\dd^2(\pU\pm\pN)}{\dd s^2}
+ &=(\gamma^2\dot{\theta}^2
+ \pm(\gamma^2\ddot{\theta}+\gamma\dot{\gamma}\dot{\theta}))
+ (\pU\pm\pN).
 \end{align*}
 These formulas allow varying acceleration. If the signed proper acceleration
 $\dd\theta/\dd s=\gamma\dot{\theta}$ is constant, then
@@ -2934,16 +2935,16 @@ $\dd\theta/\dd s=\gamma\dot{\theta}$ is constant, then
 \]
 The second-derivative formula therefore reduces to
 \[
- \frac{\dd^2\left(\pU\pm\pN\right)}{\dd s^2}
- =\gamma^2\dot{\theta}^2\left(\pU\pm\pN\right)
- =\left(\pm\gamma\dot{\theta}\right)^2\left(\pU\pm\pN\right).
+ \frac{\dd^2(\pU\pm\pN)}{\dd s^2}
+ =\gamma^2\dot{\theta}^2(\pU\pm\pN)
+ =(\pm\gamma\dot{\theta})^2(\pU\pm\pN).
 \]
 Only under this constant-acceleration assumption is each null combination
 multiplied by the same constant factor at every proper-time differentiation.
 For integers $n\ge0$, the $n=2$ case above is included in
 \[
- \frac{\dd^n\left(\pU\pm\pN\right)}{\dd s^n}
- =\left(\pm\gamma\dot{\theta}\right)^n\left(\pU\pm\pN\right).
+ \frac{\dd^n(\pU\pm\pN)}{\dd s^n}
+ =(\pm\gamma\dot{\theta})^n(\pU\pm\pN).
 \]
 Adding and subtracting recovers the derivatives of $\pU$ and $\pN$:
 even orders preserve each direction, while odd orders exchange them.
@@ -2978,7 +2979,7 @@ For $\ddot{\bv}=\ddot{\bv}_0$ in a chosen inertial frame, integration gives
  \dot{\bv}(t)&=\dot{\bv}_0+\ddot{\bv}_0\,t,\notag\\
  \bv(t)&=\bv_0+\dot{\bv}_0t+\tfrac12\ddot{\bv}_0\,t^2,\notag\\
  \pX(t)&=t+
- \left(\br_0+\bv_0t+\tfrac12\dot{\bv}_0t^2+\tfrac16\ddot{\bv}_0\,t^3\right)\dotprod\bsig.
+ (\br_0+\bv_0t+\tfrac12\dot{\bv}_0t^2+\tfrac16\ddot{\bv}_0\,t^3)\dotprod\bsig.
  \label{eq:constant-coordinate-jerk}
 \end{align}
 These formulas apply on the interval where $\bv(t)^2<1$.
@@ -2995,7 +2996,7 @@ along the fixed real unit axis $\bu$. Then
 \]
 Here $\dot{\beta}=\ddot{v}_0t$ and $\beta=\ddot{v}_0t^2/2$, so
 \eqref{eq:coordinate-proper-jerk} gives
-$\dd^2\theta/\dd s^2=\gamma^4\ddot{v}_0+3\gamma^6\beta\left(\ddot{v}_0t\right)^2$.
+$\dd^2\theta/\dd s^2=\gamma^4\ddot{v}_0+3\gamma^6\beta(\ddot{v}_0t)^2$.
 Thus constant coordinate jerk does not give constant proper jerk.
 
 \subsubsection{Constant proper jerk}
@@ -3006,11 +3007,11 @@ By integration with respect to proper time,
 \begin{align}
  \frac{\dd\theta}{\dd s}
  &=\gamma_0\dot{\theta}_0
- +\left(\gamma_0^2\ddot{\theta}_0
-       +\gamma_0\dot{\gamma}_0\dot{\theta}_0\right)s,\notag\\
+ +(\gamma_0^2\ddot{\theta}_0
+       +\gamma_0\dot{\gamma}_0\dot{\theta}_0)s,\notag\\
  \theta(s)&=\theta_0+\gamma_0\dot{\theta}_0s
- +\frac12\left(\gamma_0^2\ddot{\theta}_0
-       +\gamma_0\dot{\gamma}_0\dot{\theta}_0\right)s^2.
+ +\frac12(\gamma_0^2\ddot{\theta}_0
+       +\gamma_0\dot{\gamma}_0\dot{\theta}_0)s^2.
  \label{eq:constant-proper-jerk}
 \end{align}
 If the particle starts at rest, $\theta_0=0$, $\gamma_0=1$, and
@@ -3053,21 +3054,21 @@ $\pU_0$ and $\dot{\pU}_0$, respectively.
 By direct integration,
 \begin{align*}
  \pU(s)&=\pU_0+s\gamma_0\dot{\pU}_0
- +\frac{s^2}{2}\left(\gamma_0^2\ddot{\pU}_0
-                   +\gamma_0\dot{\gamma}_0\dot{\pU}_0\right),\\
+ +\frac{s^2}{2}(\gamma_0^2\ddot{\pU}_0
+                   +\gamma_0\dot{\gamma}_0\dot{\pU}_0),\\
  \pX(s)&=\pX_0+s\pU_0+\frac{s^2}{2}\gamma_0\dot{\pU}_0
- +\frac{s^3}{6}\left(\gamma_0^2\ddot{\pU}_0
-                   +\gamma_0\dot{\gamma}_0\dot{\pU}_0\right).
+ +\frac{s^3}{6}(\gamma_0^2\ddot{\pU}_0
+                   +\gamma_0\dot{\gamma}_0\dot{\pU}_0).
 \end{align*}
 With $\pU_0$ future-directed, the following coefficient conditions
 are necessary and sufficient for $\det\pU(s)=1$. Equating powers of $s$
 using the metric pairing in \eqref{eq:lorentz-pairing} gives
 \begin{gather*}
  \det\pU_0=1,\qquad \scpart{\pU_0^*\dot{\pU}_0}=0,\qquad
- \scpart{\pU_0^*\ddot{\pU}_0}=-\det\left(\dot{\pU}_0\right),\\
+ \scpart{\pU_0^*\ddot{\pU}_0}=-\det(\dot{\pU}_0),\\
  \gamma_0\scpart{\dot{\pU}_0^*\ddot{\pU}_0}
- +\dot{\gamma}_0\det\left(\dot{\pU}_0\right)=0,\qquad
- \det\left(\gamma_0\ddot{\pU}_0+\dot{\gamma}_0\dot{\pU}_0\right)=0.
+ +\dot{\gamma}_0\det(\dot{\pU}_0)=0,\qquad
+ \det(\gamma_0\ddot{\pU}_0+\dot{\gamma}_0\dot{\pU}_0)=0.
 \end{gather*}
 In particular, a nonzero constant $\dd^2\pU/\dd s^2$ must be null.
 If it is zero, the normalization conditions force $\dot{\pU}_0=0$,
@@ -3083,7 +3084,7 @@ an initial rest state at the origin is chosen, with nonzero initial coordinate
 acceleration $\dot{\bv}_0$ and jerk $\ddot{\bv}_0$ constrained by
 \[
  \dot{\bv}_0\dotprod\ddot{\bv}_0=0,\qquad
- \ddot{\bv}_0^2=\left(\dot{\bv}_0^2\right)^2.
+ \ddot{\bv}_0^2=(\dot{\bv}_0^2)^2.
 \]
 Here $\gamma_0=1$ and $\dot{\gamma}_0=0$, so the initial paravector data are
 \[
@@ -3094,7 +3095,7 @@ Here $\gamma_0=1$ and $\dot{\gamma}_0=0$, so the initial paravector data are
 The resulting world line is
 \begin{equation}
  \pX(s)=s+\tfrac16\dot{\bv}_0^2s^3
- +\left(\tfrac12\dot{\bv}_0s^2+\tfrac16\ddot{\bv}_0s^3\right)\dotprod\bsig.
+ +(\tfrac12\dot{\bv}_0s^2+\tfrac16\ddot{\bv}_0s^3)\dotprod\bsig.
  \label{eq:constant-four-jerk-worldline}
 \end{equation}
 By differentiation, the following is verified:
@@ -3744,8 +3745,8 @@ the induced field variations $\delta\bE,\delta\bBf\in\R^3$ satisfy
 By integration by parts,
 \begin{equation*}
  \delta\int L\dd t\dd^3\br
- =\int\left((\pdr\dotprod\bE-\rho)\delta V
- +(\partial_t\bE-\pdr\times\bBf+\bJ)\dotprod\delta\bA\right)\dd t\dd^3\br.
+ =\int((\pdr\dotprod\bE-\rho)\delta V
+ +(\partial_t\bE-\pdr\times\bBf+\bJ)\dotprod\delta\bA)\dd t\dd^3\br.
 \end{equation*}
 From independent variations,
 \eqref{eq:gauss-electric} and \eqref{eq:ampere-maxwell}; the potential
@@ -3819,7 +3820,7 @@ Since $\scpart{\pA^*\pU}=\gamma(V-\bv\dotprod\bA)$, the Lagrangian is
 Its Euler--Lagrange terms are
 \begin{align*}
  \vstyle{\partial}_{\bv}L&=\bp+q\bA,\\
- \frac{\dd\left(\vstyle{\partial}_{\bv}L\right)}{\dd t}
+ \frac{\dd(\vstyle{\partial}_{\bv}L)}{\dd t}
  &=\dot{\bp}+q\partial_t\bA+q(\bv\dotprod\pdr)\bA,\\
  \pdr L&=-q\pdr V+q\pdr(\bv\dotprod\bA).
 \end{align*}
@@ -3860,8 +3861,8 @@ The complex product of the field and four-velocity is expanded:
  \begin{aligned}
  \frac{\pF \pU}{\gamma}={}&\bv\dotprod\bE
    +(\bE+\bv\times\bBf)\dotprod\bsig\\
- &+\ii\left(\bv\dotprod\bBf
-   +(\bBf-\bv\times\bE)\dotprod\bsig\right).
+ &+\ii(\bv\dotprod\bBf
+   +(\bBf-\bv\times\bE)\dotprod\bsig).
  \end{aligned}
  \label{eq:force-product}
 \end{equation}
@@ -3887,7 +3888,7 @@ $\dot{\bv}=\dd\bv/\dd t$.  Scalar-part cyclicity proves tangency to the mass she
 \begin{align*}
  \scpart{\pU^*\dd \pP/\dd s}
  &=\frac q2\scpart{\pU^*\pF \pU+\pF^{\mathsf H}}\\
- &=\frac q2\left(\scpart {\pF}+\scpart{\pF^{\mathsf H}}\right)=0.
+ &=\frac q2(\scpart {\pF}+\scpart{\pF^{\mathsf H}})=0.
 \end{align*}
 This agrees with $\scpart{\pU^*\dd \pU/\dd s}=0$ in
 Section~\ref{sec:proper-acceleration}.
@@ -3895,13 +3896,13 @@ Combining \eqref{eq:proper-acceleration-components} with the force components
 in \eqref{eq:force-product} gives
 \begin{align*}
  m\gamma^3\bv\dotprod\dot{\bv}&=q\bv\dotprod\bE,\\
- m\gamma\left(\dot{\bv}+\gamma^2(\bv\dotprod\dot{\bv})\bv\right)
+ m\gamma(\dot{\bv}+\gamma^2(\bv\dotprod\dot{\bv})\bv)
  &=q(\bE+\bv\times\bBf).
 \end{align*}
 The coordinate acceleration is obtained by eliminating $\bv\dotprod\dot{\bv}$
 \begin{equation*}
  \boxed{\dot{\bv}=\frac{q}{m\gamma}
- \left(\bE+\bv\times\bBf-(\bv\dotprod\bE)\bv\right).}
+ (\bE+\bv\times\bBf-(\bv\dotprod\bE)\bv).}
 \end{equation*}
 The magnetic term changes momentum without doing work.
 
@@ -3941,7 +3942,7 @@ Taking the determinant of the real force gives
  \begin{aligned}
  -\det\left(\frac{\dd \pP}{\dd s}\right)
  &=-m^2\det\left(\frac{\dd \pU}{\dd s}\right)\\
- &=q^2\gamma^2\left((\bE+\bv\times\bBf)^2-(\bv\dotprod\bE)^2\right).
+ &=q^2\gamma^2((\bE+\bv\times\bBf)^2-(\bv\dotprod\bE)^2).
  \end{aligned}
 \end{equation*}
 The invariant squared proper acceleration is obtained by division by $m^2$.
@@ -3959,8 +3960,8 @@ gives
  -\det\left(\frac{\dd\pU}{\dd s}\right)
  &=\gamma^6\dot{\bv}_{\parallel}^2
    +\gamma^4\dot{\bv}_{\perp}^2\\
- &=\frac{q^2}{m^2}\left(\bE_{\parallel}^2
-   +\gamma^2\lVert\bE_{\perp}+\bv\times\bBf\rVert^2\right).
+ &=\frac{q^2}{m^2}(\bE_{\parallel}^2
+   +\gamma^2\lVert\bE_{\perp}+\bv\times\bBf\rVert^2).
  \end{aligned}
  \label{eq:lorentz-proper-acceleration-projections}
 \end{equation}
@@ -3995,8 +3996,8 @@ $\pU=\dd\pX/\dd s$, the squared proper-acceleration magnitude is
  -c^4\det\left(\frac{\dd\pU}{\dd s}\right)
  &=\gamma^6\dot{\bv}_{\parallel}^2
    +\gamma^4\dot{\bv}_{\perp}^2\\
- &=\frac{q^2}{m^2}\left(\bE_{\parallel}^2
-   +\gamma^2\lVert\bE_{\perp}+\bv\times\bBf\rVert^2\right),
+ &=\frac{q^2}{m^2}(\bE_{\parallel}^2
+   +\gamma^2\lVert\bE_{\perp}+\bv\times\bBf\rVert^2),
 \end{align*}
 in $\mathrm{m^2\,s^{-4}}$. At rest it reduces to
 $q^2\lVert\bE\rVert^2/m^2$ without choosing a projection axis.
@@ -4248,10 +4249,10 @@ For constant $E$ and $\bp$, with time
 $t$ in seconds and position $\br$ in metres,
 the plane wave $f:\R^4\to\C$ is
 \begin{gather*}
- f(t,\br):=\exp\!\left(-\ii\left(\omega t
-             -2\pi\bk\dotprod\br\right)\right),\\
- f(t,\br)=\exp\!\left(-\frac{\ii}{\hbar}\left(Et
-             -\bp\dotprod\br\right)\right).
+ f(t,\br):=\exp\!(-\ii(\omega t
+             -2\pi\bk\dotprod\br)),\\
+ f(t,\br)=\exp\!\left(-\frac{\ii}{\hbar}(Et
+             -\bp\dotprod\br)\right).
 \end{gather*}
 The second line substitutes \eqref{eq:planck-einstein} and
 \eqref{eq:debroglie-momentum}.  By differentiation,
@@ -4267,7 +4268,7 @@ Returning to natural units $\hbar=c=1$ gives $h=2\pi$. With
 $\pX=t+\br\dotprod\bsig$ and
 $\pP=E+\bp\dotprod\bsig$, the following is obtained~\citeat{tong-qft}{Eq.~(4.104)}{page=106}
 \begin{equation}
- f(\pX,\pP)=\exp\!\left(-\ii(Et-\bp\dotprod\br)\right).
+ f(\pX,\pP)=\exp\!(-\ii(Et-\bp\dotprod\br)).
  \label{eq:plane-wave}
 \end{equation}
 The two eigenvalue equations combine into
@@ -4455,15 +4456,15 @@ Their sum gives the general solution:
 \end{equation}
 The two initial data determine its complex branch fields by
 \[
- \psi_\pm(0,\br)=\tfrac12\left(\psi(0,\br)
-             \pm\ii\hOmega^{-1}\partial_t\psi(0,\br)\right).
+ \psi_\pm(0,\br)=\tfrac12(\psi(0,\br)
+             \pm\ii\hOmega^{-1}\partial_t\psi(0,\br)).
 \]
 
 \subsection{Square roots from Fourier series}
 For spatially periodic free KG solutions, the following discrete Fourier series is used:
 \[
  \psi=\sum_n c_n f_n,\qquad
- f_n(t,\br)=\exp\!\left(\ii(\omega_n t+2\pi\bk_n\dotprod\br)\right).
+ f_n(t,\br)=\exp\!(\ii(\omega_n t+2\pi\bk_n\dotprod\br)).
 \]
 Here $n\in\mathbb{N}$ enumerates modes, $f_n:\R^4\to\C$, $c_n\in\C$ are constant coefficients,
 $\omega_n\in\R$ are signed angular phase frequencies, and $\bk_n\in\R^3$
@@ -4538,8 +4539,8 @@ Applying these identities twice gives
 \begin{equation}
  (-\hEq^2+\hbpq^2+m^2)\psi=0
  \quad\Longrightarrow\quad
- \left(-(\ii\partial_t+qV)^2
- +(-\ii\pdr+q\bA)^2+m^2\right)\psi^*=0.
+ (-(\ii\partial_t+qV)^2
+ +(-\ii\pdr+q\bA)^2+m^2)\psi^*=0.
  \label{eq:kg-charge-conjugation}
 \end{equation}
 Thus $\psi^*$ obeys KG with charge $-q$ and the same mass.
@@ -4553,11 +4554,11 @@ $L=(\partial_t\psi)^*\partial_t\psi
 gives KG and the conserved current, with charge sign fixed by
 $\hEq=\ii\partial_t-qV$~\citeat{tong-qft}{Eqs.~(2.67), (2.74)}{page=39}:
 \begin{align*}
- \rho&=\ii q\left(\psi^*\partial_t\psi-(\partial_t\psi)^*\psi\right),\\
- \bJ&=-\ii q\left(\psi^*\pdr\psi-(\pdr\psi)^*\psi\right),
+ \rho&=\ii q(\psi^*\partial_t\psi-(\partial_t\psi)^*\psi),\\
+ \bJ&=-\ii q(\psi^*\pdr\psi-(\pdr\psi)^*\psi),
  \qquad \pJ=\rho+\bJ\dotprod\bsig\in\R\oplus\R^3,\\
  \partial_t\rho+\pdr\dotprod\bJ
- &=\ii q\left(\psi^*\Box\psi-(\Box\psi)^*\psi\right)=0.
+ &=\ii q(\psi^*\Box\psi-(\Box\psi)^*\psi)=0.
 \end{align*}
 For $\psi=c_nf_n$, $\rho=-2q\omega_n|c_n|^2$ and
 $\bJ=4\pi q\bk_n|c_n|^2$. The two frequency signs therefore carry
@@ -4652,8 +4653,8 @@ By the product rule,
 Substituting \eqref{eq:energy-operator-square} and
 \eqref{eq:momentum-operator-square} into \eqref{eq:kg-field} gives
 \begin{equation*}
- \boxed{\left(\Box+\ii qS-q^2\det \pA+m^2
- +2\ii q(V\partial_t+\bA\dotprod\pdr)\right)\psi=0.}
+ \boxed{(\Box+\ii qS-q^2\det \pA+m^2
+ +2\ii q(V\partial_t+\bA\dotprod\pdr))\psi=0.}
 \end{equation*}
 
 All potential derivatives are retained.
@@ -4693,7 +4694,7 @@ the nonnegative real density~\citeat{tong-qft}{Eqs.~(4.97)--(4.99)}{page=105}
 
 For $\pZ\in\C\oplus\C^3$, the complex-linear block map is defined by
 \begin{equation}
- \Wop(\pZ):=\begin{Bmatrix}0&\adj {\pZ}\\\pZ&0\end{Bmatrix}.
+ \Wop(\pZ):=\begin{Bmatrix}0&\operatorname{adj}\,\pZ\\\pZ&0\end{Bmatrix}.
  \label{eq:dirac-block-map}
 \end{equation}
 Intrinsically $\Wop(\pZ)$ is a $2\times2$ array with paravector
@@ -4717,8 +4718,8 @@ $\operatorname{adj}$ reverses the vector part without reordering derivatives.
 For the free field ($q=0$), the canonical operators in
 \eqref{eq:canonical-operators} are used.  The block map and Dirac operator are
 \begin{align}
- \Wop(\hP)&=\begin{Bmatrix}0&\adj\hP\\\hP&0\end{Bmatrix},\notag\\
- \hD(m)&:=\Wop(\hP)-m\bI,
+ \Wop(\hP)&=\begin{Bmatrix}0&\operatorname{adj}\,\hP\\\hP&0\end{Bmatrix},\notag\\
+ \hD(+m)&:=\Wop(\hP)-m\bI,
  \label{eq:dirac-operator}\\
  \hD(-m)&=\Wop(\hP)+m\bI. \notag
 \end{align}
@@ -4731,7 +4732,7 @@ Using $\Wop(\hP)^2=(\det\hP)\bI=-\Box\bI$ from
 \eqref{eq:free-momentum-product}, multiplication by the opposite-mass operator gives~\citeat{tong-qft}{Eqs.~(4.53)--(4.54)}{page=96}
 \begin{equation}
  \begin{aligned}
- \hD(m)\hD(-m)&=\hD(-m)\hD(m)\\
+ \hD(+m)\hD(-m)&=\hD(-m)\hD(+m)\\
  &=\Wop(\hP)^2-m^2\bI
  =-(\Box+m^2)\bI.
  \end{aligned}
@@ -4816,7 +4817,7 @@ For the fixed potential $\pA$ and charge $q$, the following interacting Dirac op
  \hDq(m)&:=\Wop(\hPq)-m\bI
  \label{eq:dirac-field-operator}\\
  &=\begin{Bmatrix}
- -m&\adj\hPq\\
+ -m&\operatorname{adj}\,\hPq\\
  \hPq&-m
  \end{Bmatrix}. \notag
 \end{align}
@@ -4888,7 +4889,7 @@ Differentiating a parenthesized product includes the potential derivative.
 The argument $-m$ changes only the mass sign, keeping $q$ and $\pA$
 fixed.  Multiplying and using the preceding mixed-derivative identities gives
 \begin{equation}
- \hDq(-m)\hDq(m)
+ \hDq(-m)\hDq(+m)
  =(\hEq^2-\hbpq^2-m^2)\bI
  -\ii q\begin{Bmatrix}\pF^*&0\\0&\pF\end{Bmatrix}.
  \label{eq:dirac-interacting-operator-factorization}
@@ -4896,13 +4897,13 @@ fixed.  Multiplying and using the preceding mixed-derivative identities gives
 The derivatives act on potentials as well as amplitudes.
 For every Dirac solution,
 \[
- \hDq(-m)\hDq(m)\bpsi=0.
+ \hDq(-m)\hDq(+m)\bpsi=0.
 \]
 At $q=0$, this recovers \eqref{eq:dirac-free-factorization} and hence the
 free Klein--Gordon equation. With coupling, its entries obey
 \begin{align*}
- \left((\pvpartial+\ii q\pA^*)(\pvpartial^*+\ii q\pA)+m^2\right)\pvpsi_+&=0,\\
- \left((\pvpartial^*+\ii q\pA)(\pvpartial+\ii q\pA^*)+m^2\right)\pvpsi_-&=0.
+ ((\pvpartial+\ii q\pA^*)(\pvpartial^*+\ii q\pA)+m^2)\pvpsi_+&=0,\\
+ ((\pvpartial^*+\ii q\pA)(\pvpartial+\ii q\pA^*)+m^2)\pvpsi_-&=0.
 \end{align*}
 The exact second-order equations are obtained by expansion~\citeat{feynman-gellmann}{Eq.~(6)}{page=2}
 \begin{align}
@@ -5162,9 +5163,9 @@ Constant $\pvPi_\pm$ commute with $\hEq$ and $\hbpq^2$,
 so the Pauli equation gives
 \[
 \begin{aligned}
-0&=\pvPi_\pm\left(2m\hEq-\hbpq^2+q\vstyle{B}\dotprod\bsig\right)\pvphi_+\\
-&=\left(\left(2m\hEq-\hbpq^2
-\pm q\lVert\vstyle{B}\rVert\right)\phi_{+\pm}\right)\pvPi_\pm.
+0&=\pvPi_\pm(2m\hEq-\hbpq^2+q\vstyle{B}\dotprod\bsig)\pvphi_+\\
+&=((2m\hEq-\hbpq^2
+\pm q\lVert\vstyle{B}\rVert)\phi_{+\pm})\pvPi_\pm.
 \end{aligned}
 \]
 
@@ -5261,7 +5262,7 @@ By projection of the Pauli equation,
 \[
 \begin{aligned}
 2m\hEq\pvPi_\pm'\pvphi_+
-&=\left(\hbpq^2\mp q\lVert\vstyle{B}\rVert\cos\theta\right)\pvPi_\pm'\pvphi_+\\
+&=(\hbpq^2\mp q\lVert\vstyle{B}\rVert\cos\theta)\pvPi_\pm'\pvphi_+\\
 &\quad-q\lVert\vstyle{B}\rVert
 \pvPi_\pm'(\vstyle{u}\dotprod\bsig)\pvPi_\mp'\pvphi_+.
 \end{aligned}
@@ -5459,28 +5460,34 @@ is the spin probability conditional on position, not a position density.
 The prepared spin direction and measurement axis are denoted by the real
 unit vectors $\bu'$ and $\bu$, respectively. A nonzero spin-up amplitude
 $\pvpsi=\pvPi_+'\pvpsi$ is prepared, where $\pvPi_+'=(1+\bu'\dotprod\bsig)/2$.
-The angle between the axes is denoted by $0\le\theta\le\pi$, and the following notation is used:
+The angle $0\le\theta\le\pi$ is fixed by $\bu\dotprod\bu'=\cos\theta$.
+The Pauli product and the unit lengths give
 \[
- \pv{K}':=\bu'\dotprod\bsig,\qquad \pv{K}:=\bu\dotprod\bsig,\qquad
- c':=\bu\dotprod\bu'=\cos\theta.
+ (\bu'\dotprod\bsig)^2=1,\qquad
+ (\bu'\dotprod\bsig)(\bu\dotprod\bsig)
+ +(\bu\dotprod\bsig)(\bu'\dotprod\bsig)=2\cos\theta.
 \]
-
-Here $\pv{K},\pv{K}'\in\{0\}\oplus\R^3$ and $c'\in\R$, $-1\le c'\le1$.
-The Pauli product gives $(\pv{K}')^2=1$ and $\pv{K}'\pv{K}+\pv{K}\pv{K}'=2c'$.
-Multiplication by $\pv{K}'$ gives $\pv{K}'\pv{K}\pv{K}'=2c'\pv{K}'-\pv{K}$, hence
+Multiplying the second identity on the right by $\bu'\dotprod\bsig$ yields
+\[
+ (\bu'\dotprod\bsig)(\bu\dotprod\bsig)(\bu'\dotprod\bsig)
+ =2\cos\theta\,(\bu'\dotprod\bsig)-\bu\dotprod\bsig.
+\]
+Thus the prepared-state projector gives
 \[
  \begin{aligned}
- \pvPi_+'\pv{K}\pvPi_+'
- &=\frac14(1+\pv{K}')\pv{K}(1+\pv{K}')\\
- &=\frac14(\pv{K}+\pv{K}'\pv{K}+\pv{K}\pv{K}'+\pv{K}'\pv{K}\pv{K}')\\
- &=\frac14(2c'+2c'\pv{K}')=c'\pvPi_+'.
+ \pvPi_+'(\bu\dotprod\bsig)\pvPi_+'
+ &=\frac14(1+\bu'\dotprod\bsig)(\bu\dotprod\bsig)(1+\bu'\dotprod\bsig)\\
+ &=\frac14\Bigl[\bu\dotprod\bsig+2\cos\theta
+       +(\bu'\dotprod\bsig)(\bu\dotprod\bsig)(\bu'\dotprod\bsig)\Bigr]\\
+ &=\frac14\Bigl[2\cos\theta+2\cos\theta\,(\bu'\dotprod\bsig)\Bigr]
+ =\cos\theta\,\pvPi_+'.
  \end{aligned}
 \]
-The measurement projectors $\pvPi_\pm=(1\pm \pv{K})/2$ therefore satisfy
+The measurement projectors $\pvPi_\pm=(1\pm\bu\dotprod\bsig)/2$ therefore satisfy
 \begin{equation}
  \pvPi_+'\pvPi_\pm\pvPi_+'
- =\frac12\left(\pvPi_+'\pm\pvPi_+'\pv{K}\pvPi_+'\right)
- =\frac{1\pm c'}{2}\pvPi_+'.
+ =\frac12(\pvPi_+'\pm\pvPi_+'(\bu\dotprod\bsig)\pvPi_+')
+ =\frac{1\pm\cos\theta}{2}\pvPi_+'.
  \label{eq:spin-projector-overlap}
 \end{equation}
 
@@ -5551,7 +5558,7 @@ Thus the polarization rotates as a vector although its amplitude has
 spin one-half.  Its overlap with the original polarization is
 \[
  \bu'\dotprod\bu''=(\ba\dotprod\bu')^2
-   +\left(1-(\ba\dotprod\bu')^2\right)\cos\varphi.
+   +(1-(\ba\dotprod\bu')^2)\cos\varphi.
 \]
 For $\ba\dotprod\bu'=0$, the probability to retain the initial spin
 is $\cos^2(\varphi/2)$.
@@ -5611,7 +5618,7 @@ Equation~\eqref{eq:derivative-transformation} follows from the chain rule.
 For a differentiable scalar $f:\R^4\to\C$ with $f'(\pX')=f(\pX)$,
 \[
  \dd f=\scpart{(\pvpartial f)\dd \pX}
- =\scpart{\bigl(\pT^*(\pvpartial f)\pT^{-1}\bigr)\dd \pX'}.
+ =\scpart[\Big]{\bigl(\pT^*(\pvpartial f)\pT^{-1}\bigr)\dd \pX'}.
 \]
 Since this holds for every real increment $\dd \pX'$, the coefficient is
 $\pvpartial'f'$~\citeat{tong-em}{p.~101}{page=109}.
@@ -5993,9 +6000,9 @@ Transposition swaps and transposes the off-diagonal blocks; it does not equate t
 \end{equation}
 Equivalently, the paravector is
 \[
- \dd\pX=\left(M_{tt}\dd t+\bM_{rt}\dotprod\dd\br\right)
-      +\left(\dd t\,\bM_{tr}^{\mathsf T}
-                    +\bM_{rr}^{\mathsf T}\dd\br\right)\dotprod\bsig.
+ \dd\pX=(M_{tt}\dd t+\bM_{rt}\dotprod\dd\br)
+      +(\dd t\,\bM_{tr}^{\mathsf T}
+                    +\bM_{rr}^{\mathsf T}\dd\br)\dotprod\bsig.
 \]
 The first term is $\dd t'$; the coefficient of $\bsig$ is $\dd\br'$.
 In general these are not $\dd t$ and $\dd\br$.
@@ -6010,10 +6017,10 @@ varying the base point gives
 \[
  \begin{aligned}
  \partial_t(\dd\pX)
- &=\left((\partial_t M_{tt})\dd t
-            +(\partial_t\bM_{rt})\dotprod\dd\br\right)\\
- &\quad+\left(\dd t\,\partial_t\bM_{tr}^{\mathsf T}
-            +(\partial_t\bM_{rr}^{\mathsf T})\dd\br\right)\dotprod\bsig.
+ &=((\partial_t M_{tt})\dd t
+            +(\partial_t\bM_{rt})\dotprod\dd\br)\\
+ &\quad+(\dd t\,\partial_t\bM_{tr}^{\mathsf T}
+            +(\partial_t\bM_{rr}^{\mathsf T})\dd\br)\dotprod\bsig.
  \end{aligned}
 \]
 Refactoring into the local basis gives
@@ -6184,10 +6191,10 @@ $\dd\pX=\dd t+\lambda\dd\br\dotprod\bsig$.
 An ordinary rescaling of inertial spatial coordinates instead gives
 \[
  \begin{aligned}
- \dd\left(t+\lambda(t)\br\dotprod\bsig\right)
- &=\dd t+\left(\lambda\dd\br+\dot \lambda\br\dd t\right)\dotprod\bsig,\\
- \det\!\left(\dd\left(t+\lambda(t)\br\dotprod\bsig\right)\right)
- &=\dd t^2-\left(\lambda\dd\br+\dot \lambda\br\dd t\right)^2.
+ \dd(t+\lambda(t)\br\dotprod\bsig)
+ &=\dd t+(\lambda\dd\br+\dot \lambda\br\dd t)\dotprod\bsig,\\
+ \det\!(\dd(t+\lambda(t)\br\dotprod\bsig))
+ &=\dd t^2-(\lambda\dd\br+\dot \lambda\br\dd t)^2.
  \end{aligned}
 \]
 Since $\lambda>0$, this is an invertible coordinate change of flat Minkowski
@@ -6221,7 +6228,7 @@ To change the displacement along this null direction, choose
  \begin{aligned}
  \pSigmaTPrime&=(1-\lambda)+(\lambda\bu)\dotprod\bsig,\\
  \bsigRPrime&=(-\lambda\bu)
- +\left(\bI+\lambda\bu\bu^{\mathsf T}\right)\dotprod\bsig.
+ +(\bI+\lambda\bu\bu^{\mathsf T})\dotprod\bsig.
  \end{aligned}
  \label{eq:kerr-schild-basis}
 \end{equation}
@@ -6313,7 +6320,7 @@ $\lVert\dot\br\rVert\ll1$, expand \eqref{eq:kerr-schild-clock}, retaining terms
 linear in $\lambda$ and quadratic in velocity, dropping their
 products. The free-particle action per unit mass becomes
 \[
- -\int\dd s\simeq\int\left(-1+\frac12\dot\br^2+\lambda\right)\dd t.
+ -\int\dd s\simeq\int(-1+\frac12\dot\br^2+\lambda)\dd t.
 \]
 The Euler--Lagrange equation gives
 \begin{equation}
@@ -7153,7 +7160,7 @@ Here, subscript $0$ labels the uncoupled operators of
    \tag*{\eqref{eq:kinetic-electric-commutator}}\\
  (-\hEq^2+\hbpq^2+m^2)\psi&=0,
    \tag*{\eqref{eq:kg-field}}\\
- \Wop(\pZ)&=\begin{Bmatrix}0&\adj {\pZ}\\\pZ&0\end{Bmatrix}.
+ \Wop(\pZ)&=\begin{Bmatrix}0&\operatorname{adj}\,\pZ\\\pZ&0\end{Bmatrix}.
    \tag*{\eqref{eq:dirac-block-map}}
 \end{align*}
 Here $\pZ\in\C\oplus\C^3$; $\Wop(\pZ)$ and $\bI$ are represented by

@@ -765,10 +765,10 @@ The [Pauli equation](https://en.wikipedia.org/wiki/Pauli_equation) is projected 
 
 ```math
 \begin{aligned}
-0&={\Pi} _\pm\left(2m\hat E_q-\hat{{𝐏}}_q^2
-+q{𝐁}\cdot{𝝈}\right){\phi} _+\\
-&=\left(\left(2m\hat E_q-\hat{{𝐏}}_q^2
-\pm q\lVert{𝐁}\rVert\right)\phi_{+\pm}\right){\Pi} _\pm.
+0&={\Pi} _\pm(2m\hat E_q-\hat{{𝐏}}_q^2
++q{𝐁}\cdot{𝝈}){\phi} _+\\
+&=((2m\hat E_q-\hat{{𝐏}}_q^2
+\pm q\lVert{𝐁}\rVert)\phi_{+\pm}){\Pi} _\pm.
 \end{aligned}
 ```
 

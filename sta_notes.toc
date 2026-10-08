@@ -104,7 +104,7 @@
 \contentsline {subsection}{\numberline {13.1}Spinor amplitudes and probability density}{58}{subsection.13.1}%
 \contentsline {subsection}{\numberline {13.2}Weighted densities and local expectations}{59}{subsection.13.2}%
 \contentsline {paragraph}{Local expectations.}{59}{section*.26}%
-\contentsline {paragraph}{Transforming the amplitude.}{60}{section*.27}%
+\contentsline {paragraph}{Transforming the amplitude.}{59}{section*.27}%
 \contentsline {subsection}{\numberline {13.3}Energy and momentum as differential operators}{60}{subsection.13.3}%
 \contentsline {subsection}{\numberline {13.4}Field strength from noncommuting derivatives}{62}{subsection.13.4}%
 \contentsline {section}{\numberline {14}The Klein--Gordon equation}{62}{section.14}%
