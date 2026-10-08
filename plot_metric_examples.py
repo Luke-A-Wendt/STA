@@ -193,7 +193,7 @@ def kerr_fields(x, y, z):
 
 
 def kerr():
-    tex = r"""\nextgroupplot[
+    tex = r"""\nextgroupplot[grid style={black!15},
  title={Kerr: meridional slice},
  xlabel={$r_1/(Gm)$},ylabel={$r_3/(Gm)$},
  xmin=-3.65,xmax=3.65,ymin=-3.65,ymax=3.65,
@@ -201,18 +201,18 @@ def kerr():
  legend style={at={(0.5,-0.21)},anchor=north},
 ]
 """
-    tex += curve(stationary_surface(), "metriccyan,fill=metriccyan!30,line width=1.8pt")
+    tex += curve(stationary_surface(), "black,fill=black!30,line width=1.8pt")
     tex += r"\addlegendentry{Outer stationary limit: $g_{tt}=0$}" + "\n"
     tex += curve(ellipse(HORIZON), "frameblack,fill=frameblack!6,line width=1.2pt")
     tex += r"\addlegendentry{Horizon: $\epsilon/(Gm)=1.6$}" + "\n"
     for epsilon, theta in ((2.4, 0.65), (3.2, -0.65)):
-        tex += curve(ellipse(epsilon), "metriccyan,dashed,forget plot")
+        tex += curve(ellipse(epsilon), "black,dashed,forget plot")
         tex += note(sqrt(epsilon**2+SPIN**2)*sin(theta), epsilon*cos(theta),
                     rf"$\epsilon={epsilon}\,Gm$")
     tex += line((0, 2.5), (0, 3.35), "frameblack,-{Stealth[length=4pt]}")
     tex += note(0.15, 2.95, r"$\boldsymbol\omega$", "anchor=west")
     tex += note(0, -0.3, r"\shortstack{Inside the\\horizon}", "fill=frameblack!6")
-    tex += r"""\nextgroupplot[
+    tex += r"""\nextgroupplot[grid style={black!15},
  title={Kerr: equatorial slice},
  xlabel={$r_1/(Gm)$},ylabel={$r_2/(Gm)$},
  xmin=-3.65,xmax=3.65,ymin=-3.65,ymax=3.65,
@@ -220,10 +220,10 @@ def kerr():
  legend style={at={(0.5,-0.21)},anchor=north},
 ]
 """
-    tex += curve(circle(sqrt(4 + SPIN**2)), "metriccyan,fill=metriccyan!30,line width=1.8pt")
-    tex += r"\addlegendentry{Ergoregion (cyan)}" + "\n"
+    tex += curve(circle(sqrt(4 + SPIN**2)), "black,fill=black!30,line width=1.8pt")
+    tex += r"\addlegendentry{Ergoregion (gray)}" + "\n"
     tex += curve(circle(sqrt(HORIZON**2 + SPIN**2)), "frameblack,fill=frameblack!6,line width=1.2pt,forget plot")
-    tex += curve(circle(sqrt(9 + SPIN**2)), "metriccyan,dashed,forget plot")
+    tex += curve(circle(sqrt(9 + SPIN**2)), "black,dashed,forget plot")
     tex += note(-2.28, 2.1, r"$\lambda=1/3$")
     # Equal-length arrows show directions only, for the paper's frame observers.
     for radius in (2.0, 2.65, 3.3):
