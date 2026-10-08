@@ -4395,10 +4395,11 @@ spin coupling.
 \label{sec:klein-gordon-development}
 
 Here $t\in\R$, $\br\in\R^3$, and $m\in\R_{>0}$.
-The amplitudes $\psi,\psi_\pm$ are scalar fields $\R^4\to\C$.
+Except during the explicit quantization step below,
+the amplitudes $\psi,\psi_\pm$ are scalar fields $\R^4\to\C$.
 $\hE$, $\Box$, and the spectral operator $\hOmega$ act on such scalar fields;
 $\hbp$ is a triple of scalar operators, and $\hP$ is a paravector operator.
-In the coupled subsection, $q\in\R$, $V:\R^4\to\R$,
+In the charge-conjugation and coupled subsections, $q\in\R$, $V:\R^4\to\R$,
 $\bA:\R^4\to\R^3$, and $\pA:\R^4\to\R\oplus\R^3$.
 
 \subsection{The mass shell as a wave equation}
@@ -4510,6 +4511,122 @@ its branch does not select the frequency sign. That separation comes
 from the factors $(\partial_t-\ii\hOmega)(\partial_t+\ii\hOmega)$,
 whose solutions evolve as $e^{+\ii\hOmega t}$ and
 $e^{-\ii\hOmega t}$, respectively.
+
+\subsection{Particles, antiparticles, and charge conjugation}
+\label{sec:kg-antimatter}
+
+KG supplies two frequency branches. Charge conjugation relates them;
+field quantization identifies their positive-energy particle excitations.
+We retain the scalar amplitudes $\psi,\psi_\pm$, mass $m>0$, charge
+$q\in\R$, and Fourier modes defined above. On scalars, $^*$ is complex
+conjugation.
+
+\paragraph{Opposite charge, equal mass.}
+The free spatial operator $\hOmega$ is real, so
+\[
+ \ii\partial_t\psi_-=-\hOmega\psi_-
+ \quad\Longrightarrow\quad
+ \ii\partial_t\psi_-^*=\hOmega\psi_-^*.
+\]
+Conjugation turns the negative-energy amplitude into a positive-energy
+one and reverses its momentum. In the same real background $V,\bA$,
+\[
+ (\hEq\psi)^*=-(\ii\partial_t+qV)\psi^*,\qquad
+ (\hbpq\psi)^*=-(-\ii\pdr+q\bA)\psi^*.
+\]
+Applying these identities twice gives
+\begin{equation}
+ (-\hEq^2+\hbpq^2+m^2)\psi=0
+ \quad\Longrightarrow\quad
+ \left(-(\ii\partial_t+qV)^2
+ +(-\ii\pdr+q\bA)^2+m^2\right)\psi^*=0.
+ \label{eq:kg-charge-conjugation}
+\end{equation}
+Thus $\psi^*$ obeys KG with charge $-q$ and the same mass.
+This relation holds for varying potentials, although a fixed-frequency
+split need not survive a time-dependent background.
+
+\paragraph{Charge density is signed.}
+The free scalar Lagrangian density
+$L=(\partial_t\psi)^*\partial_t\psi
+ -(\pdr\psi)^*\dotprod\pdr\psi-m^2\psi^*\psi$
+gives KG and the conserved current, with charge sign fixed by
+$\hEq=\ii\partial_t-qV$~\citeat{tong-qft}{Eqs.~(2.67), (2.74)}{page=39}:
+\begin{align*}
+ \rho&=\ii q\left(\psi^*\partial_t\psi-(\partial_t\psi)^*\psi\right),\\
+ \bJ&=-\ii q\left(\psi^*\pdr\psi-(\pdr\psi)^*\psi\right),
+ \qquad \pJ=\rho+\bJ\dotprod\bsig\in\R\oplus\R^3,\\
+ \partial_t\rho+\pdr\dotprod\bJ
+ &=\ii q\left(\psi^*\Box\psi-(\Box\psi)^*\psi\right)=0.
+\end{align*}
+For $\psi=c_nf_n$, $\rho=-2q\omega_n|c_n|^2$ and
+$\bJ=4\pi q\bk_n|c_n|^2$. The two frequency signs therefore carry
+opposite charge densities, not opposite probability densities.
+Conjugating both $\psi$ and $q$ preserves this physical current.
+
+\paragraph{Positive-energy particles and antiparticles.}
+Canonical bosonic quantization is an additional physical assumption.
+For this step only, reuse $c_n$ as quantum mode operators and $\psi$
+as an operator-valued scalar field; $^{\mathsf H}$ is the operator adjoint.
+For this step, absorb the spatial normalization into $f_n$: its squared
+magnitude integrates to one over the periodic spatial region, while its
+phase is unchanged. Including both frequency signs gives
+\[
+ \psi=\sum_n\frac{c_nf_n}{\sqrt{2|\omega_n|}}.
+\]
+Quantization of $L$ gives the oscillator commutators
+\begin{equation}
+ [c_n,c_k^{\mathsf H}]
+ =\begin{cases}
+   +\delta_{nk},&\omega_n<0,\\
+   -\delta_{nk},&\omega_n>0,
+  \end{cases}
+ \qquad [c_n,c_k]=0.
+ \label{eq:kg-mode-commutators}
+\end{equation}
+For $\omega_n<0$, $c_n$ annihilates and $c_n^{\mathsf H}$ creates;
+for $\omega_n>0$, their roles reverse. The second sign reflects this
+reversed order, not a negative state norm. All annihilation operators
+kill the vacuum~\citeat{tong-qft}{Eqs.~(2.69)--(2.73)}{page=39}.
+
+The classical energy integrates
+$(\partial_t\psi)^*\partial_t\psi
+ +(\pdr\psi)^*\dotprod\pdr\psi+m^2\psi^*\psi$;
+charge integrates $\rho$. Replacing conjugation by the operator adjoint
+and substituting the modes eliminates cross terms by spatial
+orthogonality and the mass shell. Placing creation operators first
+and subtracting vacuum constants gives
+\begin{align}
+ \text{energy above vacuum}
+ &=\sum_{\omega_n<0}(-\omega_n)c_n^{\mathsf H}c_n
+   +\sum_{\omega_n>0}(+\omega_n)c_nc_n^{\mathsf H},
+ \label{eq:kg-particle-energy}\\
+ \text{charge above vacuum}
+ &=\sum_{\omega_n<0}(+q)c_n^{\mathsf H}c_n
+   +\sum_{\omega_n>0}(-q)c_nc_n^{\mathsf H}.
+ \label{eq:kg-particle-charge}
+\end{align}
+Both products are nonnegative occupation operators; the commutators
+show that each creation raises its occupation by one. The energy,
+momentum, and charge added by one creation are
+\[
+\begin{array}{c|c|c|c|c}
+ &\text{creation}&E&\bp&\text{charge}\\ \hline
+ \text{particle }(\omega_n<0)&c_n^{\mathsf H}&-\omega_n>0&+2\pi\bk_n&+q\\
+ \text{antiparticle }(\omega_n>0)&c_n&+\omega_n>0&-2\pi\bk_n&-q
+\end{array}
+\]
+Both satisfy $E^2-\bp^2=m^2$: equal mass, opposite charge, and positive
+excitation energy. The negative-frequency field sector creates
+antiparticles, not negative-energy particles~\citeat{tong-qft}{pp.~33--34}{page=39}.
+
+For a real field, $\psi^*=\psi$ relates the two branches: quantization
+gives one neutral species, its own antiparticle. A neutral complex field
+can still have distinct conjugate species; $q=0$ alone does not impose
+reality. This derivation concerns spin-zero particles and does not fix
+their relative abundance. Spin one-half follows from the spinor
+representation in the Dirac sections. Subsequent wave equations again
+use ordinary amplitudes rather than quantum field operators.
 
 \subsection{Electromagnetic coupling}
 Notation: the real potentials $V,\bA$, charge $q$, and coupled operators
