@@ -512,6 +512,45 @@ For $\pZ,\pZ',\pZ''\in\C\oplus\C^3$, scalar part obeys the cyclic laws
 Multiplying these identities by $2$ gives trace cyclicity.  Their similarity
 invariants are derived in Section~\ref{sec:preserved-quantities}.
 
+\subsection{Powers, inverses, and combined superscripts}
+\label{sec:powers-conjugations}
+
+Let $\pZ=c+\bZ\dotprod\bsig\in\C\oplus\C^3$ and let $n$ be a
+positive integer. The product laws give, by induction,
+\begin{equation}
+ \boxed{\begin{aligned}
+  (\pZ^n)^{\mathsf H}&=(\pZ^{\mathsf H})^n=: \pZ^{n\mathsf H},\\
+  (\pZ^n)^*&=(\pZ^*)^n=: \pZ^{n*},\\
+  \adj{\pZ^n}&=\adj{\pZ}^n.
+ \end{aligned}}
+ \label{eq:powers-conjugations}
+\end{equation}
+The case $n=1$ is immediate. For the inductive step, for example,
+\[
+ (\pZ^{n+1})^{\mathsf H}
+ =(\pZ^n\pZ)^{\mathsf H}
+ =\pZ^{\mathsf H}(\pZ^n)^{\mathsf H}
+ =(\pZ^{\mathsf H})^{n+1}.
+\]
+The other two operations follow in the same way: reversing the order
+of identical factors has no effect. These identities also allow singular
+$\pZ$.
+
+For the exponent $-1$, assume $\det(\pZ)\ne0$. Applying the product
+laws to both $\pZ\pZ^{-1}=1$ and $\pZ^{-1}\pZ=1$ identifies the
+transformed two-sided inverses:
+\begin{equation}
+ \boxed{\begin{aligned}
+  (\pZ^{-1})^{\mathsf H}&=(\pZ^{\mathsf H})^{-1}=: \pZ^{-\mathsf H},\\
+  (\pZ^{-1})^*&=(\pZ^*)^{-1}=: \pZ^{-*},\\
+  \adj{\pZ^{-1}}&=\adj{\pZ}^{-1}.
+ \end{aligned}}
+ \label{eq:inverses-conjugations}
+\end{equation}
+Combined superscripts denote successive operations; the minus in
+$-\mathsf H$ or $-*$ denotes inversion. General real powers are
+introduced in Section~\ref{sec:real-powers}.
+
 \subsection{Real and imaginary extractions}
 
 The real and imaginary extractions are defined using Hermitian conjugation~\citeat{baylis2004}{Eq.~(9)}{page=5}:
@@ -1345,6 +1384,92 @@ logarithms yields
 \end{equation*}
 The vector term vanishes at $\bY=0$; the general coalescing case
 was treated above.
+
+\subsection{Real powers}
+\label{sec:real-powers}
+
+For invertible $\pZ=c+\bZ\dotprod\bsig\in\C\oplus\C^3$, choose an
+analytic logarithm branch at each distinct eigenvalue. Here $a\in\R$
+denotes the exponent, and
+\begin{equation}
+ \boxed{\pZ^a:=\exp(a\log(\pZ)).}
+ \label{eq:real-power-definition}
+\end{equation}
+For distinct eigenvalues, the spectral rule gives
+\[
+ \pZ^a=\lambda_+^a\pvPi_++\lambda_-^a\pvPi_-,\qquad
+ \lambda_\pm^a:=\exp(a\log(\lambda_\pm)).
+\]
+For coalescing eigenvalues use \eqref{eq:coalescing-function}.
+Integer powers agree with the algebraic powers; noninteger powers
+can depend on the logarithm branches.
+
+For the following identities, use principal logarithms and assume
+neither eigenvalue lies on the nonpositive real axis~\citeat{higham-functions}{Sec.~4, Fact~1}{page=9}.
+The integer-power identities pass through the exponential series;
+uniqueness of the principal logarithm then gives
+\[
+ \log(\pZ^{\mathsf H})=\log(\pZ)^{\mathsf H},\qquad
+ \log(\pZ^*)=\log(\pZ)^*,\qquad
+ \log(\adj{\pZ})=\adj{\log(\pZ)}.
+\]
+Since $a$ is real, conjugation leaves it unchanged. For example,
+\[
+ (\pZ^a)^{\mathsf H}
+ =\exp(a\log(\pZ))^{\mathsf H}
+ =\exp(a\log(\pZ^{\mathsf H}))
+ =(\pZ^{\mathsf H})^a.
+\]
+Thus the combined-superscript convention extends to real powers:
+\begin{equation}
+ \boxed{\begin{aligned}
+  (\pZ^a)^{\mathsf H}&=(\pZ^{\mathsf H})^a=: \pZ^{a\mathsf H},\\
+  (\pZ^a)^*&=(\pZ^*)^a=: \pZ^{a*},\\
+  \adj{\pZ^a}&=\adj{\pZ}^a.
+ \end{aligned}}
+ \label{eq:real-powers-conjugations}
+\end{equation}
+Using the same logarithm for opposite exponents gives
+$\pZ^a\pZ^{-a}=\exp(a\log(\pZ))\exp(-a\log(\pZ))=1$, hence
+\[
+ \pZ^{-a}=(\pZ^a)^{-1},\qquad
+ \pZ^{-a\mathsf H}=(\pZ^{a\mathsf H})^{-1},\qquad
+ \pZ^{-a*}=(\pZ^{a*})^{-1},\qquad
+ \adj{\pZ^{-a}}=\adj{\pZ^a}^{-1}.
+\]
+Other logarithm branches obey the same rules when their transformed
+logarithms satisfy the three compatibility identities above.
+Integer powers require no branch restriction; negative integer powers
+require only invertibility.
+
+\paragraph{Complex exponents.}
+For $w\in\C$, define
+\[
+ \pZ^w:=\exp(w\log(\pZ)).
+\]
+With the same compatible logarithm branches, Hermitian and sigma
+conjugation also conjugate the exponent, whereas adjugation leaves
+it unchanged:
+\begin{equation}
+ \boxed{\begin{aligned}
+  (\pZ^w)^{\mathsf H}&=(\pZ^{\mathsf H})^{w^*},\\
+  (\pZ^w)^*&=(\pZ^*)^{w^*},\\
+  \adj{\pZ^w}&=\adj{\pZ}^w.
+ \end{aligned}}
+ \label{eq:complex-powers-conjugations}
+\end{equation}
+For example,
+\[
+ (\pZ^w)^{\mathsf H}
+ =\exp(w^*\log(\pZ)^{\mathsf H})
+ =\exp(w^*\log(\pZ^{\mathsf H})).
+\]
+Adjugation retains $w$ because it is complex-linear. Principal
+logarithms satisfy the compatibility conditions under the eigenvalue
+restriction above. Using the same logarithm also gives
+$\pZ^{-w}=(\pZ^w)^{-1}$. For complex exponents, parentheses are
+retained in $(\pZ^w)^*$ to distinguish conjugation of the whole power
+from $\pZ^{(w^*)}$, a power with the conjugated exponent.
 
 \section{Transformations and invariants}
 \label{sec:preserved-quantities}
@@ -2685,27 +2810,72 @@ derivatives of $\pT$; the resulting coordinate differential is not
 simply $\pT\dd\pX\pT^{\mathsf H}$. The moving-origin construction
 below supplies an actual noninertial coordinate chart and its interval.
 
+\Needspace{16\baselineskip}
 \paragraph{Differentiate twice.}
 Along a time-like curve use its proper time $s$, and let
-$\pT(s)$ be smooth. Define the scalar-free frame generator
+$\pT(s)$ be smooth. First distinguish the derivative of $\pT$ from
+the derivative of its inverse. Differentiating $\pT\pT^{-1}=1$ and
+then multiplying on the left by $\pT^{-1}$ gives
+\begin{align*}
+ (\dd\pT)\pT^{-1}+\pT\dd(\pT^{-1})&=0,\\
+ \dd(\pT^{-1})&=-\pT^{-1}(\dd\pT)\pT^{-1}.
+\end{align*}
+The minus sign belongs to $\dd(\pT^{-1})$, the derivative of the
+inverse. Define the scalar-free frame generator as a \emph{rate}:
 \begin{equation}
  \pvOmega:=\frac{\dd\pT}{\dd s}\pT^{-1},\qquad
- \scpart{\pvOmega}=0,\qquad
- \frac{\dd\pT}{\dd s}=\pvOmega\pT.
+ \scpart{\pvOmega}=0.
  \label{eq:frame-generator}
 \end{equation}
 The zero scalar part follows from
 $\dd(\det(\pT))/\dd s=2\scpart{\pvOmega}=0$.
-The first derivative is
-\begin{align}
+Multiplying the definition of $\pvOmega$ on the right by $\pT$, and
+using the inverse-derivative identity separately, gives
+\[
+ \boxed{\frac{\dd\pT}{\dd s}=\pvOmega\pT,\qquad
+ \frac{\dd(\pT^{-1})}{\dd s}=-\pT^{-1}\pvOmega.}
+\]
+Thus $(\dd\pT)\pT^{-1}=\pvOmega\dd s$, not $\pvOmega$ alone.
+Hermitian conjugation reverses the order of the factors, so
+\[
+ \pvOmega^{\mathsf H}
+ =\pT^{-\mathsf H}\frac{\dd\pT^{\mathsf H}}{\dd s}.
+\]
+
+Now differentiate $\pX'=\pT\pX\pT^{\mathsf H}$ directly:
+\[
  \frac{\dd\pX'}{\dd s}
- &=\frac{\dd\pT}{\dd s}\pX\pT^{\mathsf H}
+ =\frac{\dd\pT}{\dd s}\pX\pT^{\mathsf H}
    +\pT\frac{\dd\pX}{\dd s}\pT^{\mathsf H}
-   +\pT\pX\frac{\dd\pT^{\mathsf H}}{\dd s}\notag\\
- &=\pT\frac{\dd\pX}{\dd s}\pT^{\mathsf H}
-   +\pvOmega\pX'+\pX'\pvOmega^{\mathsf H}.
+   +\pT\pX\frac{\dd\pT^{\mathsf H}}{\dd s}.
+\]
+There is no inverse in this product-rule expansion. To express the
+first and last terms using $\pvOmega$ and $\pX'$, insert identity
+factors without changing the multiplication order:
+\begin{align*}
+ \frac{\dd\pT}{\dd s}\pX\pT^{\mathsf H}
+ &=\frac{\dd\pT}{\dd s}\underbrace{\pT^{-1}\pT}_{1}
+   \pX\pT^{\mathsf H}
+ =\pvOmega\pX',\\
+ \pT\pX\frac{\dd\pT^{\mathsf H}}{\dd s}
+ &=\pT\pX\underbrace{\pT^{\mathsf H}\pT^{-\mathsf H}}_{1}
+   \frac{\dd\pT^{\mathsf H}}{\dd s}
+ =\pX'\pvOmega^{\mathsf H}.
+\end{align*}
+The inverse is therefore contained in $\pvOmega$; its adjacent $\pT$
+is contained in $\pX'$. The same factorization on the right gives
+$\pX'\pvOmega^{\mathsf H}$. Hence
+\begin{equation}
+ \frac{\dd\pX'}{\dd s}
+ =\pT\frac{\dd\pX}{\dd s}\pT^{\mathsf H}
+  +\pvOmega\pX'+\pX'\pvOmega^{\mathsf H}.
  \label{eq:frame-position-first-derivative}
-\end{align}
+\end{equation}
+Equivalently, in differential form,
+\[
+ \dd\pX'=\pT(\dd\pX)\pT^{\mathsf H}
+ +(\pvOmega\pX'+\pX'\pvOmega^{\mathsf H})\dd s.
+\]
 Applying the product rule again, without interchanging factors, gives
 \begin{align*}
  \frac{\dd^2\pX'}{\dd s^2}={}&
@@ -2726,7 +2896,7 @@ substitution of \eqref{eq:frame-position-first-derivative} yields
  +2\frac{\dd\pX'}{\dd s}\pvOmega^{\mathsf H}\\
  &+\left(\frac{\dd\pvOmega}{\dd s}-\pvOmega^2\right)\pX'
  +\pX'\left(\frac{\dd\pvOmega^{\mathsf H}}{\dd s}
-                  -(\pvOmega^{\mathsf H})^2\right)
+                  -\pvOmega^{2\mathsf H}\right)
  -2\pvOmega\pX'\pvOmega^{\mathsf H}.
  \end{aligned}}
  \label{eq:frame-position-second-derivative}
@@ -2752,7 +2922,7 @@ instantaneous rest planes determine simultaneity. The event map is
 \begin{equation}
  t+\br\dotprod\bsig
  =\pX(t')+\pT(t')^{-1}(\br'\dotprod\bsig)
- (\pT(t')^{\mathsf H})^{-1}.
+ \pT(t')^{-\mathsf H}.
  \label{eq:general-observer-event-map}
 \end{equation}
 Again the worldline value on the right is the origin's event at $t'$,
@@ -2761,7 +2931,7 @@ construction is restricted to a one-to-one neighborhood of the worldline.
 Conversely, any smooth finite $\pT(t')$ with determinant one determines
 a future unit tangent
 \[
- \pU=\pT^{-1}(\pT^{\mathsf H})^{-1},\qquad \det(\pU)=1.
+ \pU=\pT^{-1}\pT^{-\mathsf H},\qquad \det(\pU)=1.
 \]
 Integrating this tangent fixes the origin once its initial event is
 chosen. Thus arbitrary smooth time-like observer histories and choices
@@ -6771,8 +6941,8 @@ $\pvpartial=\partial_t+\bsig\dotprod\pdr$, express the same scalar
 differential in both coordinate systems. Let $f:\R^4\to\C$ be twice
 continuously differentiable, with $f'=f$ at corresponding events;
 then $\dd f'=\dd f$. The constant frame factor gives
-$\dd\pX=\pT^{-1}\dd\pX'(\pT^{\mathsf H})^{-1}$, and
-$\det(\pT)=1$ implies $\pT^*=(\pT^{\mathsf H})^{-1}$.
+$\dd\pX=\pT^{-1}\dd\pX'\pT^{-\mathsf H}$, and
+$\det(\pT)=1$ implies $\pT^*=\pT^{-\mathsf H}$.
 Scalar-part cyclicity therefore gives
 \[
  \begin{aligned}
@@ -7044,7 +7214,7 @@ Their primed values follow directly from
 \eqref{eq:electromagnetic-energy-flux}:
 \[
  \boxed{u'+\bS'\dotprod\bsig
- =\tfrac12\pT\pF\pT^{-1}(\pT^{\mathsf H})^{-1}
+ =\tfrac12\pT\pF\pT^{-1}\pT^{-\mathsf H}
  \pF^{\mathsf H}\pT^{\mathsf H}.}
 \]
 For a boost this becomes, step by step,
@@ -7071,7 +7241,7 @@ The field and velocity laws give
  \pF'\pU'&=(\pT\pF\pT^{-1})(\pT\pU\pT^{\mathsf H})
  =\pT\pF\pU\pT^{\mathsf H},\\
  \pU'\pF'^{\mathsf H}
- &=(\pT\pU\pT^{\mathsf H})((\pT^{\mathsf H})^{-1}\pF^{\mathsf H}\pT^{\mathsf H})
+ &=(\pT\pU\pT^{\mathsf H})(\pT^{-\mathsf H}\pF^{\mathsf H}\pT^{\mathsf H})
  =\pT\pU\pF^{\mathsf H}\pT^{\mathsf H}.
 \end{align*}
 Their sum therefore transforms like $\dd\pP/\dd s$, proving covariance
@@ -8817,7 +8987,7 @@ Baylis's positive-rapidity boost factor, denoted here by $\pB$, satisfies
 \[
  \pB=e^{+\theta\bu\dotprod\bsig/2}=\pL^{-1},\qquad
  \pB^2=\gamma(1+\beta\bu\dotprod\bsig),\qquad
- \pX'=\pB^{-1}\pX(\pB^{-1})^{\mathsf H}=\pL \pX \pL^{\mathsf H}.
+ \pX'=\pB^{-1}\pX\pB^{-\mathsf H}=\pL \pX \pL^{\mathsf H}.
 \]
 Thus the passive boost is obtained by inversion of Baylis's positive active boost
 \citeat{baylis-intro}{p.~23}{page=23}; the active/passive distinction is
@@ -9115,7 +9285,7 @@ $\pG=\pT^{\mathsf H}$ is used. At corresponding events the laws are
  \label{eq:conventions-field-laws}
 \end{equation}
 These are the covariance laws of Section~\ref{sec:transformations};
-$\pG^*=(\pG^{-1})^{\mathsf H}$.  The field $\pF$ uses similarity, not the
+$\pG^*=\pG^{-\mathsf H}$.  The field $\pF$ uses similarity, not the
 four-vector sandwich.  Equation~\eqref{eq:conventions-field-laws} preserves
 the Maxwell, Klein--Gordon, and Dirac equations.
 
