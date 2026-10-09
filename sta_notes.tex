@@ -170,6 +170,7 @@
 \sourceurl{feynman-spacetime}{https://www.feynmanlectures.caltech.edu/I_17.html}
 \sourceurl{russo-townsend}{https://arxiv.org/pdf/0902.4243}
 \sourceurl{llosa-frames}{https://arxiv.org/pdf/1706.09656}
+\sourceurl{chicone-mashhoon-frames}{https://arxiv.org/pdf/gr-qc/0409017}
 \sourceurl{carroll-gr}{https://arxiv.org/pdf/gr-qc/9712019}
 \sourceurl{bini-kerr-schild}{https://arxiv.org/pdf/1408.4601}
 \sourceurl{heinicke-hehl}{https://arxiv.org/pdf/1503.02172}
@@ -2662,6 +2663,490 @@ invariant $m$ is retained: the longitudinal and transverse inertia in
 For the Lorentz force, the corresponding acceleration components are
 derived in \eqref{eq:lorentz-acceleration-projections}.
 
+\subsection{Differentiating a changing Lorentz frame}
+\label{sec:frame-second-derivative}
+
+\paragraph{What the transformation guarantees.}
+For constant $\pT\in\C\oplus\C^3$ with $\det(\pT)=1$,
+$\pX'=\pT\pX\pT^{\mathsf H}$ represents every Lorentz transformation
+that preserves spatial orientation and the future direction, with
+$\pT$ and $-\pT$ representing the same transformation. These are
+changes of axes with a common spacetime origin. They preserve
+$\det(\pX)$ and, when applied to displacements, their time-like, null,
+or space-like character. An arbitrary event cannot be sent to an
+arbitrary other event: its interval from the origin is fixed.
+The speed limit constrains a physical trajectory's tangent, not the
+position of an event relative to a chosen origin.
+
+A varying $\pT$ supplies a sequence of local Lorentz frames. It does
+not by itself specify their moving origin or a simultaneity convention.
+In particular, differentiating $\pT\pX\pT^{\mathsf H}$ now includes
+derivatives of $\pT$; the resulting coordinate differential is not
+simply $\pT\dd\pX\pT^{\mathsf H}$. The moving-origin construction
+below supplies an actual noninertial coordinate chart and its interval.
+
+\paragraph{Differentiate twice.}
+Along a time-like curve use its proper time $s$, and let
+$\pT(s)$ be smooth. Define the scalar-free frame generator
+\begin{equation}
+ \pvOmega:=\frac{\dd\pT}{\dd s}\pT^{-1},\qquad
+ \scpart{\pvOmega}=0,\qquad
+ \frac{\dd\pT}{\dd s}=\pvOmega\pT.
+ \label{eq:frame-generator}
+\end{equation}
+The zero scalar part follows from
+$\dd(\det(\pT))/\dd s=2\scpart{\pvOmega}=0$.
+The first derivative is
+\begin{align}
+ \frac{\dd\pX'}{\dd s}
+ &=\frac{\dd\pT}{\dd s}\pX\pT^{\mathsf H}
+   +\pT\frac{\dd\pX}{\dd s}\pT^{\mathsf H}
+   +\pT\pX\frac{\dd\pT^{\mathsf H}}{\dd s}\notag\\
+ &=\pT\frac{\dd\pX}{\dd s}\pT^{\mathsf H}
+   +\pvOmega\pX'+\pX'\pvOmega^{\mathsf H}.
+ \label{eq:frame-position-first-derivative}
+\end{align}
+Applying the product rule again, without interchanging factors, gives
+\begin{align*}
+ \frac{\dd^2\pX'}{\dd s^2}={}&
+ \pT\frac{\dd^2\pX}{\dd s^2}\pT^{\mathsf H}
+ +2\frac{\dd\pT}{\dd s}\frac{\dd\pX}{\dd s}\pT^{\mathsf H}
+ +2\pT\frac{\dd\pX}{\dd s}\frac{\dd\pT^{\mathsf H}}{\dd s}\\
+ &+\frac{\dd^2\pT}{\dd s^2}\pX\pT^{\mathsf H}
+ +2\frac{\dd\pT}{\dd s}\pX\frac{\dd\pT^{\mathsf H}}{\dd s}
+ +\pT\pX\frac{\dd^2\pT^{\mathsf H}}{\dd s^2}.
+\end{align*}
+Since $\dd^2\pT/\dd s^2=(\dd\pvOmega/\dd s+\pvOmega^2)\pT$,
+substitution of \eqref{eq:frame-position-first-derivative} yields
+\begin{equation}
+ \boxed{\begin{aligned}
+ \frac{\dd^2\pX'}{\dd s^2}={}&
+ \pT\frac{\dd^2\pX}{\dd s^2}\pT^{\mathsf H}
+ +2\pvOmega\frac{\dd\pX'}{\dd s}
+ +2\frac{\dd\pX'}{\dd s}\pvOmega^{\mathsf H}\\
+ &+\left(\frac{\dd\pvOmega}{\dd s}-\pvOmega^2\right)\pX'
+ +\pX'\left(\frac{\dd\pvOmega^{\mathsf H}}{\dd s}
+                  -(\pvOmega^{\mathsf H})^2\right)
+ -2\pvOmega\pX'\pvOmega^{\mathsf H}.
+ \end{aligned}}
+ \label{eq:frame-position-second-derivative}
+\end{equation}
+The terms linear in the first derivative, linear in the generator's
+derivative, and quadratic in the generator are the algebraic sources
+of the Coriolis, Euler, and centrifugal terms. The Hermitian part of
+$\pvOmega$ also includes changing boosts. To identify measured forces
+and coordinate accelerations, the origin and time parameter must first
+be specified. These product-rule identities hold for any common
+parameter; in the observer chart below that parameter is $t'$.
+Dots retain their earlier meaning of inertial $t$ derivatives, so
+$s$ and $t'$ derivatives are written explicitly.
+
+\subsection{Event coordinates with changing motion and axes}
+\label{sec:general-observer-chart}
+
+Choose an arbitrary smooth future-directed time-like reference
+worldline $\pX(s)$ in flat spacetime.
+Choose a carried frame $\pT(s)$ with $\pT\pU\pT^{\mathsf H}=1$ and
+use $t'=s$ on the origin. The frame determines the spatial axes; the
+instantaneous rest planes determine simultaneity. The event map is
+\begin{equation}
+ t+\br\dotprod\bsig
+ =\pX(t')+\pT(t')^{-1}(\br'\dotprod\bsig)
+ (\pT(t')^{\mathsf H})^{-1}.
+ \label{eq:general-observer-event-map}
+\end{equation}
+Again the worldline value on the right is the origin's event at $t'$,
+whereas the left side is the event being assigned coordinates. This
+construction is restricted to a one-to-one neighborhood of the worldline.
+Conversely, any smooth finite $\pT(t')$ with determinant one determines
+a future unit tangent
+\[
+ \pU=\pT^{-1}(\pT^{\mathsf H})^{-1},\qquad \det(\pU)=1.
+\]
+Integrating this tangent fixes the origin once its initial event is
+chosen. Thus arbitrary smooth time-like observer histories and choices
+of spatial axes are covered locally. No light-speed rest frame is
+included, and neither a global chart nor a new gravitational field
+follows from $\det(\pT)=1$.
+
+Differentiate using the inverse rule and
+$\pvOmega=(\dd\pT/\dd t')\pT^{-1}$. The moving origin contributes $1$
+in the local frame, while differentiating the two inverse factors gives
+\begin{equation}
+ \boxed{\pT\dd\pX\pT^{\mathsf H}
+ =\bigl(1-\pvOmega(\br'\dotprod\bsig)
+ -(\br'\dotprod\bsig)\pvOmega^{\mathsf H}\bigr)\dd t'
+ +\dd\br'\dotprod\bsig.}
+ \label{eq:general-observer-increments}
+\end{equation}
+Using the sigma product, its scalar and vector parts are
+\begin{align*}
+ \scpart{\pT\dd\pX\pT^{\mathsf H}}
+ &=\bigl(1-2\vecpart{\repart{\pvOmega}}\dotprod\br'\bigr)\dd t',\\
+ \vecpart{\pT\dd\pX\pT^{\mathsf H}}
+ &=\dd\br'+2\vecpart{\impart{\pvOmega}}\times\br'\dd t'.
+\end{align*}
+These are orthonormal components in the carried axes; the coordinate differentials
+$\dd t',\dd\br'$ alone are generally different. Determinant invariance
+now gives the interval without introducing a new metric rule:
+\begin{equation}
+ \boxed{\dd s^2
+ =\bigl(1-2\vecpart{\repart{\pvOmega}}\dotprod\br'\bigr)^2\dd t'^2
+ -\left\lVert\dd\br'+2\vecpart{\impart{\pvOmega}}\times\br'\dd t'\right\rVert^2.}
+ \label{eq:general-observer-interval}
+\end{equation}
+The Hermitian part of $\pvOmega$ supplies the acceleration-dependent
+clock factor; its imaginary part supplies the spatial motion of rotating
+axes. A physical grid clock at fixed $\br'$ requires a positive future
+time factor and a positive interval there. Thus a rotating grid also has
+a boundary where its fixed-coordinate worldlines would become null.
+
+To name the two physical parts, let $\ba,\vstyle{\omega}\in\R^3$ be
+the origin's proper-acceleration components and the carried axes'
+angular velocity relative to torque-free gyroscopes:
+\begin{equation}
+ \boxed{\ba=-2\vecpart{\repart{\pvOmega}},\qquad
+ \vstyle{\omega}=2\vecpart{\impart{\pvOmega}},\qquad
+ \pvOmega=\tfrac12(-\ba+\ii\vstyle{\omega})\dotprod\bsig.}
+ \label{eq:frame-physical-generator}
+\end{equation}
+Here $\pvOmega=(\dd\pT/\dd t')\pT^{-1}$. Differentiating the rest
+condition $\pT\pU\pT^{\mathsf H}=1$ verifies the acceleration sign:
+\[
+ \pT\frac{\dd\pU}{\dd t'}\pT^{\mathsf H}
+ =-(\pvOmega+\pvOmega^{\mathsf H})=\ba\dotprod\bsig.
+\]
+For a rotation alone, the commutator with
+$\ii\vstyle{\omega}\dotprod\bsig/2$ changes vector components by
+$-\vstyle{\omega}\times\br'$; positive $\vstyle{\omega}$ therefore
+describes the rotation of the axes, rather than an active rotation of
+the vector. In these components the interval and the conditions for
+physical fixed grid clocks are
+\begin{gather}
+ \dd s^2=(1+\ba\dotprod\br')^2\dd t'^2
+ -\lVert\dd\br'+\vstyle{\omega}\times\br'\dd t'\rVert^2,
+ \label{eq:observer-interval-components}\\
+ 1+\ba\dotprod\br'>0,\qquad
+ \lVert\vstyle{\omega}\times\br'\rVert<1+\ba\dotprod\br'.
+ \label{eq:observer-grid-admissibility}
+\end{gather}
+The first condition also keeps the local coordinate Jacobian nonsingular;
+global one-to-one behavior must still be checked. On a rotating grid,
+the carried orthonormal time direction need not be the rest direction
+of a distant fixed grid clock.
+
+For axes carried by torque-free gyroscopes,
+$\pvOmega^{\mathsf H}=\pvOmega$, the spatial rotation term vanishes.
+Equation~\eqref{eq:carried-acceleration} identifies
+$-2\vecpart{\pvOmega}$ with the measured proper-acceleration vector;
+\eqref{eq:carried-jerk} identifies its proper-time derivative with
+proper jerk. The fixed-axis value
+$\pvOmega=-\tfrac12(\dd\theta/\dd t')\bu\dotprod\bsig$ recovers
+\eqref{eq:accelerated-interval}. This is the general nonrotating
+Fermi--Walker construction~\citeat{llosa-frames}{Eqs.~(6)--(9)}{page=4}.
+
+At $\br'=0$, every carried frame has the local interval
+$\dd s^2=\dd t'^2-\dd\br'^2$, regardless of its acceleration, rotation,
+or jerk. Away from the origin, light obeys
+\[
+ \left\lVert\frac{\dd\br'}{\dd t'}
+ +2\vecpart{\impart{\pvOmega}}\times\br'\right\rVert
+ =1-2\vecpart{\repart{\pvOmega}}\dotprod\br'.
+\]
+The apparent tilt and width of the coordinate cone can change, while its
+orthonormal components still satisfy the ordinary null condition.
+These coordinates describe flat spacetime because they came from an
+explicit coordinate map. Section~\ref{sec:variable-bases} distinguishes
+this case from assigning a metric with actual curvature.
+
+For a purely rotating frame with an inertial origin,
+$\repart{\pvOmega}=0$. At a chosen event, align the second spatial axis
+with the grid motion and write
+$2\vecpart{\impart{\pvOmega}}\times\br'=(0,\beta,0)$,
+where $0\le\beta<1$ is that grid point's inertial speed.
+In the first two spatial directions the preceding null condition becomes
+\[
+ \left(\frac{\dd r'_1}{\dd t'}\right)^2
+ +\left(\frac{\dd r'_2}{\dd t'}+\beta\right)^2=1,
+ \qquad
+ \frac{\dd s}{\dd t'}=\sqrt{1-\beta^2}
+ \quad(\br'\ \text{fixed}).
+\]
+Figure~\ref{fig:observer-rotation} displays this shifted circle of
+coordinate light velocities and the corresponding clock rate.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\textwidth]{figures/observer_rotation.pdf}
+ \caption{Rotating coordinates with an inertial origin. Left: cross
+ sections of the local coordinate light cone, expressed as velocities
+ in the rotation plane. The dash-dotted circle belongs to the origin
+ ($\beta=0$); the dotted circle to a grid point moving with
+ $\beta=3/5$ along the second local axis. The tangential coordinate
+ light velocities there are $+2/5$ and $-8/5$; their different values
+ reflect the rotating axes. Orthonormal measurements still give light
+ speed $1$. Right: a clock fixed to that grid point runs at $4/5$ of
+ the origin's rate. The open endpoint $\beta=1$ marks a null grid
+ worldline, beyond the region occupied by physical rotating-grid clocks.}
+ \label{fig:observer-rotation}
+\end{figure}
+
+\begin{SIunits}{A general carried frame}
+Use $s=c\tau$ for proper length and
+$\pvOmega=(\dd\pT/\dd s)\pT^{-1}$ in inverse metres. Chart time $t'$
+is the origin's proper time in seconds. For another path,
+\[
+ \begin{aligned}
+ c^2\dd\tau^2={}&
+ \bigl(1-2\vecpart{\repart{\pvOmega}}\dotprod\br'\bigr)^2c^2\dd t'^2\\
+ &-\left\lVert\dd\br'
+ +2c\vecpart{\impart{\pvOmega}}\times\br'\dd t'\right\rVert^2.
+ \end{aligned}
+\]
+The origin's proper acceleration has components
+$-2c^2\vecpart{\repart{\pvOmega}}$. Setting the interval to zero gives
+the coordinate light cones; local orthonormal measurements give speed $c$.
+For the rotating example, $\beta$ is the grid speed divided by $c$;
+the fixed clock has $\dd\tau/\dd t'=\sqrt{1-\beta^2}$ and the two
+tangential coordinate light velocities are $c(\pm1-\beta)$.
+\end{SIunits}
+\FloatBarrier
+
+\subsection{Inertial forces in the moving frame}
+\label{sec:relativistic-inertial-forces}
+
+\paragraph{A compact momentum law.}
+Let $\pP=m\pU$ now refer to a test particle of constant mass $m>0$,
+with its own proper time $s$. The observer's clock labels the chart
+time $t'$; these times agree along the reference origin, but not
+generally along the test particle.
+The particle's momentum components in the carried orthonormal axes are
+$\pP'=\pT\pP\pT^{\mathsf H}=E'+\bp'\dotprod\bsig$.
+Differentiating this congruence gives the full force law in these axes:
+\begin{equation}
+ \boxed{\frac{\dd\pP'}{\dd t'}
+ =\frac{\dd s}{\dd t'}\pT\frac{\dd\pP}{\dd s}\pT^{\mathsf H}
+ +\pvOmega\pP'+\pP'\pvOmega^{\mathsf H}.}
+ \label{eq:moving-frame-momentum}
+\end{equation}
+The first term is the physical four-force expressed in the carried
+axes and parametrized by $t'$. The remaining two terms arise entirely
+from changing those axes. Using \eqref{eq:vector-product}, they expand as
+\[
+ \pvOmega\pP'+\pP'\pvOmega^{\mathsf H}
+ =-\ba\dotprod\bp'
+  -(E'\ba+\vstyle{\omega}\times\bp')\dotprod\bsig.
+\]
+For a free particle, $\dd\pP/\dd s=0$, so
+\begin{equation}
+ \boxed{\frac{\dd E'}{\dd t'}=-\ba\dotprod\bp',\qquad
+ \frac{\dd\bp'}{\dd t'}=-E'\ba-\vstyle{\omega}\times\bp'.}
+ \label{eq:moving-frame-free-momentum}
+\end{equation}
+The acceleration of the frame changes the measured energy and momentum;
+rotation changes their spatial components. Direct substitution gives
+$\dd(E'^2-\bp'^2)/\dd t'=0$, so the apparent force does not change the
+invariant mass. These momentum equations are particularly compact.
+The familiar factor of two in the Coriolis acceleration appears when
+momentum is related to the particle's changing position coordinates.
+
+\paragraph{Differentiate the event map a second time.}
+Write $\bv':=\dd\br'/\dd t'$ for the test particle's
+\emph{coordinate} velocity in this noninertial chart. It is not generally
+the velocity measured by a local observer. Equation~\eqref{eq:general-observer-increments}
+becomes, along the particle's path,
+\begin{equation}
+ \pT\frac{\dd\pX}{\dd t'}\pT^{\mathsf H}
+ =1+\ba\dotprod\br'
+  +(\bv'+\vstyle{\omega}\times\br')\dotprod\bsig.
+ \label{eq:observer-path-tangent}
+\end{equation}
+Here $\pX$ on the left is the particle's inertial event, rather than
+the reference origin's worldline value in
+\eqref{eq:general-observer-event-map}. Taking its determinant fixes the
+clock conversion and hence the momentum:
+\begin{gather}
+ \frac{\dd s}{\dd t'}
+ =\sqrt{(1+\ba\dotprod\br')^2
+        -\lVert\bv'+\vstyle{\omega}\times\br'\rVert^2},
+ \label{eq:observer-particle-clock}\\
+ \pP'=m\frac{1+\ba\dotprod\br'
+       +(\bv'+\vstyle{\omega}\times\br')\dotprod\bsig}
+       {\dd s/\dd t'}.
+ \label{eq:observer-particle-momentum}
+\end{gather}
+Positive radicand is the massive particle's speed restriction; zero
+gives the coordinate light cone. In particular, $\lVert\bv'\rVert<1$
+is not the speed restriction away from the origin.
+
+Differentiate \eqref{eq:observer-path-tangent}, subtracting the two
+frame terms in \eqref{eq:frame-position-first-derivative}. The scalar
+and vector parts of the transformed second derivative are
+\begin{align}
+ \scpart*{\pT\frac{\dd^2\pX}{\dd t'^2}\pT^{\mathsf H}}
+ & =\frac{\dd\ba}{\dd t'}\dotprod\br'
+    +2\ba\dotprod\bv'
+    +\ba\dotprod(\vstyle{\omega}\times\br'),
+ \label{eq:observer-second-derivative-time}\\
+ \vecpart*{\pT\frac{\dd^2\pX}{\dd t'^2}\pT^{\mathsf H}}
+ & =\frac{\dd\bv'}{\dd t'}
+    +2\vstyle{\omega}\times\bv'
+    +\frac{\dd\vstyle{\omega}}{\dd t'}\times\br'\notag\\
+ &\quad+\vstyle{\omega}\times(\vstyle{\omega}\times\br')
+    +(1+\ba\dotprod\br')\ba.
+ \label{eq:observer-second-derivative-space}
+\end{align}
+One copy of $\vstyle{\omega}\times\bv'$ comes from differentiating the
+position-dependent term in \eqref{eq:observer-path-tangent}; the other
+comes from differentiating the carried axes. This gives the Coriolis
+factor of two directly from the product rule.
+
+For a free massive particle, $\dd^2\pX/\dd s^2=0$. Chart time $t'$
+is generally not an affine parameter along that particle, so the
+second derivative with respect to $t'$ need not vanish. The chain rule gives
+\[
+ \frac{\dd^2\pX}{\dd t'^2}
+ =\frac{\dd^2s/\dd t'^2}{\dd s/\dd t'}\frac{\dd\pX}{\dd t'}.
+\]
+Its transformed scalar part determines the common proportionality
+factor. Substituting it into the vector part yields the exact free
+coordinate acceleration:
+\begin{equation}
+ \boxed{\begin{aligned}
+ \frac{\dd\bv'}{\dd t'}={}&-(1+\ba\dotprod\br')\ba
+ -2\vstyle{\omega}\times\bv'
+ -\frac{\dd\vstyle{\omega}}{\dd t'}\times\br'\\
+ &-\vstyle{\omega}\times(\vstyle{\omega}\times\br')\\
+ &+\frac{\bv'+\vstyle{\omega}\times\br'}{1+\ba\dotprod\br'}
+ \left(\frac{\dd\ba}{\dd t'}\dotprod\br'
+       +2\ba\dotprod\bv'
+       +\ba\dotprod(\vstyle{\omega}\times\br')\right).
+ \end{aligned}}
+ \label{eq:relativistic-inertial-acceleration}
+\end{equation}
+This agrees with the standard flat-spacetime Fermi-coordinate result
+\citeat{chicone-mashhoon-frames}{Eq.~(20)}{page=5}, derived here by
+paravector multiplication and ordinary differentiation.
+The last line is the relativistic correction from the time component
+and the use of the observer's clock. Dropping it would incorrectly
+treat $t'$ as the test particle's affine time.
+
+If the particle has a nonzero physical four-acceleration, add to the
+right side of \eqref{eq:relativistic-inertial-acceleration} the term
+\[
+ \left(\frac{\dd s}{\dd t'}\right)^2
+ \left(
+ \vecpart*{\pT\frac{\dd\pU}{\dd s}\pT^{\mathsf H}}
+ -\frac{\bv'+\vstyle{\omega}\times\br'}{1+\ba\dotprod\br'}
+  \scpart*{\pT\frac{\dd\pU}{\dd s}\pT^{\mathsf H}}
+ \right).
+\]
+This follows from the same chain rule before setting
+$\dd\pU/\dd s=0$, and is equivalent to the momentum law
+\eqref{eq:moving-frame-momentum}.
+
+\paragraph{Which terms are the fictitious forces?}
+The free coordinate acceleration contains the following terms:
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Coordinate-acceleration term & Origin\\
+\midrule
+$-(1+\ba\dotprod\br')\ba$ & Translational acceleration of the frame\\
+$-2\vstyle{\omega}\times\bv'$ & Coriolis\\
+$-(\dd\vstyle{\omega}/\dd t')\times\br'$ & Euler\\
+$-\vstyle{\omega}\times(\vstyle{\omega}\times\br')$ & Centrifugal\\
+\bottomrule
+\end{tabular}
+\end{center}
+These are apparent accelerations of a particle with zero physical
+four-force. In the Newtonian limit, multiplying them by $m$ gives the
+usual fictitious forces. At relativistic speeds the force law is
+\eqref{eq:moving-frame-momentum}, with the clock and velocity conversion
+in \eqref{eq:observer-particle-momentum}; a physical force is not
+simply $m\,\dd\bv'/\dd t'$.
+The centrifugal term points outward from the rotation axis. A particle
+held fixed on that rotating grid needs a real inward centripetal force;
+centripetal and centrifugal terms are not two additional fictitious forces.
+
+\paragraph{Checks and limiting cases.}
+For a constant frame with an inertial origin, $\pvOmega=0$ and hence
+$\ba=\vstyle{\omega}=0$; free motion has constant $\bv'$.
+For a purely rotating frame, $\ba=0$, and the relativistic last line
+of \eqref{eq:relativistic-inertial-acceleration} vanishes exactly.
+The remaining Coriolis, Euler, and centrifugal coordinate accelerations
+have their classical forms even for relativistic particle speeds.
+For a time-independent rotation and a particle held at fixed $\br'$,
+\eqref{eq:moving-frame-momentum} requires a real spatial force
+$E'\vstyle{\omega}\times(\vstyle{\omega}\times\br')$ per unit $t'$,
+the usual relativistic centripetal force.
+
+For constant proper acceleration along $\bu$ without rotation,
+put $\ba=\dot v_0\bu$ and $\bv'=v'\bu$, and use
+$x'=\bu\dotprod\br'$. Then
+\begin{equation}
+ \frac{\dd v'}{\dd t'}
+ =-\dot v_0(1+\dot v_0x')
+  +\frac{2\dot v_0v'^2}{1+\dot v_0x'}.
+ \label{eq:rindler-free-coordinate-acceleration}
+\end{equation}
+At $x'=0$ this is $-\dot v_0(1-2v'^2)$; the sign change at
+$|v'|=1/\sqrt2$ is a coordinate effect, not a new physical force.
+For the null rays $v'=\pm(1+\dot v_0x')$, the same equation gives
+$\dd v'/\dd t'=\dot v_0(1+\dot v_0x')$, agreeing with direct
+differentiation of the light paths in \eqref{eq:rindler-light-rays}.
+For light the derivation uses an affine null parameter in place of $s$;
+it does not define a photon proper-time four-velocity.
+
+Thus the single complex generator $\pvOmega$ packages six real frame
+rates: three accelerations and three rotations. Its derivative supplies
+their changes, and its ordered products supply their couplings. All
+of the inertial terms vanish from the physical free-particle law
+$\dd\pP/\dd s=0$; they describe changing coordinates and axes in flat
+spacetime, rather than additional interactions.
+
+\begin{SIunits}{Relativistic inertial acceleration}
+Here $t'$ is the origin's proper time in seconds, $\br'$ is in metres,
+$\bv'=\dd\br'/\dd t'$ is in metres per second,
+$\ba$ is the origin's proper acceleration in $\mathrm{m\,s^{-2}}$,
+and $\vstyle{\omega}$ is the axes' angular velocity in $\mathrm{s^{-1}}$.
+With the proper-length convention
+$\pvOmega=(\dd\pT/\dd s)\pT^{-1}$ along the origin,
+\[
+ \ba=-2c^2\vecpart{\repart{\pvOmega}},\qquad
+ \vstyle{\omega}=2c\vecpart{\impart{\pvOmega}}.
+\]
+The exact free coordinate acceleration is
+\[
+ \begin{aligned}
+ \frac{\dd\bv'}{\dd t'}={}&
+ -\left(1+\frac{\ba\dotprod\br'}{c^2}\right)\ba
+ -2\vstyle{\omega}\times\bv'
+ -\frac{\dd\vstyle{\omega}}{\dd t'}\times\br'
+ -\vstyle{\omega}\times(\vstyle{\omega}\times\br')\\
+ &+\frac{\bv'+\vstyle{\omega}\times\br'}{c^2+\ba\dotprod\br'}
+ \left(\frac{\dd\ba}{\dd t'}\dotprod\br'
+       +2\ba\dotprod\bv'
+       +\ba\dotprod(\vstyle{\omega}\times\br')\right).
+ \end{aligned}
+\]
+For fixed dimensional motion as $c\to\infty$, the last line vanishes
+and the translational term becomes $-\ba$. The four classical inertial
+accelerations are recovered. For a free particle the momentum law is
+\[
+ \frac{\dd E'}{\dd t'}=-\ba\dotprod\bp',\qquad
+ \frac{\dd\bp'}{\dd t'}=-\frac{E'}{c^2}\ba
+                         -\vstyle{\omega}\times\bp'.
+\]
+The clock and speed condition is
+\[
+ \left(\frac{\dd\tau}{\dd t'}\right)^2
+ =\left(1+\frac{\ba\dotprod\br'}{c^2}\right)^2
+ -\frac{\lVert\bv'+\vstyle{\omega}\times\br'\rVert^2}{c^2}>0
+\]
+for a massive particle; equality gives a null tangent.
+\end{SIunits}
+
 \subsection{Fixed-axis acceleration}
 \label{sec:fixed-axis-acceleration}
 For the orthonormal pair $\pU,\pN$ in Section~\ref{sec:fixed-axis},
@@ -2693,7 +3178,8 @@ The proper-acceleration magnitude is therefore $\gamma|\dot\theta|$.
 \subsection{Events in an accelerating frame}
 \label{sec:accelerated-events}
 
-An accelerated observer has an instantaneous rest frame at each event,
+The general chart of Section~\ref{sec:general-observer-chart} can now
+be specialized to fixed-axis motion. An accelerated observer has an instantaneous rest frame at each event,
 but assigning coordinates to distant events also requires a rule for
 simultaneity and spatial axes. Here spacetime is flat, the motion is along
 the fixed axis $\bu$, and the carried axes do not rotate. Ideal clocks
@@ -4124,10 +4610,11 @@ A coordinate chart is held fixed while the local frame is varied along a
 curve. Here $s$ is any real curve parameter; it is
 specialized to proper time in Section~\ref{sec:carried-derivatives}.
 A smooth complex paravector $\pT(s)$ with $\det(\pT)=1$ is chosen.
-Here $\pT(s),\pZ(s)\in\C\oplus\C^3$. The paravector
-$\pvOmega(s):=(\dd \pT/\dd s)\pT^{-1}\in\{0\}\oplus\C^3$ is defined.
-Its scalar part vanishes because
-$\dd(\det(\pT))/\dd s=2\scpart\pvOmega=0$.
+Here $\pT(s),\pZ(s)\in\C\oplus\C^3$. Use the scalar-free generator
+$\pvOmega=(\dd\pT/\dd s)\pT^{-1}$ from
+Section~\ref{sec:frame-second-derivative}. That section derives the
+second derivative of a congruence; here the same differentiation rule
+is also applied to fields transformed by similarity.
 By the inverse rule,
 \[
  \frac{\dd \pT^{-1}}{\dd s}=-\pT^{-1}\pvOmega.
@@ -4209,133 +4696,6 @@ $\pvOmega=\pvOmega^{\mathsf H}$, so the proper jerk is
 $-2\dd\pvOmega/\dd s$: the proper-time rate of the measured acceleration.
 The fixed-axis results of Section~\ref{sec:fixed-axis-jerk} are recovered with
 $\pT=\exp(-\theta\bu\dotprod\bsig/2)$ and fixed $\bu$.
-
-\subsection{Event coordinates with changing motion and axes}
-\label{sec:general-observer-chart}
-
-The fixed-axis construction of Section~\ref{sec:accelerated-events}
-extends to an arbitrary smooth time-like reference worldline $\pX(s)$.
-Choose a carried frame $\pT(s)$ with $\pT\pU\pT^{\mathsf H}=1$ and
-use $t'=s$ on the origin. The frame determines the spatial axes; the
-instantaneous rest planes determine simultaneity. The event map is
-\begin{equation}
- t+\br\dotprod\bsig
- =\pX(t')+\pT(t')^{-1}(\br'\dotprod\bsig)
- (\pT(t')^{\mathsf H})^{-1}.
- \label{eq:general-observer-event-map}
-\end{equation}
-Again the worldline value on the right is the origin's event at $t'$,
-whereas the left side is the event being assigned coordinates. This
-construction is restricted to a one-to-one neighborhood of the worldline.
-
-Differentiate using the inverse rule and
-$\pvOmega=(\dd\pT/\dd t')\pT^{-1}$. The moving origin contributes $1$
-in the local frame, while differentiating the two inverse factors gives
-\begin{equation}
- \boxed{\pT\dd\pX\pT^{\mathsf H}
- =\bigl(1-\pvOmega(\br'\dotprod\bsig)
- -(\br'\dotprod\bsig)\pvOmega^{\mathsf H}\bigr)\dd t'
- +\dd\br'\dotprod\bsig.}
- \label{eq:general-observer-increments}
-\end{equation}
-Using the sigma product, its scalar and vector parts are
-\begin{align*}
- \scpart{\pT\dd\pX\pT^{\mathsf H}}
- &=\bigl(1-2\vecpart{\repart{\pvOmega}}\dotprod\br'\bigr)\dd t',\\
- \vecpart{\pT\dd\pX\pT^{\mathsf H}}
- &=\dd\br'+2\vecpart{\impart{\pvOmega}}\times\br'\dd t'.
-\end{align*}
-These are measured local components; the coordinate differentials
-$\dd t',\dd\br'$ alone are generally different. Determinant invariance
-now gives the interval without introducing a new metric rule:
-\begin{equation}
- \boxed{\dd s^2
- =\bigl(1-2\vecpart{\repart{\pvOmega}}\dotprod\br'\bigr)^2\dd t'^2
- -\left\lVert\dd\br'+2\vecpart{\impart{\pvOmega}}\times\br'\dd t'\right\rVert^2.}
- \label{eq:general-observer-interval}
-\end{equation}
-The Hermitian part of $\pvOmega$ supplies the acceleration-dependent
-clock factor; its imaginary part supplies the spatial motion of rotating
-axes. A physical grid clock at fixed $\br'$ requires a positive future
-time factor and a positive interval there. Thus a rotating grid also has
-a boundary where its fixed-coordinate worldlines would become null.
-
-For axes carried by torque-free gyroscopes,
-$\pvOmega^{\mathsf H}=\pvOmega$, the spatial rotation term vanishes.
-Equation~\eqref{eq:carried-acceleration} identifies
-$-2\vecpart{\pvOmega}$ with the measured proper-acceleration vector;
-\eqref{eq:carried-jerk} identifies its proper-time derivative with
-proper jerk. The fixed-axis value
-$\pvOmega=-\tfrac12(\dd\theta/\dd t')\bu\dotprod\bsig$ recovers
-\eqref{eq:accelerated-interval}. This is the general nonrotating
-Fermi--Walker construction~\citeat{llosa-frames}{Eqs.~(6)--(9)}{page=4}.
-
-At $\br'=0$, every carried frame has the local interval
-$\dd s^2=\dd t'^2-\dd\br'^2$, regardless of its acceleration, rotation,
-or jerk. Away from the origin, light obeys
-\[
- \left\lVert\frac{\dd\br'}{\dd t'}
- +2\vecpart{\impart{\pvOmega}}\times\br'\right\rVert
- =1-2\vecpart{\repart{\pvOmega}}\dotprod\br'.
-\]
-The apparent tilt and width of the coordinate cone can change, while its
-orthonormal components still satisfy the ordinary null condition.
-These coordinates describe flat spacetime because they came from an
-explicit coordinate map. Section~\ref{sec:variable-bases} distinguishes
-this case from assigning a metric with actual curvature.
-
-For a purely rotating frame with an inertial origin,
-$\repart{\pvOmega}=0$. At a chosen event, align the second spatial axis
-with the grid motion and write
-$2\vecpart{\impart{\pvOmega}}\times\br'=(0,\beta,0)$,
-where $0\le\beta<1$ is that grid point's inertial speed.
-In the first two spatial directions the preceding null condition becomes
-\[
- \left(\frac{\dd r'_1}{\dd t'}\right)^2
- +\left(\frac{\dd r'_2}{\dd t'}+\beta\right)^2=1,
- \qquad
- \frac{\dd s}{\dd t'}=\sqrt{1-\beta^2}
- \quad(\br'\ \text{fixed}).
-\]
-Figure~\ref{fig:observer-rotation} displays this shifted circle of
-coordinate light velocities and the corresponding clock rate.
-
-\begin{figure}[htbp]
- \centering
- \includegraphics[width=\textwidth]{figures/observer_rotation.pdf}
- \caption{Rotating coordinates with an inertial origin. Left: cross
- sections of the local coordinate light cone, expressed as velocities
- in the rotation plane. The dash-dotted circle belongs to the origin
- ($\beta=0$); the dotted circle to a grid point moving with
- $\beta=3/5$ along the second local axis. The tangential coordinate
- light velocities there are $+2/5$ and $-8/5$; their different values
- reflect the rotating axes. Orthonormal measurements still give light
- speed $1$. Right: a clock fixed to that grid point runs at $4/5$ of
- the origin's rate. The open endpoint $\beta=1$ marks a null grid
- worldline, beyond the region occupied by physical rotating-grid clocks.}
- \label{fig:observer-rotation}
-\end{figure}
-
-\begin{SIunits}{A general carried frame}
-Use $s=c\tau$ for proper length and
-$\pvOmega=(\dd\pT/\dd s)\pT^{-1}$ in inverse metres. Chart time $t'$
-is the origin's proper time in seconds. For another path,
-\[
- \begin{aligned}
- c^2\dd\tau^2={}&
- \bigl(1-2\vecpart{\repart{\pvOmega}}\dotprod\br'\bigr)^2c^2\dd t'^2\\
- &-\left\lVert\dd\br'
- +2c\vecpart{\impart{\pvOmega}}\times\br'\dd t'\right\rVert^2.
- \end{aligned}
-\]
-The origin's proper acceleration has components
-$-2c^2\vecpart{\repart{\pvOmega}}$. Setting the interval to zero gives
-the coordinate light cones; local orthonormal measurements give speed $c$.
-For the rotating example, $\beta$ is the grid speed divided by $c$;
-the fixed clock has $\dd\tau/\dd t'=\sqrt{1-\beta^2}$ and the two
-tangential coordinate light velocities are $c(\pm1-\beta)$.
-\end{SIunits}
-\FloatBarrier
 
 \section{Electromagnetism}
 \label{sec:electromagnetism}
@@ -8948,6 +9308,13 @@ Online. Available: \url{https://arxiv.org/pdf/0902.4243}.
 J.~Llosa, ``Einstein's accelerated reference systems and Fermi--Walker
 coordinates,'' arXiv:1706.09656, 2017.
 Online. Available: \url{https://arxiv.org/pdf/1706.09656}.
+
+\bibitem{chicone-mashhoon-frames}
+C.~Chicone and B.~Mashhoon, ``Ultrarelativistic motion: Inertial and
+tidal effects in Fermi coordinates,'' \emph{Class. Quantum Grav.},
+vol.~22, pp.~195--205, 2005,
+doi: \href{https://doi.org/10.1088/0264-9381/22/1/013}{10.1088/0264-9381/22/1/013}.
+Online. Available: \url{https://arxiv.org/pdf/gr-qc/0409017}.
 
 \bibitem{frenet-curves}
 K.~Ko, T.~Maekawa, and N.~M. Patrikalakis,

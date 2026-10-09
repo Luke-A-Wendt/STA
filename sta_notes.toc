@@ -62,153 +62,161 @@
 \contentsline {paragraph}{Orthogonality and determinant.}{36}{section*.16}%
 \contentsline {paragraph}{Conversion to proper time.}{37}{section*.17}%
 \contentsline {subsection}{\numberline {8.2}Force, work, and inertia}{38}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Fixed-axis acceleration}{38}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Events in an accelerating frame}{39}{subsection.8.4}%
-\contentsline {paragraph}{Clocks, lengths, and light cones.}{40}{section*.18}%
-\contentsline {subsection}{\numberline {8.5}Constant coordinate acceleration}{41}{subsection.8.5}%
-\contentsline {subsection}{\numberline {8.6}Constant proper acceleration}{42}{subsection.8.6}%
-\contentsline {subsection}{\numberline {8.7}A uniformly accelerating grid and its horizon}{42}{subsection.8.7}%
-\contentsline {subsection}{\numberline {8.8}A trip with midpoint braking}{45}{subsection.8.8}%
-\contentsline {paragraph}{Rapidity and derivatives.}{45}{section*.19}%
-\contentsline {paragraph}{Position, clocks, and arrival.}{45}{section*.20}%
-\contentsline {paragraph}{The thrust reversal.}{46}{section*.21}%
-\contentsline {section}{\numberline {9}Jerk}{48}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Coordinate derivatives, then proper-time derivatives}{48}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Projection into the instantaneous rest space}{48}{subsection.9.2}%
-\contentsline {paragraph}{Invariant magnitude.}{49}{section*.22}%
-\contentsline {paragraph}{When proper jerk vanishes.}{49}{section*.23}%
-\contentsline {subsection}{\numberline {9.3}Fixed-axis jerk}{50}{subsection.9.3}%
-\contentsline {paragraph}{Conversion to proper time.}{50}{section*.24}%
-\contentsline {paragraph}{Null combinations and constant acceleration.}{51}{section*.25}%
-\contentsline {subsection}{\numberline {9.4}Events and light cones when acceleration changes}{51}{subsection.9.4}%
-\contentsline {paragraph}{Changing clock comparisons.}{52}{section*.26}%
-\contentsline {paragraph}{Changing light paths.}{52}{section*.27}%
-\contentsline {subsection}{\numberline {9.5}Jerk at a thrust reversal}{53}{subsection.9.5}%
-\contentsline {subsection}{\numberline {9.6}Constant jerk}{53}{subsection.9.6}%
-\contentsline {subsubsection}{\numberline {9.6.1}Constant coordinate jerk}{53}{subsubsection.9.6.1}%
-\contentsline {subsubsection}{\numberline {9.6.2}Constant proper jerk}{54}{subsubsection.9.6.2}%
-\contentsline {paragraph}{The frame of a clock with constant proper jerk.}{54}{section*.28}%
-\contentsline {subsubsection}{\numberline {9.6.3}Constant unprojected four-jerk}{56}{subsubsection.9.6.3}%
-\contentsline {section}{\numberline {10}Kinematics in a Frenet frame}{57}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Spatial frame and curvature}{57}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Coordinate velocity, acceleration, and jerk}{58}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}Spacetime derivatives in the moving frame}{59}{subsection.10.3}%
-\contentsline {paragraph}{Spatial curvature versus worldline curvature.}{59}{section*.29}%
-\contentsline {section}{\numberline {11}Coordinates, frames, and differentiation}{60}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Paravector differential operators}{60}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Components and the product rule}{61}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Generalized coordinates and clock rates}{61}{subsection.11.3}%
-\contentsline {paragraph}{Interval.}{62}{section*.30}%
-\contentsline {paragraph}{Motion and clock rates.}{62}{section*.31}%
-\contentsline {subsection}{\numberline {11.4}Varying frame transformations}{62}{subsection.11.4}%
-\contentsline {subsection}{\numberline {11.5}Physical derivatives in a carried frame}{63}{subsection.11.5}%
-\contentsline {subsection}{\numberline {11.6}Event coordinates with changing motion and axes}{63}{subsection.11.6}%
-\contentsline {section}{\numberline {12}Electromagnetism}{66}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Maxwell's equations and wave propagation}{66}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Potentials and gauge freedom}{67}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}The electromagnetic field action}{69}{subsection.12.3}%
-\contentsline {subsection}{\numberline {12.4}Field invariants}{69}{subsection.12.4}%
-\contentsline {subsection}{\numberline {12.5}Lorentz force from the action}{70}{subsection.12.5}%
-\contentsline {subsection}{\numberline {12.6}Acceleration and the mass shell}{71}{subsection.12.6}%
-\contentsline {paragraph}{Parallel and perpendicular components.}{71}{section*.32}%
-\contentsline {paragraph}{Proper acceleration and the rest-frame field.}{72}{section*.33}%
-\contentsline {subsection}{\numberline {12.7}Energy and momentum flux}{73}{subsection.12.7}%
-\contentsline {section}{\numberline {13}Quantum amplitudes and differential operators}{74}{section.13}%
-\contentsline {subsection}{\numberline {13.1}Spinor amplitudes and probability density}{74}{subsection.13.1}%
-\contentsline {subsection}{\numberline {13.2}Weighted densities and local expectations}{75}{subsection.13.2}%
-\contentsline {paragraph}{Local expectations.}{75}{section*.34}%
-\contentsline {paragraph}{Transforming the amplitude.}{75}{section*.35}%
-\contentsline {subsection}{\numberline {13.3}Energy and momentum as differential operators}{76}{subsection.13.3}%
-\contentsline {subsection}{\numberline {13.4}Field strength from noncommuting derivatives}{77}{subsection.13.4}%
-\contentsline {section}{\numberline {14}The Klein--Gordon equation}{78}{section.14}%
-\contentsline {subsection}{\numberline {14.1}The mass shell as a wave equation}{78}{subsection.14.1}%
-\contentsline {subsection}{\numberline {14.2}Positive and negative frequency}{79}{subsection.14.2}%
-\contentsline {subsection}{\numberline {14.3}Square roots from Fourier series}{79}{subsection.14.3}%
-\contentsline {subsection}{\numberline {14.4}Particles, antiparticles, and charge conjugation}{80}{subsection.14.4}%
-\contentsline {paragraph}{Opposite charge, equal mass.}{80}{section*.36}%
-\contentsline {paragraph}{Charge density is signed.}{80}{section*.37}%
-\contentsline {paragraph}{Positive-energy particles and antiparticles.}{81}{section*.38}%
-\contentsline {subsection}{\numberline {14.5}Electromagnetic coupling}{81}{subsection.14.5}%
-\contentsline {section}{\numberline {15}The Dirac equation}{82}{section.15}%
-\contentsline {subsection}{\numberline {15.1}Block form and free factorization}{82}{subsection.15.1}%
-\contentsline {subsection}{\numberline {15.2}Reconstructing free solutions from Klein--Gordon}{84}{subsection.15.2}%
-\contentsline {subsection}{\numberline {15.3}Potential and paravector components}{84}{subsection.15.3}%
-\contentsline {subsection}{\numberline {15.4}Interacting factorization and reconstruction}{85}{subsection.15.4}%
-\contentsline {subsection}{\numberline {15.5}Gauge phase}{86}{subsection.15.5}%
-\contentsline {section}{\numberline {16}Low-energy limits}{87}{section.16}%
-\contentsline {subsection}{\numberline {16.1}Klein--Gordon to Schr\"odinger}{87}{subsection.16.1}%
-\contentsline {subsection}{\numberline {16.2}Dirac to Pauli}{88}{subsection.16.2}%
-\contentsline {subsection}{\numberline {16.3}Spin components in a uniform magnetic field}{89}{subsection.16.3}%
-\contentsline {subsection}{\numberline {16.4}Evolution about an alternate spin axis}{90}{subsection.16.4}%
-\contentsline {subsection}{\numberline {16.5}The next free order}{91}{subsection.16.5}%
-\contentsline {section}{\numberline {17}Spin and probability}{92}{section.17}%
-\contentsline {subsection}{\numberline {17.1}Spin one-half and rotations}{92}{subsection.17.1}%
-\contentsline {subsection}{\numberline {17.2}Projectors and probabilities}{92}{subsection.17.2}%
-\contentsline {subsection}{\numberline {17.3}Measurement along a second axis}{93}{subsection.17.3}%
-\contentsline {subsection}{\numberline {17.4}Rotating the polarization}{94}{subsection.17.4}%
-\contentsline {section}{\numberline {18}Lorentz covariance and electromagnetic transformations}{95}{section.18}%
-\contentsline {subsection}{\numberline {18.1}Events, proper time, and momentum}{95}{subsection.18.1}%
-\contentsline {subsection}{\numberline {18.2}Coordinate derivatives}{96}{subsection.18.2}%
-\contentsline {subsection}{\numberline {18.3}Potential and current}{97}{subsection.18.3}%
-\contentsline {paragraph}{Potential from the particle coupling.}{97}{section*.39}%
-\contentsline {paragraph}{Gauge freedom.}{97}{section*.40}%
-\contentsline {paragraph}{Current from charge transport.}{97}{section*.41}%
-\contentsline {subsection}{\numberline {18.4}Electromagnetic field and Maxwell covariance}{98}{subsection.18.4}%
-\contentsline {subsection}{\numberline {18.5}Boost components}{98}{subsection.18.5}%
-\contentsline {subsection}{\numberline {18.6}Field invariants, energy flux, and force}{99}{subsection.18.6}%
-\contentsline {paragraph}{Field invariants.}{99}{section*.42}%
-\contentsline {paragraph}{Energy density and flux.}{100}{section*.43}%
-\contentsline {paragraph}{Lorentz force.}{100}{section*.44}%
-\contentsline {subsection}{\numberline {18.7}Momentum operators, scalar waves, and Dirac covariance}{100}{subsection.18.7}%
-\contentsline {paragraph}{Momentum operators.}{100}{section*.45}%
-\contentsline {paragraph}{Wave phase and Klein--Gordon.}{101}{section*.46}%
-\contentsline {paragraph}{Dirac entries.}{101}{section*.47}%
-\contentsline {paragraph}{Spinor pairing and density.}{102}{section*.48}%
-\contentsline {paragraph}{Transformation laws collected.}{102}{section*.49}%
-\contentsline {section}{\numberline {19}Position-dependent paravector bases}{102}{section.19}%
-\contentsline {subsection}{\numberline {19.1}The basis and its interval}{103}{subsection.19.1}%
-\contentsline {paragraph}{Local measurements and velocity.}{104}{section*.50}%
-\contentsline {subsection}{\numberline {19.2}Algebra and differentiation}{105}{subsection.19.2}%
-\contentsline {paragraph}{Differentiation.}{105}{section*.51}%
-\contentsline {subsection}{\numberline {19.3}Expansion, free fall, and curvature}{105}{subsection.19.3}%
-\contentsline {paragraph}{Free fall in an expanding universe.}{106}{section*.52}%
-\contentsline {paragraph}{Parallel transport and redshift.}{107}{section*.53}%
-\contentsline {paragraph}{Tidal acceleration and curvature.}{107}{section*.54}%
-\contentsline {paragraph}{The role of the assigned displacement.}{108}{section*.55}%
-\contentsline {subsection}{\numberline {19.4}Newtonian motion and black-hole metrics}{108}{subsection.19.4}%
-\contentsline {paragraph}{A common basis.}{108}{section*.56}%
-\contentsline {paragraph}{Local velocity and observer.}{109}{section*.57}%
-\contentsline {paragraph}{Newtonian limit.}{109}{section*.58}%
-\contentsline {paragraph}{Schwarzschild.}{109}{section*.59}%
-\contentsline {paragraph}{Kerr.}{110}{section*.60}%
-\contentsline {section}{\numberline {A}Pauli-matrix representation}{114}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Sigmas and products}{114}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Conjugations and product order}{114}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}Scalar part, determinant, and norm}{115}{subsection.A.3}%
-\contentsline {subsection}{\numberline {A.4}Boost and rotation matrices}{116}{subsection.A.4}%
-\contentsline {subsection}{\numberline {A.5}Matrix amplitudes and column spinors}{116}{subsection.A.5}%
-\contentsline {paragraph}{An arbitrary spin basis.}{116}{section*.61}%
-\contentsline {paragraph}{The two-component column.}{116}{section*.62}%
-\contentsline {subsection}{\numberline {A.6}Dirac columns}{117}{subsection.A.6}%
-\contentsline {paragraph}{Characteristic polynomial.}{117}{section*.63}%
-\contentsline {subsection}{\numberline {A.7}Four components and the standard Dirac basis}{118}{subsection.A.7}%
-\contentsline {subsection}{\numberline {A.8}Quaternion matrix image}{119}{subsection.A.8}%
-\contentsline {section}{\numberline {B}Equation reference}{120}{appendix.B}%
-\contentsline {paragraph}{Algebra.}{120}{section*.64}%
-\contentsline {paragraph}{Rotations and boosts.}{120}{section*.84}%
-\contentsline {paragraph}{Spacetime and particles.}{121}{section*.99}%
-\contentsline {paragraph}{Electromagnetism.}{121}{section*.118}%
-\contentsline {paragraph}{Relativistic waves.}{122}{section*.135}%
-\contentsline {paragraph}{Low-energy limits.}{122}{section*.162}%
-\contentsline {paragraph}{Spin and probabilities.}{123}{section*.165}%
-\contentsline {section}{\numberline {C}Conventions}{124}{appendix.C}%
-\contentsline {paragraph}{Names and algebra classifications.}{124}{section*.177}%
-\contentsline {paragraph}{Mapping to the literature.}{124}{section*.178}%
-\contentsline {paragraph}{Source comparisons for the cited equations.}{126}{section*.179}%
-\contentsline {paragraph}{Translating the physical comparisons.}{127}{section*.180}%
-\contentsline {paragraph}{Exponent sign and sandwich order.}{128}{section*.181}%
-\contentsline {paragraph}{Hamilton quaternions fix the basis orientation.}{128}{section*.182}%
-\contentsline {paragraph}{Rotating a state versus changing the measured observable.}{129}{section*.183}%
-\contentsline {paragraph}{Fields and wave amplitudes under either notation.}{129}{section*.184}%
-\contentsline {paragraph}{Preserved quantities.}{130}{section*.185}%
-\contentsline {section}{References}{131}{section*.186}%
+\contentsline {subsection}{\numberline {8.3}Differentiating a changing Lorentz frame}{38}{subsection.8.3}%
+\contentsline {paragraph}{What the transformation guarantees.}{38}{section*.18}%
+\contentsline {paragraph}{Differentiate twice.}{38}{section*.19}%
+\contentsline {subsection}{\numberline {8.4}Event coordinates with changing motion and axes}{39}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Inertial forces in the moving frame}{42}{subsection.8.5}%
+\contentsline {paragraph}{A compact momentum law.}{42}{section*.20}%
+\contentsline {paragraph}{Differentiate the event map a second time.}{42}{section*.21}%
+\contentsline {paragraph}{Which terms are the fictitious forces?}{43}{section*.22}%
+\contentsline {paragraph}{Checks and limiting cases.}{44}{section*.23}%
+\contentsline {subsection}{\numberline {8.6}Fixed-axis acceleration}{45}{subsection.8.6}%
+\contentsline {subsection}{\numberline {8.7}Events in an accelerating frame}{45}{subsection.8.7}%
+\contentsline {paragraph}{Clocks, lengths, and light cones.}{46}{section*.24}%
+\contentsline {subsection}{\numberline {8.8}Constant coordinate acceleration}{47}{subsection.8.8}%
+\contentsline {subsection}{\numberline {8.9}Constant proper acceleration}{48}{subsection.8.9}%
+\contentsline {subsection}{\numberline {8.10}A uniformly accelerating grid and its horizon}{48}{subsection.8.10}%
+\contentsline {subsection}{\numberline {8.11}A trip with midpoint braking}{51}{subsection.8.11}%
+\contentsline {paragraph}{Rapidity and derivatives.}{51}{section*.25}%
+\contentsline {paragraph}{Position, clocks, and arrival.}{51}{section*.26}%
+\contentsline {paragraph}{The thrust reversal.}{52}{section*.27}%
+\contentsline {section}{\numberline {9}Jerk}{54}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Coordinate derivatives, then proper-time derivatives}{54}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Projection into the instantaneous rest space}{54}{subsection.9.2}%
+\contentsline {paragraph}{Invariant magnitude.}{55}{section*.28}%
+\contentsline {paragraph}{When proper jerk vanishes.}{55}{section*.29}%
+\contentsline {subsection}{\numberline {9.3}Fixed-axis jerk}{56}{subsection.9.3}%
+\contentsline {paragraph}{Conversion to proper time.}{56}{section*.30}%
+\contentsline {paragraph}{Null combinations and constant acceleration.}{57}{section*.31}%
+\contentsline {subsection}{\numberline {9.4}Events and light cones when acceleration changes}{57}{subsection.9.4}%
+\contentsline {paragraph}{Changing clock comparisons.}{58}{section*.32}%
+\contentsline {paragraph}{Changing light paths.}{58}{section*.33}%
+\contentsline {subsection}{\numberline {9.5}Jerk at a thrust reversal}{59}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}Constant jerk}{59}{subsection.9.6}%
+\contentsline {subsubsection}{\numberline {9.6.1}Constant coordinate jerk}{59}{subsubsection.9.6.1}%
+\contentsline {subsubsection}{\numberline {9.6.2}Constant proper jerk}{60}{subsubsection.9.6.2}%
+\contentsline {paragraph}{The frame of a clock with constant proper jerk.}{60}{section*.34}%
+\contentsline {subsubsection}{\numberline {9.6.3}Constant unprojected four-jerk}{62}{subsubsection.9.6.3}%
+\contentsline {section}{\numberline {10}Kinematics in a Frenet frame}{63}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Spatial frame and curvature}{63}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Coordinate velocity, acceleration, and jerk}{64}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Spacetime derivatives in the moving frame}{65}{subsection.10.3}%
+\contentsline {paragraph}{Spatial curvature versus worldline curvature.}{65}{section*.35}%
+\contentsline {section}{\numberline {11}Coordinates, frames, and differentiation}{66}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Paravector differential operators}{66}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Components and the product rule}{67}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Generalized coordinates and clock rates}{67}{subsection.11.3}%
+\contentsline {paragraph}{Interval.}{68}{section*.36}%
+\contentsline {paragraph}{Motion and clock rates.}{68}{section*.37}%
+\contentsline {subsection}{\numberline {11.4}Varying frame transformations}{68}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}Physical derivatives in a carried frame}{69}{subsection.11.5}%
+\contentsline {section}{\numberline {12}Electromagnetism}{69}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Maxwell's equations and wave propagation}{70}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Potentials and gauge freedom}{71}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}The electromagnetic field action}{72}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}Field invariants}{72}{subsection.12.4}%
+\contentsline {subsection}{\numberline {12.5}Lorentz force from the action}{73}{subsection.12.5}%
+\contentsline {subsection}{\numberline {12.6}Acceleration and the mass shell}{74}{subsection.12.6}%
+\contentsline {paragraph}{Parallel and perpendicular components.}{74}{section*.38}%
+\contentsline {paragraph}{Proper acceleration and the rest-frame field.}{75}{section*.39}%
+\contentsline {subsection}{\numberline {12.7}Energy and momentum flux}{76}{subsection.12.7}%
+\contentsline {section}{\numberline {13}Quantum amplitudes and differential operators}{77}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Spinor amplitudes and probability density}{77}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Weighted densities and local expectations}{78}{subsection.13.2}%
+\contentsline {paragraph}{Local expectations.}{78}{section*.40}%
+\contentsline {paragraph}{Transforming the amplitude.}{78}{section*.41}%
+\contentsline {subsection}{\numberline {13.3}Energy and momentum as differential operators}{79}{subsection.13.3}%
+\contentsline {subsection}{\numberline {13.4}Field strength from noncommuting derivatives}{80}{subsection.13.4}%
+\contentsline {section}{\numberline {14}The Klein--Gordon equation}{81}{section.14}%
+\contentsline {subsection}{\numberline {14.1}The mass shell as a wave equation}{81}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}Positive and negative frequency}{82}{subsection.14.2}%
+\contentsline {subsection}{\numberline {14.3}Square roots from Fourier series}{82}{subsection.14.3}%
+\contentsline {subsection}{\numberline {14.4}Particles, antiparticles, and charge conjugation}{83}{subsection.14.4}%
+\contentsline {paragraph}{Opposite charge, equal mass.}{83}{section*.42}%
+\contentsline {paragraph}{Charge density is signed.}{83}{section*.43}%
+\contentsline {paragraph}{Positive-energy particles and antiparticles.}{84}{section*.44}%
+\contentsline {subsection}{\numberline {14.5}Electromagnetic coupling}{84}{subsection.14.5}%
+\contentsline {section}{\numberline {15}The Dirac equation}{85}{section.15}%
+\contentsline {subsection}{\numberline {15.1}Block form and free factorization}{85}{subsection.15.1}%
+\contentsline {subsection}{\numberline {15.2}Reconstructing free solutions from Klein--Gordon}{87}{subsection.15.2}%
+\contentsline {subsection}{\numberline {15.3}Potential and paravector components}{87}{subsection.15.3}%
+\contentsline {subsection}{\numberline {15.4}Interacting factorization and reconstruction}{88}{subsection.15.4}%
+\contentsline {subsection}{\numberline {15.5}Gauge phase}{89}{subsection.15.5}%
+\contentsline {section}{\numberline {16}Low-energy limits}{90}{section.16}%
+\contentsline {subsection}{\numberline {16.1}Klein--Gordon to Schr\"odinger}{90}{subsection.16.1}%
+\contentsline {subsection}{\numberline {16.2}Dirac to Pauli}{91}{subsection.16.2}%
+\contentsline {subsection}{\numberline {16.3}Spin components in a uniform magnetic field}{92}{subsection.16.3}%
+\contentsline {subsection}{\numberline {16.4}Evolution about an alternate spin axis}{93}{subsection.16.4}%
+\contentsline {subsection}{\numberline {16.5}The next free order}{94}{subsection.16.5}%
+\contentsline {section}{\numberline {17}Spin and probability}{95}{section.17}%
+\contentsline {subsection}{\numberline {17.1}Spin one-half and rotations}{95}{subsection.17.1}%
+\contentsline {subsection}{\numberline {17.2}Projectors and probabilities}{95}{subsection.17.2}%
+\contentsline {subsection}{\numberline {17.3}Measurement along a second axis}{96}{subsection.17.3}%
+\contentsline {subsection}{\numberline {17.4}Rotating the polarization}{97}{subsection.17.4}%
+\contentsline {section}{\numberline {18}Lorentz covariance and electromagnetic transformations}{98}{section.18}%
+\contentsline {subsection}{\numberline {18.1}Events, proper time, and momentum}{98}{subsection.18.1}%
+\contentsline {subsection}{\numberline {18.2}Coordinate derivatives}{99}{subsection.18.2}%
+\contentsline {subsection}{\numberline {18.3}Potential and current}{100}{subsection.18.3}%
+\contentsline {paragraph}{Potential from the particle coupling.}{100}{section*.45}%
+\contentsline {paragraph}{Gauge freedom.}{100}{section*.46}%
+\contentsline {paragraph}{Current from charge transport.}{100}{section*.47}%
+\contentsline {subsection}{\numberline {18.4}Electromagnetic field and Maxwell covariance}{101}{subsection.18.4}%
+\contentsline {subsection}{\numberline {18.5}Boost components}{101}{subsection.18.5}%
+\contentsline {subsection}{\numberline {18.6}Field invariants, energy flux, and force}{102}{subsection.18.6}%
+\contentsline {paragraph}{Field invariants.}{102}{section*.48}%
+\contentsline {paragraph}{Energy density and flux.}{103}{section*.49}%
+\contentsline {paragraph}{Lorentz force.}{103}{section*.50}%
+\contentsline {subsection}{\numberline {18.7}Momentum operators, scalar waves, and Dirac covariance}{103}{subsection.18.7}%
+\contentsline {paragraph}{Momentum operators.}{103}{section*.51}%
+\contentsline {paragraph}{Wave phase and Klein--Gordon.}{104}{section*.52}%
+\contentsline {paragraph}{Dirac entries.}{104}{section*.53}%
+\contentsline {paragraph}{Spinor pairing and density.}{105}{section*.54}%
+\contentsline {paragraph}{Transformation laws collected.}{105}{section*.55}%
+\contentsline {section}{\numberline {19}Position-dependent paravector bases}{105}{section.19}%
+\contentsline {subsection}{\numberline {19.1}The basis and its interval}{106}{subsection.19.1}%
+\contentsline {paragraph}{Local measurements and velocity.}{107}{section*.56}%
+\contentsline {subsection}{\numberline {19.2}Algebra and differentiation}{108}{subsection.19.2}%
+\contentsline {paragraph}{Differentiation.}{108}{section*.57}%
+\contentsline {subsection}{\numberline {19.3}Expansion, free fall, and curvature}{108}{subsection.19.3}%
+\contentsline {paragraph}{Free fall in an expanding universe.}{109}{section*.58}%
+\contentsline {paragraph}{Parallel transport and redshift.}{110}{section*.59}%
+\contentsline {paragraph}{Tidal acceleration and curvature.}{110}{section*.60}%
+\contentsline {paragraph}{The role of the assigned displacement.}{111}{section*.61}%
+\contentsline {subsection}{\numberline {19.4}Newtonian motion and black-hole metrics}{111}{subsection.19.4}%
+\contentsline {paragraph}{A common basis.}{111}{section*.62}%
+\contentsline {paragraph}{Local velocity and observer.}{112}{section*.63}%
+\contentsline {paragraph}{Newtonian limit.}{112}{section*.64}%
+\contentsline {paragraph}{Schwarzschild.}{112}{section*.65}%
+\contentsline {paragraph}{Kerr.}{113}{section*.66}%
+\contentsline {section}{\numberline {A}Pauli-matrix representation}{117}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Sigmas and products}{117}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Conjugations and product order}{117}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Scalar part, determinant, and norm}{118}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}Boost and rotation matrices}{119}{subsection.A.4}%
+\contentsline {subsection}{\numberline {A.5}Matrix amplitudes and column spinors}{119}{subsection.A.5}%
+\contentsline {paragraph}{An arbitrary spin basis.}{119}{section*.67}%
+\contentsline {paragraph}{The two-component column.}{119}{section*.68}%
+\contentsline {subsection}{\numberline {A.6}Dirac columns}{120}{subsection.A.6}%
+\contentsline {paragraph}{Characteristic polynomial.}{120}{section*.69}%
+\contentsline {subsection}{\numberline {A.7}Four components and the standard Dirac basis}{121}{subsection.A.7}%
+\contentsline {subsection}{\numberline {A.8}Quaternion matrix image}{122}{subsection.A.8}%
+\contentsline {section}{\numberline {B}Equation reference}{123}{appendix.B}%
+\contentsline {paragraph}{Algebra.}{123}{section*.70}%
+\contentsline {paragraph}{Rotations and boosts.}{123}{section*.90}%
+\contentsline {paragraph}{Spacetime and particles.}{124}{section*.105}%
+\contentsline {paragraph}{Electromagnetism.}{124}{section*.124}%
+\contentsline {paragraph}{Relativistic waves.}{125}{section*.141}%
+\contentsline {paragraph}{Low-energy limits.}{125}{section*.168}%
+\contentsline {paragraph}{Spin and probabilities.}{126}{section*.171}%
+\contentsline {section}{\numberline {C}Conventions}{127}{appendix.C}%
+\contentsline {paragraph}{Names and algebra classifications.}{127}{section*.183}%
+\contentsline {paragraph}{Mapping to the literature.}{127}{section*.184}%
+\contentsline {paragraph}{Source comparisons for the cited equations.}{129}{section*.185}%
+\contentsline {paragraph}{Translating the physical comparisons.}{130}{section*.186}%
+\contentsline {paragraph}{Exponent sign and sandwich order.}{131}{section*.187}%
+\contentsline {paragraph}{Hamilton quaternions fix the basis orientation.}{131}{section*.188}%
+\contentsline {paragraph}{Rotating a state versus changing the measured observable.}{132}{section*.189}%
+\contentsline {paragraph}{Fields and wave amplitudes under either notation.}{132}{section*.190}%
+\contentsline {paragraph}{Preserved quantities.}{133}{section*.191}%
+\contentsline {section}{References}{134}{section*.192}%
