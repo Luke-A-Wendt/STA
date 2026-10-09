@@ -154,19 +154,26 @@ The quaternion multiplication rules are satisfied by $`(-\mathrm i{\sigma}_k)`$:
 \end{gathered}
 ```
 
-For $`a\in\mathbb R`$ and $`{𝐐}\in\mathbb R^3`$, the quaternion and its conjugate are:
+Introduce the real quaternion coefficient vector:
+
+```math
+{𝐪}:=(q_0,q_1,q_2,q_3)\in\mathbb R^4,\qquad
+{𝐪}_{1:3}:=(q_1,q_2,q_3)\in\mathbb R^3.
+```
+
+The quaternion paravector and its conjugate are:
 
 ```math
 \begin{aligned}
-{Q}&:=a+{𝐐}\cdot(-\mathrm i{𝝈})=a-\mathrm i{𝐐}\cdot{𝝈},\\
-{Q}^{\mathsf H}&:=a-{𝐐}\cdot(-\mathrm i{𝝈})=a+\mathrm i{𝐐}\cdot{𝝈},
+{Q}&:=q_0+{𝐪}_{1:3}\cdot(-\mathrm i{𝝈})=q_0-\mathrm i{𝐪}_{1:3}\cdot{𝝈},\\
+{Q}^{\mathsf H}&:=q_0-{𝐪}_{1:3}\cdot(-\mathrm i{𝝈})=q_0+\mathrm i{𝐪}_{1:3}\cdot{𝝈},
 \end{aligned}
 ```
 
 with
 
 ```math
-{Q}{Q}^{\mathsf H}=\det({Q})=a^2+{𝐐}^2.
+{Q}{Q}^{\mathsf H}=\det({Q})=q_0^2+{𝐪}_{1:3}^2.
 ```
 
 Nonzero quaternions are normalized with:
@@ -175,18 +182,18 @@ Nonzero quaternions are normalized with:
 {Q}\leftarrow\frac{{Q}}{\sqrt{{Q}{Q}^{\mathsf H}}},
 ```
 
-Thus, with $`\lVert{𝐐}\rVert^2={𝐐}^2`$ for real $`{𝐐}`$, the normalization is expressed as:
+After normalization:
 
 ```math
-{Q}{Q}^{\mathsf H}=a^2+\lVert{𝐐}\rVert^2=1.
+{Q}{Q}^{\mathsf H}=1.
 ```
 
-For $`{𝐐}\ne0`$, the rotation axis and angle are specified by:
+For $`{𝐪}_{1:3}\ne0`$, the rotation axis and angle are specified by:
 
 ```math
-{𝐮}=\frac{{𝐐}}{\lVert{𝐐}\rVert},\qquad
-a=\cos\left(\frac{\theta}{2}\right),\qquad
-{𝐐}={𝐮}\sin\left(\frac{\theta}{2}\right).
+{𝐮}=\frac{{𝐪}_{1:3}}{\lVert{𝐪}_{1:3}\rVert},\qquad
+q_0=\cos\left(\frac{\theta}{2}\right),\qquad
+{𝐪}_{1:3}={𝐮}\sin\left(\frac{\theta}{2}\right).
 ```
 
 A rotation of $`{𝐫}\in\mathbb R^3`$ about $`{𝐮}`$ by angle $`\theta`$ is expressed by:

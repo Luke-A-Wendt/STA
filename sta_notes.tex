@@ -1997,21 +1997,26 @@ The quaternion multiplication rules are satisfied by $(-\ii\pvsigma_k)$:
 The sign is reversed when two distinct factors are exchanged.
 Here $\ii$ remains the commuting complex scalar.
 
-For $a\in\R$ and $\bQ\in\R^3$, the quaternion representation is~\citeat{baylis-applications}{p.~92}{page=103}
+Introduce the real quaternion coefficient vector
+\[
+ \vstyle{q}:=(q_0,q_1,q_2,q_3)\in\R^4,\qquad
+ \vstyle{q}_{1:3}:=(q_1,q_2,q_3)\in\R^3.
+\]
+The corresponding quaternion paravector is~\citeat{baylis-applications}{p.~92}{page=103}
 \begin{equation}
- \boxed{\pQ:=a+\bQ\dotprod(-\ii\bsig)=a-\ii\bQ\dotprod\bsig.}
+ \boxed{\pQ:=q_0+\vstyle{q}_{1:3}\dotprod(-\ii\bsig)=q_0-\ii\vstyle{q}_{1:3}\dotprod\bsig.}
  \label{eq:quaternion-paravector}
 \end{equation}
-Here $\bQ\dotprod(-\ii\bsig)=Q_1(-\ii\pvsigma_1)+Q_2(-\ii\pvsigma_2)+Q_3(-\ii\pvsigma_3)$.
+Here $\vstyle{q}_{1:3}\dotprod(-\ii\bsig)=q_1(-\ii\pvsigma_1)+q_2(-\ii\pvsigma_2)+q_3(-\ii\pvsigma_3)$.
 In the decomposition $\pZ=(a+b\ii)+(\bX+\ii\bY)\dotprod\bsig$,
-$b=0$, $\bX=0$, and $\bY=-\bQ$ are selected.
+$a=q_0$, $b=0$, $\bX=0$, and $\bY=-\vstyle{q}_{1:3}$ are selected.
 Thus $\pQ,\pQ'\in\R\oplus\ii\R^3$: a real scalar coefficient and purely
 imaginary vector coefficients. This four-real-component form is
 preserved under addition and multiplication.
-Indeed, for $\pQ'=a'+\bQ'\dotprod(-\ii\bsig)$, the paravector product becomes~\citeat{lounesto-intro}{p.~9}{page=22}
+Indeed, for $\pQ'=q_0'+\vstyle{q}_{1:3}'\dotprod(-\ii\bsig)$, the paravector product becomes~\citeat{lounesto-intro}{p.~9}{page=22}
 \begin{equation}
- \pQ \pQ'=(aa'-\bQ\dotprod\bQ')
- +(a\bQ'+a'\bQ+\bQ\times\bQ')\dotprod(-\ii\bsig).
+ \pQ \pQ'=(q_0q_0'-\vstyle{q}_{1:3}\dotprod\vstyle{q}_{1:3}')
+ +(q_0\vstyle{q}_{1:3}'+q_0'\vstyle{q}_{1:3}+\vstyle{q}_{1:3}\times\vstyle{q}_{1:3}')\dotprod(-\ii\bsig).
  \label{eq:quaternion-product}
 \end{equation}
 
@@ -2019,28 +2024,28 @@ Since $(-\ii\pvsigma_k)^{\mathsf H}=-(-\ii\pvsigma_k)$ and
 $(-\ii\pvsigma_k)^*=(-\ii\pvsigma_k)$, quaternion conjugation
 is the existing Hermitian conjugation:
 \begin{align}
- \pQ^{\mathsf H}&=a-\bQ\dotprod(-\ii\bsig)
- =a+\ii\bQ\dotprod\bsig,\notag\\
+ \pQ^{\mathsf H}&=q_0-\vstyle{q}_{1:3}\dotprod(-\ii\bsig)
+ =q_0+\ii\vstyle{q}_{1:3}\dotprod\bsig,\notag\\
  \pQ^*&=\pQ,\qquad \operatorname{adj}(\pQ)=\pQ^{\mathsf H},\notag\\
- \pQ \pQ^{\mathsf H}&=\pQ^{\mathsf H}\pQ=a^2+\bQ^2
+ \pQ \pQ^{\mathsf H}&=\pQ^{\mathsf H}\pQ=q_0^2+\vstyle{q}_{1:3}^2
  =\det(\pQ)=\lVert \pQ\rVert^2.
  \label{eq:quaternion-norm}
 \end{align}
 For nonzero $\pQ$, \eqref{eq:quaternion-norm} gives
-$\pQ^{-1}=\pQ^{\mathsf H}/(a^2+\bQ^2)$.
+$\pQ^{-1}=\pQ^{\mathsf H}/(q_0^2+\vstyle{q}_{1:3}^2)$.
 Nonzero quaternions are normalized with
 \[
  \pQ\leftarrow\frac{\pQ}{\sqrt{\pQ \pQ^{\mathsf H}}},
 \]
-which, with $\lVert\bQ\rVert^2=\bQ^2$ for real $\bQ$, gives
+after which
 \[
- \pQ \pQ^{\mathsf H}=a^2+\lVert\bQ\rVert^2=1.
+ \pQ \pQ^{\mathsf H}=1.
 \]
 Thus a unit quaternion has $\pQ^{-1}=\pQ^{\mathsf H}$.
 
 For rotation, $\br\in\R^3$ is represented by the pure quaternion
 $\br\dotprod(-\ii\bsig)=-\ii\br\dotprod\bsig$.
-For a unit quaternion $\pQ=a+\bQ\dotprod(-\ii\bsig)$, the quaternion sandwich is used:
+For a unit quaternion $\pQ=q_0+\vstyle{q}_{1:3}\dotprod(-\ii\bsig)$, the quaternion sandwich is used:
 \begin{equation}
  \br'\dotprod(-\ii\bsig)=\pQ(\br\dotprod(-\ii\bsig))\pQ^{\mathsf H},
  \qquad
@@ -2051,24 +2056,24 @@ The two forms agree because $-\ii$ commutes with every paravector.
 Applying \eqref{eq:quaternion-product} twice gives
 \begin{align*}
  \pQ(\br\dotprod(-\ii\bsig))
- &=-\bQ\dotprod\br+(a\br+\bQ\times\br)\dotprod(-\ii\bsig),\\
+ &=-\vstyle{q}_{1:3}\dotprod\br+(q_0\br+\vstyle{q}_{1:3}\times\br)\dotprod(-\ii\bsig),\\
  \pQ(\br\dotprod(-\ii\bsig))\pQ^{\mathsf H}
- &=\bigl((a^2-\bQ^2)\br+2(\bQ\dotprod\br)\bQ
-          +2a\bQ\times\br\bigr)\dotprod(-\ii\bsig).
+ &=\bigl((q_0^2-\vstyle{q}_{1:3}^2)\br+2(\vstyle{q}_{1:3}\dotprod\br)\vstyle{q}_{1:3}
+          +2q_0\vstyle{q}_{1:3}\times\br\bigr)\dotprod(-\ii\bsig).
 \end{align*}
-The scalar part cancels. For a unit quaternion with $\bQ\ne0$, its
+The scalar part cancels. For a unit quaternion with $\vstyle{q}_{1:3}\ne0$, its
 real unit axis $\bu$ and rotation angle $\theta$ satisfy
 \[
- \bu=\frac{\bQ}{\lVert\bQ\rVert},\qquad
- a=\cos\left(\frac\theta2\right),\qquad \bQ=\bu\sin\left(\frac\theta2\right).
+ \bu=\frac{\vstyle{q}_{1:3}}{\lVert\vstyle{q}_{1:3}\rVert},\qquad
+ q_0=\cos\left(\frac\theta2\right),\qquad \vstyle{q}_{1:3}=\bu\sin\left(\frac\theta2\right).
 \]
 Thus the quaternion is the rotation factor
 \[
  \pQ=\cos\left(\frac\theta2\right)-\ii\bu\dotprod\bsig\sin\left(\frac\theta2\right)=\pR.
 \]
-Then $a^2-\bQ^2=\cos(\theta)$,
-$2a\bQ=\bu\sin(\theta)$, and
-$2(\bQ\dotprod\br)\bQ=(1-\cos(\theta))(\bu\dotprod\br)\bu$.
+Then $q_0^2-\vstyle{q}_{1:3}^2=\cos(\theta)$,
+$2q_0\vstyle{q}_{1:3}=\bu\sin(\theta)$, and
+$2(\vstyle{q}_{1:3}\dotprod\br)\vstyle{q}_{1:3}=(1-\cos(\theta))(\bu\dotprod\br)\bu$.
 Consequently \eqref{eq:quaternion-rotation} recovers
 \[
  \boxed{\br'=\br\cos(\theta)+(\bu\times\br)\sin(\theta)
@@ -9098,14 +9103,14 @@ The two couplings are $-q\bBf\dotprod\bsig\pm\ii q\bE\dotprod\bsig$.
 \subsection{Quaternion matrix image}
 \label{sec:quaternion-matrix}
 
-For the quaternion $\pQ=a+\bQ\dotprod(-\ii\bsig)=a-\ii\bQ\dotprod\bsig$
-of Section~\ref{sec:quaternions}, with $a\in\R$, $\bQ\in\R^3$, and
+For the quaternion $\pQ=q_0+\vstyle{q}_{1:3}\dotprod(-\ii\bsig)=q_0-\ii\vstyle{q}_{1:3}\dotprod\bsig$
+of Section~\ref{sec:quaternions}, with $q_0\in\R$, $\vstyle{q}_{1:3}\in\R^3$, and
 $\pQ\in\R\oplus\ii\R^3$, the explicit
 matrix image is~\citeat{lounesto-intro}{p.~10}{page=23}
 \begin{equation}
  \operatorname{mat}(\pQ)=
- \begin{Bmatrix}a-\ii Q_3&-Q_2-\ii Q_1\\
-                 Q_2-\ii Q_1&a+\ii Q_3\end{Bmatrix}.
+ \begin{Bmatrix}q_0-\ii q_3&-q_2-\ii q_1\\
+                 q_2-\ii q_1&q_0+\ii q_3\end{Bmatrix}.
  \label{eq:quaternion-matrix}
 \end{equation}
 Here
@@ -9114,10 +9119,10 @@ The conjugation and norm identities become
 \begin{align*}
  \operatorname{mat}(\pQ^{\mathsf H})&=\operatorname{mat}(\pQ)^{\mathsf H},\\
  \operatorname{mat}(\pQ)^{\mathsf H}\operatorname{mat}(\pQ)
- &=(a^2+\bQ^2)\bI_2,\\
- \det(\operatorname{mat}(\pQ))&=a^2+\bQ^2.
+ &=(q_0^2+\vstyle{q}_{1:3}^2)\bI_2,\\
+ \det(\operatorname{mat}(\pQ))&=q_0^2+\vstyle{q}_{1:3}^2.
 \end{align*}
-For a unit quaternion, $a^2+\bQ^2=1$, these identities give a unitary
+For a unit quaternion, $q_0^2+\vstyle{q}_{1:3}^2=1$, these identities give a unitary
 matrix of determinant one.
 
 \clearpage
