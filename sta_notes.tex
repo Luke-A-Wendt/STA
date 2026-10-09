@@ -1476,7 +1476,11 @@ from $\pZ^{(w^*)}$, a power with the conjugated exponent.
 
 Here $\pZ=c+\bZ\dotprod\bsig$ is a complex paravector: $c\in\C$ and
 $\bZ\in\C^3$, hence $\pZ\in\C\oplus\C^3$.
-Transformation factors $\pT,\pT'\in\C\oplus\C^3$ are constant.
+Transformation factors $\pT,\pT_1,\pT_2\in\C\oplus\C^3$ are constant
+and invertible in this section. Every invariance statement below is
+required for all inputs in the stated space, not just for one event
+or one displacement. Varying factors and coordinate differentials are
+distinguished in Section~\ref{sec:frame-second-derivative}.
 Physical rotation and boost factors have domains
 $\pR\in\R\oplus\ii\R^3$ and $\pL\in\R\oplus\R^3$;
 their angles or rapidities are $\theta\in\R$ and axes $\bu\in\R^3$,
@@ -1487,8 +1491,32 @@ from \eqref{eq:trace-scalar}, the complex determinant $c^2-\bZ^2$ from
 \eqref{eq:hermitian-norm}.  Scalar part and trace carry exactly the same
 information; the scalar part is used below.
 
-\subsection{Similarity, determinant, and norm}
+\subsection{Two-sided products, similarity, and norm}
+\label{sec:two-sided-invariants}
 
+\paragraph{Determinant preservation.}
+For independent complex factors, determinant multiplicativity gives
+\[
+ \pZ'=\pT_1\pZ\pT_2,\qquad
+ \det(\pZ')=\det(\pT_1)\det(\pT_2)\det(\pZ).
+\]
+Consequently,
+\begin{equation}
+ \boxed{\det(\pZ')=\det(\pZ)\ \text{for every }\pZ
+ \quad\Longleftrightarrow\quad
+ \det(\pT_1)\det(\pT_2)=1.}
+ \label{eq:two-sided-determinant-condition}
+\end{equation}
+Necessity follows already from $\pZ=1$. Thus
+$\det(\pT_2)=1/\det(\pT_1)$; neither determinant separately has to
+equal one. For example, the scalar factors $\pT_1=2$ and
+$\pT_2=1/2$ have determinants $4$ and $1/4$ and give the identity
+map. More generally, replacing the factors by $c\pT_1$ and
+$c^{-1}\pT_2$, for a nonzero complex scalar $c$, leaves the map
+unchanged. The determinant condition alone does not preserve the
+scalar part, squared norm, or real paravector subspace.
+
+\paragraph{Similarity.}
 For a complex \hyperref[eq:unit-paravector]{invertible paravector} $\pT$,
 similarity means $\pZ'=\pT \pZ \pT^{-1}$.
 By scalar-part cyclicity,
@@ -1502,27 +1530,61 @@ Thus trace is also preserved.  By multiplicativity,
  \label{eq:det-similarity}
 \end{equation}
 The opposite similarity $\pZ'=\pT^{-1}\pZ \pT$ has the same invariants.
-For independent complex factors $\pT,\pT'$, the law $\pZ'=\pT'\pZ \pT$ instead gives
-\begin{equation*}
- \det(\pZ')=\det(\pT')\det(\pT)\det(\pZ).
-\end{equation*}
-This preserves the determinant for
-every $\pZ$ exactly when $\det(\pT')\det(\pT)=1$.  This alone does not preserve
-scalar part, norm, or the real paravector subspace.
+Similarity chooses $\pT_2=\pT_1^{-1}$ and therefore satisfies
+\eqref{eq:two-sided-determinant-condition} without requiring
+$\det(\pT_1)=1$. It need not preserve reality: for example,
+$\pT=2+\pvsigma_3$ has inverse $(2-\pvsigma_3)/3$, and
+\[
+ \pT\pvsigma_1\pT^{-1}
+ =\tfrac53\pvsigma_1+\tfrac{4\ii}{3}\pvsigma_2.
+\]
+The determinant remains $-1$, but the transformed paravector is not real.
 
-If the factor $\pT$ is unitary, then $\pT^{\mathsf H}=\pT^{-1}$ by
-\eqref{eq:unitary-transform}.  For $\pZ'=\pT \pZ \pT^{\mathsf H}$, cancellation and
-scalar-part cyclicity give
-\begin{equation*}
- \begin{aligned}
- \lVert \pZ'\rVert^2
- &=\scpart{\pT \pZ^{\mathsf H}\pT^{\mathsf H}\pT \pZ \pT^{\mathsf H}}\\
- &=\scpart{\pZ^{\mathsf H}\pZ \pT^{\mathsf H}\pT}=\lVert \pZ\rVert^2.
- \end{aligned}
-\end{equation*}
-The norm is also preserved by $\pZ'=\pT \pZ$ and $\pZ'=\pZ \pT$.
-The congruence additionally preserves scalar part and determinant;
-a one-sided unitary product need not.
+\paragraph{Squared-norm preservation.}
+For the same general two-sided action, cyclicity gives
+\[
+ \lVert\pT_1\pZ\pT_2\rVert^2
+ =\scpart{\pZ^{\mathsf H}\pT_1^{\mathsf H}\pT_1
+                    \pZ\pT_2\pT_2^{\mathsf H}}.
+\]
+The necessary and sufficient condition is
+\begin{equation}
+ \boxed{\begin{gathered}
+ \lVert\pT_1\pZ\pT_2\rVert^2=\lVert\pZ\rVert^2
+       \quad\text{for every complex }\pZ\\
+ \Longleftrightarrow\quad
+ \pT_1^{\mathsf H}\pT_1=\rho,\qquad
+ \pT_2\pT_2^{\mathsf H}=\rho^{-1}
+       \quad\text{for some real }\rho>0 .
+ \end{gathered}}
+ \label{eq:two-sided-norm-condition}
+\end{equation}
+To prove necessity, expand norm preservation for $\pZ+\pY$ and
+$\pZ+\ii\pY$ and subtract the separate squared norms. For every
+complex $\pY,\pZ$ this gives
+\[
+ \scpart{\pY^{\mathsf H}\pT_1^{\mathsf H}\pT_1
+                \pZ\pT_2\pT_2^{\mathsf H}}
+ =\scpart{\pY^{\mathsf H}\pZ}.
+\]
+The positive norm makes this pairing nondegenerate, hence
+$\pT_1^{\mathsf H}\pT_1\pZ\pT_2\pT_2^{\mathsf H}=\pZ$.
+Setting $\pZ=1$ first makes the two Hermitian products inverses;
+then the identity for arbitrary $\pZ$ says that
+$\pT_1^{\mathsf H}\pT_1$ commutes with every paravector.
+It is therefore a positive real scalar $\rho$. Substitution proves
+sufficiency. Equivalently, $\pT_1/\sqrt{\rho}$ and
+$\sqrt{\rho}\pT_2$ are independently unitary.
+
+This condition fixes the modulus of $\det(\pT_1)\det(\pT_2)$ to
+one, but not its phase. For example, $\pZ'=\ii\pZ$ preserves the
+squared norm and reverses the determinant's sign. Exact determinant
+preservation additionally requires \eqref{eq:two-sided-determinant-condition}.
+For a congruence $\pT_2=\pT_1^{\mathsf H}$, the two Hermitian
+products coincide, so $\rho=\rho^{-1}$ forces $\rho=1$:
+norm preservation is exactly Hermitian unitarity. A unitary
+congruence is also a similarity and preserves scalar part and
+determinant.
 
 \subsubsection{Determinant one is not Hermitian unitarity}
 \label{sec:determinant-versus-unitarity}
@@ -1555,6 +1617,7 @@ These properties follow from the defining equations, not from the
 letter used for the paravector.
 
 \subsection{Real paravectors and the Lorentz metric}
+\label{sec:real-lorentz-invariants}
 
 $\pX=a+\bX\dotprod\bsig$ is taken to be real, with $a\in\R$ and
 $\bX\in\R^3$.  The determinant and squared norm give different quadratic forms:
@@ -1563,20 +1626,78 @@ $\bX\in\R^3$.  The determinant and squared norm give different quadratic forms:
  \lVert \pX\rVert^2&=a^2+\bX^2.
 \end{align*}
 The first is the Lorentz quadratic form of signature $(+,-,-,-)$;
-the second is the positive sum of squared coefficients.  A real-linear
-isometry of the first form must preserve the real subspace and its
-determinant.  For a constant complex
-\hyperref[eq:unit-paravector]{invertible paravector} $\pT$ with $\det(\pT)=1$,
-the following Hermitian congruence is used~\citeat{baylis2004}{Eq.~(17)}{page=6}
+the second is the positive sum of squared coefficients. A spacetime
+transformation must preserve real coefficients as well as the desired
+quadratic form.
+
+\paragraph{Reality determines the relation between the factors.}
+Require $\pX'=\pT_1\pX\pT_2$ to be real for every real $\pX$.
+Since reality is equivalent to Hermitian self-conjugacy,
+\[
+ \pT_1\pX\pT_2=\pT_2^{\mathsf H}\pX\pT_1^{\mathsf H}
+ \quad\Longleftrightarrow\quad
+ \pX\pT_2\pT_1^{-\mathsf H}
+       =(\pT_2\pT_1^{-\mathsf H})^{\mathsf H}\pX.
+\]
+Taking $\pX=1$ shows that $\pT_2\pT_1^{-\mathsf H}$ is Hermitian.
+The remaining identity says that it commutes with every real $\pX$,
+in particular with each $\pvsigma_k$. The sigma product rules then
+force its vector part to vanish. Thus
+\begin{equation}
+ \boxed{\pT_1\pX\pT_2\ \text{is real for every real }\pX
+ \quad\Longleftrightarrow\quad
+ \pT_2=\lambda\pT_1^{\mathsf H},\quad
+ \lambda\in\R\setminus\{0\}.}
+ \label{eq:two-sided-reality-condition}
+\end{equation}
+The converse follows immediately by Hermitian conjugation.
+The image of $\pX=1$ is $\lambda\pT_1\pT_1^{\mathsf H}$.
+Because $\pT_1\pT_1^{\mathsf H}$ is positive, preserving the future
+direction requires $\lambda>0$; $\lambda<0$ reverses it.
+Absorb the positive scalar by setting $\pT=\sqrt{\lambda}\pT_1$.
+The map becomes the Hermitian congruence~\citeat{baylis2004}{Eq.~(17)}{page=6}
 \begin{equation}
  \boxed{\pX'=\pT \pX \pT^{\mathsf H}.}
  \label{eq:general-lorentz-congruence}
 \end{equation}
-Hermitian conjugation and determinant multiplication give
-\begin{align*}
- \pX'^{\mathsf H}&=\pT \pX^{\mathsf H}\pT^{\mathsf H}=\pX',\\
- \det(\pX')&=\det(\pT)\det(\pX)\det(\pT^{\mathsf H})=\det(\pX).
-\end{align*}
+Thus the right Hermitian factor follows from reality and the future
+choice, after an irrelevant scalar redistribution between the factors.
+It does not follow from determinant preservation alone.
+
+\paragraph{Interval scale, light cones, and phase.}
+For any constant invertible complex $\pT$, determinant multiplicativity
+gives
+\begin{equation}
+ \boxed{\det(\pX')=\lVert\det(\pT)\rVert^2\det(\pX).}
+ \label{eq:congruence-interval-scale}
+\end{equation}
+Exact interval preservation therefore requires
+$\lVert\det(\pT)\rVert=1$, not necessarily $\det(\pT)=1$.
+If $\det(\pT)=e^{\ii\phi}$, with real $\phi$, replace $\pT$ by
+$e^{-\ii\phi/2}\pT$. The phase cancels in the congruence and the
+new factor has determinant one. We use this representative from now
+on, leaving the sign ambiguity $\pT\leftrightarrow-\pT$.
+In the original factors the same conditions read
+$\lambda>0$ and $\lambda^2\lVert\det(\pT_1)\rVert^2=1$;
+their individual determinants need not be one.
+
+Without exact interval preservation, the factor in
+\eqref{eq:congruence-interval-scale} is still positive. Thus null
+displacements remain null, and time-like and space-like signs are
+preserved. For example, the scalar factor $\pT=2$ has
+$\det(\pT)=4$ and gives $\pX'=4\pX$: time and spatial components
+scale equally, leaving light speed unchanged. Preserving the light
+cone alone is weaker than preserving the full interval.
+For real $\pT=\exp(a+\bX\dotprod\bsig)$,
+\eqref{eq:exponential-determinant} gives the interval scale $e^{4a}$.
+A nonzero real scalar exponent dilates the metric; a scalar phase
+does not change the spacetime map. Thus $\det(\pT)=1$ fixes interval
+scale and selects a phase representative, rather than imposing an
+additional speed limit.
+
+\paragraph{The full spacetime metric.}
+With the determinant-one representative,
+$\pX'^{\mathsf H}=\pX'$ and $\det(\pX')=\det(\pX)$.
 For a second real paravector $\pY=b+\bY\dotprod\bsig$, with $b\in\R$
 and $\bY\in\R^3$, the associated metric pairing is~\citeat{baylis2004}{Eq.~(15)}{page=6}
 \begin{equation}
@@ -1593,21 +1714,27 @@ $a\pm\lVert\bX\rVert$ are nonnegative, so $\pX$ has a real square root and
  \scpart{\pX'}=\lVert\sqrt {\pX}\,\pT^{\mathsf H}\rVert^2\geq0.
 \]
 Together with determinant invariance, this keeps $\pX'$ in the cone
-$a\geq\lVert\bX\rVert$.  These are the proper Lorentz transformations
-preserving that cone; $\pT$ and $-\pT$ give the same map.
+$a\geq\lVert\bX\rVert$. These are exactly the proper,
+time-orientation-preserving Lorentz transformations fixing the origin;
+$\pT$ and $-\pT$ give the same map~\citeat{tong-relativity}{pp.~129--130}{page=135}.
+Changing the origin additionally requires a translation. Spatial
+reflections, time reversal, and general noninertial coordinate changes
+are outside this class of fixed linear transformations.
 
-\paragraph{Why the scalar exponent vanishes.}
-More generally, the congruence multiplies $\det(\pX)$ by
-$\lVert\det(\pT)\rVert^2$.  For real $\pT=\exp(a+\bX\dotprod\bsig)$,
-\eqref{eq:exponential-determinant} therefore gives
+For events $\pX=t+\br\dotprod\bsig$, a constant factor gives
 \[
- \det(\pT \pX \pT^{\mathsf H})=e^{4a}\det(\pX).
+ \dd\pX'=\pT(\dd\pX)\pT^{\mathsf H},\qquad
+ \boxed{\dd s^2=\det(\dd\pX')=\det(\dd\pX)
+                  =\dd t^2-\dd\br^2.}
 \]
-A nonzero real scalar exponent dilates the metric; it is excluded by
-determinant invariance.  An imaginary scalar exponent contributes a phase
-$e^{\ii b}$, $b\in\R$, which cancels between $\pT$ and $\pT^{\mathsf H}$.
-Requiring $\det(\pT)=1$ removes this continuous phase freedom.
-Thus a pure boost needs only a real vector exponent.
+Here $\dd s^2$ is the signed squared interval; on a time-like
+worldline it is the squared proper-time increment.
+The components $\dd t,\dd\br$ generally change.
+Interval invariance does not require $\dd\pX'=\dd\pX$.
+Requiring equality of the differentials for every displacement would
+give only $\pX'=\pX+\pX_0$, with constant real translation $\pX_0$.
+For varying factors, the derivative of the event map must instead
+be computed as in Section~\ref{sec:frame-second-derivative}.
 
 \paragraph{Why the squared norm is different.}
 For $\pL=\exp(-\theta\bu\dotprod\bsig/2)$, with real $\theta$ and real unit
@@ -1624,10 +1751,32 @@ squared norm for every real $\pX$ exactly when $\pT$ is
 \hyperref[eq:unitary-transform]{unitary}.  Necessity follows by taking
 $\pX=1$: the real, positive $\pT \pT^{\mathsf H}$ can have both determinant and
 norm one only if it is $1$, which makes $\pT$ unitary.  Sufficiency was proved above.
-Normalizing $\pL$ to $\lVert \pL\rVert=1$ would change its determinant
-and lose the Lorentz metric.
+After the irrelevant scalar phase is removed, such a unitary factor
+is a rotation factor $\pR$:
+\[
+ \boxed{\begin{gathered}
+ \pX'=\pR\pX\pR^{\mathsf H},\qquad
+ \pR^{\mathsf H}=\pR^{-1},\qquad \det(\pR)=1,\\
+ \det(\pX')=\det(\pX),\qquad
+ \lVert\pX'\rVert^2=\lVert\pX\rVert^2 .
+ \end{gathered}}
+\]
+These are precisely the transformations preserving both forms within
+the proper, future-preserving Lorentz class. If discrete reversals
+are admitted, spatial reflections and time reversal also preserve
+both forms. For unrestricted complex two-sided products, simultaneous
+determinant and norm preservation is broader than physical rotation:
+the reality condition must still be imposed.
 
-\paragraph{Every factor separates into a boost and a rotation.}
+In particular, $\pT^{\mathsf H}=\pT^{-1}$ is the extra condition of
+unitarity, not a requirement for a boost. A boost has
+$\pL^{\mathsf H}=\pL$, while
+$\pL^{-1}=\exp(+\theta\bu\dotprod\bsig/2)$, different from $\pL$
+unless $\theta=0$. Normalizing $\pL$ to
+$\lVert\pL\rVert=1$ would change its determinant and lose the Lorentz metric.
+
+\subsection{Boost and rotation factorization}
+\label{sec:boost-rotation-factorization}
 For any complex $\pT$, the Hermitian product rule gives
 \[
  (\pT\pT^{\mathsf H})^{\mathsf H}
@@ -1658,13 +1807,65 @@ For $\pR$, the identity $\pR^{\mathsf H}=\pR^{-1}=\adj {\pR}$ makes its scalar
 coefficient real and its vector coefficient imaginary; determinant one
 then gives $\pR=\cos(\theta/2)-\ii\sin(\theta/2)\bu\dotprod\bsig$
 for some real $\theta$ and real unit $\bu$.
-Consequently,
+
+To reverse the order, use the positive Hermitian square root
 \[
- \pX'=\pT\pX\pT^{\mathsf H}
- =\pL\pR\pX\pR^{\mathsf H}\pL,\qquad
- \det(\pX')=\det(\pX).
+ \pL':=\sqrt{\pT^{\mathsf H}\pT}.
 \]
-The rotation is followed by the boost. Their component actions follow next.
+Since $\pT=\pL\pR$ and $\pR^{\mathsf H}=\pR^{-1}$,
+\[
+ \pT^{\mathsf H}\pT
+ =\pR^{-1}\pL^2\pR
+ =(\pR^{-1}\pL\pR)^2.
+\]
+The factor $\pR^{-1}\pL\pR$ is positive Hermitian, so uniqueness of
+the positive square root gives
+\begin{equation}
+ \boxed{\pL'=\pR^{-1}\pL\pR,\qquad
+ \pT=\pL\pR=\pR\pL',\qquad
+ \pR=\pL^{-1}\pT=\pT\pL'^{-1}.}
+ \label{eq:boost-rotation-factorizations}
+\end{equation}
+Thus the rotation $\pR$ is the same in both factorizations; only the
+boost factor generally changes. The prime distinguishes the boost in
+the second ordering. It satisfies $\pL'\in\R\oplus\R^3$,
+$\pL'^{\mathsf H}=\pL'$, and $\det(\pL')=1$.
+The relation $\pL'=\pR^{-1}\pL\pR$ rotates the boost direction while
+preserving its rapidity.
+
+In general, $\pL$ and $\pR$ do not commute. The event transformation
+nevertheless has both factorizations, using $\pL'$ in the second:
+\begin{align*}
+ \pX'&=\pT\pX\pT^{\mathsf H}\\
+ &=\pL(\pR\pX\pR^{\mathsf H})\pL
+ =\pR(\pL'\pX\pL')\pR^{\mathsf H},\qquad
+ \det(\pX')=\det(\pX).
+\end{align*}
+The $\pL\pR$ form rotates first and then boosts; the $\pR\pL'$ form
+boosts first and then rotates. Both give the same transformation.
+Conversely, starting with a boost and a rotation gives
+\[
+ \det(\pL\pR)=\det(\pL)\det(\pR)=1,\qquad
+ \det(\pR\pL')=1.
+\]
+Thus the boost--rotation construction and the determinant-one
+description are equivalent.
+
+\subsubsection{Special case: commuting boost and rotation}
+\label{sec:commuting-boost-rotation}
+
+\textbf{If $\pT\pT^{\mathsf H}=\pT^{\mathsf H}\pT$,} the positive
+square roots coincide, so $\pL'=\pL$ and the same boost and rotation
+can be applied in either order. Precisely,
+\[
+ \boxed{\pT\pT^{\mathsf H}=\pT^{\mathsf H}\pT
+ \quad\Longleftrightarrow\quad \pL'=\pL
+ \quad\Longleftrightarrow\quad \pL\pR=\pR\pL.}
+\]
+For a nonzero boost, this condition means that the rotation leaves
+the boost direction unchanged, as for a rotation about the boost axis.
+It also holds when either factor is the identity. Otherwise the boost
+must change from $\pL$ to $\pL'$ when the order is reversed.
 
 \subsection{Rotation action and Rodrigues' formula}
 \label{sec:algebra-rotation-action}
@@ -2803,12 +3004,99 @@ arbitrary other event: its interval from the origin is fixed.
 The speed limit constrains a physical trajectory's tangent, not the
 position of an event relative to a chosen origin.
 
-A varying $\pT$ supplies a sequence of local Lorentz frames. It does
-not by itself specify their moving origin or a simultaneity convention.
-In particular, differentiating $\pT\pX\pT^{\mathsf H}$ now includes
-derivatives of $\pT$; the resulting coordinate differential is not
-simply $\pT\dd\pX\pT^{\mathsf H}$. The moving-origin construction
-below supplies an actual noninertial coordinate chart and its interval.
+\paragraph{A local frame rule and a coordinate derivative.}
+At any event, a rule assigning new components to a displacement,
+$\dd\pX'=\pT_1(\dd\pX)\pT_2$, preserves its determinant if
+$\det(\pT_1)\det(\pT_2)=1$. Reality and the future direction
+lead to the congruence derived in
+Section~\ref{sec:real-lorentz-invariants}. The factors may vary from
+event to event when this is only a choice of local frame.
+Writing its components as coordinate differentials $\dd t',\dd\br'$
+additionally requires that they integrate to coordinate functions;
+a varying orthonormal frame generally does not satisfy this condition.
+
+If instead an actual event map is specified by
+$\pX'=\pT_1\pX\pT_2$ with smooth coordinate-dependent factors,
+the product rule gives
+\begin{equation}
+ \boxed{\dd\pX'
+ =(\dd\pT_1)\pX\pT_2+\pT_1(\dd\pX)\pT_2
+                   +\pT_1\pX(\dd\pT_2).}
+ \label{eq:two-sided-coordinate-differential}
+\end{equation}
+Here $\dd\pT_1$ and $\dd\pT_2$ are evaluated along the same
+displacement $\dd\pX$. Preserving the Cartesian Minkowski form
+requires the full condition
+\begin{equation}
+ \boxed{\det\bigl((\dd\pT_1)\pX\pT_2
+           +\pT_1(\dd\pX)\pT_2+\pT_1\pX(\dd\pT_2)\bigr)
+       =\det(\dd\pX)}
+ \label{eq:variable-factor-interval-condition}
+\end{equation}
+for every displacement at every event, together with reality and
+the chosen orientations. This is the requirement
+$\det(\dd\pX')=\det(\dd\pX)$ after substitution.
+It does not require the stronger equality $\dd\pX'=\dd\pX$.
+The determinant of a sum contains cross terms; the pointwise
+condition $\det(\pT_1)\det(\pT_2)=1$ controls $\det(\pX')$ but
+does not settle \eqref{eq:variable-factor-interval-condition}.
+Equality along just one path would be a weaker condition.
+
+\paragraph{A varying boost shows the difference.}
+On the time axis $\pX=t$, choose the smooth real rapidity
+$\theta(t)$ and $\pT=\exp(-\theta(t)\pvsigma_3/2)$.
+Although $\det(\pT)=1$ at every event,
+\begin{align*}
+ \pX'&=t\cosh(\theta)-t\sinh(\theta)\pvsigma_3,
+ &\det(\pX')&=t^2,\\
+ \frac{\dd\pX'}{\dd t}
+ &=\cosh(\theta)+t\dot\theta\sinh(\theta)
+   -(\sinh(\theta)+t\dot\theta\cosh(\theta))\pvsigma_3 .
+\end{align*}
+Taking the determinant gives
+\[
+ \boxed{\det(\dd\pX')=(1-t^2\dot\theta^{\,2})\dd t^2,
+        \qquad \det(\dd\pX)=\dd t^2.}
+\]
+The extra terms generally prevent the derivative from being a
+Lorentz isometry. This does not describe a physical violation of
+light speed: if the map is used as a coordinate change, the metric
+must also be transformed instead of assigning the Cartesian form
+to the new coordinate differentials.
+
+\paragraph{When the Cartesian metric remains unchanged.}
+For a smooth invertible coordinate map on a connected open region
+of flat spacetime, imposing the same constant Minkowski form on
+all displacements in both coordinate systems is restrictive: its
+derivative must be constant. To see this, polarize the interval
+condition to obtain the constant metric pairings of the four first
+coordinate derivatives of $\pX'$. Differentiate those pairings and
+use commuting mixed derivatives. Adding the equations with the
+first two derivative directions exchanged and subtracting the
+equation differentiated in the third direction shows that each
+second derivative has zero Lorentz pairing with every first
+derivative. The first derivatives form a basis and the pairing is
+nondegenerate, so all second derivatives vanish.
+Within the proper, future-preserving class, the map therefore has
+the form
+\[
+ \boxed{\pX'=\pT_0\pX\pT_0^{\mathsf H}+\pX_0,\qquad
+        \det(\pT_0)=1,}
+\]
+with constant $\pT_0$ and constant real $\pX_0$; fixing the origin
+sets $\pX_0=0$. This constrains the resulting map, not every
+possible factorization: varying reciprocal scalar factors, or a
+varying phase in a congruence, can cancel and leave the same map.
+
+A varying $\pT$ is nevertheless a valid sequence of local Lorentz
+frames. It does not by itself specify their moving origin or a
+simultaneity convention. The construction in
+Section~\ref{sec:general-observer-chart} supplies an actual
+noninertial coordinate chart. Its interval remains invariant, but
+its coordinate expression generally differs from
+$\dd t'^2-\dd\br'^2$~\citeat{chicone-mashhoon-frames}{Eqs.~(11)--(14)}{page=4}.
+First, the derivatives of the varying congruence are worked out
+explicitly.
 
 \Needspace{16\baselineskip}
 \paragraph{Differentiate twice.}

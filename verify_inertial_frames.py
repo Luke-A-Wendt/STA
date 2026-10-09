@@ -55,11 +55,44 @@ check("second derivative of the congruence retains all ordered products",
 
 # A variable pointwise boost preserves X^2 but not the naive differential
 # interval: this is why the observer coordinate map has to be specified.
-pointwise = s.diag(s.exp(q/2), s.exp(-q/2))
+rapidity = s.Function("rapidity", real=True)(q)
+pointwise = s.diag(s.exp(-rapidity/2), s.exp(rapidity/2))
 image = pointwise*(q*one)*pointwise.H
 check("pointwise Lorentz congruence preserves the event determinant", image.det()-q*q)
 check("variable congruence is not a differential Lorentz isometry",
-      image.diff(q).det()-(1-q*q))
+      image.diff(q).det()-(1-q*q*rapidity.diff(q)**2))
+
+# A varying representative need not change the coordinate map at all.
+phase = s.exp(s.I*q*q)
+constant_boost = s.diag(2, s.Rational(1, 2))
+phased_image = (phase*constant_boost)*event*(phase*constant_boost).H
+check("variable scalar phase cancels in the full coordinate derivative",
+      phased_image.diff(q)-constant_boost*event.diff(q)*constant_boost.H)
+check("the cancelling phase leaves the differential interval unchanged",
+      phased_image.diff(q).det()-event.diff(q).det())
+
+# Local rigidity of a Cartesian isometry. At a point, express its Hessian
+# in the basis of its first derivatives and lower the output index with
+# the nondegenerate metric. Commuting mixed derivatives give symmetry in
+# the last two indices; differentiating constant metric pairings gives
+# antisymmetry in the first two. Solve all constraints independently.
+hessian = {}
+for a_index in range(4):
+    for b_index in range(4):
+        for c_index in range(b_index, 4):
+            entry = s.Symbol(f"h{a_index}{b_index}{c_index}")
+            hessian[a_index, b_index, c_index] = entry
+            hessian[a_index, c_index, b_index] = entry
+hessian_unknowns = list(dict.fromkeys(hessian.values()))
+metric_derivatives = [
+    hessian[a_index, b_index, c_index]+hessian[b_index, a_index, c_index]
+    for a_index in range(4) for b_index in range(4) for c_index in range(4)
+]
+assert s.linsolve(metric_derivatives, hessian_unknowns) == s.FiniteSet(
+    s.Tuple(*([0]*len(hessian_unknowns))))
+count += 1
+print("PASS integrable constant-metric isometry has zero coordinate Hessian",
+      flush=True)
 
 # The six physical components of the generator give momentum transport.
 a = s.Matrix(s.symbols("a1:4", real=True))

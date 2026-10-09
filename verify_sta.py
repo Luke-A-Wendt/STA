@@ -63,6 +63,74 @@ check("half Hermitian product has quarter squared determinant modulus",
       s.expand((generic_Z * generic_Z.H / 2).det()
                - generic_Z.det() * s.conjugate(generic_Z.det()) / 4))
 
+# Congruence preserves the null cone even when it rescales the interval.
+# Use arbitrary complex factors and real events, independently of det(T)=1.
+event_scalar, event_x, event_y, event_z = s.symbols("event_t event_x event_y event_z", real=True)
+real_event = event_scalar*one + vec(s.Matrix([event_x, event_y, event_z]))
+check("general complex congruence scales the interval by squared determinant modulus",
+      s.expand((generic_Z*real_event*generic_Z.H).det()
+               - generic_Z.det()*s.conjugate(generic_Z.det())*real_event.det()))
+phase_angle = s.symbols("phase_angle", real=True)
+phase_factor = s.exp(i*phase_angle)*one
+check("a scalar phase leaves the spacetime map unchanged",
+      phase_factor*real_event*phase_factor.H-real_event)
+dilation = 2*one
+check("a nonunit determinant can give an equal time and space dilation",
+      dilation*real_event*dilation.H-4*real_event)
+check("equal time and space dilation preserves null displacements",
+      (dilation*(one+sigma[0])*dilation.H).det())
+
+# Independent two-sided factors: the determinant condition does not enforce
+# Hermitian outputs. Test the illustrative similarity directly.
+generic_right = s.Matrix(2, 2, s.symbols("right0:4", complex=True))
+check("independent factors multiply determinants without a Hermitian relation",
+      s.expand((generic_Z*real_event*generic_right).det()
+               - generic_Z.det()*real_event.det()*generic_right.det()))
+nonunitary_similarity = 2*one+sigma[2]
+nonreal_image = nonunitary_similarity*sigma[0]*nonunitary_similarity.inv()
+check("determinant-preserving similarity can produce imaginary spatial coefficients",
+      nonreal_image-s.Rational(5, 3)*sigma[0]-4*i*sigma[1]/3)
+check("the nonreal similarity example still preserves the determinant",
+      nonreal_image.det()-sigma[0].det())
+assert nonreal_image != nonreal_image.H
+checks += 1
+print("PASS real input need not stay real under determinant-preserving similarity")
+
+# Solve the reality condition on a full Hermitian basis, without assuming
+# the unknown relative factor is Hermitian or scalar.
+relative_real = s.symbols("relative_real0:4", real=True)
+relative_imag = s.symbols("relative_imag0:4", real=True)
+hermitian_basis = (one, *sigma)
+relative_factor = sum(((a+i*b)*basis for a, b, basis
+                       in zip(relative_real, relative_imag, hermitian_basis)),
+                      s.zeros(2))
+reality_equations = [
+    part for basis in hermitian_basis
+    for entry in basis*relative_factor-relative_factor.H*basis
+    for part in s.expand_complex(entry).as_real_imag()
+]
+reality_solution = s.solve(reality_equations, (*relative_real, *relative_imag),
+                           dict=True)
+assert reality_solution == [{symbol: 0 for symbol
+                             in (*relative_real[1:], *relative_imag)}]
+checks += 1
+print("PASS preserving every Hermitian input forces a real scalar relative factor")
+
+# Reciprocal scales and independent rotations preserve the complex norm and
+# determinant, while their product need not preserve the real subspace.
+left_unitary = (3*one+4*i*sigma[0])/5
+right_unitary = (5*one+12*i*sigma[1])/13
+two_sided_image = (2*left_unitary)*generic_Z*(right_unitary/2)
+check("reciprocally scaled unitary factors preserve every complex squared norm",
+      s.expand(sc(two_sided_image.H*two_sided_image)-sc(generic_Z.H*generic_Z)))
+check("independent unitary factors can also preserve every complex determinant",
+      s.expand(two_sided_image.det()-generic_Z.det()))
+assert left_unitary*right_unitary != (left_unitary*right_unitary).H
+checks += 1
+print("PASS determinant and norm together do not enforce the reality condition")
+check("a scalar phase can preserve norm while changing determinant",
+      s.expand((i*generic_Z).det()+generic_Z.det()))
+
 # Complex bilinear normalization supports the spectral projectors;
 # positive-norm normalization can instead destroy their idempotence.
 complex_direction = s.Matrix([s.sqrt(2), i, 0])
