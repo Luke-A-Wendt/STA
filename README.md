@@ -271,7 +271,7 @@ f({Z})&=f(\lambda_-){\Pi} _-+f(\lambda_+){\Pi} _+.
 
 ## Spacetime from the [determinant](https://en.wikipedia.org/wiki/Determinant)
 
-In natural units, inertial coordinate time is denoted by $`t`$ and onboard proper time (often $`\tau`$) by $`s`$.
+In natural units, inertial coordinate time is denoted by $`t`$ and onboard proper time by $`s`$.
 
 The spacetime increment and interval are:
 
