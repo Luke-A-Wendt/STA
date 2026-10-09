@@ -2915,9 +2915,11 @@ $s$ and $t'$ derivatives are written explicitly.
 \label{sec:general-observer-chart}
 
 Choose an arbitrary smooth future-directed time-like reference
-worldline $\pX(s)$ in flat spacetime.
-Choose a carried frame $\pT(s)$ with $\pT\pU\pT^{\mathsf H}=1$ and
-use $t'=s$ on the origin. The frame determines the spatial axes; the
+worldline $\pX(s)$ in flat spacetime, with four-velocity
+$\pU=\dd\pX/\dd s$ as before.
+Choose a carried frame $\pT(s)$ with $\det(\pT)=1$ and
+$\pT\pU\pT^{\mathsf H}=1$, and use $t'=s$ on the origin.
+The frame determines the spatial axes; the
 instantaneous rest planes determine simultaneity. The event map is
 \begin{equation}
  t+\br\dotprod\bsig
@@ -2929,9 +2931,12 @@ Again the worldline value on the right is the origin's event at $t'$,
 whereas the left side is the event being assigned coordinates. This
 construction is restricted to a one-to-one neighborhood of the worldline.
 Conversely, any smooth finite $\pT(t')$ with determinant one determines
-a future unit tangent
+the origin's future unit tangent. Solving the rest condition for
+$\pU$, with $t'=s$ along this worldline, gives
 \[
- \pU=\pT^{-1}\pT^{-\mathsf H},\qquad \det(\pU)=1.
+ \pU=\frac{\dd\pX}{\dd s}
+ =\frac{\dd\pX}{\dd t'}
+ =\pT^{-1}\pT^{-\mathsf H},\qquad \det(\pU)=1.
 \]
 Integrating this tangent fixes the origin once its initial event is
 chosen. Thus arbitrary smooth time-like observer histories and choices
@@ -2940,8 +2945,13 @@ included, and neither a global chart nor a new gravitational field
 follows from $\det(\pT)=1$.
 
 Differentiate using the inverse rule and
-$\pvOmega=(\dd\pT/\dd t')\pT^{-1}$. The moving origin contributes $1$
-in the local frame, while differentiating the two inverse factors gives
+$\pvOmega=(\dd\pT/\dd t')\pT^{-1}$. The derivative of the origin's
+worldline contributes
+\[
+ \pT\frac{\dd\pX(t')}{\dd t'}\pT^{\mathsf H}
+ =\pT\pU\pT^{\mathsf H}=1.
+\]
+Including the derivatives of the two inverse factors gives
 \begin{equation}
  \boxed{\pT\dd\pX\pT^{\mathsf H}
  =\bigl(1-\pvOmega(\br'\dotprod\bsig)
@@ -3086,8 +3096,9 @@ tangential coordinate light velocities are $c(\pm1-\beta)$.
 \label{sec:relativistic-inertial-forces}
 
 \paragraph{A compact momentum law.}
-Let $\pP=m\pU$ now refer to a test particle of constant mass $m>0$,
-with its own proper time $s$. The observer's clock labels the chart
+Let $\pU=\dd\pX/\dd s$ and $\pP=m\pU$ now refer to a test particle
+of constant mass $m>0$, with its own proper time $s$; $\pT$ still
+describes the reference observer's frame. The observer's clock labels the chart
 time $t'$; these times agree along the reference origin, but not
 generally along the test particle.
 The particle's momentum components in the carried orthonormal axes are
@@ -3101,7 +3112,41 @@ Differentiating this congruence gives the full force law in these axes:
 \end{equation}
 The first term is the physical four-force expressed in the carried
 axes and parametrized by $t'$. The remaining two terms arise entirely
-from changing those axes. Using \eqref{eq:vector-product}, they expand as
+from changing those axes.
+
+To make the clock factor explicit, write $\bv':=\dd\br'/\dd t'$ for
+the particle's \emph{coordinate} velocity. The interval
+\eqref{eq:observer-interval-components} gives, along its time-like path,
+\begin{equation}
+ \boxed{\frac{\dd t'}{\dd s}
+ =\frac{1}{\sqrt{(1+\ba\dotprod\br')^2
+        -\lVert\bv'+\vstyle{\omega}\times\br'\rVert^2}}.}
+ \label{eq:observer-particle-clock}
+\end{equation}
+This is the accelerated-coordinate clock factor~\citeat{chicone-mashhoon-frames}{Eq.~(18)}{page=5}.
+Away from the origin, coordinate velocity is generally different from
+velocity in the carried orthonormal frame. Taking the scalar part of
+$\pP'=m\pT(\dd\pX/\dd s)\pT^{\mathsf H}$ gives the latter frame's
+Lorentz factor:
+\begin{equation}
+ \boxed{\gamma':=\frac{E'}{m}
+ =(1+\ba\dotprod\br')\frac{\dd t'}{\dd s}.}
+ \label{eq:observer-energy-clock}
+\end{equation}
+At the reference origin $\br'=0$, or throughout an inertial chart
+where $\ba=\vstyle{\omega}=0$,
+\[
+ \frac{\dd t'}{\dd s}=\gamma'
+ =\frac{1}{\sqrt{1-\lVert\bv'\rVert^2}}.
+\]
+In general, $\dd t'/\dd s$, $\gamma'$, and
+$(1-\lVert\bv'\rVert^2)^{-1/2}$ are distinct. The force
+law's coordinate conversion is
+\[
+ \frac{\dd s}{\dd t'}=\frac{1+\ba\dotprod\br'}{\gamma'}.
+\]
+
+Using \eqref{eq:vector-product}, the frame terms expand as
 \[
  \pvOmega\pP'+\pP'\pvOmega^{\mathsf H}
  =-\ba\dotprod\bp'
@@ -3121,9 +3166,7 @@ The familiar factor of two in the Coriolis acceleration appears when
 momentum is related to the particle's changing position coordinates.
 
 \paragraph{Differentiate the event map a second time.}
-Write $\bv':=\dd\br'/\dd t'$ for the test particle's
-\emph{coordinate} velocity in this noninertial chart. It is not generally
-the velocity measured by a local observer. Equation~\eqref{eq:general-observer-increments}
+Equation~\eqref{eq:general-observer-increments}
 becomes, along the particle's path,
 \begin{equation}
  \pT\frac{\dd\pX}{\dd t'}\pT^{\mathsf H}
@@ -3133,19 +3176,18 @@ becomes, along the particle's path,
 \end{equation}
 Here $\pX$ on the left is the particle's inertial event, rather than
 the reference origin's worldline value in
-\eqref{eq:general-observer-event-map}. Taking its determinant fixes the
-clock conversion and hence the momentum:
-\begin{gather}
- \frac{\dd s}{\dd t'}
- =\sqrt{(1+\ba\dotprod\br')^2
-        -\lVert\bv'+\vstyle{\omega}\times\br'\rVert^2},
- \label{eq:observer-particle-clock}\\
- \pP'=m\frac{1+\ba\dotprod\br'
-       +(\bv'+\vstyle{\omega}\times\br')\dotprod\bsig}
-       {\dd s/\dd t'}.
+\eqref{eq:general-observer-event-map}. Its determinant reproduces
+the clock conversion \eqref{eq:observer-particle-clock}. Using
+\eqref{eq:observer-energy-clock}, the momentum is
+\begin{equation}
+ \pP'=m\gamma'\left(1+
+       \frac{\bv'+\vstyle{\omega}\times\br'}{1+\ba\dotprod\br'}
+       \dotprod\bsig\right).
  \label{eq:observer-particle-momentum}
-\end{gather}
-Positive radicand is the massive particle's speed restriction; zero
+\end{equation}
+The vector fraction is the velocity in the carried orthonormal frame.
+Positive radicand in \eqref{eq:observer-particle-clock} is the massive
+particle's speed restriction; zero
 gives the coordinate light cone. In particular, $\lVert\bv'\rVert<1$
 is not the speed restriction away from the origin.
 

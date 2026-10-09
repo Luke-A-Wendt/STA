@@ -71,14 +71,14 @@
 \contentsline {subsection}{\numberline {8.4}Event coordinates with changing motion and axes}{41}{subsection.8.4}%
 \contentsline {subsection}{\numberline {8.5}Inertial forces in the moving frame}{44}{subsection.8.5}%
 \contentsline {paragraph}{A compact momentum law.}{44}{section*.21}%
-\contentsline {paragraph}{Differentiate the event map a second time.}{44}{section*.22}%
+\contentsline {paragraph}{Differentiate the event map a second time.}{45}{section*.22}%
 \contentsline {paragraph}{Which terms are the fictitious forces?}{46}{section*.23}%
 \contentsline {paragraph}{Checks and limiting cases.}{46}{section*.24}%
 \contentsline {subsection}{\numberline {8.6}Fixed-axis acceleration}{47}{subsection.8.6}%
-\contentsline {subsection}{\numberline {8.7}Events in an accelerating frame}{47}{subsection.8.7}%
+\contentsline {subsection}{\numberline {8.7}Events in an accelerating frame}{48}{subsection.8.7}%
 \contentsline {paragraph}{Clocks, lengths, and light cones.}{49}{section*.25}%
 \contentsline {subsection}{\numberline {8.8}Constant coordinate acceleration}{50}{subsection.8.8}%
-\contentsline {subsection}{\numberline {8.9}Constant proper acceleration}{50}{subsection.8.9}%
+\contentsline {subsection}{\numberline {8.9}Constant proper acceleration}{51}{subsection.8.9}%
 \contentsline {subsection}{\numberline {8.10}A uniformly accelerating grid and its horizon}{51}{subsection.8.10}%
 \contentsline {subsection}{\numberline {8.11}A trip with midpoint braking}{54}{subsection.8.11}%
 \contentsline {paragraph}{Rapidity and derivatives.}{54}{section*.26}%
