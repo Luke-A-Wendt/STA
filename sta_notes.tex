@@ -1589,11 +1589,9 @@ determinant.
 \subsubsection{Determinant one is not Hermitian unitarity}
 \label{sec:determinant-versus-unitarity}
 
-Invertibility, determinant one, and Hermitian unitarity are distinct
-conditions. Invertibility means that a two-sided inverse exists, as in
-\eqref{eq:unit-paravector}; determinant one means $\det(\pZ)=1$; and
-Hermitian unitarity means $\pZ^{\mathsf H}\pZ=1$, as in
-\eqref{eq:unitary-transform}. The phrase \emph{unit determinant} means
+The distinct conditions of invertibility, determinant one, and
+Hermitian unitarity were defined in Section~\ref{sec:unit-forms}.
+The phrase \emph{unit determinant} means
 only that the determinant equals one. It does not mean unit norm or
 Hermitian unitarity.
 
@@ -1604,7 +1602,7 @@ with $a\in\R$, $\bX\in\R^3$, and $a^2-\bX^2=1$ is considered.  Then
  \pX^*\pX=\det(\pX)=1,\qquad
  \pX^{-1}=\pX^*=a-\bX\dotprod\bsig.
 \]
-Thus determinant one implies invertibility.  Hermitian conjugation fixes
+Hermitian conjugation fixes
 $\pX$, whereas sigma conjugation reverses its vector part, so
 \begin{align*}
  \pX^{\mathsf H}\pX&=\pX^2=a^2+\bX^2+2a\bX\dotprod\bsig,\\
@@ -1721,15 +1719,14 @@ Changing the origin additionally requires a translation. Spatial
 reflections, time reversal, and general noninertial coordinate changes
 are outside this class of fixed linear transformations.
 
-For events $\pX=t+\br\dotprod\bsig$, a constant factor gives
-\[
+For a constant factor, differentiation gives
+\begin{equation}
  \dd\pX'=\pT(\dd\pX)\pT^{\mathsf H},\qquad
- \boxed{\dd s^2=\det(\dd\pX')=\det(\dd\pX)
-                  =\dd t^2-\dd\br^2.}
-\]
-Here $\dd s^2$ is the signed squared interval; on a time-like
-worldline it is the squared proper-time increment.
-The components $\dd t,\dd\br$ generally change.
+ \det(\dd\pX')=\det(\dd\pX).
+ \label{eq:constant-displacement-congruence}
+\end{equation}
+The coordinate and proper-time meanings of this invariant are developed
+in Section~\ref{sec:proper-time}. The displacement components generally change.
 Interval invariance does not require $\dd\pX'=\dd\pX$.
 Requiring equality of the differentials for every displacement would
 give only $\pX'=\pX+\pX_0$, with constant real translation $\pX_0$.
@@ -1774,6 +1771,125 @@ $\pL^{\mathsf H}=\pL$, while
 $\pL^{-1}=\exp(+\theta\bu\dotprod\bsig/2)$, different from $\pL$
 unless $\theta=0$. Normalizing $\pL$ to
 $\lVert\pL\rVert=1$ would change its determinant and lose the Lorentz metric.
+
+\subsection{Rotation action and Rodrigues' formula}
+\label{sec:algebra-rotation-action}
+
+Notation: the unitary factor
+$\pR=\exp(-\ii\theta\bu\dotprod\bsig/2)$ from
+\eqref{eq:rotation-exponential}, with real angle $\theta$ and
+\hyperref[def:real-unit-vector]{real unit axis} $\bu$.
+For the complex paravector $\pZ=c+\bZ\dotprod\bsig$, the following Hermitian congruence is used~\citeat{baylis2004}{Eq.~(5)}{page=4}
+\begin{equation}
+ \boxed{\pZ'=\pR \pZ \pR^{\mathsf H}.}
+ \label{eq:rotation-action}
+\end{equation}
+Since $\pR^{\mathsf H}=\pR^{-1}$ by \eqref{eq:rotation-H}, this keeps $c'=c$.
+The vector product
+\eqref{eq:vector-product} gives
+\begin{align*}
+ (\bu\dotprod\bsig)(\bZ\dotprod\bsig)(\bu\dotprod\bsig)
+ &=2(\bu\dotprod\bZ)\bu\dotprod\bsig-\bZ\dotprod\bsig,\\
+ [\bZ\dotprod\bsig,\bu\dotprod\bsig]
+ &=-2\ii(\bu\times\bZ)\dotprod\bsig.
+\end{align*}
+Inserting the sine and cosine forms of $\pR$ and $\pR^{\mathsf H}$ therefore yields
+\begin{align*}
+ \bZ'\dotprod\bsig
+ &={}\cos^2\left(\frac\theta2\right)\,\bZ\dotprod\bsig
+ +2\sin\left(\frac\theta2\right)\cos\left(\frac\theta2\right)
+       (\bu\times\bZ)\dotprod\bsig\\
+ &\quad+\sin^2\left(\frac\theta2\right)
+ (2(\bu\dotprod\bZ)\bu\dotprod\bsig-\bZ\dotprod\bsig).
+\end{align*}
+Rodrigues' formula is obtained by collecting terms~\citeat{baylis-intro}{p.~14}{page=14}:
+\begin{equation}
+ \boxed{\bZ'=\bZ\cos(\theta)+(\bu\times\bZ)\sin(\theta)
+ +(\bu\dotprod\bZ)(1-\cos(\theta))\bu.}
+ \label{eq:rodrigues}
+\end{equation}
+This is the active right-handed rotation through $+\theta$ about $\bu$.
+Rotating the coordinate axes through $+\theta$ instead uses the inverse map.
+It preserves the scalar part, determinant, norm, and the real
+paravector subspace. For complex $\bZ$, it rotates its real and imaginary
+parts by the same real rotation.  The sign change in
+\eqref{eq:rotation-two-pi} affects both factors in
+\eqref{eq:rotation-action}, so $\pZ'$ has period $2\pi$.
+
+\subsection{Boost action and its sign convention}
+\label{sec:algebra-boost-action}
+
+Notation: $\pL=\exp(-\theta\bu\dotprod\bsig/2)$ from
+\eqref{eq:boost-exponential}; $\theta\in\R$, $\bu\in\R^3$, $\bu^2=1$,
+$\beta=\tanh(\theta)$, and $\gamma=\cosh(\theta)$.
+The same congruence is used with $\pT=\pL$ and $\pL^{\mathsf H}=\pL$ from \eqref{eq:boost-H}~\citeat{baylis-intro}{Eq.~(24)}{page=20}:
+\begin{equation}
+ \boxed{\pZ'=\pL \pZ \pL.}
+ \label{eq:boost-action}
+\end{equation}
+The paravector $\pZ=c+\bZ\dotprod\bsig\in\C\oplus\C^3$ may be complex;
+the congruence also preserves its real subspace.
+$\bZ\in\C^3$ is resolved into parallel and perpendicular parts in $\C^3$:
+\begin{align*}
+ \bZ_{\parallel}&:=(\bu\dotprod\bZ)\bu,\\
+ \bZ_{\perp}&:=\bZ-\bZ_{\parallel}.
+\end{align*}
+The parallel term commutes with $\bu\dotprod\bsig$; the perpendicular term
+anticommutes with it.  Consequently,
+\begin{align*}
+ \pL(c+\bZ_{\parallel}\dotprod\bsig)\pL
+ &=(c+\bZ_{\parallel}\dotprod\bsig)\pL^2,\\
+ \pL(\bZ_{\perp}\dotprod\bsig)\pL
+ &=\bZ_{\perp}\dotprod\bsig.
+\end{align*}
+\Needspace{7\baselineskip}
+Using $\pL^2=\gamma(1-\beta\bu\dotprod\bsig)$ from
+\eqref{eq:boost-square}, multiplication gives~\citeat{tong-em}{Eq.~(5.1)}{page=104}
+\begin{equation}
+ \boxed{c'=\gamma(c-\beta\bu\dotprod\bZ),}
+ \label{eq:boost-scalar-component}
+\end{equation}
+\begin{equation}
+ \boxed{\bZ'=\bZ_{\perp}+\gamma(\bZ_{\parallel}-\beta c\bu).}
+ \label{eq:boost-vector-component}
+\end{equation}
+The equivalent longitudinal combinations expose the invariant directly:
+\begin{equation}
+ c'\pm\bu\dotprod\bZ'=e^{\mp\theta}(c\pm\bu\dotprod\bZ).
+ \label{eq:boost-null-components}
+\end{equation}
+Their product is $c^2-(\bu\dotprod\bZ)^2$; the transverse part is unchanged.
+Thus \eqref{eq:boost-null-components} preserves $c^2-\bZ^2$ and, for real
+$\pZ$, the null cone $c^2-\bZ^2=0$.
+
+The inverse map is $\pZ=\pL^{-1}\pZ'\pL^{-1}$, obtained by reversing $\theta$.
+Generally $\pL \pZ\ne \pZ \pL$: the scalar and parallel parts commute with $\pL$,
+while a nonzero perpendicular part does not for a nonzero boost.
+For any transverse vector $\bZ_\perp$ with $\bu\dotprod\bZ_\perp=0$,
+\[
+ \pL(\bZ_\perp\dotprod\bsig)
+ =(\bZ_\perp\dotprod\bsig)\pL^{-1},\qquad
+ \pL(\bZ_\perp\dotprod\bsig)\pL=\bZ_\perp\dotprod\bsig.
+\]
+Thus the two-sided action leaves every transverse component unchanged.
+For real inputs, the right factor cancels the imaginary transverse term
+introduced by the left factor. A single left factor, even at full rapidity,
+cannot represent the boost of every real paravector.
+
+\paragraph{Similarity action of the boost factor.}
+For $\pZ'=\pL \pZ \pL^{-1}$, the same commutation rules give $c'=c$ and
+\begin{equation}
+ \bZ'=\bZ_{\parallel}
+ +\gamma\bigl(\bZ_{\perp}-\ii\beta\bu\times\bZ\bigr).
+ \label{eq:boost-similarity-vector}
+\end{equation}
+This preserves scalar part and determinant, but fixes $\pZ=1$ and generally
+makes a real vector complex.  It does not mix scalar and vector components
+as the congruence does in
+\eqref{eq:boost-scalar-component}--\eqref{eq:boost-vector-component}.
+In particular, similarity preserves the scalar-free subspace;
+a nonzero boost congruence gives a nonzero scalar part to
+$\pZ=z\bu\dotprod\bsig$ for any nonzero $z\in\C$.
 
 \subsection{Boost and rotation factorization}
 \label{sec:boost-rotation-factorization}
@@ -1866,50 +1982,6 @@ For a nonzero boost, this condition means that the rotation leaves
 the boost direction unchanged, as for a rotation about the boost axis.
 It also holds when either factor is the identity. Otherwise the boost
 must change from $\pL$ to $\pL'$ when the order is reversed.
-
-\subsection{Rotation action and Rodrigues' formula}
-\label{sec:algebra-rotation-action}
-
-Notation: the unitary factor
-$\pR=\exp(-\ii\theta\bu\dotprod\bsig/2)$ from
-\eqref{eq:rotation-exponential}, with real angle $\theta$ and
-\hyperref[def:real-unit-vector]{real unit axis} $\bu$.
-For the complex paravector $\pZ=c+\bZ\dotprod\bsig$, the following Hermitian congruence is used~\citeat{baylis2004}{Eq.~(5)}{page=4}
-\begin{equation}
- \boxed{\pZ'=\pR \pZ \pR^{\mathsf H}.}
- \label{eq:rotation-action}
-\end{equation}
-Since $\pR^{\mathsf H}=\pR^{-1}$ by \eqref{eq:rotation-H}, this keeps $c'=c$.
-The vector product
-\eqref{eq:vector-product} gives
-\begin{align*}
- (\bu\dotprod\bsig)(\bZ\dotprod\bsig)(\bu\dotprod\bsig)
- &=2(\bu\dotprod\bZ)\bu\dotprod\bsig-\bZ\dotprod\bsig,\\
- [\bZ\dotprod\bsig,\bu\dotprod\bsig]
- &=-2\ii(\bu\times\bZ)\dotprod\bsig.
-\end{align*}
-Inserting the sine and cosine forms of $\pR$ and $\pR^{\mathsf H}$ therefore yields
-\begin{align*}
- \bZ'\dotprod\bsig
- &={}\cos^2\left(\frac\theta2\right)\,\bZ\dotprod\bsig
- +2\sin\left(\frac\theta2\right)\cos\left(\frac\theta2\right)
-       (\bu\times\bZ)\dotprod\bsig\\
- &\quad+\sin^2\left(\frac\theta2\right)
- (2(\bu\dotprod\bZ)\bu\dotprod\bsig-\bZ\dotprod\bsig).
-\end{align*}
-Rodrigues' formula is obtained by collecting terms~\citeat{baylis-intro}{p.~14}{page=14}:
-\begin{equation}
- \boxed{\bZ'=\bZ\cos(\theta)+(\bu\times\bZ)\sin(\theta)
- +(\bu\dotprod\bZ)(1-\cos(\theta))\bu.}
- \label{eq:rodrigues}
-\end{equation}
-This is the active right-handed rotation through $+\theta$ about $\bu$.
-Rotating the coordinate axes through $+\theta$ instead uses the inverse map.
-It preserves the scalar part, determinant, norm, and the real
-paravector subspace. For complex $\bZ$, it rotates its real and imaginary
-parts by the same real rotation.  The sign change in
-\eqref{eq:rotation-two-pi} affects both factors in
-\eqref{eq:rotation-action}, so $\pZ'$ has period $2\pi$.
 
 \subsection{Quaternions as paravectors}
 \label{sec:quaternions}
@@ -2007,81 +2079,6 @@ $\bZ=\br$.  Thus $\pR=\pQ$, and the quaternion sandwich is exactly
 $\pR(\br\dotprod\bsig)\pR^{\mathsf H}$ from \eqref{eq:rotation-action}.
 The reversed sandwich $\pQ^{\mathsf H}(\br\dotprod\bsig)\pQ$ gives the inverse rotation.
 
-\subsection{Boost action and its sign convention}
-\label{sec:algebra-boost-action}
-
-Notation: $\pL=\exp(-\theta\bu\dotprod\bsig/2)$ from
-\eqref{eq:boost-exponential}; $\theta\in\R$, $\bu\in\R^3$, $\bu^2=1$,
-$\beta=\tanh(\theta)$, and $\gamma=\cosh(\theta)$.
-The same congruence is used with $\pT=\pL$ and $\pL^{\mathsf H}=\pL$ from \eqref{eq:boost-H}~\citeat{baylis-intro}{Eq.~(24)}{page=20}:
-\begin{equation}
- \boxed{\pZ'=\pL \pZ \pL.}
- \label{eq:boost-action}
-\end{equation}
-The paravector $\pZ=c+\bZ\dotprod\bsig\in\C\oplus\C^3$ may be complex;
-the congruence also preserves its real subspace.
-$\bZ\in\C^3$ is resolved into parallel and perpendicular parts in $\C^3$:
-\begin{align*}
- \bZ_{\parallel}&:=(\bu\dotprod\bZ)\bu,\\
- \bZ_{\perp}&:=\bZ-\bZ_{\parallel}.
-\end{align*}
-The parallel term commutes with $\bu\dotprod\bsig$; the perpendicular term
-anticommutes with it.  Consequently,
-\begin{align*}
- \pL(c+\bZ_{\parallel}\dotprod\bsig)\pL
- &=(c+\bZ_{\parallel}\dotprod\bsig)\pL^2,\\
- \pL(\bZ_{\perp}\dotprod\bsig)\pL
- &=\bZ_{\perp}\dotprod\bsig.
-\end{align*}
-\Needspace{7\baselineskip}
-Using $\pL^2=\gamma(1-\beta\bu\dotprod\bsig)$ from
-\eqref{eq:boost-square}, multiplication gives~\citeat{tong-em}{Eq.~(5.1)}{page=104}
-\begin{equation}
- \boxed{c'=\gamma(c-\beta\bu\dotprod\bZ),}
- \label{eq:boost-scalar-component}
-\end{equation}
-\begin{equation}
- \boxed{\bZ'=\bZ_{\perp}+\gamma(\bZ_{\parallel}-\beta c\bu).}
- \label{eq:boost-vector-component}
-\end{equation}
-The equivalent longitudinal combinations expose the invariant directly:
-\begin{equation}
- c'\pm\bu\dotprod\bZ'=e^{\mp\theta}(c\pm\bu\dotprod\bZ).
- \label{eq:boost-null-components}
-\end{equation}
-Their product is $c^2-(\bu\dotprod\bZ)^2$; the transverse part is unchanged.
-Thus \eqref{eq:boost-null-components} preserves $c^2-\bZ^2$ and, for real
-$\pZ$, the null cone $c^2-\bZ^2=0$.
-
-The inverse map is $\pZ=\pL^{-1}\pZ'\pL^{-1}$, obtained by reversing $\theta$.
-Generally $\pL \pZ\ne \pZ \pL$: the scalar and parallel parts commute with $\pL$,
-while a nonzero perpendicular part does not for a nonzero boost.
-For any transverse vector $\bZ_\perp$ with $\bu\dotprod\bZ_\perp=0$,
-\[
- \pL(\bZ_\perp\dotprod\bsig)
- =(\bZ_\perp\dotprod\bsig)\pL^{-1},\qquad
- \pL(\bZ_\perp\dotprod\bsig)\pL=\bZ_\perp\dotprod\bsig.
-\]
-Thus the two-sided action leaves every transverse component unchanged.
-For real inputs, the right factor cancels the imaginary transverse term
-introduced by the left factor. A single left factor, even at full rapidity,
-cannot represent the boost of every real paravector.
-
-\paragraph{Similarity action of the boost factor.}
-For $\pZ'=\pL \pZ \pL^{-1}$, the same commutation rules give $c'=c$ and
-\begin{equation}
- \bZ'=\bZ_{\parallel}
- +\gamma\bigl(\bZ_{\perp}-\ii\beta\bu\times\bZ\bigr).
- \label{eq:boost-similarity-vector}
-\end{equation}
-This preserves scalar part and determinant, but fixes $\pZ=1$ and generally
-makes a real vector complex.  It does not mix scalar and vector components
-as the congruence does in
-\eqref{eq:boost-scalar-component}--\eqref{eq:boost-vector-component}.
-In particular, similarity preserves the scalar-free subspace;
-a nonzero boost congruence gives a nonzero scalar part to
-$\pZ=z\bu\dotprod\bsig$ for any nonzero $z\in\C$.
-
 \section{Space--time kinematics}
 \label{sec:kinematics}
 
@@ -2114,13 +2111,8 @@ The displacement and its Minkowski interval are~\citeat{baylis-intro}{Eq.~(7)}{p
 The interval is positive, zero, or negative for time-like, null, or
 space-like displacements. Along a massive particle's path it equals
 $\dd s^2$; a null path has no elapsed proper time.
-By \eqref{eq:general-lorentz-congruence}, a constant complex
-\hyperref[eq:unit-paravector]{invertible paravector} $\pT$ with
-\hyperref[eq:unit-determinant-paravector]{$\det(\pT)=1$} gives
-\[
- \dd \pX'=\pT\dd \pX \pT^{\mathsf H},
- \qquad \det(\dd \pX')=\det(\dd\pX).
-\]
+Its invariance under a constant determinant-one factor follows from
+\eqref{eq:constant-displacement-congruence}.
 For a rotation, $\pX'=\pR\pX\pR^{\mathsf H}$ leaves $t'=t$ and
 acts on $\br$ by Rodrigues' formula~\eqref{eq:rodrigues}.
 For real displacements, the product also gives
@@ -2248,12 +2240,18 @@ Its normalization and conjugates are
  \pU^{-1}=\pU^*=\gamma(1-\bv\dotprod\bsig).
  \label{eq:proper-velocity-star-normalization}
 \end{equation}
+This normalization holds at each event on any smooth future-directed
+time-like worldline, including accelerated motion. Acceleration changes
+$\pU$ while it remains on the future unit hyperboloid $\det(\pU)=1$.
+Section~\ref{sec:velocity-frame-transformations} shows how this remains
+true in a changing local Lorentz frame.
 Determinant one is distinct from Hermitian unitarity:
-\[
+\begin{align*}
  \pU^{\mathsf H}\pU=\pU^2
- =2\gamma^2-1+2\gamma^2\bv\dotprod\bsig,\qquad
- \lVert\pU\rVert^2=2\gamma^2-1.
-\]
+ &=2\gamma^2-1+2\gamma^2\bv\dotprod\bsig,\\
+ \lVert\pU\rVert^2&=\gamma^2(1+\bv^2)
+ =2\gamma^2-1=\frac{1+\bv^2}{1-\bv^2}.
+\end{align*}
 Both equal $1$ only at rest. Thus four-velocity has determinant one in
 every inertial frame but is Hermitian unitary only in its rest frame.
 For a \hyperref[def:real-unit-vector]{real unit direction} $\bu$, $\bv=\beta\bu$ and
@@ -2384,28 +2382,21 @@ because $\dd t'=\gamma(\dd t-\beta\bu\dotprod\dd\br)>0$ when
 $\dd t>0$ and $\dd t\geq\lVert\dd\br\rVert$
 \citeat{tong-relativity}{p.~118}{page=124}.
 
-Along a future-directed time-like path,
-$\dd s^2=\dd t'^2-\dd\br'^2$. With
-$\bv'=\dd\br'/\dd t'$ and particle Lorentz factor
-$\gamma'=\dd t'/\dd s=(1-\bv'^2)^{-1/2}$, the squared four-velocity norm is
-\begin{align*}
- \left\lVert\frac{\dd\pX'}{\dd s}\right\rVert^2
- &=\left(\frac{\dd t'}{\dd s}\right)^2
-   +\left(\frac{\dd\br'}{\dd s}\right)^2\\
- &=2\left(\frac{\dd t'}{\dd s}\right)^2-1\\
- &=2\gamma'^2-1
- =\frac{1+\bv'^2}{1-\bv'^2}.
-\end{align*}
-Likewise, in the unprimed frame,
+Along a future-directed time-like path, $\dd s$ is invariant. The
+normalization and norm derived in Section~\ref{sec:worldlines} apply
+separately to each inertial frame:
 \[
- \left\lVert\frac{\dd\pX}{\dd s}\right\rVert^2
- =2\left(\frac{\dd t}{\dd s}\right)^2-1
- =\frac{1+\bv^2}{1-\bv^2}.
+ \det(\pU')=\det(\pU)=1,\qquad
+ \lVert\pU'\rVert^2=2\gamma'^2-1,\qquad
+ \lVert\pU\rVert^2=2\left(\frac{\dd t}{\dd s}\right)^2-1.
 \]
-Each norm equals $1$ only at rest in its corresponding frame, whereas
-$\det(\dd\pX'/\dd s)=1$ in every inertial frame.
-Proper time and causality are determined by the determinant; these
-Lorentz transformations would not be obtained by preserving the squared norm.
+Here $\pU'=\dd\pX'/\dd s$ and
+$\gamma'=\dd t'/\dd s=(1-\bv'^2)^{-1/2}$ belong to the
+particle, whereas $\gamma=\cosh(\theta)$ in
+\eqref{eq:lorentz-time} belongs to the frame boost.
+Each positive norm equals one only at rest in its corresponding frame.
+Proper time and causality are determined by the determinant; imposing
+positive-norm invariance would exclude boosts.
 
 \subsection{The same events in two frames}
 \label{sec:event-comparison}
@@ -2486,18 +2477,26 @@ the interval is zero.
 \FloatBarrier
 
 \subsection{Spacetime increments and velocity}
-Notation: the real four-velocity $\pU=\dd \pX/\dd s$, an
-\hyperref[eq:unit-paravector]{invertible paravector} with $\pU \pU^{-1}=1$,
-along a real world line $\pX(s)$.  For constant $\pL$, differentiation gives
+\label{sec:inertial-velocity-transformation}
+For a constant determinant-one factor $\pT$, the event displacement
+law \eqref{eq:constant-displacement-congruence} and invariant positive
+proper-time increment give
+\[
+ \pU'=\frac{\dd\pX'}{\dd s'}
+ =\pT\frac{\dd\pX}{\dd s}\pT^{\mathsf H}
+ =\pT\pU\pT^{\mathsf H},\qquad \dd s'=\dd s.
+\]
+This applies to every time-like worldline, whether or not its velocity
+is constant. For the boost $\pT=\pL$, it specializes to
 \begin{equation}
- \dd \pX'=\pL\dd \pX \pL.
+ \dd\pX'=\pL\dd\pX\pL,\qquad \pU'=\pL\pU\pL.
  \label{eq:boost-worldline-step}
 \end{equation}
-Because $\dd s$ is invariant, $\pU'=\pL \pU \pL$.  At a point where
+At a point where
 $\pU=\pL^{-2}=\gamma(1+\beta\bu\dotprod\bsig)$, this gives $\pU'=1$ and
 $\dd \pX'=\dd s$: the boost takes the particle's instantaneous tangent
 to rest.  For varying velocity, a different $\pL$ is needed at each point;
-Section~\ref{sec:varying-transformations} supplies its derivative terms.
+Section~\ref{sec:velocity-frame-transformations} supplies its derivative terms.
 
 The particle velocity $\bv=\dot{\br}$ is resolved along
 $\bu$.  Dividing the spatial increment by
@@ -2671,6 +2670,12 @@ For constant invariant mass $m>0$, the real four-momentum $\pP\in\R\oplus\R^3$ i
  \pP:=m\pU=E+\bp\dotprod\bsig.
  \label{eq:four-momentum}
 \end{equation}
+Since $m$ is a Lorentz scalar, the transformation of $\pU$ just
+derived also fixes that of momentum:
+\[
+ \pP'=m\pU'=\pT(m\pU)\pT^{\mathsf H}
+ =\pT\pP\pT^{\mathsf H}.
+\]
 Energy and momentum are
 \begin{align*}
  E&=\scpart {\pP}=m\frac{\dd t}{\dd s}=\frac{m}{\sqrt{1-\bv^2}},\\
@@ -2838,6 +2843,55 @@ $\dd\pU/\dd s$. Proper acceleration is measured by an accelerometer.
 \subsection{Four-acceleration and proper acceleration}
 \label{sec:proper-acceleration}
 
+\paragraph{Proper time and the unit velocity hyperboloid.}
+Use a fixed inertial basis and let $s$ be proper time on a smooth
+future-directed time-like worldline. The normalization
+$\det(\pU)=1$ was derived from $\dd\pX=\pU\dd s$ in
+\eqref{eq:proper-velocity-star-normalization}; it holds at every
+event, independently of whether $\pU$ is changing.
+Differentiating it gives
+\begin{equation}
+ \boxed{\frac{\dd}{\dd s}\det(\pU)
+ =2\scpart*{\pU^*\frac{\dd\pU}{\dd s}}=0.}
+ \label{eq:velocity-hyperboloid-tangent}
+\end{equation}
+Thus acceleration is tangent to the unit hyperboloid in velocity
+space, or equivalently Minkowski-orthogonal to $\pU$.
+The equation $\dd(\det(\pU))/\dd s=0$ does not say that
+$\det(\dd\pU/\dd s)=0$: differentiating and taking a determinant
+are different operations. A null worldline has $\dd s=0$ and
+cannot use this proper-time definition of $\pU$.
+
+\paragraph{Differentiate with a specified parameter.}
+The relation $\dd\pX=\pU\dd s$ is made unambiguous by using ordinary
+derivatives. With $s$ as the independent parameter,
+\[
+ \frac{\dd\pX}{\dd s}=\pU,\qquad
+ \frac{\dd^2\pX}{\dd s^2}=\frac{\dd\pU}{\dd s}.
+\]
+For any other smooth parameter $\lambda$ with $\dd s/\dd\lambda>0$,
+the product and chain rules instead give
+\begin{equation}
+ \boxed{\begin{aligned}
+ \frac{\dd\pX}{\dd\lambda}
+ &=\pU\frac{\dd s}{\dd\lambda},\\
+ \frac{\dd^2\pX}{\dd\lambda^2}
+ &=\frac{\dd\pU}{\dd s}
+       \left(\frac{\dd s}{\dd\lambda}\right)^2
+   +\pU\frac{\dd^2s}{\dd\lambda^2}.
+ \end{aligned}}
+ \label{eq:worldline-parameter-chain-rule}
+\end{equation}
+The second term accounts for a changing parameter rate. This
+replaces the ambiguous notation $\dd(\dd s)$; no extra term occurs
+when the chosen parameter is $s$ itself.
+It does not assume that $\dd s/\dd t$ is constant. In particular,
+choosing $\lambda=t$ gives
+$\dd^2s/\dd t^2=-\dot\gamma/\gamma^2$.
+The notation $\dd^2\pX/\dd s^2$ denotes an ordinary second
+derivative, not two applications of the exterior differential.
+
+\paragraph{Coordinate-time components.}
 Coordinate-time derivatives are first obtained:
 \begin{align*}
  \dot{\gamma}&=\gamma^3(\bv\dotprod\dot{\bv}),\\
@@ -2989,7 +3043,518 @@ invariant $m$ is retained: the longitudinal and transverse inertia in
 For the Lorentz force, the corresponding acceleration components are
 derived in \eqref{eq:lorentz-acceleration-projections}.
 
-\subsection{Differentiating a changing Lorentz frame}
+\subsection{Fixed-axis acceleration}
+\label{sec:fixed-axis-acceleration}
+For the orthonormal pair $\pU,\pN$ in Section~\ref{sec:fixed-axis},
+the first derivatives exchange the two directions:
+\[
+ \dot{\pU}=\dot{\theta}\pN,\qquad
+ \dot{\pN}=\dot{\theta}\pU,\qquad
+ \det(\dot{\pU})=-\dot{\theta}^2.
+\]
+Differentiating $\beta=\tanh(\theta)$ gives
+\[
+ \dot{\beta}=\gamma^{-2}\dot{\theta}.
+\]
+Since $\dot{s}=1/\gamma$, the chain rule gives
+\[
+ \dot{\theta}=\frac{\dd\theta}{\dd s}\dot{s},\qquad
+ \frac{\dd\theta}{\dd s}=\gamma\dot{\theta}=\gamma^3\dot{\beta}.
+\]
+These are ordinary derivatives of the same rapidity along the path.
+The signed proper acceleration is $\dd\theta/\dd s$.
+By scaling the coordinate derivatives,
+\[
+ \frac{\dd\pU}{\dd s}=\frac{\dd\theta}{\dd s}\pN=\gamma\dot{\theta}\pN,\qquad
+ \frac{\dd\pN}{\dd s}=\gamma\dot{\theta}\pU,\qquad
+ \det\left(\frac{\dd\pU}{\dd s}\right)=-\gamma^2\dot{\theta}^2.
+\]
+The proper-acceleration magnitude is therefore $\gamma|\dot\theta|$.
+
+\subsection{Constant coordinate acceleration}
+\label{sec:constant-coordinate-acceleration}
+In the following examples, subscript $0$ denotes the initial event $t=s=0$.
+Constant coordinate acceleration means that $\dot{\bv}=\dot{\bv}_0$
+is a fixed real vector in a chosen inertial frame. With initial position
+$\br(0)=\br_0$ and velocity $\bv(0)=\bv_0$, integration gives
+\begin{align}
+ \bv(t)&=\bv_0+\dot{\bv}_0t,\\
+ \pX(t)&=t+(\br_0+\bv_0t+\tfrac12\dot{\bv}_0t^2)\dotprod\bsig.
+ \label{eq:constant-coordinate-acceleration-worldline}
+\end{align}
+These familiar coordinate-time formulas also describe a relativistic
+massive particle, provided $\lVert\bv_0+\dot{\bv}_0t\rVert<1$ throughout the
+interval considered. A nonzero constant coordinate acceleration can
+therefore persist only for a finite coordinate-time interval.
+
+For motion from rest at the origin, the notation $\dot{\bv}_0=\dot{v}_0\bu$ is used,
+where $\dot{v}_0>0$ is the scalar acceleration along the fixed real unit
+vector $\bu$. Then
+\[
+ \bv(t)=\dot{v}_0t\bu,\qquad
+ \pX(t)=t+\tfrac12\dot{v}_0t^2\bu\dotprod\bsig,\qquad
+ \gamma(t)=\frac{1}{\sqrt{1-\dot{v}_0^2t^2}},
+ \qquad 0\le t<\frac{1}{\dot{v}_0}.
+\]
+The particle's clock runs at $\dot{s}=1/\gamma(t)$. Taking $s(0)=0$
+in \eqref{eq:elapsed-proper-time} gives
+\begin{equation}
+ s(t)=\int_0^t\sqrt{1-\dot{v}_0^2t'^2}\,\dd t'
+ =\frac{\arcsin(\dot{v}_0t)+\dot{v}_0t\sqrt{1-\dot{v}_0^2t^2}}{2\dot{v}_0}.
+ \label{eq:constant-coordinate-acceleration-clock}
+\end{equation}
+Four-velocity and four-acceleration follow by differentiating the world line:
+\begin{align*}
+ \pU(t)&=\gamma(t)(1+\dot{v}_0t\bu\dotprod\bsig),\\
+ \frac{\dd\pU}{\dd s}
+ &=\gamma\dot{\pU}
+ =\gamma^4\dot{v}_0^2t+\gamma^4\dot{v}_0\bu\dotprod\bsig.
+\end{align*}
+Consequently,
+\[
+ \det\left(\frac{\dd\pU}{\dd s}\right)
+ =\gamma^8\dot{v}_0^2(\dot{v}_0^2t^2-1)
+ =-\gamma^6\dot{v}_0^2.
+\]
+The proper-acceleration magnitude is therefore
+\[
+ \sqrt{-\det\left(\frac{\dd\pU}{\dd s}\right)}=\gamma^3\dot{v}_0
+ =\frac{\dot{v}_0}{(1-\dot{v}_0^2t^2)^{3/2}}.
+\]
+Although the coordinate acceleration stays fixed, the acceleration
+measured in the instantaneous rest frame grows without bound as
+$t\to1/\dot{v}_0$. The next example instead holds the proper acceleration fixed.
+
+\subsection{Constant proper acceleration}
+\label{sec:constant-proper-acceleration}
+A fixed \hyperref[def:real-unit-vector]{real unit axis} $\bu$ is chosen,
+and the initial conditions $\pX(0)=0$, $\pU(0)=1$ are imposed, with
+initial coordinate acceleration $\dot{\bv}_0=\dot{v}_0\bu$, where $\dot{v}_0>0$.
+At rest $\gamma_0=1$ and $\dot{\theta}_0=\dot{v}_0$. Holding the signed
+proper acceleration along this axis constant gives
+$\theta(s)=\dot{v}_0s$, and hence
+\[
+ \pU(s)=\pL(\dot{v}_0s,\bu)^{-2}=\cosh(\dot{v}_0s)+\sinh(\dot{v}_0s)\bu\dotprod\bsig.
+\]
+The stated acceleration is verified by differentiation:
+\[
+ \det\left(\frac{\dd \pU}{\dd s}\right)
+ =-\dot{v}_0^2\bigl(\cosh^2(\dot{v}_0s)-\sinh^2(\dot{v}_0s)\bigr)=-\dot{v}_0^2.
+\]
+Integrating \eqref{eq:worldline-integral} yields~\citeat{tong-relativity}{Eq.~(7.33), pp.~142--143}{page=148}
+\begin{equation}
+ \pX(s)=\frac{\sinh(\dot{v}_0s)}{\dot{v}_0}
+       +\frac{\cosh(\dot{v}_0s)-1}{\dot{v}_0}\bu\dotprod\bsig.
+ \label{eq:hyperbolic-worldline}
+\end{equation}
+In components,
+\begin{align*}
+ \bv(t(s))&=\tanh(\dot{v}_0s)\bu,\\
+ \bigl(1+\dot{v}_0\bu\dotprod\br\bigr)^2-(\dot{v}_0t)^2&=1.
+\end{align*}
+Thus \eqref{eq:hyperbolic-worldline} is the usual hyperbolic motion, with
+speed below light speed at every finite $s$.
+Eliminating $s$ using $\dot{v}_0t=\sinh(\dot{v}_0s)$ makes the coordinate acceleration explicit:
+\[
+ \bv(t)=\frac{\dot{v}_0t}{\sqrt{1+\dot{v}_0^2t^2}}\bu,\qquad
+ \dot{\bv}(t)
+ =\frac{\dot{v}_0}{(1+\dot{v}_0^2t^2)^{3/2}}\bu.
+\]
+Here $\gamma(t)=\sqrt{1+\dot{v}_0^2t^2}$, so
+$\gamma^3\lVert\dot{\bv}(t)\rVert=\dot{v}_0$ is constant while the coordinate
+acceleration decreases as the particle gains speed.
+
+\subsection{A trip with midpoint braking}
+\label{sec:rocket-trip}
+Departure and destination are at rest in one inertial frame, separated by
+$\ell\in\R_{>0}$ along a fixed real unit vector $\bu$. Flat spacetime and initial
+conditions $t=s=0$, $\br=0$, $\bv=0$ are assumed. Two equal burns at
+constant proper-acceleration magnitude $\dot v_0>0$ are joined by an
+instantaneous thrust reversal; arrival is at rest. This is a prescribed trajectory;
+fuel consumption and the duration of the reversal are not modeled.
+
+\paragraph{Rapidity and derivatives.}
+The reversal times are $s_m,t_m\in\R_{>0}$; arrival occurs at
+$2s_m$ and $2t_m$. With $\dd\theta/\dd s=+\dot v_0$ during acceleration
+and $-\dot v_0$ during braking, integration gives
+\begin{equation}
+ \theta(s)=\begin{cases}
+  \dot v_0s,&0\le s\le s_m,\\
+  \dot v_0(2s_m-s),&s_m\le s\le2s_m.
+ \end{cases}
+ \label{eq:rocket-rapidity}
+\end{equation}
+Throughout the trip,
+\[
+ v=\tanh(\theta),\qquad \bv=v\bu,\qquad
+ \gamma=\cosh(\theta),\qquad \dot s=\gamma^{-1}.
+\]
+On the open burn intervals, the upper sign denotes acceleration and the
+lower sign braking. The derivatives are obtained directly:
+\begin{align}
+ \pU&=\cosh(\theta)+\sinh(\theta)\,\bu\dotprod\bsig,\notag\\
+ \frac{\dd\pU}{\dd s}
+ &=\pm\dot v_0(\sinh(\theta)+\cosh(\theta)\,\bu\dotprod\bsig),\notag\\
+ \dot\pU&=\frac{1}{\gamma}\frac{\dd\pU}{\dd s}
+ =\pm\dot v_0(v+\bu\dotprod\bsig),\notag\\
+ \dot v&=\pm\frac{\dot v_0}{\gamma^3},\qquad
+ \dot{\bv}=\dot v\bu,\qquad
+ \dot\gamma=\pm\dot v_0v.
+ \label{eq:rocket-derivatives}
+\end{align}
+The acceleration is entirely tangential; the perpendicular component
+vanishes. Although $\lVert\dot{\bv}\rVert$ varies, the proper-acceleration
+magnitude is fixed:
+\[
+ \det(\pU)=1,\qquad
+ \sqrt{-\det\left(\frac{\dd\pU}{\dd s}\right)}
+ =\gamma^3\lVert\dot{\bv}\rVert=\dot v_0.
+\]
+
+\paragraph{Position, clocks, and arrival.}
+By integrating $\dd t/\dd s=\cosh(\theta)$ and
+$\dd\br/\dd s=\sinh(\theta)\,\bu$, the continuous worldline is obtained:
+\begin{align}
+ t(s)&=\begin{cases}
+  \sinh(\theta(s))/\dot v_0,&0\le s\le s_m,\\
+  2t_m-\sinh(\theta(s))/\dot v_0,&s_m\le s\le2s_m,
+ \end{cases}\notag\\
+ \br(s)&=\begin{cases}
+  \bigl(\cosh(\theta(s))-1\bigr)\bu/\dot v_0,&0\le s\le s_m,\\
+  \bu\bigl(\ell-\bigl(\cosh(\theta(s))-1\bigr)/\dot v_0\bigr),
+    &s_m\le s\le2s_m.
+ \end{cases}
+ \label{eq:rocket-worldline}
+\end{align}
+Continuity at the reversal fixes the midpoint and burn durations:
+\begin{align}
+ \br(s_m)&=\tfrac12\bu \ell,\qquad
+ \gamma_m:=\cosh(\dot v_0s_m)=1+\frac{\dot v_0\ell}{2},\notag\\
+ s_m&=\frac{\operatorname{arcosh}(1+\dot v_0\ell/2)}{\dot v_0},\qquad
+ t_m=\sqrt{\frac{\ell}{\dot v_0}+\frac{\ell^2}{4}},\notag\\
+ v_{\max}&=\sqrt{1-\gamma_m^{-2}}.
+ \label{eq:rocket-trip-times}
+\end{align}
+Thus $\br(2s_m)=\bu \ell$ and $\pU(0)=\pU(2s_m)=1$.
+For evaluation in coordinate time, the same expressions are used with
+\[
+ \theta(t)=\begin{cases}
+  \operatorname{arsinh}(\dot v_0t),&0\le t\le t_m,\\
+  \operatorname{arsinh}\bigl(\dot v_0(2t_m-t)\bigr),&t_m\le t\le2t_m.
+ \end{cases}
+\]
+In particular, $\lVert\dot{\bv}\rVert$ decreases to
+$\dot v_0/\gamma_m^3$ before the reversal and increases back to
+$\dot v_0$ during braking.
+
+\paragraph{The thrust reversal.}
+Position, both clocks, velocity, and four-velocity are continuous at the
+midpoint. The one-sided values of $\dot{\bv}$, $\dot\pU$, and
+$\dd\pU/\dd s$ are opposite; these derivatives are undefined at the ideal
+instantaneous reversal. The thrust is reversed, not the direction of travel.
+The jerk during each burn and through a finite reversal is discussed in
+Section~\ref{sec:reversal-jerk}.
+Figure~\ref{fig:rocket-trip} compares the trajectory, acceleration, and
+clocks for a trip with $\dot v_0\ell=2$.
+
+\begin{figure}[p]
+ \centering
+ \includegraphics[width=\textwidth]{figures/rocket_trip.pdf}
+ \caption{Midpoint braking in flat spacetime, with $x=\bu\dotprod\br\in\R$
+ and $\dot v_0\ell=2$. Dotted guides mark the reversal at $t=t_m$.
+ The trajectory and speed remain continuous while the signed acceleration
+ changes abruptly; open circles show its one-sided values.
+ The proper-acceleration magnitude stays fixed, whereas
+ $|\dot v|=\dot v_0/\gamma^3$ varies.
+ The reduced clock rate accumulates to a shorter onboard elapsed time.
+ All plotted axes use the natural units of the main text.}
+ \label{fig:rocket-trip}
+\end{figure}
+
+\begin{SIunits}{Trip parameters}
+In the following SI formulas, $\dot v_0$ is the initial acceleration in
+metres per second squared, also equal to the constant proper-acceleration
+magnitude. The distance $\ell$ is in metres, $t_{\mathrm{trip}}$ is
+the elapsed departure-frame time in seconds, and $\tau_{\mathrm{trip}}$
+is the elapsed onboard proper time in seconds. Restoring units in
+\eqref{eq:rocket-trip-times} gives
+\begin{align*}
+ &t_{\mathrm{trip}}
+ =\sqrt{\frac{\ell^2}{c^2}+\frac{4\ell}{\dot v_0}},\\
+ &\tau_{\mathrm{trip}}
+ =\frac{2c}{\dot v_0}\operatorname{arcosh}\left(1+\frac{\dot v_0\ell}{2c^2}\right),\\
+ &v_{\max}
+ =c\sqrt{1-\left(1+\frac{\dot v_0\ell}{2c^2}\right)^{-2}}.
+\end{align*}
+For a specified onboard duration and peak speed, the required proper
+acceleration is fixed by the midpoint rapidity:
+\[
+ \dot v_0=\frac{2c}{\tau_{\mathrm{trip}}}
+ \operatorname{artanh}\!\left(\frac{v_{\max}}{c}\right).
+\]
+\end{SIunits}
+
+% Flush the Section 8 trip figure before starting the next section.
+\clearpage
+\section{Changing Lorentz frames}
+\label{sec:changing-frames}
+
+A changing choice of Lorentz frame is distinguished from the particle's
+motion and from a coordinate map assigning events to a moving observer.
+The frame generator and product rules are developed first, then applied
+to four-velocity and to event maps. Throughout, $\pT$ is smooth with
+$\det(\pT)=1$. The parameter used in each derivative is stated explicitly.
+
+\subsection{Frame generator and parameter}
+\label{sec:frame-generator-calculus}
+
+Let $\lambda$ be any smooth real curve parameter and
+$\pT(\lambda)\in\C\oplus\C^3$ have determinant one.
+The symbol $\pvOmega$ below denotes the rate with respect to this
+specified parameter.
+First distinguish the derivative of $\pT$ from the derivative of
+its inverse. Differentiating $\pT\pT^{-1}=1$ gives
+\begin{align*}
+ (\dd\pT)\pT^{-1}+\pT\dd(\pT^{-1})&=0,\\
+ \dd(\pT^{-1})&=-\pT^{-1}(\dd\pT)\pT^{-1}.
+\end{align*}
+The minus sign belongs to the derivative of the inverse. Define
+the frame generator per unit of the chosen parameter:
+\begin{equation}
+ \pvOmega:=\frac{\dd\pT}{\dd\lambda}\pT^{-1},\qquad
+ \scpart{\pvOmega}=0.
+ \label{eq:frame-generator}
+\end{equation}
+The zero scalar part follows from
+$\dd(\det(\pT))/\dd\lambda=2\scpart{\pvOmega}=0$.
+Multiplying the definition on the right by $\pT$, and applying
+the inverse-derivative rule separately, gives
+\[
+ \boxed{\frac{\dd\pT}{\dd\lambda}=\pvOmega\pT,\qquad
+ \frac{\dd(\pT^{-1})}{\dd\lambda}=-\pT^{-1}\pvOmega.}
+\]
+Thus $(\dd\pT)\pT^{-1}=\pvOmega\dd\lambda$, not $\pvOmega$ alone.
+Hermitian conjugation reverses the order, so
+\[
+ \pvOmega^{\mathsf H}
+ =\pT^{-\mathsf H}\frac{\dd\pT^{\mathsf H}}{\dd\lambda},
+ \qquad
+ \frac{\dd\pT^{\mathsf H}}{\dd\lambda}
+ =\pT^{\mathsf H}\pvOmega^{\mathsf H}.
+\]
+The same frame has different rates for different parameters. Along a
+worldline with proper time $s$,
+\[
+ \frac{\dd\pT}{\dd s}\pT^{-1}
+ =\frac{\dd\lambda}{\dd s}
+   \frac{\dd\pT}{\dd\lambda}\pT^{-1}.
+\]
+Thus the symbol $\pvOmega$ must always be read with its stated clock.
+For a constant frame factor, $\pvOmega=0$ for every regular parameter.
+
+\subsection{Differentiating congruence and similarity}
+\label{sec:varying-transformations}
+
+Let $\pZ(\lambda)$ be a twice-differentiable complex paravector along the
+same curve. The following identities use only ordered multiplication
+and the product rule. Congruence preserves reality when $\pZ$ is real;
+similarity is a different action and must be differentiated separately.
+A fixed coordinate chart is understood when $\pZ$ represents a field
+sampled along the curve.
+
+\paragraph{Congruence.}
+Now differentiate $\pZ'=\pT\pZ\pT^{\mathsf H}$ directly:
+\[
+ \frac{\dd\pZ'}{\dd\lambda}
+ =\frac{\dd\pT}{\dd\lambda}\pZ\pT^{\mathsf H}
+   +\pT\frac{\dd\pZ}{\dd\lambda}\pT^{\mathsf H}
+   +\pT\pZ\frac{\dd\pT^{\mathsf H}}{\dd\lambda}.
+\]
+There is no inverse in this product-rule expansion. To express the
+first and last terms using $\pvOmega$ and $\pZ'$, insert identity
+factors without changing the multiplication order:
+\begin{align*}
+ \frac{\dd\pT}{\dd\lambda}\pZ\pT^{\mathsf H}
+ &=\frac{\dd\pT}{\dd\lambda}\underbrace{\pT^{-1}\pT}_{1}
+   \pZ\pT^{\mathsf H}
+ =\pvOmega\pZ',\\
+ \pT\pZ\frac{\dd\pT^{\mathsf H}}{\dd\lambda}
+ &=\pT\pZ\underbrace{\pT^{\mathsf H}\pT^{-\mathsf H}}_{1}
+   \frac{\dd\pT^{\mathsf H}}{\dd\lambda}
+ =\pZ'\pvOmega^{\mathsf H}.
+\end{align*}
+The inverse is therefore contained in $\pvOmega$; its adjacent $\pT$
+is contained in $\pZ'$. The same factorization on the right gives
+$\pZ'\pvOmega^{\mathsf H}$. Hence
+\begin{equation}
+ \frac{\dd\pZ'}{\dd\lambda}
+ =\pT\frac{\dd\pZ}{\dd\lambda}\pT^{\mathsf H}
+  +\pvOmega\pZ'+\pZ'\pvOmega^{\mathsf H}.
+ \label{eq:varying-congruence}
+\end{equation}
+Applying the product rule again, without interchanging factors, gives
+\begin{align*}
+ \frac{\dd^2\pZ'}{\dd\lambda^2}={}&
+ \pT\frac{\dd^2\pZ}{\dd\lambda^2}\pT^{\mathsf H}
+ +2\frac{\dd\pT}{\dd\lambda}\frac{\dd\pZ}{\dd\lambda}\pT^{\mathsf H}
+ +2\pT\frac{\dd\pZ}{\dd\lambda}\frac{\dd\pT^{\mathsf H}}{\dd\lambda}\\
+ &+\frac{\dd^2\pT}{\dd\lambda^2}\pZ\pT^{\mathsf H}
+ +2\frac{\dd\pT}{\dd\lambda}\pZ\frac{\dd\pT^{\mathsf H}}{\dd\lambda}
+ +\pT\pZ\frac{\dd^2\pT^{\mathsf H}}{\dd\lambda^2}.
+\end{align*}
+Since $\dd^2\pT/\dd\lambda^2=(\dd\pvOmega/\dd\lambda+\pvOmega^2)\pT$,
+substitution of \eqref{eq:varying-congruence} yields
+\begin{equation}
+ \boxed{\begin{aligned}
+ \frac{\dd^2\pZ'}{\dd\lambda^2}={}&
+ \pT\frac{\dd^2\pZ}{\dd\lambda^2}\pT^{\mathsf H}
+ +2\pvOmega\frac{\dd\pZ'}{\dd\lambda}
+ +2\frac{\dd\pZ'}{\dd\lambda}\pvOmega^{\mathsf H}\\
+ &+\left(\frac{\dd\pvOmega}{\dd\lambda}-\pvOmega^2\right)\pZ'
+ +\pZ'\left(\frac{\dd\pvOmega^{\mathsf H}}{\dd\lambda}
+                  -\pvOmega^{2\mathsf H}\right)
+ -2\pvOmega\pZ'\pvOmega^{\mathsf H}.
+ \end{aligned}}
+ \label{eq:frame-position-second-derivative}
+\end{equation}
+
+\paragraph{Similarity.}
+For a complex paravector $\pZ(\lambda)$ transformed by similarity,
+$\pZ'=\pT \pZ \pT^{-1}$, product differentiation yields
+\begin{equation}
+ \frac{\dd \pZ'}{\dd\lambda}
+ =\pT\frac{\dd \pZ}{\dd\lambda}\pT^{-1}+[\pvOmega,\pZ'].
+ \label{eq:varying-similarity}
+\end{equation}
+Differentiating again and replacing
+$\pT(\dd \pZ/\dd\lambda)\pT^{-1}$ by its first-derivative expression gives
+\begin{equation*}
+ \begin{aligned}
+ \frac{\dd^2 \pZ'}{\dd\lambda^2}={}&\pT\frac{\dd^2\pZ}{\dd\lambda^2}\pT^{-1}
+ +2\left[\pvOmega,\frac{\dd \pZ'}{\dd\lambda}\right]\\
+ &+\left[\frac{\dd\pvOmega}{\dd\lambda},\pZ'\right]
+ -[\pvOmega,[\pvOmega,\pZ']].
+ \end{aligned}
+\end{equation*}
+Equations~\eqref{eq:varying-similarity} and \eqref{eq:varying-congruence}
+include the frame terms omitted by a constant-factor transformation.
+For a varying rotation $\pT=\pR=\exp(-\ii\theta(\lambda)\bu(\lambda)\dotprod\bsig/2)$,
+with real $\theta(\lambda)$ and \hyperref[def:real-unit-vector]{real unit vector} $\bu(\lambda)$, unitarity gives
+$\pvOmega^{\mathsf H}=-\pvOmega$ and $\pvOmega\in\{0\}\oplus\ii\R^3$,
+so both formulas agree.
+
+Position-dependent sigma bases and metric constructions are developed in
+Section~\ref{sec:variable-bases}.
+
+\subsection{Four-velocity in a changing Lorentz frame}
+\label{sec:velocity-frame-transformations}
+
+\paragraph{Transform the tangent at each event.}
+Keep $\pX(s)$ and $\pU=\dd\pX/\dd s$ expressed in a fixed inertial
+basis. Here $s$ is the particle's proper time,
+$\pT(s)$ is smooth with $\det(\pT)=1$, and
+$\pvOmega=(\dd\pT/\dd s)\pT^{-1}$.
+The four-velocity components in its local orthonormal frame are
+\[
+ \pU'=\pT\pU\pT^{\mathsf H},\qquad
+ \pU'\dd s=\pT(\dd\pX)\pT^{\mathsf H}.
+\]
+The same proper-time increment belongs to the same particle in
+either frame. Determinant multiplication therefore gives
+\begin{equation}
+ \boxed{\begin{aligned}
+ \det(\pU')&=\det(\pT)\det(\pU)\det(\pT^{\mathsf H})=1,\\
+ \det(\pU'\dd s)&=\det(\dd\pX)=\dd s^2.
+ \end{aligned}}
+ \label{eq:local-velocity-normalization}
+\end{equation}
+These identities hold whether the particle accelerates, the frame
+accelerates or rotates, or both. They are pointwise identities, so
+no derivatives of $\pT$ appear. In particular, particle acceleration
+does not require a changing frame: two fixed inertial frames have
+constant $\pT$ even when $\dd\pU/\dd s\ne0$.
+
+Here a prime labels local frame components. A varying frame does
+not by itself define primed spacetime coordinates. Although
+$\pU'\dd s$ can be integrated along a selected curve, this does
+not supply a coordinate chart for all events.
+The differential of the separately specified map
+$\pX'=\pT\pX\pT^{\mathsf H}$ generally differs from
+$\pU'\dd s$; Section~\ref{sec:frame-second-derivative} develops
+that distinction.
+
+\paragraph{Differentiate the transformed velocity.}
+Specialize the general congruence rule \eqref{eq:varying-congruence}
+to $\pZ=\pU$ and $\lambda=s$:
+\begin{equation}
+ \frac{\dd\pU'}{\dd s}
+ =\pT\frac{\dd\pU}{\dd s}\pT^{\mathsf H}
+   +\pvOmega\pU'+\pU'\pvOmega^{\mathsf H}.
+ \label{eq:local-velocity-derivative}
+\end{equation}
+The first term is the physical four-acceleration expressed in the
+local frame. The remaining two terms come from changing that frame.
+Consequently the physical derivative is
+\begin{equation}
+ \boxed{\pT\frac{\dd\pU}{\dd s}\pT^{\mathsf H}
+ =\frac{\dd\pU'}{\dd s}-\pvOmega\pU'-\pU'\pvOmega^{\mathsf H}.}
+ \label{eq:carried-acceleration}
+\end{equation}
+For constant $\pT$ the frame terms vanish, even for an accelerating
+particle. Every higher proper-time derivative likewise transforms
+with the same constant factors. This applies to $\pU$ and, for
+constant invariant mass, to $\pP=m\pU$. First coordinate-time
+derivatives additionally require the factor $\dd t/\dd t'$;
+higher coordinate-time derivatives must also differentiate this factor.
+For varying $\pT$, determinant invariance applies to
+this corrected derivative:
+\begin{equation}
+ \boxed{\det\left(
+ \frac{\dd\pU'}{\dd s}-\pvOmega\pU'-\pU'\pvOmega^{\mathsf H}
+ \right)=\det\left(\frac{\dd\pU}{\dd s}\right).}
+ \label{eq:carried-acceleration-invariant}
+\end{equation}
+Thus the proper-acceleration magnitude is frame independent.
+There is no general equality between the determinants of the
+uncorrected derivatives $\dd\pU'/\dd s$ and $\dd\pU/\dd s$.
+
+Both $\pU$ and $\pU'$ nevertheless remain normalized.
+Indeed, $\pU'^*\pU'=1$ and scalar-part cyclicity give
+\[
+ \scpart{\pU'^*(\pvOmega\pU'+\pU'\pvOmega^{\mathsf H})}
+ =\scpart{\pvOmega+\pvOmega^{\mathsf H}}=0.
+\]
+The frame terms are themselves tangent to the velocity hyperboloid;
+they can change the derivative without changing $\det(\pU')=1$.
+Preserving the normalization therefore does not eliminate those terms.
+
+\paragraph{A comoving frame makes the distinction explicit.}
+If $\pT$ is chosen to keep the particle at rest, then
+$\pU'=\pT\pU\pT^{\mathsf H}=1$ throughout the curve. Hence
+\[
+ \frac{\dd\pU'}{\dd s}=0,\qquad
+ \boxed{\pT\frac{\dd\pU}{\dd s}\pT^{\mathsf H}
+ =-(\pvOmega+\pvOmega^{\mathsf H})=-2\repart{\pvOmega}.}
+\]
+The physical acceleration need not vanish. For a fixed real unit
+axis $\bu$ and any smooth real rapidity $\theta(s)$, take
+\[
+ \pU=\exp(\theta\bu\dotprod\bsig),\qquad
+ \pT=\exp(-\theta\bu\dotprod\bsig/2).
+\]
+Since the fixed-axis factors commute,
+\[
+ \pvOmega=-\frac12\frac{\dd\theta}{\dd s}\bu\dotprod\bsig,
+ \qquad
+ \pT\frac{\dd\pU}{\dd s}\pT^{\mathsf H}
+ =\frac{\dd\theta}{\dd s}\bu\dotprod\bsig.
+\]
+Therefore $\det(\dd\pU/\dd s)=-(\dd\theta/\dd s)^2$, while
+$\det(\dd\pU'/\dd s)=0$. The nonzero accelerometer reading is
+encoded in the changing rest frame, even though its velocity
+components are constant.
+
+\subsection{Coordinate maps with changing Lorentz factors}
 \label{sec:frame-second-derivative}
 
 \paragraph{What the transformation guarantees.}
@@ -3095,101 +3660,38 @@ Section~\ref{sec:general-observer-chart} supplies an actual
 noninertial coordinate chart. Its interval remains invariant, but
 its coordinate expression generally differs from
 $\dd t'^2-\dd\br'^2$~\citeat{chicone-mashhoon-frames}{Eqs.~(11)--(14)}{page=4}.
-First, the derivatives of the varying congruence are worked out
-explicitly.
+Before constructing that chart, apply the general derivative rules to
+the map $\pX'=\pT\pX\pT^{\mathsf H}$. Its derivatives are distinct
+from the transformation of the four-velocity in
+Section~\ref{sec:velocity-frame-transformations}.
 
-\Needspace{16\baselineskip}
-\paragraph{Differentiate twice.}
-Along a time-like curve use its proper time $s$, and let
-$\pT(s)$ be smooth. First distinguish the derivative of $\pT$ from
-the derivative of its inverse. Differentiating $\pT\pT^{-1}=1$ and
-then multiplying on the left by $\pT^{-1}$ gives
-\begin{align*}
- (\dd\pT)\pT^{-1}+\pT\dd(\pT^{-1})&=0,\\
- \dd(\pT^{-1})&=-\pT^{-1}(\dd\pT)\pT^{-1}.
-\end{align*}
-The minus sign belongs to $\dd(\pT^{-1})$, the derivative of the
-inverse. Define the scalar-free frame generator as a \emph{rate}:
-\begin{equation}
- \pvOmega:=\frac{\dd\pT}{\dd s}\pT^{-1},\qquad
- \scpart{\pvOmega}=0.
- \label{eq:frame-generator}
-\end{equation}
-The zero scalar part follows from
-$\dd(\det(\pT))/\dd s=2\scpart{\pvOmega}=0$.
-Multiplying the definition of $\pvOmega$ on the right by $\pT$, and
-using the inverse-derivative identity separately, gives
-\[
- \boxed{\frac{\dd\pT}{\dd s}=\pvOmega\pT,\qquad
- \frac{\dd(\pT^{-1})}{\dd s}=-\pT^{-1}\pvOmega.}
-\]
-Thus $(\dd\pT)\pT^{-1}=\pvOmega\dd s$, not $\pvOmega$ alone.
-Hermitian conjugation reverses the order of the factors, so
-\[
- \pvOmega^{\mathsf H}
- =\pT^{-\mathsf H}\frac{\dd\pT^{\mathsf H}}{\dd s}.
-\]
-
-Now differentiate $\pX'=\pT\pX\pT^{\mathsf H}$ directly:
-\[
- \frac{\dd\pX'}{\dd s}
- =\frac{\dd\pT}{\dd s}\pX\pT^{\mathsf H}
-   +\pT\frac{\dd\pX}{\dd s}\pT^{\mathsf H}
-   +\pT\pX\frac{\dd\pT^{\mathsf H}}{\dd s}.
-\]
-There is no inverse in this product-rule expansion. To express the
-first and last terms using $\pvOmega$ and $\pX'$, insert identity
-factors without changing the multiplication order:
-\begin{align*}
- \frac{\dd\pT}{\dd s}\pX\pT^{\mathsf H}
- &=\frac{\dd\pT}{\dd s}\underbrace{\pT^{-1}\pT}_{1}
-   \pX\pT^{\mathsf H}
- =\pvOmega\pX',\\
- \pT\pX\frac{\dd\pT^{\mathsf H}}{\dd s}
- &=\pT\pX\underbrace{\pT^{\mathsf H}\pT^{-\mathsf H}}_{1}
-   \frac{\dd\pT^{\mathsf H}}{\dd s}
- =\pX'\pvOmega^{\mathsf H}.
-\end{align*}
-The inverse is therefore contained in $\pvOmega$; its adjacent $\pT$
-is contained in $\pX'$. The same factorization on the right gives
-$\pX'\pvOmega^{\mathsf H}$. Hence
+\paragraph{Apply the derivative rules to the event map.}
+Along a time-like curve let $s$ be its proper time and use
+$\pvOmega=(\dd\pT/\dd s)\pT^{-1}$.
+The congruence rule \eqref{eq:varying-congruence}, now with
+$\pZ=\pX$, gives
 \begin{equation}
  \frac{\dd\pX'}{\dd s}
  =\pT\frac{\dd\pX}{\dd s}\pT^{\mathsf H}
   +\pvOmega\pX'+\pX'\pvOmega^{\mathsf H}.
  \label{eq:frame-position-first-derivative}
 \end{equation}
-Equivalently, in differential form,
+Equivalently,
 \[
- \dd\pX'=\pT(\dd\pX)\pT^{\mathsf H}
+ \dd\pX'=\pU'\dd s
  +(\pvOmega\pX'+\pX'\pvOmega^{\mathsf H})\dd s.
 \]
-Applying the product rule again, without interchanging factors, gives
-\begin{align*}
- \frac{\dd^2\pX'}{\dd s^2}={}&
- \pT\frac{\dd^2\pX}{\dd s^2}\pT^{\mathsf H}
- +2\frac{\dd\pT}{\dd s}\frac{\dd\pX}{\dd s}\pT^{\mathsf H}
- +2\pT\frac{\dd\pX}{\dd s}\frac{\dd\pT^{\mathsf H}}{\dd s}\\
- &+\frac{\dd^2\pT}{\dd s^2}\pX\pT^{\mathsf H}
- +2\frac{\dd\pT}{\dd s}\pX\frac{\dd\pT^{\mathsf H}}{\dd s}
- +\pT\pX\frac{\dd^2\pT^{\mathsf H}}{\dd s^2}.
-\end{align*}
-Since $\dd^2\pT/\dd s^2=(\dd\pvOmega/\dd s+\pvOmega^2)\pT$,
-substitution of \eqref{eq:frame-position-first-derivative} yields
-\begin{equation}
- \boxed{\begin{aligned}
- \frac{\dd^2\pX'}{\dd s^2}={}&
- \pT\frac{\dd^2\pX}{\dd s^2}\pT^{\mathsf H}
- +2\pvOmega\frac{\dd\pX'}{\dd s}
- +2\frac{\dd\pX'}{\dd s}\pvOmega^{\mathsf H}\\
- &+\left(\frac{\dd\pvOmega}{\dd s}-\pvOmega^2\right)\pX'
- +\pX'\left(\frac{\dd\pvOmega^{\mathsf H}}{\dd s}
-                  -\pvOmega^{2\mathsf H}\right)
- -2\pvOmega\pX'\pvOmega^{\mathsf H}.
- \end{aligned}}
- \label{eq:frame-position-second-derivative}
-\end{equation}
-The terms linear in the first derivative, linear in the generator's
+Here $\pX'=\pT\pX\pT^{\mathsf H}$ is the specified event map,
+whereas $\pU'=\pT\pU\pT^{\mathsf H}$ contains local tangent
+components. Its differential generally differs from $\pU'\dd s$;
+$\dd\pX'/\dd s$ need not have determinant one under the Cartesian
+determinant form. The local velocity still obeys
+\eqref{eq:local-velocity-normalization}.
+The full second derivative follows from
+\eqref{eq:frame-position-second-derivative} with $\pZ=\pX$ and
+$\lambda=s$; no new product-rule derivation is needed.
+
+In \eqref{eq:frame-position-second-derivative}, the terms linear in the first derivative, linear in the generator's
 derivative, and quadratic in the generator are the algebraic sources
 of the Coriolis, Euler, and centrifugal terms. The Hermitian part of
 $\pvOmega$ also includes changing boosts. To identify measured forces
@@ -3198,6 +3700,18 @@ be specified. These product-rule identities hold for any common
 parameter; in the observer chart below that parameter is $t'$.
 Dots retain their earlier meaning of inertial $t$ derivatives, so
 $s$ and $t'$ derivatives are written explicitly.
+
+\section{Accelerated and rotating coordinates}
+\label{sec:observer-coordinates}
+
+The local Lorentz transformations of Section~\ref{sec:changing-frames}
+now define an observer's coordinates after its origin and simultaneity
+planes are specified. The construction is in flat spacetime and is
+restricted to a one-to-one region. Its coordinate interval, clock rates,
+and apparent forces are derived before the fixed-axis special cases.
+The symbol $s$ denotes the proper time of the worldline under discussion.
+For the reference origin, $t'=s$; for a test particle, its proper time
+$s$ generally differs from the chart time $t'$. Each use is specified below.
 
 \subsection{Event coordinates with changing motion and axes}
 \label{sec:general-observer-chart}
@@ -3269,6 +3783,11 @@ axes. A physical grid clock at fixed $\br'$ requires a positive future
 time factor and a positive interval there. Thus a rotating grid also has
 a boundary where its fixed-coordinate worldlines would become null.
 
+\subsection{Acceleration, rotation, and local clocks}
+\label{sec:observer-clock-geometry}
+
+The event map and interval above use the origin's proper time $t'$,
+so here $\pvOmega=(\dd\pT/\dd t')\pT^{-1}$.
 To name the two physical parts, let $\ba,\vstyle{\omega}\in\R^3$ be
 the origin's proper-acceleration components and the carried axes'
 angular velocity relative to torque-free gyroscopes:
@@ -3380,7 +3899,7 @@ tangential coordinate light velocities are $c(\pm1-\beta)$.
 \end{SIunits}
 \FloatBarrier
 
-\subsection{Inertial forces in the moving frame}
+\subsection{Momentum and clock conversion in the moving frame}
 \label{sec:relativistic-inertial-forces}
 
 \paragraph{A compact momentum law.}
@@ -3391,6 +3910,10 @@ time $t'$; these times agree along the reference origin, but not
 generally along the test particle.
 The particle's momentum components in the carried orthonormal axes are
 $\pP'=\pT\pP\pT^{\mathsf H}=E'+\bp'\dotprod\bsig$.
+In this chart $\pvOmega=(\dd\pT/\dd t')\pT^{-1}$ is a rate per
+unit chart time. The proper-time generator in
+\eqref{eq:local-velocity-derivative} is therefore
+$(\dd t'/\dd s)\pvOmega$.
 Differentiating this congruence gives the full force law in these axes:
 \begin{equation}
  \boxed{\frac{\dd\pP'}{\dd t'}
@@ -3453,6 +3976,11 @@ invariant mass. These momentum equations are particularly compact.
 The familiar factor of two in the Coriolis acceleration appears when
 momentum is related to the particle's changing position coordinates.
 
+\subsection{Coordinate acceleration and inertial terms}
+\label{sec:coordinate-inertial-forces}
+
+Continue with the test particle and chart time $t'$ of
+Section~\ref{sec:relativistic-inertial-forces}.
 \paragraph{Differentiate the event map a second time.}
 Equation~\eqref{eq:general-observer-increments}
 becomes, along the particle's path,
@@ -3474,13 +4002,32 @@ the clock conversion \eqref{eq:observer-particle-clock}. Using
  \label{eq:observer-particle-momentum}
 \end{equation}
 The vector fraction is the velocity in the carried orthonormal frame.
+Explicitly, its four-velocity is
+\begin{equation}
+ \boxed{\begin{aligned}
+ \pU'=\frac{\pP'}{m}
+ &=\frac{\dd t'}{\dd s}
+ \bigl(1+\ba\dotprod\br'
+       +(\bv'+\vstyle{\omega}\times\br')\dotprod\bsig\bigr),\\
+ \det(\pU')&=1.
+ \end{aligned}}
+ \label{eq:observer-particle-four-velocity}
+\end{equation}
+The normalization follows by substituting
+\eqref{eq:observer-particle-clock}. In contrast, the raw coordinate
+derivative $(\dd t'/\dd s)(1+\bv'\dotprod\bsig)$ generally does
+not have determinant one: the accelerated chart uses the metric
+\eqref{eq:observer-interval-components}. This is the concrete
+distinction between local orthonormal components and coordinate
+components developed in Section~\ref{sec:velocity-frame-transformations}.
 Positive radicand in \eqref{eq:observer-particle-clock} is the massive
 particle's speed restriction; zero
 gives the coordinate light cone. In particular, $\lVert\bv'\rVert<1$
 is not the speed restriction away from the origin.
 
 Differentiate \eqref{eq:observer-path-tangent}, subtracting the two
-frame terms in \eqref{eq:frame-position-first-derivative}. The scalar
+frame terms in \eqref{eq:varying-congruence} with
+$\pZ=\dd\pX/\dd t'$ and $\lambda=t'$. The scalar
 and vector parts of the transformed second derivative are
 \begin{align}
  \scpart*{\pT\frac{\dd^2\pX}{\dd t'^2}\pT^{\mathsf H}}
@@ -3647,34 +4194,6 @@ The clock and speed condition is
 for a massive particle; equality gives a null tangent.
 \end{SIunits}
 
-\subsection{Fixed-axis acceleration}
-\label{sec:fixed-axis-acceleration}
-For the orthonormal pair $\pU,\pN$ in Section~\ref{sec:fixed-axis},
-the first derivatives exchange the two directions:
-\[
- \dot{\pU}=\dot{\theta}\pN,\qquad
- \dot{\pN}=\dot{\theta}\pU,\qquad
- \det(\dot{\pU})=-\dot{\theta}^2.
-\]
-Differentiating $\beta=\tanh(\theta)$ gives
-\[
- \dot{\beta}=\gamma^{-2}\dot{\theta}.
-\]
-Since $\dot{s}=1/\gamma$, the chain rule gives
-\[
- \dot{\theta}=\frac{\dd\theta}{\dd s}\dot{s},\qquad
- \frac{\dd\theta}{\dd s}=\gamma\dot{\theta}=\gamma^3\dot{\beta}.
-\]
-These are ordinary derivatives of the same rapidity along the path.
-The signed proper acceleration is $\dd\theta/\dd s$.
-By scaling the coordinate derivatives,
-\[
- \frac{\dd\pU}{\dd s}=\frac{\dd\theta}{\dd s}\pN=\gamma\dot{\theta}\pN,\qquad
- \frac{\dd\pN}{\dd s}=\gamma\dot{\theta}\pU,\qquad
- \det\left(\frac{\dd\pU}{\dd s}\right)=-\gamma^2\dot{\theta}^2.
-\]
-The proper-acceleration magnitude is therefore $\gamma|\dot\theta|$.
-
 \subsection{Events in an accelerating frame}
 \label{sec:accelerated-events}
 
@@ -3823,99 +4342,6 @@ Light has coordinate speed $c$ times this factor and locally measured
 speed $c$.
 \end{SIunits}
 
-\subsection{Constant coordinate acceleration}
-\label{sec:constant-coordinate-acceleration}
-In the following examples, subscript $0$ denotes the initial event $t=s=0$.
-Constant coordinate acceleration means that $\dot{\bv}=\dot{\bv}_0$
-is a fixed real vector in a chosen inertial frame. With initial position
-$\br(0)=\br_0$ and velocity $\bv(0)=\bv_0$, integration gives
-\begin{align}
- \bv(t)&=\bv_0+\dot{\bv}_0t,\\
- \pX(t)&=t+(\br_0+\bv_0t+\tfrac12\dot{\bv}_0t^2)\dotprod\bsig.
- \label{eq:constant-coordinate-acceleration-worldline}
-\end{align}
-These familiar coordinate-time formulas also describe a relativistic
-massive particle, provided $\lVert\bv_0+\dot{\bv}_0t\rVert<1$ throughout the
-interval considered. A nonzero constant coordinate acceleration can
-therefore persist only for a finite coordinate-time interval.
-
-For motion from rest at the origin, the notation $\dot{\bv}_0=\dot{v}_0\bu$ is used,
-where $\dot{v}_0>0$ is the scalar acceleration along the fixed real unit
-vector $\bu$. Then
-\[
- \bv(t)=\dot{v}_0t\bu,\qquad
- \pX(t)=t+\tfrac12\dot{v}_0t^2\bu\dotprod\bsig,\qquad
- \gamma(t)=\frac{1}{\sqrt{1-\dot{v}_0^2t^2}},
- \qquad 0\le t<\frac{1}{\dot{v}_0}.
-\]
-The particle's clock runs at $\dot{s}=1/\gamma(t)$. Taking $s(0)=0$
-in \eqref{eq:elapsed-proper-time} gives
-\begin{equation}
- s(t)=\int_0^t\sqrt{1-\dot{v}_0^2t'^2}\,\dd t'
- =\frac{\arcsin(\dot{v}_0t)+\dot{v}_0t\sqrt{1-\dot{v}_0^2t^2}}{2\dot{v}_0}.
- \label{eq:constant-coordinate-acceleration-clock}
-\end{equation}
-Four-velocity and four-acceleration follow by differentiating the world line:
-\begin{align*}
- \pU(t)&=\gamma(t)(1+\dot{v}_0t\bu\dotprod\bsig),\\
- \frac{\dd\pU}{\dd s}
- &=\gamma\dot{\pU}
- =\gamma^4\dot{v}_0^2t+\gamma^4\dot{v}_0\bu\dotprod\bsig.
-\end{align*}
-Consequently,
-\[
- \det\left(\frac{\dd\pU}{\dd s}\right)
- =\gamma^8\dot{v}_0^2(\dot{v}_0^2t^2-1)
- =-\gamma^6\dot{v}_0^2.
-\]
-The proper-acceleration magnitude is therefore
-\[
- \sqrt{-\det\left(\frac{\dd\pU}{\dd s}\right)}=\gamma^3\dot{v}_0
- =\frac{\dot{v}_0}{(1-\dot{v}_0^2t^2)^{3/2}}.
-\]
-Although the coordinate acceleration stays fixed, the acceleration
-measured in the instantaneous rest frame grows without bound as
-$t\to1/\dot{v}_0$. The next example instead holds the proper acceleration fixed.
-
-\subsection{Constant proper acceleration}
-\label{sec:constant-proper-acceleration}
-A fixed \hyperref[def:real-unit-vector]{real unit axis} $\bu$ is chosen,
-and the initial conditions $\pX(0)=0$, $\pU(0)=1$ are imposed, with
-initial coordinate acceleration $\dot{\bv}_0=\dot{v}_0\bu$, where $\dot{v}_0>0$.
-At rest $\gamma_0=1$ and $\dot{\theta}_0=\dot{v}_0$. Holding the signed
-proper acceleration along this axis constant gives
-$\theta(s)=\dot{v}_0s$, and hence
-\[
- \pU(s)=\pL(\dot{v}_0s,\bu)^{-2}=\cosh(\dot{v}_0s)+\sinh(\dot{v}_0s)\bu\dotprod\bsig.
-\]
-The stated acceleration is verified by differentiation:
-\[
- \det\left(\frac{\dd \pU}{\dd s}\right)
- =-\dot{v}_0^2\bigl(\cosh^2(\dot{v}_0s)-\sinh^2(\dot{v}_0s)\bigr)=-\dot{v}_0^2.
-\]
-Integrating \eqref{eq:worldline-integral} yields~\citeat{tong-relativity}{Eq.~(7.33), pp.~142--143}{page=148}
-\begin{equation}
- \pX(s)=\frac{\sinh(\dot{v}_0s)}{\dot{v}_0}
-       +\frac{\cosh(\dot{v}_0s)-1}{\dot{v}_0}\bu\dotprod\bsig.
- \label{eq:hyperbolic-worldline}
-\end{equation}
-In components,
-\begin{align*}
- \bv(t(s))&=\tanh(\dot{v}_0s)\bu,\\
- \bigl(1+\dot{v}_0\bu\dotprod\br\bigr)^2-(\dot{v}_0t)^2&=1.
-\end{align*}
-Thus \eqref{eq:hyperbolic-worldline} is the usual hyperbolic motion, with
-speed below light speed at every finite $s$.
-Eliminating $s$ using $\dot{v}_0t=\sinh(\dot{v}_0s)$ makes the coordinate acceleration explicit:
-\[
- \bv(t)=\frac{\dot{v}_0t}{\sqrt{1+\dot{v}_0^2t^2}}\bu,\qquad
- \dot{\bv}(t)
- =\frac{\dot{v}_0}{(1+\dot{v}_0^2t^2)^{3/2}}\bu.
-\]
-Here $\gamma(t)=\sqrt{1+\dot{v}_0^2t^2}$, so
-$\gamma^3\lVert\dot{\bv}(t)\rVert=\dot{v}_0$ is constant while the coordinate
-acceleration decreases as the particle gains speed.
-
 \subsection{A uniformly accelerating grid and its horizon}
 \label{sec:rindler-events}
 
@@ -4018,138 +4444,6 @@ the inertial null boundaries are $ct=\pm(\bu\dotprod\br+c^2/\dot v_0)$.
 \end{SIunits}
 \FloatBarrier
 
-\subsection{A trip with midpoint braking}
-\label{sec:rocket-trip}
-Departure and destination are at rest in one inertial frame, separated by
-$\ell\in\R_{>0}$ along a fixed real unit vector $\bu$. Flat spacetime and initial
-conditions $t=s=0$, $\br=0$, $\bv=0$ are assumed. Two equal burns at
-constant proper-acceleration magnitude $\dot v_0>0$ are joined by an
-instantaneous thrust reversal; arrival is at rest. This is a prescribed trajectory;
-fuel consumption and the duration of the reversal are not modeled.
-
-\paragraph{Rapidity and derivatives.}
-The reversal times are $s_m,t_m\in\R_{>0}$; arrival occurs at
-$2s_m$ and $2t_m$. With $\dd\theta/\dd s=+\dot v_0$ during acceleration
-and $-\dot v_0$ during braking, integration gives
-\begin{equation}
- \theta(s)=\begin{cases}
-  \dot v_0s,&0\le s\le s_m,\\
-  \dot v_0(2s_m-s),&s_m\le s\le2s_m.
- \end{cases}
- \label{eq:rocket-rapidity}
-\end{equation}
-Throughout the trip,
-\[
- v=\tanh(\theta),\qquad \bv=v\bu,\qquad
- \gamma=\cosh(\theta),\qquad \dot s=\gamma^{-1}.
-\]
-On the open burn intervals, the upper sign denotes acceleration and the
-lower sign braking. The derivatives are obtained directly:
-\begin{align}
- \pU&=\cosh(\theta)+\sinh(\theta)\,\bu\dotprod\bsig,\notag\\
- \frac{\dd\pU}{\dd s}
- &=\pm\dot v_0(\sinh(\theta)+\cosh(\theta)\,\bu\dotprod\bsig),\notag\\
- \dot\pU&=\frac{1}{\gamma}\frac{\dd\pU}{\dd s}
- =\pm\dot v_0(v+\bu\dotprod\bsig),\notag\\
- \dot v&=\pm\frac{\dot v_0}{\gamma^3},\qquad
- \dot{\bv}=\dot v\bu,\qquad
- \dot\gamma=\pm\dot v_0v.
- \label{eq:rocket-derivatives}
-\end{align}
-The acceleration is entirely tangential; the perpendicular component
-vanishes. Although $\lVert\dot{\bv}\rVert$ varies, the proper-acceleration
-magnitude is fixed:
-\[
- \det(\pU)=1,\qquad
- \sqrt{-\det\left(\frac{\dd\pU}{\dd s}\right)}
- =\gamma^3\lVert\dot{\bv}\rVert=\dot v_0.
-\]
-
-\paragraph{Position, clocks, and arrival.}
-By integrating $\dd t/\dd s=\cosh(\theta)$ and
-$\dd\br/\dd s=\sinh(\theta)\,\bu$, the continuous worldline is obtained:
-\begin{align}
- t(s)&=\begin{cases}
-  \sinh(\theta(s))/\dot v_0,&0\le s\le s_m,\\
-  2t_m-\sinh(\theta(s))/\dot v_0,&s_m\le s\le2s_m,
- \end{cases}\notag\\
- \br(s)&=\begin{cases}
-  \bigl(\cosh(\theta(s))-1\bigr)\bu/\dot v_0,&0\le s\le s_m,\\
-  \bu\bigl(\ell-\bigl(\cosh(\theta(s))-1\bigr)/\dot v_0\bigr),
-    &s_m\le s\le2s_m.
- \end{cases}
- \label{eq:rocket-worldline}
-\end{align}
-Continuity at the reversal fixes the midpoint and burn durations:
-\begin{align}
- \br(s_m)&=\tfrac12\bu \ell,\qquad
- \gamma_m:=\cosh(\dot v_0s_m)=1+\frac{\dot v_0\ell}{2},\notag\\
- s_m&=\frac{\operatorname{arcosh}(1+\dot v_0\ell/2)}{\dot v_0},\qquad
- t_m=\sqrt{\frac{\ell}{\dot v_0}+\frac{\ell^2}{4}},\notag\\
- v_{\max}&=\sqrt{1-\gamma_m^{-2}}.
- \label{eq:rocket-trip-times}
-\end{align}
-Thus $\br(2s_m)=\bu \ell$ and $\pU(0)=\pU(2s_m)=1$.
-For evaluation in coordinate time, the same expressions are used with
-\[
- \theta(t)=\begin{cases}
-  \operatorname{arsinh}(\dot v_0t),&0\le t\le t_m,\\
-  \operatorname{arsinh}\bigl(\dot v_0(2t_m-t)\bigr),&t_m\le t\le2t_m.
- \end{cases}
-\]
-In particular, $\lVert\dot{\bv}\rVert$ decreases to
-$\dot v_0/\gamma_m^3$ before the reversal and increases back to
-$\dot v_0$ during braking.
-
-\paragraph{The thrust reversal.}
-Position, both clocks, velocity, and four-velocity are continuous at the
-midpoint. The one-sided values of $\dot{\bv}$, $\dot\pU$, and
-$\dd\pU/\dd s$ are opposite; these derivatives are undefined at the ideal
-instantaneous reversal. The thrust is reversed, not the direction of travel.
-The jerk during each burn and through a finite reversal is discussed in
-Section~\ref{sec:reversal-jerk}.
-Figure~\ref{fig:rocket-trip} compares the trajectory, acceleration, and
-clocks for a trip with $\dot v_0\ell=2$.
-
-\begin{figure}[p]
- \centering
- \includegraphics[width=\textwidth]{figures/rocket_trip.pdf}
- \caption{Midpoint braking in flat spacetime, with $x=\bu\dotprod\br\in\R$
- and $\dot v_0\ell=2$. Dotted guides mark the reversal at $t=t_m$.
- The trajectory and speed remain continuous while the signed acceleration
- changes abruptly; open circles show its one-sided values.
- The proper-acceleration magnitude stays fixed, whereas
- $|\dot v|=\dot v_0/\gamma^3$ varies.
- The reduced clock rate accumulates to a shorter onboard elapsed time.
- All plotted axes use the natural units of the main text.}
- \label{fig:rocket-trip}
-\end{figure}
-
-\begin{SIunits}{Trip parameters}
-In the following SI formulas, $\dot v_0$ is the initial acceleration in
-metres per second squared, also equal to the constant proper-acceleration
-magnitude. The distance $\ell$ is in metres, $t_{\mathrm{trip}}$ is
-the elapsed departure-frame time in seconds, and $\tau_{\mathrm{trip}}$
-is the elapsed onboard proper time in seconds. Restoring units in
-\eqref{eq:rocket-trip-times} gives
-\begin{align*}
- &t_{\mathrm{trip}}
- =\sqrt{\frac{\ell^2}{c^2}+\frac{4\ell}{\dot v_0}},\\
- &\tau_{\mathrm{trip}}
- =\frac{2c}{\dot v_0}\operatorname{arcosh}\left(1+\frac{\dot v_0\ell}{2c^2}\right),\\
- &v_{\max}
- =c\sqrt{1-\left(1+\frac{\dot v_0\ell}{2c^2}\right)^{-2}}.
-\end{align*}
-For a specified onboard duration and peak speed, the required proper
-acceleration is fixed by the midpoint rapidity:
-\[
- \dot v_0=\frac{2c}{\tau_{\mathrm{trip}}}
- \operatorname{artanh}\!\left(\frac{v_{\max}}{c}\right).
-\]
-\end{SIunits}
-
-% Flush the Section 8 trip figure before starting the next section.
-\clearpage
 \section{Jerk}
 \label{sec:jerk}
 
@@ -4298,6 +4592,37 @@ projected expression, because $\dd\pU/\dd s$ is orthogonal to $\pU$.
 Consequently, zero projected jerk implies constant proper-acceleration
 magnitude. The converse does not hold in general: the direction can still
 change, as in uniform circular motion.
+
+\subsection{Jerk in a carried frame}
+\label{sec:carried-derivatives}
+
+Use the comoving frame of
+Section~\ref{sec:velocity-frame-transformations}, with the particle's
+proper time $s$, $\pU'=1$, and
+$\pvOmega=(\dd\pT/\dd s)\pT^{-1}$.
+Its physical acceleration is the corrected derivative
+\eqref{eq:carried-acceleration}, whose determinant is invariant by
+\eqref{eq:carried-acceleration-invariant}.
+
+Differentiate that physical acceleration and remove the frame terms
+once more. The quadratic generator terms split into
+$(\pvOmega+\pvOmega^{\mathsf H})^2+[\pvOmega,\pvOmega^{\mathsf H}]$.
+The first term is scalar and equals
+$-\det(\dd\pU/\dd s)$, so the rest-space projection
+\eqref{eq:projected-jerk} cancels it. The result is
+\begin{equation}
+ \pT\left(\frac{\dd^2\pU}{\dd s^2}
+ +\det\left(\frac{\dd\pU}{\dd s}\right)\pU\right)\pT^{\mathsf H}
+ =-\frac{\dd(\pvOmega+\pvOmega^{\mathsf H})}{\dd s}
+ +[\pvOmega,\pvOmega^{\mathsf H}].
+ \label{eq:carried-jerk}
+\end{equation}
+Rotation of the carried axes is accounted for by the commutator. For axes
+kept aligned with ideal torque-free gyroscopes,
+$\pvOmega=\pvOmega^{\mathsf H}$, so the proper jerk is
+$-2\dd\pvOmega/\dd s$: the proper-time rate of the measured acceleration.
+The fixed-axis results of Section~\ref{sec:fixed-axis-jerk} are recovered with
+$\pT=\exp(-\theta\bu\dotprod\bsig/2)$ and fixed $\bu$.
 
 \subsection{Fixed-axis jerk}
 \label{sec:fixed-axis-jerk}
@@ -5102,100 +5427,6 @@ For inertial motion, $\dd\pU/\dd s=0$ implies $\dd\bv/\dd a=0$, hence
 \]
 The reference inertial time is $a=0$; the same path may be nonlinear in
 chart coordinates.
-
-\subsection{Varying frame transformations}
-\label{sec:varying-transformations}
-
-A coordinate chart is held fixed while the local frame is varied along a
-curve. Here $s$ is any real curve parameter; it is
-specialized to proper time in Section~\ref{sec:carried-derivatives}.
-A smooth complex paravector $\pT(s)$ with $\det(\pT)=1$ is chosen.
-Here $\pT(s),\pZ(s)\in\C\oplus\C^3$. Use the scalar-free generator
-$\pvOmega=(\dd\pT/\dd s)\pT^{-1}$ from
-Section~\ref{sec:frame-second-derivative}. That section derives the
-second derivative of a congruence; here the same differentiation rule
-is also applied to fields transformed by similarity.
-By the inverse rule,
-\[
- \frac{\dd \pT^{-1}}{\dd s}=-\pT^{-1}\pvOmega.
-\]
-For a complex paravector $\pZ(s)$ transformed by similarity,
-$\pZ'=\pT \pZ \pT^{-1}$, product differentiation yields
-\begin{equation}
- \frac{\dd \pZ'}{\dd s}
- =\pT\frac{\dd \pZ}{\dd s}\pT^{-1}+[\pvOmega,\pZ'].
- \label{eq:varying-similarity}
-\end{equation}
-Differentiating again and replacing
-$\pT(\dd \pZ/\dd s)\pT^{-1}$ by its first-derivative expression gives
-\begin{equation*}
- \begin{aligned}
- \frac{\dd^2 \pZ'}{\dd s^2}={}&\pT\frac{\dd^2\pZ}{\dd s^2}\pT^{-1}
- +2\left[\pvOmega,\frac{\dd \pZ'}{\dd s}\right]\\
- &+\left[\frac{\dd\pvOmega}{\dd s},\pZ'\right]
- -[\pvOmega,[\pvOmega,\pZ']].
- \end{aligned}
-\end{equation*}
-For a real paravector transformed instead by congruence,
-$\pZ'=\pT \pZ \pT^{\mathsf H}$, the same rule gives
-\begin{equation}
- \frac{\dd \pZ'}{\dd s}
- =\pT\frac{\dd \pZ}{\dd s}\pT^{\mathsf H}
- +\pvOmega \pZ'+\pZ'\pvOmega^{\mathsf H}.
- \label{eq:varying-congruence}
-\end{equation}
-Equations~\eqref{eq:varying-similarity} and \eqref{eq:varying-congruence}
-include the frame terms omitted by a constant-factor transformation.
-For a varying rotation $\pT=\pR=\exp(-\ii\theta(s)\bu(s)\dotprod\bsig/2)$,
-with real $\theta(s)$ and \hyperref[def:real-unit-vector]{real unit vector} $\bu(s)$, unitarity gives
-$\pvOmega^{\mathsf H}=-\pvOmega$ and $\pvOmega\in\{0\}\oplus\ii\R^3$,
-so both formulas agree.
-
-Position-dependent sigma bases and metric constructions are developed in
-Section~\ref{sec:variable-bases}.
-
-\subsection{Physical derivatives in a carried frame}
-\label{sec:carried-derivatives}
-
-Here $s$ is proper time along a future-directed time-like worldline,
-$\pU=\dd\pX/\dd s\in\R\oplus\R^3$, and $\det(\pU)=1$.
-From \eqref{eq:varying-congruence}, the physical four-acceleration expressed
-in the local frame is
-\begin{equation}
- \pT\frac{\dd\pU}{\dd s}\pT^{\mathsf H}
- =\frac{\dd\pU'}{\dd s}-\pvOmega\pU'-\pU'\pvOmega^{\mathsf H}.
- \label{eq:carried-acceleration}
-\end{equation}
-The derivative of the transformed components includes motion of the
-frame; its contribution is removed by the two $\pvOmega$ terms.
-Similarly, $\dd\pX'/\dd s$ includes frame terms and generally differs
-from the transformed tangent $\pU'$.
-
-If the frame is kept instantaneously at rest with the particle, then
-$\pU'=\pT\pU\pT^{\mathsf H}=1$ along the curve, so
-\[
- \pT\frac{\dd\pU}{\dd s}\pT^{\mathsf H}
- =-(\pvOmega+\pvOmega^{\mathsf H})=-2\repart{\pvOmega}.
-\]
-A constant rest-frame four-velocity therefore does not imply zero
-physical acceleration. Its components are encoded in the Hermitian
-part of $\pvOmega$.
-
-Differentiating this expression, removing the frame terms, and applying
-the projection in \eqref{eq:projected-jerk} gives
-\begin{equation}
- \pT\left(\frac{\dd^2\pU}{\dd s^2}
- +\det\left(\frac{\dd\pU}{\dd s}\right)\pU\right)\pT^{\mathsf H}
- =-\frac{\dd(\pvOmega+\pvOmega^{\mathsf H})}{\dd s}
- +[\pvOmega,\pvOmega^{\mathsf H}].
- \label{eq:carried-jerk}
-\end{equation}
-Rotation of the carried axes is accounted for by the commutator. For axes
-kept aligned with ideal torque-free gyroscopes,
-$\pvOmega=\pvOmega^{\mathsf H}$, so the proper jerk is
-$-2\dd\pvOmega/\dd s$: the proper-time rate of the measured acceleration.
-The fixed-axis results of Section~\ref{sec:fixed-axis-jerk} are recovered with
-$\pT=\exp(-\theta\bu\dotprod\bsig/2)$ and fixed $\bu$.
 
 \section{Electromagnetism}
 \label{sec:electromagnetism}
@@ -7217,52 +7448,16 @@ already specified in the preceding sections. The algebra then determines
 how their factors must combine. Being a paravector alone does not determine
 a transformation law: the definition and physical role of each quantity do.
 
-\subsection{Events, proper time, and momentum}
-
-Coordinates satisfy $(t,\br)\in\R\times\R^3$, with
-$\pX=t+\br\dotprod\bsig\in\R\oplus\R^3$.
-The constant frame factor $\pT\in\C\oplus\C^3$ has $\det(\pT)=1$ and may be any
-ordered product of rotations and boosts,
-\[
- \pR=\exp(-\ii\theta\bu\dotprod\bsig/2)\in\R\oplus\ii\R^3,
- \qquad
- \pL=\exp(-\theta\bu\dotprod\bsig/2)\in\R\oplus\R^3,
-\]
-where $\theta\in\R$ is an angle or rapidity and $\bu\in\R^3$ is a unit axis.
-The event coordinates transform as~\citeat{baylis-intro}{Eq.~(24)}{page=20}
-\begin{equation}
- \boxed{\pX'=\pT\pX\pT^{\mathsf H}.}
- \label{eq:physical-lorentz-congruence}
-\end{equation}
-This is the Lorentz representation established in
-Section~\ref{sec:preserved-quantities}. It preserves reality and the interval:
-\begin{align*}
- \pX'^{\mathsf H}&=\pT\pX^{\mathsf H}\pT^{\mathsf H}=\pX',\\
- \det(\dd\pX')
- &=\det(\pT)\det(\dd\pX)\det(\pT^{\mathsf H})
- =\det(\dd\pX).
-\end{align*}
-The continuous rotation and boost factors preserve orientation and the
-future cone, as shown there. On a future-directed time-like path, take the
-positive proper-time increment $\dd s=\sqrt{\det(\dd\pX)}$.
-Then $\dd s'=\dd s$, and differentiating the event law gives
-\begin{align*}
- \pU'&=\frac{\dd\pX'}{\dd s'}
- =\pT\frac{\dd\pX}{\dd s}\pT^{\mathsf H}
- =\pT\pU\pT^{\mathsf H},\\
- \pP'&=m\pU'=\pT(m\pU)\pT^{\mathsf H}
- =\pT\pP\pT^{\mathsf H}.
-\end{align*}
-Thus $\pU,\pP\in\R\oplus\R^3$ inherit the event transformation from
-$\pU=\dd\pX/\dd s$ and $\pP=m\pU$; their determinants remain $1$ and $m^2$.
-For the same reason, proper-time differentiation preserves this law:
-\[
- \frac{\dd\pU'}{\dd s'}=\pT\frac{\dd\pU}{\dd s}\pT^{\mathsf H},
- \qquad
- \frac{\dd\pP'}{\dd s'}=\pT\frac{\dd\pP}{\dd s}\pT^{\mathsf H}.
-\]
-Further proper-time derivatives follow in the same way. Coordinate-time
-derivatives require the additional factor $\dd t/\dd t'$.
+The geometric inputs are already established:
+\eqref{eq:general-lorentz-congruence} gives the event law and
+\eqref{eq:constant-displacement-congruence} gives interval invariance;
+Sections~\ref{sec:inertial-velocity-transformation} and~\ref{sec:four-momentum} derive
+the induced four-velocity and momentum laws. The factors $\pR,\pL$
+are defined in \eqref{eq:rotation-exponential} and
+\eqref{eq:boost-exponential}, and every allowed $\pT$ admits the
+factorizations \eqref{eq:boost-rotation-factorizations}.
+These results are used below to derive the distinct transformation
+laws of differential operators, potentials, currents, fields, and spinors.
 
 \subsection{Coordinate derivatives}
 

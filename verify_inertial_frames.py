@@ -53,6 +53,45 @@ check("second derivative of the congruence retains all ordered products",
       -(omega.diff(q)-omega**2)*event_prime
       -event_prime*(omega.H.diff(q)-omega.H**2)+2*omega*event_prime*omega.H)
 
+# A separate, changing future unit tangent defines a physical worldline
+# whose proper time is q. It is not comoving with the selected frame.
+particle_factor = s.Matrix([[1, q], [0, 1]])
+particle_velocity = particle_factor*particle_factor.H
+particle_worldline = particle_velocity.applyfunc(lambda x: s.integrate(x, q))
+particle_acceleration = particle_worldline.diff(q, 2)
+local_velocity = s.expand(frame*particle_velocity*frame.H)
+frame_velocity_terms = s.expand(omega*local_velocity+local_velocity*omega.H)
+local_acceleration = s.expand(local_velocity.diff(q)-frame_velocity_terms)
+check("accelerating particle has a future unit tangent in both local frames",
+      s.Matrix([particle_velocity.det()-1, local_velocity.det()-1]))
+check("corrected local velocity derivative is the transformed physical acceleration",
+      local_acceleration-frame*particle_acceleration*frame.H)
+check("physical acceleration determinant is invariant in a changing frame",
+      local_acceleration.det()-particle_acceleration.det())
+check("frame terms alone are tangent to the unit velocity hyperboloid",
+      scalar(local_velocity.adjugate()*frame_velocity_terms))
+check("uncorrected local derivative is also tangent to its unit hyperboloid",
+      scalar(local_velocity.adjugate()*local_velocity.diff(q)))
+check("uncorrected acceleration determinants can differ at the same event",
+      (local_velocity.diff(q).det()-particle_acceleration.det()).subs(q, 0)+1)
+
+# Reparametrize the same physical curve nonlinearly and differentiate the
+# coordinates directly. This tests both the clock-rate term and its square.
+curve_parameter = s.symbols("curve_parameter", real=True)
+proper_clock = curve_parameter+curve_parameter**3
+reparametrized_event = particle_worldline.subs(q, proper_clock)
+clock_rate = proper_clock.diff(curve_parameter)
+check("a nonproper parameter changes the tangent determinant by clock rate squared",
+      reparametrized_event.diff(curve_parameter).det()-clock_rate**2)
+check("ordinary second derivative includes the changing clock-rate term",
+      reparametrized_event.diff(curve_parameter, 2)
+      -particle_acceleration.subs(q, proper_clock)*clock_rate**2
+      -particle_velocity.subs(q, proper_clock)*proper_clock.diff(curve_parameter, 2))
+reparametrized_frame = frame.subs(q, proper_clock)
+check("frame generator scales with the chosen clock rate",
+      reparametrized_frame.diff(curve_parameter)*reparametrized_frame.inv()
+      -clock_rate*omega.subs(q, proper_clock))
+
 # A variable pointwise boost preserves X^2 but not the naive differential
 # interval: this is why the observer coordinate map has to be specified.
 rapidity = s.Function("rapidity", real=True)(q)
@@ -61,6 +100,21 @@ image = pointwise*(q*one)*pointwise.H
 check("pointwise Lorentz congruence preserves the event determinant", image.det()-q*q)
 check("variable congruence is not a differential Lorentz isometry",
       image.diff(q).det()-(1-q*q*rapidity.diff(q)**2))
+
+# The same boost can be carried along the matching accelerated particle.
+# Its local velocity is constant, but its accelerometer reading need not be.
+boosted_velocity = s.diag(s.exp(rapidity), s.exp(-rapidity))
+boost_generator = pointwise.diff(q)*pointwise.inv()
+check("instantaneously comoving frame keeps four-velocity equal to one",
+      pointwise*boosted_velocity*pointwise.H-one)
+check("changing rest frame retains physical acceleration despite constant velocity",
+      (pointwise*boosted_velocity.diff(q)*pointwise.H
+       +boost_generator+boost_generator.H).xreplace({
+           # The derivative of a real rapidity with respect to real proper
+           # time is real; SymPy does not infer this for Function derivatives.
+           s.conjugate(rapidity.diff(q)): rapidity.diff(q)}))
+check("accelerometer magnitude is the proper-time rapidity rate",
+      boosted_velocity.diff(q).det()+rapidity.diff(q)**2)
 
 # A varying representative need not change the coordinate map at all.
 phase = s.exp(s.I*q*q)
@@ -151,6 +205,19 @@ metric = coframe.T*eta*coframe
 coframe_inverse = coframe.inv()
 metric_inverse = coframe_inverse*eta*coframe_inverse.T
 check("observer metric inverse is exact", metric_inverse*metric-s.eye(4))
+
+# Normalize an arbitrary particle tangent using the chart metric, then
+# convert it to local orthonormal components with the coordinate Jacobian.
+chart_direction = s.Matrix([1, *v])
+local_direction = coframe*chart_direction
+proper_rate_squared = (chart_direction.T*metric*chart_direction)[0]
+chart_velocity = (one+vector(v))/s.sqrt(proper_rate_squared)
+orthonormal_velocity = (local_direction[0]*one+vector(local_direction[1:4, 0]))/s.sqrt(
+    proper_rate_squared)
+check("chart metric gives determinant-one local four-velocity",
+      orthonormal_velocity.det()-1)
+check("raw coordinate four-velocity needs the chart metric for normalization",
+      chart_velocity.det()-(1-v.dot(v))/proper_rate_squared)
 
 
 def time_derivative(expression):
