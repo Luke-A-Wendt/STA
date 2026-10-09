@@ -4,12 +4,6 @@
 
 [Paper (PDF)](./sta_notes.pdf) · [LaTeX source](./sta_notes.tex)
 
-The black-and-white observer figures (events, light clocks, length measurements,
-speed limits, accelerating and jerking frames, and rotating coordinates) are
-reproducible with `PYTHONDONTWRITEBYTECODE=1 python plot_observer_examples.py`.
-The script checks the plotted event maps, null paths, and clock relations before
-building the vector PDFs with PGFPlots and `pdflatex`.
-
 [Natural units](https://en.wikipedia.org/wiki/Natural_units) $`\hbar=c=1`$, [rationalized electromagnetic units](https://en.wikipedia.org/wiki/Heaviside%E2%80%93Lorentz_units), and [signature](https://en.wikipedia.org/wiki/Metric_signature) $`(+,-,-,-)`$ are used.
 
 ## One complex [paravector](https://en.wikipedia.org/wiki/Paravector)
