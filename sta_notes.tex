@@ -2027,12 +2027,12 @@ is the existing Hermitian conjugation:
  \pQ^{\mathsf H}&=q_0-\vstyle{q}_{1:3}\dotprod(-\ii\bsig)
  =q_0+\ii\vstyle{q}_{1:3}\dotprod\bsig,\notag\\
  \pQ^*&=\pQ,\qquad \operatorname{adj}(\pQ)=\pQ^{\mathsf H},\notag\\
- \pQ \pQ^{\mathsf H}&=\pQ^{\mathsf H}\pQ=q_0^2+\vstyle{q}_{1:3}^2
+ \pQ \pQ^{\mathsf H}&=\pQ^{\mathsf H}\pQ=\lVert\vstyle{q}\rVert^2
  =\det(\pQ)=\lVert \pQ\rVert^2.
  \label{eq:quaternion-norm}
 \end{align}
 For nonzero $\pQ$, \eqref{eq:quaternion-norm} gives
-$\pQ^{-1}=\pQ^{\mathsf H}/(q_0^2+\vstyle{q}_{1:3}^2)$.
+$\pQ^{-1}=\pQ^{\mathsf H}/\lVert\vstyle{q}\rVert^2$.
 Nonzero quaternions are normalized with
 \[
  \pQ\leftarrow\frac{\pQ}{\sqrt{\pQ \pQ^{\mathsf H}}},
@@ -9119,10 +9119,10 @@ The conjugation and norm identities become
 \begin{align*}
  \operatorname{mat}(\pQ^{\mathsf H})&=\operatorname{mat}(\pQ)^{\mathsf H},\\
  \operatorname{mat}(\pQ)^{\mathsf H}\operatorname{mat}(\pQ)
- &=(q_0^2+\vstyle{q}_{1:3}^2)\bI_2,\\
- \det(\operatorname{mat}(\pQ))&=q_0^2+\vstyle{q}_{1:3}^2.
+ &=\lVert\vstyle{q}\rVert^2\bI_2,\\
+ \det(\operatorname{mat}(\pQ))&=\lVert\vstyle{q}\rVert^2.
 \end{align*}
-For a unit quaternion, $q_0^2+\vstyle{q}_{1:3}^2=1$, these identities give a unitary
+For a unit quaternion, $\lVert\vstyle{q}\rVert^2=1$, these identities give a unitary
 matrix of determinant one.
 
 \clearpage
@@ -9423,6 +9423,16 @@ In expectation formulas $\rho=\lVert\pvpsi\rVert^2\in\R_{\ge0}$ is
 probability density; in $\pJ$ it is charge density.
 The algebra coefficient $c\in\C$ and vector coefficient $\bZ\in\C^3$
 are unrelated to the physical constant $c=1$.
+
+\paragraph{Scalar and vector component indices.}
+Indices $i,j,k$ commonly range over the three spatial components
+$1,2,3$. When one symbol collects a scalar and a three-vector, a
+subscript $0$ often denotes the scalar component, while subscripts
+$1,2,3$ denote the vector components. For example, the quaternion
+coefficient vector $\vstyle{q}=(q_0,q_1,q_2,q_3)$ combines the scalar
+$q_0$ with the three-vector $\vstyle{q}_{1:3}$.
+This is a component convention; elsewhere a subscript $0$ can denote
+an initial or reference value, as specified locally.
 
 \paragraph{Names and algebra classifications.}
 The name \emph{space--time algebra} is used in this paper for the

@@ -173,7 +173,7 @@ The quaternion paravector and its conjugate are:
 with
 
 ```math
-{Q}{Q}^{\mathsf H}=\det({Q})=q_0^2+{𝐪}_{1:3}^2.
+{Q}{Q}^{\mathsf H}=\det({Q})=\lVert{𝐪}\rVert^2.
 ```
 
 Nonzero quaternions are normalized with:

@@ -235,13 +235,14 @@
 \contentsline {paragraph}{Low-energy limits.}{134}{section*.184}%
 \contentsline {paragraph}{Spin and probabilities.}{135}{section*.187}%
 \contentsline {section}{\numberline {C}Conventions}{136}{appendix.C}%
-\contentsline {paragraph}{Names and algebra classifications.}{136}{section*.199}%
-\contentsline {paragraph}{Mapping to the literature.}{136}{section*.200}%
-\contentsline {paragraph}{Source comparisons for the cited equations.}{138}{section*.201}%
-\contentsline {paragraph}{Translating the physical comparisons.}{139}{section*.202}%
-\contentsline {paragraph}{Exponent sign and sandwich order.}{140}{section*.203}%
-\contentsline {paragraph}{Hamilton quaternions fix the basis orientation.}{140}{section*.204}%
-\contentsline {paragraph}{Rotating a state versus changing the measured observable.}{141}{section*.205}%
-\contentsline {paragraph}{Fields and wave amplitudes under either notation.}{141}{section*.206}%
-\contentsline {paragraph}{Preserved quantities.}{142}{section*.207}%
-\contentsline {section}{References}{143}{section*.208}%
+\contentsline {paragraph}{Scalar and vector component indices.}{136}{section*.199}%
+\contentsline {paragraph}{Names and algebra classifications.}{136}{section*.200}%
+\contentsline {paragraph}{Mapping to the literature.}{136}{section*.201}%
+\contentsline {paragraph}{Source comparisons for the cited equations.}{138}{section*.202}%
+\contentsline {paragraph}{Translating the physical comparisons.}{139}{section*.203}%
+\contentsline {paragraph}{Exponent sign and sandwich order.}{140}{section*.204}%
+\contentsline {paragraph}{Hamilton quaternions fix the basis orientation.}{140}{section*.205}%
+\contentsline {paragraph}{Rotating a state versus changing the measured observable.}{141}{section*.206}%
+\contentsline {paragraph}{Fields and wave amplitudes under either notation.}{141}{section*.207}%
+\contentsline {paragraph}{Preserved quantities.}{142}{section*.208}%
+\contentsline {section}{References}{143}{section*.209}%
