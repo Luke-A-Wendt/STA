@@ -1495,7 +1495,7 @@ information; the scalar part is used below.
 \label{sec:two-sided-invariants}
 
 \paragraph{Determinant preservation.}
-For independent complex factors, determinant multiplicativity gives
+For fixed independent complex factors, determinant multiplicativity gives
 \[
  \pZ'=\pT_1\pZ\pT_2,\qquad
  \det(\pZ')=\det(\pT_1)\det(\pT_2)\det(\pZ).
@@ -1532,13 +1532,34 @@ Thus trace is also preserved.  By multiplicativity,
 The opposite similarity $\pZ'=\pT^{-1}\pZ \pT$ has the same invariants.
 Similarity chooses $\pT_2=\pT_1^{-1}$ and therefore satisfies
 \eqref{eq:two-sided-determinant-condition} without requiring
-$\det(\pT_1)=1$. It need not preserve reality: for example,
-$\pT=2+\pvsigma_3$ has inverse $(2-\pvsigma_3)/3$, and
+$\det(\pT_1)=1$. Reality imposes an additional condition.
+For a real paravector $\pZ=\pZ^{\mathsf H}$, conjugation gives
 \[
- \pT\pvsigma_1\pT^{-1}
- =\tfrac53\pvsigma_1+\tfrac{4\ii}{3}\pvsigma_2.
+ (\pT\pZ\pT^{-1})^{\mathsf H}
+ =\pT^{-\mathsf H}\pZ\pT^{\mathsf H}.
 \]
-The determinant remains $-1$, but the transformed paravector is not real.
+Equating this to $\pT\pZ\pT^{-1}$ and multiplying on the left by
+$\pT^{\mathsf H}$ and on the right by $\pT$ yields
+\[
+ \pT\pZ\pT^{-1}\ \text{is real}
+ \quad\Longleftrightarrow\quad
+ [\pT^{\mathsf H}\pT,\pZ]=0.
+\]
+To hold for every real $\pZ$, the Hermitian product
+$\pT^{\mathsf H}\pT$ must commute with each $\pvsigma_k$.
+The sigma product rules force its vector part to vanish, leaving
+the scalar $a=\scpart{\pT^{\mathsf H}\pT}=\lVert\pT\rVert^2>0$.
+Conversely, a scalar commutes with every paravector. Hence
+\[
+ \boxed{\begin{gathered}
+ \pT\pZ\pT^{-1}\ \text{is real for every real }\pZ\\
+ \Longleftrightarrow\quad \pT^{\mathsf H}\pT=a
+ \quad\text{for some real }a>0.
+ \end{gathered}}
+\]
+Equivalently, $\pT/\sqrt{a}$ is unitary and gives the same similarity.
+Otherwise some real paravectors acquire complex coefficients, even
+though their scalar parts and determinants remain unchanged.
 
 \paragraph{Squared-norm preservation.}
 For the same general two-sided action, cyclicity gives
@@ -1560,24 +1581,41 @@ The necessary and sufficient condition is
  \label{eq:two-sided-norm-condition}
 \end{equation}
 To prove necessity, expand norm preservation for $\pZ+\pY$ and
-$\pZ+\ii\pY$ and subtract the separate squared norms. For every
-complex $\pY,\pZ$ this gives
+$\pZ+\ii\pY$ and subtract the separate squared norms. The first
+expansion recovers the real part of the Hermitian pairing; the second
+recovers its imaginary part. Thus, for every complex $\pY,\pZ$,
 \[
  \scpart{\pY^{\mathsf H}\pT_1^{\mathsf H}\pT_1
                 \pZ\pT_2\pT_2^{\mathsf H}}
  =\scpart{\pY^{\mathsf H}\pZ}.
 \]
-The positive norm makes this pairing nondegenerate, hence
-$\pT_1^{\mathsf H}\pT_1\pZ\pT_2\pT_2^{\mathsf H}=\pZ$.
-Setting $\pZ=1$ first makes the two Hermitian products inverses;
-then the identity for arbitrary $\pZ$ says that
-$\pT_1^{\mathsf H}\pT_1$ commutes with every paravector.
-It is therefore a positive real scalar $a$. Substitution proves
-sufficiency. Equivalently, $\pT_1/\sqrt{a}$ and
+Choose $\pY$ to be the difference
+$\pT_1^{\mathsf H}\pT_1\pZ\pT_2\pT_2^{\mathsf H}-\pZ$.
+Its squared norm is then zero, so positivity gives
+\[
+ \pT_1^{\mathsf H}\pT_1\pZ\pT_2\pT_2^{\mathsf H}=\pZ
+ \qquad\text{for every complex }\pZ.
+\]
+Setting $\pZ=1$ makes the two Hermitian products inverses:
+\[
+ \pT_2\pT_2^{\mathsf H}=(\pT_1^{\mathsf H}\pT_1)^{-1}.
+\]
+Substitution then gives
+$(\pT_1^{\mathsf H}\pT_1)\pZ=\pZ(\pT_1^{\mathsf H}\pT_1)$
+for every $\pZ$. Commuting with all three sigmas forces the vector
+part to vanish. The remaining scalar is
+$a=\scpart{\pT_1^{\mathsf H}\pT_1}=\lVert\pT_1\rVert^2>0$;
+the inverse identity excludes $\pT_1=0$.
+Conversely, substituting the two scalar products into the cyclic
+norm formula gives $aa^{-1}\lVert\pZ\rVert^2=\lVert\pZ\rVert^2$.
+Equivalently, $\pT_1/\sqrt{a}$ and
 $\sqrt{a}\pT_2$ are independently unitary.
 
-This condition fixes the modulus of $\det(\pT_1)\det(\pT_2)$ to
-one, but not its phase. For example, $\pZ'=\ii\pZ$ preserves the
+Taking determinants gives
+$\lvert\det(\pT_1)\rvert=a$ and
+$\lvert\det(\pT_2)\rvert=a^{-1}$.
+Thus the modulus of $\det(\pT_1)\det(\pT_2)$ is one, but its
+phase is not fixed. For example, $\pZ'=\ii\pZ$ preserves the
 squared norm and reverses the determinant's sign. Exact determinant
 preservation additionally requires \eqref{eq:two-sided-determinant-condition}.
 For a congruence $\pT_2=\pT_1^{\mathsf H}$, the two Hermitian
